@@ -1,6 +1,6 @@
 # Alan Hadyk's portfolio
 
-![Portfolio - design](https://octodex.github.com/images/yaktocat.png)
+![Portfolio - design](https://raw.githubusercontent.com/alan-hadyk/portfolio/feature/15-basic-clean-project/portfolio-design.png)
 
 ## Available Scripts
 
