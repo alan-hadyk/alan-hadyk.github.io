@@ -8,7 +8,7 @@ const App = () => (
 );
 
 App.Title = styled.h1`
-	margin: 1rem;
+  margin: 1rem;
 `;
 
 export default App;
