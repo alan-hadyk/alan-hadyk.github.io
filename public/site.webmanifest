@@ -15,7 +15,7 @@
 	],
 	"theme_color": "#22272a",
 	"background_color": "#22272a",
-	"start_url": "http://alan-hadyk.github.io/portfolio",
+	"start_url": "https://alan-hadyk.github.io/portfolio",
 	"display": "standalone",
 	"orientation": "portrait"
 }

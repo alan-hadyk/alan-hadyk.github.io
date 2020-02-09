@@ -1,6 +1,6 @@
 # Alan Hadyk's portfolio
 
-![Portfolio - design](https://raw.githubusercontent.com/alan-hadyk/portfolio/feature/15-basic-clean-project/portfolio-design.png)
+![Portfolio - design](https://raw.githubusercontent.com/alan-hadyk/portfolio/master/portfolio-design.png)
 
 ## Available Scripts
 
