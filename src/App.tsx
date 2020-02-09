@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const App = () => (
   <App.Title>
-		Portfolio
+    Portfolio
   </App.Title>
 );
 
