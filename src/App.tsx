@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const App = () => (
-	<App.Title>
+  <App.Title>
 		Portfolio
-	</App.Title>
+  </App.Title>
 );
 
 App.Title = styled.h1`
