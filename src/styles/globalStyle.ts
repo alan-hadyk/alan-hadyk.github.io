@@ -85,6 +85,7 @@ export default `
     scroll-behavior: smooth;
     background-color: ${colorPalette.blue700};
     color: ${colorPalette.blue300};
+    position: relative;
   }
 
   h1,
