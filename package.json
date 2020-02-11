@@ -4,9 +4,9 @@
   "private": false,
   "homepage": "http://alan-hadyk.github.io/portfolio",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --passWithNoTests",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test --passWithNoTests",
     "lint": "eslint src/*.ts src/*.tsx",
     "lint:fix": "eslint --fix src/*.ts src/*.tsx",
     "eject": "react-scripts eject",
@@ -33,6 +33,7 @@
     ]
   },
   "dependencies": {
+    "@craco/craco": "^5.6.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -47,9 +48,10 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
-    "@types/styled-components": "^4.4.2",
+    "@types/styled-components": "^4.4.3",
     "@typescript-eslint/eslint-plugin": "^2.18.0",
     "@typescript-eslint/parser": "^2.18.0",
+    "craco-alias": "^2.1.0",
     "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.18.2",
     "gh-pages": "^2.2.0",
