@@ -14,13 +14,20 @@ const App = () => (
     <App.Title>
     Portfolio
     </App.Title>
+    <App.Text>Anonymous Pro</App.Text>
     <GlobalStyle />
   </ThemeProvider>
 );
 
-App.Title = styled.p`
+App.Title = styled.h1`
   margin: 1rem;
-  font-size: 1.6rem;
+  font-size: 10rem;
+  text-align: center;
+`;
+App.Text = styled.p`
+  margin: 1rem;
+  font-size: 10rem;
+  text-align: center;
 `;
 
 export default App;
