@@ -7,7 +7,6 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test --passWithNoTests",
-    "test:single": "craco test -- -t",
     "lint": "eslint src/*.ts src/*.tsx",
     "lint:fix": "eslint --fix src/*.ts src/*.tsx",
     "eject": "react-scripts eject",
