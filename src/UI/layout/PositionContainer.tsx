@@ -8,26 +8,29 @@ type SpacingKeys = keyof typeof spacing;
 type ZIndexKeys = keyof typeof zIndex;
 
 interface PositionContainerProps {
-  children: Node | Node[] | string;
-  bottom: typeof spacing[SpacingKeys] | "unset";
-  left: typeof spacing[SpacingKeys] | "unset";
-  right: typeof spacing[SpacingKeys] | "unset";
-  top: typeof spacing[SpacingKeys] | "unset";
-  position: "static" | "relative" | "fixed" | "sticky";
-  zIndex: typeof zIndex[ZIndexKeys];
+  bottom?: typeof spacing[SpacingKeys] | "unset";
+  children: JSX.Element | JSX.Element[] | string;
+  height?: typeof spacing[SpacingKeys] | "unset" | "50%" | "100%";
+  left?: typeof spacing[SpacingKeys] | "unset";
+  right?: typeof spacing[SpacingKeys] | "unset";
+  top?: typeof spacing[SpacingKeys] | "unset";
+  position?: "static" | "relative" | "fixed" | "sticky";
+  zIndex?: typeof zIndex[ZIndexKeys];
 }
 
 const PositionContainer = ({
   bottom = "unset",
   children,
+  height = "unset",
   left = "unset",
-  position,
+  position = "relative",
   right = "unset",
   top = "unset",
   zIndex = "layer1"
-}: PositionContainerProps) => (
+}: PositionContainerProps): JSX.Element => (
   <PositionContainer.Container
     bottom={bottom}
+    height={height}
     left={left}
     position={position}
     right={right}
@@ -41,6 +44,7 @@ const PositionContainer = ({
 PositionContainer.Container = styled.div<PositionContainerProps>`
   ${({
     bottom,
+    height,
     left,
     position,
     right,
@@ -51,12 +55,13 @@ PositionContainer.Container = styled.div<PositionContainerProps>`
     },
     zIndex
   }) => css`
-      bottom: ${spacing[bottom]};
-      left: ${spacing[left]};
-      position: ${position};
-      right: ${spacing[right]};
-      top: ${spacing[top]};
-      z-index: ${zIndexVariables[zIndex]};
+    bottom: ${spacing[bottom]};
+    height: ${spacing[height] || height};
+    left: ${spacing[left]};
+    position: ${position};
+    right: ${spacing[right]};
+    top: ${spacing[top]};
+    z-index: ${zIndexVariables[zIndex]};
   `}
 `;
   

@@ -2,10 +2,10 @@ import React from "react";
 import styled, { css } from "styled-components";
 
 interface PageTemplateProps {
-  children: Node | Node[] | string;
+  children: JSX.Element | JSX.Element[];
 }
 
-const PageTemplate = ({ children }: PageTemplateProps) => (
+const PageTemplate = ({ children }: PageTemplateProps): JSX.Element => (
   <PageTemplate.Container>
     {children}
   </PageTemplate.Container>
