@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
   ${globalStyle}
 `;
 
-const App = () => (
+const App = (): JSX.Element => (
   <ThemeProvider theme={theme}>
     <Home />
     <GlobalStyle />
