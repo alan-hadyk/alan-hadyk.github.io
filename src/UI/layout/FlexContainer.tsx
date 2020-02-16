@@ -1,13 +1,13 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import spacing from "<styles>/variables/spacing";
 
 type SpacingKeys = keyof typeof spacing;
 
-interface FlexContainerProps {
+export interface FlexContainerProps {
   alignItems? : "stretch" | "flex-start" | "flex-end" | "center" | "baseline";
-  children: JSX.Element | JSX.Element[] | string;
+  children: JSX.Element | JSX.Element[];
   flexFlow?: "row wrap" | "row nowrap" | "column wrap" | "column nowrap";
   height?: typeof spacing[SpacingKeys] | "unset" | "50%" | "100%";
   justifyContent?: "flex-start" | "flex-end" | "center"; 
@@ -39,11 +39,11 @@ FlexContainer.Container = styled.div<FlexContainerProps>`
     theme: {
       spacing
     }
-  }) => css`
+  }): FlattenSimpleInterpolation => css`
     align-items: ${alignItems};
     display: flex;
     flex-flow: ${flexFlow};
-    height: ${spacing[height] || height};
+    height: ${(height in spacing && spacing[height]) || height};
     justify-content: ${justifyContent};
   `}
 `;

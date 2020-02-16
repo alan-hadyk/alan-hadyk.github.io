@@ -3,8 +3,9 @@
     "baseUrl": "./src",
     "paths": {
       "<src>/*": ["./*"],
-      "<styles>/*": ["./styles/*"],
+      "<helpers>/*": ["./helpers/*"],
       "<pages>/*": ["./pages/*"],
+      "<styles>/*": ["./styles/*"],
       "<atoms>/*": ["./UI/atoms/*"],
       "<layout>/*": ["./UI/layout/*"],
       "<molecules>/*": ["./UI/molecules/*"],

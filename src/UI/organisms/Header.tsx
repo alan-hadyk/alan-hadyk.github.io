@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import styled, { css } from "styled-components";
 import { transparentize } from "polished";
 
@@ -48,4 +48,4 @@ Header.Container = styled.header`
   `}
 `;
   
-export default Header;
+export default memo(Header);

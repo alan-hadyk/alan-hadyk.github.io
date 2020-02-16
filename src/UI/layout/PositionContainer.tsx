@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import spacing from "<styles>/variables/spacing";
 import zIndex from "<styles>/variables/zIndex";
@@ -7,9 +7,9 @@ import zIndex from "<styles>/variables/zIndex";
 type SpacingKeys = keyof typeof spacing;
 type ZIndexKeys = keyof typeof zIndex;
 
-interface PositionContainerProps {
+export interface PositionContainerProps {
   bottom?: typeof spacing[SpacingKeys] | "unset";
-  children: JSX.Element | JSX.Element[] | string;
+  children: JSX.Element | JSX.Element[];
   height?: typeof spacing[SpacingKeys] | "unset" | "50%" | "100%";
   left?: typeof spacing[SpacingKeys] | "unset";
   right?: typeof spacing[SpacingKeys] | "unset";
@@ -54,14 +54,14 @@ PositionContainer.Container = styled.div<PositionContainerProps>`
       zIndex: zIndexVariables
     },
     zIndex
-  }) => css`
-    bottom: ${spacing[bottom]};
-    height: ${spacing[height] || height};
-    left: ${spacing[left]};
+  }): FlattenSimpleInterpolation => css`
+    bottom: ${(bottom in spacing && spacing[bottom]) || bottom};
+    height: ${(height in spacing && spacing[height]) || height};
+    left: ${(left in spacing && spacing[left]) || left};
     position: ${position};
-    right: ${spacing[right]};
-    top: ${spacing[top]};
-    z-index: ${zIndexVariables[zIndex]};
+    right: ${(right in spacing && spacing[right]) || right};
+    top: ${(top in spacing && spacing[top]) || top};
+    z-index: ${zIndex in zIndexVariables && zIndexVariables[zIndex]};
   `}
 `;
   

@@ -1,7 +1,7 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-interface PageTemplateProps {
+export interface PageTemplateProps {
   children: JSX.Element | JSX.Element[];
 }
 
@@ -17,7 +17,7 @@ PageTemplate.Container = styled.main`
       spacing: { spacing96, spacing48 },
       breakpoints: { breakpoint1920 }
     }
-  }) => css`
+  }): FlattenSimpleInterpolation => css`
     padding: ${spacing96} ${spacing48};
     max-width: ${breakpoint1920};
   `}
