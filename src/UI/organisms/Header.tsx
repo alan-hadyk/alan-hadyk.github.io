@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize } from "polished";
 
+import Logo from "<molecules>/Logo";
 import PositionContainer from "<layout>/PositionContainer";
 import FlexContainer from "<layout>/FlexContainer";
 
@@ -26,9 +27,16 @@ const Header = ({
     <Header.Container>
       <FlexContainer
         flexFlow="row nowrap"
-        height="100%"
       >
-        <div>Header</div>
+        <Header.InnerContainer>
+          <FlexContainer
+            flexFlow="row nowrap"
+            height="spacing48"
+            justifyContent="space-between"
+          >
+            <Logo />
+          </FlexContainer>
+        </Header.InnerContainer>
       </FlexContainer>
     </Header.Container>
   </PositionContainer>
@@ -44,7 +52,19 @@ Header.Container = styled.header`
     background-color: ${transparentize(0.25, colorPalette.blue600)};
     border-bottom: 1px solid ${transparentize(0.5, colorPalette.blue300)};
     height: ${spacing.spacing96};
+  `}
+`;
+
+Header.InnerContainer = styled.div`
+  ${({
+    theme: {
+      breakpoints,
+      spacing
+    }
+  }): FlattenSimpleInterpolation => css`
+    max-width: ${breakpoints.breakpoint1920};
     padding: ${spacing.spacing24} ${spacing.spacing48};
+    width: 100%;
   `}
 `;
   

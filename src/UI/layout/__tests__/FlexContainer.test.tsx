@@ -149,6 +149,14 @@ describe("layout / FlexContainer", () => {
   
         expect(FlexContainer).toHaveStyleRule("justify-content", "flex-end");
       });
+  
+      test("should have space-between by when passed via prop", () => {
+        const { FlexContainer } = setup({
+          justifyContent: "space-between"
+        });
+  
+        expect(FlexContainer).toHaveStyleRule("justify-content", "space-between");
+      });
     });
   });
 });

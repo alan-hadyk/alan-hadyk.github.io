@@ -10,7 +10,7 @@ export interface FlexContainerProps {
   children: JSX.Element | JSX.Element[];
   flexFlow?: "row wrap" | "row nowrap" | "column wrap" | "column nowrap";
   height?: typeof spacing[SpacingKeys] | "unset" | "50%" | "100%";
-  justifyContent?: "flex-start" | "flex-end" | "center"; 
+  justifyContent?: "flex-start" | "flex-end" | "center" | "space-between"; 
 }
 
 const FlexContainer = ({
