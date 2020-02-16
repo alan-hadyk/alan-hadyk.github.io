@@ -45,6 +45,22 @@ describe("layout / PositionContainer", () => {
   
         expect(PositionContainer).toHaveStyleRule("height", "4.8rem");
       });
+
+      test("should have 50% by when passed via prop", () => {
+        const { PositionContainer } = setup({
+          height: "50%"
+        });
+  
+        expect(PositionContainer).toHaveStyleRule("height", "50%");
+      });
+  
+      test("should have 100% by when passed via prop", () => {
+        const { PositionContainer } = setup({
+          height: "100%"
+        });
+  
+        expect(PositionContainer).toHaveStyleRule("height", "100%");
+      });
     });
 
     describe("left", () => {      

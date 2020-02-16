@@ -15,7 +15,7 @@ interface HeaderProps {
 }
 
 const Header = ({
-  zIndex
+  zIndex = "layer1"
 }: HeaderProps): JSX.Element => (
   <PositionContainer
     left="spacing0"
@@ -45,25 +45,25 @@ const Header = ({
 Header.Container = styled.header`
   ${({
     theme: {
-      colorPalette,
-      spacing
+      colorPalette: { blue300, blue600 },
+      spacing: { spacing96 }
     }
   }): FlattenSimpleInterpolation => css`
-    background-color: ${transparentize(0.25, colorPalette.blue600)};
-    border-bottom: 1px solid ${transparentize(0.5, colorPalette.blue300)};
-    height: ${spacing.spacing96};
+    background-color: ${transparentize(0.25, blue600)};
+    border-bottom: 1px solid ${transparentize(0.5, blue300)};
+    height: ${spacing96};
   `}
 `;
 
 Header.InnerContainer = styled.div`
   ${({
     theme: {
-      breakpoints,
-      spacing
+      breakpoints: { breakpoint1920 },
+      spacing: { spacing24, spacing48 }
     }
   }): FlattenSimpleInterpolation => css`
-    max-width: ${breakpoints.breakpoint1920};
-    padding: ${spacing.spacing24} ${spacing.spacing48};
+    max-width: ${breakpoint1920};
+    padding: ${spacing24} ${spacing48};
     width: 100%;
   `}
 `;

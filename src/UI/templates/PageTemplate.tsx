@@ -20,6 +20,7 @@ PageTemplate.Container = styled.main`
   }): FlattenSimpleInterpolation => css`
     padding: ${spacing96} ${spacing48};
     max-width: ${breakpoint1920};
+    margin: 0 auto;
   `}
 `;
   

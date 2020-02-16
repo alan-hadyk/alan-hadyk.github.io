@@ -17,10 +17,10 @@ const Logo = (): JSX.Element => (
 Logo.Image = styled(LogoImage)`
   ${({
     theme: {
-      spacing
+      spacing: { spacing48 }
     }
   }): FlattenSimpleInterpolation => css`
-    height: ${spacing.spacing48};
+    height: ${spacing48};
     width: auto;
   `}
 `;

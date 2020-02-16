@@ -12,9 +12,9 @@ export interface PositionContainerProps {
   children: JSX.Element | JSX.Element[];
   height?: typeof spacing[SpacingKeys] | "unset" | "50%" | "100%";
   left?: typeof spacing[SpacingKeys] | "unset";
+  position?: "static" | "relative" | "fixed" | "sticky";
   right?: typeof spacing[SpacingKeys] | "unset";
   top?: typeof spacing[SpacingKeys] | "unset";
-  position?: "static" | "relative" | "fixed" | "sticky";
   zIndex?: typeof zIndex[ZIndexKeys];
 }
 

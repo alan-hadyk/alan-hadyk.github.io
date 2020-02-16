@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, RenderResult } from "@testing-library/react";
 import { createGlobalStyle } from "styled-components";
 
 import globalStyle from "<styles>/globalStyle";
@@ -7,6 +7,7 @@ import globalStyle from "<styles>/globalStyle";
 describe("styles / globalStyle", () => {
   describe("should have correct styles", () => {
     const { sheet } = setup();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const { cssRules }: any = sheet;
 
     test("html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video,button,input", () => {
@@ -104,7 +105,11 @@ describe("styles / globalStyle", () => {
   });
 });
 
-function setup() {
+interface Setup extends RenderResult {
+  sheet: StyleSheet;
+}
+
+function setup(): Setup {
   const GlobalStyle = createGlobalStyle`
     ${globalStyle}
   `;
@@ -121,7 +126,7 @@ function setup() {
   };
 }
 
-interface findCSSStylesArgs {
+interface FindCSSStylesArgs {
   cssRules: CSSStyleRule[];
   selectorText: string;
 }
@@ -129,7 +134,7 @@ interface findCSSStylesArgs {
 function findCSSStyles({ 
   cssRules = [],
   selectorText
-}: findCSSStylesArgs): CSSStyleDeclaration  {
+}: FindCSSStylesArgs): CSSStyleDeclaration  {
   return cssRules
     .find(cssRule => cssRule.selectorText === selectorText)
     .style;

@@ -29,6 +29,14 @@ describe("templates / PageTemplate", () => {
   
         expect(PageTemplate).toHaveStyleRule("max-width", "1920px");
       });
+    }); 
+
+    describe("margin", () => {      
+      test("should have '0 auto' by default", () => {
+        const { PageTemplate } = setup();
+  
+        expect(PageTemplate).toHaveStyleRule("margin", "0 auto");
+      });
     });
   });
 });
