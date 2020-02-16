@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import styled, { css } from "styled-components";
+import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize } from "polished";
 
 import PositionContainer from "<layout>/PositionContainer";
@@ -28,7 +28,7 @@ const Header = ({
         flexFlow="row nowrap"
         height="100%"
       >
-        Header
+        <div>Header</div>
       </FlexContainer>
     </Header.Container>
   </PositionContainer>
@@ -40,7 +40,7 @@ Header.Container = styled.header`
       colorPalette,
       spacing
     }
-  }) => css`
+  }): FlattenSimpleInterpolation => css`
     background-color: ${transparentize(0.25, colorPalette.blue600)};
     border-bottom: 1px solid ${transparentize(0.5, colorPalette.blue300)};
     height: ${spacing.spacing96};
