@@ -6,9 +6,10 @@ import spacing from "<styles>/variables/spacing";
 type SpacingKeys = keyof typeof spacing;
 
 export interface LinkProps {
-  children: JSX.Element | JSX.Element[];
+  children: JSX.Element | JSX.Element[] | string;
   height?: typeof spacing[SpacingKeys] | "unset" | "50%" | "100%";
-  href: string;
+  href?: string;
+  onClick?: VoidFunction;
   isExternal?: boolean;
 }
 
@@ -16,11 +17,13 @@ const Link = ({
   children,
   height = "unset",
   href,
+  onClick,
   isExternal = false
 }: LinkProps): JSX.Element => (
   <Link.Container
     height={height}
-    href={href}
+    href={!onClick && href}
+    onClick={onClick}
     target={isExternal ? "_blank" : "_self"}
   >
     {children}

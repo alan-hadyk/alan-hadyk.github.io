@@ -3,8 +3,10 @@ import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize } from "polished";
 
 import Logo from "<molecules>/Logo";
+import Nav from "<molecules>/Nav";
 import PositionContainer from "<layout>/PositionContainer";
 import FlexContainer from "<layout>/FlexContainer";
+import Button from "<molecules>/Button";
 
 import zIndex from "<styles>/variables/zIndex";
 
@@ -14,33 +16,51 @@ interface HeaderProps {
   zIndex?: typeof zIndex[ZIndexKeys];
 }
 
+let renders = 0;
 const Header = ({
   zIndex = "layer1"
-}: HeaderProps): JSX.Element => (
-  <PositionContainer
-    left="spacing0"
-    position="fixed"
-    right="spacing0"
-    top="spacing0"
-    zIndex={zIndex}
-  >
-    <Header.Container>
-      <FlexContainer
-        flexFlow="row nowrap"
-      >
-        <Header.InnerContainer>
-          <FlexContainer
-            flexFlow="row nowrap"
-            height="spacing48"
-            justifyContent="space-between"
-          >
-            <Logo />
-          </FlexContainer>
-        </Header.InnerContainer>
-      </FlexContainer>
-    </Header.Container>
-  </PositionContainer>
-);
+}: HeaderProps): JSX.Element => {
+  console.log("Header renders", renders++);
+  return (
+    <PositionContainer
+      left="spacing0"
+      position="fixed"
+      right="spacing0"
+      top="spacing0"
+      zIndex={zIndex}
+    >
+      <Header.Container>
+        <FlexContainer
+          flexFlow="row nowrap"
+        >
+          <Header.InnerContainer>
+            <FlexContainer
+              flexFlow="row nowrap"
+              height="spacing48"
+              justifyContent="space-between"
+            >
+              <Logo />
+            
+              <FlexContainer
+                flexFlow="row nowrap"
+                height="spacing48"
+                justifyContent="flex-start"
+              >
+                <Nav />
+                <Button 
+                  buttonText="resume" 
+                  iconName="download" 
+                  size="large"
+                  type="primary"
+                />
+              </FlexContainer>
+            </FlexContainer>
+          </Header.InnerContainer>
+        </FlexContainer>
+      </Header.Container>
+    </PositionContainer>
+  );
+};
 
 Header.Container = styled.header`
   ${({

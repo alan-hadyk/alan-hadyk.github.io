@@ -5,6 +5,11 @@ import Link from "<atoms>/Link";
 
 import { ReactComponent as LogoImage } from "<assets>/svg/Logo.svg";
 
+/*
+- Convert this component to LinkWithIcon
+- Add icon prop, which will apply specific icon
+*/
+
 const Logo = (): JSX.Element => (
   <Link 
     height="100%"

@@ -29,6 +29,7 @@
       "^<src>/(.*)$": "<rootDir>/src/$1",
       "^<assets>/(.*)$": "<rootDir>/src/assets/$1",
       "^<helpers>/(.*)$": "<rootDir>/src/helpers/$1",
+      "^<hooks>/(.*)$": "<rootDir>/src/hooks/$1",
       "^<pages>/(.*)$": "<rootDir>/src/pages/$1",
       "^<styles>/(.*)$": "<rootDir>/src/styles/$1",
       "^<atoms>/(.*)$": "<rootDir>/src/UI/atoms/$1",
@@ -60,6 +61,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "3.3.1",
+    "shuffle-text": "^0.3.0",
     "styled-components": "^5.0.0",
     "typescript": "~3.7.2"
   },
