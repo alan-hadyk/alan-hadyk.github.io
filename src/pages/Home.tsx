@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css, FlattenSimpleInterpolation } from "styled-components";
+import styled from "styled-components";
 
 import Header from "<organisms>/Header";
 import PageTemplate from "<templates>/PageTemplate";
@@ -18,6 +18,9 @@ const Home = (): JSX.Element => (
     <Header 
       zIndex="layer2"
     />
+    <Section id="dashboard">
+      Dashboard
+    </Section>
     <Section id="portfolio">
       Portfolio
     </Section>

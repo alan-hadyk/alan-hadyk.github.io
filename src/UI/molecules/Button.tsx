@@ -102,6 +102,7 @@ Button.Container = styled.button<ButtonContainerProps>`
     text-transform: uppercase;
     height: ${height in spacingVariables && spacingVariables[height]};
     width: ${width};
+    position: relative;
   `}
 `;
 

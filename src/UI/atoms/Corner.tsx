@@ -13,6 +13,26 @@ function Corner({
   return (
     <Corner.Container positionX={positionX} positionY={positionY} />
   );
+
+  // function mapPositionesToButtonContainerProps(): ButtonContainerProps {
+  //   switch (size) {
+  //   case "small":
+  //     return {
+  //       height: "spacing40",
+  //       width: "100%"
+  //     };
+  //   case "medium":
+  //     return {
+  //       height: "spacing48",
+  //       width: "100%"
+  //     };
+  //   case "large":
+  //     return {
+  //       height: "spacing56",
+  //       width: "auto"
+  //     };
+  //   }
+  // }
 }
 
 Corner.Container = styled.span<CornerProps>`
@@ -21,7 +41,9 @@ Corner.Container = styled.span<CornerProps>`
       colorPalette: { white }
     }
   }): FlattenSimpleInterpolation => css`
-    position: relative;
+    position: absolute;
+    left: 0;
+    top: 0;
 
     &::before, &::after {
       content: '';
