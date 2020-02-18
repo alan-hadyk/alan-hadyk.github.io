@@ -1,11 +1,11 @@
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import SpacingContainer from "<layout>/SpacingContainer";
 import FlexContainer from "<layout>/FlexContainer";
 import ButtonIcon, { ButtonIconProps } from "<atoms>/ButtonIcon";
 import ButtonText from "<molecules>/ButtonText";
-import Corner from "<atoms>/Corner";
+import Corners from "<molecules>/Corners";
 
 import spacing from "<styles>/variables/spacing";
 import colorPalette from "<styles>/variables/colorPalette";
@@ -27,13 +27,20 @@ interface ButtonContainerProps {
 }
 
 function Button({ buttonText, iconName, size, type = "primary" }: ButtonProps): JSX.Element {
+  const [isActive, setIsActive] = useState(false);
+
   const buttonContainerSizeProps: ButtonContainerProps = mapSizeToButtonContainerProps();
   const buttonContainerTypeProps: ButtonContainerProps = mapTypeToButtonContainerProps();
   const buttonSpacing: string = size === "small" ? "spacing16" : "spacing24";
   
   return (
-    <Button.Container {...buttonContainerSizeProps} {...buttonContainerTypeProps}>
-      <Corner />
+    <Button.Container
+      {...buttonContainerSizeProps}
+      {...buttonContainerTypeProps}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <Corners isActive={isActive} />
       <SpacingContainer paddingRight={buttonSpacing} paddingLeft={buttonSpacing}>
         <FlexContainer
           flexFlow="row nowrap"
@@ -79,6 +86,14 @@ function Button({ buttonText, iconName, size, type = "primary" }: ButtonProps): 
         border: "1px solid"
       };
     }
+  }
+
+  function handleMouseEnter() {
+    setIsActive(true);
+  }
+
+  function handleMouseLeave() {
+    setIsActive(false);
   }
 }
 
