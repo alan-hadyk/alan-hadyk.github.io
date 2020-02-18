@@ -43,8 +43,8 @@ function Button({ buttonText, iconName, size, type = "primary" }: ButtonProps): 
       <Corners isActive={isActive} />
       <SpacingContainer paddingRight={buttonSpacing} paddingLeft={buttonSpacing}>
         <FlexContainer
-          flexFlow="row nowrap"
-        >
+          flexFlow="row wrap"
+        > 
           <ButtonText buttonText={buttonText} size={size} />
           <ButtonIcon iconName={iconName} size={size} />
         </FlexContainer>
@@ -57,17 +57,17 @@ function Button({ buttonText, iconName, size, type = "primary" }: ButtonProps): 
     case "small":
       return {
         height: "spacing40",
-        width: "100%"
+        width: "auto"
       };
     case "medium":
       return {
         height: "spacing48",
-        width: "100%"
+        width: "auto"
       };
     case "large":
       return {
         height: "spacing56",
-        width: "auto"
+        width: "100%"
       };
     }
   }

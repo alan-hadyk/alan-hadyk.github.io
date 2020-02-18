@@ -6,6 +6,7 @@ import Logo from "<molecules>/Logo";
 import Nav from "<molecules>/Nav";
 import PositionContainer from "<layout>/PositionContainer";
 import FlexContainer from "<layout>/FlexContainer";
+import SpacingContainer from "<layout>/SpacingContainer";
 import Button from "<molecules>/Button";
 
 import zIndex from "<styles>/variables/zIndex";
@@ -17,6 +18,7 @@ interface HeaderProps {
 }
 
 let renders = 0;
+
 const Header = ({
   zIndex = "layer1"
 }: HeaderProps): JSX.Element => {
@@ -46,11 +48,13 @@ const Header = ({
                 height="spacing48"
                 justifyContent="flex-start"
               >
-                <Nav />
+                <SpacingContainer marginRight="spacing48">
+                  <Nav />
+                </SpacingContainer>
                 <Button 
                   buttonText="resume" 
                   iconName="download" 
-                  size="large"
+                  size="medium"
                   type="primary"
                 />
               </FlexContainer>

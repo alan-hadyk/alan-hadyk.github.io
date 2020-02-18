@@ -28,7 +28,7 @@ function ButtonText({ buttonText, size }: ButtonTextProps): JSX.Element {
         <span>{buttonText}</span>
       </Text>
     </SpacingContainer>
-    
+
   );
 
   function mapSizeToButtonTextProps(): TextProps {

@@ -7,6 +7,7 @@ export interface CornerProps {
 }
 
 interface CornerContainerProps {
+  opacity?: "0.5" | 1;
   left: 0 | "100%" | "-8px" | "calc(100% + 8px)";
   top: 0 | "100%" | "-8px" | "calc(100% + 8px)";
   transform: "rotate(0)" | "rotate(90deg)" | "rotate(270deg)" | "rotate(180deg)";
@@ -14,9 +15,10 @@ interface CornerContainerProps {
 
 function Corner({ position = "topLeft", isActive }: CornerProps): JSX.Element {
   const cornerProps: CornerContainerProps = isActive ? mapActivePositionToCornerProps() : mapPositionToCornerProps();
+  const opacity = isActive ? 1 : "0.5";
 
   return (
-    <Corner.Container {...cornerProps} />
+    <Corner.Container {...cornerProps} opacity={opacity} />
   );
 
   function mapPositionToCornerProps(): CornerContainerProps {
@@ -83,6 +85,7 @@ Corner.Container = styled.span<CornerContainerProps>`
     top,
     left,
     transform,
+    opacity,
     theme: {
       colorPalette: { white }
     }
@@ -91,7 +94,7 @@ Corner.Container = styled.span<CornerContainerProps>`
     left: ${left};
     top: ${top};
     transform: ${transform};
-    opacity: 0.5;
+    opacity: ${opacity};
 
     &::before, &::after {
       content: '';

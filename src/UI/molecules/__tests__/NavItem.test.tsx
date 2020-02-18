@@ -215,6 +215,168 @@ describe("molecules / NavItem", () => {
       });
     });
   });
+  
+  describe("NavItem.Line", () => {
+    describe("Left and right", () => {      
+      describe("Styles", () => {
+        describe("background-color", () => {      
+          test("should have #fff", () => {
+            const { NavItemLineLeft, NavItemLineRight } = setup();
+      
+            expect(NavItemLineLeft).toHaveStyleRule("background-color", "#fff");
+            expect(NavItemLineRight).toHaveStyleRule("background-color", "#fff");
+          });
+        });
+  
+        describe("bottom", () => {      
+          test("should have 0", () => {
+            const { NavItemLineLeft, NavItemLineRight } = setup();
+      
+            expect(NavItemLineLeft).toHaveStyleRule("bottom", "0");
+            expect(NavItemLineRight).toHaveStyleRule("bottom", "0");
+          });
+        });
+
+        describe("box-shadow", () => {      
+          test("should have 0px 0px .4rem #bcd8db when isActive: true", () => {
+            const { NavItemLineLeft, NavItemLineRight } = setup();
+      
+            expect(NavItemLineLeft).toHaveStyleRule("box-shadow", "0px 0px .4rem 0px #bcd8db");
+            expect(NavItemLineRight).toHaveStyleRule("box-shadow", "0px 0px .4rem 0px #bcd8db");
+          });
+        });
+
+        describe("display", () => {      
+          test("should have block", () => {
+            const { NavItemLineLeft, NavItemLineRight } = setup();
+      
+            expect(NavItemLineLeft).toHaveStyleRule("display", "block");
+            expect(NavItemLineRight).toHaveStyleRule("display", "block");
+          });
+        });
+  
+        describe("height", () => {      
+          test("should have 1px", () => {
+            const { NavItemLineLeft, NavItemLineRight } = setup();
+      
+            expect(NavItemLineLeft).toHaveStyleRule("height", "1px");
+            expect(NavItemLineRight).toHaveStyleRule("height", "1px");
+          });
+        });
+  
+        describe("opacity", () => {      
+          test("should have 1 when isActive: true", () => {
+            const { NavItemLineLeft, NavItemLineRight } = setup({
+              isActive: true
+            });
+      
+            expect(NavItemLineLeft).toHaveStyleRule("opacity", "1");
+            expect(NavItemLineRight).toHaveStyleRule("opacity", "1");
+          });
+        
+          test("should have 0 when isActive: false", () => {
+            const { NavItemLineLeft, NavItemLineRight } = setup({
+              isActive: false
+            });
+      
+            expect(NavItemLineLeft).toHaveStyleRule("opacity", "0");
+            expect(NavItemLineRight).toHaveStyleRule("opacity", "0");
+          });
+        });
+  
+        describe("position", () => {      
+          test("should have absolute", () => {
+            const { NavItemLineLeft, NavItemLineRight } = setup();
+      
+            expect(NavItemLineLeft).toHaveStyleRule("position", "absolute");
+            expect(NavItemLineRight).toHaveStyleRule("position", "absolute");
+          });
+        });
+  
+        describe("transition", () => {      
+          test("should have all 150ms ease-in-out", () => {
+            const { NavItemLineLeft, NavItemLineRight } = setup();
+      
+            expect(NavItemLineLeft).toHaveStyleRule("transition", "all 150ms ease-in-out");
+            expect(NavItemLineRight).toHaveStyleRule("transition", "all 150ms ease-in-out");
+          });
+        });
+
+        describe("visibility", () => {      
+          test("should have visible when isActive: true", () => {
+            const { NavItemLineLeft, NavItemLineRight } = setup({
+              isActive: true
+            });
+      
+            expect(NavItemLineLeft).toHaveStyleRule("visibility", "visible");
+            expect(NavItemLineRight).toHaveStyleRule("visibility", "visible");
+          });
+        
+          test("should have hidden when isActive: false", () => {
+            const { NavItemLineLeft, NavItemLineRight } = setup({
+              isActive: false
+            });
+      
+            expect(NavItemLineLeft).toHaveStyleRule("visibility", "hidden");
+            expect(NavItemLineRight).toHaveStyleRule("visibility", "hidden");
+          });
+        });
+
+        describe("width", () => {      
+          test("should have 50% when isActive: true", () => {
+            const { NavItemLineLeft, NavItemLineRight } = setup({
+              isActive: true
+            });
+      
+            expect(NavItemLineLeft).toHaveStyleRule("width", "50%");
+            expect(NavItemLineRight).toHaveStyleRule("width", "50%");
+          });
+        
+          test("should have 0 when isActive: false", () => {
+            const { NavItemLineLeft, NavItemLineRight } = setup({
+              isActive: false
+            });
+      
+            expect(NavItemLineLeft).toHaveStyleRule("width", "0");
+            expect(NavItemLineRight).toHaveStyleRule("width", "0");
+          });
+        });
+  
+        describe("z-index", () => {      
+          test("should have 100", () => {
+            const { NavItemLineLeft, NavItemLineRight } = setup();
+      
+            expect(NavItemLineLeft).toHaveStyleRule("z-index", "100");
+            expect(NavItemLineRight).toHaveStyleRule("z-index", "100");
+          });
+        });
+      });
+    });
+
+    describe("Left", () => {      
+      describe("Styles", () => {
+        describe("left", () => {      
+          test("should have 50%", () => {
+            const { NavItemLineLeft } = setup();
+      
+            expect(NavItemLineLeft).toHaveStyleRule("left", "50%");
+          });
+        });
+      });
+    });
+
+    describe("Right", () => {      
+      describe("Styles", () => {
+        describe("right", () => {      
+          test("should have 50%", () => {
+            const { NavItemLineRight } = setup();
+      
+            expect(NavItemLineRight).toHaveStyleRule("right", "50%");
+          });
+        });
+      });
+    });
+  });
 });
 
 interface Setup extends RenderResult {
