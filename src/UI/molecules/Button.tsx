@@ -1,5 +1,6 @@
 import React, { memo, useState } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
+import { transparentize } from "polished";
 
 import SpacingContainer from "<layout>/SpacingContainer";
 import FlexContainer from "<layout>/FlexContainer";
@@ -24,6 +25,7 @@ interface ButtonContainerProps {
   borderColor?: typeof colorPalette[ColorPaletteKeys];
   height?: typeof spacing[SpacingKeys];
   width?: "auto" | "100%";
+  isActive?: boolean;
 }
 
 function Button({ buttonText, iconName, size, type = "primary" }: ButtonProps): JSX.Element {
@@ -39,6 +41,7 @@ function Button({ buttonText, iconName, size, type = "primary" }: ButtonProps): 
       {...buttonContainerTypeProps}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      isActive={isActive}
     >
       <Corners isActive={isActive} />
       <SpacingContainer paddingRight={buttonSpacing} paddingLeft={buttonSpacing}>
@@ -104,9 +107,12 @@ Button.Container = styled.button<ButtonContainerProps>`
     backgroundColor,
     border,
     borderColor,
+    isActive,
     theme: {
       spacing: spacingVariables,
-      colorPalette: { white }
+      colorPalette: { white, blue200 },
+      transitionTimes: { fast },
+      easing: { easeInOut }
     }
   }): FlattenSimpleInterpolation => css`
     cursor: pointer;
@@ -118,6 +124,8 @@ Button.Container = styled.button<ButtonContainerProps>`
     height: ${height in spacingVariables && spacingVariables[height]};
     width: ${width};
     position: relative;
+    box-shadow: ${isActive && `inset 0px 0px 16px 0px ${transparentize(0.5, blue200)}`};
+    transition: all ${fast} ${easeInOut};
   `}
 `;
 

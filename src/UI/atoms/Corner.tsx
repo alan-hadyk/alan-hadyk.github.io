@@ -87,7 +87,9 @@ Corner.Container = styled.span<CornerContainerProps>`
     transform,
     opacity,
     theme: {
-      colorPalette: { white }
+      colorPalette: { white },
+      transitionTimes: { fast },
+      easing: { easeInOut }
     }
   }): FlattenSimpleInterpolation => css`
     position: absolute;
@@ -95,6 +97,7 @@ Corner.Container = styled.span<CornerContainerProps>`
     top: ${top};
     transform: ${transform};
     opacity: ${opacity};
+    transition: all ${fast} ${easeInOut};
 
     &::before, &::after {
       content: '';
@@ -109,7 +112,7 @@ Corner.Container = styled.span<CornerContainerProps>`
     }
 
     &::after {
-      top: -4px;
+      top: -3.5px;
       left: 4px;
       background: ${white};
       width: 1px;

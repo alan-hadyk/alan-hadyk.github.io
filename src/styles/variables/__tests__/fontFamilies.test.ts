@@ -1,8 +1,8 @@
-import fontFamily from "<styles>/variables/fontFamily";
+import fontFamilies from "<styles>/variables/fontFamilies";
 
-describe("styles / variables / fontFamily", () => {
+describe("styles / variables / fontFamilies", () => {
   test("should have correct fonts", () => {
-    expect(fontFamily).toEqual({
+    expect(fontFamilies).toEqual({
       AnonymousPro: "'Anonymous Pro', monospace",
       Exan: "ExanModifiedRegular, monospace"
     });

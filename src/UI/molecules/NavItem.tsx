@@ -32,7 +32,9 @@ function NavItem({
   }, [navItemElement, title, shuffleText]);
 
   return (
-    <PositionContainer position="relative">
+    <PositionContainer 
+      position="relative"
+    >
       <NavItem.Link
         isActive={isActive}
         onClick={handleClick}

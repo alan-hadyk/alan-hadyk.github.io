@@ -44,9 +44,9 @@ function Nav(): JSX.Element {
     return navItems.map(({
       href,
       title
-    }: NavItemProps): JSX.Element => (
+    }: NavItemProps, index: number): JSX.Element => (
       <SpacingContainer
-        key={title}
+        key={index}
         marginLeft="spacing24"
       >
         <NavItem 

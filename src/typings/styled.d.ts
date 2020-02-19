@@ -22,7 +22,7 @@ declare module "styled-components" {
       easeInOut: string;
     };
 
-    fontFamily: {
+    fontFamilies: {
       AnonymousPro: string;
       Exan: string;
     };

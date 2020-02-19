@@ -24,8 +24,8 @@ function ButtonText({ buttonText, size }: ButtonTextProps): JSX.Element {
 
   return (
     <SpacingContainer marginRight={size === "small" ? "spacing8" : "spacing16"}>
-      <Text {...buttonTextProps}>
-        <span>{buttonText}</span>
+      <Text {...buttonTextProps} fontFamily="Exan">
+        {buttonText}
       </Text>
     </SpacingContainer>
 

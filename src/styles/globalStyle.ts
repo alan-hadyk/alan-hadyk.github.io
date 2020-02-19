@@ -1,5 +1,5 @@
 import colorPalette from "<styles>/variables/colorPalette";
-import fontFamily from "<styles>/variables/fontFamily";
+import fontFamilies from "<styles>/variables/fontFamilies";
 
 export default `
   /* Anonymous Pro - regular */
@@ -58,7 +58,7 @@ export default `
     margin: 0;
     padding: 0;
     border: 0;
-    font-family: ${fontFamily.AnonymousPro};
+    font-family: ${fontFamilies.AnonymousPro};
   }
 
   /* HTML5 display-role reset for older browsers */
@@ -94,7 +94,7 @@ export default `
   h4,
   h5,
   h6 {
-    font-family: ${fontFamily.Exan};
+    font-family: ${fontFamilies.Exan};
   }
 
   ul,

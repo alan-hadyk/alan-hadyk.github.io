@@ -17,54 +17,49 @@ interface HeaderProps {
   zIndex?: typeof zIndex[ZIndexKeys];
 }
 
-let renders = 0;
-
 const Header = ({
   zIndex = "layer1"
-}: HeaderProps): JSX.Element => {
-  console.log("Header renders", renders++);
-  return (
-    <PositionContainer
-      left="spacing0"
-      position="fixed"
-      right="spacing0"
-      top="spacing0"
-      zIndex={zIndex}
-    >
-      <Header.Container>
-        <FlexContainer
-          flexFlow="row nowrap"
-        >
-          <Header.InnerContainer>
+}: HeaderProps): JSX.Element => (
+  <PositionContainer
+    left="spacing0"
+    position="fixed"
+    right="spacing0"
+    top="spacing0"
+    zIndex={zIndex}
+  >
+    <Header.Container>
+      <FlexContainer
+        flexFlow="row nowrap"
+      >
+        <Header.InnerContainer>
+          <FlexContainer
+            flexFlow="row nowrap"
+            height="spacing48"
+            justifyContent="space-between"
+          >
+            <Logo />
+            
             <FlexContainer
               flexFlow="row nowrap"
               height="spacing48"
-              justifyContent="space-between"
+              justifyContent="flex-start"
             >
-              <Logo />
-            
-              <FlexContainer
-                flexFlow="row nowrap"
-                height="spacing48"
-                justifyContent="flex-start"
-              >
-                <SpacingContainer marginRight="spacing48">
-                  <Nav />
-                </SpacingContainer>
-                <Button 
-                  buttonText="resume" 
-                  iconName="download" 
-                  size="medium"
-                  type="primary"
-                />
-              </FlexContainer>
+              <SpacingContainer marginRight="spacing48">
+                <Nav />
+              </SpacingContainer>
+              <Button 
+                buttonText="resume" 
+                iconName="download" 
+                size="medium"
+                type="primary"
+              />
             </FlexContainer>
-          </Header.InnerContainer>
-        </FlexContainer>
-      </Header.Container>
-    </PositionContainer>
-  );
-};
+          </FlexContainer>
+        </Header.InnerContainer>
+      </FlexContainer>
+    </Header.Container>
+  </PositionContainer>
+);
 
 Header.Container = styled.header`
   ${({

@@ -13,6 +13,15 @@ const Section = styled.section`
 `;
 
 
+const Rect = styled.div`
+margin-top: 20px;
+text-align:center;
+  font-family: Arial;
+  color: #fff;
+  font-size: 40px;
+`;
+
+
 const Home = (): JSX.Element => (
   <PageTemplate>
     <Header 
@@ -20,6 +29,8 @@ const Home = (): JSX.Element => (
     />
     <Section id="dashboard">
       Dashboard
+      <Rect>This text does not flicker</Rect>
+
     </Section>
     <Section id="portfolio">
       Portfolio
