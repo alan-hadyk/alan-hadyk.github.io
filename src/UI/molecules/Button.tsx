@@ -42,6 +42,7 @@ function Button({ buttonText, iconName, size, type = "primary" }: ButtonProps): 
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       isActive={isActive}
+      onClick={handleButtonClick}
     >
       <Corners isActive={isActive} />
       <SpacingContainer paddingRight={buttonSpacing} paddingLeft={buttonSpacing}>
@@ -97,6 +98,10 @@ function Button({ buttonText, iconName, size, type = "primary" }: ButtonProps): 
 
   function handleMouseLeave() {
     setIsActive(false);
+  }
+
+  function handleButtonClick() {
+    console.log("clicked");
   }
 }
 
