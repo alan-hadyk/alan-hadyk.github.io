@@ -12,7 +12,6 @@ import { ReactComponent as LogoImage } from "<assets>/svg/Logo.svg";
 
 const Logo = (): JSX.Element => (
   <Link 
-    height="100%"
     href="/"
   >
     <Logo.Image />
