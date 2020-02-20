@@ -34,8 +34,8 @@ Text.Container = styled.span<TextProps>`
       fontFamilies
     }
   }): FlattenSimpleInterpolation => css`
-    font-size: ${fontSizes[fontSize]};
     font-family: ${fontFamilies[fontFamily]};
+    font-size: ${fontSizes[fontSize]};
   `}
 `;
 

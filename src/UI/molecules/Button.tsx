@@ -1,5 +1,5 @@
-import React, { memo, useState } from "react";
-import styled, { css, FlattenSimpleInterpolation } from "styled-components";
+import React, { memo, useState, useRef } from "react";
+import styled, { keyframes, css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize } from "polished";
 
 import SpacingContainer from "<layout>/SpacingContainer";
@@ -28,8 +28,14 @@ interface ButtonContainerProps {
   isActive?: boolean;
 }
 
-function Button({ buttonText, iconName, size, type = "primary" }: ButtonProps): JSX.Element {
+function Button({
+  buttonText,
+  iconName,
+  size,
+  type = "primary"
+}: ButtonProps): JSX.Element {
   const [isActive, setIsActive] = useState(false);
+  const buttonInnerContainerRef = useRef(null);
 
   const buttonContainerSizeProps: ButtonContainerProps = mapSizeToButtonContainerProps();
   const buttonContainerTypeProps: ButtonContainerProps = mapTypeToButtonContainerProps();
@@ -45,14 +51,16 @@ function Button({ buttonText, iconName, size, type = "primary" }: ButtonProps): 
       onClick={handleButtonClick}
     >
       <Corners isActive={isActive} />
-      <SpacingContainer paddingRight={buttonSpacing} paddingLeft={buttonSpacing}>
-        <FlexContainer
-          flexFlow="row wrap"
-        > 
-          <ButtonText buttonText={buttonText} size={size} />
-          <ButtonIcon iconName={iconName} size={size} />
-        </FlexContainer>
-      </SpacingContainer>
+      <Button.InnerContainer ref={buttonInnerContainerRef}>
+        <SpacingContainer paddingRight={buttonSpacing} paddingLeft={buttonSpacing}>
+          <FlexContainer
+            flexFlow="row wrap"
+          > 
+            <ButtonText buttonText={buttonText} size={size} />
+            <ButtonIcon iconName={iconName} size={size} />
+          </FlexContainer>
+        </SpacingContainer>
+      </Button.InnerContainer>
     </Button.Container>
   );
 
@@ -92,18 +100,53 @@ function Button({ buttonText, iconName, size, type = "primary" }: ButtonProps): 
     }
   }
 
-  function handleMouseEnter() {
+  function handleMouseEnter(): void {
     setIsActive(true);
   }
 
-  function handleMouseLeave() {
+  function handleMouseLeave(): void {
     setIsActive(false);
   }
 
-  function handleButtonClick() {
-    console.log("clicked");
+  function handleButtonClick(event: React.MouseEvent<HTMLButtonElement>): void {
+    event.preventDefault();
+
+    if (buttonInnerContainerRef.current) {
+      const { clientX, clientY }: React.MouseEvent = event;
+      const { x, y } = buttonInnerContainerRef.current.getBoundingClientRect();
+
+      const span = document.createElement("span");
+      span.classList.add("ripple");
+      span.style.left = `${clientX - x}px`;
+      span.style.top = `${clientY - y}px`;
+
+      buttonInnerContainerRef.current.appendChild(span);
+
+      setTimeout(() => {
+        span.remove();
+      }, 1000);
+    }
   }
 }
+
+Button.InnerContainer = styled.div`
+  align-items: center;
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+`;
+
+const ripple = keyframes`
+  from {
+    opacity: 1;
+    transform: scale(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(10);
+  }
+`;
 
 Button.Container = styled.button<ButtonContainerProps>`
   ${({
@@ -120,17 +163,30 @@ Button.Container = styled.button<ButtonContainerProps>`
       easing: { easeInOut }
     }
   }): FlattenSimpleInterpolation => css`
-    cursor: pointer;
     background-color: ${(backgroundColor in colorPalette && colorPalette[backgroundColor]) || backgroundColor};
     border: ${border};
     border-color: ${colorPalette[borderColor]};
-    color: ${white};
-    text-transform: uppercase;
-    height: ${height in spacingVariables && spacingVariables[height]};
-    width: ${width};
-    position: relative;
     box-shadow: ${isActive && `inset 0px 0px 16px 0px ${transparentize(0.5, blue200)}`};
+    color: ${white};
+    cursor: pointer;
+    height: ${height in spacingVariables && spacingVariables[height]};
+    outline: 0;
+    position: relative;
+    text-transform: lowercase;
     transition: all ${fast} ${easeInOut};
+    width: ${width};
+
+    .ripple {
+      animation: ${ripple} 1s;
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 50%;
+      height: 100px;
+      margin-left: -50px;
+      margin-top: -50px;
+      opacity: 0;
+      position: absolute;
+      width: 100px;
+    }
   `}
 `;
 

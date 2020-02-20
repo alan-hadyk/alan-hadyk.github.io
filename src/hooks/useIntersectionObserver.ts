@@ -1,9 +1,11 @@
 import { useLayoutEffect } from "react";
 
-interface UseIntersectionObserver {
+export interface UseIntersectionObserver {
   onElementVisible: (arg1: string) => void;
   selectors: string[];
 }
+
+export type IntersectionObserverType = IntersectionObserver;
 
 interface IntersectionObserverWithPolyfill extends IntersectionObserver {
   POLL_INTERVAL?: number;
@@ -14,7 +16,7 @@ export default function useIntersectionObserver({
   selectors
 }: UseIntersectionObserver): void {
   useLayoutEffect(() => {
-    const observer: IntersectionObserverWithPolyfill = new IntersectionObserver((entries: IntersectionObserverEntry[]): void => { 
+    const observer: IntersectionObserverWithPolyfill = new window.IntersectionObserver((entries: IntersectionObserverEntry[]): void => { 
       const intersectingElements: IntersectionObserverEntry[] = entries
         .filter(({ isIntersecting }) => isIntersecting);
       const highestIntersection: IntersectionObserverEntry = (intersectingElements.length > 0) && 

@@ -23,7 +23,8 @@
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "better-styled-components"
     ],
     "settings": {
       "react": {
@@ -50,6 +51,7 @@
         "no-use-before-define": "off",
         "@typescript-eslint/no-use-before-define": [
           "error", { "functions": false, "typedefs": false }
-        ]
+        ],
+        "better-styled-components/sort-declarations-alphabetically": 2
     }
 }

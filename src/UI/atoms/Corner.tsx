@@ -92,11 +92,11 @@ Corner.Container = styled.span<CornerContainerProps>`
       easing: { easeInOut }
     }
   }): FlattenSimpleInterpolation => css`
-    position: absolute;
     left: ${left};
+    opacity: ${opacity};
+    position: absolute;
     top: ${top};
     transform: ${transform};
-    opacity: ${opacity};
     transition: all ${fast} ${easeInOut};
 
     &::before, &::after {
@@ -105,19 +105,19 @@ Corner.Container = styled.span<CornerContainerProps>`
     }
     
     &::before {
-      left: 0;
       background: ${white};
-      width: 1px;
       height: 8px;
+      left: 0;
+      width: 1px;
     }
 
     &::after {
-      top: -3.5px;
-      left: 4px;
       background: ${white};
-      width: 1px;
       height: 8px;
+      left: 4px;
+      top: -3.5px;
       transform: rotate(90deg);
+      width: 1px;
     }
   `}
 `;
