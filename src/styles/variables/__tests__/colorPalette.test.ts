@@ -3,6 +3,8 @@ import colorPalette from "<styles>/variables/colorPalette";
 describe("styles / variables / colorPalette", () => {
   test("should have correct colors", () => {
     expect(colorPalette).toEqual({
+      black: "#000",
+
       // Blue
       blue100: "#bcd8db",
       blue200: "#67d2df",
@@ -12,8 +14,7 @@ describe("styles / variables / colorPalette", () => {
       blue600: "#22272a",
       blue700: "#1e2224",
     
-      // Black and white
-      black: "#000",
+      // White
       white: "#fff"
     });
   });

@@ -5,11 +5,11 @@ import Header from "<organisms>/Header";
 import PageTemplate from "<templates>/PageTemplate";
 
 const Section = styled.section`
-  height: 150vh;
-  font-size: 40px;
-  text-align: center;
-  padding: 96px;
   border-bottom: 1px solid #fff;
+  font-size: 40px;
+  height: 150vh;
+  padding: 96px;
+  text-align: center;
 `;
 
 const Home = (): JSX.Element => (

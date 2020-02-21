@@ -18,14 +18,19 @@ describe("helpers / tests / renderWithTheme", () => {
       ${({  theme: {
     breakpoints,
     colorPalette,
-    fontFamily,
+    easing,
+    fontFamilies,
+    fontSizes,
     spacing,
+    transitionTimes,
     zIndex
   }}): FlattenSimpleInterpolation => css`
-        width: ${breakpoints.breakpoint1920};
         color: ${colorPalette.blue300};
-        font-family: ${fontFamily.Exan};
+        font-family: ${fontFamilies.Exan};
+        font-size: ${fontSizes.font20};
         height: ${spacing.spacing96};
+        transition: all ${transitionTimes.fast} ${easing.easeInOut};
+        width: ${breakpoints.breakpoint1920};
         z-index: ${zIndex.layer5};
       `}
     `;
@@ -36,10 +41,12 @@ describe("helpers / tests / renderWithTheme", () => {
 
     const childrenComponent = queryByTestId("childrenComponent");
 
-    expect(childrenComponent).toHaveStyleRule("width", "1920px");
     expect(childrenComponent).toHaveStyleRule("color", "#78b0b5");
     expect(childrenComponent).toHaveStyleRule("font-family", "ExanModifiedRegular,monospace");
+    expect(childrenComponent).toHaveStyleRule("font-size", "20px");
     expect(childrenComponent).toHaveStyleRule("height", "9.6rem");
+    expect(childrenComponent).toHaveStyleRule("transition", "all 150ms ease-in-out");
+    expect(childrenComponent).toHaveStyleRule("width", "1920px");
     expect(childrenComponent).toHaveStyleRule("z-index", "500");
   });
 });

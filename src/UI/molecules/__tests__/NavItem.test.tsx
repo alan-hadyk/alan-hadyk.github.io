@@ -65,15 +65,15 @@ describe("molecules / NavItem", () => {
           const { NavItemLink } = setup();
     
           expect(NavItemLink).toHaveStyleRule("color", "#fff", {
-            modifier: ":hover",
+            modifier: ":hover"
           });
     
           expect(NavItemLink).toHaveStyleRule("color", "#fff", {
-            modifier: ":active",
+            modifier: ":active"
           });
     
           expect(NavItemLink).toHaveStyleRule("color", "#fff", {
-            modifier: ":focus",
+            modifier: ":focus"
           });
         });
       });
@@ -148,15 +148,15 @@ describe("molecules / NavItem", () => {
           const { NavItemLink } = setup();
     
           expect(NavItemLink).toHaveStyleRule("text-shadow", "0px 0px .8rem #bcd8db", {
-            modifier: ":hover",
+            modifier: ":hover"
           });
     
           expect(NavItemLink).toHaveStyleRule("text-shadow", "0px 0px .8rem #bcd8db", {
-            modifier: ":active",
+            modifier: ":active"
           });
     
           expect(NavItemLink).toHaveStyleRule("text-shadow", "0px 0px .8rem #bcd8db", {
-            modifier: ":focus",
+            modifier: ":focus"
           });
         });
       });
@@ -198,7 +198,8 @@ describe("molecules / NavItem", () => {
         });
 
         expect(mockScrollIntoView).toHaveBeenCalledWith({ 
-          behavior: "smooth" 
+          behavior: "smooth",
+          block: "start"
         });
       });
 

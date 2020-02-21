@@ -9,7 +9,6 @@ export interface LinkProps {
   children: JSX.Element | JSX.Element[] | string;
   height?: typeof spacing[SpacingKeys] | "unset" | "50%" | "100%";
   href?: string;
-  onClick?: VoidFunction;
   isExternal?: boolean;
 }
 
@@ -17,13 +16,11 @@ const Link = ({
   children,
   height = "unset",
   href,
-  onClick,
   isExternal = false
 }: LinkProps): JSX.Element => (
   <Link.Container
     height={height}
-    href={!onClick && href}
-    onClick={onClick}
+    href={href}
     target={isExternal ? "_blank" : "_self"}
   >
     {children}

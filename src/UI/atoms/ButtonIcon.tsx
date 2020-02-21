@@ -12,7 +12,7 @@ export interface ButtonIconProps {
 }
 
 interface ButtonHeight {
-  height: "spacing12" | "spacing24"; 
+  iconheight: "spacing12" | "spacing24"; 
 }
 
 function ButtonIcon({ iconName, size }: ButtonIconProps): JSX.Element {
@@ -25,12 +25,12 @@ function ButtonIcon({ iconName, size }: ButtonIconProps): JSX.Element {
     switch (size) {
     case "small":
       return {
-        height: "spacing12"
+        iconheight: "spacing12"
       };
     case "medium":
     case "large":
       return {
-        height: "spacing24"
+        iconheight: "spacing24"
       };
     }
   }
@@ -55,12 +55,12 @@ function ButtonIcon({ iconName, size }: ButtonIconProps): JSX.Element {
   
     const ButtonIcon = styled(iconComponent)<ButtonHeight>`
       ${({
-    height,
+    iconheight,
     theme: {
       spacing
     }
   }): FlattenSimpleInterpolation => css`
-          height: ${height in spacing && spacing[height]};
+          height: ${iconheight in spacing && spacing[iconheight]};
           width: auto;
         `}
       `;

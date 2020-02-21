@@ -58,7 +58,8 @@ function NavItem({
     const element: HTMLElement = document.querySelector(href);
 
     element && element.scrollIntoView({ 
-      behavior: "smooth" 
+      behavior: "smooth",
+      block: "start"
     });
   }
 

@@ -37,10 +37,10 @@ describe("molecules / Logo", () => {
       });
 
       describe("href", () => {      
-        test("should have '/'", () => {
+        test("should have 'window.location.href'", () => {
           const { Link } = setup();
     
-          expect(Link.getAttribute("href")).toEqual("/");
+          expect(Link.getAttribute("href")).toEqual("http://localhost/");
         });
       });
     });

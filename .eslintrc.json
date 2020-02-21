@@ -33,21 +33,23 @@
     },
     "rules": {
         "indent": [
-            "error",
-            2
+          "error",
+          2
         ],
         "linebreak-style": [
-            "error",
-            "unix"
+          "error",
+          "unix"
         ],
         "quotes": [
-            "error",
-            "double"
+          "error",
+          "double"
         ],
         "semi": [
-            "error",
-            "always"
+          "error",
+          "always"
         ],
+        "comma-dangle": ["error", "never"],
+        "sort-keys": ["error", "asc", {"caseSensitive": true, "natural": true, "minKeys": 2}],
         "no-use-before-define": "off",
         "@typescript-eslint/no-use-before-define": [
           "error", { "functions": false, "typedefs": false }
