@@ -1,7 +1,7 @@
 import React from "react";
 import {
   RenderResult
-}from "@testing-library/react";
+} from "@testing-library/react";
 
 import Nav from "<molecules>/Nav";
 
@@ -12,6 +12,24 @@ jest.mock("<src>/hooks/useIntersectionObserver");
 import useIntersectionObserver, { UseIntersectionObserver } from "<src>/hooks/useIntersectionObserver";
 
 describe("molecules / Nav", () => {
+  test("should have correct structure", () => {
+    const { 
+      FlexContainer,
+      NavItems,
+      SpacingContainers
+    } = setup();
+
+    expect(FlexContainer.children[0]).toEqual(SpacingContainers[0]);
+    expect(FlexContainer.children[1]).toEqual(SpacingContainers[1]);
+    expect(FlexContainer.children[2]).toEqual(SpacingContainers[2]);
+    expect(FlexContainer.children[3]).toEqual(SpacingContainers[3]);
+    expect(FlexContainer.children[4]).toEqual(SpacingContainers[4]);
+    expect(SpacingContainers[0].children[0].children[0]).toEqual(NavItems[0]);
+    expect(SpacingContainers[1].children[0].children[0]).toEqual(NavItems[1]);
+    expect(SpacingContainers[2].children[0].children[0]).toEqual(NavItems[2]);
+    expect(SpacingContainers[3].children[0].children[0]).toEqual(NavItems[3]);
+    expect(SpacingContainers[4].children[0].children[0]).toEqual(NavItems[4]);
+  });
   describe("useIntersectionObserver", () => {    
     test("should be called initially with correct arguments", () => {
       const spyUseIntersectionObserver = jest.fn();

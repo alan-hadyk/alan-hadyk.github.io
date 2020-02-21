@@ -49,20 +49,20 @@ describe("hooks / useIntersectionObserver", () => {
     const disconnect = jest.fn();
 
     const mockEntries = [{
-      isIntersecting: true,
       intersectionRatio: 0.3285198509693146,
+      isIntersecting: true,
       target: {
         id: "portfolio"
       }
     }, {
-      isIntersecting: false,
       intersectionRatio: 0.3433498509693146,
+      isIntersecting: false,
       target: {
         id: "experience"
       }
     }, {
-      isIntersecting: true,
       intersectionRatio: 0.533498509693146,
+      isIntersecting: true,
       target: {
         id: "skills"
       }
@@ -76,7 +76,6 @@ describe("hooks / useIntersectionObserver", () => {
       };
     }
 
-
     function IntersectionObserver(this: IntersectionObserverType, entries: (arg1: IntersectionObserverEntryTest[]) => void): void {
       this.observe = observe;
       this.disconnect = disconnect;
@@ -84,7 +83,6 @@ describe("hooks / useIntersectionObserver", () => {
       this.unobserve = jest.fn();
 
       entries(mockEntries);
-
     }
 
     windowSpy.mockImplementation(() => ({

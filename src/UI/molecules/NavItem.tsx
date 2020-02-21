@@ -10,6 +10,11 @@ export interface NavItemProps {
   title: string;
 }
 
+interface ShuffleTextType {
+  setText: (arg1: string) => void;
+  start: VoidFunction;
+}
+
 function NavItem({
   href,
   isActive = false,
@@ -23,7 +28,7 @@ function NavItem({
       return;
     }
 
-    const text = new ShuffleText(navItemElement.current);
+    const text: ShuffleTextType  = new ShuffleText(navItemElement.current);
     text.setText(title);
 
     setShuffleText({

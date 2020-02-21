@@ -102,17 +102,16 @@ Corner.Container = styled.span<CornerContainerProps>`
     &::before, &::after {
       content: '';
       position: absolute;
+      background: ${white};
     }
     
     &::before {
-      background: ${white};
       height: 8px;
       left: 0;
       width: 1px;
     }
 
     &::after {
-      background: ${white};
       height: 8px;
       left: 4px;
       top: -3.5px;

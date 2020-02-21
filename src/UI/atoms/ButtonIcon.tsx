@@ -12,7 +12,7 @@ export interface ButtonIconProps {
 }
 
 interface ButtonHeight {
-  iconheight: "spacing12" | "spacing24"; 
+  iconheight: "spacing12" | "spacing24";
 }
 
 function ButtonIcon({ iconName, size }: ButtonIconProps): JSX.Element {

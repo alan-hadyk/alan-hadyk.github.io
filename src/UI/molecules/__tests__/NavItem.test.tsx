@@ -3,7 +3,7 @@ import {
   act,
   fireEvent,
   RenderResult
-}from "@testing-library/react";
+} from "@testing-library/react";
 
 import NavItem, { NavItemProps } from "<molecules>/NavItem";
 
@@ -18,7 +18,7 @@ describe("molecules / NavItem", () => {
 
       setup();
 
-      expect(ShuffleText.prototype.setText).toHaveBeenCalled();
+      expect(ShuffleText.prototype.setText).toHaveBeenCalledWith("Title");
     });
   });
 

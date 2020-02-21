@@ -8,7 +8,7 @@ type SpacingKeys = keyof typeof spacing;
 export interface LinkProps {
   children: JSX.Element | JSX.Element[] | string;
   height?: typeof spacing[SpacingKeys] | "unset" | "50%" | "100%";
-  href?: string;
+  href: string;
   isExternal?: boolean;
 }
 

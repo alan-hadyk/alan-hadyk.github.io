@@ -22,7 +22,7 @@ export default function useIntersectionObserver({
       const highestIntersection: IntersectionObserverEntry = (intersectingElements.length > 0) && 
         intersectingElements.reduce((prev, current) => (prev.intersectionRatio > current.intersectionRatio) ? prev : current);
   
-      if(highestIntersection) {
+      if (highestIntersection) {
         onElementVisible(`#${highestIntersection.target.id}`);
       } else {
         onElementVisible("");
