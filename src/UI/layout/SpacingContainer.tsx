@@ -26,9 +26,10 @@ const SpacingContainer = ({
   paddingBottom = "spacing0",
   paddingLeft = "spacing0",
   paddingRight = "spacing0",
-  paddingTop = "spacing0",
+  paddingTop = "spacing0"
 }: SpacingContainerProps): JSX.Element => (
   <SpacingContainer.Container
+    data-testid="SpacingContainer"
     marginBottom={marginBottom}
     marginLeft={marginLeft}
     marginRight={marginRight}

@@ -30,6 +30,7 @@ const PositionContainer = ({
 }: PositionContainerProps): JSX.Element => (
   <PositionContainer.Container
     bottom={bottom}
+    data-testid="PositionContainer"
     height={height}
     left={left}
     position={position}

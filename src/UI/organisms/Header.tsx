@@ -13,7 +13,7 @@ import zIndex from "<styles>/variables/zIndex";
 
 type ZIndexKeys = keyof typeof zIndex;
 
-interface HeaderProps {
+export interface HeaderProps {
   zIndex?: typeof zIndex[ZIndexKeys];
 }
 
@@ -31,7 +31,7 @@ const Header = ({
       <FlexContainer
         flexFlow="row nowrap"
       >
-        <Header.InnerContainer>
+        <Header.InnerContainer data-testid="HeaderInnerContainer">
           <FlexContainer
             flexFlow="row nowrap"
             height="spacing48"

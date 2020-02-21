@@ -109,7 +109,7 @@ function setup(): Setup {
   return {
     ...utils,
     FlexContainer,
-    SpacingContainers,
-    NavItems
+    NavItems,
+    SpacingContainers
   };
 }

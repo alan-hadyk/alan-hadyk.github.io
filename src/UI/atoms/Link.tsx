@@ -19,6 +19,7 @@ const Link = ({
   isExternal = false
 }: LinkProps): JSX.Element => (
   <Link.Container
+    data-testid="Link"
     height={height}
     href={href}
     target={isExternal ? "_blank" : "_self"}

@@ -22,6 +22,7 @@ const FlexContainer = ({
 }: FlexContainerProps): JSX.Element => (
   <FlexContainer.Container
     alignItems={alignItems}
+    data-testid="FlexContainer"
     flexFlow={flexFlow}
     height={height}
     justifyContent={justifyContent}

@@ -94,8 +94,8 @@ function Button({
     case "secondary":
       return {
         backgroundColor: "transparent",
-        borderColor: "blue500",
-        border: "1px solid"
+        border: "1px solid",
+        borderColor: "blue500"
       };
     }
   }
