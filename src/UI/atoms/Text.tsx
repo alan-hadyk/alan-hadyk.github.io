@@ -9,8 +9,8 @@ type FontFamilyKeys = keyof typeof fontFamilies;
 
 export interface TextProps {
   children: JSX.Element | string;
-  fontSize?: typeof fontSizes[FontSizesKeys];
   fontFamily: typeof fontFamilies[FontFamilyKeys];
+  fontSize?: typeof fontSizes[FontSizesKeys];
 }
 
 function Text({ 

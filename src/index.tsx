@@ -10,9 +10,13 @@ if (typeof window.IntersectionObserver === "undefined") {
   polyfills.push(import(/* webpackChunkName: "intersection-observer" */ "intersection-observer"));
 }
 
+export function renderApp(): void {
+  ReactDOM.render(<App />, document.getElementById("root"));
+}
+
 Promise.all(polyfills)
   .then(() => {
-    ReactDOM.render(<App />, document.getElementById("root"));
+    renderApp();
   })
   .catch((error) => {
     console.error("Failed fetching polyfills", error);

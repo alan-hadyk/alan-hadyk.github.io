@@ -210,8 +210,8 @@ describe("atoms / Corner", () => {
 
       test("should have left -8px for position topLeft when is active", () => {
         const { CornerContainer } = setup({
-          position: "topLeft",
-          isActive: true
+          isActive: true,
+          position: "topLeft"
         });
   
         expect(CornerContainer).toHaveStyleRule("left", "-8px");
@@ -219,8 +219,8 @@ describe("atoms / Corner", () => {
 
       test("should have top -8px for position topLeft when is active", () => {
         const { CornerContainer } = setup({
-          position: "topLeft",
-          isActive: true
+          isActive: true,
+          position: "topLeft"
         });
   
         expect(CornerContainer).toHaveStyleRule("top", "-8px");
@@ -228,8 +228,8 @@ describe("atoms / Corner", () => {
 
       test("should have transform rotate(0) for position topLeft when is active", () => {
         const { CornerContainer } = setup({
-          position: "topLeft",
-          isActive: true
+          isActive: true,
+          position: "topLeft"
         });
   
         expect(CornerContainer).toHaveStyleRule("transform", "rotate(0)");
@@ -237,8 +237,8 @@ describe("atoms / Corner", () => {
 
       test("should have left calc(100% + 8px) for position topRight when is active", () => {
         const { CornerContainer } = setup({
-          position: "topRight",
-          isActive: true
+          isActive: true,
+          position: "topRight"
         });
   
         expect(CornerContainer).toHaveStyleRule("left", "calc(100% + 8px)");
@@ -246,8 +246,8 @@ describe("atoms / Corner", () => {
 
       test("should have top -8px for position topRight when is active", () => {
         const { CornerContainer } = setup({
-          position: "topRight",
-          isActive: true
+          isActive: true,
+          position: "topRight"
         });
   
         expect(CornerContainer).toHaveStyleRule("top", "-8px");
@@ -255,8 +255,8 @@ describe("atoms / Corner", () => {
 
       test("should have transform rotate(90deg) for position topRight when is active", () => {
         const { CornerContainer } = setup({
-          position: "topRight",
-          isActive: true
+          isActive: true,
+          position: "topRight"
         });
   
         expect(CornerContainer).toHaveStyleRule("transform", "rotate(90deg)");
@@ -264,8 +264,8 @@ describe("atoms / Corner", () => {
 
       test("should have left -8px for position bottomLeft when is active", () => {
         const { CornerContainer } = setup({
-          position: "bottomLeft",
-          isActive: true
+          isActive: true,
+          position: "bottomLeft"
         });
   
         expect(CornerContainer).toHaveStyleRule("left", "-8px");
@@ -273,8 +273,8 @@ describe("atoms / Corner", () => {
 
       test("should have top calc(100% + 8px) for position bottomLeft when is active", () => {
         const { CornerContainer } = setup({
-          position: "bottomLeft",
-          isActive: true
+          isActive: true,
+          position: "bottomLeft"
         });
   
         expect(CornerContainer).toHaveStyleRule("top", "calc(100% + 8px)");
@@ -282,8 +282,8 @@ describe("atoms / Corner", () => {
 
       test("should have transform rotate(270deg) for position bottomLeft when is active", () => {
         const { CornerContainer } = setup({
-          position: "bottomLeft",
-          isActive: true
+          isActive: true,
+          position: "bottomLeft"
         });
   
         expect(CornerContainer).toHaveStyleRule("transform", "rotate(270deg)");
@@ -291,8 +291,8 @@ describe("atoms / Corner", () => {
       
       test("should have left calc(100% + 8px) for position bottomRight when is active", () => {
         const { CornerContainer } = setup({
-          position: "bottomRight",
-          isActive: true
+          isActive: true,
+          position: "bottomRight"
         });
   
         expect(CornerContainer).toHaveStyleRule("left", "calc(100% + 8px)");
@@ -300,8 +300,8 @@ describe("atoms / Corner", () => {
 
       test("should have top calc(100% + 8px) for position bottomRight when is active", () => {
         const { CornerContainer } = setup({
-          position: "bottomRight",
-          isActive: true
+          isActive: true,
+          position: "bottomRight"
         });
   
         expect(CornerContainer).toHaveStyleRule("top", "calc(100% + 8px)");
@@ -309,8 +309,8 @@ describe("atoms / Corner", () => {
 
       test("should have transform rotate(180deg) for position bottomRight when is active", () => {
         const { CornerContainer } = setup({
-          position: "bottomRight",
-          isActive: true
+          isActive: true,
+          position: "bottomRight"
         });
   
         expect(CornerContainer).toHaveStyleRule("transform", "rotate(180deg)");
@@ -341,8 +341,8 @@ type CornerTestProps = Partial<CornerProps>;
 
 function setup(addedProps?: CornerTestProps): Setup {
   const props: CornerProps = {
-    position: "topLeft",
     isActive: false,
+    position: "topLeft",
     ...addedProps
   };
 

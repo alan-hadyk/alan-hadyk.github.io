@@ -108,9 +108,9 @@ describe("molecules / Nav", () => {
 
 interface Setup extends RenderResult {
   FlexContainer: Element;
+  NavItems: NodeListOf<HTMLAnchorElement>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   SpacingContainers: any;
-  NavItems: NodeListOf<HTMLAnchorElement>;
 }
 
 function setup(): Setup {

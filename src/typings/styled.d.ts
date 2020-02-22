@@ -7,6 +7,7 @@ declare module "styled-components" {
     };
 
     colorPalette: {
+      black: string;
       blue100: string;
       blue200: string;
       blue300: string;
@@ -14,7 +15,6 @@ declare module "styled-components" {
       blue500: string;
       blue600: string;
       blue700: string;
-      black: string;
       white: string;
     };
 

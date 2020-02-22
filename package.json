@@ -7,8 +7,8 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test --passWithNoTests",
-    "lint": "eslint src/*.ts src/*.tsx",
-    "lint:fix": "eslint --fix src/*.ts src/*.tsx",
+    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet",
+    "lint:fix": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "eject": "react-scripts eject",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build"
@@ -79,6 +79,7 @@
     "eslint": "^6.8.0",
     "eslint-plugin-better-styled-components": "^1.1.2",
     "eslint-plugin-react": "^7.18.2",
+    "eslint-plugin-typescript-sort-keys": "^0.5.0",
     "gh-pages": "^2.2.0",
     "pre-commit": "^1.2.2",
     "react-test-renderer": "^16.12.0"

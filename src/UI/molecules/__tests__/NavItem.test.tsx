@@ -381,10 +381,10 @@ describe("molecules / NavItem", () => {
 });
 
 interface Setup extends RenderResult {
-  PositionContainer: Element;
-  NavItemLink: Element;
   NavItemLineLeft: Element;
   NavItemLineRight: Element;
+  NavItemLink: Element;
+  PositionContainer: Element;
   TestElement: Element;
 }
 
@@ -413,10 +413,10 @@ function setup(addedProps?: NavItemTestProps): Setup {
 
   return {
     ...utils,
-    PositionContainer,
-    NavItemLink,
     NavItemLineLeft,
     NavItemLineRight,
+    NavItemLink,
+    PositionContainer,
     TestElement
   };
 }

@@ -1,9 +1,10 @@
+/* eslint-disable */
 import { renderHook } from "@testing-library/react-hooks";
 
 import useIntersectionObserver, { IntersectionObserverType } from "<src>/hooks/useIntersectionObserver";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-let windowSpy: any;
+let windowSpy;
 
 beforeEach(() => {
   windowSpy = jest.spyOn(global, "window", "get");
@@ -18,7 +19,7 @@ describe("hooks / useIntersectionObserver", () => {
     const observe = jest.fn();
     const disconnect = jest.fn();
 
-    function IntersectionObserver(this: IntersectionObserverType): void {
+    function IntersectionObserver() {
       this.observe = observe;
       this.disconnect = disconnect;
       this.takeRecords = jest.fn();
@@ -68,15 +69,7 @@ describe("hooks / useIntersectionObserver", () => {
       }
     }];
 
-    interface IntersectionObserverEntryTest {
-      isIntersecting: boolean;
-      intersectionRatio: number;
-      target: {
-        id: string;
-      };
-    }
-
-    function IntersectionObserver(this: IntersectionObserverType, entries: (arg1: IntersectionObserverEntryTest[]) => void): void {
+    function IntersectionObserver(entries) {
       this.observe = observe;
       this.disconnect = disconnect;
       this.takeRecords = jest.fn();

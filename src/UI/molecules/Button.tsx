@@ -24,8 +24,8 @@ interface ButtonContainerProps {
   border?: string;
   borderColor?: typeof colorPalette[ColorPaletteKeys];
   height?: typeof spacing[SpacingKeys];
-  width?: "auto" | "100%";
   isActive?: boolean;
+  width?: "auto" | "100%";
 }
 
 function Button({
