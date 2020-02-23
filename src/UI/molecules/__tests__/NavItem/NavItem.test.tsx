@@ -1,7 +1,5 @@
-import React, { Fragment } from "react";
+import React from "react";
 import {
-  act,
-  fireEvent,
   RenderResult
 } from "@testing-library/react";
 
@@ -9,16 +7,24 @@ import NavItem, { NavItemProps } from "<molecules>/NavItem";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import ShuffleText from "shuffle-text";
+jest.mock("<hooks>/useShuffleText");
+import useShuffleText from "<hooks>/useShuffleText";
 
 describe("molecules / NavItem", () => {
-  describe("useLayoutEffect", () => {
-    test("should fire shuffleText.setText", () => {
-      jest.spyOn(ShuffleText.prototype, "setText");
+  describe("useShuffleText", () => {
+    test("should fire", () => {
+      const spyUseShuffleText = jest.fn();
+      const mockUseShuffleText = useShuffleText as jest.Mock;
+      mockUseShuffleText.mockImplementation(spyUseShuffleText);
 
       setup();
 
-      expect(ShuffleText.prototype.setText).toHaveBeenCalledWith("Title");
+      const mockCalls = spyUseShuffleText.mock.calls[0][0];
+
+      expect(typeof mockCalls["onShuffleReady"]).toEqual("function");
+      expect(typeof mockCalls["ref"].current).toEqual("object");
+      expect(mockCalls["shuffleState"]).toEqual(undefined);
+      expect(mockCalls["text"]).toEqual("Title");
     });
   });
 
@@ -183,36 +189,6 @@ describe("molecules / NavItem", () => {
     
           expect(NavItemLink).toHaveStyleRule("z-index", "200");
         });
-      });
-    });
-
-    describe("Event handlers", () => {
-      test("should fire element.scrollIntoView onClick", () => {
-        const mockScrollIntoView = jest.fn();
-        window.HTMLElement.prototype.scrollIntoView = mockScrollIntoView;
-
-        const { NavItemLink } = setup();
-
-        act(() => {
-          fireEvent.click(NavItemLink);
-        });
-
-        expect(mockScrollIntoView).toHaveBeenCalledWith({ 
-          behavior: "smooth",
-          block: "start"
-        });
-      });
-
-      test("should fire shuffleText.start onMouseOver", () => {
-        jest.spyOn(ShuffleText.prototype, "start");
-
-        const { NavItemLink } = setup();
-
-        act(() => {
-          fireEvent.mouseOver(NavItemLink);
-        });
-
-        expect(ShuffleText.prototype.start).toHaveBeenCalled();
       });
     });
   });
@@ -385,7 +361,6 @@ interface Setup extends RenderResult {
   NavItemLineRight: Element;
   NavItemLink: Element;
   PositionContainer: Element;
-  TestElement: Element;
 }
 
 type NavItemTestProps = Partial<NavItemProps>;
@@ -398,10 +373,7 @@ function setup(addedProps?: NavItemTestProps): Setup {
   };
 
   const utils: RenderResult = renderWithTheme(
-    <Fragment>
-      <NavItem {...props} />
-      <div id="element" data-testid="testElement" />
-    </Fragment>
+    <NavItem {...props} />
   );
 
   const { container }: RenderResult = utils;
@@ -409,14 +381,12 @@ function setup(addedProps?: NavItemTestProps): Setup {
   const NavItemLink: Element = PositionContainer.children[0];
   const NavItemLineLeft: Element = PositionContainer.children[1];
   const NavItemLineRight: Element = PositionContainer.children[2];
-  const TestElement: Element = container.children[1];
 
   return {
     ...utils,
     NavItemLineLeft,
     NavItemLineRight,
     NavItemLink,
-    PositionContainer,
-    TestElement
+    PositionContainer
   };
 }

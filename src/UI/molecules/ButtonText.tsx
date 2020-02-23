@@ -15,16 +15,15 @@ interface TextProps {
   fontSize: typeof fontSizes[FontSizesKeys];
 }
 
-interface ButtonTextContainerProps {
-  theme: typeof fontSizes[FontSizesKeys];
-}
-
 function ButtonText({ buttonText, size }: ButtonTextProps): JSX.Element {
-  const buttonTextProps = mapSizeToButtonTextProps();
+  const buttonTextProps: TextProps = mapSizeToButtonTextProps();
 
   return (
     <SpacingContainer marginRight={size === "small" ? "spacing8" : "spacing16"}>
-      <Text {...buttonTextProps} fontFamily="Exan">
+      <Text 
+        {...buttonTextProps} 
+        fontFamily="Exan"
+      >
         {buttonText}
       </Text>
     </SpacingContainer>
@@ -37,10 +36,12 @@ function ButtonText({ buttonText, size }: ButtonTextProps): JSX.Element {
       return {
         fontSize: "font20"
       };
+
     case "medium":
       return {
         fontSize: "font24"
       };
+
     case "large":
       return {
         fontSize: "font28"

@@ -7,6 +7,7 @@ type SpacingKeys = keyof typeof spacing;
 
 export interface LinkProps {
   children: JSX.Element | JSX.Element[] | string;
+  display?: "block" | "inline";
   height?: typeof spacing[SpacingKeys] | "unset" | "50%" | "100%";
   href: string;
   isExternal?: boolean;
@@ -14,12 +15,14 @@ export interface LinkProps {
 
 const Link = ({
   children,
+  display = "inline",
   height = "unset",
   href,
   isExternal = false
 }: LinkProps): JSX.Element => (
   <Link.Container
     data-testid="Link"
+    display={display}
     height={height}
     href={href}
     target={isExternal ? "_blank" : "_self"}
@@ -30,11 +33,13 @@ const Link = ({
 
 Link.Container = styled.a<LinkProps>`
   ${({
+    display,
     height,
     theme: {
       spacing
     }
   }): FlattenSimpleInterpolation => css`
+    display: ${display};
     height: ${(height in spacing && spacing[height]) || height};
     line-height: 1;
   `}

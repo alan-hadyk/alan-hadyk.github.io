@@ -1,6 +1,6 @@
 import React, { memo, useState, useRef } from "react";
-import styled, { keyframes, css, FlattenSimpleInterpolation } from "styled-components";
-import { transparentize } from "polished";
+import styled, { css, FlattenSimpleInterpolation } from "styled-components";
+import { transparentize, radialGradient } from "polished";
 
 import SpacingContainer from "<layout>/SpacingContainer";
 import FlexContainer from "<layout>/FlexContainer";
@@ -8,50 +8,53 @@ import ButtonIcon, { ButtonIconProps } from "<atoms>/ButtonIcon";
 import ButtonText from "<molecules>/ButtonText";
 import Corners from "<molecules>/Corners";
 
-import spacing from "<styles>/variables/spacing";
 import colorPalette from "<styles>/variables/colorPalette";
+import transitionTimes from "<styles>/variables/transitionTimes";
 
 export interface ButtonProps extends ButtonIconProps {
   buttonText: string;
   type?: "primary" | "secondary";
 }
 
-type SpacingKeys = keyof typeof spacing;
 type ColorPaletteKeys = keyof typeof colorPalette;
 
 interface ButtonContainerProps {
   backgroundColor?: typeof colorPalette[ColorPaletteKeys] | "transparent";
-  border?: string;
+  border?: "1px solid" | "none";
   borderColor?: typeof colorPalette[ColorPaletteKeys];
-  height?: typeof spacing[SpacingKeys];
-  isActive?: boolean;
+  height?: "spacing40" | "spacing48" | "spacing56";
   width?: "auto" | "100%";
+}
+
+interface ButtonInnnerContainerPositions {
+  x: number;
+  y: number;
 }
 
 function Button({
   buttonText,
   iconName,
-  size,
+  size = "medium",
   type = "primary"
 }: ButtonProps): JSX.Element {
-  const [isActive, setIsActive] = useState(false);
-  const buttonInnerContainerRef = useRef(null);
+  const [isActive, setIsActive] = useState<boolean>(false);
+  const buttonInnerContainerRef = useRef<HTMLDivElement>(null);
+  const isElementFocused = useRef<boolean>(false);
 
   const buttonContainerSizeProps: ButtonContainerProps = mapSizeToButtonContainerProps();
   const buttonContainerTypeProps: ButtonContainerProps = mapTypeToButtonContainerProps();
   const buttonSpacing: string = size === "small" ? "spacing16" : "spacing24";
-  
+
   return (
     <Button.Container
       {...buttonContainerSizeProps}
       {...buttonContainerTypeProps}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      isActive={isActive}
       onClick={handleButtonClick}
     >
       <Corners isActive={isActive} />
-      <Button.InnerContainer ref={buttonInnerContainerRef}>
+      <Button.InnerContainer ref={buttonInnerContainerRef} data-testid="ButtonInnerContainer">
         <SpacingContainer paddingRight={buttonSpacing} paddingLeft={buttonSpacing}>
           <FlexContainer
             flexFlow="row wrap"
@@ -71,11 +74,13 @@ function Button({
         height: "spacing40",
         width: "auto"
       };
+
     case "medium":
       return {
         height: "spacing48",
         width: "auto"
       };
+
     case "large":
       return {
         height: "spacing56",
@@ -91,6 +96,7 @@ function Button({
         backgroundColor: "blue500",
         border: "none"
       };
+
     case "secondary":
       return {
         backgroundColor: "transparent",
@@ -102,20 +108,23 @@ function Button({
 
   function handleMouseEnter(): void {
     setIsActive(true);
+    isElementFocused.current = true;
   }
 
   function handleMouseLeave(): void {
     setIsActive(false);
+    isElementFocused.current = false;
   }
 
   function handleButtonClick(event: React.MouseEvent<HTMLButtonElement>): void {
+    setIsActive(false);
     event.preventDefault();
 
     if (buttonInnerContainerRef.current) {
       const { clientX, clientY }: React.MouseEvent = event;
-      const { x, y } = buttonInnerContainerRef.current.getBoundingClientRect();
+      const { x, y }: ButtonInnnerContainerPositions = buttonInnerContainerRef.current.getBoundingClientRect();
 
-      const span = document.createElement("span");
+      const span: HTMLSpanElement = document.createElement("span");
       span.classList.add("ripple");
       span.style.left = `${clientX - x}px`;
       span.style.top = `${clientY - y}px`;
@@ -123,8 +132,14 @@ function Button({
       buttonInnerContainerRef.current.appendChild(span);
 
       setTimeout(() => {
-        span.remove();
-      }, 1000);
+        if (isElementFocused.current) {
+          buttonInnerContainerRef.current && setIsActive(true);
+        }
+      }, parseInt(transitionTimes.fast));
+
+      setTimeout(() => {
+        span && span.remove();
+      }, parseInt(transitionTimes.slow));
     }
   }
 }
@@ -137,17 +152,6 @@ Button.InnerContainer = styled.div`
   position: relative;
 `;
 
-const ripple = keyframes`
-  from {
-    opacity: 1;
-    transform: scale(0);
-  }
-  to {
-    opacity: 0;
-    transform: scale(10);
-  }
-`;
-
 Button.Container = styled.button<ButtonContainerProps>`
   ${({
     height,
@@ -155,18 +159,28 @@ Button.Container = styled.button<ButtonContainerProps>`
     backgroundColor,
     border,
     borderColor,
-    isActive,
     theme: {
+      colorPalette: {
+        blue200,
+        blue300,
+        white
+      },
+      easing: {
+        easeInOut
+      },
+      keyframes: {
+        ripple
+      },
       spacing: spacingVariables,
-      colorPalette: { white, blue200 },
-      transitionTimes: { fast },
-      easing: { easeInOut }
+      transitionTimes: {
+        fast,
+        slow
+      }
     }
   }): FlattenSimpleInterpolation => css`
     background-color: ${(backgroundColor in colorPalette && colorPalette[backgroundColor]) || backgroundColor};
     border: ${border};
-    border-color: ${colorPalette[borderColor]};
-    box-shadow: ${isActive && `inset 0px 0px 16px 0px ${transparentize(0.5, blue200)}`};
+    border-color: ${borderColor in colorPalette && colorPalette[borderColor]};
     color: ${white};
     cursor: pointer;
     height: ${height in spacingVariables && spacingVariables[height]};
@@ -176,16 +190,30 @@ Button.Container = styled.button<ButtonContainerProps>`
     transition: all ${fast} ${easeInOut};
     width: ${width};
 
+    &:hover {
+      box-shadow: inset 0px 0px ${spacingVariables.spacing16} 0px ${transparentize(0.5, blue200)};
+    }
+
     .ripple {
-      animation: ${ripple} 1s;
-      background-color: rgba(0, 0, 0, 0.3);
+      animation: ${ripple} ${slow};
+      ${radialGradient({
+    // eslint-disable-next-line indent
+        colorStops: [`${transparentize(0.5, blue300)} 0%`, `${transparentize(1, blue200)} 100%`],
+    // eslint-disable-next-line indent
+        extent: `farthest-corner at ${spacingVariables.spacing12} ${spacingVariables.spacing12}`,
+    // eslint-disable-next-line indent
+        position: "center",
+    // eslint-disable-next-line indent
+        shape: "ellipse"
+    // eslint-disable-next-line indent
+      })}
       border-radius: 50%;
-      height: 100px;
-      margin-left: -50px;
-      margin-top: -50px;
+      height: ${spacingVariables.spacing24};
+      margin-left: -${spacingVariables.spacing12};
+      margin-top: -${spacingVariables.spacing12};
       opacity: 0;
       position: absolute;
-      width: 100px;
+      width: ${spacingVariables.spacing24};
     }
   `}
 `;

@@ -33,10 +33,17 @@ declare module "styled-components" {
       font28: string;
     };
 
+    keyframes: {
+      ripple: Keyframes;
+    };
+
     spacing: {
+      spacing0: string;
+      spacing1: string;
       spacing4: string;
       spacing8: string;
       spacing12: string;
+      spacing16: string;
       spacing24: string;
       spacing40: string;
       spacing48: string;
@@ -47,6 +54,7 @@ declare module "styled-components" {
     transitionTimes: {
       default: string;
       fast: string;
+      slow: string;
     };
 
     zIndex: {

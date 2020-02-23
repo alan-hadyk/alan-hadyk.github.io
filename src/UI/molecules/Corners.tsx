@@ -16,7 +16,7 @@ export interface CornersProps {
   isActive?: boolean;
 }
 
-function Corners({ isActive }: CornersProps): JSX.Element {
+function Corners({ isActive = false }: CornersProps): JSX.Element {
   return (
     <Fragment>
       {renderCorners()}

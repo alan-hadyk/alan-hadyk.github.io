@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { renderHook } from "@testing-library/react-hooks";
 
-import useIntersectionObserver, { IntersectionObserverType } from "<src>/hooks/useIntersectionObserver";
+import useIntersectionObserver from "<src>/hooks/useIntersectionObserver";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let windowSpy;

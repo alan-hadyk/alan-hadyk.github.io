@@ -8,7 +8,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 describe("atoms / Text", () => {
   test("should render children", () => {
     const { TextContainer } = setup({
-      children: <div>Custom children</div>
+      children: "Custom children"
     });
 
     expect(TextContainer.textContent).toEqual("Custom children");

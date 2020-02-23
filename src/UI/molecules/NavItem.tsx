@@ -1,8 +1,13 @@
-import React, { useRef, useLayoutEffect, useState, memo } from "react";
+import React, {
+  memo,
+  useRef,
+  useState
+} from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
-import ShuffleText from "shuffle-text";
 
 import PositionContainer from "<layout>/PositionContainer";
+
+import useShuffleText, { ShuffleState } from "<hooks>/useShuffleText";
 
 export interface NavItemProps {
   href: string;
@@ -10,31 +15,20 @@ export interface NavItemProps {
   title: string;
 }
 
-interface ShuffleTextType {
-  setText: (arg1: string) => void;
-  start: VoidFunction;
-}
-
 function NavItem({
   href,
   isActive = false,
   title
 }: NavItemProps): JSX.Element {
-  const [shuffleText, setShuffleText] = useState();
-  const navItemElement = useRef(null);
+  const [shuffleText, setShuffleText] = useState<ShuffleState | undefined>();
+  const navItemElement = useRef<HTMLAnchorElement>(null);
 
-  useLayoutEffect(() => {
-    if (!navItemElement.current || shuffleText) {
-      return;
-    }
-
-    const text: ShuffleTextType  = new ShuffleText(navItemElement.current);
-    text.setText(title);
-
-    setShuffleText({
-      start: () => text.start()
-    });
-  }, [navItemElement, title, shuffleText]);
+  useShuffleText({
+    onShuffleReady: setShuffleText,
+    ref: navItemElement,
+    shuffleState: shuffleText,
+    text: title
+  });
 
   return (
     <PositionContainer 

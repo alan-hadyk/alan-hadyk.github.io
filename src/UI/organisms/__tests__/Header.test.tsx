@@ -10,19 +10,24 @@ jest.mock("<src>/hooks/useIntersectionObserver");
 describe("organisms / Header", () => {
   test("should have correct structure", () => {
     const {
-      container,
       Button,
+      CodeSandbox,
+      container,
+      GitHub,
       HeaderContainer,
       HeaderInnerContainer,
       InnerFlexContainer,
+      LinkedIn,
       Logo,
       MidFlexContainer,
       Nav,
       OuterFlexContainer,
       PositionContainer,
-      SpacingContainer
+      SpacingContainerCodeSandbox,
+      SpacingContainerGitHub,
+      SpacingContainerLinkedIn,
+      SpacingContainerNav
     } = setup();
-
     expect(container.children[0]).toEqual(PositionContainer);
 
     expect(PositionContainer.children[0]).toEqual(HeaderContainer);
@@ -36,10 +41,17 @@ describe("organisms / Header", () => {
     expect(MidFlexContainer.children[0]).toEqual(Logo);
     expect(MidFlexContainer.children[1]).toEqual(InnerFlexContainer);
 
-    expect(InnerFlexContainer.children[0]).toEqual(SpacingContainer);
+    expect(InnerFlexContainer.children[0]).toEqual(SpacingContainerNav);
     expect(InnerFlexContainer.children[1]).toEqual(Button);
+    expect(InnerFlexContainer.children[2]).toEqual(SpacingContainerGitHub);
+    expect(InnerFlexContainer.children[3]).toEqual(SpacingContainerCodeSandbox);
+    expect(InnerFlexContainer.children[4]).toEqual(SpacingContainerLinkedIn);
 
-    expect(SpacingContainer.children[0]).toEqual(Nav);
+    expect(SpacingContainerNav.children[0]).toEqual(Nav);
+
+    expect(SpacingContainerGitHub.children[0]).toEqual(GitHub);
+    expect(SpacingContainerCodeSandbox.children[0]).toEqual(CodeSandbox);
+    expect(SpacingContainerLinkedIn.children[0]).toEqual(LinkedIn);
   });
 
   describe("PositionContainer", () => {
@@ -218,21 +230,111 @@ describe("organisms / Header", () => {
     });
   });
 
-  describe("Logo", () => {
-    test("should have correct icon", () => {
-      const { Logo } = setup();
-
-      expect(Logo.textContent).toEqual("Logo.svg");
+  describe("Links with icon", () => {    
+    describe("Logo", () => {
+      test("should have correct icon", () => {
+        const { Logo } = setup();
+  
+        expect(Logo.textContent).toEqual("Logo.svg");
+      });
+  
+      test("should have correct href", () => {
+        const { Logo } = setup();
+  
+        expect(Logo.getAttribute("href")).toEqual("http://localhost/");
+      });
+        
+      test("should have target=_self", () => {
+        const { Logo } = setup();
+  
+        expect(Logo.getAttribute("target")).toEqual("_self");
+      });
+    });
+  
+    describe("GitHub", () => {
+      test("should have correct icon", () => {
+        const { GitHub } = setup();
+  
+        expect(GitHub.textContent).toEqual("GitHub.svg");
+      }); 
+  
+      test("should have correct href", () => {
+        const { GitHub } = setup();
+  
+        expect(GitHub.getAttribute("href")).toEqual("https://github.com/alan-hadyk");
+      });
+  
+      test("should have target=_blank", () => {
+        const { GitHub } = setup();
+  
+        expect(GitHub.getAttribute("target")).toEqual("_blank");
+      });
+    });
+  
+    describe("CodeSandbox", () => {
+      test("should have correct icon", () => {
+        const { CodeSandbox } = setup();
+  
+        expect(CodeSandbox.textContent).toEqual("CodeSandbox.svg");
+      }); 
+  
+      test("should have correct href", () => {
+        const { CodeSandbox } = setup();
+  
+        expect(CodeSandbox.getAttribute("href")).toEqual("https://codesandbox.io/u/alan-hadyk");
+      });
+  
+      test("should have target=_blank", () => {
+        const { CodeSandbox } = setup();
+  
+        expect(CodeSandbox.getAttribute("target")).toEqual("_blank");
+      });
+    });
+  
+    describe("LinkedIn", () => {
+      test("should have correct icon", () => {
+        const { LinkedIn } = setup();
+  
+        expect(LinkedIn.textContent).toEqual("LinkedIn.svg");
+      }); 
+  
+      test("should have correct href", () => {
+        const { LinkedIn } = setup();
+  
+        expect(LinkedIn.getAttribute("href")).toEqual("https://www.linkedin.com/in/alan-hadyk-78738099/");
+      });
+  
+      test("should have target=_blank", () => {
+        const { LinkedIn } = setup();
+  
+        expect(LinkedIn.getAttribute("target")).toEqual("_blank");
+      });
     });
   });
 
-  describe("SpacingContainer", () => {
-    describe("Styles", () => {
-      describe("margin-right", () => {      
-        test("should have 4.8rem by default", () => {
-          const { SpacingContainer } = setup();
+  describe("SpacingContainers", () => {
+    describe("SpacingContainers[0] (parent of Nav)", () => {
+      describe("Styles", () => {
+        describe("margin-right", () => {      
+          test("should have 4.8rem by default", () => {
+            const { SpacingContainers } = setup();
     
-          expect(SpacingContainer).toHaveStyleRule("margin-right", "4.8rem");
+            expect(SpacingContainers[0]).toHaveStyleRule("margin-right", "4.8rem");
+          });
+        });
+      });
+    });
+
+    describe("SpacingContainers[1], SpacingContainers[2], SpacingContainers[3] (parents of LinkWithIcon)", () => {
+      describe("Styles", () => {
+        describe("margin-left", () => {      
+          test("should have 2.4rem by default", () => {
+            const { SpacingContainers } = setup();
+    
+            expect(SpacingContainers[1]).toHaveStyleRule("margin-left", "2.4rem");
+            expect(SpacingContainers[2]).toHaveStyleRule("margin-left", "2.4rem");
+            expect(SpacingContainers[3]).toHaveStyleRule("margin-left", "2.4rem");
+          });
         });
       });
     });
@@ -279,15 +381,22 @@ describe("organisms / Header", () => {
 
 interface Setup extends RenderResult {
   Button: HTMLElement;
+  CodeSandbox: HTMLElement;
+  GitHub: HTMLElement;
   HeaderContainer: HTMLElement;
   HeaderInnerContainer: HTMLElement;
   InnerFlexContainer: HTMLElement;
+  LinkedIn: HTMLElement;
   Logo: HTMLElement;
   MidFlexContainer: HTMLElement;
   Nav: Element;
   OuterFlexContainer: HTMLElement;
   PositionContainer: HTMLElement;
-  SpacingContainer: Element;
+  SpacingContainerCodeSandbox: Element;
+  SpacingContainerGitHub: Element;
+  SpacingContainerLinkedIn: Element;
+  SpacingContainerNav: Element;
+  SpacingContainers: Element[];
 }
 
 type HeaderTestProps = Partial<HeaderProps>;
@@ -310,25 +419,39 @@ function setup(addedProps?: HeaderTestProps): Setup {
   const HeaderContainer = document.querySelector("header");
   const HeaderInnerContainer = queryByTestId("HeaderInnerContainer");
   const InnerFlexContainer = queryAllByTestId("FlexContainer")[2];
-  const Logo = queryByTestId("Link");
+  const Logo = queryAllByTestId("Link")[0];
+  const GitHub = queryAllByTestId("Link")[1];
+  const CodeSandbox = queryAllByTestId("Link")[2];
+  const LinkedIn = queryAllByTestId("Link")[3];
   const MidFlexContainer = queryAllByTestId("FlexContainer")[1];
   const OuterFlexContainer = queryAllByTestId("FlexContainer")[0];
   const PositionContainer = queryAllByTestId("PositionContainer")[0];
-  const SpacingContainer = InnerFlexContainer.children[0];
-  const Nav = SpacingContainer.children[0];
+  const SpacingContainers = queryAllByTestId("SpacingContainer");
+  const SpacingContainerNav = InnerFlexContainer.children[0];
+  const SpacingContainerGitHub = InnerFlexContainer.children[2];
+  const SpacingContainerCodeSandbox = InnerFlexContainer.children[3];
+  const SpacingContainerLinkedIn = InnerFlexContainer.children[4];
+  const Nav = SpacingContainerNav.children[0];
   const Button = document.querySelector("button");
 
   return {
     ...utils,
     Button,
+    CodeSandbox,
+    GitHub,
     HeaderContainer,
     HeaderInnerContainer,
     InnerFlexContainer,
+    LinkedIn,
     Logo,
     MidFlexContainer,
     Nav,
     OuterFlexContainer,
     PositionContainer,
-    SpacingContainer
+    SpacingContainerCodeSandbox,
+    SpacingContainerGitHub,
+    SpacingContainerLinkedIn,
+    SpacingContainerNav,
+    SpacingContainers
   };
 }

@@ -56,58 +56,70 @@ describe("atoms / Corner", () => {
         });
       });
 
-      test("should have height 8px for &:before", () => {
+      test("should have display block for &:before, &:after", () => {
         const { CornerContainer } = setup();
   
-        expect(CornerContainer).toHaveStyleRule("height", "8px", {
+        expect(CornerContainer).toHaveStyleRule("display", "block", {
           modifier: "::before"
         });
+  
+        expect(CornerContainer).toHaveStyleRule("display", "block", {
+          modifier: "::after"
+        });
       });
-      
-      test("should have left 0 for &:before", () => {
+
+      test("should have left 0 for &:before, &:after", () => {
         const { CornerContainer } = setup();
   
         expect(CornerContainer).toHaveStyleRule("left", "0", {
           modifier: "::before"
         });
+  
+        expect(CornerContainer).toHaveStyleRule("left", "0", {
+          modifier: "::after"
+        });
       });
 
-      test("should width 1px white for &:before", () => {
+      test("should have top 0 for &:before, &:after", () => {
         const { CornerContainer } = setup();
   
-        expect(CornerContainer).toHaveStyleRule("width", "1px", {
+        expect(CornerContainer).toHaveStyleRule("top", "0", {
+          modifier: "::before"
+        });
+  
+        expect(CornerContainer).toHaveStyleRule("top", "0", {
+          modifier: "::after"
+        });
+      });
+
+      test("should have height .8rem for &:before", () => {
+        const { CornerContainer } = setup();
+  
+        expect(CornerContainer).toHaveStyleRule("height", ".8rem", {
           modifier: "::before"
         });
       });
 
-      test("should have height 8px for &:after", () => {
+      test("should width .1rem for &:before", () => {
         const { CornerContainer } = setup();
   
-        expect(CornerContainer).toHaveStyleRule("height", "8px", {
-          modifier: "::after"
+        expect(CornerContainer).toHaveStyleRule("width", ".1rem", {
+          modifier: "::before"
         });
       });
 
-      test("should have left 4px for &:after", () => {
+      test("should have height .1rem for &:after", () => {
         const { CornerContainer } = setup();
   
-        expect(CornerContainer).toHaveStyleRule("left", "4px", {
-          modifier: "::after"
-        });
-      });
-
-      test("should have top -3.5px for &:after", () => {
-        const { CornerContainer } = setup();
-  
-        expect(CornerContainer).toHaveStyleRule("top", "-3.5px", {
+        expect(CornerContainer).toHaveStyleRule("height", ".1rem", {
           modifier: "::after"
         });
       });
       
-      test("should have width 1px for &:after", () => {
+      test("should have width .8rem for &:after", () => {
         const { CornerContainer } = setup();
   
-        expect(CornerContainer).toHaveStyleRule("width", "1px", {
+        expect(CornerContainer).toHaveStyleRule("width", ".8rem", {
           modifier: "::after"
         });
       });
@@ -136,12 +148,12 @@ describe("atoms / Corner", () => {
         expect(CornerContainer).toHaveStyleRule("transform", "rotate(0)");
       });
 
-      test("should have left 100% for position topRight", () => {
+      test("should have left calc(100% - 8px) for position topRight", () => {
         const { CornerContainer } = setup({
           position: "topRight"
         });
   
-        expect(CornerContainer).toHaveStyleRule("left", "100%");
+        expect(CornerContainer).toHaveStyleRule("left", "calc(100% - 8px)");
       });
 
       test("should have top 0 for position topRight", () => {
@@ -168,12 +180,12 @@ describe("atoms / Corner", () => {
         expect(CornerContainer).toHaveStyleRule("left", "0");
       });
 
-      test("should have top 100% for position bottomLeft", () => {
+      test("should have top calc(100% - 8px) for position bottomLeft", () => {
         const { CornerContainer } = setup({
           position: "bottomLeft"
         });
   
-        expect(CornerContainer).toHaveStyleRule("top", "100%");
+        expect(CornerContainer).toHaveStyleRule("top", "calc(100% - 8px)");
       });
 
       test("should have transform rotate(270deg) for position bottomLeft", () => {
@@ -184,20 +196,20 @@ describe("atoms / Corner", () => {
         expect(CornerContainer).toHaveStyleRule("transform", "rotate(270deg)");
       });
 
-      test("should have left 100% for position bottomRight", () => {
+      test("should have left calc(100% - 8px) for position bottomRight", () => {
         const { CornerContainer } = setup({
           position: "bottomRight"
         });
   
-        expect(CornerContainer).toHaveStyleRule("left", "100%");
+        expect(CornerContainer).toHaveStyleRule("left", "calc(100% - 8px)");
       });
 
-      test("should have top 100% for position bottomRight", () => {
+      test("should have top calc(100% - 8px) for position bottomRight", () => {
         const { CornerContainer } = setup({
           position: "bottomRight"
         });
   
-        expect(CornerContainer).toHaveStyleRule("top", "100%");
+        expect(CornerContainer).toHaveStyleRule("top", "calc(100% - 8px)");
       });
 
       test("should have transform rotate(180deg) for position bottomRight", () => {
@@ -235,13 +247,13 @@ describe("atoms / Corner", () => {
         expect(CornerContainer).toHaveStyleRule("transform", "rotate(0)");
       });
 
-      test("should have left calc(100% + 8px) for position topRight when is active", () => {
+      test("should have left 100% for position topRight when is active", () => {
         const { CornerContainer } = setup({
           isActive: true,
           position: "topRight"
         });
   
-        expect(CornerContainer).toHaveStyleRule("left", "calc(100% + 8px)");
+        expect(CornerContainer).toHaveStyleRule("left", "100%");
       });
 
       test("should have top -8px for position topRight when is active", () => {
@@ -271,13 +283,13 @@ describe("atoms / Corner", () => {
         expect(CornerContainer).toHaveStyleRule("left", "-8px");
       });
 
-      test("should have top calc(100% + 8px) for position bottomLeft when is active", () => {
+      test("should have top 100% for position bottomLeft when is active", () => {
         const { CornerContainer } = setup({
           isActive: true,
           position: "bottomLeft"
         });
   
-        expect(CornerContainer).toHaveStyleRule("top", "calc(100% + 8px)");
+        expect(CornerContainer).toHaveStyleRule("top", "100%");
       });
 
       test("should have transform rotate(270deg) for position bottomLeft when is active", () => {
@@ -289,22 +301,22 @@ describe("atoms / Corner", () => {
         expect(CornerContainer).toHaveStyleRule("transform", "rotate(270deg)");
       });
       
-      test("should have left calc(100% + 8px) for position bottomRight when is active", () => {
+      test("should have left 100% for position bottomRight when is active", () => {
         const { CornerContainer } = setup({
           isActive: true,
           position: "bottomRight"
         });
   
-        expect(CornerContainer).toHaveStyleRule("left", "calc(100% + 8px)");
+        expect(CornerContainer).toHaveStyleRule("left", "100%");
       });
 
-      test("should have top calc(100% + 8px) for position bottomRight when is active", () => {
+      test("should have top 100% for position bottomRight when is active", () => {
         const { CornerContainer } = setup({
           isActive: true,
           position: "bottomRight"
         });
   
-        expect(CornerContainer).toHaveStyleRule("top", "calc(100% + 8px)");
+        expect(CornerContainer).toHaveStyleRule("top", "100%");
       });
 
       test("should have transform rotate(180deg) for position bottomRight when is active", () => {
@@ -322,7 +334,7 @@ describe("atoms / Corner", () => {
         expect(CornerContainer).toHaveStyleRule("opacity", "0.5");
       });
 
-      test("should have opacity 1 when is not active", () => {
+      test("should have opacity 1 when is active", () => {
         const { CornerContainer } = setup({
           isActive: true
         });

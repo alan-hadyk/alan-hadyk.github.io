@@ -1,5 +1,6 @@
 export default {
   spacing0: "0",
+  spacing1: ".1rem",
   spacing4: ".4rem",
   spacing8: ".8rem",
   spacing12: "1.2rem",

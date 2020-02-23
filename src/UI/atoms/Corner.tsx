@@ -7,44 +7,48 @@ export interface CornerProps {
 }
 
 interface CornerContainerProps {
-  left: 0 | "100%" | "-8px" | "calc(100% + 8px)";
-  opacity?: "0.5" | 1;
-  top: 0 | "100%" | "-8px" | "calc(100% + 8px)";
+  left: 0 | "100%" | "-8px" | "calc(100% - 8px)";
+  opacity?: 0.5 | 1;
+  top: 0 | "100%" | "-8px" | "calc(100% - 8px)";
   transform: "rotate(0)" | "rotate(90deg)" | "rotate(270deg)" | "rotate(180deg)";
 }
 
-function Corner({ isActive, position = "topLeft" }: CornerProps): JSX.Element {
+function Corner({ isActive = false, position }: CornerProps): JSX.Element {
   const cornerProps: CornerContainerProps = isActive ? mapActivePositionToCornerProps() : mapPositionToCornerProps();
-  const opacity = isActive ? 1 : "0.5";
+  const opacity: CornerContainerProps["opacity"] = isActive ? 1 : 0.5;
 
   return (
-    <Corner.Container {...cornerProps} opacity={opacity} />
+    <Corner.Container {...cornerProps} opacity={opacity} data-testid="Corner" />
   );
 
   function mapPositionToCornerProps(): CornerContainerProps {
     switch (position) {
+
     case "topLeft":
       return {
         left: 0,
         top: 0,
         transform: "rotate(0)"
       };
+
     case "topRight":
       return {
-        left: "100%",
+        left: "calc(100% - 8px)",
         top: 0,
         transform: "rotate(90deg)"
       };
+
     case "bottomLeft":
       return {
         left: 0,
-        top: "100%",
+        top: "calc(100% - 8px)",
         transform: "rotate(270deg)"
       };
+
     case "bottomRight":
       return {
-        left: "100%",
-        top: "100%",
+        left: "calc(100% - 8px)",
+        top: "calc(100% - 8px)",
         transform: "rotate(180deg)"
       };
     }
@@ -58,29 +62,32 @@ function Corner({ isActive, position = "topLeft" }: CornerProps): JSX.Element {
         top: "-8px",
         transform: "rotate(0)"
       };
+
     case "topRight":
       return {
-        left: "calc(100% + 8px)",
+        left: "100%",
         top: "-8px",
         transform: "rotate(90deg)"
       };
+
     case "bottomLeft":
       return {
         left: "-8px",
-        top: "calc(100% + 8px)",
+        top: "100%",
         transform: "rotate(270deg)"
       };
+
     case "bottomRight":
       return {
-        left: "calc(100% + 8px)",
-        top: "calc(100% + 8px)",
+        left: "100%",
+        top: "100%",
         transform: "rotate(180deg)"
       };
     }
   }
 }
 
-Corner.Container = styled.span<CornerContainerProps>`
+Corner.Container = styled.div<CornerContainerProps>`
   ${({
     top,
     left,
@@ -89,34 +96,36 @@ Corner.Container = styled.span<CornerContainerProps>`
     theme: {
       colorPalette: { white },
       transitionTimes: { fast },
-      easing: { easeInOut }
+      easing: { easeInOut },
+      spacing: { spacing0, spacing1, spacing8 }
     }
   }): FlattenSimpleInterpolation => css`
+    height: ${spacing8};
     left: ${left};
     opacity: ${opacity};
     position: absolute;
     top: ${top};
     transform: ${transform};
     transition: all ${fast} ${easeInOut};
+    width: ${spacing8};
 
     &::before, &::after {
-      content: '';
-      position: absolute;
       background: ${white};
+      content: '';
+      display: block;
+      position: absolute;
+      left: ${spacing0};
+      top: ${spacing0};
     }
     
     &::before {
-      height: 8px;
-      left: 0;
-      width: 1px;
+      height: ${spacing8};
+      width: ${spacing1};
     }
 
     &::after {
-      height: 8px;
-      left: 4px;
-      top: -3.5px;
-      transform: rotate(90deg);
-      width: 1px;
+      height: ${spacing1};
+      width: ${spacing8};
     }
   `}
 `;
