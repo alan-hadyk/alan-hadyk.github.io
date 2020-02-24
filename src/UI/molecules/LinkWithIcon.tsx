@@ -6,7 +6,7 @@ import Link from "<atoms>/Link";
 
 import { ReactComponent as Logo } from "<assets>/svg/Logo.svg";
 import { ReactComponent as CodeSandbox } from "<assets>/svg/CodeSandbox.svg";
-// import { ReactComponent as GitHub } from "<assets>/svg/GitHub.svg";
+import { ReactComponent as GitHub } from "<assets>/svg/github-icon.svg";
 import { ReactComponent as LinkedIn } from "<assets>/svg/LinkedIn.svg";
 
 export interface LinkWithIconProps {
@@ -43,9 +43,9 @@ function LinkWithIcon({
       icon = CodeSandbox;
       break;
 
-      // case "gitHub":
-      //   icon = GitHub;
-      //   break;
+    case "gitHub":
+      icon = GitHub;
+      break;
 
     case "linkedIn":
       icon = LinkedIn;

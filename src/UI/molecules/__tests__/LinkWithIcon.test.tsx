@@ -63,12 +63,12 @@ describe("molecules / LinkWithIcon", () => {
           expect(Icon.textContent).toEqual("CodeSandbox.svg");
         });
 
-        test.skip("gitHub", () => {
+        test("gitHub", () => {
           const { Icon } = setup({
             iconName: "gitHub"
           });
     
-          expect(Icon.textContent).toEqual("GitHub.svg");
+          expect(Icon.textContent).toEqual("github-icon.svg");
         });
 
         test("linkedIn", () => {
