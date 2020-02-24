@@ -7,8 +7,8 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test --passWithNoTests",
-    "lint": "eslint src/*.ts src/*.tsx",
-    "lint:fix": "eslint --fix src/*.ts src/*.tsx",
+    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet",
+    "lint:fix": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "eject": "react-scripts eject",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build"
@@ -29,6 +29,7 @@
       "^<src>/(.*)$": "<rootDir>/src/$1",
       "^<assets>/(.*)$": "<rootDir>/src/assets/$1",
       "^<helpers>/(.*)$": "<rootDir>/src/helpers/$1",
+      "^<hooks>/(.*)$": "<rootDir>/src/hooks/$1",
       "^<pages>/(.*)$": "<rootDir>/src/pages/$1",
       "^<styles>/(.*)$": "<rootDir>/src/styles/$1",
       "^<atoms>/(.*)$": "<rootDir>/src/UI/atoms/$1",
@@ -36,6 +37,9 @@
       "^<molecules>/(.*)$": "<rootDir>/src/UI/molecules/$1",
       "^<organisms>/(.*)$": "<rootDir>/src/UI/organisms/$1",
       "^<templates>/(.*)$": "<rootDir>/src/UI/templates/$1"
+    },
+    "transform": {
+      "\\.svg$": "<rootDir>/src/fileTransform.js"
     }
   },
   "browserslist": {
@@ -55,15 +59,18 @@
     "@testing-library/jest-dom": "^5.1.1",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "intersection-observer": "^0.7.0",
     "jest-styled-components": "^7.0.0",
     "polished": "^3.4.4",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "3.3.1",
+    "shuffle-text": "^0.3.0",
     "styled-components": "^5.0.0",
     "typescript": "~3.7.2"
   },
   "devDependencies": {
+    "@testing-library/react-hooks": "^3.2.1",
     "@types/jest": "^25.1.2",
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
@@ -73,8 +80,11 @@
     "@typescript-eslint/parser": "^2.18.0",
     "craco-alias": "^2.1.0",
     "eslint": "^6.8.0",
+    "eslint-plugin-better-styled-components": "^1.1.2",
     "eslint-plugin-react": "^7.18.2",
+    "eslint-plugin-typescript-sort-keys": "^0.5.0",
     "gh-pages": "^2.2.0",
-    "pre-commit": "^1.2.2"
+    "pre-commit": "^1.2.2",
+    "react-test-renderer": "^16.12.0"
   }
 }

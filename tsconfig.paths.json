@@ -5,6 +5,7 @@
       "<src>/*": ["./*"],
       "<assets>/*": ["./assets/*"],
       "<helpers>/*": ["./helpers/*"],
+      "<hooks>/*": ["./hooks/*"],
       "<pages>/*": ["./pages/*"],
       "<styles>/*": ["./styles/*"],
       "<atoms>/*": ["./UI/atoms/*"],

@@ -1,5 +1,8 @@
 import React from "react";
-import { ThemeProvider, createGlobalStyle } from "styled-components";
+import {
+  createGlobalStyle,
+  ThemeProvider
+} from "styled-components";
 
 import Home from "<pages>/Home";
 

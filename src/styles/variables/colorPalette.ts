@@ -1,4 +1,7 @@
 export default {
+  // Black
+  black: "#000",
+
   // Blue
   blue100: "#bcd8db",
   blue200: "#67d2df",
@@ -8,7 +11,6 @@ export default {
   blue600: "#22272a",
   blue700: "#1e2224",
 
-  // Black and white
-  black: "#000",
+  // White
   white: "#fff"
 };

@@ -23,7 +23,9 @@
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "typescript-sort-keys",
+        "better-styled-components"
     ],
     "settings": {
       "react": {
@@ -32,24 +34,37 @@
     },
     "rules": {
         "indent": [
-            "error",
-            2
+          "error",
+          2
         ],
         "linebreak-style": [
-            "error",
-            "unix"
+          "error",
+          "unix"
         ],
         "quotes": [
-            "error",
-            "double"
+          "error",
+          "double"
         ],
         "semi": [
-            "error",
-            "always"
+          "error",
+          "always"
         ],
+        "comma-dangle": ["error", "never"],
+        "sort-keys": ["error", "asc", {
+          "caseSensitive": true, 
+          "natural": true, 
+          "minKeys": 2
+        }],
         "no-use-before-define": "off",
         "@typescript-eslint/no-use-before-define": [
           "error", { "functions": false, "typedefs": false }
-        ]
+        ],
+        "typescript-sort-keys/interface": [
+          "error",
+          "asc",
+          { "caseSensitive": true, "natural": true }
+        ],
+        "typescript-sort-keys/string-enum": 2,
+        "better-styled-components/sort-declarations-alphabetically": 2
     }
 }
