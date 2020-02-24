@@ -2,12 +2,12 @@ import React, { memo, Fragment } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize } from "polished";
 
-import LinkWithIcon, { LinkWithIconProps } from "<src>/UI/molecules/LinkWithIcon";
+import LinkWithIcon, { LinkWithIconProps } from "<molecules>/LinkWithIcon";
 import Nav from "<molecules>/Nav";
+import Button from "<molecules>/Button";
 import PositionContainer from "<layout>/PositionContainer";
 import FlexContainer from "<layout>/FlexContainer";
 import SpacingContainer from "<layout>/SpacingContainer";
-import Button from "<molecules>/Button";
 
 import zIndex from "<styles>/variables/zIndex";
 

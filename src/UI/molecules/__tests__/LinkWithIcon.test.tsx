@@ -4,6 +4,16 @@ import { RenderResult } from "@testing-library/react";
 import LinkWithIcon, { LinkWithIconProps } from "<src>/UI/molecules/LinkWithIcon";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
+// import { ReactComponent } from "*.svg";
+
+jest.mock("<assets>/svg/GitHub.svg", () => ({
+  // eslint-disable-next-line react/display-name
+  ReactComponent: (): JSX.Element => (
+    <svg>
+      GitHub.svg
+    </svg>
+  )
+}));
 
 describe("molecules / LinkWithIcon", () => {
   describe("Icon", () => {    

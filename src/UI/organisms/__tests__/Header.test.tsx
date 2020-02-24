@@ -7,6 +7,27 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 jest.mock("<src>/hooks/useIntersectionObserver");
 
+interface LinkWithIconProps {
+  href: string;
+  iconName: string;
+  isExternal?: boolean;
+}
+
+jest.mock("<molecules>/LinkWithIcon", () => ({
+  href,
+  iconName,
+  isExternal = false
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+}: LinkWithIconProps): any => (
+  <a
+    href={href}
+    data-testid="mockLinkWithIcon"
+    data-isexternal={isExternal}
+  >
+    {iconName}
+  </a>
+));
+
 describe("organisms / Header", () => {
   test("should have correct structure", () => {
     const {
@@ -235,7 +256,7 @@ describe("organisms / Header", () => {
       test("should have correct icon", () => {
         const { Logo } = setup();
   
-        expect(Logo.textContent).toEqual("Logo.svg");
+        expect(Logo.textContent).toEqual("logo");
       });
   
       test("should have correct href", () => {
@@ -244,10 +265,10 @@ describe("organisms / Header", () => {
         expect(Logo.getAttribute("href")).toEqual("http://localhost/");
       });
         
-      test("should have target=_self", () => {
+      test("should have data-isexternal=false", () => {
         const { Logo } = setup();
   
-        expect(Logo.getAttribute("target")).toEqual("_self");
+        expect(Logo.getAttribute("data-isexternal")).toEqual("false");
       });
     });
   
@@ -255,7 +276,7 @@ describe("organisms / Header", () => {
       test("should have correct icon", () => {
         const { GitHub } = setup();
   
-        expect(GitHub.textContent).toEqual("GitHub.svg");
+        expect(GitHub.textContent).toEqual("gitHub");
       }); 
   
       test("should have correct href", () => {
@@ -264,10 +285,10 @@ describe("organisms / Header", () => {
         expect(GitHub.getAttribute("href")).toEqual("https://github.com/alan-hadyk");
       });
   
-      test("should have target=_blank", () => {
+      test("should have data-isexternal=true", () => {
         const { GitHub } = setup();
   
-        expect(GitHub.getAttribute("target")).toEqual("_blank");
+        expect(GitHub.getAttribute("data-isexternal")).toEqual("true");
       });
     });
   
@@ -275,7 +296,7 @@ describe("organisms / Header", () => {
       test("should have correct icon", () => {
         const { CodeSandbox } = setup();
   
-        expect(CodeSandbox.textContent).toEqual("CodeSandbox.svg");
+        expect(CodeSandbox.textContent).toEqual("codeSandbox");
       }); 
   
       test("should have correct href", () => {
@@ -284,10 +305,10 @@ describe("organisms / Header", () => {
         expect(CodeSandbox.getAttribute("href")).toEqual("https://codesandbox.io/u/alan-hadyk");
       });
   
-      test("should have target=_blank", () => {
+      test("should have data-isexternal=true", () => {
         const { CodeSandbox } = setup();
   
-        expect(CodeSandbox.getAttribute("target")).toEqual("_blank");
+        expect(CodeSandbox.getAttribute("data-isexternal")).toEqual("true");
       });
     });
   
@@ -295,7 +316,7 @@ describe("organisms / Header", () => {
       test("should have correct icon", () => {
         const { LinkedIn } = setup();
   
-        expect(LinkedIn.textContent).toEqual("LinkedIn.svg");
+        expect(LinkedIn.textContent).toEqual("linkedIn");
       }); 
   
       test("should have correct href", () => {
@@ -304,10 +325,10 @@ describe("organisms / Header", () => {
         expect(LinkedIn.getAttribute("href")).toEqual("https://www.linkedin.com/in/alan-hadyk-78738099/");
       });
   
-      test("should have target=_blank", () => {
+      test("should have data-isexternal=true", () => {
         const { LinkedIn } = setup();
   
-        expect(LinkedIn.getAttribute("target")).toEqual("_blank");
+        expect(LinkedIn.getAttribute("data-isexternal")).toEqual("true");
       });
     });
   });
@@ -419,10 +440,10 @@ function setup(addedProps?: HeaderTestProps): Setup {
   const HeaderContainer = document.querySelector("header");
   const HeaderInnerContainer = queryByTestId("HeaderInnerContainer");
   const InnerFlexContainer = queryAllByTestId("FlexContainer")[2];
-  const Logo = queryAllByTestId("Link")[0];
-  const GitHub = queryAllByTestId("Link")[1];
-  const CodeSandbox = queryAllByTestId("Link")[2];
-  const LinkedIn = queryAllByTestId("Link")[3];
+  const Logo = queryAllByTestId("mockLinkWithIcon")[0];
+  const GitHub = queryAllByTestId("mockLinkWithIcon")[1];
+  const CodeSandbox = queryAllByTestId("mockLinkWithIcon")[2];
+  const LinkedIn = queryAllByTestId("mockLinkWithIcon")[3];
   const MidFlexContainer = queryAllByTestId("FlexContainer")[1];
   const OuterFlexContainer = queryAllByTestId("FlexContainer")[0];
   const PositionContainer = queryAllByTestId("PositionContainer")[0];
