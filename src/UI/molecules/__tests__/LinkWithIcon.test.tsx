@@ -52,7 +52,7 @@ describe("molecules / LinkWithIcon", () => {
             iconName: "logo"
           });
     
-          expect(Icon.textContent).toEqual("Logo.svg");
+          expect(Icon.textContent).toEqual("Icon-Logo.svg");
         });
 
         test("codeSandbox", () => {
@@ -60,7 +60,7 @@ describe("molecules / LinkWithIcon", () => {
             iconName: "codeSandbox"
           });
     
-          expect(Icon.textContent).toEqual("CodeSandbox.svg");
+          expect(Icon.textContent).toEqual("Icon-CodeSandbox.svg");
         });
 
         test("gitHub", () => {
@@ -68,7 +68,7 @@ describe("molecules / LinkWithIcon", () => {
             iconName: "gitHub"
           });
     
-          expect(Icon.textContent).toEqual("github-icon.svg");
+          expect(Icon.textContent).toEqual("Icon-GitHub.svg");
         });
 
         test("linkedIn", () => {
@@ -76,7 +76,7 @@ describe("molecules / LinkWithIcon", () => {
             iconName: "linkedIn"
           });
     
-          expect(Icon.textContent).toEqual("LinkedIn.svg");
+          expect(Icon.textContent).toEqual("Icon-LinkedIn.svg");
         });
       });
     });

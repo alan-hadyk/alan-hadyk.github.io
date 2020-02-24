@@ -4,10 +4,10 @@ import { transparentize } from "polished";
 
 import Link from "<atoms>/Link";
 
-import { ReactComponent as Logo } from "<assets>/svg/Logo.svg";
-import { ReactComponent as CodeSandbox } from "<assets>/svg/CodeSandbox.svg";
-import { ReactComponent as GitHub } from "<assets>/svg/github-icon.svg";
-import { ReactComponent as LinkedIn } from "<assets>/svg/LinkedIn.svg";
+import { ReactComponent as Logo } from "<assets>/svg/Icon-Logo.svg";
+import { ReactComponent as CodeSandbox } from "<assets>/svg/Icon-CodeSandbox.svg";
+import { ReactComponent as GitHub } from "<assets>/svg/Icon-GitHub.svg";
+import { ReactComponent as LinkedIn } from "<assets>/svg/Icon-LinkedIn.svg";
 
 export interface LinkWithIconProps {
   href: string;
