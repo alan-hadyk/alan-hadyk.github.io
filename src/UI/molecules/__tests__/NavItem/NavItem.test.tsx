@@ -11,6 +11,19 @@ jest.mock("<hooks>/useShuffleText");
 import useShuffleText from "<hooks>/useShuffleText";
 
 describe("molecules / NavItem", () => {
+  test("should have correct structure", () => {
+    const { 
+      NavItemLineLeft,
+      NavItemLineRight,
+      NavItemLink,
+      PositionContainer
+    } = setup();
+
+    expect(PositionContainer.children[0]).toEqual(NavItemLink);
+    expect(PositionContainer.children[1]).toEqual(NavItemLineLeft);
+    expect(PositionContainer.children[2]).toEqual(NavItemLineRight);
+  });
+
   describe("useShuffleText", () => {
     test("should fire", () => {
       const spyUseShuffleText = jest.fn();

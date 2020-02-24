@@ -46,20 +46,22 @@ describe("molecules / ButtonText", () => {
   });
 
   describe("Text", () => { 
-    test("text should have correct content", () => {
-      const { Text } = setup();
+    test("should have correct content passed as buttonText", () => {
+      const { Text } = setup({
+        buttonText: "Button text"
+      });
 
-      expect(Text.textContent).toEqual("Text content");
+      expect(Text.textContent).toEqual("Button text");
     });
 
     describe("Styles", () => {
-      test("text should have font size 20px when size is small", () => {
+      test("should have font size 20px when size is small", () => {
         const { Text } = setup();
 
         expect(Text).toHaveStyleRule("font-size", "20px");
       }); 
 
-      test("text should have font size 24px when size is medium", () => {
+      test("should have font size 24px when size is medium", () => {
         const { Text } = setup({
           size: "medium"
         });
@@ -67,7 +69,7 @@ describe("molecules / ButtonText", () => {
         expect(Text).toHaveStyleRule("font-size", "24px");
       });
 
-      test("text should have font size 28px when size is large", () => {
+      test("should have font size 28px when size is large", () => {
         const { Text } = setup({
           size: "large"
         });
@@ -75,7 +77,7 @@ describe("molecules / ButtonText", () => {
         expect(Text).toHaveStyleRule("font-size", "28px");
       });
 
-      test("text should have font family Exan", () => {
+      test("should have font family Exan", () => {
         const { Text } = setup();
 
         expect(Text).toHaveStyleRule("font-family", "ExanModifiedRegular,monospace");

@@ -10,7 +10,7 @@ export interface ButtonIconProps {
   iconName: "codeSandbox" | "download" | "externalLink" | "send";
   size: "small" | "medium" | "large";
 }
-interface ButtonHeight {
+interface IconProps {
   iconheight: "spacing12" | "spacing24";
 }
 
@@ -19,7 +19,7 @@ function ButtonIcon({ iconName, size }: ButtonIconProps): JSX.Element {
     renderIcon()
   );
 
-  function mapSizeToButtonIconProps(): ButtonHeight {
+  function mapSizeToIconProps(): IconProps {
     switch (size) {
     case "small":
       return {
@@ -36,7 +36,7 @@ function ButtonIcon({ iconName, size }: ButtonIconProps): JSX.Element {
 
   function renderIcon(): JSX.Element {
     let iconComponent: FunctionComponent<SVGProps<SVGSVGElement> & { title?: string }>;
-    const buttonIconProps: ButtonHeight = mapSizeToButtonIconProps();
+    const iconProps: IconProps = mapSizeToIconProps();
 
     switch (iconName) {
     case "codeSandbox":
@@ -56,22 +56,27 @@ function ButtonIcon({ iconName, size }: ButtonIconProps): JSX.Element {
       break;
     }
     
-    type ButtonIconIconType = string & StyledComponentBase<FunctionComponent<SVGProps<SVGSVGElement> & { title?: string }>, DefaultTheme, ButtonHeight, never>;
+    type ButtonIconIconType = string & StyledComponentBase<FunctionComponent<SVGProps<SVGSVGElement> & { title?: string }>, DefaultTheme, IconProps, never>;
   
-    const ButtonIcon: ButtonIconIconType = styled(iconComponent)<ButtonHeight>`
+    const Icon: ButtonIconIconType = styled(iconComponent)<IconProps>`
       ${({
-    iconheight,
-    theme: {
-      spacing
-    }
-  }): FlattenSimpleInterpolation => css`
+    // eslint-disable-next-line indent
+        iconheight,
+    // eslint-disable-next-line indent
+        theme: {
+      // eslint-disable-next-line indent
+          spacing
+      // eslint-disable-next-line indent
+        }
+    // eslint-disable-next-line indent
+      }): FlattenSimpleInterpolation => css`
           height: ${iconheight in spacing && spacing[iconheight]};
           width: auto;
         `}
       `;
 
     return (
-      <ButtonIcon {...buttonIconProps} />
+      <Icon {...iconProps} />
     );
 
   }

@@ -1,5 +1,10 @@
 import React from "react";
-import { RenderResult } from "@testing-library/react";
+import {
+  act,
+  fireEvent,
+  RenderResult
+} from "@testing-library/react";
+import ShuffleText from "shuffle-text";
 
 import Text, { TextProps } from "<atoms>/Text";
 
@@ -33,6 +38,36 @@ describe("atoms / Text", () => {
   
         expect(TextContainer).toHaveStyleRule("font-family", "ExanModifiedRegular,monospace");
       });
+    });
+  });
+
+  describe("Event handlers", () => {
+    test("should fire shuffleText.start onMouseOver if shouldShuffleOnHover: true ", () => {
+      jest.spyOn(ShuffleText.prototype, "start");
+
+      const { TextContainer } = setup({
+        shouldShuffleOnHover: true
+      });
+
+      act(() => {
+        fireEvent.mouseOver(TextContainer);
+      });
+
+      expect(ShuffleText.prototype.start).toHaveBeenCalled();
+    });
+
+    test("should not fire shuffleText.start onMouseOver if shouldShuffleOnHover: false ", () => {
+      jest.spyOn(ShuffleText.prototype, "start");
+
+      const { TextContainer } = setup({
+        shouldShuffleOnHover: false
+      });
+
+      act(() => {
+        fireEvent.mouseOver(TextContainer);
+      });
+
+      expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
     });
   });
 });

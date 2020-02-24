@@ -97,9 +97,11 @@ Corner.Container = styled.div<CornerContainerProps>`
       colorPalette: { white },
       transitionTimes: { fast },
       easing: { easeInOut },
-      spacing: { spacing0, spacing1, spacing8 }
+      spacing: { spacing8 }
     }
   }): FlattenSimpleInterpolation => css`
+    border-left: thin solid ${white};
+    border-top: thin solid ${white};
     height: ${spacing8};
     left: ${left};
     opacity: ${opacity};
@@ -108,25 +110,6 @@ Corner.Container = styled.div<CornerContainerProps>`
     transform: ${transform};
     transition: all ${fast} ${easeInOut};
     width: ${spacing8};
-
-    &::before, &::after {
-      background: ${white};
-      content: '';
-      display: block;
-      position: absolute;
-      left: ${spacing0};
-      top: ${spacing0};
-    }
-    
-    &::before {
-      height: ${spacing8};
-      width: ${spacing1};
-    }
-
-    &::after {
-      height: ${spacing1};
-      width: ${spacing8};
-    }
   `}
 `;
 

@@ -198,7 +198,7 @@ Button.Container = styled.button<ButtonContainerProps>`
       animation: ${ripple} ${slow};
       ${radialGradient({
     // eslint-disable-next-line indent
-        colorStops: [`${transparentize(0.5, blue300)} 0%`, `${transparentize(1, blue200)} 100%`],
+        colorStops: [`${transparentize(0.5, blue300)} 0%`, `${transparentize(1, blue200)} 50%`],
     // eslint-disable-next-line indent
         extent: `farthest-corner at ${spacingVariables.spacing12} ${spacingVariables.spacing12}`,
     // eslint-disable-next-line indent

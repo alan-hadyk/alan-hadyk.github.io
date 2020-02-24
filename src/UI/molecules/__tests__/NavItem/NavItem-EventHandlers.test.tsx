@@ -35,6 +35,8 @@ describe("molecules / NavItem", () => {
 
         const { NavItemLink } = setup();
 
+        expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
+
         act(() => {
           fireEvent.mouseOver(NavItemLink);
         });

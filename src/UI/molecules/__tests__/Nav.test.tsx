@@ -30,6 +30,7 @@ describe("molecules / Nav", () => {
     expect(SpacingContainers[3].children[0].children[0]).toEqual(NavItems[3]);
     expect(SpacingContainers[4].children[0].children[0]).toEqual(NavItems[4]);
   });
+  
   describe("useIntersectionObserver", () => {    
     test("should be called initially with correct arguments", () => {
       const spyUseIntersectionObserver = jest.fn();

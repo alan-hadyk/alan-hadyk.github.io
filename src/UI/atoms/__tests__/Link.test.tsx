@@ -15,6 +15,22 @@ describe("atoms / Link", () => {
   });
   
   describe("Styles", () => {
+    describe("display", () => {      
+      test("should have inline by default", () => {
+        const { LinkContainer } = setup();
+  
+        expect(LinkContainer).toHaveStyleRule("display", "inline");
+      });
+
+      test("should have block when passed via value in prop", () => {
+        const { LinkContainer } = setup({
+          display: "block"
+        });
+  
+        expect(LinkContainer).toHaveStyleRule("display", "block");
+      });
+    });
+
     describe("height", () => {      
       test("should have unset by default", () => {
         const { LinkContainer } = setup();

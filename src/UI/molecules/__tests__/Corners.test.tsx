@@ -1,7 +1,7 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import Corners from "<molecules>/Corners";
+import Corners, { CornersProps } from "<molecules>/Corners";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
@@ -17,15 +17,60 @@ describe("molecules / Corners", () => {
   describe("Corner", () => {
     describe("Styles", () => {
       describe("opacity", () => {      
-        test("each element should have correct opacity", () => {
-          const { Corner } = setup();
+        test("each element should have correct opacity - isActive: false", () => {
+          const { Corner } = setup({
+            isActive: false
+          });
   
           for (const CornerElement of Corner) {
             expect(CornerElement).toHaveStyleRule("opacity", "0.5");
           }
-
         });
 
+        test("each element should have correct opacity - isActive: true", () => {
+          const { Corner } = setup({
+            isActive: true
+          });
+  
+          for (const CornerElement of Corner) {
+            expect(CornerElement).toHaveStyleRule("opacity", "1");
+          }
+        });
+      });
+
+      describe("left and top", () => {      
+        test("each element should have correct left and top - isActive: false", () => {
+          const { Corner } = setup({
+            isActive: false
+          });
+  
+          expect(Corner[0]).toHaveStyleRule("left", "0");
+          expect(Corner[0]).toHaveStyleRule("top", "0");
+          expect(Corner[1]).toHaveStyleRule("left", "calc(100% - 8px)");
+          expect(Corner[1]).toHaveStyleRule("top", "0");
+          expect(Corner[2]).toHaveStyleRule("left", "0");
+          expect(Corner[2]).toHaveStyleRule("top", "calc(100% - 8px)");
+          expect(Corner[3]).toHaveStyleRule("left", "calc(100% - 8px)");
+          expect(Corner[3]).toHaveStyleRule("top", "calc(100% - 8px)");
+        });
+
+        test("each element should have correct opacity - isActive: true", () => {
+          const { Corner } = setup({
+            isActive: true
+          });
+  
+          expect(Corner[0]).toHaveStyleRule("left", "-8px");
+          expect(Corner[0]).toHaveStyleRule("top", "-8px");
+          expect(Corner[1]).toHaveStyleRule("left", "100%");
+          expect(Corner[1]).toHaveStyleRule("top", "-8px");
+          expect(Corner[2]).toHaveStyleRule("left", "-8px");
+          expect(Corner[2]).toHaveStyleRule("top", "100%");
+          expect(Corner[3]).toHaveStyleRule("left", "100%");
+          expect(Corner[3]).toHaveStyleRule("top", "100%");
+        });
+      });
+
+      describe("transform", () => {      
         test("each element should have correct transform", () => {
           const { Corner } = setup();
     
@@ -44,9 +89,9 @@ interface Setup extends RenderResult {
   Corner: any;
 }
 
-function setup(): Setup {
+function setup(props?: CornersProps): Setup {
   const utils: RenderResult = renderWithTheme(
-    <Corners />
+    <Corners {...props} />
   );
 
   const { container }: RenderResult = utils;

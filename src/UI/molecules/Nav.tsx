@@ -24,7 +24,7 @@ const navItems: NavItemProps[] = [{
 }];
 
 function Nav(): JSX.Element {
-  const [activeNavItem, setActiveNavItem] = useState();
+  const [activeNavItem, setActiveNavItem] = useState<NavItemProps["href"]>();
 
   useIntersectionObserver({
     onElementVisible: (element: string): void => setActiveNavItem(element),

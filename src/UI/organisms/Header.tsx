@@ -83,7 +83,7 @@ function Header({
       <Fragment>
         {icons.map(({ href, iconName }: LinkWithIconProps) => (
           <SpacingContainer 
-            key={href}
+            key={iconName}
             marginLeft="spacing24"
           >
             <LinkWithIcon

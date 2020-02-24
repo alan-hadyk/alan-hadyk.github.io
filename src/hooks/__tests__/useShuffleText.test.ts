@@ -58,7 +58,7 @@ describe("hooks / useShuffleText", () => {
       };
   
       const navItemElement: RefElement = {
-        current: null
+        current: document.createElement("div")
       };
       
       setup({
@@ -80,7 +80,7 @@ describe("hooks / useShuffleText", () => {
       const navItemElement: RefElement = {
         current: document.createElement("div")
       };
-      
+       
       setup({
         onShuffleReady: setShuffleText,
         ref: navItemElement, 
@@ -150,7 +150,7 @@ describe("hooks / useShuffleText", () => {
       };
   
       const navItemElement: RefElement = {
-        current: null
+        current: document.createElement("div")
       };
       
       setup({

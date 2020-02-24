@@ -1,5 +1,5 @@
 import React from "react";
-import { fireEvent, RenderResult } from "@testing-library/react";
+import { fireEvent, RenderResult, waitForElementToBeRemoved } from "@testing-library/react";
 import { css } from "styled-components";
 
 import Button, { ButtonProps } from "<molecules>/Button";
@@ -246,7 +246,7 @@ describe("molecules / Button", () => {
         expect(Corners[3]).toHaveStyleRule("top", "calc(100% - 8px)");
       });
 
-      test("should append ripple onClick", () => {
+      test("should append ripple onClick", async () => {
         const {
           ButtonContainer,
           Corners
@@ -295,8 +295,13 @@ describe("molecules / Button", () => {
         expect(Corners[3]).toHaveStyleRule("left", "calc(100% - 8px)");
         expect(Corners[3]).toHaveStyleRule("top", "calc(100% - 8px)");
 
-        const ripple = document.querySelector(".ripple");
+        const ripple: HTMLElement = document.querySelector(".ripple");
+
         expect(ripple).toBeTruthy();
+
+        await waitForElementToBeRemoved(() => document.querySelector(".ripple"));
+
+        expect(document.querySelector(".ripple")).toBeFalsy();
       });
     });
   });
@@ -372,6 +377,7 @@ describe("molecules / Button", () => {
           expect(SpacingContainer).toHaveStyleRule("padding-right", "2.4rem");
         });
       });
+      
       describe("padding-left", () => {      
         test("should have 1.6rem when size is small", () => {
           const { SpacingContainer } = setup({

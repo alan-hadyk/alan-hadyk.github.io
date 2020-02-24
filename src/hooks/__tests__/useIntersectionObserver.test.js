@@ -39,6 +39,7 @@ describe("hooks / useIntersectionObserver", () => {
     }));
 
     expect(observe).toHaveBeenCalledTimes(5);
+    expect(disconnect).toHaveBeenCalledTimes(0);
 
     unmount();
 
@@ -56,7 +57,7 @@ describe("hooks / useIntersectionObserver", () => {
         id: "portfolio"
       }
     }, {
-      intersectionRatio: 0.3433498509693146,
+      intersectionRatio: 0.7433498509693146,
       isIntersecting: false,
       target: {
         id: "experience"
