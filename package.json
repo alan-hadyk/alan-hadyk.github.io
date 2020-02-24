@@ -37,6 +37,9 @@
       "^<molecules>/(.*)$": "<rootDir>/src/UI/molecules/$1",
       "^<organisms>/(.*)$": "<rootDir>/src/UI/organisms/$1",
       "^<templates>/(.*)$": "<rootDir>/src/UI/templates/$1"
+    },
+    "transform": {
+      "\\.svg$": "<rootDir>/src/fileTransform.js"
     }
   },
   "browserslist": {
