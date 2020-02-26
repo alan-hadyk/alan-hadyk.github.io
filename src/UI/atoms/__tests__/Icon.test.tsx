@@ -7,7 +7,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
   IconProps
-} from "<atoms>/__typings__/Icon";
+} from "<atoms>/__typings__/Icon.d.ts";
 
 describe("atoms / Icon", () => {
   describe("Styles", () => {
