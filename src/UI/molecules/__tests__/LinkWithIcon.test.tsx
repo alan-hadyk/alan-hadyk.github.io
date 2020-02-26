@@ -1,9 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import LinkWithIcon, { LinkWithIconProps } from "<src>/UI/molecules/LinkWithIcon";
+import LinkWithIcon from "<src>/UI/molecules/LinkWithIcon";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
+
+import { LinkWithIconProps } from "<molecules>/__typings__/LinkWithIcon";
 
 describe("molecules / LinkWithIcon", () => {
   describe("Icon", () => {    

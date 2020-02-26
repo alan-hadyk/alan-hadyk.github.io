@@ -6,9 +6,11 @@ import {
 } from "@testing-library/react";
 import ShuffleText from "shuffle-text";
 
-import Text, { TextProps } from "<atoms>/Text";
+import Text from "<atoms>/Text";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
+
+import { TextProps } from "<atoms>/__typings__/Text";
 
 describe("atoms / Text", () => {
   test("should render children", () => {

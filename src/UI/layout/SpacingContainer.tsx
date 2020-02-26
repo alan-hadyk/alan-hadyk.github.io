@@ -1,28 +1,18 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import spacing from "<styles>/variables/spacing";
-
-type SpacingKeys = keyof typeof spacing;
-
-export interface SpacingContainerProps {
-  children: JSX.Element | JSX.Element[] | string;
-  marginBottom?: typeof spacing[SpacingKeys];
-  marginLeft?: typeof spacing[SpacingKeys];
-  marginRight?: typeof spacing[SpacingKeys];
-  marginTop?: typeof spacing[SpacingKeys];
-  paddingBottom?: typeof spacing[SpacingKeys];
-  paddingLeft?: typeof spacing[SpacingKeys];
-  paddingRight?: typeof spacing[SpacingKeys];
-  paddingTop?: typeof spacing[SpacingKeys];
-}
+import {
+  SpacingContainerProps
+} from "<layout>/__typings__/SpacingContainer";
 
 const SpacingContainer = ({
   children,
+  id,
   marginBottom = "spacing0",
   marginLeft = "spacing0",
   marginRight = "spacing0",
   marginTop = "spacing0",
+  minHeight = "spacing0",
   paddingBottom = "spacing0",
   paddingLeft = "spacing0",
   paddingRight = "spacing0",
@@ -30,10 +20,12 @@ const SpacingContainer = ({
 }: SpacingContainerProps): JSX.Element => (
   <SpacingContainer.Container
     data-testid="SpacingContainer"
+    id={id}
     marginBottom={marginBottom}
     marginLeft={marginLeft}
     marginRight={marginRight}
     marginTop={marginTop}
+    minHeight={minHeight}
     paddingBottom={paddingBottom}
     paddingLeft={paddingLeft}
     paddingRight={paddingRight}
@@ -49,6 +41,7 @@ SpacingContainer.Container = styled.div<SpacingContainerProps>`
     marginLeft,
     marginRight,
     marginTop,
+    minHeight,
     paddingBottom,
     paddingLeft,
     paddingRight,
@@ -61,6 +54,7 @@ SpacingContainer.Container = styled.div<SpacingContainerProps>`
     margin-left: ${marginLeft in spacing && spacing[marginLeft]};
     margin-right: ${marginRight in spacing && spacing[marginRight]};
     margin-top: ${marginTop in spacing && spacing[marginTop]};
+    min-height: ${(minHeight in spacing && spacing[minHeight]) || minHeight};
     padding-bottom: ${paddingBottom in spacing && spacing[paddingBottom]};
     padding-left: ${paddingLeft in spacing && spacing[paddingLeft]};
     padding-right: ${paddingRight in spacing && spacing[paddingRight]};

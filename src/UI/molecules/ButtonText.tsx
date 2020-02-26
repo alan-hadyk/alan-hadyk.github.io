@@ -1,53 +1,35 @@
 import React, { memo } from "react";
 
-import fontSizes from "<styles>/variables/fontSizes";
 import SpacingContainer from "<layout>/SpacingContainer";
 import Text from "<atoms>/Text";
 
-export interface ButtonTextProps {
-  buttonText: string;
-  size: "small" | "medium" | "large";
-}
+import {
+  ButtonTextProps,
+  MapSizeToButtonTextProps,
+  TextProps
+} from "<molecules>/__typings__/ButtonText";
 
-type FontSizesKeys = keyof typeof fontSizes;
-
-interface TextProps {
-  fontSize: typeof fontSizes[FontSizesKeys];
-}
+const mapSizeToButtonTextProps: MapSizeToButtonTextProps = {
+  large: { fontSize: "font28" },
+  medium: { fontSize: "font24" },
+  small: { fontSize: "font20" }
+};
 
 function ButtonText({ buttonText, size }: ButtonTextProps): JSX.Element {
-  const buttonTextProps: TextProps = mapSizeToButtonTextProps();
+  const buttonTextProps: TextProps = mapSizeToButtonTextProps[size];
 
   return (
     <SpacingContainer marginRight={size === "small" ? "spacing8" : "spacing16"}>
       <Text 
         {...buttonTextProps} 
         fontFamily="Exan"
+        color="white"
       >
         {buttonText}
       </Text>
     </SpacingContainer>
 
   );
-
-  function mapSizeToButtonTextProps(): TextProps {
-    switch (size) {
-    case "small":
-      return {
-        fontSize: "font20"
-      };
-
-    case "medium":
-      return {
-        fontSize: "font24"
-      };
-
-    case "large":
-      return {
-        fontSize: "font28"
-      };
-    }
-  }
 }
 
 export default memo(ButtonText);

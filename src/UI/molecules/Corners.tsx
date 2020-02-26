@@ -1,6 +1,9 @@
 import React, { memo, Fragment } from "react";
 
-import Corner, { CornerProps } from "<atoms>/Corner";
+import Corner from "<atoms>/Corner";
+
+import { CornerProps } from "<atoms>/__typings__/Corner";
+import { CornersProps } from "<molecules>/__typings__/Corners";
 
 const positions: CornerProps[] = [{
   position: "topLeft"
@@ -12,9 +15,6 @@ const positions: CornerProps[] = [{
   position: "bottomRight"
 }];
 
-export interface CornersProps {
-  isActive?: boolean;
-}
 
 function Corners({ isActive = false }: CornersProps): JSX.Element {
   return (

@@ -1,15 +1,9 @@
 import { useLayoutEffect } from "react";
 
-export interface UseIntersectionObserver {
-  onElementVisible: (arg1: string) => void;
-  selectors: string[];
-}
-
-export type IntersectionObserverType = IntersectionObserver;
-
-interface IntersectionObserverWithPolyfill extends IntersectionObserver {
-  POLL_INTERVAL?: number;
-}
+import {
+  IntersectionObserverWithPolyfill,
+  UseIntersectionObserver
+} from "<hooks>/__typings__/useIntersectionObserver";
 
 export default function useIntersectionObserver({
   onElementVisible,
@@ -34,7 +28,7 @@ export default function useIntersectionObserver({
     observer.POLL_INTERVAL = 100;
 
     selectors.forEach((selector: string): void => {
-      observer.observe(document.querySelector(selector));
+      document.querySelector(selector) && observer.observe(document.querySelector(selector));
     });
 
     return (): void => observer.disconnect();

@@ -1,11 +1,13 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import Header, { HeaderProps } from "<organisms>/Header";
+import Header from "<organisms>/Header";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 jest.mock("<src>/hooks/useIntersectionObserver");
+
+import { HeaderProps }  from "<organisms>/__typings__/Header";
 
 interface LinkWithIconProps {
   href: string;

@@ -1,21 +1,23 @@
 import React from "react";
 import {
   createGlobalStyle,
+  DefaultTheme,
+  GlobalStyleComponent,
   ThemeProvider
 } from "styled-components";
 
-import Home from "<pages>/Home";
+import HomePage from "<pages>/Home/HomePage";
 
 import theme from "<styles>/theme";
 import globalStyle from "<styles>/globalStyle";
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle: GlobalStyleComponent<object, DefaultTheme> = createGlobalStyle`
   ${globalStyle}
 `;
 
 const App = (): JSX.Element => (
   <ThemeProvider theme={theme}>
-    <Home />
+    <HomePage />
     <GlobalStyle />
   </ThemeProvider>
 );

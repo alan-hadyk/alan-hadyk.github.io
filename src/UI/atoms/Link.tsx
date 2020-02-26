@@ -1,17 +1,7 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import spacing from "<styles>/variables/spacing";
-
-type SpacingKeys = keyof typeof spacing;
-
-export interface LinkProps {
-  children: JSX.Element | JSX.Element[] | string;
-  display?: "block" | "inline";
-  height?: typeof spacing[SpacingKeys] | "unset" | "50%" | "100%";
-  href: string;
-  isExternal?: boolean;
-}
+import { LinkProps } from "<atoms>/__typings__/Link";
 
 const Link = ({
   children,

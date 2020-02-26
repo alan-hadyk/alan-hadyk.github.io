@@ -1,9 +1,13 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import FlexContainer, { FlexContainerProps } from "<layout>/FlexContainer";
+import FlexContainer from "<layout>/FlexContainer";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
+
+import {
+  FlexContainerProps
+} from "<layout>/__typings__/FlexContainer";
 
 describe("layout / FlexContainer", () => {
   test("should render children", () => {

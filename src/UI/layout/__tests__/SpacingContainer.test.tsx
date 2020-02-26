@@ -1,9 +1,13 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import SpacingContainer, { SpacingContainerProps } from "<layout>/SpacingContainer";
+import SpacingContainer from "<layout>/SpacingContainer";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
+
+import {
+  SpacingContainerProps
+} from "<layout>/__typings__/SpacingContainer";
 
 describe("layout / SpacingContainer", () => {
   test("should render children", () => {

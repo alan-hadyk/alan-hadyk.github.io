@@ -9,7 +9,11 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 jest.mock("<src>/hooks/useIntersectionObserver");
 
-import useIntersectionObserver, { UseIntersectionObserver } from "<src>/hooks/useIntersectionObserver";
+import useIntersectionObserver from "<src>/hooks/useIntersectionObserver";
+
+import {
+  UseIntersectionObserver
+} from "<hooks>/__typings__/useIntersectionObserver";
 
 describe("molecules / Nav", () => {
   test("should have correct structure", () => {

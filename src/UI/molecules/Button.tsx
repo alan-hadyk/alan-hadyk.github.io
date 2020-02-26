@@ -4,32 +4,54 @@ import { transparentize, radialGradient } from "polished";
 
 import SpacingContainer from "<layout>/SpacingContainer";
 import FlexContainer from "<layout>/FlexContainer";
-import ButtonIcon, { ButtonIconProps } from "<atoms>/ButtonIcon";
+import Icon from "<atoms>/Icon";
 import ButtonText from "<molecules>/ButtonText";
 import Corners from "<molecules>/Corners";
 
 import colorPalette from "<styles>/variables/colorPalette";
 import transitionTimes from "<styles>/variables/transitionTimes";
 
-export interface ButtonProps extends ButtonIconProps {
-  buttonText: string;
-  type?: "primary" | "secondary";
-}
+import {
+  ButtonContainerProps,
+  ButtonInnnerContainerPositions,
+  ButtonProps,
+  MapSizeToButtonContainerProps,
+  MapSizeToIconHeight,
+  MapTypeToButtonContainerProps
+} from "<molecules>/__typings__/Button";
 
-type ColorPaletteKeys = keyof typeof colorPalette;
+const mapTypeToButtonContainerProps: MapTypeToButtonContainerProps = {
+  primary: {
+    backgroundColor: "blue500",
+    border: "none"
+  },
+  secondary: {
+    backgroundColor: "transparent",
+    border: "1px solid",
+    borderColor: "blue500"
+  }
+};
 
-interface ButtonContainerProps {
-  backgroundColor?: typeof colorPalette[ColorPaletteKeys] | "transparent";
-  border?: "1px solid" | "none";
-  borderColor?: typeof colorPalette[ColorPaletteKeys];
-  height?: "spacing40" | "spacing48" | "spacing56";
-  width?: "auto" | "100%";
-}
+const mapSizeToButtonContainerProps: MapSizeToButtonContainerProps = {
+  large: {
+    height: "spacing56",
+    width: "100%"
+  },
+  medium: {
+    height: "spacing48",
+    width: "auto"
+  },
+  small: {
+    height: "spacing40",
+    width: "auto"
+  }
+};
 
-interface ButtonInnnerContainerPositions {
-  x: number;
-  y: number;
-}
+const mapSizeToIconHeight: MapSizeToIconHeight = {
+  large: "spacing24",
+  medium: "spacing24",
+  small: "spacing12"
+};
 
 function Button({
   buttonText,
@@ -41,70 +63,32 @@ function Button({
   const buttonInnerContainerRef = useRef<HTMLDivElement>(null);
   const isElementFocused = useRef<boolean>(false);
 
-  const buttonContainerSizeProps: ButtonContainerProps = mapSizeToButtonContainerProps();
-  const buttonContainerTypeProps: ButtonContainerProps = mapTypeToButtonContainerProps();
-  const buttonSpacing: string = size === "small" ? "spacing16" : "spacing24";
+  const buttonPadding: string = size === "small" ? "spacing16" : "spacing24";
 
   return (
     <Button.Container
-      {...buttonContainerSizeProps}
-      {...buttonContainerTypeProps}
+      {...mapSizeToButtonContainerProps[size]}
+      {...mapTypeToButtonContainerProps[type]}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleButtonClick}
     >
       <Corners isActive={isActive} />
       <Button.InnerContainer ref={buttonInnerContainerRef} data-testid="ButtonInnerContainer">
-        <SpacingContainer paddingRight={buttonSpacing} paddingLeft={buttonSpacing}>
+        <SpacingContainer paddingRight={buttonPadding} paddingLeft={buttonPadding}>
           <FlexContainer
             flexFlow="row wrap"
           > 
             <ButtonText buttonText={buttonText} size={size} />
-            <ButtonIcon iconName={iconName} size={size} />
+            <Icon 
+              iconName={iconName} 
+              height={mapSizeToIconHeight[size]} 
+            />
           </FlexContainer>
         </SpacingContainer>
       </Button.InnerContainer>
     </Button.Container>
   );
-
-  function mapSizeToButtonContainerProps(): ButtonContainerProps {
-    switch (size) {
-    case "small":
-      return {
-        height: "spacing40",
-        width: "auto"
-      };
-
-    case "medium":
-      return {
-        height: "spacing48",
-        width: "auto"
-      };
-
-    case "large":
-      return {
-        height: "spacing56",
-        width: "100%"
-      };
-    }
-  }
-
-  function mapTypeToButtonContainerProps(): ButtonContainerProps {
-    switch (type) {
-    case "primary":
-      return {
-        backgroundColor: "blue500",
-        border: "none"
-      };
-
-    case "secondary":
-      return {
-        backgroundColor: "transparent",
-        border: "1px solid",
-        borderColor: "blue500"
-      };
-    }
-  }
 
   function handleMouseEnter(): void {
     setIsActive(true);

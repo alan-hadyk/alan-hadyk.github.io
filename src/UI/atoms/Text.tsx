@@ -1,26 +1,20 @@
 import React, { memo, useState, useRef } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import fontSizes from "<styles>/variables/fontSizes";
-import fontFamilies from "<styles>/variables/fontFamilies";
+import useShuffleText from "<hooks>/useShuffleText";
 
-import useShuffleText, { ShuffleState } from "<hooks>/useShuffleText";
-
-type FontSizesKeys = keyof typeof fontSizes;
-type FontFamilyKeys = keyof typeof fontFamilies;
-
-export interface TextProps {
-  children: string;
-  fontFamily?: typeof fontFamilies[FontFamilyKeys];
-  fontSize?: typeof fontSizes[FontSizesKeys];
-  shouldShuffleOnHover?: boolean;
-}
+import { TextProps } from "<atoms>/__typings__/Text";
+import { ShuffleState } from "<hooks>/__typings__/useShuffleText";
 
 function Text({ 
   children, 
+  color = "blue300",
   fontSize = "font20",
-  fontFamily = fontFamilies.AnonymousPro,
-  shouldShuffleOnHover = false
+  fontFamily = "AnonymousPro",
+  lineHeight = "1",
+  shouldShuffleOnHover = false,
+  textAlign = "left",
+  textTransform = "none"
 }: TextProps): JSX.Element {
   const [shuffleText, setShuffleText] = useState<ShuffleState | undefined>();
   const textElement = useRef<HTMLDivElement>(null);
@@ -35,10 +29,14 @@ function Text({
 
   return (
     <Text.Container 
+      color={color}
       fontSize={fontSize} 
       fontFamily={fontFamily}
+      lineHeight={lineHeight}
       onMouseOver={handleMouseOver}
       ref={textElement}
+      textAlign={textAlign}
+      textTransform={textTransform}
     >
       {children}
     </Text.Container>
@@ -55,15 +53,25 @@ function Text({
 
 Text.Container = styled.div<TextProps>`
   ${({
+    color,
     fontSize,
     fontFamily,
+    lineHeight,
+    textAlign,
+    textTransform,
     theme: {
+      colorPalette,
       fontSizes,
-      fontFamilies
+      fontFamilies,
+      spacing
     }
   }): FlattenSimpleInterpolation => css`
-    font-family: ${fontFamily in fontFamilies &&  fontFamilies[fontFamily]};
-    font-size: ${fontSize in fontSizes &&  fontSizes[fontSize]};
+    color: ${color in colorPalette && colorPalette[color]};
+    font-family: ${fontFamily in fontFamilies && fontFamilies[fontFamily]};
+    font-size: ${fontSize in fontSizes && fontSizes[fontSize]};
+    line-height: ${(lineHeight in spacing && spacing[lineHeight]) || lineHeight};
+    text-align: ${textAlign};
+    text-transform: ${textTransform};
   `}
 `;
 
