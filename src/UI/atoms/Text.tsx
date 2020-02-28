@@ -31,8 +31,8 @@ function Text({
     <Text.Container
       color={color}
       data-testid="Text"
-      fontSize={fontSize} 
       fontFamily={fontFamily}
+      fontSize={fontSize} 
       lineHeight={lineHeight}
       onMouseOver={handleMouseOver}
       ref={textElement}

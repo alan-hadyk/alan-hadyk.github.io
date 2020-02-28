@@ -24,8 +24,6 @@ import {
   IconProps
 } from "<atoms>/__typings__/Icon.d.ts";
 
-// TODO: UPDATE TESTS FOR THIS COMPONENT!
-
 function Icon({
   height,
   iconName,
