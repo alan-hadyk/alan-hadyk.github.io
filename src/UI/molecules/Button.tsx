@@ -163,7 +163,8 @@ Button.Container = styled.button<ButtonContainerProps>`
         fast,
         slow
       }
-    }
+    },
+    width
   }): FlattenSimpleInterpolation => css`
     background-color: ${(backgroundColor in colorPalette && colorPalette[backgroundColor]) || backgroundColor};
     border: ${border};
@@ -175,7 +176,7 @@ Button.Container = styled.button<ButtonContainerProps>`
     position: relative;
     text-transform: lowercase;
     transition: all ${fast} ${easeInOut};
-    width: auto;
+    width: ${width};
 
     &:hover {
       box-shadow: inset 0px 0px ${spacingVariables.spacing16} 0px ${transparentize(0.5, blue200)};
