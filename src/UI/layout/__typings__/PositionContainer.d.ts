@@ -1,16 +1,15 @@
-import spacing from "<styles>/variables/spacing";
-import zIndex from "<styles>/variables/zIndex";
-
-type SpacingKeys = keyof typeof spacing;
-type ZIndexKeys = keyof typeof zIndex;
+import {
+  Spacing,
+  ZIndex
+} from "<styles>/variables/__typings__/variables";
 
 export interface PositionContainerProps {
-  bottom?: typeof spacing[SpacingKeys] | "unset";
+  bottom?: Spacing | "unset";
   children: JSX.Element | JSX.Element[];
-  height?: typeof spacing[SpacingKeys] | "unset" | "50%" | "100%";
-  left?: typeof spacing[SpacingKeys] | "unset";
+  height?: Spacing | "unset" | "50%" | "100%";
+  left?: Spacing | "unset";
   position?: "static" | "relative" | "fixed" | "sticky";
-  right?: typeof spacing[SpacingKeys] | "unset";
-  top?: typeof spacing[SpacingKeys] | "unset";
-  zIndex?: typeof zIndex[ZIndexKeys];
+  right?: Spacing | "unset";
+  top?: Spacing | "unset";
+  zIndex?: ZIndex;
 }

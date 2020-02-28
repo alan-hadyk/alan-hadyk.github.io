@@ -1,17 +1,17 @@
-import spacing from "<styles>/variables/spacing";
-
-type SpacingKeys = keyof typeof spacing;
+import {
+  Spacing
+} from "<styles>/variables/__typings__/variables";
 
 export interface SpacingContainerProps {
   children: JSX.Element | JSX.Element[] | string;
   id?: string;
-  marginBottom?: typeof spacing[SpacingKeys];
-  marginLeft?: typeof spacing[SpacingKeys];
-  marginRight?: typeof spacing[SpacingKeys];
-  marginTop?: typeof spacing[SpacingKeys];
-  minHeight?: typeof spacing[SpacingKeys] | "100vh";
-  paddingBottom?: typeof spacing[SpacingKeys];
-  paddingLeft?: typeof spacing[SpacingKeys];
-  paddingRight?: typeof spacing[SpacingKeys];
-  paddingTop?: typeof spacing[SpacingKeys];
+  marginBottom?: Spacing;
+  marginLeft?: Spacing;
+  marginRight?: Spacing;
+  marginTop?: Spacing;
+  minHeight?: Spacing | "100vh";
+  paddingBottom?: Spacing;
+  paddingLeft?: Spacing;
+  paddingRight?: Spacing;
+  paddingTop?: Spacing;
 }

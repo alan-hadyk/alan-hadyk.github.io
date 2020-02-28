@@ -1,6 +1,6 @@
-import fontSizes from "<styles>/variables/fontSizes";
-
-type FontSizesKeys = keyof typeof fontSizes;
+import {
+  FontSizes
+} from "<styles>/variables/__typings__/variables";
 
 export interface ButtonTextProps {
   buttonText: string;
@@ -8,7 +8,7 @@ export interface ButtonTextProps {
 }
 
 export interface TextProps {
-  fontSize: typeof fontSizes[FontSizesKeys];
+  fontSize: FontSizes;
 }
 
 export interface MapSizeToButtonTextProps {

@@ -461,7 +461,7 @@ describe("molecules / Button", () => {
       describe("iconName", () => {
         test("should render corect icon for codesandbox", () => {
           const { ButtonIcon } = setup({
-            iconName: "codeSandbox"
+            iconName: "btnCodeSandbox"
           });
     
           expect(ButtonIcon.textContent).toEqual("Btn-CodeSandbox.svg");
@@ -469,7 +469,7 @@ describe("molecules / Button", () => {
   
         test("should render corect icon for download", () => {
           const { ButtonIcon } = setup({
-            iconName: "download"
+            iconName: "btnDownload"
           });
     
           expect(ButtonIcon.textContent).toEqual("Btn-Download.svg");
@@ -477,7 +477,7 @@ describe("molecules / Button", () => {
   
         test("should render corect icon for externalLink", () => {
           const { ButtonIcon } = setup({
-            iconName: "externalLink"
+            iconName: "btnExternalLink"
           });
     
           expect(ButtonIcon.textContent).toEqual("Btn-ExternalLink.svg");
@@ -485,7 +485,7 @@ describe("molecules / Button", () => {
   
         test("should render corect icon for send", () => {
           const { ButtonIcon } = setup({
-            iconName: "send"
+            iconName: "btnSend"
           });
     
           expect(ButtonIcon.textContent).toEqual("Btn-Send.svg");
@@ -631,7 +631,7 @@ type ButtonTestProps = Partial<ButtonProps>;
 function setup(addedProps?: ButtonTestProps): Setup {
   const props: ButtonProps = {
     buttonText: "Text content",
-    iconName: "codeSandbox",
+    iconName: "btnCodeSandbox",
     size: "small",
     type: "primary",
     ...addedProps

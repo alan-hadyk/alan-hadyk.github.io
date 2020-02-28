@@ -1,18 +1,19 @@
 import React, { memo } from "react";
 import styled from "styled-components";
 
-import { ReactComponent as IconApollo } from "<assets>/svg/Icon-Apollo.svg";
-import { ReactComponent as IconGraphql } from "<assets>/svg/Icon-Graphql.svg";
-import { ReactComponent as IconJavascript } from "<assets>/svg/Icon-Javascript.svg";
-import { ReactComponent as IconNode } from "<assets>/svg/Icon-Node.svg";
-import { ReactComponent as IconReact } from "<assets>/svg/Icon-React.svg";
-import { ReactComponent as IconTypescript } from "<assets>/svg/Icon-Typescript.svg";
-import { ReactComponent as IconWebpack } from "<assets>/svg/Icon-Webpack.svg";
+import Icon from "<atoms>/Icon";
+
+import { IconProps } from "<atoms>/__typings__/Icon.d.ts";
+
+const animatedIcons: IconProps["iconName"][] = ["react", "javascript", "typescript", "webpack", "node", "apollo", "graphql"];
+
+// GLOW FOR OUTER HEXAGON: 
+// filter: drop-shadow(0px 0px ${spacing.spacing4} ${colorPalette.blue100});
 
 const AnimatedIcons = (): JSX.Element => (
   <AnimatedIcons.Container>
     <AnimatedIcons.InnerContainer>
-
+      {animatedIcons.map(icon => <Icon key={icon} iconName={icon} width="spacing72" height="spacing72" />)}
     </AnimatedIcons.InnerContainer>
   </AnimatedIcons.Container>
 );

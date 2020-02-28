@@ -51,6 +51,8 @@ declare module "styled-components" {
       spacing40: string;
       spacing48: string;
       spacing56: string;
+      spacing72: string;
+      spacing80: string;
       spacing96: string;
       spacing120: string;
     };

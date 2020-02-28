@@ -1,10 +1,10 @@
-import spacing from "<styles>/variables/spacing";
-
-type SpacingKeys = keyof typeof spacing;
+import {
+  Spacing
+} from "<styles>/variables/__typings__/variables";
 
 export interface SectionProps {
   children: JSX.Element | JSX.Element[] | string;
   id: string;
-  minHeight?: typeof spacing[SpacingKeys] | "100vh";
+  minHeight?: Spacing | "100vh";
   title?: string;
 }

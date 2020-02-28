@@ -147,10 +147,21 @@ describe("layout / SpacingContainer", () => {
       });
     });
   });
+
+  describe("Props", () => {
+    test("should have id when passed via id prop", () => {
+      const { SpacingContainer } = setup({
+        id: "customId"
+      });
+  
+      expect(SpacingContainer.getAttribute("id")).toEqual("customId");
+  
+    });
+  });
 });
 
 interface Setup extends RenderResult {
-  SpacingContainer: Node;
+  SpacingContainer: Element;
 }
 
 type SpacingContainerTestProps = Partial<SpacingContainerProps>;

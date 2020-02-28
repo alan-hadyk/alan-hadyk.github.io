@@ -1,7 +1,7 @@
-import zIndex from "<styles>/variables/zIndex";
-
-type ZIndexKeys = keyof typeof zIndex;
+import {
+  ZIndex
+} from "<styles>/variables/__typings__/variables";
 
 export interface HeaderProps {
-  zIndex?: typeof zIndex[ZIndexKeys];
+  zIndex?: ZIndex;
 }

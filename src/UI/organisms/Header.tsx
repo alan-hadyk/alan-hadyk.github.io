@@ -44,6 +44,8 @@ function Header({
           <LinkWithIcon
             href={window.location.href}
             iconName="logo"
+            height="spacing48"
+            width="auto"
           />
       
           <FlexContainer
@@ -57,7 +59,7 @@ function Header({
           
             <Button 
               buttonText="resume" 
-              iconName="download" 
+              iconName="btnDownload" 
               size="medium"
             />
 
@@ -70,24 +72,28 @@ function Header({
 
   function renderIcons(): JSX.Element {
     const icons: LinkWithIconProps[] = [{
+      height: "spacing48",
       href: "https://github.com/alan-hadyk",
       iconName: "gitHub"
     }, {
+      height: "spacing48",
       href: "https://codesandbox.io/u/alan-hadyk",
       iconName: "codeSandbox"
     }, {
+      height: "spacing48",
       href: "https://www.linkedin.com/in/alan-hadyk-78738099/",
       iconName: "linkedIn"
     }];
 
     return (
       <Fragment>
-        {icons.map(({ href, iconName }: LinkWithIconProps) => (
+        {icons.map(({ height, href, iconName }: LinkWithIconProps) => (
           <SpacingContainer 
             key={iconName}
             marginLeft="spacing24"
           >
             <LinkWithIcon
+              height={height}
               href={href}
               iconName={iconName}
               isExternal={true}

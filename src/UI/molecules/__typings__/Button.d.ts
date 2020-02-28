@@ -1,14 +1,12 @@
-import spacing from "<styles>/variables/spacing";
-import colorPalette from "<styles>/variables/colorPalette";
-
-type ColorPaletteKeys = keyof typeof colorPalette;
-type SpacingKeys = keyof typeof spacing;
-
+import {
+  ColorPalette,
+  Spacing
+} from "<styles>/variables/__typings__/variables";
 
 export interface ButtonContainerProps {
-  backgroundColor?: typeof colorPalette[ColorPaletteKeys] | "transparent";
+  backgroundColor?: ColorPalette | "transparent";
   border?: "1px solid" | "none";
-  borderColor?: typeof colorPalette[ColorPaletteKeys];
+  borderColor?: ColorPalette;
   height?: "spacing40" | "spacing48" | "spacing56";
   width?: "auto" | "100%";
 }
@@ -20,7 +18,7 @@ export interface ButtonInnnerContainerPositions {
 
 export interface ButtonProps {
   buttonText: string;
-  iconName: "codeSandbox" | "download" | "externalLink" | "send";
+  iconName: "btnCodeSandbox" | "btnDownload" | "btnExternalLink" | "btnSend";
   size: "small" | "medium" | "large";
   type?: "primary" | "secondary";
 }
@@ -41,9 +39,9 @@ export interface MapSizeToButtonContainerProps {
 }
 
 export interface MapSizeToIconHeight {
-  large: typeof spacing[SpacingKeys];
-  medium: typeof spacing[SpacingKeys];
-  small: typeof spacing[SpacingKeys];
+  large: Spacing;
+  medium: Spacing;
+  small: Spacing;
 }
 
 export interface MapTypeToButtonContainerProps {

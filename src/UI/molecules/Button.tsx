@@ -12,6 +12,10 @@ import colorPalette from "<styles>/variables/colorPalette";
 import transitionTimes from "<styles>/variables/transitionTimes";
 
 import {
+  Spacing
+} from "<styles>/variables/__typings__/variables";
+
+import {
   ButtonContainerProps,
   ButtonInnnerContainerPositions,
   ButtonProps,
@@ -63,7 +67,7 @@ function Button({
   const buttonInnerContainerRef = useRef<HTMLDivElement>(null);
   const isElementFocused = useRef<boolean>(false);
 
-  const buttonPadding: string = size === "small" ? "spacing16" : "spacing24";
+  const buttonPadding: Spacing = size === "small" ? "spacing16" : "spacing24";
 
   return (
     <Button.Container
@@ -139,7 +143,6 @@ Button.InnerContainer = styled.div`
 Button.Container = styled.button<ButtonContainerProps>`
   ${({
     height,
-    width,
     backgroundColor,
     border,
     borderColor,
@@ -172,7 +175,7 @@ Button.Container = styled.button<ButtonContainerProps>`
     position: relative;
     text-transform: lowercase;
     transition: all ${fast} ${easeInOut};
-    width: ${width};
+    width: auto;
 
     &:hover {
       box-shadow: inset 0px 0px ${spacingVariables.spacing16} 0px ${transparentize(0.5, blue200)};

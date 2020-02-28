@@ -10,3 +10,10 @@ export interface CornerContainerProps {
   transform: "rotate(0)" | "rotate(90deg)" | "rotate(270deg)" | "rotate(180deg)";
 }
 
+export interface MapPositionToCornerProps {
+  bottomLeft: CornerContainerProps;
+  bottomRight: CornerContainerProps;
+  topLeft: CornerContainerProps;
+  topRight: CornerContainerProps;
+}
+

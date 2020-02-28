@@ -1,20 +1,12 @@
-import { FunctionComponent, SVGProps } from "react";
-import { StyledComponentBase, DefaultTheme } from "styled-components";
+import { IconProps } from "<atoms>/__typings__/Icon.d.ts";
+import {
+  Spacing
+} from "<styles>/variables/__typings__/variables";
 
 export interface LinkWithIconProps {
+  height: Spacing;
   href: string;
-  iconName: "logo" | "codeSandbox" | "gitHub" | "linkedIn";
+  iconName: IconProps["iconName"];
   isExternal?: boolean;
+  width?: string;
 }
-
-export type SVGIcon = FunctionComponent<SVGProps<SVGSVGElement> & { title?: string }>;
-
-export interface MapIconNameToIcon {
-  codeSandbox: SVGIcon;
-  gitHub: SVGIcon;
-  linkedIn: SVGIcon;
-  logo: SVGIcon;
-}
-
-
-type LinkIconType = string & StyledComponentBase<SVGIcon, DefaultTheme, {}, never>;
