@@ -1,9 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import LinkWithIcon, { LinkWithIconProps } from "<src>/UI/molecules/LinkWithIcon";
+import LinkWithIcon from "<src>/UI/molecules/LinkWithIcon";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
+
+import { LinkWithIconProps } from "<molecules>/__typings__/LinkWithIcon";
 
 describe("molecules / LinkWithIcon", () => {
   describe("Icon", () => {    
@@ -13,6 +15,14 @@ describe("molecules / LinkWithIcon", () => {
           const { Icon } = setup();
     
           expect(Icon).toHaveStyleRule("height", "4.8rem");
+        });
+
+        test("should have correct value when passed via height prop", () => {
+          const { Icon } = setup({
+            height: "spacing72"
+          });
+    
+          expect(Icon).toHaveStyleRule("height", "7.2rem");
         });
       });
 
@@ -29,6 +39,14 @@ describe("molecules / LinkWithIcon", () => {
           const { Icon } = setup();
     
           expect(Icon).toHaveStyleRule("width", "auto");
+        });
+
+        test("should have correct value when passed via width prop", () => {
+          const { Icon } = setup({
+            width: "7.2rem"
+          });
+    
+          expect(Icon).toHaveStyleRule("width", "7.2rem");
         });
       });
 
@@ -90,6 +108,14 @@ describe("molecules / LinkWithIcon", () => {
     
           expect(Link.getAttribute("height")).toEqual("spacing48");
         });
+
+        test("should have correct value when passed via height prop", () => {
+          const { Link } = setup({
+            height: "spacing72"
+          });
+    
+          expect(Link).toHaveStyleRule("height", "7.2rem");
+        });
       });
 
       describe("display", () => {      
@@ -140,6 +166,7 @@ type LinkWithIconTestProps = Partial<LinkWithIconProps>;
 
 function setup(addedProps?: LinkWithIconTestProps): Setup {
   const props: LinkWithIconProps = {
+    height: "spacing48",
     href: "/",
     iconName: "logo",
     ...addedProps

@@ -1,90 +1,42 @@
 import React, { memo } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-export interface CornerProps {
-  isActive?: boolean;
-  position: "topLeft" | "topRight" | "bottomLeft" | "bottomRight";
-}
+import {
+  CornerContainerProps,
+  CornerProps,
+  MapPositionToCornerProps
+} from "<atoms>/__typings__/Corner";
 
-interface CornerContainerProps {
-  left: 0 | "100%" | "-8px" | "calc(100% - 8px)";
-  opacity?: 0.5 | 1;
-  top: 0 | "100%" | "-8px" | "calc(100% - 8px)";
-  transform: "rotate(0)" | "rotate(90deg)" | "rotate(270deg)" | "rotate(180deg)";
-}
+const mapPositionToCornerProps = (isActive: CornerProps["isActive"]): MapPositionToCornerProps => ({
+  bottomLeft: {
+    left: isActive ? "-8px" : 0,
+    top: isActive ? "100%" : "calc(100% - 8px)",
+    transform: "rotate(270deg)"
+  },
+  bottomRight: {
+    left: isActive ? "100%" : "calc(100% - 8px)",
+    top: isActive ? "100%" : "calc(100% - 8px)",
+    transform: "rotate(180deg)"
+  },
+  topLeft: {
+    left: isActive ? "-8px" : 0,
+    top: isActive ? "-8px" : 0,
+    transform: "rotate(0)"
+  },
+  topRight: {
+    left: isActive ? "100%" : "calc(100% - 8px)",
+    top: isActive ? "-8px" : 0,
+    transform: "rotate(90deg)"
+  }
+});
 
 function Corner({ isActive = false, position }: CornerProps): JSX.Element {
-  const cornerProps: CornerContainerProps = isActive ? mapActivePositionToCornerProps() : mapPositionToCornerProps();
+  const cornerProps: CornerContainerProps = mapPositionToCornerProps(isActive)[position];
   const opacity: CornerContainerProps["opacity"] = isActive ? 1 : 0.5;
 
   return (
     <Corner.Container {...cornerProps} opacity={opacity} data-testid="Corner" />
   );
-
-  function mapPositionToCornerProps(): CornerContainerProps {
-    switch (position) {
-
-    case "topLeft":
-      return {
-        left: 0,
-        top: 0,
-        transform: "rotate(0)"
-      };
-
-    case "topRight":
-      return {
-        left: "calc(100% - 8px)",
-        top: 0,
-        transform: "rotate(90deg)"
-      };
-
-    case "bottomLeft":
-      return {
-        left: 0,
-        top: "calc(100% - 8px)",
-        transform: "rotate(270deg)"
-      };
-
-    case "bottomRight":
-      return {
-        left: "calc(100% - 8px)",
-        top: "calc(100% - 8px)",
-        transform: "rotate(180deg)"
-      };
-    }
-  }
-
-  function mapActivePositionToCornerProps(): CornerContainerProps {
-    switch (position) {
-    case "topLeft":
-      return {
-        left: "-8px",
-        top: "-8px",
-        transform: "rotate(0)"
-      };
-
-    case "topRight":
-      return {
-        left: "100%",
-        top: "-8px",
-        transform: "rotate(90deg)"
-      };
-
-    case "bottomLeft":
-      return {
-        left: "-8px",
-        top: "100%",
-        transform: "rotate(270deg)"
-      };
-
-    case "bottomRight":
-      return {
-        left: "100%",
-        top: "100%",
-        transform: "rotate(180deg)"
-      };
-    }
-  }
 }
 
 Corner.Container = styled.div<CornerContainerProps>`

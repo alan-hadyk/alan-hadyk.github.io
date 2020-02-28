@@ -1,10 +1,14 @@
 import React, { memo, useState } from "react";
 
-import NavItem, { NavItemProps } from "<molecules>/NavItem";
+import NavItem from "<molecules>/NavItem";
 import FlexContainer from "<layout>/FlexContainer";
 import SpacingContainer from "<layout>/SpacingContainer";
 
 import useIntersectionObserver from "<src>/hooks/useIntersectionObserver";
+
+import {
+  NavItemProps
+} from "<molecules>/__typings__/NavItem";
 
 const navItems: NavItemProps[] = [{
   href: "#portfolio",

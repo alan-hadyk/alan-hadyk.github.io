@@ -7,13 +7,14 @@ import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import PositionContainer from "<layout>/PositionContainer";
 
-import useShuffleText, { ShuffleState } from "<hooks>/useShuffleText";
+import useShuffleText from "<hooks>/useShuffleText";
 
-export interface NavItemProps {
-  href: string;
-  isActive?: boolean;
-  title: string;
-}
+import {
+  NavItemProps,
+  NavItemLinkProps,
+  NavItemLineProps
+} from "<molecules>/__typings__/NavItem";
+import { ShuffleState } from "<hooks>/__typings__/useShuffleText";
 
 function NavItem({
   href,
@@ -71,8 +72,6 @@ function NavItem({
   }
 }
 
-type NavItemLinkProps = Partial<NavItemProps>;
-
 NavItem.Link = styled.a<NavItemLinkProps>`
   ${({
     isActive,
@@ -103,10 +102,6 @@ NavItem.Link = styled.a<NavItemLinkProps>`
     }
   `}
 `;
-
-interface NavItemLineProps extends NavItemLinkProps {
-  direction: "left" | "right";
-}
 
 NavItem.Line = styled.div<NavItemLineProps>`
   ${({

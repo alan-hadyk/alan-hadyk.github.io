@@ -3,12 +3,16 @@ import {
   RenderResult
 } from "@testing-library/react";
 
-import NavItem, { NavItemProps } from "<molecules>/NavItem";
+import NavItem from "<molecules>/NavItem";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 jest.mock("<hooks>/useShuffleText");
 import useShuffleText from "<hooks>/useShuffleText";
+
+import {
+  NavItemProps
+} from "<molecules>/__typings__/NavItem";
 
 describe("molecules / NavItem", () => {
   test("should have correct structure", () => {

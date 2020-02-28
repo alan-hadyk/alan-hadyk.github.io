@@ -6,9 +6,11 @@ import {
 } from "@testing-library/react";
 import ShuffleText from "shuffle-text";
 
-import Text, { TextProps } from "<atoms>/Text";
+import Text from "<atoms>/Text";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
+
+import { TextProps } from "<atoms>/__typings__/Text";
 
 describe("atoms / Text", () => {
   test("should render children", () => {
@@ -20,23 +22,123 @@ describe("atoms / Text", () => {
   });
 
   describe("Styles", () => {
-    describe("font-size", () => {      
-      test("should have correct value when passed via fontSize value in prop", () => {
+    describe("color", () => {      
+      test("should have blue300 by default", () => {
+        const { TextContainer } = setup();
+  
+        expect(TextContainer).toHaveStyleRule("color", "#78b0b5");
+      });
+
+      test("should have correct color when passed via color prop", () => {
         const { TextContainer } = setup({
-          fontSize: "font20"
+          color: "blue500"
         });
   
-        expect(TextContainer).toHaveStyleRule("font-size", "20px");
+        expect(TextContainer).toHaveStyleRule("color", "#2b595e");
       });
     });
-
+    
     describe("font-family", () => {      
+      test("should have AnonymousPro by default", () => {
+        const { TextContainer } = setup();
+      
+        expect(TextContainer).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
+      });
+    
       test("should have correct value when passed via fontFamily value in prop", () => {
         const { TextContainer } = setup({
           fontFamily: "Exan"
         });
-  
+      
         expect(TextContainer).toHaveStyleRule("font-family", "ExanModifiedRegular,monospace");
+      });
+    });
+    
+    describe("font-size", () => {      
+      test("should have 20px by default", () => {
+        const { TextContainer } = setup();
+      
+        expect(TextContainer).toHaveStyleRule("font-size", "20px");
+      });
+    
+      test("should have correct value when passed via fontSize value in prop", () => {
+        const { TextContainer } = setup({
+          fontSize: "font72"
+        });
+      
+        expect(TextContainer).toHaveStyleRule("font-size", "72px");
+      });
+    });
+    
+    describe("line-height", () => {      
+      test("should have 1 by default", () => {
+        const { TextContainer } = setup();
+      
+        expect(TextContainer).toHaveStyleRule("line-height", "1");
+      });
+    
+      test("should have correct value when passed via lineHeight prop - spacing", () => {
+        const { TextContainer } = setup({
+          lineHeight: "spacing24"
+        });
+      
+        expect(TextContainer).toHaveStyleRule("line-height", "2.4rem");
+      });
+    });
+    
+    describe("text-align", () => {      
+      test("should have left by default", () => {
+        const { TextContainer } = setup();
+      
+        expect(TextContainer).toHaveStyleRule("text-align", "left");
+      });
+    
+      test("should have center when passed via textAlign prop", () => {
+        const { TextContainer } = setup({
+          textAlign: "center"
+        });
+      
+        expect(TextContainer).toHaveStyleRule("text-align", "center");
+      });
+    
+      test("should have right when passed via textAlign prop", () => {
+        const { TextContainer } = setup({
+          textAlign: "right"
+        });
+      
+        expect(TextContainer).toHaveStyleRule("text-align", "right");
+      });
+    });
+    
+    describe("text-transform", () => {      
+      test("should have none by default", () => {
+        const { TextContainer } = setup();
+      
+        expect(TextContainer).toHaveStyleRule("text-transform", "none");
+      });
+    
+      test("should have lowercase when passed via textTransform prop", () => {
+        const { TextContainer } = setup({
+          textTransform: "lowercase"
+        });
+      
+        expect(TextContainer).toHaveStyleRule("text-transform", "lowercase");
+      });
+    
+      test("should have uppercase when passed via textTransform prop", () => {
+        const { TextContainer } = setup({
+          textTransform: "uppercase"
+        });
+      
+        expect(TextContainer).toHaveStyleRule("text-transform", "uppercase");
+      });
+    
+      test("should have capitalize when passed via textTransform prop", () => {
+        const { TextContainer } = setup({
+          textTransform: "capitalize"
+        });
+      
+        expect(TextContainer).toHaveStyleRule("text-transform", "capitalize");
       });
     });
   });
@@ -81,8 +183,6 @@ type TextTestProps = Partial<TextProps>;
 function setup(addedProps?: TextTestProps): Setup {
   const props: TextProps = {
     children: "Text",
-    fontFamily: "Exan",
-    fontSize: "font24",
     ...addedProps
   };
 

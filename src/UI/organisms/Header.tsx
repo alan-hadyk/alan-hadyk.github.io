@@ -2,20 +2,15 @@ import React, { memo, Fragment } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize } from "polished";
 
-import LinkWithIcon, { LinkWithIconProps } from "<molecules>/LinkWithIcon";
+import LinkWithIcon from "<molecules>/LinkWithIcon";
 import Nav from "<molecules>/Nav";
 import Button from "<molecules>/Button";
 import PositionContainer from "<layout>/PositionContainer";
 import FlexContainer from "<layout>/FlexContainer";
 import SpacingContainer from "<layout>/SpacingContainer";
 
-import zIndex from "<styles>/variables/zIndex";
-
-type ZIndexKeys = keyof typeof zIndex;
-
-export interface HeaderProps {
-  zIndex?: typeof zIndex[ZIndexKeys];
-}
+import { HeaderProps }  from "<organisms>/__typings__/Header";
+import { LinkWithIconProps } from "<molecules>/__typings__/LinkWithIcon";
 
 function Header({
   zIndex = "layer1"
@@ -32,61 +27,73 @@ function Header({
         <FlexContainer
           flexFlow="row nowrap"
         >
-          <Header.InnerContainer data-testid="HeaderInnerContainer">
-            <FlexContainer
-              flexFlow="row nowrap"
-              height="spacing48"
-              justifyContent="space-between"
-            >
-              <LinkWithIcon
-                href={window.location.href}
-                iconName="logo"
-              />
-            
-              <FlexContainer
-                flexFlow="row nowrap"
-                height="spacing48"
-                justifyContent="flex-start"
-              >
-                <SpacingContainer marginRight="spacing48">
-                  <Nav />
-                </SpacingContainer>
-                
-                <Button 
-                  buttonText="resume" 
-                  iconName="download" 
-                  size="medium"
-                />
-
-                {renderIcons()}
-              </FlexContainer>
-            </FlexContainer>
-          </Header.InnerContainer>
+          {renderHeaderInnerContainer()}
         </FlexContainer>
       </Header.Container>
     </PositionContainer>
   );
 
+  function renderHeaderInnerContainer(): JSX.Element {
+    return (
+      <Header.InnerContainer data-testid="HeaderInnerContainer">
+        <FlexContainer
+          flexFlow="row nowrap"
+          height="spacing48"
+          justifyContent="space-between"
+        >
+          <LinkWithIcon
+            href={window.location.href}
+            iconName="logo"
+            height="spacing48"
+            width="auto"
+          />
+      
+          <FlexContainer
+            flexFlow="row nowrap"
+            height="spacing48"
+            justifyContent="flex-start"
+          >
+            <SpacingContainer marginRight="spacing48">
+              <Nav />
+            </SpacingContainer>
+          
+            <Button 
+              buttonText="resume" 
+              iconName="btnDownload" 
+              size="medium"
+            />
+
+            {renderIcons()}
+          </FlexContainer>
+        </FlexContainer>
+      </Header.InnerContainer>
+    );
+  }
+
   function renderIcons(): JSX.Element {
     const icons: LinkWithIconProps[] = [{
+      height: "spacing48",
       href: "https://github.com/alan-hadyk",
       iconName: "gitHub"
     }, {
+      height: "spacing48",
       href: "https://codesandbox.io/u/alan-hadyk",
       iconName: "codeSandbox"
     }, {
+      height: "spacing48",
       href: "https://www.linkedin.com/in/alan-hadyk-78738099/",
       iconName: "linkedIn"
     }];
 
     return (
       <Fragment>
-        {icons.map(({ href, iconName }: LinkWithIconProps) => (
+        {icons.map(({ height, href, iconName }: LinkWithIconProps) => (
           <SpacingContainer 
             key={iconName}
             marginLeft="spacing24"
           >
             <LinkWithIcon
+              height={height}
               href={href}
               iconName={iconName}
               isExternal={true}
