@@ -28,8 +28,9 @@ function Text({
   });
 
   return (
-    <Text.Container 
+    <Text.Container
       color={color}
+      data-testid="Text"
       fontSize={fontSize} 
       fontFamily={fontFamily}
       lineHeight={lineHeight}

@@ -45,7 +45,7 @@ describe("atoms / Icon", () => {
       });
     });
 
-    describe("shouldGlowOnHover", () => {
+    describe("shouldGlowOnHover: true", () => {
       describe("transition", () => {      
         test("should have all 150ms ease-in-out", () => {
           const { Icon } = setup({
@@ -64,6 +64,32 @@ describe("atoms / Icon", () => {
             });
   
             expect(Icon).toHaveStyleRule("filter", "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", {
+              modifier: ":hover"
+            });
+          });
+        });
+      });
+    });
+
+    describe("shouldGlowOnHover: false", () => {
+      describe("transition", () => {      
+        test("should have all 150ms ease-in-out", () => {
+          const { Icon } = setup({
+            shouldGlowOnHover: false
+          });
+
+          expect(Icon).not.toHaveStyleRule("transition");
+        });
+      });
+
+      describe(":hover", () => {
+        describe("box-shadow", () => {      
+          test("should have drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", () => {
+            const { Icon } = setup({
+              shouldGlowOnHover: false
+            });
+  
+            expect(Icon).not.toHaveStyleRule("filter", "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", {
               modifier: ":hover"
             });
           });
