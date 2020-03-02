@@ -48,6 +48,11 @@ export default `
     position: relative;
   }
 
+  ::selection { 
+    color: ${colorPalette.blue700}; 
+    background: ${colorPalette.blue100}; 
+  }
+
   h1,
   h2,
   h3,

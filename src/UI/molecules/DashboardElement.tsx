@@ -31,7 +31,7 @@ function DashboardElement({
           fontFamily="AnonymousPro"
           fontSize="font16"
           lineHeight="spacing36"
-          shouldShuffle={false}
+          shouldShuffle={true}
           textTransform="uppercase"
         >
           {title}

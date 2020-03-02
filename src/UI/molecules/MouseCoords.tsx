@@ -1,4 +1,4 @@
-import React, { memo, useRef, useEffect } from "react";
+import React, { memo, useRef, useLayoutEffect } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import Text from "<atoms>/Text";
@@ -19,12 +19,12 @@ function MouseCoords(): JSX.Element {
   const verticalLineRef = useRef<HTMLDivElement>(null);
   const horizontalLineRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     window.addEventListener("mousemove", onMouseMove);
     window.requestAnimationFrame(animateElements);
 
     return (): void => window.removeEventListener("mousemove", onMouseMove);
-  }, []);
+  });
 
   return (
     <PositionContainer
