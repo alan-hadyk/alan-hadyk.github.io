@@ -28,6 +28,7 @@ declare module "styled-components" {
     };
 
     fontSizes: {
+      font8: string;
       font16: string;
       font20: string;
       font24: string;
@@ -36,17 +37,25 @@ declare module "styled-components" {
     };
 
     keyframes: {
+      borderDanceHorizontal: Keyframes;
+      borderDanceVertical: Keyframes;
+      glow: Keyframes;
       ripple: Keyframes;
     };
 
     spacing: {
+      negativeSpacing8: string;
+      negativeSpacing10: string;
+      negativeSpacing12: string;
       spacing0: string;
       spacing1: string;
+      spacing2: string;
       spacing4: string;
       spacing8: string;
       spacing12: string;
       spacing16: string;
       spacing24: string;
+      spacing32: string;
       spacing36: string;
       spacing40: string;
       spacing48: string;
@@ -55,12 +64,17 @@ declare module "styled-components" {
       spacing80: string;
       spacing96: string;
       spacing120: string;
+      spacing184: string;
+      spacing220: string;
+      spacing272: string;
+      spacing1824: string;
     };
 
     transitionTimes: {
       default: string;
       fast: string;
       slow: string;
+      verySlow: string;
     };
 
     zIndex: {

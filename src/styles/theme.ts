@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import { DefaultTheme } from "styled-components";
 
 import breakpoints from "<styles>/variables/breakpoints";

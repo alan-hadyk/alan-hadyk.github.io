@@ -11,6 +11,11 @@ export interface TextProps {
   fontFamily?: FontFamilies;
   fontSize?: FontSizes;
   lineHeight?: Spacing | "1";
+  paddingBottom?: Spacing;
+  paddingLeft?: Spacing;
+  paddingRight?: Spacing;
+  paddingTop?: Spacing;
+  shouldShuffle?: boolean;
   shouldShuffleOnHover?: boolean;
   textAlign?: "left" | "center" | "right";
   textTransform?: "none" | "lowercase" | "uppercase" | "capitalize";

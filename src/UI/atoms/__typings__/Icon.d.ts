@@ -1,9 +1,11 @@
 import { FunctionComponent, SVGProps } from "react";
 import { StyledComponentBase, DefaultTheme } from "styled-components";
 
-import { Spacing }from "<styles>/variables/__typings__/variables";
+import { Spacing, TransitionTimes }from "<styles>/variables/__typings__/variables";
 
 export interface IconProps {
+  animationDelay?: string;
+  animationTime?: TransitionTimes;
   height: Spacing;
   iconName:
     "btnCodeSandbox" |
@@ -21,16 +23,11 @@ export interface IconProps {
     "codeSandbox" |
     "gitHub" |
     "linkedIn";
+  shouldDisplayGlowAnimation?: boolean;
   shouldGlowOnHover?: boolean;
   width?: string;
 }
 
 type SVGIcon = FunctionComponent<SVGProps<SVGSVGElement> & { title?: string }>;
 
-export interface IconContainerProps {
-  iconheight: Spacing;
-  iconwidth: string;
-}
-
 export type IconContainerType = string & StyledComponentBase<SVGIcon, DefaultTheme, IconContainerProps, never>;
-

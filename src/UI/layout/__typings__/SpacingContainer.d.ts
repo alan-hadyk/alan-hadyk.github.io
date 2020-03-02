@@ -4,6 +4,7 @@ import {
 
 export interface SpacingContainerProps {
   children: JSX.Element | JSX.Element[] | string;
+  height?: Spacing | "auto" | "100%" | "50%";
   id?: string;
   marginBottom?: Spacing;
   marginLeft?: Spacing;

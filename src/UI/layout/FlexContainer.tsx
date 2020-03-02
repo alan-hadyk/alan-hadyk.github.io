@@ -9,6 +9,7 @@ const FlexContainer = ({
   alignItems = "center",
   children,
   flexFlow = "row wrap",
+  gap = "spacing0",
   height = "unset",
   justifyContent = "center"
 }: FlexContainerProps): JSX.Element => (
@@ -16,6 +17,7 @@ const FlexContainer = ({
     alignItems={alignItems}
     data-testid="FlexContainer"
     flexFlow={flexFlow}
+    gap={gap}
     height={height}
     justifyContent={justifyContent}
   >
@@ -27,6 +29,7 @@ FlexContainer.Container = styled.div<FlexContainerProps>`
   ${({
     alignItems,
     flexFlow,
+    gap,
     height,
     justifyContent,
     theme: {
@@ -38,6 +41,19 @@ FlexContainer.Container = styled.div<FlexContainerProps>`
     flex-flow: ${flexFlow};
     height: ${(height in spacing && spacing[height]) || height};
     justify-content: ${justifyContent};
+
+    & > * {
+      ${flexFlow.includes("row") ? `
+        margin-left: ${(gap in spacing && spacing[gap])};
+      ` : `
+        margin-top: ${(gap in spacing && spacing[gap])};
+      `}
+
+      &:first-child {
+        margin-left: 0;
+        margin-top: 0;
+      }
+    }
   `}
 `;
   

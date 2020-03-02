@@ -1,6 +1,42 @@
 import { keyframes } from "styled-components";
 
+import colorPalette from "<styles>/variables/colorPalette";
+import spacing from "<styles>/variables/spacing";
+
 export default {
+  borderDanceHorizontal: keyframes`
+    from {
+      background-position: left top;
+    }
+    to {
+      background-position: left ${spacing.spacing12} top;
+    }
+  `,
+  borderDanceVertical: keyframes`
+    from {
+      background-position: left top;
+    }
+    to {
+      background-position: left top ${spacing.spacing12};
+    }
+  `,
+  glow: keyframes`
+    0% {
+      filter: drop-shadow(0px 0px 0px ${colorPalette.blue100});
+    }
+
+    16% {
+      filter: drop-shadow(0px 0px ${spacing.spacing4} ${colorPalette.blue100});
+    }
+
+    32% {
+      filter: drop-shadow(0px 0px 0px ${colorPalette.blue100});
+    }
+
+    100% {
+      filter: drop-shadow(0px 0px 0px ${colorPalette.blue100});
+    }
+  `,
   ripple: keyframes`
     from {
       opacity: 1;

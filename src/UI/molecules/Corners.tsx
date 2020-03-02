@@ -15,7 +15,6 @@ const positions: CornerProps[] = [{
   position: "bottomRight"
 }];
 
-
 function Corners({ isActive = false }: CornersProps): JSX.Element {
   return (
     <Fragment>

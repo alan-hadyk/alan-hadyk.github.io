@@ -2,6 +2,9 @@ import React, { memo, useState, useRef } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import useShuffleText from "<hooks>/useShuffleText";
+import useInterval from "<hooks>/useInterval";
+
+import transitionTimes from "<styles>/variables/transitionTimes";
 
 import { TextProps } from "<atoms>/__typings__/Text";
 import { ShuffleState } from "<hooks>/__typings__/useShuffleText";
@@ -12,6 +15,11 @@ function Text({
   fontSize = "font20",
   fontFamily = "AnonymousPro",
   lineHeight = "1",
+  paddingBottom = "spacing0",
+  paddingLeft = "spacing0",
+  paddingRight = "spacing0",
+  paddingTop = "spacing0",
+  shouldShuffle = false,
   shouldShuffleOnHover = false,
   textAlign = "left",
   textTransform = "none"
@@ -22,10 +30,18 @@ function Text({
   useShuffleText({
     onShuffleReady: setShuffleText,
     ref: textElement,
-    shouldInitialize: shouldShuffleOnHover,
+    shouldInitialize: shouldShuffleOnHover || shouldShuffle,
     shuffleState: shuffleText,
     text: children
   });
+
+  useInterval(() => {
+    if (!textElement.current || !shouldShuffle) {
+      return;
+    }
+
+    shuffleText.start();
+  }, parseInt(transitionTimes.verySlow));
 
   return (
     <Text.Container
@@ -35,6 +51,10 @@ function Text({
       fontSize={fontSize} 
       lineHeight={lineHeight}
       onMouseOver={handleMouseOver}
+      paddingBottom={paddingBottom}
+      paddingLeft={paddingLeft}
+      paddingRight={paddingRight}
+      paddingTop={paddingTop}  
       ref={textElement}
       textAlign={textAlign}
       textTransform={textTransform}
@@ -58,6 +78,10 @@ Text.Container = styled.div<TextProps>`
     fontSize,
     fontFamily,
     lineHeight,
+    paddingBottom,
+    paddingLeft,
+    paddingRight,
+    paddingTop,
     textAlign,
     textTransform,
     theme: {
@@ -71,6 +95,10 @@ Text.Container = styled.div<TextProps>`
     font-family: ${fontFamily in fontFamilies && fontFamilies[fontFamily]};
     font-size: ${fontSize in fontSizes && fontSizes[fontSize]};
     line-height: ${(lineHeight in spacing && spacing[lineHeight]) || lineHeight};
+    padding-bottom: ${paddingBottom in spacing && spacing[paddingBottom]};
+    padding-left: ${paddingLeft in spacing && spacing[paddingLeft]};
+    padding-right: ${paddingRight in spacing && spacing[paddingRight]};
+    padding-top: ${paddingTop in spacing && spacing[paddingTop]};
     text-align: ${textAlign};
     text-transform: ${textTransform};
   `}

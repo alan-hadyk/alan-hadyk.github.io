@@ -5,20 +5,27 @@ import Coords from "<pages>/Home/sections/dashboard/elements/Coords";
 
 import Section from "<molecules>/Section";
 import FlexContainer from "<layout>/FlexContainer";
+import SpacingContainer from "<layout>/SpacingContainer";
 
 const DashboardSection = (): JSX.Element => (
   <Section
     id="dashboard"
     minHeight="100vh"
   >
-    <FlexContainer
-      flexFlow="row nowrap"
-      justifyContent="center"
-      alignItems="center"
+    <SpacingContainer
+      paddingTop="spacing24"
     >
-      <TechStack />
-      <Coords />
-    </FlexContainer>
+      <FlexContainer
+        alignItems="flex-start"
+        flexFlow="row nowrap"
+        gap="spacing48"
+        height="spacing220"
+        justifyContent="center"
+      >
+        <TechStack />
+        <Coords />
+      </FlexContainer>
+    </SpacingContainer>
   </Section>
 );
   
