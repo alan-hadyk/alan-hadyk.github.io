@@ -7,6 +7,7 @@ import {
 
 const SpacingContainer = ({
   children,
+  dataTestId,
   height = "auto",
   id,
   marginBottom = "spacing0",
@@ -20,7 +21,7 @@ const SpacingContainer = ({
   paddingTop = "spacing0"
 }: SpacingContainerProps): JSX.Element => (
   <SpacingContainer.Container
-    data-testid="SpacingContainer"
+    data-testid={dataTestId || "SpacingContainer"}
     height={height}
     id={id}
     marginBottom={marginBottom}

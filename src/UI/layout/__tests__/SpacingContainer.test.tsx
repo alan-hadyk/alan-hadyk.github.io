@@ -19,6 +19,38 @@ describe("layout / SpacingContainer", () => {
   });
   
   describe("Styles", () => {
+    describe("height", () => {      
+      test("should have auto by default", () => {
+        const { SpacingContainer } = setup();
+  
+        expect(SpacingContainer).toHaveStyleRule("height", "auto");
+      });
+  
+      test("should have correct value when passed via spacing value in prop", () => {
+        const { SpacingContainer } = setup({
+          height: "spacing48"
+        });
+  
+        expect(SpacingContainer).toHaveStyleRule("height", "4.8rem");
+      });
+  
+      test("should have 100% when passed via prop", () => {
+        const { SpacingContainer } = setup({
+          height: "100%"
+        });
+  
+        expect(SpacingContainer).toHaveStyleRule("height", "100%");
+      });
+  
+      test("should have 50% when passed via prop", () => {
+        const { SpacingContainer } = setup({
+          height: "50%"
+        });
+  
+        expect(SpacingContainer).toHaveStyleRule("height", "50%");
+      });
+    });
+
     describe("margin-bottom", () => {      
       test("should have 0 by default", () => {
         const { SpacingContainer } = setup();
@@ -80,6 +112,30 @@ describe("layout / SpacingContainer", () => {
         });
   
         expect(SpacingContainer).toHaveStyleRule("margin-top", "4.8rem");
+      });
+    });
+
+    describe("min-height", () => {      
+      test("should have 0 by default", () => {
+        const { SpacingContainer } = setup();
+  
+        expect(SpacingContainer).toHaveStyleRule("min-height", "0");
+      });
+  
+      test("should have correct value when passed via spacing value in prop", () => {
+        const { SpacingContainer } = setup({
+          minHeight: "spacing48"
+        });
+  
+        expect(SpacingContainer).toHaveStyleRule("min-height", "4.8rem");
+      });
+  
+      test("should have 100vh when passed via prop", () => {
+        const { SpacingContainer } = setup({
+          minHeight: "100vh"
+        });
+  
+        expect(SpacingContainer).toHaveStyleRule("min-height", "100vh");
       });
     });
 

@@ -1,5 +1,4 @@
 import React, { memo } from "react";
-import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import Icon from "<atoms>/Icon";
 import Text from "<atoms>/Text";
@@ -12,7 +11,12 @@ const animatedIcons: IconProps["iconName"][] = ["react", "javascript", "typescri
 
 function AnimatedIcons(): JSX.Element {
   return (
-    <FlexContainer alignItems="center" justifyContent="center" height="100%">
+    <FlexContainer 
+      alignItems="center" 
+      dataTestId="AnimatedIcons"
+      height="100%"
+      justifyContent="center" 
+    >
       {renderIcons()}
     </FlexContainer>
   );
@@ -56,15 +60,5 @@ function AnimatedIcons(): JSX.Element {
     });
   }
 }
-
-AnimatedIcons.Container = styled.div`
-  ${({
-    theme: {
-      spacing: { spacing72 }
-    }
-  }): FlattenSimpleInterpolation => css`
-    height: ${spacing72};
-  `}
-`;
 
 export default memo(AnimatedIcons);

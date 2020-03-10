@@ -13,10 +13,12 @@ const DashboardSection = (): JSX.Element => (
     minHeight="100vh"
   >
     <SpacingContainer
+      dataTestId="DashboardSectionSpacingContainer"
       paddingTop="spacing24"
     >
       <FlexContainer
         alignItems="flex-start"
+        dataTestId="DashboardSectionFlexContainerr"
         flexFlow="row nowrap"
         gap="spacing48"
         height="spacing220"

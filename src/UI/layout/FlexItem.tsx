@@ -8,12 +8,13 @@ import {
 const FlexItem = ({
   alignSelf = "auto",
   children,
+  dataTestId,
   flex,
   order = 0
 }: FlexItemProps): JSX.Element => (
   <FlexItem.Container
     alignSelf={alignSelf}
-    data-testid="FlexItem"
+    data-testid={dataTestId || "FlexItem"}
     flex={flex}
     order={order}
   >

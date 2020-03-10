@@ -25,7 +25,7 @@ export interface IconProps {
     "linkedIn";
   shouldDisplayGlowAnimation?: boolean;
   shouldGlowOnHover?: boolean;
-  width?: string;
+  width?: "auto" | "100%" | Spacing;
 }
 
 type SVGIcon = FunctionComponent<SVGProps<SVGSVGElement> & { title?: string }>;

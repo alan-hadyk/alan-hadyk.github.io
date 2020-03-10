@@ -1,5 +1,6 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
+import ShuffleText from "shuffle-text";
 
 import DashboardElement from "<molecules>/DashboardElement";
 import { DashboardElementProps } from "<molecules>/__typings__/DashboardElement";
@@ -10,17 +11,17 @@ describe("molecules / DashboardElement", () => {
   test("should have correct structure", () => {
     const { 
       Corners,
-      DashboardElementContainer,
       DashboardElementInnerContainer,
       FlexItem,
       PositionContainer,
       SpacingContainer,
       Text
-    } = setup();
+    } = setup({
+      shouldDisplayCorners: true
+    });
 
-    expect(FlexItem.children[0]).toEqual(DashboardElementContainer);
-    expect(DashboardElementContainer.children[0]).toEqual(Text);
-    expect(DashboardElementContainer.children[1]).toEqual(PositionContainer);
+    expect(FlexItem.children[0]).toEqual(Text);
+    expect(FlexItem.children[1]).toEqual(PositionContainer);
     expect(PositionContainer.children[0]).toEqual(Corners[0]);
     expect(PositionContainer.children[1]).toEqual(Corners[1]);
     expect(PositionContainer.children[2]).toEqual(Corners[2]);
@@ -29,42 +30,110 @@ describe("molecules / DashboardElement", () => {
     expect(DashboardElementInnerContainer.children[0]).toEqual(SpacingContainer);
   });
 
-  describe("DashboardElementInnerContainer", () => {
-    describe("Styles", () => {
-      test("should have height 100%", () => {
-        const { DashboardElementInnerContainer } = setup();
-  
-        expect(DashboardElementInnerContainer).toHaveStyleRule("height", "100%");
+  describe("FlexItem", () => {
+    describe("Props", () => {
+      describe("align-self", () => {
+        test("should have auto by default", () => {
+          const { FlexItem } = setup();
+    
+          expect(FlexItem).toHaveStyleRule("align-self", "auto");
+        });
+
+        test("should have flex-start when passed via prop value", () => {
+          const { FlexItem } = setup({
+            alignSelf: "flex-start"
+          });
+    
+          expect(FlexItem).toHaveStyleRule("align-self", "flex-start");
+        });
+
+        test("should have flex-end when passed via prop value", () => {
+          const { FlexItem } = setup({
+            alignSelf: "flex-end"
+          });
+    
+          expect(FlexItem).toHaveStyleRule("align-self", "flex-end");
+        });
+
+        test("should have center when passed via prop value", () => {
+          const { FlexItem } = setup({
+            alignSelf: "center"
+          });
+    
+          expect(FlexItem).toHaveStyleRule("align-self", "center");
+        });
+
+        test("should have baseline when passed via prop value", () => {
+          const { FlexItem } = setup({
+            alignSelf: "baseline"
+          });
+    
+          expect(FlexItem).toHaveStyleRule("align-self", "baseline");
+        });
+
+        test("should have stretch when passed via prop value", () => {
+          const { FlexItem } = setup({
+            alignSelf: "stretch"
+          });
+    
+          expect(FlexItem).toHaveStyleRule("align-self", "stretch");
+        });
       });
 
-      test("should have background", () => {
-        const { DashboardElementInnerContainer } = setup();
-  
-        expect(DashboardElementInnerContainer).toHaveStyleRule("background", "url(Cross.svg)");
+      describe("flex", () => {
+        test("should have 1 0 50% when passed via prop value", () => {
+          const { FlexItem } = setup({
+            flex: "1 0 50%"
+          });
+    
+          expect(FlexItem).toHaveStyleRule("flex", "1 0 50%");
+        });
+
+        test("should have 0 1 25% when passed via prop value", () => {
+          const { FlexItem } = setup({
+            flex: "0 1 25%"
+          });
+    
+          expect(FlexItem).toHaveStyleRule("flex", "0 1 25%");
+        });
+
+        test("should have 1 1 75% when passed via prop value", () => {
+          const { FlexItem } = setup({
+            flex: "1 1 75%"
+          });
+    
+          expect(FlexItem).toHaveStyleRule("flex", "1 1 75%");
+        });
       });
 
-      test("should have background repeat space", () => {
-        const { DashboardElementInnerContainer } = setup();
-  
-        expect(DashboardElementInnerContainer).toHaveStyleRule("background-repeat", "space");
-      });
+      describe("order", () => {
+        test("should have 0 by default", () => {
+          const { FlexItem } = setup();
+    
+          expect(FlexItem).toHaveStyleRule("order", "0");
+        });
 
-      test("should have background position center", () => {
-        const { DashboardElementInnerContainer } = setup();
-  
-        expect(DashboardElementInnerContainer).toHaveStyleRule("background-position", "center");
-      });
+        test("should have 4 when passed via prop value", () => {
+          const { FlexItem } = setup({
+            order: 4
+          });
+    
+          expect(FlexItem).toHaveStyleRule("order", "4");
+        });
 
-      test("should have background size center", () => {
-        const { DashboardElementInnerContainer } = setup();
-  
-        expect(DashboardElementInnerContainer).toHaveStyleRule("background-size", "3.2rem 3.2rem");
+        test("should have 2 when passed via prop value", () => {
+          const { FlexItem } = setup({
+            order: 2
+          });
+    
+          expect(FlexItem).toHaveStyleRule("order", "2");
+        });
       });
     });
   });
 
   describe("Text", () => { 
-    test("should have correct content passed as buttonText", () => {
+    test("should render textContent equal to title prop", () => {
       const { Text } = setup({
         title: "Tech Stack"
       });
@@ -72,51 +141,243 @@ describe("molecules / DashboardElement", () => {
       expect(Text.textContent).toEqual("Tech Stack");
     });
 
-    describe("Styles", () => {
-      test("should have color #78b0b5", () => {
-        const { Text } = setup();
-
-        expect(Text).toHaveStyleRule("color", "#78b0b5");
-      }); 
-      
-      test("should have font size 16px", () => {
-        const { Text } = setup();
-
-        expect(Text).toHaveStyleRule("font-size", "16px");
-      }); 
-
-      test("should have font family AnonymousPro", () => {
-        const { Text } = setup();
-
-        expect(Text).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
+    describe("Props", () => {
+      describe("color", () => {
+        test("should have color #78b0b5", () => {
+          const { Text } = setup();
+  
+          expect(Text).toHaveStyleRule("color", "#78b0b5");
+        });
+      });
+ 
+      describe("fontFamily", () => {
+        test("should have 'Anonymous Pro',monospace", () => {
+          const { Text } = setup();
+  
+          expect(Text).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
+        });
       });
 
-      test("should have line height 3.6rem", () => {
-        const { Text } = setup();
-
-        expect(Text).toHaveStyleRule("line-height", "3.6rem");
+      describe("fontSize", () => {
+        test("should have 16px", () => {
+          const { Text } = setup();
+  
+          expect(Text).toHaveStyleRule("font-size", "16px");
+        });
       });
 
-      test("should have text transform uppercase", () => {
-        const { Text } = setup();
+      describe("lineHeight", () => {
+        test("should have 3.6rem", () => {
+          const { Text } = setup();
+  
+          expect(Text).toHaveStyleRule("line-height", "3.6rem");
+        });
+      });
 
-        expect(Text).toHaveStyleRule("text-transform", "uppercase");
+      describe("shouldShuffle", () => {
+        test("should trigger shuffleText.start in intervals in each Text", () => {
+          jest.spyOn(ShuffleText.prototype, "start");
+          jest.useFakeTimers();
+    
+          setup();
+    
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
+    
+          jest.advanceTimersByTime(3600);
+    
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
+    
+          jest.advanceTimersByTime(3600);
+    
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
+    
+          jest.clearAllTimers();
+        });
+      });
+
+      describe("textTransform", () => {
+        test("should have uppercase", () => {
+          const { Text } = setup();
+  
+          expect(Text).toHaveStyleRule("text-transform", "uppercase");
+        });
       });
     });
   });
 
   describe("PositionContainer", () => {
-    test("should have 5 children", () => {
-      const { PositionContainer } = setup();
+    test("should render 5 children if shouldDisplayCorners is true", () => {
+      const { PositionContainer } = setup({
+        shouldDisplayCorners: true
+      });
 
       expect(PositionContainer.children.length).toEqual(5);
     });
 
-    describe("Styles", () => {
-      test("should have position relative", () => {
-        const { PositionContainer } = setup();
+    test("should render 1 child if shouldDisplayCorners is false", () => {
+      const { PositionContainer } = setup({
+        shouldDisplayCorners: false
+      });
 
-        expect(PositionContainer).toHaveStyleRule("position", "relative");
+      expect(PositionContainer.children.length).toEqual(1);
+    });
+
+    describe("Props", () => {
+      describe("height", () => {
+        test("should have unset by default", () => {
+          const { PositionContainer } = setup();
+  
+          expect(PositionContainer).toHaveStyleRule("height", "unset");
+        });
+
+        test("should have 1.2rem when passed via childrenHeight prop value", () => {
+          const { PositionContainer } = setup({
+            childrenHeight: "spacing12"
+          });
+  
+          expect(PositionContainer).toHaveStyleRule("height", "1.2rem");
+        });
+
+        test("should have 2.4rem when passed via childrenHeight prop value", () => {
+          const { PositionContainer } = setup({
+            childrenHeight: "spacing24"
+          });
+  
+          expect(PositionContainer).toHaveStyleRule("height", "2.4rem");
+        });
+      });
+
+      describe("position", () => {
+        test("should have relative", () => {
+          const { PositionContainer } = setup();
+  
+          expect(PositionContainer).toHaveStyleRule("position", "relative");
+        });
+      });
+    });
+  });
+
+  describe("Corners", () => {
+    test("should render 4 corners as PositionContainer children if shouldDisplayCorners is true", () => {
+      const { Corners, PositionContainer } = setup({
+        shouldDisplayCorners: true
+      });
+
+      expect(PositionContainer.children[0]).toEqual(Corners[0]);
+      expect(PositionContainer.children[1]).toEqual(Corners[1]);
+      expect(PositionContainer.children[2]).toEqual(Corners[2]);
+      expect(PositionContainer.children[3]).toEqual(Corners[3]);
+    });
+
+    test("should not render if shouldDisplayCorners is false", () => {
+      const { Corners } = setup({
+        shouldDisplayCorners: false
+      });
+
+      expect(Corners[0]).toBeFalsy();
+      expect(Corners[1]).toBeFalsy();
+      expect(Corners[2]).toBeFalsy();
+      expect(Corners[3]).toBeFalsy();
+    });
+  });
+
+  describe("DashboardElementInnerContainer", () => {
+    test("should render children equal to children prop", () => {
+      const { DashboardElementInnerContainer } = setup({
+        children: <div>Custom children</div>
+      });
+
+      expect(DashboardElementInnerContainer.textContent).toEqual("Custom children");
+
+    });
+    
+    describe("Styles", () => {
+      describe("height", () => {
+        test("should have 100%", () => {
+          const { DashboardElementInnerContainer } = setup();
+    
+          expect(DashboardElementInnerContainer).toHaveStyleRule("height", "100%");
+        });
+      });
+
+      describe("overflow", () => {
+        test("should have hidden", () => {
+          const { DashboardElementInnerContainer } = setup();
+    
+          expect(DashboardElementInnerContainer).toHaveStyleRule("overflow", "hidden");
+        });
+      });
+
+      describe("background", () => {
+        test("should have url(Cross.svg) if shouldDisplayCorners is true", () => {
+          const { DashboardElementInnerContainer } = setup({
+            shouldDisplayCorners: true
+          });
+    
+          expect(DashboardElementInnerContainer).toHaveStyleRule("background", "url(Cross.svg)");
+        });
+
+        test("should not have if shouldDisplayCorners is false", () => {
+          const { DashboardElementInnerContainer } = setup({
+            shouldDisplayCorners: false
+          });
+    
+          expect(DashboardElementInnerContainer).not.toHaveStyleRule("background");
+        });
+      });
+
+      describe("background-repeat", () => {
+        test("should have space if shouldDisplayCorners is true", () => {
+          const { DashboardElementInnerContainer } = setup({
+            shouldDisplayCorners: true
+          });
+    
+          expect(DashboardElementInnerContainer).toHaveStyleRule("background-repeat", "space");
+        });
+
+        test("should not have if shouldDisplayCorners is false", () => {
+          const { DashboardElementInnerContainer } = setup({
+            shouldDisplayCorners: false
+          });
+    
+          expect(DashboardElementInnerContainer).not.toHaveStyleRule("background-repeat");
+        });
+      });
+
+      describe("background-position", () => {
+        test("should have center if shouldDisplayCorners is true", () => {
+          const { DashboardElementInnerContainer } = setup({
+            shouldDisplayCorners: true
+          });
+    
+          expect(DashboardElementInnerContainer).toHaveStyleRule("background-position", "center");
+        });
+
+        test("should not have if shouldDisplayCorners is false", () => {
+          const { DashboardElementInnerContainer } = setup({
+            shouldDisplayCorners: false
+          });
+    
+          expect(DashboardElementInnerContainer).not.toHaveStyleRule("background-position");
+        });
+      });
+
+      describe("background-size", () => {
+        test("should have 3.2rem 3.2rem if shouldDisplayCorners is true", () => {
+          const { DashboardElementInnerContainer } = setup({
+            shouldDisplayCorners: true
+          });
+    
+          expect(DashboardElementInnerContainer).toHaveStyleRule("background-size", "3.2rem 3.2rem");
+        });
+
+        test("should not have if shouldDisplayCorners is false", () => {
+          const { DashboardElementInnerContainer } = setup({
+            shouldDisplayCorners: false
+          });
+    
+          expect(DashboardElementInnerContainer).not.toHaveStyleRule("background-size");
+        });
       });
     });
   });
@@ -124,41 +385,58 @@ describe("molecules / DashboardElement", () => {
   describe("SpacingContainer", () => {
     test("should render children", () => {
       const { SpacingContainer } = setup({
-        children: <div>Custom children</div>
+        children: <div>Custom children</div>,
+        shouldDisplayCorners: true
       });
   
       expect(SpacingContainer.textContent).toEqual("Custom children");
     });
 
-    describe("Styles", () => {
-      test("should have height 100%", () => {
-        const { SpacingContainer } = setup();
+    test("should not render if shouldDisplayCorners is false", () => {
+      const { SpacingContainer } = setup({
+        shouldDisplayCorners: false
+      });
+  
+      expect(SpacingContainer).toBeFalsy();
+    });
 
-        expect(SpacingContainer).toHaveStyleRule("height", "100%");
+    describe("Props", () => {
+      let SpacingContainer: Element;
+
+      beforeEach(() => {
+        SpacingContainer = setup({
+          shouldDisplayCorners: true
+        }).SpacingContainer;
       });
 
-      test("should have padding right .8rem", () => {
-        const { SpacingContainer } = setup();
-
-        expect(SpacingContainer).toHaveStyleRule("padding-right", ".8rem");
+      describe("height", () => {
+        test("should have 100%", () => {
+          expect(SpacingContainer).toHaveStyleRule("height", "100%");
+        });
       });
 
-      test("should have padding left .8rem", () => {
-        const { SpacingContainer } = setup();
-
-        expect(SpacingContainer).toHaveStyleRule("padding-left", ".8rem");
+      describe("padding-right", () => {
+        test("should have .8rem", () => {
+          expect(SpacingContainer).toHaveStyleRule("padding-right", ".8rem");
+        });
       });
 
-      test("should have padding top .8rem", () => {
-        const { SpacingContainer } = setup();
-
-        expect(SpacingContainer).toHaveStyleRule("padding-top", ".8rem");
+      describe("padding-left", () => {
+        test("should have .8rem", () => {
+          expect(SpacingContainer).toHaveStyleRule("padding-left", ".8rem");
+        });
       });
 
-      test("should have padding bottom .8rem", () => {
-        const { SpacingContainer } = setup();
+      describe("padding-top", () => {
+        test("should have .8rem", () => {
+          expect(SpacingContainer).toHaveStyleRule("padding-top", ".8rem");
+        });
+      });
 
-        expect(SpacingContainer).toHaveStyleRule("padding-bottom", ".8rem");
+      describe("padding-bottom", () => {
+        test("should have .8rem", () => {
+          expect(SpacingContainer).toHaveStyleRule("padding-bottom", ".8rem");
+        });
       });
     });
   });
@@ -166,7 +444,6 @@ describe("molecules / DashboardElement", () => {
 
 interface Setup extends RenderResult {
   Corners: HTMLElement[];
-  DashboardElementContainer: Element;
   DashboardElementInnerContainer: Element;
   FlexItem: Element;
   PositionContainer: Element;
@@ -179,32 +456,26 @@ type DashboardElementTestProps = Partial<DashboardElementProps>;
 function setup(addedProps?: DashboardElementTestProps): Setup {
   const props: DashboardElementProps = {
     children: <div>Child</div>,
-    childrenHeight: "spacing184",
     flex: "1 1 30%",
-    shouldDisplayCorners: true,
     title: "Tech Stack",
     ...addedProps
   };
 
   const utils: RenderResult = renderWithTheme(
-    <DashboardElement {...props}>
-      {props.children}
-    </DashboardElement>
+    <DashboardElement {...props} />
   );
 
   const { container, queryByTestId, queryAllByTestId }: RenderResult = utils;
   const FlexItem: Element = container.children[0];
-  const DashboardElementContainer: Element = FlexItem.children[0];
-  const Text: Element = DashboardElementContainer.children[0];
-  const PositionContainer: Element = DashboardElementContainer.children[1];
+  const Text: Element = queryByTestId("Text");
+  const PositionContainer: Element = queryByTestId("PositionContainer");
   const Corners: HTMLElement[] = queryAllByTestId("Corner");
-  const DashboardElementInnerContainer: Element = queryAllByTestId("DashboardElementInnerContainer")[0];
+  const DashboardElementInnerContainer: Element = queryByTestId("DashboardElementInnerContainer");
   const SpacingContainer: Element = DashboardElementInnerContainer.querySelector("[data-testid=SpacingContainer]");
-
+ 
   return {
     ...utils,
     Corners,
-    DashboardElementContainer,
     DashboardElementInnerContainer,
     FlexItem,
     PositionContainer,

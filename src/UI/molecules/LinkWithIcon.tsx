@@ -20,6 +20,7 @@ function LinkWithIcon({
       isExternal={isExternal}
     >
       <Icon 
+        animationTime="fast"
         height={height}
         iconName={iconName} 
         width={width} 

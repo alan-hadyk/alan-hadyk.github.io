@@ -21,7 +21,7 @@ import { ReactComponent as IconLinkedIn } from "<assets>/svg/Icon-LinkedIn.svg";
 import {
   IconContainerType,
   IconProps
-} from "<atoms>/__typings__/Icon.d.ts";
+} from "<atoms>/__typings__/Icon";
 
 function Icon({
   animationDelay = "0ms",
@@ -58,14 +58,14 @@ function Icon({
     const IconContainer: IconContainerType = styled(iconComponents[iconName])`
       ${({ theme: { colorPalette, easing, keyframes, spacing, transitionTimes } }): FlattenSimpleInterpolation => css`
         height: ${height in spacing && spacing[height]};
-        width: ${width};
+        width: ${(width in spacing && spacing[width]) || width};
 
         ${shouldDisplayGlowAnimation && css`
           animation: ${keyframes.glow} ${transitionTimes[animationTime]} infinite ${easing.easeInOut} ${animationDelay};
         `}
 
         ${shouldGlowOnHover && `
-          transition: all ${transitionTimes.fast} ${easing.easeInOut};
+          transition: all ${transitionTimes[animationTime]} ${easing.easeInOut} ${animationDelay};
 
           &:hover {
             filter: drop-shadow(0px 0px ${spacing.spacing4} ${transparentize(0.5, colorPalette.white)});

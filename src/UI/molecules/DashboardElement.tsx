@@ -6,6 +6,7 @@ import Corners from "<molecules>/Corners";
 import PositionContainer from "<layout>/PositionContainer";
 import FlexItem from "<layout>/FlexItem";
 import SpacingContainer from "<layout>/SpacingContainer";
+
 import Cross from "<assets>/svg/Cross.svg";
 
 import { DashboardElementProps } from "<molecules>/__typings__/DashboardElement";
@@ -14,6 +15,7 @@ function DashboardElement({
   alignSelf = "auto",
   children,
   childrenHeight = "unset",
+  dataTestId,
   flex,
   shouldDisplayCorners = false,
   order = 0,
@@ -22,54 +24,56 @@ function DashboardElement({
   return (
     <FlexItem
       alignSelf={alignSelf}
+      dataTestId={dataTestId || "DashboardElement"}
       flex={flex}
       order={order}
     >
-      <DashboardElement.Container>
-        <Text 
-          color="blue300"
-          fontFamily="AnonymousPro"
-          fontSize="font16"
-          lineHeight="spacing36"
-          shouldShuffle={true}
-          textTransform="uppercase"
-        >
-          {title}
-        </Text>
-        <PositionContainer
-          height={childrenHeight}
-          position="relative"
-        >
-          {shouldDisplayCorners && <Corners data-testid="Corners" />}
-          <DashboardElement.InnerContainer
-            shouldDisplayCorners={shouldDisplayCorners}
-            data-testid="DashboardElementInnerContainer"
-          >
-            {renderInnerContainer()}
-          </DashboardElement.InnerContainer>
-        </PositionContainer>
-      </DashboardElement.Container>
+      <Text 
+        color="blue300"
+        fontFamily="AnonymousPro"
+        fontSize="font16"
+        lineHeight="spacing36"
+        shouldShuffle={true}
+        textTransform="uppercase"
+      >
+        {title}
+      </Text>
+      <PositionContainer
+        height={childrenHeight}
+        position="relative"
+      >
+        {shouldDisplayCorners && <Corners />}
+        {renderInnerContainer()}
+      </PositionContainer>
     </FlexItem>
   );
 
-  function renderInnerContainer(): JSX.Element | JSX.Element[] {
-    return shouldDisplayCorners ? (
-      <SpacingContainer 
-        height="100%"
-        paddingRight="spacing8" 
-        paddingLeft="spacing8" 
-        paddingTop="spacing8" 
-        paddingBottom="spacing8"
+  function renderInnerContainer(): JSX.Element {
+    return (
+      <DashboardElement.InnerContainer
+        shouldDisplayCorners={shouldDisplayCorners}
+        data-testid="DashboardElementInnerContainer"
       >
-        {children}
-      </SpacingContainer>
-    ) : children;
+        {
+          shouldDisplayCorners ? (
+            <SpacingContainer 
+              height="100%"
+              paddingRight="spacing8" 
+              paddingLeft="spacing8" 
+              paddingTop="spacing8" 
+              paddingBottom="spacing8"
+            >
+              {children}
+            </SpacingContainer>
+          ) : children
+        }
+      </DashboardElement.InnerContainer>
+    );
   }
 }
 
 type DashboardElementInnerContainer = Partial<DashboardElementProps>;
 
-DashboardElement.Container = styled.div``;
 DashboardElement.InnerContainer = styled.div<DashboardElementInnerContainer>`
 ${({
     shouldDisplayCorners,
@@ -80,6 +84,7 @@ ${({
     }
   }): FlattenSimpleInterpolation => css`
     height: 100%;
+    overflow: hidden;
     
     ${shouldDisplayCorners && `
       background: url(${Cross});

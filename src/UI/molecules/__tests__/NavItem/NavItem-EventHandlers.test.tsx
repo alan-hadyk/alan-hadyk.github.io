@@ -18,14 +18,14 @@ import {
 describe("molecules / NavItem", () => {
   describe("NavItem.Link", () => {    
     describe("Event handlers", () => {
-      test("should fire element.scrollIntoView onClick", () => {
+      test("should fire element.scrollIntoView onMouseUp", () => {
         const mockScrollIntoView = jest.fn();
         window.HTMLElement.prototype.scrollIntoView = mockScrollIntoView;
 
         const { NavItemLink } = setup();
 
         act(() => {
-          fireEvent.click(NavItemLink);
+          fireEvent.mouseUp(NavItemLink);
         });
 
         expect(mockScrollIntoView).toHaveBeenCalledWith({ 

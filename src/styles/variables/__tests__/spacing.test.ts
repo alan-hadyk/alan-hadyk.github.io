@@ -3,9 +3,6 @@ import spacing from "<styles>/variables/spacing";
 describe("styles / variables / spacing", () => {
   test("should have correct spacings", () => {
     expect(spacing).toEqual({
-      negativeSpacing8: "-.8rem",
-      negativeSpacing10: "-1rem",
-      negativeSpacing12: "-1.2rem",
       spacing0: "0",
       spacing1: ".1rem",
       spacing2: ".2rem",
@@ -19,14 +16,14 @@ describe("styles / variables / spacing", () => {
       spacing40: "4rem",
       spacing48: "4.8rem",
       spacing56: "5.6rem",
+      spacing60: "6rem",
       spacing72: "7.2rem",
       spacing80: "8rem",
       spacing96: "9.6rem",
       spacing120: "12rem",
       spacing184: "18.4rem",
       spacing220: "22rem",
-      spacing272: "27.2rem",
-      spacing1824: "182.4rem"
+      spacing240: "24rem"
     });
   });
 });

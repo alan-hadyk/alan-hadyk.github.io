@@ -5,7 +5,7 @@ import Header from "<organisms>/Header";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-jest.mock("<src>/hooks/useIntersectionObserver");
+jest.mock("<hooks>/useIntersectionObserver");
 
 import { HeaderProps }  from "<organisms>/__typings__/Header";
 
@@ -41,16 +41,14 @@ describe("organisms / Header", () => {
       HeaderInnerContainer,
       InnerFlexContainer,
       LinkedIn,
+      FlexContainers,
       Logo,
       MidFlexContainer,
       Nav,
       OuterFlexContainer,
-      PositionContainer,
-      SpacingContainerCodeSandbox,
-      SpacingContainerGitHub,
-      SpacingContainerLinkedIn,
-      SpacingContainerNav
+      PositionContainer
     } = setup();
+
     expect(container.children[0]).toEqual(PositionContainer);
 
     expect(PositionContainer.children[0]).toEqual(HeaderContainer);
@@ -64,21 +62,17 @@ describe("organisms / Header", () => {
     expect(MidFlexContainer.children[0]).toEqual(Logo);
     expect(MidFlexContainer.children[1]).toEqual(InnerFlexContainer);
 
-    expect(InnerFlexContainer.children[0]).toEqual(SpacingContainerNav);
-    expect(InnerFlexContainer.children[1]).toEqual(Button);
-    expect(InnerFlexContainer.children[2]).toEqual(SpacingContainerGitHub);
-    expect(InnerFlexContainer.children[3]).toEqual(SpacingContainerCodeSandbox);
-    expect(InnerFlexContainer.children[4]).toEqual(SpacingContainerLinkedIn);
+    expect(InnerFlexContainer.children[0]).toEqual(Nav);
+    expect(InnerFlexContainer.children[1]).toEqual(FlexContainers[3]);
 
-    expect(SpacingContainerNav.children[0]).toEqual(Nav);
-
-    expect(SpacingContainerGitHub.children[0]).toEqual(GitHub);
-    expect(SpacingContainerCodeSandbox.children[0]).toEqual(CodeSandbox);
-    expect(SpacingContainerLinkedIn.children[0]).toEqual(LinkedIn);
+    expect(FlexContainers[3].children[0]).toEqual(Button);
+    expect(FlexContainers[3].children[1].children[0]).toEqual(GitHub);
+    expect(FlexContainers[3].children[2].children[0]).toEqual(CodeSandbox);
+    expect(FlexContainers[3].children[3].children[0]).toEqual(LinkedIn);
   });
 
   describe("PositionContainer", () => {
-    describe("Styles", () => {
+    describe("Props", () => {
       describe("left", () => {      
         test("should have 0 by default", () => {
           const { PositionContainer } = setup();
@@ -132,7 +126,7 @@ describe("organisms / Header", () => {
   describe("HeaderContainer", () => {
     describe("Styles", () => {
       describe("background-color", () => {      
-        test("should have rgba(34,39,42,0.75) by default", () => {
+        test("should have rgba(34,39,42,0.75)", () => {
           const { HeaderContainer } = setup();
     
           expect(HeaderContainer).toHaveStyleRule("background-color", "rgba(34,39,42,0.75)");
@@ -140,7 +134,7 @@ describe("organisms / Header", () => {
       });
 
       describe("border-bottom", () => {      
-        test("should have 1px solid rgba(120,176,181,0.5) by default", () => {
+        test("should have 1px solid rgba(120,176,181,0.5)", () => {
           const { HeaderContainer } = setup();
     
           expect(HeaderContainer).toHaveStyleRule("border-bottom", "1px solid rgba(120,176,181,0.5)");
@@ -148,7 +142,7 @@ describe("organisms / Header", () => {
       });
 
       describe("height", () => {      
-        test("should have 9.6rem by default", () => {
+        test("should have 9.6rem", () => {
           const { HeaderContainer } = setup();
     
           expect(HeaderContainer).toHaveStyleRule("height", "9.6rem");
@@ -158,7 +152,7 @@ describe("organisms / Header", () => {
   });
 
   describe("OuterFlexContainer", () => {
-    describe("Styles", () => {
+    describe("Props", () => {
       describe("flex-flow", () => {      
         test("should have row nowrap by default", () => {
           const { OuterFlexContainer } = setup();
@@ -198,7 +192,7 @@ describe("organisms / Header", () => {
   });
 
   describe("MidFlexContainer", () => {
-    describe("Styles", () => {
+    describe("Props", () => {
       describe("flex-flow", () => {      
         test("should have row nowrap by default", () => {
           const { MidFlexContainer } = setup();
@@ -226,9 +220,9 @@ describe("organisms / Header", () => {
   });
 
   describe("InnerFlexContainer", () => {
-    describe("Styles", () => {
+    describe("Props", () => {
       describe("flex-flow", () => {      
-        test("should have row nowrap by default", () => {
+        test("should have row nowrap", () => {
           const { InnerFlexContainer } = setup();
     
           expect(InnerFlexContainer).toHaveStyleRule("flex-flow", "row nowrap");
@@ -236,15 +230,28 @@ describe("organisms / Header", () => {
       });
 
       describe("height", () => {      
-        test("should have 4.8rem by default", () => {
+        test("should have 4.8rem", () => {
           const { InnerFlexContainer } = setup();
     
           expect(InnerFlexContainer).toHaveStyleRule("height", "4.8rem");
         });
       });
 
+      describe("gap", () => {      
+        test("each child of InnerFlexContainer should have margin-left: 4.8rem, except first item", () => {
+          const { InnerFlexContainer } = setup();
+
+          expect(InnerFlexContainer).toHaveStyleRule("margin-left", "4.8rem", {
+            modifier: "& > *"
+          });
+          expect(InnerFlexContainer).toHaveStyleRule("margin-left", "0", {
+            modifier: "& > *:first-child"
+          });
+        });
+      });
+
       describe("justify-content", () => {      
-        test("should have flex-start by default", () => {
+        test("should have flex-start", () => {
           const { InnerFlexContainer } = setup();
     
           expect(InnerFlexContainer).toHaveStyleRule("justify-content", "flex-start");
@@ -335,29 +342,50 @@ describe("organisms / Header", () => {
     });
   });
 
-  describe("SpacingContainers", () => {
-    describe("SpacingContainers[0] (parent of Nav)", () => {
-      describe("Styles", () => {
-        describe("margin-right", () => {      
-          test("should have 4.8rem by default", () => {
-            const { SpacingContainers } = setup();
+  describe("Nav", () => {
+    test("should render", () => {
+      const { Nav } = setup();
+
+      expect(Nav).toBeTruthy();
+    });
+  });
+
+  describe("FlexContainer[3]", () => {
+    describe("Props", () => {
+      describe("flex-flow", () => {      
+        test("should have row nowrap", () => {
+          const { FlexContainers } = setup();
     
-            expect(SpacingContainers[0]).toHaveStyleRule("margin-right", "4.8rem");
+          expect(FlexContainers[3]).toHaveStyleRule("flex-flow", "row nowrap");
+        });
+      });
+
+      describe("height", () => {      
+        test("should have 4.8rem", () => {
+          const { FlexContainers } = setup();
+    
+          expect(FlexContainers[3]).toHaveStyleRule("height", "4.8rem");
+        });
+      });
+
+      describe("gap", () => {      
+        test("each child of FlexContainer should have margin-left: 2.4rem, except first item", () => {
+          const { FlexContainers } = setup();
+
+          expect(FlexContainers[3]).toHaveStyleRule("margin-left", "2.4rem", {
+            modifier: "& > *"
+          });
+          expect(FlexContainers[3]).toHaveStyleRule("margin-left", "0", {
+            modifier: "& > *:first-child"
           });
         });
       });
-    });
 
-    describe("SpacingContainers[1], SpacingContainers[2], SpacingContainers[3] (parents of LinkWithIcon)", () => {
-      describe("Styles", () => {
-        describe("margin-left", () => {      
-          test("should have 2.4rem by default", () => {
-            const { SpacingContainers } = setup();
+      describe("justify-content", () => {      
+        test("should have flex-start", () => {
+          const { FlexContainers } = setup();
     
-            expect(SpacingContainers[1]).toHaveStyleRule("margin-left", "2.4rem");
-            expect(SpacingContainers[2]).toHaveStyleRule("margin-left", "2.4rem");
-            expect(SpacingContainers[3]).toHaveStyleRule("margin-left", "2.4rem");
-          });
+          expect(FlexContainers[3]).toHaveStyleRule("justify-content", "flex-start");
         });
       });
     });
@@ -376,7 +404,7 @@ describe("organisms / Header", () => {
 
     describe("Styles", () => {
       describe("height", () => {      
-        test("should have 4.8rem by default", () => {
+        test("should have 4.8rem", () => {
           const { Button } = setup();
     
           expect(Button).toHaveStyleRule("height", "4.8rem");
@@ -384,18 +412,32 @@ describe("organisms / Header", () => {
       });
 
       describe("background-color", () => {      
-        test("should have #2b595e by default", () => {
+        test("should have #2b595e", () => {
           const { Button } = setup();
     
           expect(Button).toHaveStyleRule("background-color", "#2b595e");
         });
       });
 
-      describe("border", () => {      
-        test("should have none by default", () => {
+      describe("border" , () => {      
+        test("should have none", () => {
           const { Button } = setup();
     
           expect(Button).toHaveStyleRule("border", "none");
+        });
+      });
+    });
+  });
+
+  describe("SpacingContainer", () => {
+    describe("Props", () => {
+      describe("marginLeft", () => {      
+        test("parentNode of 3 icons should have 2.4rem", () => {
+          const { CodeSandbox, GitHub, LinkedIn } = setup();
+    
+          expect(GitHub.parentNode).toHaveStyleRule("margin-left", "2.4rem");
+          expect(CodeSandbox.parentNode).toHaveStyleRule("margin-left", "2.4rem");
+          expect(LinkedIn.parentNode).toHaveStyleRule("margin-left", "2.4rem");
         });
       });
     });
@@ -405,6 +447,7 @@ describe("organisms / Header", () => {
 interface Setup extends RenderResult {
   Button: HTMLElement;
   CodeSandbox: HTMLElement;
+  FlexContainers: HTMLElement[];
   GitHub: HTMLElement;
   HeaderContainer: HTMLElement;
   HeaderInnerContainer: HTMLElement;
@@ -415,10 +458,6 @@ interface Setup extends RenderResult {
   Nav: Element;
   OuterFlexContainer: HTMLElement;
   PositionContainer: HTMLElement;
-  SpacingContainerCodeSandbox: Element;
-  SpacingContainerGitHub: Element;
-  SpacingContainerLinkedIn: Element;
-  SpacingContainerNav: Element;
   SpacingContainers: Element[];
 }
 
@@ -441,26 +480,24 @@ function setup(addedProps?: HeaderTestProps): Setup {
 
   const HeaderContainer = document.querySelector("header");
   const HeaderInnerContainer = queryByTestId("HeaderInnerContainer");
-  const InnerFlexContainer = queryAllByTestId("FlexContainer")[2];
+  const FlexContainers = queryAllByTestId("FlexContainer");
+  const OuterFlexContainer = FlexContainers[0];
+  const MidFlexContainer = FlexContainers[1];
+  const InnerFlexContainer = FlexContainers[2];
   const Logo = queryAllByTestId("mockLinkWithIcon")[0];
   const GitHub = queryAllByTestId("mockLinkWithIcon")[1];
   const CodeSandbox = queryAllByTestId("mockLinkWithIcon")[2];
   const LinkedIn = queryAllByTestId("mockLinkWithIcon")[3];
-  const MidFlexContainer = queryAllByTestId("FlexContainer")[1];
-  const OuterFlexContainer = queryAllByTestId("FlexContainer")[0];
   const PositionContainer = queryAllByTestId("PositionContainer")[0];
   const SpacingContainers = queryAllByTestId("SpacingContainer");
-  const SpacingContainerNav = InnerFlexContainer.children[0];
-  const SpacingContainerGitHub = InnerFlexContainer.children[2];
-  const SpacingContainerCodeSandbox = InnerFlexContainer.children[3];
-  const SpacingContainerLinkedIn = InnerFlexContainer.children[4];
-  const Nav = SpacingContainerNav.children[0];
+  const Nav = queryByTestId("Nav");
   const Button = document.querySelector("button");
 
   return {
     ...utils,
     Button,
     CodeSandbox,
+    FlexContainers,
     GitHub,
     HeaderContainer,
     HeaderInnerContainer,
@@ -471,10 +508,6 @@ function setup(addedProps?: HeaderTestProps): Setup {
     Nav,
     OuterFlexContainer,
     PositionContainer,
-    SpacingContainerCodeSandbox,
-    SpacingContainerGitHub,
-    SpacingContainerLinkedIn,
-    SpacingContainerNav,
     SpacingContainers
   };
 }

@@ -7,6 +7,7 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test --passWithNoTests",
+    "test:coverage": "craco test --coverage",
     "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet",
     "lint:fix": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "eject": "react-scripts eject",

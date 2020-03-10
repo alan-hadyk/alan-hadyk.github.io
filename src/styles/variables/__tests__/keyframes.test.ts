@@ -6,13 +6,17 @@ interface KeyframesVariables {
   borderDanceVertical: any;
   glow: any;
   ripple: any;
+  rippleAlternative: any;
+  rotate: any;
 }
 
 const {
   borderDanceHorizontal,
   borderDanceVertical,
   glow,
-  ripple
+  ripple,
+  rippleAlternative,
+  rotate
 }: KeyframesVariables = keyframes;
 
 describe("styles / variables / keyframes", () => {
@@ -22,7 +26,7 @@ describe("styles / variables / keyframes", () => {
       background-position: left top;
     }
     to {
-      background-position: left 12px top;
+      background-position: left 1.2rem top;
     }
   `);
   });
@@ -33,7 +37,7 @@ describe("styles / variables / keyframes", () => {
       background-position: left top;
     }
     to {
-      background-position: left top 12px;
+      background-position: left top 1.2rem;
     }
   `);
   });
@@ -67,6 +71,32 @@ describe("styles / variables / keyframes", () => {
     to {
       opacity: 0;
       transform: scale(10);
+    }
+  `);
+  });
+
+  test("should have correct keyframe - rippleAlternative", () => {
+    expect(rippleAlternative.stringifyArgs[0]).toEqual(`
+    from {
+      height: 2.4rem;
+      opacity: 1;
+      width: 2.4rem;
+    }
+    to {
+      height: 12rem;
+      opacity: 0;
+      width: 12rem;
+    }
+  `);
+  });
+
+  test("should have correct keyframe - rotate", () => {
+    expect(rotate.stringifyArgs[0]).toEqual(`
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
     }
   `);
   });

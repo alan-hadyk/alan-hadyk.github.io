@@ -20,6 +20,7 @@ declare module "styled-components" {
 
     easing: {
       easeInOut: string;
+      linear: string;
     };
 
     fontFamilies: {
@@ -42,12 +43,11 @@ declare module "styled-components" {
       borderDanceVertical: Keyframes;
       glow: Keyframes;
       ripple: Keyframes;
+      rippleAlternative: Keyframes;
+      rotate: Keyframes;
     };
 
     spacing: {
-      negativeSpacing8: string;
-      negativeSpacing10: string;
-      negativeSpacing12: string;
       spacing0: string;
       spacing1: string;
       spacing2: string;
@@ -61,20 +61,21 @@ declare module "styled-components" {
       spacing40: string;
       spacing48: string;
       spacing56: string;
+      spacing60: string;
       spacing72: string;
       spacing80: string;
       spacing96: string;
       spacing120: string;
       spacing184: string;
       spacing220: string;
-      spacing272: string;
-      spacing1824: string;
+      spacing240: string;
     };
 
     transitionTimes: {
       default: string;
       fast: string;
       slow: string;
+      superSlow: string;
       verySlow: string;
     };
 

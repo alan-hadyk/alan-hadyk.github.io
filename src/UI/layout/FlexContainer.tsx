@@ -7,6 +7,7 @@ import {
 
 const FlexContainer = ({
   alignItems = "center",
+  dataTestId,
   children,
   flexFlow = "row wrap",
   gap = "spacing0",
@@ -15,7 +16,7 @@ const FlexContainer = ({
 }: FlexContainerProps): JSX.Element => (
   <FlexContainer.Container
     alignItems={alignItems}
-    data-testid="FlexContainer"
+    data-testid={dataTestId || "FlexContainer"}
     flexFlow={flexFlow}
     gap={gap}
     height={height}
@@ -45,14 +46,17 @@ FlexContainer.Container = styled.div<FlexContainerProps>`
     & > * {
       ${flexFlow.includes("row") ? `
         margin-left: ${(gap in spacing && spacing[gap])};
+
+        &:first-child {
+          margin-left: 0;
+        }  
       ` : `
         margin-top: ${(gap in spacing && spacing[gap])};
-      `}
 
-      &:first-child {
-        margin-left: 0;
-        margin-top: 0;
-      }
+        &:first-child {
+          margin-top: 0;
+        }  
+      `}
     }
   `}
 `;

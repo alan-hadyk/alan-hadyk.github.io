@@ -8,5 +8,5 @@ export interface LinkWithIconProps {
   href: string;
   iconName: IconProps["iconName"];
   isExternal?: boolean;
-  width?: string;
+  width?: "auto" | "100%" | Spacing;
 }

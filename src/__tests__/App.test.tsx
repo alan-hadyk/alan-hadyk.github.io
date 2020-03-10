@@ -3,7 +3,7 @@ import { render, RenderResult } from "@testing-library/react";
 
 import App from "<src>/App";
 
-jest.mock("<src>/hooks/useIntersectionObserver");
+jest.mock("<hooks>/useIntersectionObserver");
 
 jest.mock("<pages>/Home/HomePage", () => (): JSX.Element => (
   <div data-testid="Home" />

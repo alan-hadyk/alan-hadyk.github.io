@@ -40,7 +40,7 @@ function Text({
       return;
     }
 
-    shuffleText.start();
+    shuffleText && shuffleText.start();
   }, parseInt(transitionTimes.verySlow));
 
   return (
@@ -68,7 +68,7 @@ function Text({
       return;
     }
 
-    shuffleText.start();
+    shuffleText && shuffleText.start();
   }
 }
 

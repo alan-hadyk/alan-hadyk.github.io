@@ -1,15 +1,16 @@
 import React, { memo } from "react";
 
 import DashboardElement from "<molecules>/DashboardElement";
-import MouseCoords from "<molecules>/MouseCoords";
+import Sonar from "<molecules>/Sonar";
 
 const Coords = (): JSX.Element => (
   <DashboardElement
+    dataTestId="Coords"
     flex="1 1 15%"
     childrenHeight="spacing184"
     title="Coords" 
   >
-    <MouseCoords />
+    <Sonar />
   </DashboardElement>
 );
   

@@ -46,5 +46,25 @@ export default {
       opacity: 0;
       transform: scale(10);
     }
+  `,
+  rippleAlternative: keyframes`
+    from {
+      height: ${spacing.spacing24};
+      opacity: 1;
+      width: ${spacing.spacing24};
+    }
+    to {
+      height: ${spacing.spacing120};
+      opacity: 0;
+      width: ${spacing.spacing120};
+    }
+  `,
+  rotate: keyframes`
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   `
 }; 
