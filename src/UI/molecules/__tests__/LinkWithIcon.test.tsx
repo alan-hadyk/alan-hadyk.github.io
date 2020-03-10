@@ -27,10 +27,10 @@ describe("molecules / LinkWithIcon", () => {
       });
 
       describe("transition", () => {      
-        test("should have all 150ms ease-in-out", () => {
+        test("should have all 150ms ease-in-out 0ms", () => {
           const { Icon } = setup();
     
-          expect(Icon).toHaveStyleRule("transition", "all 150ms ease-in-out");
+          expect(Icon).toHaveStyleRule("transition", "all 150ms ease-in-out 0ms");
         });
       });
 
@@ -43,7 +43,7 @@ describe("molecules / LinkWithIcon", () => {
 
         test("should have correct value when passed via width prop", () => {
           const { Icon } = setup({
-            width: "7.2rem"
+            width: "spacing72"
           });
     
           expect(Icon).toHaveStyleRule("width", "7.2rem");

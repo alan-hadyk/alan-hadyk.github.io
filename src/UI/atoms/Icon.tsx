@@ -19,14 +19,16 @@ import { ReactComponent as IconGitHub } from "<assets>/svg/Icon-GitHub.svg";
 import { ReactComponent as IconLinkedIn } from "<assets>/svg/Icon-LinkedIn.svg";
 
 import {
-  IconContainerProps,
   IconContainerType,
   IconProps
-} from "<atoms>/__typings__/Icon.d.ts";
+} from "<atoms>/__typings__/Icon";
 
 function Icon({
+  animationDelay = "0ms",
+  animationTime = "slow",
   height,
   iconName,
+  shouldDisplayGlowAnimation = false,
   shouldGlowOnHover = false,
   width = "auto"
 }: IconProps): JSX.Element {
@@ -53,26 +55,27 @@ function Icon({
   );
 
   function renderIcon(): JSX.Element {
-    const IconContainer: IconContainerType = styled(iconComponents[iconName])<IconContainerProps>`
-      ${({ iconheight, iconwidth, theme: { colorPalette, spacing, easing, transitionTimes } }): FlattenSimpleInterpolation => css`
-          height: ${iconheight in spacing && spacing[iconheight]};
-          width: ${iconwidth};
+    const IconContainer: IconContainerType = styled(iconComponents[iconName])`
+      ${({ theme: { colorPalette, easing, keyframes, spacing, transitionTimes } }): FlattenSimpleInterpolation => css`
+        height: ${height in spacing && spacing[height]};
+        width: ${(width in spacing && spacing[width]) || width};
 
-          ${shouldGlowOnHover && `
-            transition: all ${transitionTimes.fast} ${easing.easeInOut};
+        ${shouldDisplayGlowAnimation && css`
+          animation: ${keyframes.glow} ${transitionTimes[animationTime]} infinite ${easing.easeInOut} ${animationDelay};
+        `}
 
-            &:hover {
-              filter: drop-shadow(0px 0px ${spacing.spacing4} ${transparentize(0.5, colorPalette.white)});
-            }
-          `}
+        ${shouldGlowOnHover && `
+          transition: all ${transitionTimes[animationTime]} ${easing.easeInOut} ${animationDelay};
+
+          &:hover {
+            filter: drop-shadow(0px 0px ${spacing.spacing4} ${transparentize(0.5, colorPalette.white)});
+          }
+        `}
       `}
     `;
 
     return (
-      <IconContainer 
-        iconheight={height}
-        iconwidth={width} 
-      />
+      <IconContainer />
     );
   }
 }

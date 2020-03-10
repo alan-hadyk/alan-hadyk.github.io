@@ -16,14 +16,15 @@ describe("molecules / Section", () => {
     const { 
       container,
       queryByTestId,
-      SpacingContainers,
+      SectionContainer,
+      TitleSpacingContainer,
       Text
     } = setup();
 
-    expect(container.children[0]).toEqual(SpacingContainers[0]);
-    expect(SpacingContainers[0].children[0]).toEqual(SpacingContainers[1]);
-    expect(SpacingContainers[1].children[0]).toEqual(Text);
-    expect(SpacingContainers[0].children[1]).toEqual(queryByTestId("children"));
+    expect(container.children[0]).toEqual(SectionContainer);
+    expect(SectionContainer.children[0]).toEqual(TitleSpacingContainer);
+    expect(TitleSpacingContainer.children[0]).toEqual(Text);
+    expect(SectionContainer.children[1]).toEqual(queryByTestId("children"));
   });
 
   test("should render children", () => {
@@ -36,60 +37,60 @@ describe("molecules / Section", () => {
     expect(queryByTestId("customChildren")).toBeTruthy();
   });
 
-  test("should not render SpacingContainers[1] and Text if there is no title", () => {
+  test("should not render TitleSpacingContainer and Text if there is no title", () => {
     const { 
-      SpacingContainers,
-      Text
+      Text,
+      TitleSpacingContainer
     } = setup({
       title: undefined
     });
 
-    expect(SpacingContainers[1]).toBeFalsy();
+    expect(TitleSpacingContainer).toBeFalsy();
     expect(Text).toBeFalsy();
   });
 
   describe("SpacingContainers", () => { 
-    describe("SpacingContainers[0]", () => { 
-      describe("Styles", () => {
+    describe("SectionContainer", () => { 
+      describe("Props", () => {
         describe("min-height", () => {      
           test("should not have min-height by default", () => {
-            const { SpacingContainers } = setup();
+            const { SectionContainer } = setup();
 
-            expect(SpacingContainers[0]).not.toHaveStyleRule("min-height");
+            expect(SectionContainer).not.toHaveStyleRule("min-height");
           });
 
           test("should have min-height equal to minHeight prop - spacing value", () => {
-            const { SpacingContainers } = setup({
+            const { SectionContainer } = setup({
               minHeight: "spacing36"
             });
 
-            expect(SpacingContainers[0]).toHaveStyleRule("min-height", "3.6rem");
+            expect(SectionContainer).toHaveStyleRule("min-height", "3.6rem");
           });
 
           test("should have min-height equal to minHeight prop - vh", () => {
-            const { SpacingContainers } = setup({
+            const { SectionContainer } = setup({
               minHeight: "100vh"
             });
 
-            expect(SpacingContainers[0]).toHaveStyleRule("min-height", "100vh");
+            expect(SectionContainer).toHaveStyleRule("min-height", "100vh");
           });
         });
 
         describe("padding-bottom", () => {      
           test("should have 0 if there is no title", () => {
-            const { SpacingContainers } = setup({
+            const { SectionContainer } = setup({
               title: undefined
             });
 
-            expect(SpacingContainers[0]).toHaveStyleRule("padding-bottom", "0");
+            expect(SectionContainer).toHaveStyleRule("padding-bottom", "0");
           });
 
           test("should have 9.6rem if there is title", () => {
-            const { SpacingContainers } = setup({
+            const { SectionContainer } = setup({
               title: "Custom title"
             });
 
-            expect(SpacingContainers[0]).toHaveStyleRule("padding-bottom", "9.6rem");
+            expect(SectionContainer).toHaveStyleRule("padding-bottom", "9.6rem");
           });
         });
       });
@@ -97,31 +98,31 @@ describe("molecules / Section", () => {
       describe("Props", () => {
         describe("id", () => {      
           test("should have id equal to id prop", () => {
-            const { SpacingContainers } = setup({
+            const { SectionContainer } = setup({
               id: "SectionID"
             });
 
-            expect(SpacingContainers[0].getAttribute("id")).toEqual("SectionID");
+            expect(SectionContainer.getAttribute("id")).toEqual("SectionID");
           });
         });
       });
     });
 
-    describe("SpacingContainers[1]", () => { 
+    describe("TitleSpacingContainer", () => { 
       describe("Styles", () => {
         describe("margin-bottom", () => {      
           test("should have 9.6rem", () => {
-            const { SpacingContainers } = setup();
+            const { TitleSpacingContainer } = setup();
 
-            expect(SpacingContainers[1]).toHaveStyleRule("margin-bottom", "9.6rem");
+            expect(TitleSpacingContainer).toHaveStyleRule("margin-bottom", "9.6rem");
           });
         });
 
         describe("padding-top", () => {      
-          test("should have 12.0rem", () => {
-            const { SpacingContainers } = setup();
+          test("should have 12rem", () => {
+            const { TitleSpacingContainer } = setup();
 
-            expect(SpacingContainers[1]).toHaveStyleRule("padding-top", "12.0rem");
+            expect(TitleSpacingContainer).toHaveStyleRule("padding-top", "12rem");
           });
         });
       });
@@ -182,8 +183,9 @@ describe("molecules / Section", () => {
 });
 
 interface Setup extends RenderResult {
-  SpacingContainers: Element[];
+  SectionContainer: Element;
   Text: Element;
+  TitleSpacingContainer: Element;
 }
 
 type SectionTestProps = Partial<SectionProps>;
@@ -201,13 +203,15 @@ function setup(additionalProps?: SectionTestProps): Setup {
     <Section {...props} />
   );
 
-  const { queryAllByTestId, queryByTestId }: RenderResult = utils;
-  const SpacingContainers: Element[] = queryAllByTestId("SpacingContainer");
+  const { queryByTestId }: RenderResult = utils;
+  const SectionContainer: Element = queryByTestId("Section");
+  const TitleSpacingContainer: Element = queryByTestId("TitleSpacingContainer");
   const Text: Element = queryByTestId("Text");
 
   return {
     ...utils,
-    SpacingContainers,
-    Text
+    SectionContainer,
+    Text,
+    TitleSpacingContainer
   };
 }

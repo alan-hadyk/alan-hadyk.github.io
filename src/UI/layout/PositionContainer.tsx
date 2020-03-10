@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef, Ref } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import {
@@ -8,21 +8,25 @@ import {
 const PositionContainer = ({
   bottom = "unset",
   children,
+  dataTestId,
   height = "unset",
   left = "unset",
   position = "relative",
   right = "unset",
   top = "unset",
+  transform = "none",
   zIndex = "layer1"
-}: PositionContainerProps): JSX.Element => (
+}: PositionContainerProps, ref: Ref<HTMLDivElement>): JSX.Element => (
   <PositionContainer.Container
     bottom={bottom}
-    data-testid="PositionContainer"
+    data-testid={dataTestId || "PositionContainer"}
     height={height}
     left={left}
     position={position}
+    ref={ref}
     right={right}
     top={top}
+    transform={transform}
     zIndex={zIndex}
   >
     {children}
@@ -41,6 +45,7 @@ PositionContainer.Container = styled.div<PositionContainerProps>`
       spacing,
       zIndex: zIndexVariables
     },
+    transform,
     zIndex
   }): FlattenSimpleInterpolation => css`
     bottom: ${(bottom in spacing && spacing[bottom]) || bottom};
@@ -49,8 +54,9 @@ PositionContainer.Container = styled.div<PositionContainerProps>`
     position: ${position};
     right: ${(right in spacing && spacing[right]) || right};
     top: ${(top in spacing && spacing[top]) || top};
+    transform: ${transform};
     z-index: ${zIndex in zIndexVariables && zIndexVariables[zIndex]};
   `}
 `;
   
-export default PositionContainer;
+export default forwardRef(PositionContainer);

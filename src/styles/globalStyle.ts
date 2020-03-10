@@ -40,12 +40,17 @@ export default `
   }
 
   body {
-    line-height: 1;
-    min-height: 100vh;
-    scroll-behavior: smooth;
     background-color: ${colorPalette.blue700};
     color: ${colorPalette.blue300};
+    line-height: 1;
+    min-height: 100vh;
     position: relative;
+    scroll-behavior: smooth;
+  }
+
+  ::selection { 
+    background: ${colorPalette.blue100}; 
+    color: ${colorPalette.blue700}; 
   }
 
   h1,

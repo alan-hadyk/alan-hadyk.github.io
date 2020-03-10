@@ -86,6 +86,70 @@ describe("atoms / Text", () => {
       });
     });
     
+    describe("padding-bottom", () => {      
+      test("should have 0 by default", () => {
+        const { TextContainer } = setup();
+      
+        expect(TextContainer).toHaveStyleRule("padding-bottom", "0");
+      });
+    
+      test("should have correct value when passed via paddingBottom prop - spacing", () => {
+        const { TextContainer } = setup({
+          paddingBottom: "spacing24"
+        });
+      
+        expect(TextContainer).toHaveStyleRule("padding-bottom", "2.4rem");
+      });
+    });
+    
+    describe("padding-left", () => {      
+      test("should have 0 by default", () => {
+        const { TextContainer } = setup();
+      
+        expect(TextContainer).toHaveStyleRule("padding-left", "0");
+      });
+    
+      test("should have correct value when passed via paddingLeft prop - spacing", () => {
+        const { TextContainer } = setup({
+          paddingLeft: "spacing24"
+        });
+      
+        expect(TextContainer).toHaveStyleRule("padding-left", "2.4rem");
+      });
+    });
+    
+    describe("padding-right", () => {      
+      test("should have 0 by default", () => {
+        const { TextContainer } = setup();
+      
+        expect(TextContainer).toHaveStyleRule("padding-right", "0");
+      });
+    
+      test("should have correct value when passed via paddingRight prop - spacing", () => {
+        const { TextContainer } = setup({
+          paddingRight: "spacing24"
+        });
+      
+        expect(TextContainer).toHaveStyleRule("padding-right", "2.4rem");
+      });
+    });
+    
+    describe("padding-top", () => {      
+      test("should have 0 by default", () => {
+        const { TextContainer } = setup();
+      
+        expect(TextContainer).toHaveStyleRule("padding-top", "0");
+      });
+    
+      test("should have correct value when passed via paddingTop prop - spacing", () => {
+        const { TextContainer } = setup({
+          paddingTop: "spacing24"
+        });
+      
+        expect(TextContainer).toHaveStyleRule("padding-top", "2.4rem");
+      });
+    });
+    
     describe("text-align", () => {      
       test("should have left by default", () => {
         const { TextContainer } = setup();
@@ -151,6 +215,8 @@ describe("atoms / Text", () => {
         shouldShuffleOnHover: true
       });
 
+      expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
+
       act(() => {
         fireEvent.mouseOver(TextContainer);
       });
@@ -171,6 +237,40 @@ describe("atoms / Text", () => {
 
       expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
     });
+
+    test("should fire shuffleText.start in intervals if shouldShuffle: true ", () => {
+      jest.spyOn(ShuffleText.prototype, "start");
+      jest.useFakeTimers();
+
+      setup({
+        shouldShuffle: true
+      });
+
+      expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
+
+      jest.advanceTimersByTime(7200);
+
+      expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
+
+      jest.clearAllTimers();
+    });
+
+    test("should not fire shuffleText.start in intervals if shouldShuffle: false ", () => {
+      jest.spyOn(ShuffleText.prototype, "start");
+      jest.useFakeTimers();
+
+      setup({
+        shouldShuffle: false
+      });
+
+      expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
+
+      jest.advanceTimersByTime(7200);
+
+      expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
+
+      jest.clearAllTimers();
+    });
   });
 });
 
@@ -180,7 +280,7 @@ interface Setup extends RenderResult {
 
 type TextTestProps = Partial<TextProps>;
 
-function setup(addedProps?: TextTestProps): Setup {
+export function setup(addedProps?: TextTestProps): Setup {
   const props: TextProps = {
     children: "Text",
     ...addedProps

@@ -56,12 +56,22 @@ describe("styles / globalStyle", () => {
         selectorText: "body"
       });
 
-      expect(styles["line-height"]).toEqual("1");
-      expect(styles["min-height"]).toEqual("100vh");
-      expect(styles["scroll-behavior"]).toEqual("smooth");
       expect(styles["background-color"]).toEqual("#1e2224");
       expect(styles["color"]).toEqual("#78b0b5");
+      expect(styles["line-height"]).toEqual("1");
+      expect(styles["min-height"]).toEqual("100vh");
       expect(styles["position"]).toEqual("relative");
+      expect(styles["scroll-behavior"]).toEqual("smooth");
+    });
+
+    test("::selection", () => {
+      const styles: CSSStyleDeclaration = findCSSStyles({
+        cssRules,
+        selectorText: "::selection"
+      });
+
+      expect(styles["color"]).toEqual("#1e2224");
+      expect(styles["background"]).toEqual("#bcd8db");
     });
     
     test("h1,h2,h3,h4,h5,h6", () => {

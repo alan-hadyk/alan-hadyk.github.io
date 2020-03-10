@@ -33,6 +33,22 @@ describe("layout / PositionContainer", () => {
   
         expect(PositionContainer).toHaveStyleRule("bottom", "4.8rem");
       });
+  
+      test("should have 50% when passed via prop", () => {
+        const { PositionContainer } = setup({
+          bottom: "50%"
+        });
+  
+        expect(PositionContainer).toHaveStyleRule("bottom", "50%");
+      });
+  
+      test("should have 100% when passed via prop", () => {
+        const { PositionContainer } = setup({
+          bottom: "100%"
+        });
+  
+        expect(PositionContainer).toHaveStyleRule("bottom", "100%");
+      });
     });
 
     describe("height", () => {      
@@ -81,6 +97,22 @@ describe("layout / PositionContainer", () => {
   
         expect(PositionContainer).toHaveStyleRule("left", "4.8rem");
       });
+
+      test("should have 50% when passed via prop", () => {
+        const { PositionContainer } = setup({
+          left: "50%"
+        });
+  
+        expect(PositionContainer).toHaveStyleRule("left", "50%");
+      });
+  
+      test("should have 100% when passed via prop", () => {
+        const { PositionContainer } = setup({
+          left: "100%"
+        });
+  
+        expect(PositionContainer).toHaveStyleRule("left", "100%");
+      });
     });
 
     describe("position", () => {      
@@ -113,6 +145,14 @@ describe("layout / PositionContainer", () => {
   
         expect(PositionContainer).toHaveStyleRule("position", "sticky");
       });
+  
+      test("should have absolute when passed via prop", () => {
+        const { PositionContainer } = setup({
+          position: "absolute"
+        });
+  
+        expect(PositionContainer).toHaveStyleRule("position", "absolute");
+      });
     });
 
     describe("right", () => {      
@@ -129,6 +169,22 @@ describe("layout / PositionContainer", () => {
   
         expect(PositionContainer).toHaveStyleRule("right", "4.8rem");
       });
+
+      test("should have 50% when passed via prop", () => {
+        const { PositionContainer } = setup({
+          right: "50%"
+        });
+  
+        expect(PositionContainer).toHaveStyleRule("right", "50%");
+      });
+  
+      test("should have 100% when passed via prop", () => {
+        const { PositionContainer } = setup({
+          right: "100%"
+        });
+  
+        expect(PositionContainer).toHaveStyleRule("right", "100%");
+      });
     });
 
     describe("top", () => {      
@@ -144,6 +200,46 @@ describe("layout / PositionContainer", () => {
         });
   
         expect(PositionContainer).toHaveStyleRule("top", "4.8rem");
+      });
+
+      test("should have 50% when passed via prop", () => {
+        const { PositionContainer } = setup({
+          top: "50%"
+        });
+  
+        expect(PositionContainer).toHaveStyleRule("top", "50%");
+      });
+  
+      test("should have 100% when passed via prop", () => {
+        const { PositionContainer } = setup({
+          top: "100%"
+        });
+  
+        expect(PositionContainer).toHaveStyleRule("top", "100%");
+      });
+    });
+
+    describe("transform", () => {      
+      test("should have none by default", () => {
+        const { PositionContainer } = setup();
+  
+        expect(PositionContainer).toHaveStyleRule("transform", "none");
+      });
+  
+      test("should have translateX(50%) when passed via prop", () => {
+        const { PositionContainer } = setup({
+          transform: "translateX(50%)"
+        });
+  
+        expect(PositionContainer).toHaveStyleRule("transform", "translateX(50%)");
+      });
+  
+      test("should have translateY(75%) when passed via prop", () => {
+        const { PositionContainer } = setup({
+          transform: "translateY(75%)"
+        });
+  
+        expect(PositionContainer).toHaveStyleRule("transform", "translateY(75%)");
       });
     });
 

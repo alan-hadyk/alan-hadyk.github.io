@@ -75,7 +75,7 @@ function Button({
       {...mapTypeToButtonContainerProps[type]}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onClick={handleButtonClick}
+      onMouseUp={handleButtonClick}
     >
       <Corners isActive={isActive} />
       <Button.InnerContainer ref={buttonInnerContainerRef} data-testid="ButtonInnerContainer">

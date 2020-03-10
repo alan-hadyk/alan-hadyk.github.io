@@ -7,6 +7,8 @@ import {
 
 const SpacingContainer = ({
   children,
+  dataTestId,
+  height = "auto",
   id,
   marginBottom = "spacing0",
   marginLeft = "spacing0",
@@ -19,7 +21,8 @@ const SpacingContainer = ({
   paddingTop = "spacing0"
 }: SpacingContainerProps): JSX.Element => (
   <SpacingContainer.Container
-    data-testid="SpacingContainer"
+    data-testid={dataTestId || "SpacingContainer"}
+    height={height}
     id={id}
     marginBottom={marginBottom}
     marginLeft={marginLeft}
@@ -37,6 +40,7 @@ const SpacingContainer = ({
 
 SpacingContainer.Container = styled.div<SpacingContainerProps>`
   ${({
+    height,
     marginBottom,
     marginLeft,
     marginRight,
@@ -50,6 +54,7 @@ SpacingContainer.Container = styled.div<SpacingContainerProps>`
       spacing
     }
   }): FlattenSimpleInterpolation => css`
+    height: ${(height in spacing && spacing[height]) || height};
     margin-bottom: ${marginBottom in spacing && spacing[marginBottom]};
     margin-left: ${marginLeft in spacing && spacing[marginLeft]};
     margin-right: ${marginRight in spacing && spacing[marginRight]};

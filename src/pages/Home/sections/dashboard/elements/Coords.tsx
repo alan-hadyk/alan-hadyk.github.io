@@ -1,14 +1,16 @@
-import React, { Fragment, memo } from "react";
+import React, { memo } from "react";
 
 import DashboardElement from "<molecules>/DashboardElement";
+import Sonar from "<molecules>/Sonar";
 
 const Coords = (): JSX.Element => (
-  <DashboardElement 
+  <DashboardElement
+    dataTestId="Coords"
+    flex="1 1 15%"
+    childrenHeight="spacing184"
     title="Coords" 
   >
-    <Fragment>
-      Coords
-    </Fragment>
+    <Sonar />
   </DashboardElement>
 );
   

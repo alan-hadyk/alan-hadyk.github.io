@@ -163,6 +163,38 @@ describe("layout / FlexContainer", () => {
       });
     });
   });
+
+  describe("Props", () => {
+    describe("gap", () => {
+      test("should apply margin-left equal to gap to all children except the first one when flexFlow includes row", () => {
+        const { FlexContainer } = setup({
+          flexFlow: "row nowrap",
+          gap: "spacing32"
+        });
+        
+        expect(FlexContainer).toHaveStyleRule("margin-left", "3.2rem", {
+          modifier: "& > *"
+        });
+        expect(FlexContainer).toHaveStyleRule("margin-left", "0", {
+          modifier: "& > *:first-child"
+        });
+      });
+
+      test("should apply margin-top equal to gap to all children except the first one when flexFlow includes column", () => {
+        const { FlexContainer } = setup({
+          flexFlow: "column nowrap",
+          gap: "spacing40"
+        });
+        
+        expect(FlexContainer).toHaveStyleRule("margin-top", "4rem", {
+          modifier: "& > *"
+        });
+        expect(FlexContainer).toHaveStyleRule("margin-top", "0", {
+          modifier: "& > *:first-child"
+        });
+      });
+    });
+  });
 });
 
 interface Setup extends RenderResult {

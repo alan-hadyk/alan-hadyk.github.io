@@ -2,9 +2,8 @@ import React, { memo, useState } from "react";
 
 import NavItem from "<molecules>/NavItem";
 import FlexContainer from "<layout>/FlexContainer";
-import SpacingContainer from "<layout>/SpacingContainer";
 
-import useIntersectionObserver from "<src>/hooks/useIntersectionObserver";
+import useIntersectionObserver from "<hooks>/useIntersectionObserver";
 
 import {
   NavItemProps
@@ -37,7 +36,9 @@ function Nav(): JSX.Element {
 
   return (
     <FlexContainer
+      dataTestId="Nav"
       flexFlow="row nowrap"
+      gap="spacing24"
       justifyContent="center"
     >
       {renderNavItems()}
@@ -49,16 +50,12 @@ function Nav(): JSX.Element {
       href,
       title
     }: NavItemProps, index: number): JSX.Element => (
-      <SpacingContainer
+      <NavItem 
         key={index}
-        marginLeft="spacing24"
-      >
-        <NavItem 
-          href={href}
-          isActive={activeNavItem === href}
-          title={title}
-        />
-      </SpacingContainer>
+        href={href}
+        isActive={activeNavItem === href}
+        title={title}
+      />
     ));
   }
 }

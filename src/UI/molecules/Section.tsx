@@ -15,12 +15,12 @@ function Section({
 }: SectionProps): JSX.Element {
   return (
     <SpacingContainer 
+      dataTestId="Section"
       id={id}
       minHeight={minHeight}
       paddingBottom={title ? "spacing96" : "spacing0"}
     >
       {renderTitle()}
-
       <Fragment>
         {children}
       </Fragment>
@@ -33,7 +33,8 @@ function Section({
     }
 
     return (
-      <SpacingContainer 
+      <SpacingContainer
+        dataTestId="TitleSpacingContainer"
         marginBottom="spacing96"
         paddingTop="spacing120"
       >

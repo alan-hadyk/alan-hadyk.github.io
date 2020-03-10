@@ -20,6 +20,7 @@ declare module "styled-components" {
 
     easing: {
       easeInOut: string;
+      linear: string;
     };
 
     fontFamilies: {
@@ -28,6 +29,8 @@ declare module "styled-components" {
     };
 
     fontSizes: {
+      font8: string;
+      font12: string;
       font16: string;
       font20: string;
       font24: string;
@@ -36,31 +39,44 @@ declare module "styled-components" {
     };
 
     keyframes: {
+      borderDanceHorizontal: Keyframes;
+      borderDanceVertical: Keyframes;
+      glow: Keyframes;
       ripple: Keyframes;
+      rippleAlternative: Keyframes;
+      rotate: Keyframes;
     };
 
     spacing: {
       spacing0: string;
       spacing1: string;
+      spacing2: string;
       spacing4: string;
       spacing8: string;
       spacing12: string;
       spacing16: string;
       spacing24: string;
+      spacing32: string;
       spacing36: string;
       spacing40: string;
       spacing48: string;
       spacing56: string;
+      spacing60: string;
       spacing72: string;
       spacing80: string;
       spacing96: string;
       spacing120: string;
+      spacing184: string;
+      spacing220: string;
+      spacing240: string;
     };
 
     transitionTimes: {
       default: string;
       fast: string;
       slow: string;
+      superSlow: string;
+      verySlow: string;
     };
 
     zIndex: {

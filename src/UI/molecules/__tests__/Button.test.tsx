@@ -106,12 +106,12 @@ describe("molecules / Button", () => {
       });
 
       describe("height", () => {      
-        test("should have 4.0rem for size: small", () => {
+        test("should have 4rem for size: small", () => {
           const { ButtonContainer } = setup({
             size: "small"
           });
 
-          expect(ButtonContainer).toHaveStyleRule("height", "4.0rem");
+          expect(ButtonContainer).toHaveStyleRule("height", "4rem");
         });
 
         test("should have 4.8rem for size: medium", () => {
@@ -282,7 +282,7 @@ describe("molecules / Button", () => {
         expect(Corners[3]).toHaveStyleRule("left", "100%");
         expect(Corners[3]).toHaveStyleRule("top", "100%");
 
-        fireEvent.click(ButtonContainer, {
+        fireEvent.mouseUp(ButtonContainer, {
           clienX: 123,
           clientY: 456
         });

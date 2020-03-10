@@ -1,3 +1,4 @@
 export default {
-  easeInOut: "ease-in-out"
+  easeInOut: "ease-in-out",
+  linear: "linear"
 };

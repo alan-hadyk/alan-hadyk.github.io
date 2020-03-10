@@ -37,7 +37,7 @@ function NavItem({
     >
       <NavItem.Link
         isActive={isActive}
-        onClick={handleClick}
+        onMouseUp={handleClick}
         onMouseOver={handleMouseOver}
         ref={navItemElement}
       >

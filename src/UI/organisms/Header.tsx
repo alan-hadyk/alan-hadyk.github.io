@@ -51,19 +51,25 @@ function Header({
           <FlexContainer
             flexFlow="row nowrap"
             height="spacing48"
+            gap="spacing48"
             justifyContent="flex-start"
           >
-            <SpacingContainer marginRight="spacing48">
-              <Nav />
-            </SpacingContainer>
+            <Nav />
           
-            <Button 
-              buttonText="resume" 
-              iconName="btnDownload" 
-              size="medium"
-            />
+            <FlexContainer
+              flexFlow="row nowrap"
+              height="spacing48"
+              gap="spacing24"
+              justifyContent="flex-start"
+            >
+              <Button 
+                buttonText="resume" 
+                iconName="btnDownload" 
+                size="medium"
+              />
 
-            {renderIcons()}
+              {renderIcons()}
+            </FlexContainer>
           </FlexContainer>
         </FlexContainer>
       </Header.InnerContainer>
