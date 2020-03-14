@@ -53,23 +53,55 @@ describe("atoms / Icon", () => {
       });
     });
 
-    describe("animation", () => {  
-      describe("when shouldDisplayGlowAnimation is true", () => {          
-        test("should have kyKrda 900ms infinite ease-in-out 0ms", () => {
-          const { Icon } = setup({
-            shouldDisplayGlowAnimation: true
+    describe("animation", () => { 
+      describe("when shouldDisplayGlowAnimation is true", () => {
+        describe("animation-delay", () => {      
+          test("should have 0ms", () => {
+            const { Icon } = setup({
+              shouldDisplayGlowAnimation: true
+            });
+  
+            expect(Icon).toHaveStyleRule("animation-delay", "0ms");
           });
-
-          expect(Icon).toHaveStyleRule("animation", "kyKrda 900ms infinite ease-in-out 0ms");
         });
-      });    
+  
+        describe("animation-duration", () => {      
+          test("should have 900ms", () => {
+            const { Icon } = setup({
+              shouldDisplayGlowAnimation: true
+            });
+  
+            expect(Icon).toHaveStyleRule("animation-duration", "900ms");
+          });
+        });
+  
+        describe("animation-iteration-count", () => {      
+          test("should have infinite", () => {
+            const { Icon } = setup({
+              shouldDisplayGlowAnimation: true
+            });
+  
+            expect(Icon).toHaveStyleRule("animation-iteration-count", "infinite");
+          });
+        });
+  
+        describe("animation-timing-function", () => {      
+          test("should have ease-in-out", () => {
+            const { Icon } = setup({
+              shouldDisplayGlowAnimation: true
+            });
+  
+            expect(Icon).toHaveStyleRule("animation-timing-function", "ease-in-out");
+          });
+        });
+      });   
 
       test("should not have animation when shouldDisplayGlowAnimation is false", () => {
         const { Icon } = setup({
           shouldDisplayGlowAnimation: false
         });
 
-        expect(Icon).not.toHaveStyleRule("animation");
+        expect(Icon).not.toHaveStyleRule("animation-name");
       });
     });
 

@@ -53,11 +53,20 @@ describe("pages / Home / sections / dashboard / elements / Coords", () => {
       expect(Sonar.childElementCount).toEqual(1);
       expect(Sonar.children[0].childElementCount).toEqual(3);
       
-      expect(Sonar.children[0].children[0]).toHaveStyleRule("animation", "dKrSSl infinite 3600ms", {
+      expect(Sonar.children[0].children[0]).toHaveStyleRule("animation-duration", "3600ms", {
         modifier: "&:after"
       });
-      expect(Sonar.children[0].children[1]).toHaveStyleRule("animation", "enbksP 300ms infinite linear");
-      expect(Sonar.children[0].children[2]).toHaveStyleRule("animation", "fhkkP 300ms infinite linear");
+      expect(Sonar.children[0].children[0]).toHaveStyleRule("animation-iteration-count", "infinite", {
+        modifier: "&:after"
+      });
+
+      expect(Sonar.children[0].children[1]).toHaveStyleRule("animation-duration", "300ms");
+      expect(Sonar.children[0].children[1]).toHaveStyleRule("animation-iteration-count", "infinite");
+      expect(Sonar.children[0].children[1]).toHaveStyleRule("animation-timing-function", "linear");
+
+      expect(Sonar.children[0].children[2]).toHaveStyleRule("animation-duration", "300ms");
+      expect(Sonar.children[0].children[2]).toHaveStyleRule("animation-iteration-count", "infinite");
+      expect(Sonar.children[0].children[2]).toHaveStyleRule("animation-timing-function", "linear");
     });
   });
 });

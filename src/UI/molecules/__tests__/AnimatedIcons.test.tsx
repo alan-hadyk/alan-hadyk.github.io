@@ -194,12 +194,42 @@ describe("molecules / AnimatedIcons", () => {
     });
 
     describe("Props", () => {
-      describe("animationDelay & animationTime & shouldDisplayGlowAnimation", () => {
-        test("should apply glow animation with correct delay - index * 300ms", () => {
+      describe("animation-delay", () => {      
+        test("should have index * 300ms", () => {
           const { Icons } = setup();
     
           Icons.forEach((Icon, index) => {
-            expect(Icon).toHaveStyleRule("animation", `kyKrda 3600ms infinite ease-in-out ${index * 300}ms`);
+            expect(Icon).toHaveStyleRule("animation-delay", `${index * 300}ms`);
+          });
+        });
+      });
+
+      describe("animation-duration", () => {      
+        test("should have 3600ms", () => {
+          const { Icons } = setup();
+    
+          Icons.forEach((Icon) => {
+            expect(Icon).toHaveStyleRule("animation-duration", "3600ms");
+          });
+        });
+      });
+
+      describe("animation-iteration-count", () => {      
+        test("should have infinite", () => {
+          const { Icons } = setup();
+    
+          Icons.forEach((Icon) => {
+            expect(Icon).toHaveStyleRule("animation-iteration-count", "infinite");
+          });
+        });
+      });
+
+      describe("animation-timing-function", () => {      
+        test("should have ease-in-out", () => {
+          const { Icons } = setup();
+    
+          Icons.forEach((Icon) => {
+            expect(Icon).toHaveStyleRule("animation-timing-function", "ease-in-out");
           });
         });
       });

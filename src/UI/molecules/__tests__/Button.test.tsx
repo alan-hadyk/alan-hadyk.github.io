@@ -522,11 +522,11 @@ describe("molecules / Button", () => {
 
   describe(".ripple", () => {
     describe("Styles", () => {
-      describe("animation", () => {      
-        test("should have edUzui 900ms", () => {
+      describe("animation-duration", () => {      
+        test("should have 900ms", () => {
           const { ButtonContainer } = setup();
-
-          expect(ButtonContainer).toHaveStyleRule("animation", "edUzui 900ms", {
+    
+          expect(ButtonContainer).toHaveStyleRule("animation-duration", "900ms", {
             modifier: css` .ripple`
           });
         });

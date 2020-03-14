@@ -61,7 +61,11 @@ function Icon({
         width: ${(width in spacing && spacing[width]) || width};
 
         ${shouldDisplayGlowAnimation && css`
-          animation: ${keyframes.glow} ${transitionTimes[animationTime]} infinite ${easing.easeInOut} ${animationDelay};
+          animation-delay: ${animationDelay};
+          animation-duration: ${transitionTimes[animationTime]};
+          animation-iteration-count: infinite;
+          animation-name: ${keyframes.glow};
+          animation-timing-function: ${easing.easeInOut};
         `}
 
         ${shouldGlowOnHover && `
