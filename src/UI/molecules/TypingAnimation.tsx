@@ -102,7 +102,10 @@ TypingAnimation.Code = styled.code`
     right: 0;
 
     &::after {
-      animation: ${blink} infinite ${transitionTimes.default} ${easeInOut};
+      animation-duration: ${transitionTimes.default};
+      animation-iteration-count: infinite;
+      animation-name: ${blink};
+      animation-timing-function: ${easeInOut};
       background-color: ${blue100};
       content: '';
       display: inline-block;

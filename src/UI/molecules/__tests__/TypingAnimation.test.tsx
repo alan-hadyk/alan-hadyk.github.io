@@ -174,11 +174,31 @@ import {
       });
 
       describe("&::after", () => {
-        describe("animation", () => {      
-          test("should have ixKGuY infinite 300ms ease-in-out", () => {
+        describe("animation-duration", () => {      
+          test("should have 300ms", () => {
             const { TypingAnimationCode } = setup();
       
-            expect(TypingAnimationCode).toHaveStyleRule("animation", "ixKGuY infinite 300ms ease-in-out", {
+            expect(TypingAnimationCode).toHaveStyleRule("animation-duration", "300ms", {
+              modifier: "::after"
+            });
+          });
+        });
+  
+        describe("animation-iteration-count", () => {      
+          test("should have infinite", () => {
+            const { TypingAnimationCode } = setup();
+      
+            expect(TypingAnimationCode).toHaveStyleRule("animation-iteration-count", "infinite", {
+              modifier: "::after"
+            });
+          });
+        });
+  
+        describe("animation-timing-function", () => {      
+          test("should have ease-in-out", () => {
+            const { TypingAnimationCode } = setup();
+      
+            expect(TypingAnimationCode).toHaveStyleRule("animation-timing-function", "ease-in-out", {
               modifier: "::after"
             });
           });
@@ -270,7 +290,7 @@ function setup(): Setup {
   );
 
   const { queryByTestId }: RenderResult = utils;
-  const PositionContainer: Element = queryByTestId("PositionContainer");
+  const PositionContainer: Element = queryByTestId("TypingAnimation");
   const TypingAnimationPre: Element = queryByTestId("TypingAnimationPre");
   const TypingAnimationCode: Element = queryByTestId("TypingAnimationCode");
   
