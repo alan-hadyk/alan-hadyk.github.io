@@ -6,7 +6,7 @@ import {
 } from "<styles>/variables/__typings__/variables";
 
 export interface TextProps {
-  children: string | Element;
+  children: string;
   color?: ColorPalette;
   fontFamily?: FontFamilies;
   fontSize?: FontSizes;

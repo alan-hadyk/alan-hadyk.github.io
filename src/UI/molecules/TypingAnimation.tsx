@@ -51,6 +51,7 @@ function TypingAnimation(): JSX.Element {
 
   return (
     <PositionContainer
+      dataTestId="TypingAnimation"
       height="100%"
       position="relative"
     >
