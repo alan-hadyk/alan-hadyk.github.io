@@ -5,7 +5,7 @@ import PositionContainer from "<layout>/PositionContainer";
 
 import useInterval from "<hooks>/useInterval";
 
-const code = `import { useLayoutEffect } from "react";
+export const code = `import { useLayoutEffect } from "react";
 
 import {
   IntersectionObserverWithPolyfill,
@@ -54,8 +54,11 @@ function TypingAnimation(): JSX.Element {
       height="100%"
       position="relative"
     >
-      <TypingAnimation.Pre>
-        <TypingAnimation.Code ref={codeContainer} />
+      <TypingAnimation.Pre data-testid="TypingAnimationPre">
+        <TypingAnimation.Code 
+          data-testid="TypingAnimationCode"
+          ref={codeContainer} 
+        />
       </TypingAnimation.Pre>
     </PositionContainer>
   );
