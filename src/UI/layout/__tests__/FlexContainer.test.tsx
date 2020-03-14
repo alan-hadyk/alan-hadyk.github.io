@@ -166,16 +166,16 @@ describe("layout / FlexContainer", () => {
 
   describe("Props", () => {
     describe("gap", () => {
-      test("should apply margin-left equal to gap to all children except the first one when flexFlow includes row", () => {
+      test("should apply padding-left equal to gap to all children except the first one when flexFlow includes row", () => {
         const { FlexContainer } = setup({
           flexFlow: "row nowrap",
           gap: "spacing32"
         });
         
-        expect(FlexContainer).toHaveStyleRule("margin-left", "3.2rem", {
+        expect(FlexContainer).toHaveStyleRule("padding-left", "3.2rem", {
           modifier: "& > *"
         });
-        expect(FlexContainer).toHaveStyleRule("margin-left", "0", {
+        expect(FlexContainer).toHaveStyleRule("padding-left", "0", {
           modifier: "& > *:first-child"
         });
       });

@@ -8,8 +8,8 @@ import Vivus from "vivus";
 function FlowChart(): JSX.Element {
   useLayoutEffect(() => {
     new Vivus("flow-chart", {
-      delay: 300,
-      duration: 600, 
+      delay: 150,
+      duration: 300, 
       type: "delayed"
     }, (myVivus): Vivus => myVivus.play(myVivus.getStatus() === "end" ? -1 : 1));
   });
