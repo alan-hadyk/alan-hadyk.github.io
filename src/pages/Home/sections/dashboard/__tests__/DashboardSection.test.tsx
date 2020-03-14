@@ -5,6 +5,8 @@ import DashboardSection from "<pages>/Home/sections/dashboard/DashboardSection";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
+jest.mock("vivus");
+
 describe("pages / Home / sections / dashboard / DashboardSection", () => {
   test("should have correct structure", () => {
     const { 
@@ -12,13 +14,15 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
       FlexContainer,
       Section,
       SpacingContainer,
-      TechStack
+      TechStack,
+      Flux
     } = setup();
 
     expect(Section.children[0]).toEqual(SpacingContainer);
     expect(SpacingContainer.children[0]).toEqual(FlexContainer);
     expect(FlexContainer.children[0]).toEqual(TechStack);
     expect(FlexContainer.children[1]).toEqual(Coords);
+    expect(FlexContainer.children[2]).toEqual(Flux);
   });
 
   describe("Section", () => {    
@@ -106,6 +110,7 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
 interface Setup extends RenderResult {
   Coords: Element;
   FlexContainer: Element;
+  Flux: Element;
   Section: Element;
   SpacingContainer: Element;
   TechStack: Element;
@@ -122,11 +127,13 @@ function setup(): Setup {
   const Section: Element = queryByTestId("Section");
   const SpacingContainer: Element = queryByTestId("DashboardSectionSpacingContainer");
   const TechStack: Element = queryByTestId("TechStack");
+  const Flux: Element = queryByTestId("Flux");
 
   return {
     ...utils,
     Coords,
     FlexContainer,
+    Flux,
     Section,
     SpacingContainer,
     TechStack

@@ -1,12 +1,12 @@
 import { FunctionComponent, SVGProps } from "react";
 import { StyledComponentBase, DefaultTheme } from "styled-components";
 
-import { Spacing, TransitionTimes }from "<styles>/variables/__typings__/variables";
+import { Spacing, TransitionTimes } from "<styles>/variables/__typings__/variables";
 
 export interface IconProps {
   animationDelay?: string;
   animationTime?: TransitionTimes;
-  height: Spacing;
+  height: Spacing | "auto";
   iconName:
     "btnCodeSandbox" |
     "btnDownload" |

@@ -2214,6 +2214,11 @@
     "@types/react-dom" "*"
     "@types/testing-library__dom" "*"
 
+"@types/vivus@^0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@types/vivus/-/vivus-0.4.1.tgz#aa5a858c423eca02963ea142d511b099fa0a43bc"
+  integrity sha512-TX9uhO6i6RjEz4tVRhMuHnCOsbu3XJm+yiu3Ie1WCf+bJxQzyO7V1RDbaOF/tI9kjHvqBT/lbLUjwCbCZnieNw==
+
 "@types/yargs-parser@*":
   version "13.1.0"
   resolved "https://registry.yarnpkg.com/@types/yargs-parser/-/yargs-parser-13.1.0.tgz#c563aa192f39350a1d18da36c5a8da382bbd8228"
@@ -11678,6 +11683,11 @@ verror@1.10.0:
     assert-plus "^1.0.0"
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
+
+vivus@^0.4.5:
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/vivus/-/vivus-0.4.5.tgz#61d18c2ac8f48cab5d250fc3df1badfcb32d669a"
+  integrity sha512-dBM5QDcO0JUnoeGUROhMYVBW4Qry637iQ1o6vLDaEVzu0TAQ3tVlzeQlLGYPjegCxcY1nC8FtyTjsZ8rqXVL4Q==
 
 vm-browserify@^1.0.1:
   version "1.1.2"
