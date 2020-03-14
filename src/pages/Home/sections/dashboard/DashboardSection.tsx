@@ -2,6 +2,7 @@ import React, { memo } from "react";
 
 import TechStack from "<pages>/Home/sections/dashboard/elements/TechStack";
 import Coords from "<pages>/Home/sections/dashboard/elements/Coords";
+import Code from "<pages>/Home/sections/dashboard/elements/Code";
 
 import Section from "<molecules>/Section";
 import FlexContainer from "<layout>/FlexContainer";
@@ -26,6 +27,7 @@ const DashboardSection = (): JSX.Element => (
       >
         <TechStack />
         <Coords />
+        <Code />
       </FlexContainer>
     </SpacingContainer>
   </Section>

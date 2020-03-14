@@ -4,6 +4,17 @@ import colorPalette from "<styles>/variables/colorPalette";
 import spacing from "<styles>/variables/spacing";
 
 export default {
+  blink: keyframes`
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  `,
   borderDanceHorizontal: keyframes`
     from {
       background-position: left top;

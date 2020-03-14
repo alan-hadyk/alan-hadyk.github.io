@@ -5,11 +5,11 @@ import AnimatedIcons from "<molecules>/AnimatedIcons";
 
 const TechStack = (): JSX.Element => (
   <DashboardElement
+    childrenHeight="spacing184"
     dataTestId="TechStack"
     flex="1 1 30%"
-    childrenHeight="spacing184"
-    title="Tech Stack" 
     shouldDisplayCorners={true}
+    title="Tech Stack" 
   >
     <AnimatedIcons />
   </DashboardElement>
