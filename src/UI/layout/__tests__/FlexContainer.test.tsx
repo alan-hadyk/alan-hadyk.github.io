@@ -180,16 +180,16 @@ describe("layout / FlexContainer", () => {
         });
       });
 
-      test("should apply margin-top equal to gap to all children except the first one when flexFlow includes column", () => {
+      test("should apply padding-top equal to gap to all children except the first one when flexFlow includes column", () => {
         const { FlexContainer } = setup({
           flexFlow: "column nowrap",
           gap: "spacing40"
         });
         
-        expect(FlexContainer).toHaveStyleRule("margin-top", "4rem", {
+        expect(FlexContainer).toHaveStyleRule("padding-top", "4rem", {
           modifier: "& > *"
         });
-        expect(FlexContainer).toHaveStyleRule("margin-top", "0", {
+        expect(FlexContainer).toHaveStyleRule("padding-top", "0", {
           modifier: "& > *:first-child"
         });
       });

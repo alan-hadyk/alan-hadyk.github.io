@@ -81,10 +81,10 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
         test("should have row 4.8rem", () => {
           const { FlexContainer } = setup();
 
-          expect(FlexContainer).toHaveStyleRule("margin-left", "4.8rem", {
+          expect(FlexContainer).toHaveStyleRule("padding-left", "4.8rem", {
             modifier: "& > *"
           });
-          expect(FlexContainer).toHaveStyleRule("margin-left", "0", {
+          expect(FlexContainer).toHaveStyleRule("padding-left", "0", {
             modifier: "& > *:first-child"
           });
         });

@@ -10,8 +10,8 @@ import { ReactComponent as FluxFlowChart } from "<assets>/svg/Flux-FlowChart.svg
 function FlowChart(): JSX.Element {
   useLayoutEffect(() => {
     new Vivus("flow-chart", {
-      delay: transitionTimes.fast,
-      duration: transitionTimes.default, 
+      delay: parseInt(transitionTimes.fast),
+      duration: parseInt(transitionTimes.default), 
       type: "delayed"
     }, (myVivus: Vivus): Vivus => myVivus.play(myVivus.getStatus() === "end" ? -1 : 1));
   });
