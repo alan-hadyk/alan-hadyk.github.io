@@ -1,4 +1,4 @@
-import React, { memo, useState, useRef } from "react";
+import React, { memo, forwardRef, useState, useRef, Ref } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import useShuffleText from "<hooks>/useShuffleText";
@@ -23,7 +23,7 @@ function Text({
   shouldShuffleOnHover = false,
   textAlign = "left",
   textTransform = "none"
-}: TextProps): JSX.Element {
+}: TextProps, ref: Ref<HTMLDivElement>): JSX.Element {
   const [shuffleText, setShuffleText] = useState<ShuffleState | undefined>();
   const textElement = useRef<HTMLDivElement>(null);
 
@@ -32,7 +32,7 @@ function Text({
     ref: textElement,
     shouldInitialize: shouldShuffleOnHover || shouldShuffle,
     shuffleState: shuffleText,
-    text: children
+    text: typeof children === "string" && children
   });
 
   useInterval(() => {
@@ -55,7 +55,7 @@ function Text({
       paddingLeft={paddingLeft}
       paddingRight={paddingRight}
       paddingTop={paddingTop}  
-      ref={textElement}
+      ref={ref || textElement}
       textAlign={textAlign}
       textTransform={textTransform}
     >
@@ -104,4 +104,6 @@ Text.Container = styled.div<TextProps>`
   `}
 `;
 
-export default memo(Text);
+export default memo(
+  forwardRef(Text)
+);
