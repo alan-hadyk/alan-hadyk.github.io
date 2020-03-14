@@ -8,7 +8,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 describe("molecules / AnimatedIcons", () => {
   test("should have correct structure", () => {
     const { 
-      Icons,
+      IconContainers,
       FlexContainer,
       PositionContainers,
       Texts
@@ -24,7 +24,7 @@ describe("molecules / AnimatedIcons", () => {
 
     PositionContainers.forEach((PositionContainer, index) => {
       if (index % 2 === 0) {
-        expect(PositionContainer.children[0]).toEqual(Icons[index / 2]);
+        expect(PositionContainer.children[0]).toEqual(IconContainers[index / 2]);
         expect(PositionContainer.children[1]).toEqual(PositionContainers[index + 1]);
       }
     });
@@ -194,52 +194,64 @@ describe("molecules / AnimatedIcons", () => {
     });
 
     describe("Props", () => {
-      describe("animation-delay", () => {      
-        test("should have index * 300ms", () => {
-          const { Icons } = setup();
-    
-          Icons.forEach((Icon, index) => {
-            expect(Icon).toHaveStyleRule("animation-delay", `${index * 300}ms`);
+      describe("animationDelay & animationTime & shouldDisplayGlowAnimation", () => {
+        describe("animation-delay", () => {      
+          test("should have index * 300ms", () => {
+            const { IconContainers } = setup();
+      
+            IconContainers.forEach((Icon, index) => {
+              expect(Icon).toHaveStyleRule("animation-delay", `${index * 300}ms`, {
+                modifier: "& > *"
+              });
+            });
           });
         });
-      });
-
-      describe("animation-duration", () => {      
-        test("should have 3600ms", () => {
-          const { Icons } = setup();
-    
-          Icons.forEach((Icon) => {
-            expect(Icon).toHaveStyleRule("animation-duration", "3600ms");
+  
+        describe("animation-duration", () => {      
+          test("should have 3600ms", () => {
+            const { IconContainers } = setup();
+      
+            IconContainers.forEach((Icon) => {
+              expect(Icon).toHaveStyleRule("animation-duration", "3600ms", {
+                modifier: "& > *"
+              });
+            });
           });
         });
-      });
-
-      describe("animation-iteration-count", () => {      
-        test("should have infinite", () => {
-          const { Icons } = setup();
-    
-          Icons.forEach((Icon) => {
-            expect(Icon).toHaveStyleRule("animation-iteration-count", "infinite");
+  
+        describe("animation-iteration-count", () => {      
+          test("should have infinite", () => {
+            const { IconContainers } = setup();
+      
+            IconContainers.forEach((Icon) => {
+              expect(Icon).toHaveStyleRule("animation-iteration-count", "infinite", {
+                modifier: "& > *"
+              });
+            });
           });
         });
-      });
-
-      describe("animation-timing-function", () => {      
-        test("should have ease-in-out", () => {
-          const { Icons } = setup();
-    
-          Icons.forEach((Icon) => {
-            expect(Icon).toHaveStyleRule("animation-timing-function", "ease-in-out");
+  
+        describe("animation-timing-function", () => {      
+          test("should have ease-in-out", () => {
+            const { IconContainers } = setup();
+      
+            IconContainers.forEach((Icon) => {
+              expect(Icon).toHaveStyleRule("animation-timing-function", "ease-in-out", {
+                modifier: "& > *"
+              });
+            });
           });
         });
       });
 
       describe("height", () => { 
         test("should have 7.2rem", () => {
-          const { Icons } = setup();
+          const { IconContainers } = setup();
 
-          Icons.forEach(Icon => {
-            expect(Icon).toHaveStyleRule("height", "7.2rem");
+          IconContainers.forEach(Icon => {
+            expect(Icon).toHaveStyleRule("height", "7.2rem", {
+              modifier: "& > *"
+            });
           });
         });
       });
@@ -303,6 +315,7 @@ describe("molecules / AnimatedIcons", () => {
 
 interface Setup extends RenderResult {
   FlexContainer: Element;
+  IconContainers: Element[];
   Icons: NodeListOf<SVGSVGElement>;
   PositionContainers: Element[];
   Texts: Element[];
@@ -315,6 +328,7 @@ function setup(): Setup {
 
   const { queryAllByTestId, queryByTestId }: RenderResult = utils;
   const FlexContainer: Element = queryByTestId("AnimatedIcons");
+  const IconContainers: Element[] = queryAllByTestId("IconContainer");
   const Icons: NodeListOf<SVGSVGElement> = document.querySelectorAll("svg");
   const PositionContainers: Element[] = queryAllByTestId("PositionContainer");
   const Texts: Element[] = queryAllByTestId("Text");
@@ -322,6 +336,7 @@ function setup(): Setup {
   return {
     ...utils,
     FlexContainer,
+    IconContainers,
     Icons,
     PositionContainers,
     Texts

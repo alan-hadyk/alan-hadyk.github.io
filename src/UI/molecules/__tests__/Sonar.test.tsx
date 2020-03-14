@@ -293,7 +293,7 @@ describe("molecules / Sonar", () => {
       });
 
       describe("animation-timing-function", () => {      
-        test("should have infinite", () => {
+        test("should have linear", () => {
           const { SonarVerticalLine } = setup();
     
           expect(SonarVerticalLine).toHaveStyleRule("animation-timing-function", "linear");
@@ -393,7 +393,7 @@ describe("molecules / Sonar", () => {
       });
 
       describe("animation-timing-function", () => {      
-        test("should have infinite", () => {
+        test("should have linear", () => {
           const { SonarHorizontallLine } = setup();
     
           expect(SonarHorizontallLine).toHaveStyleRule("animation-timing-function", "linear");

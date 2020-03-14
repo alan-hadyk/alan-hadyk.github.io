@@ -1,17 +1,19 @@
 import React, { memo, useLayoutEffect } from "react";
+import Vivus from "vivus";
 
 import FlexContainer from "<layout>/FlexContainer";
-import { ReactComponent as FluxFlowChart } from "<assets>/svg/Flux-FlowChart.svg";
+import SpacingContainer from "<layout>/SpacingContainer";
+import transitionTimes from "<styles>/variables/transitionTimes";
 
-import Vivus from "vivus";
+import { ReactComponent as FluxFlowChart } from "<assets>/svg/Flux-FlowChart.svg";
 
 function FlowChart(): JSX.Element {
   useLayoutEffect(() => {
     new Vivus("flow-chart", {
-      delay: 150,
-      duration: 300, 
+      delay: transitionTimes.fast,
+      duration: transitionTimes.default, 
       type: "delayed"
-    }, (myVivus): Vivus => myVivus.play(myVivus.getStatus() === "end" ? -1 : 1));
+    }, (myVivus: Vivus): Vivus => myVivus.play(myVivus.getStatus() === "end" ? -1 : 1));
   });
 
   return (
@@ -21,7 +23,15 @@ function FlowChart(): JSX.Element {
       height="100%"
       justifyContent="center"
     > 
-      <FluxFlowChart id="flow-chart" />
+      <SpacingContainer
+        dataTestId="FlowChartSpacingContainer"
+        paddingBottom="spacing8"
+        paddingLeft="spacing8"
+        paddingRight="spacing8"
+        paddingTop="spacing8"
+      >
+        <FluxFlowChart id="flow-chart" />
+      </SpacingContainer>
     </FlexContainer>
   );
 }

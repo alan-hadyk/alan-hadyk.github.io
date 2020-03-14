@@ -26,8 +26,6 @@ describe("helpers / tests / renderWithTheme", () => {
     transitionTimes,
     zIndex
   }}): FlattenSimpleInterpolation => css`
-        animation-duration: 900ms;
-        animation-name: ${keyframes.ripple};
         color: ${colorPalette.blue300};
         font-family: ${fontFamilies.Exan};
         font-size: ${fontSizes.font20};
@@ -44,7 +42,6 @@ describe("helpers / tests / renderWithTheme", () => {
 
     const childrenComponent = queryByTestId("childrenComponent");
 
-    expect(childrenComponent).toHaveStyleRule("animation-duration", "900ms");
     expect(childrenComponent).toHaveStyleRule("color", "#78b0b5");
     expect(childrenComponent).toHaveStyleRule("font-family", "ExanModifiedRegular,monospace");
     expect(childrenComponent).toHaveStyleRule("font-size", "20px");

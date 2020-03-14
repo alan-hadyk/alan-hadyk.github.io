@@ -52,10 +52,10 @@ FlexContainer.Container = styled.div<FlexContainerProps>`
             padding-left: 0;
           }  
         ` : `
-          margin-top: ${(gap in spacing && spacing[gap])};
+          padding-top: ${(gap in spacing && spacing[gap])};
 
           &:first-child {
-            margin-top: 0;
+            padding-top: 0;
           }  
         `}
       }`} 

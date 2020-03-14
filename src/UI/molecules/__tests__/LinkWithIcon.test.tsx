@@ -8,55 +8,65 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 import { LinkWithIconProps } from "<molecules>/__typings__/LinkWithIcon";
 
 describe("molecules / LinkWithIcon", () => {
-  describe("Icon", () => {    
+  describe("IconContainer", () => {    
     describe("Styles", () => {
       describe("height", () => {      
         test("should have 4.8rem", () => {
-          const { Icon } = setup();
+          const { IconContainer } = setup();
     
-          expect(Icon).toHaveStyleRule("height", "4.8rem");
+          expect(IconContainer).toHaveStyleRule("height", "4.8rem", {
+            modifier: "& > *"
+          });
         });
 
         test("should have correct value when passed via height prop", () => {
-          const { Icon } = setup({
+          const { IconContainer } = setup({
             height: "spacing72"
           });
     
-          expect(Icon).toHaveStyleRule("height", "7.2rem");
+          expect(IconContainer).toHaveStyleRule("height", "7.2rem", {
+            modifier: "& > *"
+          });
         });
       });
 
       describe("transition", () => {      
         test("should have all 150ms ease-in-out 0ms", () => {
-          const { Icon } = setup();
+          const { IconContainer } = setup();
     
-          expect(Icon).toHaveStyleRule("transition", "all 150ms ease-in-out 0ms");
+          expect(IconContainer).toHaveStyleRule("transition", "all 150ms ease-in-out 0ms", {
+            modifier: "& > *"
+          });
         });
       });
 
       describe("width", () => {      
         test("should have auto", () => {
-          const { Icon } = setup();
+          const { IconContainer } = setup();
     
-          expect(Icon).toHaveStyleRule("width", "auto");
+          expect(IconContainer).toHaveStyleRule("width", "auto", {
+            modifier: "& > *"
+          });
         });
 
         test("should have correct value when passed via width prop", () => {
-          const { Icon } = setup({
+          const { IconContainer } = setup({
             width: "spacing72"
           });
     
-          expect(Icon).toHaveStyleRule("width", "7.2rem");
+          expect(IconContainer).toHaveStyleRule("width", "7.2rem", {
+            modifier: "& > *"
+          });
         });
       });
 
       describe("&:hover", () => {      
         describe("filter", () => {      
           test("should have drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", () => {
-            const { Icon } = setup();
+            const { IconContainer } = setup();
     
-            expect(Icon).toHaveStyleRule("filter", "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", {
-              modifier: ":hover"
+            expect(IconContainer).toHaveStyleRule("filter", "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", {
+              modifier: "& > *:hover"
             });
           });
         });
@@ -159,6 +169,7 @@ describe("molecules / LinkWithIcon", () => {
 
 interface Setup extends RenderResult {
   Icon: SVGSVGElement;
+  IconContainer: Element;
   Link: HTMLElement;
 }
 
@@ -176,9 +187,13 @@ function setup(addedProps?: LinkWithIconTestProps): Setup {
     <LinkWithIcon {...props} />
   );
 
+  const { queryByTestId }: RenderResult = utils;
+
+
   return {
     ...utils,
     Icon: document.querySelector("svg"),
+    IconContainer: queryByTestId("IconContainer"),
     Link: document.querySelector("a")
   };
 }

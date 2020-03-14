@@ -30,4 +30,4 @@ export interface IconProps {
 
 type SVGIcon = FunctionComponent<SVGProps<SVGSVGElement> & { title?: string }>;
 
-export type IconContainerType = string & StyledComponentBase<SVGIcon, DefaultTheme, IconContainerProps, never>;
+export type IconContainerProps = Partial<IconProps>;

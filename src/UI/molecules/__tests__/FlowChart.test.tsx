@@ -12,10 +12,12 @@ describe("molecules / FlowChart", () => {
   test("should have correct structure", () => {
     const { 
       FlexContainer,
-      FlowChartIcon
+      FlowChartIcon,
+      SpacingContainer
     } = setup();
 
-    expect(FlexContainer.children[0]).toEqual(FlowChartIcon);
+    expect(FlexContainer.children[0]).toEqual(SpacingContainer);
+    expect(SpacingContainer.children[0]).toEqual(FlowChartIcon);
   });
 
   test("should fire Vivus during initial render", () => {
@@ -30,8 +32,8 @@ describe("molecules / FlowChart", () => {
 
     expect(mockCall[0]).toEqual("flow-chart");
     expect(mockCall[1]).toEqual({
-      delay: 300,
-      duration: 600, 
+      delay: 150,
+      duration: 300, 
       type: "delayed"
     });
     expect(typeof mockCall[2]).toEqual("function");
@@ -65,6 +67,42 @@ describe("molecules / FlowChart", () => {
     });
   });
 
+  describe("SpacingContainer", () => {    
+    describe("Styles", () => {
+      describe("padding-bottom", () => {
+        test("should have .8rem", () => {
+          const { SpacingContainer } = setup();
+
+          expect(SpacingContainer).toHaveStyleRule("padding-bottom", ".8rem");
+        });
+      });
+
+      describe("padding-left", () => {
+        test("should have .8rem", () => {
+          const { SpacingContainer } = setup();
+
+          expect(SpacingContainer).toHaveStyleRule("padding-left", ".8rem");
+        });
+      });
+
+      describe("padding-right", () => {
+        test("should have .8rem", () => {
+          const { SpacingContainer } = setup();
+
+          expect(SpacingContainer).toHaveStyleRule("padding-right", ".8rem");
+        });
+      });
+
+      describe("padding-top", () => {
+        test("should have .8rem", () => {
+          const { SpacingContainer } = setup();
+
+          expect(SpacingContainer).toHaveStyleRule("padding-top", ".8rem");
+        });
+      });
+    });
+  });
+
   describe("FlowChartIcon", () => {
     test("should render correct SVG", () => {
       const { FlowChartIcon } = setup();
@@ -87,6 +125,7 @@ describe("molecules / FlowChart", () => {
 interface Setup extends RenderResult {
   FlexContainer: Element;
   FlowChartIcon: SVGSVGElement;
+  SpacingContainer: Element;
 }
 
 function setup(): Setup {
@@ -97,10 +136,12 @@ function setup(): Setup {
   const { queryByTestId }: RenderResult = utils;
   const FlexContainer: Element = queryByTestId("FlowChart");
   const FlowChartIcon: SVGSVGElement = document.querySelector("svg");
+  const SpacingContainer: Element = queryByTestId("FlowChartSpacingContainer");
 
   return {
     ...utils,
     FlexContainer,
-    FlowChartIcon
+    FlowChartIcon,
+    SpacingContainer
   };
 }
