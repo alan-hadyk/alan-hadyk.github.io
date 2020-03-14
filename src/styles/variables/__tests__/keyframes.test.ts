@@ -2,6 +2,7 @@
 import keyframes from "<styles>/variables/keyframes";
 
 interface KeyframesVariables {
+  blink: any;
   borderDanceHorizontal: any;
   borderDanceVertical: any;
   glow: any;
@@ -11,6 +12,7 @@ interface KeyframesVariables {
 }
 
 const {
+  blink,
   borderDanceHorizontal,
   borderDanceVertical,
   glow,
@@ -20,6 +22,20 @@ const {
 }: KeyframesVariables = keyframes;
 
 describe("styles / variables / keyframes", () => {
+  test("should have correct keyframe - blink", () => {
+    expect(blink.stringifyArgs[0]).toEqual(`
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  `);
+  });
+
   test("should have correct keyframe - borderDanceHorizontal", () => {
     expect(borderDanceHorizontal.stringifyArgs[0]).toEqual(`
     from {

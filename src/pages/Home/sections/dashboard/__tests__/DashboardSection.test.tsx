@@ -10,6 +10,7 @@ jest.mock("vivus");
 describe("pages / Home / sections / dashboard / DashboardSection", () => {
   test("should have correct structure", () => {
     const { 
+      Code,
       Coords,
       FlexContainer,
       Section,
@@ -23,6 +24,7 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
     expect(FlexContainer.children[0]).toEqual(TechStack);
     expect(FlexContainer.children[1]).toEqual(Coords);
     expect(FlexContainer.children[2]).toEqual(Flux);
+    expect(FlexContainer.children[3]).toEqual(Code);
   });
 
   describe("Section", () => {    
@@ -108,6 +110,7 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
 });
 
 interface Setup extends RenderResult {
+  Code: Element;
   Coords: Element;
   FlexContainer: Element;
   Flux: Element;
@@ -122,6 +125,7 @@ function setup(): Setup {
   );
 
   const { queryByTestId }: RenderResult = utils;
+  const Code: Element = queryByTestId("Code");
   const Coords: Element = queryByTestId("Coords");
   const FlexContainer: Element = queryByTestId("DashboardSectionFlexContainerr");
   const Section: Element = queryByTestId("Section");
@@ -131,6 +135,7 @@ function setup(): Setup {
 
   return {
     ...utils,
+    Code,
     Coords,
     FlexContainer,
     Flux,

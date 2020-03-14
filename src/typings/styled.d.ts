@@ -39,6 +39,7 @@ declare module "styled-components" {
     };
 
     keyframes: {
+      blink: Keyframes;
       borderDanceHorizontal: Keyframes;
       borderDanceVertical: Keyframes;
       glow: Keyframes;
