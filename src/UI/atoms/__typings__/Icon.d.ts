@@ -6,7 +6,7 @@ import { Spacing, TransitionTimes } from "<styles>/variables/__typings__/variabl
 export interface IconProps {
   animationDelay?: string;
   animationTime?: TransitionTimes;
-  height: Spacing | "auto";
+  height: Spacing;
   iconName:
     "btnCodeSandbox" |
     "btnDownload" |

@@ -1,5 +1,4 @@
 import React, { memo, useLayoutEffect } from "react";
-import styled from "styled-components";
 
 import FlexContainer from "<layout>/FlexContainer";
 import { ReactComponent as FluxFlowChart } from "<assets>/svg/Flux-FlowChart.svg";
@@ -22,11 +21,9 @@ function FlowChart(): JSX.Element {
       height="100%"
       justifyContent="center"
     > 
-      <FlowChart.Icon id="flow-chart" />
+      <FluxFlowChart id="flow-chart" />
     </FlexContainer>
   );
 }
-
-FlowChart.Icon = styled(FluxFlowChart)``;
 
 export default memo(FlowChart);

@@ -66,7 +66,7 @@ describe("molecules / FlowChart", () => {
   });
 
   describe("FlowChartIcon", () => {
-    test("should render correct SVGs", () => {
+    test("should render correct SVG", () => {
       const { FlowChartIcon } = setup();
 
       expect(FlowChartIcon.textContent).toEqual("Flux-FlowChart.svg");
