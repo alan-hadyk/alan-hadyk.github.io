@@ -43,21 +43,22 @@ FlexContainer.Container = styled.div<FlexContainerProps>`
     height: ${(height in spacing && spacing[height]) || height};
     justify-content: ${justifyContent};
 
-    & > * {
-      ${flexFlow.includes("row") ? `
-        margin-left: ${(gap in spacing && spacing[gap])};
+    ${gap !== "spacing0" && `
+      & > * {
+        ${flexFlow.includes("row") ? `
+          padding-left: ${(gap in spacing && spacing[gap])};
 
-        &:first-child {
-          margin-left: 0;
-        }  
-      ` : `
-        margin-top: ${(gap in spacing && spacing[gap])};
+          &:first-child {
+            padding-left: 0;
+          }  
+        ` : `
+          padding-top: ${(gap in spacing && spacing[gap])};
 
-        &:first-child {
-          margin-top: 0;
-        }  
-      `}
-    }
+          &:first-child {
+            padding-top: 0;
+          }  
+        `}
+      }`} 
   `}
 `;
   

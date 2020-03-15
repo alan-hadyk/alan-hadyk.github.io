@@ -21,12 +21,10 @@ describe("helpers / tests / renderWithTheme", () => {
     easing,
     fontFamilies,
     fontSizes,
-    keyframes,
     spacing,
     transitionTimes,
     zIndex
   }}): FlattenSimpleInterpolation => css`
-        animation: ${keyframes.ripple} 900ms;
         color: ${colorPalette.blue300};
         font-family: ${fontFamilies.Exan};
         font-size: ${fontSizes.font20};
@@ -43,7 +41,6 @@ describe("helpers / tests / renderWithTheme", () => {
 
     const childrenComponent = queryByTestId("childrenComponent");
 
-    expect(childrenComponent).toHaveStyleRule("animation", "edUzui 900ms");
     expect(childrenComponent).toHaveStyleRule("color", "#78b0b5");
     expect(childrenComponent).toHaveStyleRule("font-family", "ExanModifiedRegular,monospace");
     expect(childrenComponent).toHaveStyleRule("font-size", "20px");

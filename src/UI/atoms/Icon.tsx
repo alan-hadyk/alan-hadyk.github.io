@@ -19,8 +19,9 @@ import { ReactComponent as IconGitHub } from "<assets>/svg/Icon-GitHub.svg";
 import { ReactComponent as IconLinkedIn } from "<assets>/svg/Icon-LinkedIn.svg";
 
 import {
-  IconContainerType,
-  IconProps
+  IconContainerProps,
+  IconProps,
+  SVGIcon
 } from "<atoms>/__typings__/Icon";
 
 function Icon({
@@ -49,35 +50,61 @@ function Icon({
     typescript: IconTypescript,
     webpack: IconWebpack
   };
+
+  const IconComponent: SVGIcon = iconComponents[iconName];
   
   return (
-    renderIcon()
+    <Icon.Container
+      data-testid="IconContainer" 
+      animationDelay={animationDelay}
+      animationTime={animationTime}
+      height={height}
+      shouldDisplayGlowAnimation={shouldDisplayGlowAnimation}
+      shouldGlowOnHover={shouldGlowOnHover}
+      width={width}
+    >
+      <IconComponent />
+    </Icon.Container>
   );
-
-  function renderIcon(): JSX.Element {
-    const IconContainer: IconContainerType = styled(iconComponents[iconName])`
-      ${({ theme: { colorPalette, easing, keyframes, spacing, transitionTimes } }): FlattenSimpleInterpolation => css`
-        height: ${height in spacing && spacing[height]};
-        width: ${(width in spacing && spacing[width]) || width};
-
-        ${shouldDisplayGlowAnimation && css`
-          animation: ${keyframes.glow} ${transitionTimes[animationTime]} infinite ${easing.easeInOut} ${animationDelay};
-        `}
-
-        ${shouldGlowOnHover && `
-          transition: all ${transitionTimes[animationTime]} ${easing.easeInOut} ${animationDelay};
-
-          &:hover {
-            filter: drop-shadow(0px 0px ${spacing.spacing4} ${transparentize(0.5, colorPalette.white)});
-          }
-        `}
-      `}
-    `;
-
-    return (
-      <IconContainer />
-    );
-  }
 }
+
+Icon.Container = styled.div<IconContainerProps>`
+  ${({
+    animationDelay,
+    animationTime,
+    height,
+    shouldDisplayGlowAnimation,
+    shouldGlowOnHover,
+    theme: { 
+      colorPalette, 
+      easing, 
+      keyframes, 
+      spacing, 
+      transitionTimes 
+    },
+    width
+  }): FlattenSimpleInterpolation => css`
+    & > * {
+      height: ${height in spacing && spacing[height]};
+      width: ${(width in spacing && spacing[width]) || width};
+  
+      ${shouldDisplayGlowAnimation && css`
+        animation-delay: ${animationDelay};
+        animation-duration: ${transitionTimes[animationTime]};
+        animation-iteration-count: infinite;
+        animation-name: ${keyframes.glow};
+        animation-timing-function: ${easing.easeInOut};
+      `}
+  
+      ${shouldGlowOnHover && `
+        transition: all ${transitionTimes[animationTime]} ${easing.easeInOut} ${animationDelay};
+  
+        &:hover {
+          filter: drop-shadow(0px 0px ${spacing.spacing4} ${transparentize(0.5, colorPalette.white)});
+        }
+      `}
+    }
+  `}
+`;
 
 export default memo(Icon);

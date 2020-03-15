@@ -52,7 +52,9 @@ Sonar.Dot = styled.div`
     width: ${spacing4};
 
     &:after {
-      animation: ${rippleAlternative} infinite ${verySlow};
+      animation-duration: ${verySlow};
+      animation-iteration-count: infinite;
+      animation-name: ${rippleAlternative};
       border-radius: 50%;
       box-shadow: 0px 0px ${spacing8} 0px ${blue300};
       content: '';
@@ -75,7 +77,10 @@ Sonar.VerticalLine = styled.div`
       transitionTimes
     }
   }): FlattenSimpleInterpolation => css`
-    animation: ${borderDanceVertical} ${transitionTimes.default} infinite linear;
+    animation-duration: ${transitionTimes.default};
+    animation-iteration-count: infinite;
+    animation-name: ${borderDanceVertical};
+    animation-timing-function: linear;
     backface-visibility: hidden;
     background-image: linear-gradient(0deg, ${blue300} 50%, transparent 50%);
     background-repeat: repeat-y;
@@ -97,7 +102,10 @@ Sonar.HorizontalLine = styled.div`
       transitionTimes
     }
   }): FlattenSimpleInterpolation => css`
-    animation: ${borderDanceHorizontal} ${transitionTimes.default} infinite linear;
+    animation-duration: ${transitionTimes.default};
+    animation-iteration-count: infinite;
+    animation-name: ${borderDanceHorizontal};
+    animation-timing-function: linear;
     backface-visibility: hidden;
     background-image: linear-gradient(90deg, ${blue300} 50%, transparent 50%);
     background-repeat: repeat-x;

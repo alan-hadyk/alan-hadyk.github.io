@@ -161,11 +161,21 @@ describe("molecules / Sonar", () => {
       });
 
       describe("&:after", () => {
-        describe("animation", () => {      
-          test("should have rippleAlternative infinite 3600ms", () => {
+        describe("animation-duration", () => {      
+          test("should have 3600ms", () => {
             const { SonarDot } = setup();
       
-            expect(SonarDot).toHaveStyleRule("animation", "dKrSSl infinite 3600ms", {
+            expect(SonarDot).toHaveStyleRule("animation-duration", "3600ms", {
+              modifier: "&:after"
+            });
+          });
+        });
+        
+        describe("animation-iteration-count", () => {      
+          test("should have infinite", () => {
+            const { SonarDot } = setup();
+      
+            expect(SonarDot).toHaveStyleRule("animation-iteration-count", "infinite", {
               modifier: "&:after"
             });
           });
@@ -266,11 +276,27 @@ describe("molecules / Sonar", () => {
 
   describe("SonarVerticalLine", () => {    
     describe("Styles", () => {
-      describe("animation", () => {      
-        test("should have borderDanceVertical 300ms infinite linear", () => {
+      describe("animation-duration", () => {      
+        test("should have 300ms", () => {
           const { SonarVerticalLine } = setup();
     
-          expect(SonarVerticalLine).toHaveStyleRule("animation", "enbksP 300ms infinite linear");
+          expect(SonarVerticalLine).toHaveStyleRule("animation-duration", "300ms");
+        });
+      });
+
+      describe("animation-iteration-count", () => {      
+        test("should have infinite", () => {
+          const { SonarVerticalLine } = setup();
+    
+          expect(SonarVerticalLine).toHaveStyleRule("animation-iteration-count", "infinite");
+        });
+      });
+
+      describe("animation-timing-function", () => {      
+        test("should have linear", () => {
+          const { SonarVerticalLine } = setup();
+    
+          expect(SonarVerticalLine).toHaveStyleRule("animation-timing-function", "linear");
         });
       });
 
@@ -350,11 +376,27 @@ describe("molecules / Sonar", () => {
 
   describe("SonarHorizontalLine", () => {    
     describe("Styles", () => {
-      describe("animation", () => {      
-        test("should have borderDanceHorizontal 300ms infinite linear", () => {
+      describe("animation-duration", () => {      
+        test("should have 300ms", () => {
           const { SonarHorizontallLine } = setup();
     
-          expect(SonarHorizontallLine).toHaveStyleRule("animation", "fhkkP 300ms infinite linear");
+          expect(SonarHorizontallLine).toHaveStyleRule("animation-duration", "300ms");
+        });
+      });
+
+      describe("animation-iteration-count", () => {      
+        test("should have infinite", () => {
+          const { SonarHorizontallLine } = setup();
+    
+          expect(SonarHorizontallLine).toHaveStyleRule("animation-iteration-count", "infinite");
+        });
+      });
+
+      describe("animation-timing-function", () => {      
+        test("should have linear", () => {
+          const { SonarHorizontallLine } = setup();
+    
+          expect(SonarHorizontallLine).toHaveStyleRule("animation-timing-function", "linear");
         });
       });
 

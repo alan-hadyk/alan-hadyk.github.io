@@ -17,7 +17,7 @@ describe("molecules / Button", () => {
       ButtonInnerContainer,
       Corners,
       FlexContainer,
-      Icon,
+      IconContainer,
       SpacingContainer,
       ButtonText
     } = setup();
@@ -30,7 +30,7 @@ describe("molecules / Button", () => {
     expect(ButtonInnerContainer.children[0]).toEqual(SpacingContainer);
     expect(SpacingContainer.children[0]).toEqual(FlexContainer);
     expect(FlexContainer.children[0].children[0]).toEqual(ButtonText);
-    expect(FlexContainer.children[1]).toEqual(Icon);
+    expect(FlexContainer.children[1]).toEqual(IconContainer);
   });
 
   describe("ButtonContainer", () => {    
@@ -456,77 +456,85 @@ describe("molecules / Button", () => {
     });
   });
 
-  describe("ButtonIcon", () => { 
+  describe("Icon", () => { 
     describe("Props", () => {
       describe("iconName", () => {
         test("should render corect icon for codesandbox", () => {
-          const { ButtonIcon } = setup({
+          const { Icon } = setup({
             iconName: "btnCodeSandbox"
           });
     
-          expect(ButtonIcon.textContent).toEqual("Btn-CodeSandbox.svg");
+          expect(Icon.textContent).toEqual("Btn-CodeSandbox.svg");
         });
   
         test("should render corect icon for download", () => {
-          const { ButtonIcon } = setup({
+          const { Icon } = setup({
             iconName: "btnDownload"
           });
     
-          expect(ButtonIcon.textContent).toEqual("Btn-Download.svg");
+          expect(Icon.textContent).toEqual("Btn-Download.svg");
         });
   
         test("should render corect icon for externalLink", () => {
-          const { ButtonIcon } = setup({
+          const { Icon } = setup({
             iconName: "btnExternalLink"
           });
     
-          expect(ButtonIcon.textContent).toEqual("Btn-ExternalLink.svg");
+          expect(Icon.textContent).toEqual("Btn-ExternalLink.svg");
         });
   
         test("should render corect icon for send", () => {
-          const { ButtonIcon } = setup({
+          const { Icon } = setup({
             iconName: "btnSend"
           });
     
-          expect(ButtonIcon.textContent).toEqual("Btn-Send.svg");
+          expect(Icon.textContent).toEqual("Btn-Send.svg");
         });
       });
     });
+  });
 
+  describe("IconContainer", () => {
     describe("Styles", () => {
       test("should have 1.2rem for small size", () => {
-        const { ButtonIcon } = setup({
+        const { IconContainer } = setup({
           size: "small"
         });
   
-        expect(ButtonIcon).toHaveStyleRule("height", "1.2rem");
+        expect(IconContainer).toHaveStyleRule("height", "1.2rem", {
+          modifier: "& > *"
+        });
       });
 
       test("should have 2.4rem for medium size", () => {
-        const { ButtonIcon } = setup({
+        const { IconContainer } = setup({
           size: "medium"
         });
   
-        expect(ButtonIcon).toHaveStyleRule("height", "2.4rem");
+        expect(IconContainer).toHaveStyleRule("height", "2.4rem", {
+          modifier: "& > *"
+        });
       });
 
       test("should have 2.4rem for large size", () => {
-        const { ButtonIcon } = setup({
+        const { IconContainer } = setup({
           size: "large"
         });
   
-        expect(ButtonIcon).toHaveStyleRule("height", "2.4rem");
+        expect(IconContainer).toHaveStyleRule("height", "2.4rem", {
+          modifier: "& > *"
+        });
       });
     });
   });
 
   describe(".ripple", () => {
     describe("Styles", () => {
-      describe("animation", () => {      
-        test("should have edUzui 900ms", () => {
+      describe("animation-duration", () => {      
+        test("should have 900ms", () => {
           const { ButtonContainer } = setup();
-
-          expect(ButtonContainer).toHaveStyleRule("animation", "edUzui 900ms", {
+    
+          expect(ButtonContainer).toHaveStyleRule("animation-duration", "900ms", {
             modifier: css` .ripple`
           });
         });
@@ -617,12 +625,12 @@ describe("molecules / Button", () => {
 
 interface Setup extends RenderResult {
   ButtonContainer: Element;
-  ButtonIcon: Element;
   ButtonInnerContainer: Element;
   ButtonText: Element;
   Corners: Element[];
   FlexContainer: Element;
   Icon: Element;
+  IconContainer: Element;
   SpacingContainer: Element;
 }
 
@@ -652,18 +660,18 @@ function setup(addedProps?: ButtonTestProps): Setup {
   const SpacingContainer: Element = ButtonInnerContainer.children[0];
   const FlexContainer: Element = SpacingContainer.children[0];
   const ButtonText: Element = FlexContainer.children[0].children[0];
-  const ButtonIcon: Element = document.querySelector("svg");
-  const Icon: Element = FlexContainer.children[1];
+  const IconContainer: Element = queryByTestId("IconContainer");
+  const Icon: Element = document.querySelector("svg");
 
   return {
     ...utils,
     ButtonContainer,
-    ButtonIcon,
     ButtonInnerContainer,
     ButtonText,
     Corners,
     FlexContainer,
     Icon,
+    IconContainer,
     SpacingContainer
   };
 }

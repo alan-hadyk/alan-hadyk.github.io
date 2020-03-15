@@ -66,9 +66,9 @@ describe("organisms / Header", () => {
     expect(InnerFlexContainer.children[1]).toEqual(FlexContainers[3]);
 
     expect(FlexContainers[3].children[0]).toEqual(Button);
-    expect(FlexContainers[3].children[1].children[0]).toEqual(GitHub);
-    expect(FlexContainers[3].children[2].children[0]).toEqual(CodeSandbox);
-    expect(FlexContainers[3].children[3].children[0]).toEqual(LinkedIn);
+    expect(FlexContainers[3].children[1]).toEqual(GitHub);
+    expect(FlexContainers[3].children[2]).toEqual(CodeSandbox);
+    expect(FlexContainers[3].children[3]).toEqual(LinkedIn);
   });
 
   describe("PositionContainer", () => {
@@ -238,13 +238,13 @@ describe("organisms / Header", () => {
       });
 
       describe("gap", () => {      
-        test("each child of InnerFlexContainer should have margin-left: 4.8rem, except first item", () => {
+        test("each child of InnerFlexContainer should have padding-left: 4.8rem, except first item", () => {
           const { InnerFlexContainer } = setup();
 
-          expect(InnerFlexContainer).toHaveStyleRule("margin-left", "4.8rem", {
+          expect(InnerFlexContainer).toHaveStyleRule("padding-left", "4.8rem", {
             modifier: "& > *"
           });
-          expect(InnerFlexContainer).toHaveStyleRule("margin-left", "0", {
+          expect(InnerFlexContainer).toHaveStyleRule("padding-left", "0", {
             modifier: "& > *:first-child"
           });
         });
@@ -369,13 +369,13 @@ describe("organisms / Header", () => {
       });
 
       describe("gap", () => {      
-        test("each child of FlexContainer should have margin-left: 2.4rem, except first item", () => {
+        test("each child of FlexContainer should have padding-left: 2.4rem, except first item", () => {
           const { FlexContainers } = setup();
 
-          expect(FlexContainers[3]).toHaveStyleRule("margin-left", "2.4rem", {
+          expect(FlexContainers[3]).toHaveStyleRule("padding-left", "2.4rem", {
             modifier: "& > *"
           });
-          expect(FlexContainers[3]).toHaveStyleRule("margin-left", "0", {
+          expect(FlexContainers[3]).toHaveStyleRule("padding-left", "0", {
             modifier: "& > *:first-child"
           });
         });
@@ -428,20 +428,6 @@ describe("organisms / Header", () => {
       });
     });
   });
-
-  describe("SpacingContainer", () => {
-    describe("Props", () => {
-      describe("marginLeft", () => {      
-        test("parentNode of 3 icons should have 2.4rem", () => {
-          const { CodeSandbox, GitHub, LinkedIn } = setup();
-    
-          expect(GitHub.parentNode).toHaveStyleRule("margin-left", "2.4rem");
-          expect(CodeSandbox.parentNode).toHaveStyleRule("margin-left", "2.4rem");
-          expect(LinkedIn.parentNode).toHaveStyleRule("margin-left", "2.4rem");
-        });
-      });
-    });
-  });
 });
 
 interface Setup extends RenderResult {
@@ -458,7 +444,6 @@ interface Setup extends RenderResult {
   Nav: Element;
   OuterFlexContainer: HTMLElement;
   PositionContainer: HTMLElement;
-  SpacingContainers: Element[];
 }
 
 type HeaderTestProps = Partial<HeaderProps>;
@@ -489,7 +474,6 @@ function setup(addedProps?: HeaderTestProps): Setup {
   const CodeSandbox = queryAllByTestId("mockLinkWithIcon")[2];
   const LinkedIn = queryAllByTestId("mockLinkWithIcon")[3];
   const PositionContainer = queryAllByTestId("PositionContainer")[0];
-  const SpacingContainers = queryAllByTestId("SpacingContainer");
   const Nav = queryByTestId("Nav");
   const Button = document.querySelector("button");
 
@@ -507,7 +491,6 @@ function setup(addedProps?: HeaderTestProps): Setup {
     MidFlexContainer,
     Nav,
     OuterFlexContainer,
-    PositionContainer,
-    SpacingContainers
+    PositionContainer
   };
 }
