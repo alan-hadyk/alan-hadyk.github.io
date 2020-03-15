@@ -428,20 +428,6 @@ describe("organisms / Header", () => {
       });
     });
   });
-
-  describe("SpacingContainer", () => {
-    describe("Props", () => {
-      describe("marginLeft", () => {      
-        test("parentNode of 3 icons should have 2.4rem", () => {
-          const { CodeSandbox, GitHub, LinkedIn } = setup();
-    
-          expect(GitHub.parentNode).toHaveStyleRule("margin-left", "2.4rem");
-          expect(CodeSandbox.parentNode).toHaveStyleRule("margin-left", "2.4rem");
-          expect(LinkedIn.parentNode).toHaveStyleRule("margin-left", "2.4rem");
-        });
-      });
-    });
-  });
 });
 
 interface Setup extends RenderResult {
