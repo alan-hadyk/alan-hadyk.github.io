@@ -7,7 +7,6 @@ import Nav from "<molecules>/Nav";
 import Button from "<molecules>/Button";
 import PositionContainer from "<layout>/PositionContainer";
 import FlexContainer from "<layout>/FlexContainer";
-import SpacingContainer from "<layout>/SpacingContainer";
 
 import { HeaderProps }  from "<organisms>/__typings__/Header";
 import { LinkWithIconProps } from "<molecules>/__typings__/LinkWithIcon";
@@ -94,16 +93,13 @@ function Header({
     return (
       <Fragment>
         {icons.map(({ height, href, iconName }: LinkWithIconProps) => (
-          <SpacingContainer 
+          <LinkWithIcon
             key={iconName}
-          >
-            <LinkWithIcon
-              height={height}
-              href={href}
-              iconName={iconName}
-              isExternal={true}
-            />
-          </SpacingContainer>
+            height={height}
+            href={href}
+            iconName={iconName}
+            isExternal={true}
+          />
         ))}
       </Fragment>
     );

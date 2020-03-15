@@ -66,9 +66,9 @@ describe("organisms / Header", () => {
     expect(InnerFlexContainer.children[1]).toEqual(FlexContainers[3]);
 
     expect(FlexContainers[3].children[0]).toEqual(Button);
-    expect(FlexContainers[3].children[1].children[0]).toEqual(GitHub);
-    expect(FlexContainers[3].children[2].children[0]).toEqual(CodeSandbox);
-    expect(FlexContainers[3].children[3].children[0]).toEqual(LinkedIn);
+    expect(FlexContainers[3].children[1]).toEqual(GitHub);
+    expect(FlexContainers[3].children[2]).toEqual(CodeSandbox);
+    expect(FlexContainers[3].children[3]).toEqual(LinkedIn);
   });
 
   describe("PositionContainer", () => {
@@ -444,7 +444,6 @@ interface Setup extends RenderResult {
   Nav: Element;
   OuterFlexContainer: HTMLElement;
   PositionContainer: HTMLElement;
-  SpacingContainers: Element[];
 }
 
 type HeaderTestProps = Partial<HeaderProps>;
@@ -475,7 +474,6 @@ function setup(addedProps?: HeaderTestProps): Setup {
   const CodeSandbox = queryAllByTestId("mockLinkWithIcon")[2];
   const LinkedIn = queryAllByTestId("mockLinkWithIcon")[3];
   const PositionContainer = queryAllByTestId("PositionContainer")[0];
-  const SpacingContainers = queryAllByTestId("SpacingContainer");
   const Nav = queryByTestId("Nav");
   const Button = document.querySelector("button");
 
@@ -493,7 +491,6 @@ function setup(addedProps?: HeaderTestProps): Setup {
     MidFlexContainer,
     Nav,
     OuterFlexContainer,
-    PositionContainer,
-    SpacingContainers
+    PositionContainer
   };
 }
