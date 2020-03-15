@@ -3,6 +3,7 @@ import Vivus from "vivus";
 
 import FlexContainer from "<layout>/FlexContainer";
 import SpacingContainer from "<layout>/SpacingContainer";
+
 import transitionTimes from "<styles>/variables/transitionTimes";
 
 import { ReactComponent as FluxFlowChart } from "<assets>/svg/Flux-FlowChart.svg";

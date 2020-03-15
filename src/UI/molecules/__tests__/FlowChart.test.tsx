@@ -68,7 +68,7 @@ describe("molecules / FlowChart", () => {
   });
 
   describe("SpacingContainer", () => {    
-    describe("Styles", () => {
+    describe("Props", () => {
       describe("padding-bottom", () => {
         test("should have .8rem", () => {
           const { SpacingContainer } = setup();

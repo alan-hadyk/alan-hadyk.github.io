@@ -1,5 +1,4 @@
 import { FunctionComponent, SVGProps } from "react";
-import { StyledComponentBase, DefaultTheme } from "styled-components";
 
 import { Spacing, TransitionTimes } from "<styles>/variables/__typings__/variables";
 

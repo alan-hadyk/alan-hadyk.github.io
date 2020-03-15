@@ -96,7 +96,6 @@ function Header({
         {icons.map(({ height, href, iconName }: LinkWithIconProps) => (
           <SpacingContainer 
             key={iconName}
-            marginLeft="spacing24"
           >
             <LinkWithIcon
               height={height}

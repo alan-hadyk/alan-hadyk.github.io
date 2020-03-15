@@ -20,7 +20,8 @@ import { ReactComponent as IconLinkedIn } from "<assets>/svg/Icon-LinkedIn.svg";
 
 import {
   IconContainerProps,
-  IconProps
+  IconProps,
+  SVGIcon
 } from "<atoms>/__typings__/Icon";
 
 function Icon({
@@ -50,7 +51,7 @@ function Icon({
     webpack: IconWebpack
   };
 
-  const IconComponent = iconComponents[iconName];
+  const IconComponent: SVGIcon = iconComponents[iconName];
   
   return (
     <Icon.Container
@@ -74,14 +75,14 @@ Icon.Container = styled.div<IconContainerProps>`
     height,
     shouldDisplayGlowAnimation,
     shouldGlowOnHover,
-    width,
     theme: { 
       colorPalette, 
       easing, 
       keyframes, 
       spacing, 
       transitionTimes 
-    }
+    },
+    width
   }): FlattenSimpleInterpolation => css`
     & > * {
       height: ${height in spacing && spacing[height]};

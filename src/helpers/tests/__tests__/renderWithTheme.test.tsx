@@ -21,7 +21,6 @@ describe("helpers / tests / renderWithTheme", () => {
     easing,
     fontFamilies,
     fontSizes,
-    keyframes,
     spacing,
     transitionTimes,
     zIndex
