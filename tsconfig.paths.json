@@ -12,6 +12,7 @@
       "<layout>/*": ["./UI/layout/*"],
       "<molecules>/*": ["./UI/molecules/*"],
       "<organisms>/*": ["./UI/organisms/*"],
+      "<state>/*": ["./state/*"],
       "<templates>/*": ["./UI/templates/*"]
     }
   }

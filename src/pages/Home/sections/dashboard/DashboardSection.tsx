@@ -4,6 +4,7 @@ import TechStack from "<pages>/Home/sections/dashboard/elements/TechStack";
 import Coords from "<pages>/Home/sections/dashboard/elements/Coords";
 import Flux from "<pages>/Home/sections/dashboard/elements/Flux";
 import Code from "<pages>/Home/sections/dashboard/elements/Code";
+import Commits from "<pages>/Home/sections/dashboard/elements/Commits";
 
 import Section from "<molecules>/Section";
 import FlexContainer from "<layout>/FlexContainer";
@@ -20,7 +21,7 @@ const DashboardSection = (): JSX.Element => (
     >
       <FlexContainer
         alignItems="flex-start"
-        dataTestId="DashboardSectionFlexContainerr"
+        dataTestId="DashboardSectionFlexContainer"
         flexFlow="row nowrap"
         gap="spacing48"
         height="spacing220"
@@ -30,6 +31,21 @@ const DashboardSection = (): JSX.Element => (
         <Coords />
         <Flux />
         <Code />
+      </FlexContainer>
+    </SpacingContainer>
+    <SpacingContainer
+      dataTestId="DashboardSectionSpacingContainer"
+      paddingTop="spacing48"
+    >
+      <FlexContainer
+        alignItems="flex-start"
+        dataTestId="DashboardSectionFlexContainer"
+        flexFlow="row nowrap"
+        gap="spacing48"
+        height="spacing220"
+        justifyContent="center"
+      >
+        <Commits />
       </FlexContainer>
     </SpacingContainer>
   </Section>
