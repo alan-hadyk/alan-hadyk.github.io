@@ -18,6 +18,7 @@ function DashboardElement({
   dataTestId,
   flex,
   shouldDisplayCorners = false,
+  shuffleDelay = 0,
   order = 0,
   title
 }: DashboardElementProps): JSX.Element {
@@ -34,6 +35,7 @@ function DashboardElement({
         fontSize="font16"
         lineHeight="spacing36"
         shouldShuffle={true}
+        shuffleDelay={shuffleDelay}
         textTransform="uppercase"
       >
         {title}
@@ -75,7 +77,7 @@ function DashboardElement({
 type DashboardElementInnerContainer = Partial<DashboardElementProps>;
 
 DashboardElement.InnerContainer = styled.div<DashboardElementInnerContainer>`
-${({
+  ${({
     shouldDisplayCorners,
     theme: {
       spacing: { 
@@ -83,16 +85,16 @@ ${({
       }
     }
   }): FlattenSimpleInterpolation => css`
-    height: 100%;
-    overflow: hidden;
-    
-    ${shouldDisplayCorners && `
-      background: url(${Cross});
-      background-repeat: space;
-      background-position: center;
-      background-size: ${spacing32} ${spacing32};
+      height: 100%;
+      overflow: hidden;
+      
+      ${shouldDisplayCorners && `
+        background: url(${Cross});
+        background-repeat: space;
+        background-position: center;
+        background-size: ${spacing32} ${spacing32};
+    `}
   `}
-`}
 `;
 
 export default DashboardElement;

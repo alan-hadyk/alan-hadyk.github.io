@@ -21,6 +21,8 @@ function Text({
   paddingTop = "spacing0",
   shouldShuffle = false,
   shouldShuffleOnHover = false,
+  shuffleDelay = 0,
+  shuffleInterval = parseInt(transitionTimes.verySlow),
   textAlign = "left",
   textTransform = "none"
 }: TextProps): JSX.Element {
@@ -31,6 +33,7 @@ function Text({
     onShuffleReady: setShuffleText,
     ref: textElement,
     shouldInitialize: shouldShuffleOnHover || shouldShuffle,
+    shuffleDelay,
     shuffleState: shuffleText,
     text: children
   });
@@ -41,7 +44,7 @@ function Text({
     }
 
     shuffleText && shuffleText.start();
-  }, parseInt(transitionTimes.verySlow));
+  }, shuffleInterval);
 
   return (
     <Text.Container

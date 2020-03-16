@@ -5,7 +5,7 @@ import { Spacing, TransitionTimes } from "<styles>/variables/__typings__/variabl
 export interface IconProps {
   animationDelay?: string;
   animationTime?: TransitionTimes;
-  height: Spacing;
+  height?: string | Spacing;
   iconName:
     "btnCodeSandbox" |
     "btnDownload" |
@@ -24,7 +24,7 @@ export interface IconProps {
     "linkedIn";
   shouldDisplayGlowAnimation?: boolean;
   shouldGlowOnHover?: boolean;
-  width?: "auto" | "100%" | Spacing;
+  width?: string | Spacing;
 }
 
 type SVGIcon = FunctionComponent<SVGProps<SVGSVGElement> & { title?: string }>;

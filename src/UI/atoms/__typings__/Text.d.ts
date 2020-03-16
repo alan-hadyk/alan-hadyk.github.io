@@ -2,7 +2,8 @@ import {
   ColorPalette,
   FontFamilies,
   FontSizes,
-  Spacing
+  Spacing,
+  TransitionTimes
 } from "<styles>/variables/__typings__/variables";
 
 export interface TextProps {
@@ -17,6 +18,8 @@ export interface TextProps {
   paddingTop?: Spacing;
   shouldShuffle?: boolean;
   shouldShuffleOnHover?: boolean;
+  shuffleDelay?: number;
+  shuffleInterval?: number;
   textAlign?: "left" | "center" | "right";
   textTransform?: "none" | "lowercase" | "uppercase" | "capitalize";
 }

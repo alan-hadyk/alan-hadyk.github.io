@@ -7,8 +7,9 @@ import {
 } from "<styles>/variables/__typings__/variables";
 
 export interface DashboardElementProps extends FlexItemProps {
-  childrenHeight?: Spacing | "unset";
+  childrenHeight?: Spacing | string;
   dataTestId?: string;
   shouldDisplayCorners?: boolean;
+  shuffleDelay?: number;
   title: string;
 }

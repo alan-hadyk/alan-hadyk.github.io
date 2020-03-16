@@ -1,9 +1,9 @@
 import React, { memo } from "react";
 
 import Icon from "<atoms>/Icon";
-import Text from "<atoms>/Text";
 import FlexContainer from "<layout>/FlexContainer";
 import PositionContainer from "<layout>/PositionContainer";
+import SpacingContainer from "<layout>/SpacingContainer";
 
 import { IconProps } from "<atoms>/__typings__/Icon.d.ts";
 
@@ -11,50 +11,45 @@ const animatedIcons: IconProps["iconName"][] = ["react", "javascript", "typescri
 
 function AnimatedIcons(): JSX.Element {
   return (
-    <FlexContainer 
-      alignItems="center" 
-      dataTestId="AnimatedIcons"
+    <SpacingContainer
+      dataTestId="AnimatedIconsSpacingContainer"
       height="100%"
-      justifyContent="center" 
+      paddingBottom="spacing8"
+      paddingLeft="spacing8"
+      paddingRight="spacing8"
+      paddingTop="spacing8"
+      width="100%"
     >
-      {renderIcons()}
-    </FlexContainer>
+      <FlexContainer 
+        alignItems="center" 
+        dataTestId="AnimatedIcons"
+        flexFlow="row nowrap"
+        height="100%"
+        justifyContent="center" 
+      >
+        {renderIcons()}
+      </FlexContainer>
+    </SpacingContainer>
   );
 
   function renderIcons(): JSX.Element[] {
     return animatedIcons.map((icon, index): JSX.Element => {
       const animationDelay = `${index * 300}ms`;
-      const isEven = index % 2 === 0;
 
       return (
         <PositionContainer 
           key={icon}
           position="relative"
+          width={`${100 / animatedIcons.length}%`}
         >
           <Icon 
             animationDelay={animationDelay}
             animationTime="verySlow"
-            height="spacing72"
+            height="auto"
             iconName={icon} 
             shouldDisplayGlowAnimation={true}
+            width="100%"
           />
-          <PositionContainer 
-            bottom={isEven ? "unset" :  "spacing0"}
-            left="50%" 
-            position="absolute"
-            top={isEven ? "spacing0" : "unset"}
-            transform={`translateX(-50%) translateY(${isEven ? "-175%" : "175%"})`}
-          >
-            <Text
-              color="blue300"
-              fontFamily="AnonymousPro"
-              fontSize="font12"
-              lineHeight="spacing16"
-              textTransform="uppercase"
-            >
-              {icon}
-            </Text>
-          </PositionContainer>
         </PositionContainer>
       );
     });

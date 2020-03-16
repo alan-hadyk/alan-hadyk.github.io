@@ -1,5 +1,6 @@
 import React, { memo, useLayoutEffect } from "react";
 import Vivus from "vivus";
+import styled from "styled-components";
 
 import FlexContainer from "<layout>/FlexContainer";
 import SpacingContainer from "<layout>/SpacingContainer";
@@ -26,15 +27,26 @@ function FlowChart(): JSX.Element {
     > 
       <SpacingContainer
         dataTestId="FlowChartSpacingContainer"
+        height="100%"
         paddingBottom="spacing8"
         paddingLeft="spacing8"
         paddingRight="spacing8"
         paddingTop="spacing8"
+        width="100%"
       >
-        <FluxFlowChart id="flow-chart" />
+        <FlowChart.Icon 
+          id="flow-chart"
+        />
       </SpacingContainer>
     </FlexContainer>
   );
 }
+
+FlowChart.Icon = styled(FluxFlowChart)`
+  display:block;
+  height: 100%;
+  margin: 0 auto;
+  width: 100%;
+`;
 
 export default memo(FlowChart);

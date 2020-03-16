@@ -44,7 +44,7 @@ function Header({
             href={window.location.href}
             iconName="logo"
             height="spacing48"
-            width="auto"
+            width="spacing248"
           />
       
           <FlexContainer
