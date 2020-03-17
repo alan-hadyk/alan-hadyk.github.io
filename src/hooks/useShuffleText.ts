@@ -5,6 +5,7 @@ import { UseShuffleText } from "<hooks>/__typings__/useShuffleText";
 
 export default function useShuffleText({
   onShuffleReady,
+  shuffleDelay = 0,
   ref,
   shouldInitialize = true,
   shuffleState,
@@ -19,7 +20,7 @@ export default function useShuffleText({
     shuffle.setText(text);
 
     onShuffleReady({
-      start: () => shuffle.start()
+      start: () => setTimeout(() => shuffle.start(), shuffleDelay)
     });
   }, [onShuffleReady, ref, text, shuffleState, shouldInitialize]);
 }

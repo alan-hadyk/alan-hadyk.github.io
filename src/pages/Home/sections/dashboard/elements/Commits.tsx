@@ -1,17 +1,23 @@
 import React, { memo } from "react";
 
+import withCommitsState from "<state>/withCommitsState";
+
 import DashboardElement from "<molecules>/DashboardElement";
 import ListOfCommits from "<molecules>/ListOfCommits";
 
-export const Commits = (): JSX.Element => (
+import {
+  ListOfCommitsProps
+} from "<molecules>/__typings__/ListOfCommits";
+
+export const Commits = ({ commitsList }: ListOfCommitsProps): JSX.Element => (
   <DashboardElement
-    childrenHeight="spacing184"
+    childrenHeight="22.6vh"
     dataTestId="Commits"
-    flex="1 1 25%"
+    flex="0 1 20%"
     title="Commits" 
   >
-    <ListOfCommits />
+    <ListOfCommits commitsList={commitsList} />
   </DashboardElement>
 );
   
-export default memo(Commits);
+export default withCommitsState(memo(Commits));

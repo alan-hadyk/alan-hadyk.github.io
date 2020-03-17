@@ -9,6 +9,7 @@ export interface UseShuffleText {
   onShuffleReady: any;
   ref: MutableRefObject<HTMLElement>;
   shouldInitialize?: boolean;
+  shuffleDelay?: number;
   shuffleState: ShuffleState | undefined;
   text: string;
 }

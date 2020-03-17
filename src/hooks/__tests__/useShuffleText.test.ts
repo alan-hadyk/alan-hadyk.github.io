@@ -101,7 +101,8 @@ describe("hooks / useShuffleText", () => {
   describe("start", () => {    
     test("should fire when that func is returned via onShuffleReady", () => {
       jest.spyOn(ShuffleText.prototype, "start");
-  
+      jest.useFakeTimers();
+
       let shuffleText: ShuffleState | undefined;
       const setShuffleText = (arg: ShuffleState): ShuffleState => shuffleText = arg;
   
@@ -115,12 +116,16 @@ describe("hooks / useShuffleText", () => {
         shuffleState: shuffleText,
         text: "Text"
       });
+
   
       expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
 
       shuffleText.start();
+      
+      jest.advanceTimersByTime(10);
 
       expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
+      jest.clearAllTimers();
     });
 
     test("should not fire if there is no ref", () => {

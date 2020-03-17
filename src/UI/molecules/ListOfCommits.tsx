@@ -1,24 +1,21 @@
 import React, { memo } from "react";
 
-import withCommitsState from "<state>/withCommitsState";
-
 import FlexContainer from "<layout>/FlexContainer";
 
+import Commit from "<molecules>/Commit";
+
 import {
-  ListOfCommitsProps
+  ListOfCommitsProps,
+  CommitProps
 } from "<molecules>/__typings__/ListOfCommits";
 
 function ListOfCommits({ commitsList }: ListOfCommitsProps): JSX.Element {
-  console.log("commitsList", commitsList);
-
   return (
     <FlexContainer
       alignItems="flex-start"
-      dataTestId="DashboardSectionFlexContainerr"
+      dataTestId="ListOfCommits"
       flexFlow="column nowrap"
-      gap="spacing48"
-      height="spacing220"
-      justifyContent="center"
+      justifyContent="flex-start"
     >
       {renderCommits()}
     </FlexContainer>
@@ -26,21 +23,27 @@ function ListOfCommits({ commitsList }: ListOfCommitsProps): JSX.Element {
 
   function renderCommits(): JSX.Element[] {
     return commitsList && commitsList.map(({
+      commit,
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      html_url,
       sha
-    }: any): JSX.Element => (
-      <FlexContainer
-        key={sha}
-        alignItems="flex-start"
-        dataTestId="DashboardSectionFlexContainerr"
-        flexFlow="row nowrap"
-        gap="spacing4"
-        height="spacing16"
-        justifyContent="center"
-      >
-        <span>{sha}</span>
-      </FlexContainer>
-    ));
+    }: CommitProps, index: number): JSX.Element => {
+      const { author } = commit || {};
+      const { date } = author || {};
+      const delay = index * 300;
+
+      return (
+        <Commit
+          date={date}
+          delay={delay}
+          // eslint-disable-next-line @typescript-eslint/camelcase
+          htmlUrl={html_url}
+          key={sha}
+          sha={sha}
+        />
+      );
+    });
   }
 }
 
-export default withCommitsState(memo(ListOfCommits));
+export default memo(ListOfCommits);

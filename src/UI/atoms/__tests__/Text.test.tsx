@@ -208,8 +208,9 @@ describe("atoms / Text", () => {
   });
 
   describe("Event handlers", () => {
-    test("should fire shuffleText.start onMouseOver if shouldShuffleOnHover: true ", () => {
+    test("should fire shuffleText.start onMouseOver if shouldShuffleOnHover: true", () => {
       jest.spyOn(ShuffleText.prototype, "start");
+      jest.useFakeTimers();
 
       const { TextContainer } = setup({
         shouldShuffleOnHover: true
@@ -221,10 +222,13 @@ describe("atoms / Text", () => {
         fireEvent.mouseOver(TextContainer);
       });
 
+      jest.advanceTimersByTime(10);
+
       expect(ShuffleText.prototype.start).toHaveBeenCalled();
+      jest.clearAllTimers();
     });
 
-    test("should not fire shuffleText.start onMouseOver if shouldShuffleOnHover: false ", () => {
+    test("should not fire shuffleText.start onMouseOver if shouldShuffleOnHover: false", () => {
       jest.spyOn(ShuffleText.prototype, "start");
 
       const { TextContainer } = setup({
@@ -238,7 +242,7 @@ describe("atoms / Text", () => {
       expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
     });
 
-    test("should fire shuffleText.start in intervals if shouldShuffle: true ", () => {
+    test("should fire shuffleText.start in intervals if shouldShuffle: true", () => {
       jest.spyOn(ShuffleText.prototype, "start");
       jest.useFakeTimers();
 

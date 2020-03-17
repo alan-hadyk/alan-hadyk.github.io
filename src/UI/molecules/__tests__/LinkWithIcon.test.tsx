@@ -111,7 +111,7 @@ describe("molecules / LinkWithIcon", () => {
   });
 
   describe("Link", () => {    
-    describe("props", () => {
+    describe("Props", () => {
       describe("height", () => {      
         test("should have spacing48", () => {
           const { Link } = setup();

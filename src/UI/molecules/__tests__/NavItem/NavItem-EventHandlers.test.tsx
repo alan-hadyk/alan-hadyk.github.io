@@ -36,6 +36,7 @@ describe("molecules / NavItem", () => {
 
       test("should fire shuffleText.start onMouseOver", () => {
         jest.spyOn(ShuffleText.prototype, "start");
+        jest.useFakeTimers();
 
         const { NavItemLink } = setup();
 
@@ -45,7 +46,10 @@ describe("molecules / NavItem", () => {
           fireEvent.mouseOver(NavItemLink);
         });
 
+        jest.advanceTimersByTime(10);
+
         expect(ShuffleText.prototype.start).toHaveBeenCalled();
+        jest.clearAllTimers();
       });
     });
   }); 

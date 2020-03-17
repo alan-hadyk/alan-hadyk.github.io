@@ -10,21 +10,24 @@ jest.mock("vivus");
 describe("pages / Home / sections / dashboard / DashboardSection", () => {
   test("should have correct structure", () => {
     const { 
+      Commits,
       Code,
       Coords,
-      FlexContainer,
+      DashboardSectionFlexContainers,
       Section,
-      SpacingContainer,
+      DashboardSectionSpacingContainers,
       TechStack,
       Flux
     } = setup();
 
-    expect(Section.children[0]).toEqual(SpacingContainer);
-    expect(SpacingContainer.children[0]).toEqual(FlexContainer);
-    expect(FlexContainer.children[0]).toEqual(TechStack);
-    expect(FlexContainer.children[1]).toEqual(Coords);
-    expect(FlexContainer.children[2]).toEqual(Flux);
-    expect(FlexContainer.children[3]).toEqual(Code);
+    expect(Section.children[0]).toEqual(DashboardSectionSpacingContainers[0]);
+    expect(DashboardSectionSpacingContainers[0].children[0]).toEqual(DashboardSectionFlexContainers[0]);
+    expect(DashboardSectionSpacingContainers[1].children[0]).toEqual(DashboardSectionFlexContainers[1]);
+    expect(DashboardSectionFlexContainers[0].children[0]).toEqual(TechStack);
+    expect(DashboardSectionFlexContainers[0].children[1]).toEqual(Coords);
+    expect(DashboardSectionFlexContainers[0].children[2]).toEqual(Flux);
+    expect(DashboardSectionFlexContainers[0].children[3]).toEqual(Code);
+    expect(DashboardSectionFlexContainers[1].children[0]).toEqual(Commits);
   });
 
   describe("Section", () => {    
@@ -47,62 +50,126 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
     });
   });
 
-  describe("SpacingContainer", () => {    
-    describe("Styles", () => {
-      describe("padding-top", () => {      
-        test("should have 2.4rem", () => {
-          const { SpacingContainer } = setup();
+  describe("DashboardSectionSpacingContainers", () => {
+    describe("DashboardSectionSpacingContainers[0]", () => {
+      describe("Styles", () => {
+        describe("padding-top", () => {      
+          test("should have 2.4rem", () => {
+            const { DashboardSectionSpacingContainers } = setup();
+  
+            expect(DashboardSectionSpacingContainers[0]).toHaveStyleRule("padding-top", "2.4rem");
+          });
+        });
+      });
+    });
 
-          expect(SpacingContainer).toHaveStyleRule("padding-top", "2.4rem");
+    describe("DashboardSectionSpacingContainers[1]", () => {
+      describe("Styles", () => {
+        describe("padding-top", () => {      
+          test("should have 4.8rem", () => {
+            const { DashboardSectionSpacingContainers } = setup();
+  
+            expect(DashboardSectionSpacingContainers[1]).toHaveStyleRule("padding-top", "4.8rem");
+          });
         });
       });
     });
   });
 
-  describe("FlexContainer", () => {    
-    describe("Props", () => {
-      describe("align-items", () => {      
-        test("should have flex-start", () => {
-          const { FlexContainer } = setup();
-    
-          expect(FlexContainer).toHaveStyleRule("align-items", "flex-start");
-        });
-      });
-
-      describe("flex-flow", () => {      
-        test("should have row nowrap", () => {
-          const { FlexContainer } = setup();
-    
-          expect(FlexContainer).toHaveStyleRule("flex-flow", "row nowrap");
-        });
-      });
-
-      describe("gap", () => {
-        test("should have row 4.8rem", () => {
-          const { FlexContainer } = setup();
-
-          expect(FlexContainer).toHaveStyleRule("padding-left", "4.8rem", {
-            modifier: "& > *"
-          });
-          expect(FlexContainer).toHaveStyleRule("padding-left", "0", {
-            modifier: "& > *:first-child"
+  describe("DashboardSectionFlexContainers", () => {   
+    describe("DashboardSectionFlexContainers[0]", () => {
+      describe("Props", () => {
+        describe("align-items", () => {      
+          test("should have flex-start", () => {
+            const { DashboardSectionFlexContainers } = setup();
+      
+            expect(DashboardSectionFlexContainers[0]).toHaveStyleRule("align-items", "flex-start");
           });
         });
-      });
-
-      describe("height", () => {
-        test("should have row 22rem", () => {
-          const { FlexContainer } = setup();
-
-          expect(FlexContainer).toHaveStyleRule("height", "22rem");
+  
+        describe("flex-flow", () => {      
+          test("should have row nowrap", () => {
+            const { DashboardSectionFlexContainers } = setup();
+      
+            expect(DashboardSectionFlexContainers[0]).toHaveStyleRule("flex-flow", "row nowrap");
+          });
+        });
+  
+        describe("gap", () => {
+          test("should have row 4.8rem", () => {
+            const { DashboardSectionFlexContainers } = setup();
+  
+            expect(DashboardSectionFlexContainers[0]).toHaveStyleRule("padding-left", "4.8rem", {
+              modifier: "& > *"
+            });
+            expect(DashboardSectionFlexContainers[0]).toHaveStyleRule("padding-left", "0", {
+              modifier: "& > *:first-child"
+            });
+          });
+        });
+  
+        describe("height", () => {
+          test("should have row 22rem", () => {
+            const { DashboardSectionFlexContainers } = setup();
+  
+            expect(DashboardSectionFlexContainers[0]).toHaveStyleRule("height", "22rem");
+          });
+        });
+  
+        describe("justify-content", () => {      
+          test("should have center", () => {
+            const { DashboardSectionFlexContainers } = setup();
+      
+            expect(DashboardSectionFlexContainers[0]).toHaveStyleRule("justify-content", "center");
+          });
         });
       });
-
-      describe("justify-content", () => {      
-        test("should have center", () => {
-          const { FlexContainer } = setup();
-    
-          expect(FlexContainer).toHaveStyleRule("justify-content", "center");
+    });
+    describe("DashboardSectionFlexContainers[1]", () => {
+      describe("Props", () => {
+        describe("align-items", () => {      
+          test("should have flex-start", () => {
+            const { DashboardSectionFlexContainers } = setup();
+      
+            expect(DashboardSectionFlexContainers[1]).toHaveStyleRule("align-items", "flex-start");
+          });
+        });
+  
+        describe("flex-flow", () => {      
+          test("should have row nowrap", () => {
+            const { DashboardSectionFlexContainers } = setup();
+      
+            expect(DashboardSectionFlexContainers[1]).toHaveStyleRule("flex-flow", "row nowrap");
+          });
+        });
+  
+        describe("gap", () => {
+          test("should have row 4.8rem", () => {
+            const { DashboardSectionFlexContainers } = setup();
+  
+            expect(DashboardSectionFlexContainers[1]).toHaveStyleRule("padding-left", "4.8rem", {
+              modifier: "& > *"
+            });
+            expect(DashboardSectionFlexContainers[1]).toHaveStyleRule("padding-left", "0", {
+              modifier: "& > *:first-child"
+            });
+          });
+        });
+  
+        describe("height", () => {
+          test("should have row 22rem", () => {
+            const { DashboardSectionFlexContainers } = setup();
+  
+            expect(DashboardSectionFlexContainers[1]).toHaveStyleRule("height", "22rem");
+          });
+        });
+  
+        describe("justify-content", () => {      
+          test("should have center", () => {
+            const { DashboardSectionFlexContainers } = setup();
+      
+            expect(DashboardSectionFlexContainers[1]).toHaveStyleRule("justify-content", "center");
+          });
         });
       });
     });
@@ -111,11 +178,12 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
 
 interface Setup extends RenderResult {
   Code: Element;
+  Commits: Element;
   Coords: Element;
-  FlexContainer: Element;
+  DashboardSectionFlexContainers: Element[];
+  DashboardSectionSpacingContainers: Element[];
   Flux: Element;
   Section: Element;
-  SpacingContainer: Element;
   TechStack: Element;
 }
 
@@ -124,23 +192,25 @@ function setup(): Setup {
     <DashboardSection />
   );
 
-  const { queryByTestId }: RenderResult = utils;
+  const { queryAllByTestId, queryByTestId }: RenderResult = utils;
   const Code: Element = queryByTestId("Code");
   const Coords: Element = queryByTestId("Coords");
-  const FlexContainer: Element = queryByTestId("DashboardSectionFlexContainerr");
+  const DashboardSectionFlexContainers: Element[] = queryAllByTestId("DashboardSectionFlexContainer");
   const Section: Element = queryByTestId("Section");
-  const SpacingContainer: Element = queryByTestId("DashboardSectionSpacingContainer");
+  const DashboardSectionSpacingContainers: Element[] = queryAllByTestId("DashboardSectionSpacingContainer");
   const TechStack: Element = queryByTestId("TechStack");
   const Flux: Element = queryByTestId("Flux");
+  const Commits: Element = queryByTestId("Commits");
 
   return {
     ...utils,
     Code,
+    Commits,
     Coords,
-    FlexContainer,
+    DashboardSectionFlexContainers,
+    DashboardSectionSpacingContainers,
     Flux,
     Section,
-    SpacingContainer,
     TechStack
   };
 }
