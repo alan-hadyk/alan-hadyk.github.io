@@ -2,8 +2,7 @@ import {
   ColorPalette,
   FontFamilies,
   FontSizes,
-  Spacing,
-  TransitionTimes
+  Spacing
 } from "<styles>/variables/__typings__/variables";
 
 export interface TextProps {

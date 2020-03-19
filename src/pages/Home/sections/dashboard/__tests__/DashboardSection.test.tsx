@@ -137,7 +137,7 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
         });
   
         describe("height", () => {
-          test("should have row 22rem", () => {
+          test("should have 22rem", () => {
             const { DashboardSectionFlexContainers } = setup();
   
             expect(DashboardSectionFlexContainers[0]).toHaveStyleRule("height", "22rem");
@@ -185,7 +185,7 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
         });
   
         describe("height", () => {
-          test("should have row 22rem", () => {
+          test("should have 22rem", () => {
             const { DashboardSectionFlexContainers } = setup();
   
             expect(DashboardSectionFlexContainers[1]).toHaveStyleRule("height", "22rem");
@@ -221,14 +221,15 @@ function setup(): Setup {
   );
 
   const { queryAllByTestId, queryByTestId }: RenderResult = utils;
+
   const Code: Element = queryByTestId("Code");
+  const Commits: Element = queryByTestId("Commits");
   const Coords: Element = queryByTestId("Coords");
   const DashboardSectionFlexContainers: Element[] = queryAllByTestId("DashboardSectionFlexContainer");
-  const Section: Element = queryByTestId("Section");
   const DashboardSectionSpacingContainers: Element[] = queryAllByTestId("DashboardSectionSpacingContainer");
-  const TechStack: Element = queryByTestId("TechStack");
   const Flux: Element = queryByTestId("Flux");
-  const Commits: Element = queryByTestId("Commits");
+  const Section: Element = queryByTestId("Section");
+  const TechStack: Element = queryByTestId("TechStack");
 
   return {
     ...utils,

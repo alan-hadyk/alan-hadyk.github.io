@@ -12,6 +12,8 @@ import {
   CommitProps
 } from "<molecules>/__typings__/ListOfCommits";
 
+import _ from "lodash";
+
 function ListOfCommits({ commitsList, hasError }: ListOfCommitsProps): JSX.Element {
   return hasError ? renderError() : renderCommits();
 
@@ -24,7 +26,7 @@ function ListOfCommits({ commitsList, hasError }: ListOfCommitsProps): JSX.Eleme
         justifyContent="flex-start"
       >
         <Fragment>
-          {commitsList.length > 0 && commitsList.map(({
+          {!_.isEmpty(commitsList) && commitsList.map(({
             commit,
             // eslint-disable-next-line @typescript-eslint/camelcase
             html_url,
