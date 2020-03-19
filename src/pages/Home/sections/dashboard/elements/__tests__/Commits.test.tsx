@@ -10,13 +10,22 @@ import {
 } from "<molecules>/__typings__/ListOfCommits";
 
 describe("pages / Home / sections / dashboard / elements / ListOfCommits", () => {
-  test("should have correct structure", () => {
+  test("should have correct structure if has no error", () => {
     const { 
       DashboardElement,
       ListOfCommits
     } = setup();
 
     expect(DashboardElement.children[1].children[0].children[0]).toEqual(ListOfCommits);
+  });
+
+  test("should have correct structure if has an error", () => {
+    const { 
+      CommitsError,
+      DashboardElement
+    } = setup({ hasError: true });
+
+    expect(DashboardElement.children[1].children[4].children[0].children[0]).toEqual(CommitsError);
   });
 
   describe("DashboardElement", () => {
@@ -176,11 +185,14 @@ describe("pages / Home / sections / dashboard / elements / ListOfCommits", () =>
 });
 
 interface Setup extends RenderResult {
+  CommitsError: Element;
   DashboardElement: Element;
   ListOfCommits: Element;
 }
 
-function setup(addedProps?: ListOfCommitsProps): Setup {
+type ListOfCommitsTestProps = Partial<ListOfCommitsProps>;
+
+function setup(addedProps?: ListOfCommitsTestProps): Setup {
   const defaultProps: ListOfCommitsProps = {
     commitsList: [
       {
@@ -193,10 +205,11 @@ function setup(addedProps?: ListOfCommitsProps): Setup {
         html_url: "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2964",
         sha: "4380d5d391eee216e651d34700a331ec501c2964"
       }
-    ]
+    ],
+    hasError: false
   };
 
-  const props: ListOfCommitsProps = addedProps || defaultProps;
+  const props: ListOfCommitsProps = { ...defaultProps, ...addedProps };
 
   const utils: RenderResult = renderWithTheme(
     <Commits {...props} />
@@ -206,6 +219,7 @@ function setup(addedProps?: ListOfCommitsProps): Setup {
 
   return {
     ...utils,
+    CommitsError: queryByTestId("CommitsError"),
     DashboardElement: container.children[0],
     ListOfCommits: queryByTestId("ListOfCommits")
   };

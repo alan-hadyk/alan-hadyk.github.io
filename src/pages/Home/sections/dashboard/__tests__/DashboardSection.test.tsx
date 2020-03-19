@@ -6,6 +6,34 @@ import DashboardSection from "<pages>/Home/sections/dashboard/DashboardSection";
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 jest.mock("vivus");
+jest.mock("<state>/withCommitsState", () => (WrappedComponent: React.FunctionComponent<any>) => (props: unknown) => {
+  const commitsList = [
+    {
+      commit: {
+        author: {
+          date: "2020-03-10T22:34:52Z"
+        }
+      },
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      html_url: "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2964",
+      sha: "4380d5d391eee216e651d34700a331ec501c2964"
+    },
+    {
+      commit: {
+        author: {
+          date: "2020-03-11T22:34:52Z"
+        }
+      },
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      html_url: "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2969",
+      sha: "4380d5d391eee216e651d34700a331ec501c2969"
+    }
+  ];
+
+  return (
+    <WrappedComponent commitsList={commitsList} hasError={false} {...props} />
+  );
+});
 
 describe("pages / Home / sections / dashboard / DashboardSection", () => {
   test("should have correct structure", () => {

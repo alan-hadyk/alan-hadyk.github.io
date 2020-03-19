@@ -9,14 +9,15 @@ import {
   ListOfCommitsProps
 } from "<molecules>/__typings__/ListOfCommits";
 
-export const Commits = ({ commitsList }: ListOfCommitsProps): JSX.Element => (
+export const Commits = ({ commitsList, hasError }: ListOfCommitsProps): JSX.Element => (
   <DashboardElement
     childrenHeight="22.6vh"
     dataTestId="Commits"
     flex="0 1 20%"
+    shouldDisplayCorners={hasError}
     title="Commits" 
   >
-    <ListOfCommits commitsList={commitsList} />
+    <ListOfCommits commitsList={commitsList} hasError={hasError} />
   </DashboardElement>
 );
   

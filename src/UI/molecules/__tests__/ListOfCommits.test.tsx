@@ -10,14 +10,26 @@ import {
 } from "<molecules>/__typings__/ListOfCommits";
 
 describe("molecules / ListOfCommits", () => {
-  test("should have correct structure", () => {
+  test("should have correct structure if has no error", () => {
     const { 
       Commits,
-      FlexContainer
+      ListOfCommitsWrapper
     } = setup();
 
-    expect(FlexContainer.children[0]).toEqual(Commits[0]);
-    expect(FlexContainer.children[1]).toEqual(Commits[1]);
+    expect(ListOfCommitsWrapper.children[0]).toEqual(Commits[0]);
+    expect(ListOfCommitsWrapper.children[1]).toEqual(Commits[1]);
+  });
+
+  test("should have correct structure if has an error", () => {
+    const { 
+      CommitsError,
+      IconWarning,
+      Texts
+    } = setup({ hasError: true });
+
+    expect(CommitsError.children[0]).toEqual(IconWarning);
+    expect(CommitsError.children[1]).toEqual(Texts[0]);
+    expect(CommitsError.children[2]).toEqual(Texts[1]);
   });
 
   describe("Commit", () => { 
@@ -163,29 +175,159 @@ describe("molecules / ListOfCommits", () => {
     });
   });
 
-  describe("FlexContainer", () => {    
+  describe("ListOfCommits", () => {    
     describe("Props", () => {
       describe("align-items", () => { 
         test("should have flex-start", () => {
-          const { FlexContainer } = setup();
+          const { ListOfCommitsWrapper } = setup();
 
-          expect(FlexContainer).toHaveStyleRule("align-items", "flex-start");
+          expect(ListOfCommitsWrapper).toHaveStyleRule("align-items", "flex-start");
         });
       });
 
       describe("justify-content", () => { 
         test("should have flex-start", () => {
-          const { FlexContainer } = setup();
+          const { ListOfCommitsWrapper } = setup();
 
-          expect(FlexContainer).toHaveStyleRule("justify-content", "flex-start");
+          expect(ListOfCommitsWrapper).toHaveStyleRule("justify-content", "flex-start");
         });
       });
 
       describe("flex-flow", () => { 
         test("should have column nowrap", () => {
-          const { FlexContainer } = setup();
+          const { ListOfCommitsWrapper } = setup();
 
-          expect(FlexContainer).toHaveStyleRule("flex-flow", "column nowrap");
+          expect(ListOfCommitsWrapper).toHaveStyleRule("flex-flow", "column nowrap");
+        });
+      });
+    });
+  });
+
+  describe("CommitsError", () => {    
+    describe("Props", () => {
+      describe("align-items", () => { 
+        test("should have center", () => {
+          const { CommitsError } = setup({ hasError: true });
+
+          expect(CommitsError).toHaveStyleRule("align-items", "center");
+        });
+      });
+
+      describe("justify-content", () => { 
+        test("should have center", () => {
+          const { CommitsError } = setup({ hasError: true });
+
+          expect(CommitsError).toHaveStyleRule("justify-content", "center");
+        });
+      });
+
+      describe("height", () => { 
+        test("should have 100%", () => {
+          const { CommitsError } = setup({ hasError: true });
+
+          expect(CommitsError).toHaveStyleRule("height", "100%");
+        });
+      });
+
+      describe("flex-flow", () => { 
+        test("should have column nowrap", () => {
+          const { CommitsError } = setup({ hasError: true });
+
+          expect(CommitsError).toHaveStyleRule("flex-flow", "column nowrap");
+        });
+      });
+    });
+  });
+
+  describe("IconWarning", () => {
+    test("should render correct SVG", () => {
+      const { IconWarning } = setup({ hasError: true });
+
+      expect(IconWarning.textContent).toEqual("Icon-Warning.svg");
+    });
+  });
+
+  describe("Texts", () => {    
+    describe("Text[0]", () => {
+      test("text should have correct content", () => {
+        const { Texts } = setup({ hasError: true });
+  
+        expect(Texts[0].textContent).toEqual("Error");
+      });
+
+      describe("Props", () => {
+        describe("font-family", () => {
+          test("should have 'Anonymous Pro',monospace", () => {
+            const { Texts } = setup({ hasError: true });
+      
+            expect(Texts[0]).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
+          });
+        });
+
+        describe("font-size", () => {
+          test("should have 24px", () => {
+            const { Texts } = setup({ hasError: true });
+      
+            expect(Texts[0]).toHaveStyleRule("font-size", "24px");
+          });
+        });
+
+        describe("padding-top", () => {
+          test("should have 1.2rem", () => {
+            const { Texts } = setup({ hasError: true });
+      
+            expect(Texts[0]).toHaveStyleRule("padding-top", "1.2rem");
+          });
+        });
+
+        describe("text-transform", () => {
+          test("should have uppercase", () => {
+            const { Texts } = setup({ hasError: true });
+      
+            expect(Texts[0]).toHaveStyleRule("text-transform", "uppercase");
+          });
+        });
+      });
+    });
+
+    describe("Text[1]", () => {
+      test("text should have correct content", () => {
+        const { Texts } = setup({ hasError: true });
+  
+        expect(Texts[1].textContent).toEqual("Github API is offline");
+      });
+
+      describe("Props", () => {
+        describe("font-family", () => {
+          test("should have 'Anonymous Pro',monospace", () => {
+            const { Texts } = setup({ hasError: true });
+      
+            expect(Texts[1]).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
+          });
+        });
+
+        describe("font-size", () => {
+          test("should have 16px", () => {
+            const { Texts } = setup({ hasError: true });
+      
+            expect(Texts[1]).toHaveStyleRule("font-size", "16px");
+          });
+        });
+
+        describe("padding-top", () => {
+          test("should have 1.2rem", () => {
+            const { Texts } = setup({ hasError: true });
+      
+            expect(Texts[1]).toHaveStyleRule("padding-top", "1.2rem");
+          });
+        });
+
+        describe("text-transform", () => {
+          test("should have uppercase", () => {
+            const { Texts } = setup({ hasError: true });
+      
+            expect(Texts[1]).toHaveStyleRule("text-transform", "uppercase");
+          });
         });
       });
     });
@@ -194,10 +336,15 @@ describe("molecules / ListOfCommits", () => {
 
 interface Setup extends RenderResult {
   Commits: Element[];
-  FlexContainer: Element;
+  CommitsError: Element;
+  IconWarning: SVGSVGElement;
+  ListOfCommitsWrapper: Element;
+  Texts: Element[];
 }
 
-function setup(addedProps?: ListOfCommitsProps): Setup {
+type ListOfCommitsTestProps = Partial<ListOfCommitsProps>;
+
+function setup(addedProps?: ListOfCommitsTestProps): Setup {
   const defaultProps: ListOfCommitsProps = {
     commitsList: [
       {
@@ -220,10 +367,11 @@ function setup(addedProps?: ListOfCommitsProps): Setup {
         html_url: "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2969",
         sha: "4380d5d391eee216e651d34700a331ec501c2969"
       }
-    ]
+    ],
+    hasError: false
   };
 
-  const props: ListOfCommitsProps = addedProps || defaultProps;
+  const props: ListOfCommitsProps = { ...defaultProps, ...addedProps };
 
   const utils: RenderResult = renderWithTheme(
     <ListOfCommits {...props} />
@@ -232,11 +380,17 @@ function setup(addedProps?: ListOfCommitsProps): Setup {
   const { queryByTestId, queryAllByTestId } = utils || {};
 
   const Commits: Element[] = queryAllByTestId("Commit");
-  const FlexContainer: Element = queryByTestId("ListOfCommits");
+  const ListOfCommitsWrapper: Element = queryByTestId("ListOfCommits");
+  const CommitsError: Element = queryByTestId("CommitsError");
+  const IconWarning: SVGSVGElement = document.querySelector("svg");
+  const Texts: Element[] = queryAllByTestId("Text");
 
   return {
     ...utils,
     Commits,
-    FlexContainer
+    CommitsError,
+    IconWarning,
+    ListOfCommitsWrapper,
+    Texts
   };
 }
