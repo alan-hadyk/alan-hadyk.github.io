@@ -290,7 +290,7 @@ describe("molecules / Commit", () => {
     describe("Text[1]", () => {
       test("should render textContent equal to date prop", () => {
         const { Texts } = setup({
-          sha: "2020-03-10T22:34:52Z"
+          date: "2020-03-10T22:34:52Z"
         });
   
         expect(Texts[1].textContent).toEqual("2020-03-10T22:34:52Z");
