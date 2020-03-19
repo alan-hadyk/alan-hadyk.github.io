@@ -1,7 +1,7 @@
 import {
   Spacing,
   ZIndex
-} from "<styles>/variables/__typings__/variables";
+} from "<styles>/variables/__typings__/variables.d.ts";
 
 export interface PositionContainerProps {
   bottom?: Spacing | "unset" | "50%" | "100%";

@@ -4,7 +4,7 @@ import {
   FontSizes,
   Spacing,
   TransitionTimes
-} from "<styles>/variables/__typings__/variables";
+} from "<styles>/variables/__typings__/variables.d.ts";
 
 export interface TextProps {
   children: string;

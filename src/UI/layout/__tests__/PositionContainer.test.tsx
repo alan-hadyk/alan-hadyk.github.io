@@ -7,7 +7,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
   PositionContainerProps
-} from "<layout>/__typings__/PositionContainer";
+} from "<layout>/__typings__/PositionContainer.d.ts";
 
 describe("layout / PositionContainer", () => {
   test("should render children", () => {

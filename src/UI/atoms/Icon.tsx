@@ -22,7 +22,7 @@ import {
   IconContainerProps,
   IconProps,
   SVGIcon
-} from "<atoms>/__typings__/Icon";
+} from "<atoms>/__typings__/Icon.d.ts";
 
 function Icon({
   animationDelay = "0ms",

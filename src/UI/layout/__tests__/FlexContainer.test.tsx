@@ -7,7 +7,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
   FlexContainerProps
-} from "<layout>/__typings__/FlexContainer";
+} from "<layout>/__typings__/FlexContainer.d.ts";
 
 describe("layout / FlexContainer", () => {
   test("should render children", () => {

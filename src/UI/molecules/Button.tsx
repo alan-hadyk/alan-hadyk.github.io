@@ -13,7 +13,7 @@ import transitionTimes from "<styles>/variables/transitionTimes";
 
 import {
   Spacing
-} from "<styles>/variables/__typings__/variables";
+} from "<styles>/variables/__typings__/variables.d.ts";
 
 import {
   ButtonContainerProps,
@@ -22,7 +22,7 @@ import {
   MapSizeToButtonContainerProps,
   MapSizeToIconHeight,
   MapTypeToButtonContainerProps
-} from "<molecules>/__typings__/Button";
+} from "<molecules>/__typings__/Button.d.ts";
 
 const mapTypeToButtonContainerProps: MapTypeToButtonContainerProps = {
   primary: {

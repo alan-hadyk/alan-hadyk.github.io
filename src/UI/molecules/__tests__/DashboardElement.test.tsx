@@ -3,7 +3,7 @@ import { RenderResult } from "@testing-library/react";
 import ShuffleText from "shuffle-text";
 
 import DashboardElement from "<molecules>/DashboardElement";
-import { DashboardElementProps } from "<molecules>/__typings__/DashboardElement";
+import { DashboardElementProps } from "<molecules>/__typings__/DashboardElement.d.ts";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 

@@ -19,12 +19,12 @@ const DashboardSection = (): JSX.Element => (
   >
     <SpacingContainer
       dataTestId="DashboardSectionSpacingContainer"
-      height={`calc(${Math.round((184 / 1080) * 100)}vh + ${spacing.spacing24})`}
+      height={`calc(17vh + ${spacing.spacing36})`}
       paddingTop="spacing24"
     >
       <FlexContainer
         alignItems="flex-start"
-        dataTestId="DashboardSectionFlexContainerr"
+        dataTestId="DashboardSectionFlexContainer"
         flexFlow="row nowrap"
         gap="spacing48"
         height="spacing220"
@@ -43,7 +43,7 @@ const DashboardSection = (): JSX.Element => (
     >
       <FlexContainer
         alignItems="center"
-        dataTestId="DashboardSectionFlexContainerr"
+        dataTestId="DashboardSectionFlexContainer"
         flexFlow="row nowrap"
         justifyContent="center"
       >

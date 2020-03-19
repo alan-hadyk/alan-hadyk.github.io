@@ -3,7 +3,7 @@ import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import {
   FlexContainerProps
-} from "<layout>/__typings__/FlexContainer";
+} from "<layout>/__typings__/FlexContainer.d.ts";
 
 const FlexContainer = ({
   alignItems = "center",

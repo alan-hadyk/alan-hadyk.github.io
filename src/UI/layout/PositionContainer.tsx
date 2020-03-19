@@ -3,7 +3,7 @@ import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import {
   PositionContainerProps
-} from "<layout>/__typings__/PositionContainer";
+} from "<layout>/__typings__/PositionContainer.d.ts";
 
 const PositionContainer = ({
   bottom = "unset",

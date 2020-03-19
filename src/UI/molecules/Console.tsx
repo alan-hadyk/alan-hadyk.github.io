@@ -1,4 +1,4 @@
-import React, { memo, useRef, useState, useLayoutEffect } from "react";
+import React, { memo, useRef } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import SpacingContainer from "<layout>/SpacingContainer";
@@ -6,33 +6,20 @@ import FlexContainer from "<layout>/FlexContainer";
 import PositionContainer from "<layout>/PositionContainer";
 import Text from "<atoms>/Text";
 
-import useCharacterShuffling from "<hooks>/useCharacterShuffling";
-
-import { CharacterShufflingState } from "<hooks>/__typings__/useCharacterShuffling";
+import useInterval from "<hooks>/useInterval";
 
 const hero = "Vision driven change agent with career-long record of front-end user strategy and UI development";
 
 function Console(): JSX.Element {
   const heroContainer = useRef<HTMLDivElement>(null);
-  const [characterShuffle, setCharacterShuffle] = useState<CharacterShufflingState | undefined>();
+  const currentChar = useRef<number>(0);
 
-  useCharacterShuffling({
-    characterShufflingState: characterShuffle,
-    onCharacterShufflingReady: setCharacterShuffle,
-    ref: heroContainer
-  });
-
-  useLayoutEffect(() => {
-    if (!heroContainer.current || !characterShuffle) {
-      return;
-    }
-
-    characterShuffle.shuffle();
-  }, [characterShuffle]);
-
+  useInterval(() => {
+    updateText();
+  }, 75);
 
   return (
-    <Console.Container>
+    <Console.Container data-testid="Console">
       <PositionContainer
         left="spacing0"
         position="absolute"
@@ -61,13 +48,19 @@ function Console(): JSX.Element {
           height="100%"
           justifyContent="center"
         >
-          <Console.Text ref={heroContainer}>
-            {hero}
-          </Console.Text>
+          <Console.Text ref={heroContainer} />
         </FlexContainer>
       </SpacingContainer>
     </Console.Container>
   );
+
+  function updateText(): void {
+    if (currentChar.current <= hero.length) {
+      heroContainer.current.innerHTML += hero.charAt(currentChar.current);
+
+      currentChar.current++;
+    }
+  }
 }
 
 Console.Container = styled.div`

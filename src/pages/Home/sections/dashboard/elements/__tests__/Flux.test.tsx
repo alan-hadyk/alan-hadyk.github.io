@@ -21,18 +21,18 @@ describe("pages / Home / sections / dashboard / elements / Flux", () => {
   describe("DashboardElement", () => {
     describe("Props", () => {
       describe("flex", () => {
-        test("should have 1 1 30%", () => {
+        test("should have 0 1 30%", () => {
           const { DashboardElement } = setup();
       
-          expect(DashboardElement).toHaveStyleRule("flex", "1 1 30%");
+          expect(DashboardElement).toHaveStyleRule("flex", "0 1 30%");
         });
       });
 
       describe("childrenHeight", () => {
-        test("should have 18.4rem", () => {
+        test("should have 17vh", () => {
           const { DashboardElement } = setup();
       
-          expect(DashboardElement.children[1]).toHaveStyleRule("height", "18.4rem");
+          expect(DashboardElement.children[1]).toHaveStyleRule("height", "17vh");
         });
       });
 

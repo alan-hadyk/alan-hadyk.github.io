@@ -12,7 +12,7 @@ import useShuffleText from "<hooks>/useShuffleText";
 
 import {
   NavItemProps
-} from "<molecules>/__typings__/NavItem";
+} from "<molecules>/__typings__/NavItem.d.ts";
 
 describe("molecules / NavItem", () => {
   test("should have correct structure", () => {

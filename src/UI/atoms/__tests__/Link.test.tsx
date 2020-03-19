@@ -5,7 +5,7 @@ import Link from "<atoms>/Link";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import { LinkProps } from "<atoms>/__typings__/Link";
+import { LinkProps } from "<atoms>/__typings__/Link.d.ts";
 
 describe("atoms / Link", () => {
   test("should render children", () => {

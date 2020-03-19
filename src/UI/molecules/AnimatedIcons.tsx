@@ -12,7 +12,7 @@ const animatedIcons: IconProps["iconName"][] = ["react", "javascript", "typescri
 function AnimatedIcons(): JSX.Element {
   return (
     <SpacingContainer
-      dataTestId="AnimatedIconsSpacingContainer"
+      dataTestId="AnimatedIcons"
       height="100%"
       paddingBottom="spacing8"
       paddingLeft="spacing8"
@@ -22,7 +22,7 @@ function AnimatedIcons(): JSX.Element {
     >
       <FlexContainer 
         alignItems="center" 
-        dataTestId="AnimatedIcons"
+        dataTestId="AnimatedIconsFlexContainer"
         flexFlow="row nowrap"
         height="100%"
         justifyContent="center" 

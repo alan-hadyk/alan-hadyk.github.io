@@ -5,7 +5,7 @@ import {
   CornerContainerProps,
   CornerProps,
   MapPositionToCornerProps
-} from "<atoms>/__typings__/Corner";
+} from "<atoms>/__typings__/Corner.d.ts";
 
 const mapPositionToCornerProps = (isActive: CornerProps["isActive"]): MapPositionToCornerProps => ({
   bottomLeft: {

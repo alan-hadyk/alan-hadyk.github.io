@@ -3,7 +3,7 @@ import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import {
   FlexItemProps
-} from "<layout>/__typings__/FlexItem";
+} from "<layout>/__typings__/FlexItem.d.ts";
 
 const FlexItem = ({
   alignSelf = "auto",

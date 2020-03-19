@@ -18,18 +18,18 @@ describe("pages / Home / sections / dashboard / elements / Code", () => {
   describe("DashboardElement", () => {
     describe("Props", () => {
       describe("flex", () => {
-        test("should have 1 1 25%", () => {
+        test("should have 0 1 25%", () => {
           const { DashboardElement } = setup();
       
-          expect(DashboardElement).toHaveStyleRule("flex", "1 1 25%");
+          expect(DashboardElement).toHaveStyleRule("flex", "0 1 25%");
         });
       });
 
       describe("childrenHeight", () => {
-        test("should have 18.4rem", () => {
+        test("should have 17vh", () => {
           const { DashboardElement } = setup();
       
-          expect(DashboardElement.children[1]).toHaveStyleRule("height", "18.4rem");
+          expect(DashboardElement.children[1]).toHaveStyleRule("height", "17vh");
         });
       });
 

@@ -10,7 +10,7 @@ import Text from "<atoms>/Text";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import { TextProps } from "<atoms>/__typings__/Text";
+import { TextProps } from "<atoms>/__typings__/Text.d.ts";
 
 describe("atoms / Text", () => {
   test("should render children", () => {
@@ -210,6 +210,7 @@ describe("atoms / Text", () => {
   describe("Event handlers", () => {
     test("should fire shuffleText.start onMouseOver if shouldShuffleOnHover: true ", () => {
       jest.spyOn(ShuffleText.prototype, "start");
+      jest.useFakeTimers();
 
       const { TextContainer } = setup({
         shouldShuffleOnHover: true
@@ -221,11 +222,14 @@ describe("atoms / Text", () => {
         fireEvent.mouseOver(TextContainer);
       });
 
+      jest.advanceTimersByTime(10);
+
       expect(ShuffleText.prototype.start).toHaveBeenCalled();
     });
 
     test("should not fire shuffleText.start onMouseOver if shouldShuffleOnHover: false ", () => {
       jest.spyOn(ShuffleText.prototype, "start");
+      jest.useFakeTimers();
 
       const { TextContainer } = setup({
         shouldShuffleOnHover: false
@@ -234,6 +238,8 @@ describe("atoms / Text", () => {
       act(() => {
         fireEvent.mouseOver(TextContainer);
       });
+
+      jest.advanceTimersByTime(10);
 
       expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
     });

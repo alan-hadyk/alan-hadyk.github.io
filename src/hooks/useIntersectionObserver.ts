@@ -3,7 +3,7 @@ import { useLayoutEffect } from "react";
 import {
   IntersectionObserverWithPolyfill,
   UseIntersectionObserver
-} from "<hooks>/__typings__/useIntersectionObserver";
+} from "<hooks>/__typings__/useIntersectionObserver.d.ts";
 
 export default function useIntersectionObserver({
   onElementVisible,

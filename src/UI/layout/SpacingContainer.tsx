@@ -3,7 +3,7 @@ import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import {
   SpacingContainerProps
-} from "<layout>/__typings__/SpacingContainer";
+} from "<layout>/__typings__/SpacingContainer.d.ts";
 
 const SpacingContainer = ({
   children,

@@ -9,7 +9,7 @@ import SpacingContainer from "<layout>/SpacingContainer";
 
 import Cross from "<assets>/svg/Cross.svg";
 
-import { DashboardElementProps } from "<molecules>/__typings__/DashboardElement";
+import { DashboardElementProps } from "<molecules>/__typings__/DashboardElement.d.ts";
 
 function DashboardElement({
   alignSelf = "auto",

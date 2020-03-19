@@ -5,7 +5,7 @@ import Corners from "<molecules>/Corners";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import { CornersProps } from "<molecules>/__typings__/Corners";
+import { CornersProps } from "<molecules>/__typings__/Corners.d.ts";
 
 describe("molecules / Corners", () => {
   describe("Corner", () => { 

@@ -7,7 +7,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
   CornerProps
-} from "<atoms>/__typings__/Corner";
+} from "<atoms>/__typings__/Corner.d.ts";
 
 describe("atoms / Corner", () => {
   describe("Styles", () => {

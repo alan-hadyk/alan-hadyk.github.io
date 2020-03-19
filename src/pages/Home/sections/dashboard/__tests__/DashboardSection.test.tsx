@@ -11,26 +11,31 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
   test("should have correct structure", () => {
     const { 
       Code,
+      Console,
       Coords,
-      FlexContainer,
+      FlexContainers,
       Section,
-      SpacingContainer,
+      SpacingContainers,
       TechStack,
       Flux
     } = setup();
 
-    expect(Section.children[0]).toEqual(SpacingContainer);
-    expect(SpacingContainer.children[0]).toEqual(FlexContainer);
-    expect(FlexContainer.children[0]).toEqual(TechStack);
-    expect(FlexContainer.children[1]).toEqual(Coords);
-    expect(FlexContainer.children[2]).toEqual(Flux);
-    expect(FlexContainer.children[3]).toEqual(Code);
+    expect(Section.children[0]).toEqual(SpacingContainers[0]);
+    expect(SpacingContainers[0].children[0]).toEqual(FlexContainers[0]);
+    expect(FlexContainers[0].children[0]).toEqual(TechStack);
+    expect(FlexContainers[0].children[1]).toEqual(Coords);
+    expect(FlexContainers[0].children[2]).toEqual(Flux);
+    expect(FlexContainers[0].children[3]).toEqual(Code);
+
+    expect(Section.children[1]).toEqual(SpacingContainers[1]);
+    expect(SpacingContainers[1].children[0]).toEqual(FlexContainers[1]);
+    expect(FlexContainers[1].children[0]).toEqual(Console);
   });
 
   describe("Section", () => {    
     describe("Props", () => {
       describe("id", () => {
-        test("should be dashboard", () => {
+        test("should equal dashboard", () => {
           const { Section } = setup();
 
           expect(Section.getAttribute("id")).toEqual("dashboard");
@@ -47,75 +52,138 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
     });
   });
 
-  describe("SpacingContainer", () => {    
-    describe("Styles", () => {
-      describe("padding-top", () => {      
-        test("should have 2.4rem", () => {
-          const { SpacingContainer } = setup();
+  describe("SpacingContainers", () => {    
+    describe("SpacingContainers[0]", () => {    
+      describe("Props", () => {
+        describe("paddingTop", () => {      
+          test("should have 2.4rem", () => {
+            const { SpacingContainers } = setup();
 
-          expect(SpacingContainer).toHaveStyleRule("padding-top", "2.4rem");
+            expect(SpacingContainers[0]).toHaveStyleRule("padding-top", "2.4rem");
+          });
+        });
+        
+        describe("height", () => {      
+          test("should have calc(17vh + 3.6rem)", () => {
+            const { SpacingContainers } = setup();
+
+            expect(SpacingContainers[0]).toHaveStyleRule("height", "calc(17vh + 3.6rem)");
+          });
+        });
+      
+      });
+    });
+
+    describe("SpacingContainers[1]", () => {    
+      describe("Props", () => {
+        describe("marginTop", () => {      
+          test("should have 5.6rem", () => {
+            const { SpacingContainers } = setup();
+
+            expect(SpacingContainers[1]).toHaveStyleRule("margin-top", "5.6rem");
+          });
+        });
+        
+        describe("marginBottom", () => {      
+          test("should have 4rem", () => {
+            const { SpacingContainers } = setup();
+
+            expect(SpacingContainers[1]).toHaveStyleRule("margin-bottom", "4rem");
+          });
         });
       });
     });
   });
 
-  describe("FlexContainer", () => {    
-    describe("Props", () => {
-      describe("align-items", () => {      
-        test("should have flex-start", () => {
-          const { FlexContainer } = setup();
-    
-          expect(FlexContainer).toHaveStyleRule("align-items", "flex-start");
-        });
-      });
-
-      describe("flex-flow", () => {      
-        test("should have row nowrap", () => {
-          const { FlexContainer } = setup();
-    
-          expect(FlexContainer).toHaveStyleRule("flex-flow", "row nowrap");
-        });
-      });
-
-      describe("gap", () => {
-        test("should have row 4.8rem", () => {
-          const { FlexContainer } = setup();
-
-          expect(FlexContainer).toHaveStyleRule("padding-left", "4.8rem", {
-            modifier: "& > *"
-          });
-          expect(FlexContainer).toHaveStyleRule("padding-left", "0", {
-            modifier: "& > *:first-child"
+  describe("FlexContainers", () => {    
+    describe("FlexContainers[0]", () => {    
+      describe("Props", () => {
+        describe("align-items", () => {      
+          test("should have flex-start", () => {
+            const { FlexContainers } = setup();
+      
+            expect(FlexContainers[0]).toHaveStyleRule("align-items", "flex-start");
           });
         });
-      });
 
-      describe("height", () => {
-        test("should have row 22rem", () => {
-          const { FlexContainer } = setup();
-
-          expect(FlexContainer).toHaveStyleRule("height", "22rem");
+        describe("flex-flow", () => {      
+          test("should have row nowrap", () => {
+            const { FlexContainers } = setup();
+      
+            expect(FlexContainers[0]).toHaveStyleRule("flex-flow", "row nowrap");
+          });
         });
-      });
 
-      describe("justify-content", () => {      
-        test("should have center", () => {
-          const { FlexContainer } = setup();
-    
-          expect(FlexContainer).toHaveStyleRule("justify-content", "center");
+        describe("gap", () => {
+          test("each child should have padding-left: 4.8rem (except the first item)", () => {
+            const { FlexContainers } = setup();
+
+            expect(FlexContainers[0]).toHaveStyleRule("padding-left", "4.8rem", {
+              modifier: "& > *"
+            });
+            expect(FlexContainers[0]).toHaveStyleRule("padding-left", "0", {
+              modifier: "& > *:first-child"
+            });
+          });
+        });
+
+        describe("height", () => {
+          test("should have row 22rem", () => {
+            const { FlexContainers } = setup();
+
+            expect(FlexContainers[0]).toHaveStyleRule("height", "22rem");
+          });
+        });
+
+        describe("justify-content", () => {      
+          test("should have center", () => {
+            const { FlexContainers } = setup();
+      
+            expect(FlexContainers[0]).toHaveStyleRule("justify-content", "center");
+          });
         });
       });
     });
+
+    describe("FlexContainers[1]", () => {    
+      describe("Props", () => {
+        describe("align-items", () => {      
+          test("should have center", () => {
+            const { FlexContainers } = setup();
+      
+            expect(FlexContainers[1]).toHaveStyleRule("align-items", "center");
+          });
+        });
+
+        describe("flex-flow", () => {      
+          test("should have row nowrap", () => {
+            const { FlexContainers } = setup();
+      
+            expect(FlexContainers[1]).toHaveStyleRule("flex-flow", "row nowrap");
+          });
+        });
+
+        describe("justify-content", () => {      
+          test("should have center", () => {
+            const { FlexContainers } = setup();
+      
+            expect(FlexContainers[1]).toHaveStyleRule("justify-content", "center");
+          });
+        });
+      });
+    });
+
   });
 });
 
 interface Setup extends RenderResult {
   Code: Element;
+  Console: Element;
   Coords: Element;
-  FlexContainer: Element;
+  FlexContainers: Element[];
   Flux: Element;
   Section: Element;
-  SpacingContainer: Element;
+  SpacingContainers: Element[];
   TechStack: Element;
 }
 
@@ -124,23 +192,25 @@ function setup(): Setup {
     <DashboardSection />
   );
 
-  const { queryByTestId }: RenderResult = utils;
+  const { queryByTestId, queryAllByTestId }: RenderResult = utils;
   const Code: Element = queryByTestId("Code");
   const Coords: Element = queryByTestId("Coords");
-  const FlexContainer: Element = queryByTestId("DashboardSectionFlexContainerr");
+  const Console: Element = queryByTestId("Console");
+  const FlexContainers: Element[] = queryAllByTestId("DashboardSectionFlexContainer");
   const Section: Element = queryByTestId("Section");
-  const SpacingContainer: Element = queryByTestId("DashboardSectionSpacingContainer");
+  const SpacingContainers: Element[] = queryAllByTestId("DashboardSectionSpacingContainer");
   const TechStack: Element = queryByTestId("TechStack");
   const Flux: Element = queryByTestId("Flux");
 
   return {
     ...utils,
     Code,
+    Console,
     Coords,
-    FlexContainer,
+    FlexContainers,
     Flux,
     Section,
-    SpacingContainer,
+    SpacingContainers,
     TechStack
   };
 }

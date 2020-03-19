@@ -5,33 +5,13 @@ import LinkWithIcon from "<src>/UI/molecules/LinkWithIcon";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import { LinkWithIconProps } from "<molecules>/__typings__/LinkWithIcon";
+import { LinkWithIconProps } from "<molecules>/__typings__/LinkWithIcon.d.ts";
 
 describe("molecules / LinkWithIcon", () => {
-  describe("IconContainer", () => {    
-    describe("Styles", () => {
-      describe("height", () => {      
-        test("should have 4.8rem", () => {
-          const { IconContainer } = setup();
-    
-          expect(IconContainer).toHaveStyleRule("height", "4.8rem", {
-            modifier: "& > *"
-          });
-        });
-
-        test("should have correct value when passed via height prop", () => {
-          const { IconContainer } = setup({
-            height: "spacing72"
-          });
-    
-          expect(IconContainer).toHaveStyleRule("height", "7.2rem", {
-            modifier: "& > *"
-          });
-        });
-      });
-
-      describe("transition", () => {      
-        test("should have all 150ms ease-in-out 0ms", () => {
+  describe("Icon", () => {    
+    describe("Props", () => {
+      describe("animationTime", () => {      
+        test("should have transiton: all 150ms ease-in-out 0ms", () => {
           const { IconContainer } = setup();
     
           expect(IconContainer).toHaveStyleRule("transition", "all 150ms ease-in-out 0ms", {
@@ -40,13 +20,27 @@ describe("molecules / LinkWithIcon", () => {
         });
       });
 
+      describe("height", () => {      
+        test("should have 4.8rem by default", () => {
+          const { IconContainer } = setup();
+    
+          expect(IconContainer).toHaveStyleRule("height", "4.8rem");
+        });
+
+        test("should have correct value when passed via height prop", () => {
+          const { IconContainer } = setup({
+            height: "spacing72"
+          });
+    
+          expect(IconContainer).toHaveStyleRule("height", "7.2rem");
+        });
+      });
+
       describe("width", () => {      
         test("should have auto", () => {
           const { IconContainer } = setup();
     
-          expect(IconContainer).toHaveStyleRule("width", "auto", {
-            modifier: "& > *"
-          });
+          expect(IconContainer).toHaveStyleRule("width", "auto");
         });
 
         test("should have correct value when passed via width prop", () => {
@@ -54,21 +48,23 @@ describe("molecules / LinkWithIcon", () => {
             width: "spacing72"
           });
     
-          expect(IconContainer).toHaveStyleRule("width", "7.2rem", {
-            modifier: "& > *"
-          });
+          expect(IconContainer).toHaveStyleRule("width", "7.2rem");
         });
       });
 
-      describe("&:hover", () => {      
-        describe("filter", () => {      
-          test("should have drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", () => {
-            const { IconContainer } = setup();
+      describe("shouldGlowOnHover", () => {      
+        test("should have filter: drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", () => {
+          const { IconContainer } = setup();
     
-            expect(IconContainer).toHaveStyleRule("filter", "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", {
-              modifier: "& > *:hover"
-            });
+          expect(IconContainer).toHaveStyleRule("filter", "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", {
+            modifier: "& > *:hover"
           });
+        });
+
+        test("should not have filter without hover", () => {
+          const { IconContainer } = setup();
+    
+          expect(IconContainer).not.toHaveStyleRule("filter", "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))");
         });
       });
     });

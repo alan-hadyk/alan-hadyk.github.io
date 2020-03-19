@@ -1,4 +1,4 @@
-import { Spacing }from "<styles>/variables/__typings__/variables";
+import { Spacing }from "<styles>/variables/__typings__/variables.d.ts";
 
 export interface LinkProps {
   children: JSX.Element | JSX.Element[] | string;

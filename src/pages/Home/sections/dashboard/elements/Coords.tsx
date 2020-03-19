@@ -3,11 +3,9 @@ import React, { memo } from "react";
 import DashboardElement from "<molecules>/DashboardElement";
 import Sonar from "<molecules>/Sonar";
 
-import spacing from "<styles>/variables/spacing";
-
 const Coords = (): JSX.Element => (
   <DashboardElement
-    childrenHeight={`calc(${Math.round((184 / 1080) * 100)}vh - ${spacing.spacing36})`}
+    childrenHeight="17vh"
     dataTestId="Coords"
     flex="0 1 15%"
     shuffleDelay={600}

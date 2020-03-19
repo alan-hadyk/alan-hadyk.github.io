@@ -7,7 +7,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
   SpacingContainerProps
-} from "<layout>/__typings__/SpacingContainer";
+} from "<layout>/__typings__/SpacingContainer.d.ts";
 
 describe("layout / SpacingContainer", () => {
   test("should render children", () => {

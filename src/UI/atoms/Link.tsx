@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import { LinkProps } from "<atoms>/__typings__/Link";
+import { LinkProps } from "<atoms>/__typings__/Link.d.ts";
 
 const Link = ({
   children,

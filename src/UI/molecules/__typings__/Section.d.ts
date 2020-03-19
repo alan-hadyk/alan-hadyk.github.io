@@ -1,6 +1,6 @@
 import {
   Spacing
-} from "<styles>/variables/__typings__/variables";
+} from "<styles>/variables/__typings__/variables.d.ts";
 
 export interface SectionProps {
   children: JSX.Element | JSX.Element[] | string;

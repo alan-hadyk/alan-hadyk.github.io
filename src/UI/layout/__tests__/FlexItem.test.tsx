@@ -7,7 +7,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
   FlexItemProps
-} from "<layout>/__typings__/FlexItem";
+} from "<layout>/__typings__/FlexItem.d.ts";
 
 describe("layout / FlexItem", () => {
   test("should render children", () => {
