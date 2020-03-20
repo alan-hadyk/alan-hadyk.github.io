@@ -66,7 +66,7 @@ describe("layout / PositionContainer", () => {
         expect(PositionContainer).toHaveStyleRule("height", "4.8rem");
       });
 
-      test("should have 50% by when passed via prop", () => {
+      test("should have 50% when passed via prop", () => {
         const { PositionContainer } = setup({
           height: "50%"
         });
@@ -74,7 +74,7 @@ describe("layout / PositionContainer", () => {
         expect(PositionContainer).toHaveStyleRule("height", "50%");
       });
   
-      test("should have 100% by when passed via prop", () => {
+      test("should have 100% when passed via prop", () => {
         const { PositionContainer } = setup({
           height: "100%"
         });
@@ -258,7 +258,7 @@ describe("layout / PositionContainer", () => {
         expect(PositionContainer).toHaveStyleRule("width", "4.8rem");
       });
 
-      test("should have 50% by when passed via prop", () => {
+      test("should have 50% when passed via prop", () => {
         const { PositionContainer } = setup({
           width: "50%"
         });
@@ -266,7 +266,7 @@ describe("layout / PositionContainer", () => {
         expect(PositionContainer).toHaveStyleRule("width", "50%");
       });
   
-      test("should have 100% by when passed via prop", () => {
+      test("should have 100% when passed via prop", () => {
         const { PositionContainer } = setup({
           width: "100%"
         });

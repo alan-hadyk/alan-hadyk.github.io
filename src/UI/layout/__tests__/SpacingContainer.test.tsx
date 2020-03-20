@@ -203,7 +203,6 @@ describe("layout / SpacingContainer", () => {
       });
     });
 
-
     describe("width", () => {      
       test("should have auto by default", () => {
         const { SpacingContainer } = setup();
@@ -219,7 +218,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("width", "4.8rem");
       });
 
-      test("should have 50% by when passed via prop", () => {
+      test("should have 50% when passed via prop", () => {
         const { SpacingContainer } = setup({
           width: "50%"
         });
@@ -227,7 +226,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("width", "50%");
       });
   
-      test("should have 100% by when passed via prop", () => {
+      test("should have 100% when passed via prop", () => {
         const { SpacingContainer } = setup({
           width: "100%"
         });

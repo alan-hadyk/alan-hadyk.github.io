@@ -48,7 +48,7 @@ describe("atoms / Link", () => {
         expect(LinkContainer).toHaveStyleRule("height", "4.8rem");
       });
   
-      test("should have 50% by when passed via prop", () => {
+      test("should have 50% when passed via prop", () => {
         const { LinkContainer } = setup({
           height: "50%"
         });
@@ -56,7 +56,7 @@ describe("atoms / Link", () => {
         expect(LinkContainer).toHaveStyleRule("height", "50%");
       });
   
-      test("should have 100% by when passed via prop", () => {
+      test("should have 100% when passed via prop", () => {
         const { LinkContainer } = setup({
           height: "100%"
         });

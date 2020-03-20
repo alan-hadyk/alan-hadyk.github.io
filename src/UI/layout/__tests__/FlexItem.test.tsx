@@ -26,7 +26,7 @@ describe("layout / FlexItem", () => {
         expect(FlexItem).toHaveStyleRule("align-self", "auto");
       });
   
-      test("should have stretch by when passed via prop", () => {
+      test("should have stretch when passed via prop", () => {
         const { FlexItem } = setup({
           alignSelf: "stretch"
         });
@@ -34,7 +34,7 @@ describe("layout / FlexItem", () => {
         expect(FlexItem).toHaveStyleRule("align-self", "stretch");
       });
   
-      test("should have flex-start by when passed via prop", () => {
+      test("should have flex-start when passed via prop", () => {
         const { FlexItem } = setup({
           alignSelf: "flex-start"
         });
@@ -42,7 +42,7 @@ describe("layout / FlexItem", () => {
         expect(FlexItem).toHaveStyleRule("align-self", "flex-start");
       });
   
-      test("should have flex-end by when passed via prop", () => {
+      test("should have flex-end when passed via prop", () => {
         const { FlexItem } = setup({
           alignSelf: "flex-end"
         });
@@ -50,7 +50,7 @@ describe("layout / FlexItem", () => {
         expect(FlexItem).toHaveStyleRule("align-self", "flex-end");
       });
   
-      test("should have baseline by when passed via prop", () => {
+      test("should have baseline when passed via prop", () => {
         const { FlexItem } = setup({
           alignSelf: "baseline"
         });
@@ -58,7 +58,7 @@ describe("layout / FlexItem", () => {
         expect(FlexItem).toHaveStyleRule("align-self", "baseline");
       });
   
-      test("should have center by when passed via prop", () => {
+      test("should have center when passed via prop", () => {
         const { FlexItem } = setup({
           alignSelf: "center"
         });
@@ -76,7 +76,7 @@ describe("layout / FlexItem", () => {
         expect(FlexItem).toHaveStyleRule("flex", "1 0 15%");
       });
   
-      test("should have 0 1 50% by when passed via prop", () => {
+      test("should have 0 1 50% when passed via prop", () => {
         const { FlexItem } = setup({
           flex: "0 1 50%"
         });

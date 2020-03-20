@@ -26,7 +26,7 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("align-items", "center");
       });
   
-      test("should have stretch by when passed via prop", () => {
+      test("should have stretch when passed via prop", () => {
         const { FlexContainer } = setup({
           alignItems: "stretch"
         });
@@ -34,7 +34,7 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("align-items", "stretch");
       });
   
-      test("should have flex-start by when passed via prop", () => {
+      test("should have flex-start when passed via prop", () => {
         const { FlexContainer } = setup({
           alignItems: "flex-start"
         });
@@ -42,7 +42,7 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("align-items", "flex-start");
       });
   
-      test("should have flex-end by when passed via prop", () => {
+      test("should have flex-end when passed via prop", () => {
         const { FlexContainer } = setup({
           alignItems: "flex-end"
         });
@@ -50,7 +50,7 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("align-items", "flex-end");
       });
   
-      test("should have baseline by when passed via prop", () => {
+      test("should have baseline when passed via prop", () => {
         const { FlexContainer } = setup({
           alignItems: "baseline"
         });
@@ -74,7 +74,7 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("flex-flow", "row wrap");
       });
   
-      test("should have row nowrap by when passed via prop", () => {
+      test("should have row nowrap when passed via prop", () => {
         const { FlexContainer } = setup({
           flexFlow: "row nowrap"
         });
@@ -82,7 +82,7 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("flex-flow", "row nowrap");
       });
   
-      test("should have column wrap by when passed via prop", () => {
+      test("should have column wrap when passed via prop", () => {
         const { FlexContainer } = setup({
           flexFlow: "column wrap"
         });
@@ -90,7 +90,7 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("flex-flow", "column wrap");
       });
   
-      test("should have column nowrap by when passed via prop", () => {
+      test("should have column nowrap when passed via prop", () => {
         const { FlexContainer } = setup({
           flexFlow: "column nowrap"
         });
@@ -114,7 +114,7 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("height", "4.8rem");
       });
   
-      test("should have 50% by when passed via prop", () => {
+      test("should have 50% when passed via prop", () => {
         const { FlexContainer } = setup({
           height: "50%"
         });
@@ -122,7 +122,7 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("height", "50%");
       });
   
-      test("should have 100% by when passed via prop", () => {
+      test("should have 100% when passed via prop", () => {
         const { FlexContainer } = setup({
           height: "100%"
         });
@@ -138,7 +138,7 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("justify-content", "center");
       });
   
-      test("should have flex-start by when passed via prop", () => {
+      test("should have flex-start when passed via prop", () => {
         const { FlexContainer } = setup({
           justifyContent: "flex-start"
         });
@@ -146,7 +146,7 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("justify-content", "flex-start");
       });
   
-      test("should have flex-end by when passed via prop", () => {
+      test("should have flex-end when passed via prop", () => {
         const { FlexContainer } = setup({
           justifyContent: "flex-end"
         });
@@ -154,7 +154,7 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("justify-content", "flex-end");
       });
   
-      test("should have space-between by when passed via prop", () => {
+      test("should have space-between when passed via prop", () => {
         const { FlexContainer } = setup({
           justifyContent: "space-between"
         });
