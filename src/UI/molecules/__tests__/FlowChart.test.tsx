@@ -69,7 +69,15 @@ describe("molecules / FlowChart", () => {
 
   describe("SpacingContainer", () => {    
     describe("Props", () => {
-      describe("padding-bottom", () => {
+      describe("height", () => {
+        test("should have 100%", () => {
+          const { SpacingContainer } = setup();
+
+          expect(SpacingContainer).toHaveStyleRule("height", "100%");
+        });
+      });
+
+      describe("paddingBottom", () => {
         test("should have .8rem", () => {
           const { SpacingContainer } = setup();
 
@@ -77,7 +85,7 @@ describe("molecules / FlowChart", () => {
         });
       });
 
-      describe("padding-left", () => {
+      describe("paddingLeft", () => {
         test("should have .8rem", () => {
           const { SpacingContainer } = setup();
 
@@ -85,7 +93,7 @@ describe("molecules / FlowChart", () => {
         });
       });
 
-      describe("padding-right", () => {
+      describe("paddingRight", () => {
         test("should have .8rem", () => {
           const { SpacingContainer } = setup();
 
@@ -93,11 +101,19 @@ describe("molecules / FlowChart", () => {
         });
       });
 
-      describe("padding-top", () => {
+      describe("paddingTop", () => {
         test("should have .8rem", () => {
           const { SpacingContainer } = setup();
 
           expect(SpacingContainer).toHaveStyleRule("padding-top", ".8rem");
+        });
+      });
+
+      describe("width", () => {
+        test("should have 100%", () => {
+          const { SpacingContainer } = setup();
+
+          expect(SpacingContainer).toHaveStyleRule("width", "100%");
         });
       });
     });
@@ -108,6 +124,41 @@ describe("molecules / FlowChart", () => {
       const { FlowChartIcon } = setup();
 
       expect(FlowChartIcon.textContent).toEqual("Flux-FlowChart.svg");
+    });
+
+    describe("Styles", () => {
+      describe("display", () => { 
+        test("should have block", () => {
+          const { FlowChartIcon } = setup();
+
+          expect(FlowChartIcon).toHaveStyleRule("display", "block");
+        });
+      });
+
+      describe("height", () => { 
+        test("should have 100%", () => {
+          const { FlowChartIcon } = setup();
+
+          expect(FlowChartIcon).toHaveStyleRule("height", "100%");
+        });
+      });
+
+      describe("margin", () => { 
+        test("should have 0 auto", () => {
+          const { FlowChartIcon } = setup();
+
+          expect(FlowChartIcon).toHaveStyleRule("margin", "0 auto");
+        });
+      });
+
+      describe("width", () => { 
+        test("should have 100%", () => {
+          const { FlowChartIcon } = setup();
+
+          expect(FlowChartIcon).toHaveStyleRule("width", "100%");
+        });
+      });
+
     });
 
     describe("Props", () => {

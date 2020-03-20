@@ -8,7 +8,7 @@ import Text from "<atoms>/Text";
 
 import useInterval from "<hooks>/useInterval";
 
-const hero = "Vision driven change agent with career-long record of front-end user strategy and UI development";
+export const hero = "Vision driven change agent with career-long record of front-end user strategy and UI development";
 
 function Console(): JSX.Element {
   const heroContainer = useRef<HTMLDivElement>(null);
@@ -48,7 +48,10 @@ function Console(): JSX.Element {
           height="100%"
           justifyContent="center"
         >
-          <Console.Text ref={heroContainer} />
+          <Console.Text 
+            data-testid="ConsoleText"
+            ref={heroContainer} 
+          />
         </FlexContainer>
       </SpacingContainer>
     </Console.Container>

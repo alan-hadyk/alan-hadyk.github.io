@@ -227,6 +227,30 @@ describe("atoms / Text", () => {
       expect(ShuffleText.prototype.start).toHaveBeenCalled();
     });
 
+    test("should fire shuffleText.start onMouseOver with given delay (shuffleDelay) ", () => {
+      jest.spyOn(ShuffleText.prototype, "start");
+      jest.useFakeTimers();
+
+      const { TextContainer } = setup({
+        shouldShuffleOnHover: true,
+        shuffleDelay: 300
+      });
+
+      expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
+
+      act(() => {
+        fireEvent.mouseOver(TextContainer);
+      });
+
+      jest.advanceTimersByTime(10);
+
+      expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
+
+      jest.advanceTimersByTime(290);
+
+      expect(ShuffleText.prototype.start).toHaveBeenCalled();
+    });
+
     test("should not fire shuffleText.start onMouseOver if shouldShuffleOnHover: false ", () => {
       jest.spyOn(ShuffleText.prototype, "start");
       jest.useFakeTimers();
@@ -244,7 +268,7 @@ describe("atoms / Text", () => {
       expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
     });
 
-    test("should fire shuffleText.start in intervals if shouldShuffle: true ", () => {
+    test("should fire shuffleText.start in intervals if shouldShuffle: true (3600ms by default)", () => {
       jest.spyOn(ShuffleText.prototype, "start");
       jest.useFakeTimers();
 
@@ -254,9 +278,70 @@ describe("atoms / Text", () => {
 
       expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
 
-      jest.advanceTimersByTime(7200);
+      jest.advanceTimersByTime(3600);
+
+      expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
+
+      jest.advanceTimersByTime(3600);
 
       expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
+
+      jest.clearAllTimers();
+    });
+
+    test("should fire shuffleText.start in intervals if shouldShuffle: true with custom delay (shuffleDelay)", () => {
+      jest.spyOn(ShuffleText.prototype, "start");
+      jest.useFakeTimers();
+
+      setup({
+        shouldShuffle: true,
+        shuffleDelay: 150,
+        shuffleInterval: 300
+      });
+
+      expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
+
+      jest.advanceTimersByTime(150);
+
+      expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
+
+      jest.advanceTimersByTime(300);
+
+      expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
+
+      jest.advanceTimersByTime(150);
+
+      expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
+
+      jest.advanceTimersByTime(300);
+
+      expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
+
+      jest.clearAllTimers();
+    });
+
+    test("should fire shuffleText.start in intervals if shouldShuffle: true (custom shuffleInterval value)", () => {
+      jest.spyOn(ShuffleText.prototype, "start");
+      jest.useFakeTimers();
+
+      setup({
+        shouldShuffle: true,
+        shuffleInterval: 150
+      });
+
+      expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
+
+      jest.advanceTimersByTime(150);
+
+      expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
+
+      jest.advanceTimersByTime(150);
+
+      expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
+
+      jest.advanceTimersByTime(150);
+
+      expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
 
       jest.clearAllTimers();
     });

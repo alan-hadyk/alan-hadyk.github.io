@@ -24,5 +24,5 @@ export default function useShuffleText({
     onShuffleReady({
       start: () => setTimeout(() => shuffle.start(), shuffleDelay)
     });
-  }, [duration, onShuffleReady, ref, text, shuffleState, shouldInitialize]);
+  }, [duration, onShuffleReady, ref, text, shuffleState, shouldInitialize, shuffleDelay]);
 }

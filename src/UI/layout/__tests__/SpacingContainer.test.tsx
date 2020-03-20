@@ -202,6 +202,39 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("padding-top", "4.8rem");
       });
     });
+
+
+    describe("width", () => {      
+      test("should have auto by default", () => {
+        const { SpacingContainer } = setup();
+  
+        expect(SpacingContainer).toHaveStyleRule("width", "auto");
+      });
+  
+      test("should have correct value when passed via spacing value in prop", () => {
+        const { SpacingContainer } = setup({
+          width: "spacing48"
+        });
+  
+        expect(SpacingContainer).toHaveStyleRule("width", "4.8rem");
+      });
+
+      test("should have 50% by when passed via prop", () => {
+        const { SpacingContainer } = setup({
+          width: "50%"
+        });
+  
+        expect(SpacingContainer).toHaveStyleRule("width", "50%");
+      });
+  
+      test("should have 100% by when passed via prop", () => {
+        const { SpacingContainer } = setup({
+          width: "100%"
+        });
+  
+        expect(SpacingContainer).toHaveStyleRule("width", "100%");
+      });
+    });
   });
 
   describe("Props", () => {

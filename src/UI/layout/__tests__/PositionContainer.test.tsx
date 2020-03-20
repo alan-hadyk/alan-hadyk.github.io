@@ -243,6 +243,38 @@ describe("layout / PositionContainer", () => {
       });
     });
 
+    describe("width", () => {      
+      test("should have auto by default", () => {
+        const { PositionContainer } = setup();
+  
+        expect(PositionContainer).toHaveStyleRule("width", "auto");
+      });
+  
+      test("should have correct value when passed via spacing value in prop", () => {
+        const { PositionContainer } = setup({
+          width: "spacing48"
+        });
+  
+        expect(PositionContainer).toHaveStyleRule("width", "4.8rem");
+      });
+
+      test("should have 50% by when passed via prop", () => {
+        const { PositionContainer } = setup({
+          width: "50%"
+        });
+  
+        expect(PositionContainer).toHaveStyleRule("width", "50%");
+      });
+  
+      test("should have 100% by when passed via prop", () => {
+        const { PositionContainer } = setup({
+          width: "100%"
+        });
+  
+        expect(PositionContainer).toHaveStyleRule("width", "100%");
+      });
+    });
+
     describe("z-index", () => {      
       test("should have 100 by default", () => {
         const { PositionContainer } = setup();

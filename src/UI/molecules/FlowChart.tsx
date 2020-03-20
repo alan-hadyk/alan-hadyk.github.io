@@ -34,7 +34,7 @@ function FlowChart(): JSX.Element {
         paddingTop="spacing8"
         width="100%"
       >
-        <FlowChart.Icon 
+        <FlowChart.Icon
           id="flow-chart"
         />
       </SpacingContainer>
@@ -43,7 +43,7 @@ function FlowChart(): JSX.Element {
 }
 
 FlowChart.Icon = styled(FluxFlowChart)`
-  display:block;
+  display: block;
   height: 100%;
   margin: 0 auto;
   width: 100%;

@@ -195,6 +195,49 @@ describe("molecules / DashboardElement", () => {
         });
       });
 
+      describe("shuffleDelay", () => {
+        test("should trigger shuffleText.start in intervals with given shuffleDelay", () => {
+          jest.spyOn(ShuffleText.prototype, "start");
+          jest.useFakeTimers();
+    
+          setup({
+            shuffleDelay: 150
+          });
+
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
+
+          jest.advanceTimersByTime(150);
+    
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
+    
+          jest.advanceTimersByTime(3600);
+    
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
+    
+          jest.advanceTimersByTime(150);
+    
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
+    
+          jest.advanceTimersByTime(3600);
+    
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
+    
+          jest.advanceTimersByTime(150);
+    
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
+    
+          jest.advanceTimersByTime(3600);
+    
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
+    
+          jest.advanceTimersByTime(150);
+    
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
+    
+          jest.clearAllTimers();
+        });
+      });
+
       describe("textTransform", () => {
         test("should have uppercase", () => {
           const { Text } = setup();
