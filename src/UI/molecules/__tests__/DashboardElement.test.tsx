@@ -3,7 +3,7 @@ import { RenderResult } from "@testing-library/react";
 import ShuffleText from "shuffle-text";
 
 import DashboardElement from "<molecules>/DashboardElement";
-import { DashboardElementProps } from "<molecules>/__typings__/DashboardElement";
+import { DashboardElementProps } from "<molecules>/__typings__/DashboardElement.d.ts";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
@@ -190,6 +190,49 @@ describe("molecules / DashboardElement", () => {
           jest.advanceTimersByTime(3600);
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
+    
+          jest.clearAllTimers();
+        });
+      });
+
+      describe("shuffleDelay", () => {
+        test("should trigger shuffleText.start in intervals with given shuffleDelay", () => {
+          jest.spyOn(ShuffleText.prototype, "start");
+          jest.useFakeTimers();
+    
+          setup({
+            shuffleDelay: 150
+          });
+
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
+
+          jest.advanceTimersByTime(150);
+    
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
+    
+          jest.advanceTimersByTime(3600);
+    
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
+    
+          jest.advanceTimersByTime(150);
+    
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
+    
+          jest.advanceTimersByTime(3600);
+    
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
+    
+          jest.advanceTimersByTime(150);
+    
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
+    
+          jest.advanceTimersByTime(3600);
+    
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
+    
+          jest.advanceTimersByTime(150);
+    
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
     
           jest.clearAllTimers();
         });

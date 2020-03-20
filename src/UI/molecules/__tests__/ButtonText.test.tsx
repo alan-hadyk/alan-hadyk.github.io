@@ -7,7 +7,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
   ButtonTextProps
-} from "<molecules>/__typings__/ButtonText";
+} from "<molecules>/__typings__/ButtonText.d.ts";
 
 describe("molecules / ButtonText", () => {
   test("should have correct structure", () => {

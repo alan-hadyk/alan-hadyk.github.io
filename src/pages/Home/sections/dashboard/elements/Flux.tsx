@@ -5,11 +5,12 @@ import FlowChart from "<src>/UI/molecules/FlowChart";
 
 const Flux = (): JSX.Element => (
   <DashboardElement
+    childrenHeight="17vh"
     dataTestId="Flux"
-    flex="1 1 30%"
-    childrenHeight="spacing184"
+    flex="0 1 30%"
     title="Flux" 
     shouldDisplayCorners={true}
+    shuffleDelay={1200}
   >
     <FlowChart />
   </DashboardElement>

@@ -8,7 +8,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
   ButtonProps
-} from "<molecules>/__typings__/Button";
+} from "<molecules>/__typings__/Button.d.ts";
 
 describe("molecules / Button", () => {
   test("should have correct structure", () => {
@@ -456,73 +456,71 @@ describe("molecules / Button", () => {
     });
   });
 
-  describe("Icon", () => { 
-    describe("Props", () => {
-      describe("iconName", () => {
-        test("should render corect icon for codesandbox", () => {
-          const { Icon } = setup({
-            iconName: "btnCodeSandbox"
+  describe("Icon", () => {    
+    describe("SVG", () => { 
+      describe("Props", () => {
+        describe("iconName", () => {
+          test("should render corect icon for codesandbox", () => {
+            const { Icon } = setup({
+              iconName: "btnCodeSandbox"
+            });
+      
+            expect(Icon.textContent).toEqual("Btn-CodeSandbox.svg");
           });
     
-          expect(Icon.textContent).toEqual("Btn-CodeSandbox.svg");
-        });
-  
-        test("should render corect icon for download", () => {
-          const { Icon } = setup({
-            iconName: "btnDownload"
+          test("should render corect icon for download", () => {
+            const { Icon } = setup({
+              iconName: "btnDownload"
+            });
+      
+            expect(Icon.textContent).toEqual("Btn-Download.svg");
           });
     
-          expect(Icon.textContent).toEqual("Btn-Download.svg");
-        });
-  
-        test("should render corect icon for externalLink", () => {
-          const { Icon } = setup({
-            iconName: "btnExternalLink"
+          test("should render corect icon for externalLink", () => {
+            const { Icon } = setup({
+              iconName: "btnExternalLink"
+            });
+      
+            expect(Icon.textContent).toEqual("Btn-ExternalLink.svg");
           });
     
-          expect(Icon.textContent).toEqual("Btn-ExternalLink.svg");
-        });
-  
-        test("should render corect icon for send", () => {
-          const { Icon } = setup({
-            iconName: "btnSend"
+          test("should render corect icon for send", () => {
+            const { Icon } = setup({
+              iconName: "btnSend"
+            });
+      
+            expect(Icon.textContent).toEqual("Btn-Send.svg");
           });
-    
-          expect(Icon.textContent).toEqual("Btn-Send.svg");
         });
       });
     });
-  });
-
-  describe("IconContainer", () => {
-    describe("Styles", () => {
-      test("should have 1.2rem for small size", () => {
-        const { IconContainer } = setup({
-          size: "small"
-        });
   
-        expect(IconContainer).toHaveStyleRule("height", "1.2rem", {
-          modifier: "& > *"
-        });
-      });
-
-      test("should have 2.4rem for medium size", () => {
-        const { IconContainer } = setup({
-          size: "medium"
-        });
+    describe("IconContainer", () => {
+      describe("Props", () => {
+        describe("height", () => {
+          test("should have 1.2rem for small size", () => {
+            const { IconContainer } = setup({
+              size: "small"
+            });
+    
+            expect(IconContainer).toHaveStyleRule("height", "1.2rem");
+          });
   
-        expect(IconContainer).toHaveStyleRule("height", "2.4rem", {
-          modifier: "& > *"
-        });
-      });
-
-      test("should have 2.4rem for large size", () => {
-        const { IconContainer } = setup({
-          size: "large"
-        });
+          test("should have 2.4rem for medium size", () => {
+            const { IconContainer } = setup({
+              size: "medium"
+            });
+    
+            expect(IconContainer).toHaveStyleRule("height", "2.4rem");
+          });
   
-        expect(IconContainer).toHaveStyleRule("height", "2.4rem", {
-          modifier: "& > *"
+          test("should have 2.4rem for large size", () => {
+            const { IconContainer } = setup({
+              size: "large"
+            });
+    
+            expect(IconContainer).toHaveStyleRule("height", "2.4rem");
+          });
         });
       });
     });

@@ -13,7 +13,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
   NavItemProps
-} from "<molecules>/__typings__/NavItem";
+} from "<molecules>/__typings__/NavItem.d.ts";
 
 describe("molecules / NavItem", () => {
   describe("NavItem.Link", () => {    
@@ -36,6 +36,7 @@ describe("molecules / NavItem", () => {
 
       test("should fire shuffleText.start onMouseOver", () => {
         jest.spyOn(ShuffleText.prototype, "start");
+        jest.useFakeTimers();
 
         const { NavItemLink } = setup();
 
@@ -44,6 +45,8 @@ describe("molecules / NavItem", () => {
         act(() => {
           fireEvent.mouseOver(NavItemLink);
         });
+
+        jest.advanceTimersByTime(10);
 
         expect(ShuffleText.prototype.start).toHaveBeenCalled();
       });

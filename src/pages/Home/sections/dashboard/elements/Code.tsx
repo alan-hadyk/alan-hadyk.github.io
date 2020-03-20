@@ -5,9 +5,10 @@ import TypingAnimation from "<molecules>/TypingAnimation";
 
 const Code = (): JSX.Element => (
   <DashboardElement
-    childrenHeight="spacing184"
+    childrenHeight="17vh"
     dataTestId="Code"
-    flex="1 1 25%"
+    flex="0 1 25%"
+    shuffleDelay={1800}
     title="Code" 
   >
     <TypingAnimation />

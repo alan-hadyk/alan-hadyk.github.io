@@ -3,7 +3,7 @@ import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import {
   PositionContainerProps
-} from "<layout>/__typings__/PositionContainer";
+} from "<layout>/__typings__/PositionContainer.d.ts";
 
 const PositionContainer = ({
   bottom = "unset",
@@ -15,6 +15,7 @@ const PositionContainer = ({
   right = "unset",
   top = "unset",
   transform = "none",
+  width = "auto",
   zIndex = "layer1"
 }: PositionContainerProps, ref: Ref<HTMLDivElement>): JSX.Element => (
   <PositionContainer.Container
@@ -27,6 +28,7 @@ const PositionContainer = ({
     right={right}
     top={top}
     transform={transform}
+    width={width}
     zIndex={zIndex}
   >
     {children}
@@ -46,6 +48,7 @@ PositionContainer.Container = styled.div<PositionContainerProps>`
       zIndex: zIndexVariables
     },
     transform,
+    width,
     zIndex
   }): FlattenSimpleInterpolation => css`
     bottom: ${(bottom in spacing && spacing[bottom]) || bottom};
@@ -55,6 +58,7 @@ PositionContainer.Container = styled.div<PositionContainerProps>`
     right: ${(right in spacing && spacing[right]) || right};
     top: ${(top in spacing && spacing[top]) || top};
     transform: ${transform};
+    width: ${(width in spacing && spacing[width]) || width};
     z-index: ${zIndex in zIndexVariables && zIndexVariables[zIndex]};
   `}
 `;

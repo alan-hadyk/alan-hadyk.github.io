@@ -7,7 +7,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 jest.mock("<hooks>/useIntersectionObserver");
 
-import { HeaderProps }  from "<organisms>/__typings__/Header";
+import { HeaderProps }  from "<organisms>/__typings__/Header.d.ts";
 
 interface LinkWithIconProps {
   href: string;

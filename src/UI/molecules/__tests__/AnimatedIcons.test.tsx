@@ -8,35 +8,77 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 describe("molecules / AnimatedIcons", () => {
   test("should have correct structure", () => {
     const { 
-      IconContainers,
       FlexContainer,
+      IconContainers,
+      Icons,
       PositionContainers,
-      Texts
+      SpacingContainer
     } = setup();
 
-    expect(FlexContainer.children[0]).toHaveStyleRule("position", "relative");
-    expect(FlexContainer.children[1]).toHaveStyleRule("position", "relative");
-    expect(FlexContainer.children[2]).toHaveStyleRule("position", "relative");
-    expect(FlexContainer.children[3]).toHaveStyleRule("position", "relative");
-    expect(FlexContainer.children[4]).toHaveStyleRule("position", "relative");
-    expect(FlexContainer.children[5]).toHaveStyleRule("position", "relative");
-    expect(FlexContainer.children[6]).toHaveStyleRule("position", "relative");
+    expect(SpacingContainer.children[0]).toEqual(FlexContainer);
 
     PositionContainers.forEach((PositionContainer, index) => {
-      if (index % 2 === 0) {
-        expect(PositionContainer.children[0]).toEqual(IconContainers[index / 2]);
-        expect(PositionContainer.children[1]).toEqual(PositionContainers[index + 1]);
-      }
+      expect(FlexContainer.children[index]).toEqual(PositionContainer);
+      expect(PositionContainer.children[0]).toEqual(IconContainers[index]);
+      expect(IconContainers[index].children[0]).toEqual(Icons[index]);
     });
+  });
 
-    Texts.forEach((Text, index) => {
-      expect(Text.parentNode).toEqual(PositionContainers[(index * 2) + 1]);
+  describe("SpacingContainer", () => {    
+    describe("Props", () => {
+      describe("height", () => { 
+        test("should have 100%", () => {
+          const { SpacingContainer } = setup();
+
+          expect(SpacingContainer).toHaveStyleRule("height", "100%");
+        });
+      });
+
+      describe("paddingBottom", () => { 
+        test("should have .8rem", () => {
+          const { SpacingContainer } = setup();
+
+          expect(SpacingContainer).toHaveStyleRule("padding-bottom", ".8rem");
+        });
+      });
+
+      describe("paddingLeft", () => { 
+        test("should have .8rem", () => {
+          const { SpacingContainer } = setup();
+
+          expect(SpacingContainer).toHaveStyleRule("padding-left", ".8rem");
+        });
+      });
+
+      describe("paddingRight", () => { 
+        test("should have .8rem", () => {
+          const { SpacingContainer } = setup();
+
+          expect(SpacingContainer).toHaveStyleRule("padding-right", ".8rem");
+        });
+      });
+
+      describe("paddingTop", () => { 
+        test("should have .8rem", () => {
+          const { SpacingContainer } = setup();
+
+          expect(SpacingContainer).toHaveStyleRule("padding-top", ".8rem");
+        });
+      });
+
+      describe("width", () => { 
+        test("should have 100%", () => {
+          const { SpacingContainer } = setup();
+
+          expect(SpacingContainer).toHaveStyleRule("width", "100%");
+        });
+      });
     });
   });
 
   describe("FlexContainer", () => {    
     describe("Props", () => {
-      describe("align-items", () => { 
+      describe("alignItems", () => { 
         test("should have center", () => {
           const { FlexContainer } = setup();
 
@@ -44,11 +86,11 @@ describe("molecules / AnimatedIcons", () => {
         });
       });
 
-      describe("justify-content", () => { 
-        test("should have center", () => {
+      describe("flexFlow", () => { 
+        test("should have row nowrap", () => {
           const { FlexContainer } = setup();
 
-          expect(FlexContainer).toHaveStyleRule("justify-content", "center");
+          expect(FlexContainer).toHaveStyleRule("flex-flow", "row nowrap");
         });
       });
 
@@ -59,118 +101,38 @@ describe("molecules / AnimatedIcons", () => {
           expect(FlexContainer).toHaveStyleRule("height", "100%");
         });
       });
+
+      describe("justifyContent", () => { 
+        test("should have center", () => {
+          const { FlexContainer } = setup();
+
+          expect(FlexContainer).toHaveStyleRule("justify-content", "center");
+        });
+      });
     });
   });
 
   describe("PositionContainer", () => {
-    describe("Outer", () => {
-      describe("Props", () => {
-        describe("position", () => { 
-          test("should be relative", () => {
-            const { PositionContainers } = setup();
+    describe("Props", () => {
+      describe("position", () => { 
+        test("should be relative", () => {
+          const { PositionContainers } = setup();
   
-            PositionContainers.forEach((PositionContainer, index) => {
-              if (index % 2 === 0) {
-                expect(PositionContainer).toHaveStyleRule("position", "relative");
-              }
-            });
+          PositionContainers.forEach((PositionContainer) => {
+            expect(PositionContainer).toHaveStyleRule("position", "relative");
           });
         });
       });
-    });
 
-    describe("Inner", () => {
-      describe("Props", () => {
-        describe("bottom", () => { 
-          test("should be unset if icon is even", () => {
-            const { PositionContainers, Icons } = setup();
-
-            Icons.forEach((_Icon, index) => {
-              if (index % 2 === 0) {
-                expect(PositionContainers[index * 2 + 1]).toHaveStyleRule("bottom", "unset");
-              }
-            });
-          });
-
-          test("should be 0 if icon is odd", () => {
-            const { PositionContainers, Icons } = setup();
-
-            Icons.forEach((_Icon, index) => {
-              if (index % 2 !== 0) {
-                expect(PositionContainers[index * 2 + 1]).toHaveStyleRule("bottom", "0");
-              }
-            });
+      describe("width", () => { 
+        test("should be 14.285714285714286%", () => {
+          const { PositionContainers } = setup();
+  
+          PositionContainers.forEach((PositionContainer) => {
+            expect(PositionContainer).toHaveStyleRule("width", "14.285714285714286%");
           });
         });
-
-        describe("left", () => { 
-          test("should be 50%", () => {
-            const { PositionContainers } = setup();
-
-            PositionContainers.forEach((PositionContainer, index) => {
-              if (index % 2 !== 0) {
-                expect(PositionContainer).toHaveStyleRule("left", "50%");
-              }
-            });
-          });
-        });
-
-        describe("position", () => { 
-          test("should be absolute", () => {
-            const { PositionContainers } = setup();
-
-            PositionContainers.forEach((PositionContainer, index) => {
-              if (index % 2 !== 0) {
-                expect(PositionContainer).toHaveStyleRule("position", "absolute");
-              }
-            });
-          });
-        });
-
-        describe("top", () => { 
-          test("should be 0 if icon is even", () => {
-            const { PositionContainers, Icons } = setup();
-
-            Icons.forEach((_Icon, index) => {
-              if (index % 2 === 0) {
-                expect(PositionContainers[index * 2 + 1]).toHaveStyleRule("top", "0");
-              }
-            });
-          });
-
-          test("should be unset if icon is odd", () => {
-            const { PositionContainers, Icons } = setup();
-
-            Icons.forEach((_Icon, index) => {
-              if (index % 2 !== 0) {
-                expect(PositionContainers[index * 2 + 1]).toHaveStyleRule("top", "unset");
-              }
-            });
-          });
-        });
-
-        describe("transform", () => { 
-          test("should be translateX(-50%) translateY(-175%) if icon is even", () => {
-            const { PositionContainers, Icons } = setup();
-
-            Icons.forEach((_Icon, index) => {
-              if (index % 2 === 0) {
-                expect(PositionContainers[index * 2 + 1]).toHaveStyleRule("transform", "translateX(-50%) translateY(-175%)");
-              }
-            });
-          });
-
-          test("should be translateX(-50%) translateY(175%) if icon is odd", () => {
-            const { PositionContainers, Icons } = setup();
-
-            Icons.forEach((_Icon, index) => {
-              if (index % 2 !== 0) {
-                expect(PositionContainers[index * 2 + 1]).toHaveStyleRule("transform", "translateX(-50%) translateY(175%)");
-              }
-            });
-          });
-        });
-      });
+      });   
     });
   });
 
@@ -245,67 +207,21 @@ describe("molecules / AnimatedIcons", () => {
       });
 
       describe("height", () => { 
-        test("should have 7.2rem", () => {
+        test("should have auto", () => {
           const { IconContainers } = setup();
 
-          IconContainers.forEach(Icon => {
-            expect(Icon).toHaveStyleRule("height", "7.2rem", {
-              modifier: "& > *"
-            });
-          });
-        });
-      });
-    });
-  });
-
-  describe("Text", () => {
-    describe("Props", () => {
-      describe("color", () => {
-        test("should have #78b0b5", () => {
-          const { Texts } = setup();
-    
-          Texts.forEach(Text => {
-            expect(Text).toHaveStyleRule("color", "#78b0b5");
+          IconContainers.forEach(IconContainer => {
+            expect(IconContainer).toHaveStyleRule("height", "auto");
           });
         });
       });
 
-      describe("font-family", () => {
-        test("should have 'Anonymous Pro',monospace", () => {
-          const { Texts } = setup();
-    
-          Texts.forEach(Text => {
-            expect(Text).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
-          });
-        });
-      });
+      describe("width", () => { 
+        test("should have 100%", () => {
+          const { IconContainers } = setup();
 
-      describe("font-size", () => {
-        test("should have 12px", () => {
-          const { Texts } = setup();
-    
-          Texts.forEach(Text => {
-            expect(Text).toHaveStyleRule("font-size", "12px");
-          });
-        });
-      });
-
-      describe("line-height", () => {
-        test("should have 1.6rem", () => {
-          const { Texts } = setup();
-    
-          Texts.forEach(Text => {
-            expect(Text).toHaveStyleRule("line-height", "1.6rem");
-          });
-        });
-      });
-
-      describe("text-transform", () => {
-        test("should have uppercase", () => {
-          const { Texts } = setup();
-    
-          Texts.forEach(Text => {
-            expect(Text).toHaveStyleRule("text-transform", "uppercase");
+          IconContainers.forEach(IconContainer => {
+            expect(IconContainer).toHaveStyleRule("width", "100%");
           });
         });
       });
@@ -318,7 +234,7 @@ interface Setup extends RenderResult {
   IconContainers: Element[];
   Icons: NodeListOf<SVGSVGElement>;
   PositionContainers: Element[];
-  Texts: Element[];
+  SpacingContainer: Element;
 }
 
 function setup(): Setup {
@@ -327,11 +243,11 @@ function setup(): Setup {
   );
 
   const { queryAllByTestId, queryByTestId }: RenderResult = utils;
-  const FlexContainer: Element = queryByTestId("AnimatedIcons");
+  const FlexContainer: Element = queryByTestId("AnimatedIconsFlexContainer");
   const IconContainers: Element[] = queryAllByTestId("IconContainer");
   const Icons: NodeListOf<SVGSVGElement> = document.querySelectorAll("svg");
   const PositionContainers: Element[] = queryAllByTestId("PositionContainer");
-  const Texts: Element[] = queryAllByTestId("Text");
+  const SpacingContainer: Element = queryByTestId("AnimatedIcons");
 
   return {
     ...utils,
@@ -339,6 +255,6 @@ function setup(): Setup {
     IconContainers,
     Icons,
     PositionContainers,
-    Texts
+    SpacingContainer
   };
 }

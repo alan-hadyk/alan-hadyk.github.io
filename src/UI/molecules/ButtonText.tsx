@@ -7,7 +7,7 @@ import {
   ButtonTextProps,
   MapSizeToButtonTextProps,
   TextProps
-} from "<molecules>/__typings__/ButtonText";
+} from "<molecules>/__typings__/ButtonText.d.ts";
 
 const mapSizeToButtonTextProps: MapSizeToButtonTextProps = {
   large: { fontSize: "font28" },

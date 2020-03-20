@@ -1,6 +1,6 @@
 import {
   FontSizes
-} from "<styles>/variables/__typings__/variables";
+} from "<styles>/variables/__typings__/variables.d.ts";
 
 export interface ButtonTextProps {
   buttonText: string;

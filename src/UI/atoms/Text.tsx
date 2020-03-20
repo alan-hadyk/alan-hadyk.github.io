@@ -6,8 +6,8 @@ import useInterval from "<hooks>/useInterval";
 
 import transitionTimes from "<styles>/variables/transitionTimes";
 
-import { TextProps } from "<atoms>/__typings__/Text";
-import { ShuffleState } from "<hooks>/__typings__/useShuffleText";
+import { TextProps } from "<atoms>/__typings__/Text.d.ts";
+import { ShuffleState } from "<hooks>/__typings__/useShuffleText.d.ts";
 
 function Text({ 
   children, 
@@ -21,6 +21,8 @@ function Text({
   paddingTop = "spacing0",
   shouldShuffle = false,
   shouldShuffleOnHover = false,
+  shuffleDelay = 0,
+  shuffleInterval = parseInt(transitionTimes.verySlow),
   textAlign = "left",
   textTransform = "none"
 }: TextProps): JSX.Element {
@@ -31,6 +33,7 @@ function Text({
     onShuffleReady: setShuffleText,
     ref: textElement,
     shouldInitialize: shouldShuffleOnHover || shouldShuffle,
+    shuffleDelay,
     shuffleState: shuffleText,
     text: children
   });
@@ -41,7 +44,7 @@ function Text({
     }
 
     shuffleText && shuffleText.start();
-  }, parseInt(transitionTimes.verySlow));
+  }, shuffleInterval);
 
   return (
     <Text.Container

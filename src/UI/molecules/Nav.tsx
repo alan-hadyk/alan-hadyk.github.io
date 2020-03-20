@@ -7,7 +7,7 @@ import useIntersectionObserver from "<hooks>/useIntersectionObserver";
 
 import {
   NavItemProps
-} from "<molecules>/__typings__/NavItem";
+} from "<molecules>/__typings__/NavItem.d.ts";
 
 const navItems: NavItemProps[] = [{
   href: "#portfolio",

@@ -1,6 +1,6 @@
 import {
   Spacing
-} from "<styles>/variables/__typings__/variables";
+} from "<styles>/variables/__typings__/variables.d.ts";
 
 export interface FlexContainerProps {
   alignItems?: "stretch" | "flex-start" | "flex-end" | "center" | "baseline";

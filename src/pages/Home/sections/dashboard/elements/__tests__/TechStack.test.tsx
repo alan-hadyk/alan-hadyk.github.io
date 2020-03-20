@@ -17,27 +17,19 @@ describe("pages / Home / sections / dashboard / elements / TechStack", () => {
 
   describe("DashboardElement", () => {
     describe("Props", () => {
-      describe("flex", () => {
-        test("should have 1 1 30%", () => {
-          const { DashboardElement } = setup();
-      
-          expect(DashboardElement).toHaveStyleRule("flex", "1 1 30%");
-        });
-      });
-
       describe("childrenHeight", () => {
-        test("should have 18.4rem", () => {
+        test("should have 17vh", () => {
           const { DashboardElement } = setup();
       
-          expect(DashboardElement.children[1]).toHaveStyleRule("height", "18.4rem");
+          expect(DashboardElement.children[1]).toHaveStyleRule("height", "17vh");
         });
       });
 
-      describe("title", () => {
-        test("should render Tech Stack", () => {
+      describe("flex", () => {
+        test("should have 0 1 30%", () => {
           const { DashboardElement } = setup();
       
-          expect(DashboardElement.children[0].textContent).toEqual("Tech Stack");
+          expect(DashboardElement).toHaveStyleRule("flex", "0 1 30%");
         });
       });
 
@@ -51,6 +43,14 @@ describe("pages / Home / sections / dashboard / elements / TechStack", () => {
           expect(DashboardElement.children[1].children[3]).toEqual(Corners[3]);
         });
       });
+
+      describe("title", () => {
+        test("should render Tech Stack", () => {
+          const { DashboardElement } = setup();
+      
+          expect(DashboardElement.children[0].textContent).toEqual("Tech Stack");
+        });
+      });
     });
   });
 
@@ -58,17 +58,21 @@ describe("pages / Home / sections / dashboard / elements / TechStack", () => {
     test("should render correct animated icons", () => {
       const { AnimatedIcons } = setup();
   
-      expect(AnimatedIcons).toHaveStyleRule("align-items", "center");
-      expect(AnimatedIcons).toHaveStyleRule("height", "100%");
-      expect(AnimatedIcons).toHaveStyleRule("justify-content", "center");
+      expect(AnimatedIcons).toHaveStyleRule("padding-bottom", ".8rem");
+      expect(AnimatedIcons).toHaveStyleRule("padding-left", ".8rem");
+      expect(AnimatedIcons).toHaveStyleRule("padding-right", ".8rem");
+      expect(AnimatedIcons).toHaveStyleRule("padding-top", ".8rem");
+      expect(AnimatedIcons.children[0]).toHaveStyleRule("align-items", "center");
+      expect(AnimatedIcons.children[0]).toHaveStyleRule("height", "100%");
+      expect(AnimatedIcons.children[0]).toHaveStyleRule("justify-content", "center");
 
-      expect(AnimatedIcons.children[0].children[1].children[0].textContent).toEqual("react");
-      expect(AnimatedIcons.children[1].children[1].children[0].textContent).toEqual("javascript");
-      expect(AnimatedIcons.children[2].children[1].children[0].textContent).toEqual("typescript");
-      expect(AnimatedIcons.children[3].children[1].children[0].textContent).toEqual("webpack");
-      expect(AnimatedIcons.children[4].children[1].children[0].textContent).toEqual("node");
-      expect(AnimatedIcons.children[5].children[1].children[0].textContent).toEqual("apollo");
-      expect(AnimatedIcons.children[6].children[1].children[0].textContent).toEqual("graphql");
+      expect(AnimatedIcons.children[0].children[0].children[0].textContent).toEqual("Icon-React.svg");
+      expect(AnimatedIcons.children[0].children[1].children[0].textContent).toEqual("Icon-Javascript.svg");
+      expect(AnimatedIcons.children[0].children[2].children[0].textContent).toEqual("Icon-Typescript.svg");
+      expect(AnimatedIcons.children[0].children[3].children[0].textContent).toEqual("Icon-Webpack.svg");
+      expect(AnimatedIcons.children[0].children[4].children[0].textContent).toEqual("Icon-Node.svg");
+      expect(AnimatedIcons.children[0].children[5].children[0].textContent).toEqual("Icon-Apollo.svg");
+      expect(AnimatedIcons.children[0].children[6].children[0].textContent).toEqual("Icon-Graphql.svg");
     });
   });
 });

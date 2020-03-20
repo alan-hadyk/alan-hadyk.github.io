@@ -3,7 +3,7 @@ import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import {
   SpacingContainerProps
-} from "<layout>/__typings__/SpacingContainer";
+} from "<layout>/__typings__/SpacingContainer.d.ts";
 
 const SpacingContainer = ({
   children,
@@ -18,7 +18,8 @@ const SpacingContainer = ({
   paddingBottom = "spacing0",
   paddingLeft = "spacing0",
   paddingRight = "spacing0",
-  paddingTop = "spacing0"
+  paddingTop = "spacing0",
+  width = "auto"
 }: SpacingContainerProps): JSX.Element => (
   <SpacingContainer.Container
     data-testid={dataTestId || "SpacingContainer"}
@@ -33,6 +34,7 @@ const SpacingContainer = ({
     paddingLeft={paddingLeft}
     paddingRight={paddingRight}
     paddingTop={paddingTop}
+    width={width}
   >
     {children}
   </SpacingContainer.Container>
@@ -52,7 +54,8 @@ SpacingContainer.Container = styled.div<SpacingContainerProps>`
     paddingTop,
     theme: {
       spacing
-    }
+    },
+    width
   }): FlattenSimpleInterpolation => css`
     height: ${(height in spacing && spacing[height]) || height};
     margin-bottom: ${marginBottom in spacing && spacing[marginBottom]};
@@ -64,6 +67,7 @@ SpacingContainer.Container = styled.div<SpacingContainerProps>`
     padding-left: ${paddingLeft in spacing && spacing[paddingLeft]};
     padding-right: ${paddingRight in spacing && spacing[paddingRight]};
     padding-top: ${paddingTop in spacing && spacing[paddingTop]};
+    width: ${(width in spacing && spacing[width]) || width};
   `}
 `;
   

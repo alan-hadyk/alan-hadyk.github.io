@@ -5,7 +5,7 @@ import PageTemplate from "<templates>/PageTemplate";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import { PageTemplateProps }  from "<templates>/__typings__/PageTemplate";
+import { PageTemplateProps }  from "<templates>/__typings__/PageTemplate.d.ts";
 
 describe("templates / PageTemplate", () => {
   test("should render children", () => {
