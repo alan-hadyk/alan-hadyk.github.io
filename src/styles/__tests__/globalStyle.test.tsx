@@ -60,6 +60,7 @@ describe("styles / globalStyle", () => {
       expect(styles["color"]).toEqual("#78b0b5");
       expect(styles["line-height"]).toEqual("1");
       expect(styles["min-height"]).toEqual("100vh");
+      expect(styles["overflow-x"]).toEqual("hidden");
       expect(styles["position"]).toEqual("relative");
       expect(styles["scroll-behavior"]).toEqual("smooth");
     });

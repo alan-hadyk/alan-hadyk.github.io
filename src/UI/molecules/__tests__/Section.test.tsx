@@ -9,7 +9,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
   SectionProps
-} from "<molecules>/__typings__/Section";
+} from "<molecules>/__typings__/Section.d.ts";
 
 describe("molecules / Section", () => {
   test("should have correct structure", () => {

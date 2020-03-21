@@ -8,8 +8,8 @@ import Button from "<molecules>/Button";
 import PositionContainer from "<layout>/PositionContainer";
 import FlexContainer from "<layout>/FlexContainer";
 
-import { HeaderProps }  from "<organisms>/__typings__/Header";
-import { LinkWithIconProps } from "<molecules>/__typings__/LinkWithIcon";
+import { HeaderProps }  from "<organisms>/__typings__/Header.d.ts";
+import { LinkWithIconProps } from "<molecules>/__typings__/LinkWithIcon.d.ts";
 
 function Header({
   zIndex = "layer1"
@@ -44,7 +44,7 @@ function Header({
             href={window.location.href}
             iconName="logo"
             height="spacing48"
-            width="auto"
+            width="spacing248"
           />
       
           <FlexContainer

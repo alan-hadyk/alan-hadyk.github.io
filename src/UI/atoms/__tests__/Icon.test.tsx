@@ -7,19 +7,23 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
   IconProps
-} from "<atoms>/__typings__/Icon";
+} from "<atoms>/__typings__/Icon.d.ts";
 
 describe("atoms / Icon", () => {
   describe("Styles", () => {
     describe("height", () => {      
+      test("should have auto by default", () => {
+        const { IconContainer } = setup();
+  
+        expect(IconContainer).toHaveStyleRule("height", "auto");
+      });
+
       test("should have 1.2rem when passed via height prop", () => {
         const { IconContainer } = setup({
           height: "spacing12"
         });
   
-        expect(IconContainer).toHaveStyleRule("height", "1.2rem", {
-          modifier: "& > *"
-        });
+        expect(IconContainer).toHaveStyleRule("height", "1.2rem");
       });
 
       test("should have 2.4rem when passed via height prop", () => {
@@ -27,9 +31,7 @@ describe("atoms / Icon", () => {
           height: "spacing24"
         });
   
-        expect(IconContainer).toHaveStyleRule("height", "2.4rem", {
-          modifier: "& > *"
-        });
+        expect(IconContainer).toHaveStyleRule("height", "2.4rem");
       });
     });
 
@@ -37,9 +39,7 @@ describe("atoms / Icon", () => {
       test("should have auto by default", () => {
         const { IconContainer } = setup();
   
-        expect(IconContainer).toHaveStyleRule("width", "auto", {
-          modifier: "& > *"
-        });
+        expect(IconContainer).toHaveStyleRule("width", "auto");
       });
 
       test("should have 2.4rem when passed via width prop", () => {
@@ -47,9 +47,7 @@ describe("atoms / Icon", () => {
           width: "spacing24"
         });
   
-        expect(IconContainer).toHaveStyleRule("width", "2.4rem", {
-          modifier: "& > *"
-        });
+        expect(IconContainer).toHaveStyleRule("width", "2.4rem");
       });
 
       test("should have 100% when passed via width prop", () => {
@@ -57,16 +55,14 @@ describe("atoms / Icon", () => {
           width: "100%"
         });
   
-        expect(IconContainer).toHaveStyleRule("width", "100%", {
-          modifier: "& > *"
-        });
+        expect(IconContainer).toHaveStyleRule("width", "100%");
       });
     });
 
     describe("animation", () => { 
       describe("when shouldDisplayGlowAnimation is true", () => {
         describe("animation-delay", () => {      
-          test("should have 0ms", () => {
+          test("should have 0ms by default", () => {
             const { IconContainer } = setup({
               shouldDisplayGlowAnimation: true
             });
@@ -75,15 +71,37 @@ describe("atoms / Icon", () => {
               modifier: "& > *"
             });
           });
+
+          test("should have 150ms when passed via animationDelay prop", () => {
+            const { IconContainer } = setup({
+              animationDelay: "150ms",
+              shouldDisplayGlowAnimation: true
+            });
+  
+            expect(IconContainer).toHaveStyleRule("animation-delay", "150ms", {
+              modifier: "& > *"
+            });
+          });
         });
   
         describe("animation-duration", () => {      
-          test("should have 900ms", () => {
+          test("should have 900ms by default", () => {
             const { IconContainer } = setup({
               shouldDisplayGlowAnimation: true
             });
   
             expect(IconContainer).toHaveStyleRule("animation-duration", "900ms", {
+              modifier: "& > *"
+            });
+          });
+
+          test("should have 300ms when passed via animationTime prop", () => {
+            const { IconContainer } = setup({
+              animationTime: "default",
+              shouldDisplayGlowAnimation: true
+            });
+  
+            expect(IconContainer).toHaveStyleRule("animation-duration", "300ms", {
               modifier: "& > *"
             });
           });
@@ -373,7 +391,6 @@ type IconTestProps = Partial<IconProps>;
 
 function setup(addedProps?: IconTestProps): Setup {
   const props: IconProps = {
-    height: "spacing12",
     iconName: "codeSandbox",
     ...addedProps
   };

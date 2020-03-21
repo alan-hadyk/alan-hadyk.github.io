@@ -13,8 +13,8 @@ import {
   NavItemProps,
   NavItemLinkProps,
   NavItemLineProps
-} from "<molecules>/__typings__/NavItem";
-import { ShuffleState } from "<hooks>/__typings__/useShuffleText";
+} from "<molecules>/__typings__/NavItem.d.ts";
+import { ShuffleState } from "<hooks>/__typings__/useShuffleText.d.ts";
 
 function NavItem({
   href,

@@ -7,7 +7,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
   PositionContainerProps
-} from "<layout>/__typings__/PositionContainer";
+} from "<layout>/__typings__/PositionContainer.d.ts";
 
 describe("layout / PositionContainer", () => {
   test("should render children", () => {
@@ -66,7 +66,7 @@ describe("layout / PositionContainer", () => {
         expect(PositionContainer).toHaveStyleRule("height", "4.8rem");
       });
 
-      test("should have 50% by when passed via prop", () => {
+      test("should have 50% when passed via prop", () => {
         const { PositionContainer } = setup({
           height: "50%"
         });
@@ -74,7 +74,7 @@ describe("layout / PositionContainer", () => {
         expect(PositionContainer).toHaveStyleRule("height", "50%");
       });
   
-      test("should have 100% by when passed via prop", () => {
+      test("should have 100% when passed via prop", () => {
         const { PositionContainer } = setup({
           height: "100%"
         });
@@ -248,6 +248,38 @@ describe("layout / PositionContainer", () => {
         });
   
         expect(PositionContainer).toHaveStyleRule("transform", "translateY(75%)");
+      });
+    });
+
+    describe("width", () => {      
+      test("should have auto by default", () => {
+        const { PositionContainer } = setup();
+  
+        expect(PositionContainer).toHaveStyleRule("width", "auto");
+      });
+  
+      test("should have correct value when passed via spacing value in prop", () => {
+        const { PositionContainer } = setup({
+          width: "spacing48"
+        });
+  
+        expect(PositionContainer).toHaveStyleRule("width", "4.8rem");
+      });
+
+      test("should have 50% when passed via prop", () => {
+        const { PositionContainer } = setup({
+          width: "50%"
+        });
+  
+        expect(PositionContainer).toHaveStyleRule("width", "50%");
+      });
+  
+      test("should have 100% when passed via prop", () => {
+        const { PositionContainer } = setup({
+          width: "100%"
+        });
+  
+        expect(PositionContainer).toHaveStyleRule("width", "100%");
       });
     });
 

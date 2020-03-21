@@ -35,6 +35,7 @@ declare module "styled-components" {
       font20: string;
       font24: string;
       font28: string;
+      font64: string;
       font72: string;
     };
 
@@ -57,12 +58,14 @@ declare module "styled-components" {
       spacing12: string;
       spacing16: string;
       spacing24: string;
+      spacing28: string;
       spacing32: string;
       spacing36: string;
       spacing40: string;
       spacing48: string;
       spacing56: string;
       spacing60: string;
+      spacing64: string;
       spacing72: string;
       spacing80: string;
       spacing96: string;
@@ -70,11 +73,13 @@ declare module "styled-components" {
       spacing184: string;
       spacing220: string;
       spacing240: string;
+      spacing248: string;
     };
 
     transitionTimes: {
       default: string;
       fast: string;
+      instant: string;
       slow: string;
       superSlow: string;
       verySlow: string;

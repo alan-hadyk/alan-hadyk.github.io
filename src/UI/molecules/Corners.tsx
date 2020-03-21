@@ -2,8 +2,8 @@ import React, { memo, Fragment } from "react";
 
 import Corner from "<atoms>/Corner";
 
-import { CornerProps } from "<atoms>/__typings__/Corner";
-import { CornersProps } from "<molecules>/__typings__/Corners";
+import { CornerProps } from "<atoms>/__typings__/Corner.d.ts";
+import { CornersProps } from "<molecules>/__typings__/Corners.d.ts";
 
 const positions: CornerProps[] = [{
   position: "topLeft"

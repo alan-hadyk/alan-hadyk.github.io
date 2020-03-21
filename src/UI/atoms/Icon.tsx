@@ -22,12 +22,12 @@ import {
   IconContainerProps,
   IconProps,
   SVGIcon
-} from "<atoms>/__typings__/Icon";
+} from "<atoms>/__typings__/Icon.d.ts";
 
 function Icon({
   animationDelay = "0ms",
   animationTime = "slow",
-  height,
+  height = "auto",
   iconName,
   shouldDisplayGlowAnimation = false,
   shouldGlowOnHover = false,
@@ -84,10 +84,10 @@ Icon.Container = styled.div<IconContainerProps>`
     },
     width
   }): FlattenSimpleInterpolation => css`
+    height: ${(height in spacing && spacing[height]) || height};
+    width: ${(width in spacing && spacing[width]) || width};
+
     & > * {
-      height: ${height in spacing && spacing[height]};
-      width: ${(width in spacing && spacing[width]) || width};
-  
       ${shouldDisplayGlowAnimation && css`
         animation-delay: ${animationDelay};
         animation-duration: ${transitionTimes[animationTime]};

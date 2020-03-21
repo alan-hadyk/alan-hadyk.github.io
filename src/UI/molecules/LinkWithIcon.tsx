@@ -3,7 +3,7 @@ import React, { memo } from "react";
 import Link from "<atoms>/Link";
 import Icon from "<atoms>/Icon";
 
-import { LinkWithIconProps } from "<molecules>/__typings__/LinkWithIcon";
+import { LinkWithIconProps } from "<molecules>/__typings__/LinkWithIcon.d.ts";
 
 function LinkWithIcon({
   height = "spacing48",

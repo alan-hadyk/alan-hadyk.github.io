@@ -7,7 +7,7 @@ import Text from "<atoms>/Text";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import { TextProps } from "<atoms>/__typings__/Text";
+import { TextProps } from "<atoms>/__typings__/Text.d.ts";
 
 jest.mock("<hooks>/useShuffleText");
 

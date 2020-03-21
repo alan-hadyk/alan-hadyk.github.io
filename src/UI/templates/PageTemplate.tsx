@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import { PageTemplateProps }  from "<templates>/__typings__/PageTemplate";
+import { PageTemplateProps }  from "<templates>/__typings__/PageTemplate.d.ts";
 
 const PageTemplate = ({ children }: PageTemplateProps): JSX.Element => (
   <PageTemplate.Container>

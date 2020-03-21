@@ -13,7 +13,7 @@ import useIntersectionObserver from "<hooks>/useIntersectionObserver";
 
 import {
   UseIntersectionObserver
-} from "<hooks>/__typings__/useIntersectionObserver";
+} from "<hooks>/__typings__/useIntersectionObserver.d.ts";
 
 describe("molecules / Nav", () => {
   test("should have correct structure", () => {

@@ -13,7 +13,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
   NavItemProps
-} from "<molecules>/__typings__/NavItem";
+} from "<molecules>/__typings__/NavItem.d.ts";
 
 describe("molecules / NavItem", () => {
   describe("NavItem.Link", () => {    

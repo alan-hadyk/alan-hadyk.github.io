@@ -2,8 +2,9 @@ import {
   ColorPalette,
   FontFamilies,
   FontSizes,
-  Spacing
-} from "<styles>/variables/__typings__/variables";
+  Spacing,
+  TransitionTimes
+} from "<styles>/variables/__typings__/variables.d.ts";
 
 export interface TextProps {
   children: string;

@@ -6,8 +6,8 @@ import useInterval from "<hooks>/useInterval";
 
 import transitionTimes from "<styles>/variables/transitionTimes";
 
-import { TextProps } from "<atoms>/__typings__/Text";
-import { ShuffleState } from "<hooks>/__typings__/useShuffleText";
+import { TextProps } from "<atoms>/__typings__/Text.d.ts";
+import { ShuffleState } from "<hooks>/__typings__/useShuffleText.d.ts";
 
 function Text({ 
   children, 

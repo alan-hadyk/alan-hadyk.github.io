@@ -5,7 +5,7 @@ import Text from "<atoms>/Text";
 
 import {
   SectionProps
-} from "<molecules>/__typings__/Section";
+} from "<molecules>/__typings__/Section.d.ts";
 
 function Section({
   children,
