@@ -7,14 +7,14 @@ export interface SpacingContainerProps {
   dataTestId?: string;
   height?: Spacing | string;
   id?: string;
-  marginBottom?: Spacing;
-  marginLeft?: Spacing;
-  marginRight?: Spacing;
-  marginTop?: Spacing;
+  marginBottom?: Spacing | string;
+  marginLeft?: Spacing | string;
+  marginRight?: Spacing | string;
+  marginTop?: Spacing | string;
   minHeight?: Spacing | "100vh";
-  paddingBottom?: Spacing;
-  paddingLeft?: Spacing;
-  paddingRight?: Spacing;
-  paddingTop?: Spacing;
+  paddingBottom?: Spacing | string;
+  paddingLeft?: Spacing | string;
+  paddingRight?: Spacing | string;
+  paddingTop?: Spacing | string;
   width?: string | Spacing;
 }

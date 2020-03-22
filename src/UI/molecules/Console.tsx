@@ -77,7 +77,7 @@ Console.Container = styled.div`
     box-shadow: 0px 0px ${spacing8} 0px ${blue100};
     height: 26.6vh;
     position: relative;
-    width: 100%;
+    width: 96vw;
   `}
 `;
 
@@ -99,6 +99,7 @@ Console.Text = styled.div`
     line-height: 7.4vh;
     text-align: center;
     text-transform: lowercase;
+    width: 100vw;
 
     &::after {
       animation-duration: ${transitionTimes.slow};

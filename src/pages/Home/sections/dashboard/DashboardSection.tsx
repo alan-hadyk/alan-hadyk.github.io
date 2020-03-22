@@ -4,6 +4,7 @@ import TechStack from "<pages>/Home/sections/dashboard/elements/TechStack";
 import Coords from "<pages>/Home/sections/dashboard/elements/Coords";
 import Flux from "<pages>/Home/sections/dashboard/elements/Flux";
 import Code from "<pages>/Home/sections/dashboard/elements/Code";
+import Fps from "<pages>/Home/sections/dashboard/elements/Fps";
 
 import Console from "<molecules>/Console";
 import Section from "<molecules>/Section";
@@ -20,14 +21,14 @@ const DashboardSection = (): JSX.Element => (
     <SpacingContainer
       dataTestId="DashboardSectionSpacingContainer"
       height={`calc(17vh + ${spacing.spacing36})`}
-      paddingTop="spacing24"
+      paddingTop="2.22vh"
     >
       <FlexContainer
         alignItems="flex-start"
         dataTestId="DashboardSectionFlexContainer"
         flexFlow="row nowrap"
         gap="spacing48"
-        height="spacing220"
+        height="100%"
         justifyContent="center"
       >
         <TechStack />
@@ -38,8 +39,8 @@ const DashboardSection = (): JSX.Element => (
     </SpacingContainer>
     <SpacingContainer
       dataTestId="DashboardSectionSpacingContainer"
-      marginTop="spacing56"
-      marginBottom="spacing40"
+      marginTop="5.18vh"
+      marginBottom="3.70vh"
     >
       <FlexContainer
         alignItems="center"
@@ -48,6 +49,21 @@ const DashboardSection = (): JSX.Element => (
         justifyContent="center"
       >
         <Console />
+      </FlexContainer>
+    </SpacingContainer>
+    <SpacingContainer
+      dataTestId="DashboardSectionSpacingContainer"
+      height={`calc(22.6vh + ${spacing.spacing36})`}
+    >
+      <FlexContainer
+        alignItems="flex-start"
+        dataTestId="DashboardSectionFlexContainer"
+        flexFlow="row nowrap"
+        gap="spacing48"
+        height="100%"
+        justifyContent="center"
+      >
+        <Fps />
       </FlexContainer>
     </SpacingContainer>
   </Section>
