@@ -82,7 +82,7 @@ describe("layout / PositionContainer", () => {
         expect(PositionContainer).toHaveStyleRule("height", "100%");
       });
 
-      test("should have 22.6vh by when passed via prop", () => {
+      test("should have 22.6vh when passed via prop", () => {
         const { PositionContainer } = setup({
           height: "22.6vh"
         });

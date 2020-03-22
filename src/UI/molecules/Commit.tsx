@@ -9,56 +9,53 @@ import Link from "<atoms>/Link";
 
 import {
   CommitProps
-} from "<molecules>/__typings__/Commit";
+} from "<molecules>/__typings__/Commit.d.ts";
 
-function Commit({
+const Commit = ({
   date,
   delay,
   htmlUrl,
   sha
-}: CommitProps): JSX.Element {
-  return (
-    <Commit.Container
-      data-testid="Commit"
+}: CommitProps): JSX.Element => (
+  <Commit.Container
+    data-testid="Commit"
+  >
+    <SpacingContainer
+      dataTestId="CommitSpacingContainer"
+      paddingTop="spacing4"
+      paddingBottom="spacing4"
     >
-      <SpacingContainer
-        dataTestId="CommitSpacingContainer"
-        paddingTop="spacing4"
-        paddingBottom="spacing4"
+      <FlexContainer
+        alignItems="center"
+        dataTestId="CommitFlexContainer"
+        gap="spacing24"
+        flexFlow="row nowrap"
+        justifyContent="center"
       >
-        <FlexContainer
-          alignItems="center"
-          dataTestId="CommitFlexContainer"
-          gap="spacing24"
-          flexFlow="row wrap"
-          justifyContent="center"
+        <Link 
+          // eslint-disable-next-line @typescript-eslint/camelcase
+          href={htmlUrl}
+          isExternal={true}
         >
-          <Link 
-            // eslint-disable-next-line @typescript-eslint/camelcase
-            href={htmlUrl}
-            isExternal={true}
-          >
-            <Text
-              color="blue100"
-              fontSize="font8"
-              shouldShuffle={true}
-              shouldShuffleOnHover={true}
-              shuffleDelay={delay}
-              textTransform="uppercase"
-            >
-              {sha}
-            </Text>
-          </Link>
           <Text
+            color="blue100"
             fontSize="font8"
+            shouldShuffle={true}
+            shuffleDelay={delay}
+            textTransform="uppercase"
           >
-            {date}
+            {sha}
           </Text>
-        </FlexContainer>
-      </SpacingContainer>
-    </Commit.Container>
-  );
-}
+        </Link>
+        <Text
+          fontSize="font8"
+        >
+          {date}
+        </Text>
+      </FlexContainer>
+    </SpacingContainer>
+  </Commit.Container>
+);
 
 Commit.Container = styled.div`
   ${({
@@ -70,7 +67,7 @@ Commit.Container = styled.div`
     border-top: 1px solid ${blue400};
     display: none;
 
-    @media(min-height: 800px)  {
+    @media (min-height: 800px)  {
       height: 2.26vh;
 
       &:nth-child(-n+10) {
@@ -78,7 +75,7 @@ Commit.Container = styled.div`
       }
     }
 
-    @media(min-height: 399px) and (max-height: 799px) {
+    @media (min-height: 401px) and (max-height: 799px) {
       height: 4.52vh;
 
       &:nth-child(-n+5) {
@@ -86,7 +83,7 @@ Commit.Container = styled.div`
       }
     }
 
-    @media(max-height: 400px) {
+    @media (max-height: 400px) {
       height: 7.53vh;
 
       &:nth-child(-n+3) {

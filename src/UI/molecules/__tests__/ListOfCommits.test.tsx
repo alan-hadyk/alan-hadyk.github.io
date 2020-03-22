@@ -7,32 +7,36 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
   ListOfCommitsProps
-} from "<molecules>/__typings__/ListOfCommits";
+} from "<molecules>/__typings__/ListOfCommits.d.ts";
 
 describe("molecules / ListOfCommits", () => {
   test("should have correct structure if has no error", () => {
-    const { 
+    const {
       Commits,
+      Error,
       ListOfCommitsWrapper
     } = setup();
 
     expect(ListOfCommitsWrapper.children[0]).toEqual(Commits[0]);
     expect(ListOfCommitsWrapper.children[1]).toEqual(Commits[1]);
+    expect(Error).toBeFalsy();
   });
 
   test("should have correct structure if has an error", () => {
-    const { 
-      CommitsError,
+    const {
+      Error,
+      FlexContainer,
       IconWarning,
       Texts
     } = setup({ hasError: true });
 
-    expect(CommitsError.children[0]).toEqual(IconWarning);
-    expect(CommitsError.children[1]).toEqual(Texts[0]);
-    expect(CommitsError.children[2]).toEqual(Texts[1]);
+    expect(Error.children[0]).toEqual(FlexContainer);
+    expect(Error.children[0].children[0]).toEqual(IconWarning);
+    expect(Error.children[0].children[1]).toEqual(Texts[0]);
+    expect(Error.children[0].children[2]).toEqual(Texts[1]);
   });
 
-  describe("Commit", () => { 
+  describe("Commit", () => {
     test("should render", () => {
       const { Commits } = setup();
 
@@ -88,7 +92,7 @@ describe("molecules / ListOfCommits", () => {
       const { Commits } = setup({ commitsList });
 
       expect(Commits.length).toEqual(2);
-    });   
+    });
 
     test("should render number of singular commits equal to length of commits list array - 4 items", () => {
       const commitsList = [
@@ -139,7 +143,67 @@ describe("molecules / ListOfCommits", () => {
       expect(Commits.length).toEqual(4);
     });
 
-    test("should render each commit with sha, date and correct link", () => {
+    test("should render each commit with sha", () => {
+      const commitsList = [
+        {
+          commit: {
+            author: {
+              date: "2020-03-15T14:58:16Z"
+            }
+          },
+          // eslint-disable-next-line @typescript-eslint/camelcase
+          html_url: "https://github.com/alan-hadyk/portfolio/commit/6f05bb91f454878edcb0f0e30e39501d39b46e4f",
+          sha: "6f05bb91f454878edcb0f0e30e39501d39b46e4f"
+        },
+        {
+          commit: {
+            author: {
+              date: "2020-03-14T16:05:26Z"
+            }
+          },
+          // eslint-disable-next-line @typescript-eslint/camelcase
+          html_url: "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c5",
+          sha: "b18b6616d0da725d49decc1b1f63c3322ca9c3c5"
+        }
+      ];
+
+      const { Commits } = setup({ commitsList });
+
+      expect(Commits[0].children[0].children[0].children[0].textContent).toEqual(commitsList[0].sha);
+      expect(Commits[1].children[0].children[0].children[0].textContent).toEqual(commitsList[1].sha);
+    });
+
+    test("should render each commit with date", () => {
+      const commitsList = [
+        {
+          commit: {
+            author: {
+              date: "2020-03-15T14:58:16Z"
+            }
+          },
+          // eslint-disable-next-line @typescript-eslint/camelcase
+          html_url: "https://github.com/alan-hadyk/portfolio/commit/6f05bb91f454878edcb0f0e30e39501d39b46e4f",
+          sha: "6f05bb91f454878edcb0f0e30e39501d39b46e4f"
+        },
+        {
+          commit: {
+            author: {
+              date: "2020-03-14T16:05:26Z"
+            }
+          },
+          // eslint-disable-next-line @typescript-eslint/camelcase
+          html_url: "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c5",
+          sha: "b18b6616d0da725d49decc1b1f63c3322ca9c3c5"
+        }
+      ];
+
+      const { Commits } = setup({ commitsList });
+
+      expect(Commits[0].children[0].children[0].children[1].textContent).toEqual(commitsList[0].commit.author.date);
+      expect(Commits[1].children[0].children[0].children[1].textContent).toEqual(commitsList[1].commit.author.date);
+    });
+
+    test("should render each commit with url", () => {
       const commitsList = [
         {
           commit: {
@@ -166,18 +230,13 @@ describe("molecules / ListOfCommits", () => {
       const { Commits } = setup({ commitsList });
 
       expect(Commits[0].children[0].children[0].children[0].getAttribute("href")).toEqual(commitsList[0].html_url);
-      expect(Commits[0].children[0].children[0].children[0].textContent).toEqual(commitsList[0].sha);
-      expect(Commits[0].children[0].children[0].children[1].textContent).toEqual(commitsList[0].commit.author.date);
-    
       expect(Commits[1].children[0].children[0].children[0].getAttribute("href")).toEqual(commitsList[1].html_url);
-      expect(Commits[1].children[0].children[0].children[0].textContent).toEqual(commitsList[1].sha);
-      expect(Commits[1].children[0].children[0].children[1].textContent).toEqual(commitsList[1].commit.author.date);
     });
   });
 
-  describe("ListOfCommits", () => {    
+  describe("ListOfCommits", () => {
     describe("Props", () => {
-      describe("align-items", () => { 
+      describe("alignItems", () => {
         test("should have flex-start", () => {
           const { ListOfCommitsWrapper } = setup();
 
@@ -185,7 +244,7 @@ describe("molecules / ListOfCommits", () => {
         });
       });
 
-      describe("justify-content", () => { 
+      describe("justifyContent", () => {
         test("should have flex-start", () => {
           const { ListOfCommitsWrapper } = setup();
 
@@ -193,7 +252,7 @@ describe("molecules / ListOfCommits", () => {
         });
       });
 
-      describe("flex-flow", () => { 
+      describe("flexFlow", () => {
         test("should have column nowrap", () => {
           const { ListOfCommitsWrapper } = setup();
 
@@ -203,132 +262,30 @@ describe("molecules / ListOfCommits", () => {
     });
   });
 
-  describe("CommitsError", () => {    
+  describe("Error", () => {
     describe("Props", () => {
-      describe("align-items", () => { 
-        test("should have center", () => {
-          const { CommitsError } = setup({ hasError: true });
+      describe("title", () => {
+        test("should have Error", () => {
+          const { Error } = setup({ hasError: true });
 
-          expect(CommitsError).toHaveStyleRule("align-items", "center");
+          expect(Error.children[0].children[1].textContent).toEqual("Error");
         });
       });
 
-      describe("justify-content", () => { 
-        test("should have center", () => {
-          const { CommitsError } = setup({ hasError: true });
+      describe("description", () => {
+        test("should have Github API is offline", () => {
+          const { Error } = setup({ hasError: true });
 
-          expect(CommitsError).toHaveStyleRule("justify-content", "center");
-        });
-      });
-
-      describe("height", () => { 
-        test("should have 100%", () => {
-          const { CommitsError } = setup({ hasError: true });
-
-          expect(CommitsError).toHaveStyleRule("height", "100%");
-        });
-      });
-
-      describe("flex-flow", () => { 
-        test("should have column nowrap", () => {
-          const { CommitsError } = setup({ hasError: true });
-
-          expect(CommitsError).toHaveStyleRule("flex-flow", "column nowrap");
-        });
-      });
-    });
-  });
-
-  describe("IconWarning", () => {
-    test("should render correct SVG", () => {
-      const { IconWarning } = setup({ hasError: true });
-
-      expect(IconWarning.textContent).toEqual("Icon-Warning.svg");
-    });
-  });
-
-  describe("Texts", () => {    
-    describe("Text[0]", () => {
-      test("text should have correct content", () => {
-        const { Texts } = setup({ hasError: true });
-  
-        expect(Texts[0].textContent).toEqual("Error");
-      });
-
-      describe("Props", () => {
-        describe("font-family", () => {
-          test("should have 'Anonymous Pro',monospace", () => {
-            const { Texts } = setup({ hasError: true });
-      
-            expect(Texts[0]).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
-          });
-        });
-
-        describe("font-size", () => {
-          test("should have 24px", () => {
-            const { Texts } = setup({ hasError: true });
-      
-            expect(Texts[0]).toHaveStyleRule("font-size", "24px");
-          });
-        });
-
-        describe("padding-top", () => {
-          test("should have 1.2rem", () => {
-            const { Texts } = setup({ hasError: true });
-      
-            expect(Texts[0]).toHaveStyleRule("padding-top", "1.2rem");
-          });
-        });
-
-        describe("text-transform", () => {
-          test("should have uppercase", () => {
-            const { Texts } = setup({ hasError: true });
-      
-            expect(Texts[0]).toHaveStyleRule("text-transform", "uppercase");
-          });
+          expect(Error.children[0].children[2].textContent).toEqual("Github API is offline");
         });
       });
     });
 
-    describe("Text[1]", () => {
-      test("text should have correct content", () => {
-        const { Texts } = setup({ hasError: true });
-  
-        expect(Texts[1].textContent).toEqual("Github API is offline");
-      });
+    describe("IconWarning", () => {
+      test("should render correct SVG", () => {
+        const { Error } = setup({ hasError: true });
 
-      describe("Props", () => {
-        describe("font-family", () => {
-          test("should have 'Anonymous Pro',monospace", () => {
-            const { Texts } = setup({ hasError: true });
-      
-            expect(Texts[1]).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
-          });
-        });
-
-        describe("font-size", () => {
-          test("should have 16px", () => {
-            const { Texts } = setup({ hasError: true });
-      
-            expect(Texts[1]).toHaveStyleRule("font-size", "16px");
-          });
-        });
-
-        describe("padding-top", () => {
-          test("should have 1.2rem", () => {
-            const { Texts } = setup({ hasError: true });
-      
-            expect(Texts[1]).toHaveStyleRule("padding-top", "1.2rem");
-          });
-        });
-
-        describe("text-transform", () => {
-          test("should have uppercase", () => {
-            const { Texts } = setup({ hasError: true });
-      
-            expect(Texts[1]).toHaveStyleRule("text-transform", "uppercase");
-          });
-        });
+        expect(Error.children[0].children[0].textContent).toEqual("Icon-Warning.svg");
       });
     });
   });
@@ -336,7 +293,8 @@ describe("molecules / ListOfCommits", () => {
 
 interface Setup extends RenderResult {
   Commits: Element[];
-  CommitsError: Element;
+  Error: Element;
+  FlexContainer: Element;
   IconWarning: SVGSVGElement;
   ListOfCommitsWrapper: Element;
   Texts: Element[];
@@ -381,14 +339,16 @@ function setup(addedProps?: ListOfCommitsTestProps): Setup {
 
   const Commits: Element[] = queryAllByTestId("Commit");
   const ListOfCommitsWrapper: Element = queryByTestId("ListOfCommits");
-  const CommitsError: Element = queryByTestId("CommitsError");
+  const Error: Element = queryByTestId("Error");
+  const FlexContainer: Element = queryByTestId("FlexContainer");
   const IconWarning: SVGSVGElement = document.querySelector("svg");
   const Texts: Element[] = queryAllByTestId("Text");
 
   return {
     ...utils,
     Commits,
-    CommitsError,
+    Error,
+    FlexContainer,
     IconWarning,
     ListOfCommitsWrapper,
     Texts

@@ -21,7 +21,8 @@ export interface IconProps {
     "logo" |
     "codeSandbox" |
     "gitHub" |
-    "linkedIn";
+    "linkedIn" |
+    "warning";
   shouldDisplayGlowAnimation?: boolean;
   shouldGlowOnHover?: boolean;
   width?: string | Spacing;

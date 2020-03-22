@@ -2,20 +2,23 @@ import React, { memo, Fragment } from "react";
 
 import FlexContainer from "<layout>/FlexContainer";
 
-import Text from "<atoms>/Text";
 import Commit from "<molecules>/Commit";
-
-import { ReactComponent as IconWarning } from "<assets>/svg/Icon-Warning.svg";
+import Error from "<molecules>/Error";
 
 import {
   ListOfCommitsProps,
   CommitProps
-} from "<molecules>/__typings__/ListOfCommits";
+} from "<molecules>/__typings__/ListOfCommits.d.ts";
 
-import _ from "lodash";
+import isEmpty from "lodash/isEmpty";
 
 function ListOfCommits({ commitsList, hasError }: ListOfCommitsProps): JSX.Element {
-  return hasError ? renderError() : renderCommits();
+  return hasError ? (
+    <Error
+      title="Error"
+      description="Github API is offline"
+    />
+  ) : renderCommits();
 
   function renderCommits(): JSX.Element {
     return (
@@ -26,7 +29,7 @@ function ListOfCommits({ commitsList, hasError }: ListOfCommitsProps): JSX.Eleme
         justifyContent="flex-start"
       >
         <Fragment>
-          {!_.isEmpty(commitsList) && commitsList.map(({
+          {!isEmpty(commitsList) && commitsList.map(({
             commit,
             // eslint-disable-next-line @typescript-eslint/camelcase
             html_url,
@@ -48,34 +51,6 @@ function ListOfCommits({ commitsList, hasError }: ListOfCommitsProps): JSX.Eleme
             );
           })}
         </Fragment>
-      </FlexContainer>
-    );
-  }
-
-  function renderError(): JSX.Element { 
-    return (
-      <FlexContainer
-        alignItems="center"
-        dataTestId="CommitsError"
-        height="100%"
-        flexFlow="column nowrap"
-        justifyContent="center"
-      >
-        <IconWarning />
-        <Text
-          fontSize="font24"
-          paddingTop="spacing12"
-          textTransform="uppercase"
-        >
-          Error
-        </Text>
-        <Text
-          fontSize="font16"
-          paddingTop="spacing12"
-          textTransform="uppercase"
-        >
-          Github API is offline
-        </Text>
       </FlexContainer>
     );
   }

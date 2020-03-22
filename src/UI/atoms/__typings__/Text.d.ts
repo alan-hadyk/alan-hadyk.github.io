@@ -2,8 +2,8 @@ import {
   ColorPalette,
   FontFamilies,
   FontSizes,
-  Spacing,
-  TransitionTimes
+  FontWeights,
+  Spacing
 } from "<styles>/variables/__typings__/variables.d.ts";
 
 export interface TextProps {
@@ -11,6 +11,7 @@ export interface TextProps {
   color?: ColorPalette;
   fontFamily?: FontFamilies;
   fontSize?: FontSizes;
+  fontWeight?: FontWeights;
   lineHeight?: Spacing | "1";
   paddingBottom?: Spacing;
   paddingLeft?: Spacing;

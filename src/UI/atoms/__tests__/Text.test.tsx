@@ -267,6 +267,7 @@ describe("atoms / Text", () => {
       jest.advanceTimersByTime(10);
 
       expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
+      jest.clearAllTimers();
     });
 
     test("should fire shuffleText.start in intervals if shouldShuffle: true (3600ms by default)", () => {

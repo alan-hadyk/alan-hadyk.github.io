@@ -37,9 +37,9 @@ jest.mock("<state>/withCommitsState", () => (WrappedComponent: React.FunctionCom
 
 describe("pages / Home / sections / dashboard / DashboardSection", () => {
   test("should have correct structure", () => {
-    const { 
-      Commits,
+    const {
       Code,
+      Commits,
       Console,
       Coords,
       FlexContainers,
@@ -65,7 +65,7 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
     expect(FlexContainers[2].children[0]).toEqual(Commits);
   });
 
-  describe("Section", () => {    
+  describe("Section", () => {
     describe("Props", () => {
       describe("id", () => {
         test("should equal dashboard", () => {
@@ -85,39 +85,38 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
     });
   });
 
-  describe("SpacingContainers", () => {    
-    describe("SpacingContainers[0]", () => {    
+  describe("SpacingContainers", () => {
+    describe("SpacingContainers[0]", () => {
       describe("Props", () => {
-        describe("paddingTop", () => {      
+        describe("paddingTop", () => {
           test("should have 2.4rem", () => {
             const { SpacingContainers } = setup();
 
             expect(SpacingContainers[0]).toHaveStyleRule("padding-top", "2.4rem");
           });
         });
-        
-        describe("height", () => {      
+
+        describe("height", () => {
           test("should have calc(17vh + 3.6rem)", () => {
             const { SpacingContainers } = setup();
 
             expect(SpacingContainers[0]).toHaveStyleRule("height", "calc(17vh + 3.6rem)");
           });
         });
-      
       });
     });
 
-    describe("SpacingContainers[1]", () => {    
+    describe("SpacingContainers[1]", () => {
       describe("Props", () => {
-        describe("marginTop", () => {      
+        describe("marginTop", () => {
           test("should have 5.6rem", () => {
             const { SpacingContainers } = setup();
 
             expect(SpacingContainers[1]).toHaveStyleRule("margin-top", "5.6rem");
           });
         });
-        
-        describe("marginBottom", () => {      
+
+        describe("marginBottom", () => {
           test("should have 4rem", () => {
             const { SpacingContainers } = setup();
 
@@ -129,32 +128,32 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
 
     describe("SpacingContainers[2]", () => {
       describe("Props", () => {
-        describe("paddingTop", () => {      
-          test("should have 4.8rem", () => {
+        describe("height", () => {
+          test("should have calc(22.6vh + 3.6rem)", () => {
             const { SpacingContainers } = setup();
 
-            expect(SpacingContainers[2]).toHaveStyleRule("padding-top", "4.8rem");
+            expect(SpacingContainers[2]).toHaveStyleRule("height", "calc(22.6vh + 3.6rem)");
           });
         });
       });
     });
   });
 
-  describe("FlexContainers", () => {    
-    describe("FlexContainers[0]", () => {    
+  describe("FlexContainers", () => {
+    describe("FlexContainers[0]", () => {
       describe("Props", () => {
-        describe("align-items", () => {      
+        describe("align-items", () => {
           test("should have flex-start", () => {
             const { FlexContainers } = setup();
-      
+
             expect(FlexContainers[0]).toHaveStyleRule("align-items", "flex-start");
           });
         });
 
-        describe("flex-flow", () => {      
+        describe("flex-flow", () => {
           test("should have row nowrap", () => {
             const { FlexContainers } = setup();
-      
+
             expect(FlexContainers[0]).toHaveStyleRule("flex-flow", "row nowrap");
           });
         });
@@ -166,9 +165,7 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
             expect(FlexContainers[0]).toHaveStyleRule("padding-left", "4.8rem", {
               modifier: "& > *"
             });
-            expect(FlexContainers[0]).toHaveStyleRule("padding-left", "0", {
-              modifier: "& > *:first-child"
-            });
+
           });
         });
 
@@ -180,38 +177,38 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
           });
         });
 
-        describe("justify-content", () => {      
+        describe("justify-content", () => {
           test("should have center", () => {
             const { FlexContainers } = setup();
-      
+
             expect(FlexContainers[0]).toHaveStyleRule("justify-content", "center");
           });
         });
       });
     });
 
-    describe("FlexContainers[1]", () => {    
+    describe("FlexContainers[1]", () => {
       describe("Props", () => {
-        describe("align-items", () => {      
+        describe("align-items", () => {
           test("should have center", () => {
             const { FlexContainers } = setup();
-      
+
             expect(FlexContainers[1]).toHaveStyleRule("align-items", "center");
           });
         });
 
-        describe("flex-flow", () => {      
+        describe("flex-flow", () => {
           test("should have row nowrap", () => {
             const { FlexContainers } = setup();
-      
+
             expect(FlexContainers[1]).toHaveStyleRule("flex-flow", "row nowrap");
           });
         });
 
-        describe("justify-content", () => {      
+        describe("justify-content", () => {
           test("should have center", () => {
             const { FlexContainers } = setup();
-      
+
             expect(FlexContainers[1]).toHaveStyleRule("justify-content", "center");
           });
         });
@@ -220,26 +217,26 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
 
     describe("FlexContainers[2]", () => {
       describe("Props", () => {
-        describe("align-items", () => {      
+        describe("alignItems", () => {
           test("should have flex-start", () => {
             const { FlexContainers } = setup();
-      
+
             expect(FlexContainers[2]).toHaveStyleRule("align-items", "flex-start");
           });
         });
-  
-        describe("flex-flow", () => {      
+
+        describe("flexFlow", () => {
           test("should have row nowrap", () => {
             const { FlexContainers } = setup();
-      
+
             expect(FlexContainers[2]).toHaveStyleRule("flex-flow", "row nowrap");
           });
         });
-  
+
         describe("gap", () => {
           test("should have row 4.8rem", () => {
             const { FlexContainers } = setup();
-  
+
             expect(FlexContainers[2]).toHaveStyleRule("padding-left", "4.8rem", {
               modifier: "& > *"
             });
@@ -248,21 +245,49 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
             });
           });
         });
-  
+
         describe("height", () => {
           test("should have 22rem", () => {
             const { FlexContainers } = setup();
-  
-            expect(FlexContainers[2]).toHaveStyleRule("height", "22rem");
+
+            expect(FlexContainers[2]).toHaveStyleRule("height", "100%");
           });
         });
-  
-        describe("justify-content", () => {      
+
+        describe("justifyContent", () => {
           test("should have center", () => {
             const { FlexContainers } = setup();
-      
+
             expect(FlexContainers[2]).toHaveStyleRule("justify-content", "center");
           });
+        });
+      });
+    });
+  });
+
+  describe("Commits", () => {
+    describe("Props", () => {
+      describe("childrenHeight", () => {
+        test("should have 22.6vh", () => {
+          const { Commits } = setup();
+
+          expect(Commits.children[1]).toHaveStyleRule("height", "22.6vh");
+        });
+      });
+
+      describe("flex", () => {
+        test("should have 0 1 20%", () => {
+          const { Commits } = setup();
+
+          expect(Commits).toHaveStyleRule("flex", "0 1 20%");
+        });
+      });
+
+      describe("title", () => {
+        test("should render Commits", () => {
+          const { Commits } = setup();
+
+          expect(Commits.children[0].textContent).toEqual("Commits");
         });
       });
     });

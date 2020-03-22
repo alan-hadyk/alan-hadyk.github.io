@@ -124,9 +124,8 @@ describe("hooks / useShuffleText", () => {
       
       jest.advanceTimersByTime(10);
 
-      jest.advanceTimersByTime(10);
-
       expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
+      jest.clearAllTimers();
     });
 
     test("should fire with a given delay", () => {

@@ -11,7 +11,7 @@ import {
 
 describe("pages / Home / sections / dashboard / elements / Commits", () => {
   test("should have correct structure if has no error", () => {
-    const { 
+    const {
       DashboardElement,
       ListOfCommits
     } = setup();
@@ -20,12 +20,12 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
   });
 
   test("should have correct structure if has an error", () => {
-    const { 
-      CommitsError,
+    const {
+      Error,
       DashboardElement
     } = setup({ hasError: true });
 
-    expect(DashboardElement.children[1].children[4].children[0].children[0]).toEqual(CommitsError);
+    expect(DashboardElement.children[1].children[4].children[0].children[0]).toEqual(Error);
   });
 
   describe("DashboardElement", () => {
@@ -33,7 +33,7 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
       describe("flex", () => {
         test("should have 0 1 20%", () => {
           const { DashboardElement } = setup();
-      
+
           expect(DashboardElement).toHaveStyleRule("flex", "0 1 20%");
         });
       });
@@ -41,15 +41,39 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
       describe("childrenHeight", () => {
         test("should have 22.6vh", () => {
           const { DashboardElement } = setup();
-      
+
           expect(DashboardElement.children[1]).toHaveStyleRule("height", "22.6vh");
+        });
+      });
+
+      describe("shouldDisplayCorners", () => {
+        test("should render corners if has an error", () => {
+          const { Corners, DashboardElement } = setup({
+            hasError: true
+          });
+
+          expect(DashboardElement.children[1].children[0]).toEqual(Corners[0]);
+          expect(DashboardElement.children[1].children[1]).toEqual(Corners[1]);
+          expect(DashboardElement.children[1].children[2]).toEqual(Corners[2]);
+          expect(DashboardElement.children[1].children[3]).toEqual(Corners[3]);
+        });
+
+        test("should not render corners if has no error", () => {
+          const { Corners } = setup({
+            hasError: false
+          });
+
+          expect(Corners[0]).toBeFalsy();
+          expect(Corners[1]).toBeFalsy();
+          expect(Corners[2]).toBeFalsy();
+          expect(Corners[3]).toBeFalsy();
         });
       });
 
       describe("title", () => {
         test("should render Commits", () => {
           const { DashboardElement } = setup();
-      
+
           expect(DashboardElement.children[0].textContent).toEqual("Commits");
         });
       });
@@ -59,7 +83,7 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
   describe("ListOfCommits", () => {
     test("should render", () => {
       const { ListOfCommits } = setup();
-        
+
       expect(ListOfCommits).toHaveStyleRule("align-items", "flex-start");
       expect(ListOfCommits).toHaveStyleRule("flex-flow", "column nowrap");
       expect(ListOfCommits).toHaveStyleRule("justify-content", "flex-start");
@@ -145,7 +169,67 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
           expect(ListOfCommits.childElementCount).toEqual(4);
         });
 
-        test("should render each commit with sha, date and correct link", () => {
+        test("should render each commit with sha", () => {
+          const commitsList = [
+            {
+              commit: {
+                author: {
+                  date: "2020-03-15T14:58:16Z"
+                }
+              },
+              // eslint-disable-next-line @typescript-eslint/camelcase
+              html_url: "https://github.com/alan-hadyk/portfolio/commit/6f05bb91f454878edcb0f0e30e39501d39b46e4f",
+              sha: "6f05bb91f454878edcb0f0e30e39501d39b46e4f"
+            },
+            {
+              commit: {
+                author: {
+                  date: "2020-03-14T16:05:26Z"
+                }
+              },
+              // eslint-disable-next-line @typescript-eslint/camelcase
+              html_url: "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c5",
+              sha: "b18b6616d0da725d49decc1b1f63c3322ca9c3c5"
+            }
+          ];
+
+          const { ListOfCommits } = setup({ commitsList });
+
+          expect(ListOfCommits.children[0].children[0].children[0].children[0].textContent).toEqual(commitsList[0].sha);
+          expect(ListOfCommits.children[1].children[0].children[0].children[0].textContent).toEqual(commitsList[1].sha);
+        });
+
+        test("should render each commit with date", () => {
+          const commitsList = [
+            {
+              commit: {
+                author: {
+                  date: "2020-03-15T14:58:16Z"
+                }
+              },
+              // eslint-disable-next-line @typescript-eslint/camelcase
+              html_url: "https://github.com/alan-hadyk/portfolio/commit/6f05bb91f454878edcb0f0e30e39501d39b46e4f",
+              sha: "6f05bb91f454878edcb0f0e30e39501d39b46e4f"
+            },
+            {
+              commit: {
+                author: {
+                  date: "2020-03-14T16:05:26Z"
+                }
+              },
+              // eslint-disable-next-line @typescript-eslint/camelcase
+              html_url: "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c5",
+              sha: "b18b6616d0da725d49decc1b1f63c3322ca9c3c5"
+            }
+          ];
+
+          const { ListOfCommits } = setup({ commitsList });
+
+          expect(ListOfCommits.children[0].children[0].children[0].children[1].textContent).toEqual(commitsList[0].commit.author.date);
+          expect(ListOfCommits.children[1].children[0].children[0].children[1].textContent).toEqual(commitsList[1].commit.author.date);
+        });
+
+        test("should render each commit with url", () => {
           const commitsList = [
             {
               commit: {
@@ -172,12 +256,30 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
           const { ListOfCommits } = setup({ commitsList });
 
           expect(ListOfCommits.children[0].children[0].children[0].children[0].getAttribute("href")).toEqual(commitsList[0].html_url);
-          expect(ListOfCommits.children[0].children[0].children[0].children[0].textContent).toEqual(commitsList[0].sha);
-          expect(ListOfCommits.children[0].children[0].children[0].children[1].textContent).toEqual(commitsList[0].commit.author.date);
-        
           expect(ListOfCommits.children[1].children[0].children[0].children[0].getAttribute("href")).toEqual(commitsList[1].html_url);
-          expect(ListOfCommits.children[1].children[0].children[0].children[0].textContent).toEqual(commitsList[1].sha);
-          expect(ListOfCommits.children[1].children[0].children[0].children[1].textContent).toEqual(commitsList[1].commit.author.date);
+        });
+      });
+
+      describe("hasError", () => {
+        test("should render CommitsError if hasError is true", () => {
+          const {
+            Error,
+            DashboardElement
+          } = setup({
+            hasError: true
+          });
+
+          expect(DashboardElement.children[1].children[4].children[0].children[0]).toEqual(Error);
+        });
+
+        test("should not render CommitsError if hasError is false", () => {
+          const {
+            Error
+          } = setup({
+            hasError: false
+          });
+
+          expect(Error).toBeFalsy();
         });
       });
     });
@@ -185,8 +287,9 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
 });
 
 interface Setup extends RenderResult {
-  CommitsError: Element;
+  Corners: Element[];
   DashboardElement: Element;
+  Error: Element;
   ListOfCommits: Element;
 }
 
@@ -215,12 +318,13 @@ function setup(addedProps?: ListOfCommitsTestProps): Setup {
     <Commits {...props} />
   );
 
-  const { container, queryByTestId } = utils || {};
+  const { queryByTestId, queryAllByTestId } = utils || {};
 
   return {
     ...utils,
-    CommitsError: queryByTestId("CommitsError"),
-    DashboardElement: container.children[0],
+    Corners: queryAllByTestId("Corner"),
+    DashboardElement: queryByTestId("Commits"),
+    Error: queryByTestId("Error"),
     ListOfCommits: queryByTestId("ListOfCommits")
   };
 }

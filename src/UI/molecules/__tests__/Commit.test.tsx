@@ -12,7 +12,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
   CommitProps
-} from "<molecules>/__typings__/Commit";
+} from "<molecules>/__typings__/Commit.d.ts";
 
 describe("molecules / Commit", () => {
   test("should have correct structure", () => {
@@ -77,7 +77,7 @@ describe("molecules / Commit", () => {
           const { CommitContainer } = setup();
 
           expect(CommitContainer).toHaveStyleRule("display", "flex", {
-            media: "(min-height: 399px) and (max-height: 799px)",
+            media: "(min-height: 401px) and (max-height: 799px)",
             modifier: ":nth-child(-n+5)"
           });
         });
@@ -105,7 +105,7 @@ describe("molecules / Commit", () => {
           const { CommitContainer } = setup();
 
           expect(CommitContainer).toHaveStyleRule("height", "4.52vh", {
-            media: "(min-height: 399px) and (max-height: 799px)"
+            media: "(min-height: 401px) and (max-height: 799px)"
           });
         });
 
@@ -121,8 +121,8 @@ describe("molecules / Commit", () => {
   });
 
   describe("CommitSpacingContainer", () => {    
-    describe("Styles", () => {
-      describe("padding-top", () => {      
+    describe("Props", () => {
+      describe("paddingTop", () => {      
         test("should have .4rem", () => {
           const { CommitSpacingContainer } = setup();
 
@@ -130,7 +130,7 @@ describe("molecules / Commit", () => {
         });
       });
 
-      describe("padding-bottom", () => {      
+      describe("paddingBottom", () => {      
         test("should have .4rem", () => {
           const { CommitSpacingContainer } = setup();
 
@@ -142,7 +142,7 @@ describe("molecules / Commit", () => {
 
   describe("CommitFlexContainer", () => {    
     describe("Props", () => {
-      describe("align-items", () => { 
+      describe("alignItems", () => { 
         test("should have center", () => {
           const { CommitFlexContainer } = setup();
 
@@ -150,7 +150,7 @@ describe("molecules / Commit", () => {
         });
       });
 
-      describe("justify-content", () => { 
+      describe("justifyContent", () => { 
         test("should have center", () => {
           const { CommitFlexContainer } = setup();
 
@@ -158,11 +158,11 @@ describe("molecules / Commit", () => {
         });
       });
 
-      describe("flex-flow", () => { 
-        test("should have row wrap", () => {
+      describe("flexFlow", () => { 
+        test("should have row nowrap", () => {
           const { CommitFlexContainer } = setup();
 
-          expect(CommitFlexContainer).toHaveStyleRule("flex-flow", "row wrap");
+          expect(CommitFlexContainer).toHaveStyleRule("flex-flow", "row nowrap");
         });
       });
 
@@ -172,6 +172,9 @@ describe("molecules / Commit", () => {
 
           expect(CommitFlexContainer).toHaveStyleRule("padding-left", "2.4rem", {
             modifier: "& > *"
+          });
+          expect(CommitFlexContainer).toHaveStyleRule("padding-left", "0", {
+            modifier: "& > *:first-child"
           });
         });
       });
@@ -205,7 +208,7 @@ describe("molecules / Commit", () => {
           });
         });
   
-        describe("font-size", () => {
+        describe("fontSize", () => {
           test("should have 8px", () => {
             const { Texts } = setup();
       
@@ -214,7 +217,7 @@ describe("molecules / Commit", () => {
         });
 
         describe("shouldShuffle", () => {
-          test("should trigger shuffleText.start in interval", () => {
+          test("should trigger shuffleText.start in intervals", () => {
             jest.spyOn(ShuffleText.prototype, "start");
             jest.useFakeTimers();
       
@@ -230,38 +233,22 @@ describe("molecules / Commit", () => {
       
             expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
       
-            jest.clearAllTimers();
-          });
-        });
-
-        describe("shouldShuffleOnHover", () => {
-          test("should trigger shuffleText.start on hover", () => {
-            jest.spyOn(ShuffleText.prototype, "start");
-            jest.useFakeTimers();
-      
-            setup();
-      
-            expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
-
-            const { Texts } = setup();
-      
-            act(() => {
-              fireEvent.mouseOver(Texts[0]);
-            });
-      
-            jest.advanceTimersByTime(10);
-      
-            expect(ShuffleText.prototype.start).toHaveBeenCalled();
             jest.clearAllTimers();
           });
         });
 
         describe("shuffleDelay", () => {
-          test("should trigger shuffleText.start with delay passed in props", () => {
+          test("should trigger shuffleText.start in intervals with 300ms delay", () => {
             jest.spyOn(ShuffleText.prototype, "start");
             jest.useFakeTimers();
       
-            setup();
+            setup({
+              delay: 300
+            });
+  
+            expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
+  
+            jest.advanceTimersByTime(300);
       
             expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
       
@@ -269,15 +256,31 @@ describe("molecules / Commit", () => {
       
             expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
       
+            jest.advanceTimersByTime(300);
+      
+            expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
+      
             jest.advanceTimersByTime(3600);
       
             expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
+      
+            jest.advanceTimersByTime(300);
+      
+            expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
+      
+            jest.advanceTimersByTime(3600);
+      
+            expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
+      
+            jest.advanceTimersByTime(300);
+      
+            expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
       
             jest.clearAllTimers();
           });
         });
 
-        describe("text-transform", () => {
+        describe("textTransform", () => {
           test("should have uppercase", () => {
             const { Texts } = setup();
       
@@ -313,7 +316,7 @@ describe("molecules / Commit", () => {
           });
         });
 
-        describe("font-size", () => {
+        describe("fontSize", () => {
           test("should have 8px", () => {
             const { Texts } = setup();
       
@@ -386,10 +389,9 @@ function setup(addedProps?: CommitTestProps): Setup {
     <Commit {...props} />
   );
 
-  const { queryAllByTestId } = utils || {};
+  const { queryAllByTestId }: RenderResult = utils;
 
-  const { container }: RenderResult = utils;
-  const CommitContainer: Element = container.children[0];
+  const CommitContainer: Element = queryAllByTestId("Commit")[0];
   const CommitFlexContainer: Element = queryAllByTestId("CommitFlexContainer")[0];
   const CommitSpacingContainer: Element = queryAllByTestId("CommitSpacingContainer")[0];
   const Link: Element = queryAllByTestId("Link")[0];

@@ -53,14 +53,14 @@ const DashboardSection = (): JSX.Element => (
     </SpacingContainer>
     <SpacingContainer
       dataTestId="DashboardSectionSpacingContainer"
-      paddingTop="spacing48"
+      height={`calc(22.6vh + ${spacing.spacing36})`}
     >
       <FlexContainer
         alignItems="flex-start"
         dataTestId="DashboardSectionFlexContainer"
         flexFlow="row nowrap"
         gap="spacing48"
-        height="spacing220"
+        height="100%"
         justifyContent="center"
       >
         <Commits />
@@ -68,5 +68,5 @@ const DashboardSection = (): JSX.Element => (
     </SpacingContainer>
   </Section>
 );
-  
+
 export default memo(DashboardSection);
