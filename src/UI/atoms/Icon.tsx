@@ -17,7 +17,6 @@ import { ReactComponent as IconLogo } from "<assets>/svg/Icon-Logo.svg";
 import { ReactComponent as IconCodeSandbox } from "<assets>/svg/Icon-CodeSandbox.svg";
 import { ReactComponent as IconGitHub } from "<assets>/svg/Icon-GitHub.svg";
 import { ReactComponent as IconLinkedIn } from "<assets>/svg/Icon-LinkedIn.svg";
-import { ReactComponent as IconWarning } from "<assets>/svg/Icon-Warning.svg";
 
 import {
   IconContainerProps,
@@ -49,15 +48,14 @@ function Icon({
     node: IconNode,
     react: IconReact,
     typescript: IconTypescript,
-    warning: IconWarning,
     webpack: IconWebpack
   };
 
   const IconComponent: SVGIcon = iconComponents[iconName];
-  
+
   return (
     <Icon.Container
-      data-testid="IconContainer" 
+      data-testid="IconContainer"
       animationDelay={animationDelay}
       animationTime={animationTime}
       height={height}
@@ -72,20 +70,20 @@ function Icon({
 
 Icon.Container = styled.div<IconContainerProps>`
   ${({
-    animationDelay,
-    animationTime,
-    height,
-    shouldDisplayGlowAnimation,
-    shouldGlowOnHover,
-    theme: { 
-      colorPalette, 
-      easing, 
-      keyframes, 
-      spacing, 
-      transitionTimes 
-    },
-    width
-  }): FlattenSimpleInterpolation => css`
+  animationDelay,
+  animationTime,
+  height,
+  shouldDisplayGlowAnimation,
+  shouldGlowOnHover,
+  theme: {
+    colorPalette,
+    easing,
+    keyframes,
+    spacing,
+    transitionTimes
+  },
+  width
+}): FlattenSimpleInterpolation => css`
     height: ${(height in spacing && spacing[height]) || height};
     width: ${(width in spacing && spacing[width]) || width};
 

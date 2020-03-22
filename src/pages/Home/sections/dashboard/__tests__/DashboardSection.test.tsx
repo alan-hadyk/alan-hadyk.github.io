@@ -142,7 +142,7 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
   describe("FlexContainers", () => {
     describe("FlexContainers[0]", () => {
       describe("Props", () => {
-        describe("align-items", () => {
+        describe("alignItems", () => {
           test("should have flex-start", () => {
             const { FlexContainers } = setup();
 
@@ -150,7 +150,7 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
           });
         });
 
-        describe("flex-flow", () => {
+        describe("flexFlow", () => {
           test("should have row nowrap", () => {
             const { FlexContainers } = setup();
 
@@ -177,7 +177,7 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
           });
         });
 
-        describe("justify-content", () => {
+        describe("justifyContent", () => {
           test("should have center", () => {
             const { FlexContainers } = setup();
 
@@ -189,7 +189,7 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
 
     describe("FlexContainers[1]", () => {
       describe("Props", () => {
-        describe("align-items", () => {
+        describe("alignItems", () => {
           test("should have center", () => {
             const { FlexContainers } = setup();
 
@@ -197,7 +197,7 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
           });
         });
 
-        describe("flex-flow", () => {
+        describe("flexFlow", () => {
           test("should have row nowrap", () => {
             const { FlexContainers } = setup();
 
@@ -205,7 +205,7 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
           });
         });
 
-        describe("justify-content", () => {
+        describe("justifyContent", () => {
           test("should have center", () => {
             const { FlexContainers } = setup();
 

@@ -26,7 +26,7 @@ const withCommitsState = (WrappedComponent: React.FunctionComponent<any>) => (pr
 
       setCommitsList(json);
       setError(false);
-    } catch (err) {
+    } catch(err) {
       setError(true);
     }
   }

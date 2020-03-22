@@ -9,8 +9,8 @@ export interface IconProps {
   iconName:
     "btnCodeSandbox" |
     "btnDownload" |
-    "btnExternalLink" | 
-    "btnSend" | 
+    "btnExternalLink" |
+    "btnSend" |
     "apollo" |
     "graphql" |
     "javascript" |
@@ -21,8 +21,7 @@ export interface IconProps {
     "logo" |
     "codeSandbox" |
     "gitHub" |
-    "linkedIn" |
-    "warning";
+    "linkedIn";
   shouldDisplayGlowAnimation?: boolean;
   shouldGlowOnHover?: boolean;
   width?: string | Spacing;

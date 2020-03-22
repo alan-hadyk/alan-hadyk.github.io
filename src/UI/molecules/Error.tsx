@@ -17,47 +17,46 @@ const Error = ({
   title,
   description
 }: ErrorProps): JSX.Element => (
-    <SpacingContainer
-      dataTestId="Error"
-      paddingBottom="spacing8"
-      paddingLeft="spacing8"
-      paddingRight="spacing8"
-      paddingTop="spacing8"
+  <SpacingContainer
+    dataTestId="Error"
+    paddingBottom="spacing8"
+    paddingLeft="spacing8"
+    paddingRight="spacing8"
+    paddingTop="spacing8"
+    height="100%"
+  >
+    <FlexContainer
+      alignItems="center"
       height="100%"
+      flexFlow="column nowrap"
+      justifyContent="center"
     >
-      <FlexContainer
-        alignItems="center"
-        height="100%"
-        flexFlow="column nowrap"
-        justifyContent="center"
+      <Error.Icon />
+      <Text
+        fontSize="font24"
+        fontWeight="bold"
+        lineHeight="spacing24"
+        paddingTop="spacing12"
+        textTransform="uppercase"
+      >{title}</Text>
+      <Text
+        fontSize="font16"
+        lineHeight="spacing24"
+        textTransform="uppercase"
       >
-        <Error.Icon />
-        <Text
-          fontSize="font24"
-          fontWeight="bold"
-          lineHeight="spacing24"
-          paddingTop="spacing12"
-          textTransform="uppercase"
-        >{title}</Text>
-        <Text
-          fontSize="font16"
-          lineHeight="spacing24"
-          textTransform="uppercase"
-        >
-          {description}
-        </Text>
-      </FlexContainer>
-
-    </SpacingContainer>
-  );
+        {description}
+      </Text>
+    </FlexContainer>
+  </SpacingContainer>
+);
 
 Error.Icon = styled(IconWarning)`
   ${({
-  theme: {
-    easing: { easeInOut },
-    keyframes: { glow },
-    transitionTimes
-  }
+    theme: {
+      easing: { easeInOut },
+      keyframes: { glow },
+      transitionTimes
+    }
 }): FlattenSimpleInterpolation => css`
     animation-duration: ${transitionTimes.verySlow};
     animation-iteration-count: infinite;
