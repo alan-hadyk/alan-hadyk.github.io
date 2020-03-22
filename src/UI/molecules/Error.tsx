@@ -2,12 +2,11 @@ import React, { memo } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import FlexContainer from "<layout>/FlexContainer";
+import SpacingContainer from "<layout>/SpacingContainer";
 
 import Text from "<atoms>/Text";
 
 import { ReactComponent as IconWarning } from "<assets>/svg/Icon-Warning.svg";
-
-import SpacingContainer from "<layout>/SpacingContainer";
 
 import {
   ErrorProps

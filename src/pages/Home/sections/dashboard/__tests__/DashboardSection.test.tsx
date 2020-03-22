@@ -247,7 +247,7 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
         });
 
         describe("height", () => {
-          test("should have 22rem", () => {
+          test("should have 100%", () => {
             const { FlexContainers } = setup();
 
             expect(FlexContainers[2]).toHaveStyleRule("height", "100%");

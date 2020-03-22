@@ -33,7 +33,6 @@ const Commit = ({
         justifyContent="center"
       >
         <Link 
-          // eslint-disable-next-line @typescript-eslint/camelcase
           href={htmlUrl}
           isExternal={true}
         >

@@ -70,20 +70,20 @@ function Icon({
 
 Icon.Container = styled.div<IconContainerProps>`
   ${({
-  animationDelay,
-  animationTime,
-  height,
-  shouldDisplayGlowAnimation,
-  shouldGlowOnHover,
-  theme: {
-    colorPalette,
-    easing,
-    keyframes,
-    spacing,
-    transitionTimes
-  },
-  width
-}): FlattenSimpleInterpolation => css`
+    animationDelay,
+    animationTime,
+    height,
+    shouldDisplayGlowAnimation,
+    shouldGlowOnHover,
+    theme: {
+      colorPalette,
+      easing,
+      keyframes,
+      spacing,
+      transitionTimes
+    },
+    width
+  }): FlattenSimpleInterpolation => css`
     height: ${(height in spacing && spacing[height]) || height};
     width: ${(width in spacing && spacing[width]) || width};
 
