@@ -6,8 +6,10 @@ import ListOfCommits from "<molecules>/ListOfCommits";
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
-  ListOfCommitsProps
+  ListOfCommitsProps,
+  CommitProps
 } from "<molecules>/__typings__/ListOfCommits.d.ts";
+
 
 describe("molecules / ListOfCommits", () => {
   test("should have correct structure if has no error", () => {
@@ -42,27 +44,27 @@ describe("molecules / ListOfCommits", () => {
 
       expect(Commits[0].children[0]).toHaveStyleRule("height", "auto");
       expect(Commits[0].children[0].children[0]).toHaveStyleRule("height", "unset");
-      expect(Commits[0].children[0].children[0].children[0]).toHaveStyleRule("display", "inline");
-      expect(Commits[0].children[0].children[0].children[0]).toHaveStyleRule("height", "unset");
-      expect(Commits[0].children[0].children[0].children[0].getAttribute("target")).toEqual("_blank");
-      expect(Commits[0].children[0].children[0].children[0].children[0]).toHaveStyleRule("color", "#bcd8db");
-      expect(Commits[0].children[0].children[0].children[0].children[0]).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
-      expect(Commits[0].children[0].children[0].children[0].children[0]).toHaveStyleRule("font-size", "8px");
-      expect(Commits[0].children[0].children[0].children[1]).toHaveStyleRule("color", "#78b0b5");
-      expect(Commits[0].children[0].children[0].children[1]).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
-      expect(Commits[0].children[0].children[0].children[1]).toHaveStyleRule("font-size", "8px");
+      expect(Commits[0].children[0].children[0].children[0].children[0]).toHaveStyleRule("display", "inline");
+      expect(Commits[0].children[0].children[0].children[0].children[0]).toHaveStyleRule("height", "unset");
+      expect(Commits[0].children[0].children[0].children[0].children[0].getAttribute("target")).toEqual("_blank");
+      expect(Commits[0].children[0].children[0].children[0].children[0].children[0]).toHaveStyleRule("color", "#bcd8db");
+      expect(Commits[0].children[0].children[0].children[0].children[0].children[0]).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
+      expect(Commits[0].children[0].children[0].children[0].children[0].children[0]).toHaveStyleRule("font-size", "8px");
+      expect(Commits[0].children[0].children[0].children[1].children[0]).toHaveStyleRule("color", "#78b0b5");
+      expect(Commits[0].children[0].children[0].children[1].children[0]).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
+      expect(Commits[0].children[0].children[0].children[1].children[0]).toHaveStyleRule("font-size", "8px");
 
       expect(Commits[1].children[0]).toHaveStyleRule("height", "auto");
       expect(Commits[1].children[0].children[0]).toHaveStyleRule("height", "unset");
-      expect(Commits[1].children[0].children[0].children[0]).toHaveStyleRule("display", "inline");
-      expect(Commits[1].children[0].children[0].children[0]).toHaveStyleRule("height", "unset");
-      expect(Commits[1].children[0].children[0].children[0].getAttribute("target")).toEqual("_blank");
-      expect(Commits[1].children[0].children[0].children[0].children[0]).toHaveStyleRule("color", "#bcd8db");
-      expect(Commits[1].children[0].children[0].children[0].children[0]).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
-      expect(Commits[1].children[0].children[0].children[0].children[0]).toHaveStyleRule("font-size", "8px");
-      expect(Commits[1].children[0].children[0].children[1]).toHaveStyleRule("color", "#78b0b5");
-      expect(Commits[1].children[0].children[0].children[1]).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
-      expect(Commits[1].children[0].children[0].children[1]).toHaveStyleRule("font-size", "8px");
+      expect(Commits[1].children[0].children[0].children[0].children[0]).toHaveStyleRule("display", "inline");
+      expect(Commits[1].children[0].children[0].children[0].children[0]).toHaveStyleRule("height", "unset");
+      expect(Commits[1].children[0].children[0].children[0].children[0].getAttribute("target")).toEqual("_blank");
+      expect(Commits[1].children[0].children[0].children[0].children[0].children[0]).toHaveStyleRule("color", "#bcd8db");
+      expect(Commits[1].children[0].children[0].children[0].children[0].children[0]).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
+      expect(Commits[1].children[0].children[0].children[0].children[0].children[0]).toHaveStyleRule("font-size", "8px");
+      expect(Commits[1].children[0].children[0].children[1].children[0]).toHaveStyleRule("color", "#78b0b5");
+      expect(Commits[1].children[0].children[0].children[1].children[0]).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
+      expect(Commits[1].children[0].children[0].children[1].children[0]).toHaveStyleRule("font-size", "8px");
     });
 
     test("should render number of singular commits equal to length of commits list array - 2 items", () => {
@@ -143,94 +145,53 @@ describe("molecules / ListOfCommits", () => {
       expect(Commits.length).toEqual(4);
     });
 
-    test("should render each commit with sha", () => {
-      const commitsList = [
-        {
-          commit: {
-            author: {
-              date: "2020-03-15T14:58:16Z"
-            }
+    describe("Props", () => {
+      let Commits: Element[];
+      let commitsList: CommitProps[];
+      
+      beforeEach(() => {
+        commitsList = [
+          {
+            commit: {
+              author: {
+                date: "2020-03-15T14:58:16Z"
+              }
+            },
+            // eslint-disable-next-line @typescript-eslint/camelcase
+            html_url: "https://github.com/alan-hadyk/portfolio/commit/6f05bb91f454878edcb0f0e30e39501d39b46e4f",
+            sha: "6f05bb91f454878edcb0f0e30e39501d39b46e4f"
           },
-          // eslint-disable-next-line @typescript-eslint/camelcase
-          html_url: "https://github.com/alan-hadyk/portfolio/commit/6f05bb91f454878edcb0f0e30e39501d39b46e4f",
-          sha: "6f05bb91f454878edcb0f0e30e39501d39b46e4f"
-        },
-        {
-          commit: {
-            author: {
-              date: "2020-03-14T16:05:26Z"
-            }
-          },
-          // eslint-disable-next-line @typescript-eslint/camelcase
-          html_url: "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c5",
-          sha: "b18b6616d0da725d49decc1b1f63c3322ca9c3c5"
-        }
-      ];
+          {
+            commit: {
+              author: {
+                date: "2020-03-14T16:05:26Z"
+              }
+            },
+            // eslint-disable-next-line @typescript-eslint/camelcase
+            html_url: "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c5",
+            sha: "b18b6616d0da725d49decc1b1f63c3322ca9c3c5"
+          }
+        ];
+        Commits = setup({ commitsList }).Commits;
+      });
 
-      const { Commits } = setup({ commitsList });
+      test("should render each commit with sha", () => {
+        Commits.forEach((Commit, index) => {
+          expect(Commit.children[0].children[0].children[0].textContent).toEqual(commitsList[index].sha);
+        });
+      });
+      
+      test("should render each commit with date", () => {
+        Commits.forEach((Commit, index) => {
+          expect(Commit.children[0].children[0].children[1].textContent).toEqual(commitsList[index].commit.author.date);
+        });
+      });
 
-      expect(Commits[0].children[0].children[0].children[0].textContent).toEqual(commitsList[0].sha);
-      expect(Commits[1].children[0].children[0].children[0].textContent).toEqual(commitsList[1].sha);
-    });
-
-    test("should render each commit with date", () => {
-      const commitsList = [
-        {
-          commit: {
-            author: {
-              date: "2020-03-15T14:58:16Z"
-            }
-          },
-          // eslint-disable-next-line @typescript-eslint/camelcase
-          html_url: "https://github.com/alan-hadyk/portfolio/commit/6f05bb91f454878edcb0f0e30e39501d39b46e4f",
-          sha: "6f05bb91f454878edcb0f0e30e39501d39b46e4f"
-        },
-        {
-          commit: {
-            author: {
-              date: "2020-03-14T16:05:26Z"
-            }
-          },
-          // eslint-disable-next-line @typescript-eslint/camelcase
-          html_url: "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c5",
-          sha: "b18b6616d0da725d49decc1b1f63c3322ca9c3c5"
-        }
-      ];
-
-      const { Commits } = setup({ commitsList });
-
-      expect(Commits[0].children[0].children[0].children[1].textContent).toEqual(commitsList[0].commit.author.date);
-      expect(Commits[1].children[0].children[0].children[1].textContent).toEqual(commitsList[1].commit.author.date);
-    });
-
-    test("should render each commit with url", () => {
-      const commitsList = [
-        {
-          commit: {
-            author: {
-              date: "2020-03-15T14:58:16Z"
-            }
-          },
-          // eslint-disable-next-line @typescript-eslint/camelcase
-          html_url: "https://github.com/alan-hadyk/portfolio/commit/6f05bb91f454878edcb0f0e30e39501d39b46e4f",
-          sha: "6f05bb91f454878edcb0f0e30e39501d39b46e4f"
-        },
-        {
-          commit: {
-            author: {
-              date: "2020-03-14T16:05:26Z"
-            }
-          },
-          // eslint-disable-next-line @typescript-eslint/camelcase
-          html_url: "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c5",
-          sha: "b18b6616d0da725d49decc1b1f63c3322ca9c3c5"
-        }
-      ];
-
-      const { Commits } = setup({ commitsList });
-
-      expect(Commits[0].children[0].children[0].children[0].getAttribute("href")).toEqual(commitsList[0].html_url);
-      expect(Commits[1].children[0].children[0].children[0].getAttribute("href")).toEqual(commitsList[1].html_url);
+      test("should render each commit with url", () => {
+        Commits.forEach((Commit, index) => {
+          expect(Commit.children[0].children[0].children[0].children[0].getAttribute("href")).toEqual(commitsList[index].html_url);
+        });
+      });
     });
   });
 

@@ -5,12 +5,15 @@ import FlexContainer from "<layout>/FlexContainer";
 import Commit from "<molecules>/Commit";
 import Error from "<molecules>/Error";
 
+import transitionTimes from "<styles>/variables/transitionTimes";
+
 import {
   ListOfCommitsProps,
   CommitProps
 } from "<molecules>/__typings__/ListOfCommits.d.ts";
 
 import isEmpty from "lodash/isEmpty";
+import isEqual from "lodash/isEqual";
 
 function ListOfCommits({ commitsList, hasError }: ListOfCommitsProps): JSX.Element {
   return hasError ? (
@@ -37,7 +40,7 @@ function ListOfCommits({ commitsList, hasError }: ListOfCommitsProps): JSX.Eleme
           }: CommitProps, index: number): JSX.Element => {
             const { author } = commit || {};
             const { date } = author || {};
-            const delay = index * 300;
+            const delay = index * parseInt(transitionTimes.default);
       
             return (
               <Commit
@@ -56,4 +59,8 @@ function ListOfCommits({ commitsList, hasError }: ListOfCommitsProps): JSX.Eleme
   }
 }
 
-export default memo(ListOfCommits);
+const areEqual = (prevProps: ListOfCommitsProps, nextProps: ListOfCommitsProps): boolean => {
+  return isEqual(prevProps.commitsList, nextProps.commitsList) && prevProps.hasError === nextProps.hasError;
+};
+
+export default memo(ListOfCommits, areEqual);

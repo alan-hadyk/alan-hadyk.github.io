@@ -9,6 +9,7 @@ import {
 export interface TextProps {
   children: string;
   color?: ColorPalette;
+  ellipsis?: boolean;
   fontFamily?: FontFamilies;
   fontSize?: FontSizes;
   fontWeight?: FontWeights;

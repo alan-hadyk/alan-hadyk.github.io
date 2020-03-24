@@ -13,7 +13,7 @@ export const Commits = ({ commitsList, hasError }: ListOfCommitsProps): JSX.Elem
   <DashboardElement
     childrenHeight="22.6vh"
     dataTestId="Commits"
-    flex="0 1 20%"
+    flex="0 1 16.6%"
     shouldDisplayCorners={hasError}
     title="Commits" 
   >

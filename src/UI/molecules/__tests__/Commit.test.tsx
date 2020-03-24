@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  act,
-  fireEvent,
-  RenderResult
-} from "@testing-library/react";
+import { RenderResult } from "@testing-library/react";
 import ShuffleText from "shuffle-text";
 
 import Commit from "<molecules>/Commit";
@@ -20,15 +16,18 @@ describe("molecules / Commit", () => {
       CommitContainer,
       CommitFlexContainer,
       CommitSpacingContainer,
+      FlexItems,
       Link,
       Texts
     } = setup();
 
     expect(CommitContainer.children[0]).toEqual(CommitSpacingContainer);
     expect(CommitSpacingContainer.children[0]).toEqual(CommitFlexContainer);
-    expect(CommitFlexContainer.children[0]).toEqual(Link);
+    expect(CommitFlexContainer.children[0]).toEqual(FlexItems[0]);
+    expect(FlexItems[0].children[0]).toEqual(Link);
     expect(Link.children[0]).toEqual(Texts[0]);
-    expect(CommitFlexContainer.children[1]).toEqual(Texts[1]);
+    expect(CommitFlexContainer.children[1]).toEqual(FlexItems[1]);
+    expect(FlexItems[1].children[0]).toEqual(Texts[1]);
   });
   
   describe("CommitContainer", () => {    
@@ -73,7 +72,7 @@ describe("molecules / Commit", () => {
           });
         });
 
-        test("should have flex for 5 children if min-height: 399px and max-height: 799px", () => {
+        test("should have flex for 5 children if min-height: 401px and max-height: 799px", () => {
           const { CommitContainer } = setup();
 
           expect(CommitContainer).toHaveStyleRule("display", "flex", {
@@ -101,7 +100,7 @@ describe("molecules / Commit", () => {
           });
         });
 
-        test("should have 4.52vh if min-height: 399px and max-height: 799px", () => {
+        test("should have 4.52vh if min-height: 401px and max-height: 799px", () => {
           const { CommitContainer } = setup();
 
           expect(CommitContainer).toHaveStyleRule("height", "4.52vh", {
@@ -115,6 +114,14 @@ describe("molecules / Commit", () => {
           expect(CommitContainer).toHaveStyleRule("height", "7.53vh", {
             media: "(max-height: 400px)"
           });
+        });
+      });
+
+      describe("width", () => {      
+        test("should have 100%", () => {
+          const { CommitContainer } = setup();
+
+          expect(CommitContainer).toHaveStyleRule("width", "100%");
         });
       });
     });
@@ -150,14 +157,6 @@ describe("molecules / Commit", () => {
         });
       });
 
-      describe("justifyContent", () => { 
-        test("should have center", () => {
-          const { CommitFlexContainer } = setup();
-
-          expect(CommitFlexContainer).toHaveStyleRule("justify-content", "center");
-        });
-      });
-
       describe("flexFlow", () => { 
         test("should have row nowrap", () => {
           const { CommitFlexContainer } = setup();
@@ -166,15 +165,52 @@ describe("molecules / Commit", () => {
         });
       });
 
-      describe("gap", () => { 
-        test("should have 2.4rem", () => {
+      describe("justifyContent", () => { 
+        test("should have space-between", () => {
           const { CommitFlexContainer } = setup();
 
-          expect(CommitFlexContainer).toHaveStyleRule("padding-left", "2.4rem", {
-            modifier: "& > *"
+          expect(CommitFlexContainer).toHaveStyleRule("justify-content", "space-between");
+        });
+      });
+    });
+  });
+
+  describe("FlexItems", () => { 
+    describe("FlexItems[0]", () => {
+      describe("Props", () => {
+        describe("flex", () => {
+          test("should have 0 0 60.97%", () => {
+            const { FlexItems } = setup();
+      
+            expect(FlexItems[0]).toHaveStyleRule("flex", "0 0 60.97%");
           });
-          expect(CommitFlexContainer).toHaveStyleRule("padding-left", "0", {
-            modifier: "& > *:first-child"
+        });
+
+        describe("overflow", () => {
+          test("should have hidden", () => {
+            const { FlexItems } = setup();
+      
+            expect(FlexItems[0]).toHaveStyleRule("overflow", "hidden");
+          });
+        });
+      });
+    });
+
+    describe("FlexItems[1]", () => {
+      describe("Props", () => {
+        describe("flex", () => {
+          test("should have 0 0 30.66%%", () => {
+            const { FlexItems } = setup();
+      
+            expect(FlexItems[1]).toHaveStyleRule("flex", "0 0 30.66%");
+          });
+        });
+        
+        describe("overflow", () => {
+          test("should have hidden", () => {
+            const { FlexItems } = setup();
+      
+            expect(FlexItems[1]).toHaveStyleRule("overflow", "hidden");
           });
         });
       });
@@ -197,6 +233,32 @@ describe("molecules / Commit", () => {
             const { Texts } = setup();
       
             expect(Texts[0]).toHaveStyleRule("color", "#bcd8db");
+          });
+        });
+
+        describe("ellipsis", () => {
+          describe("text-overflow", () => {
+            test("should have ellipsis", () => {
+              const { Texts } = setup();
+  
+              expect(Texts[0]).toHaveStyleRule("text-overflow", "ellipsis");
+            });
+          });
+
+          describe("overflow", () => {
+            test("should have hidden", () => {
+              const { Texts } = setup();
+  
+              expect(Texts[0]).toHaveStyleRule("overflow", "hidden");
+            });
+          });
+
+          describe("white-space", () => {
+            test("should have nowrap", () => {
+              const { Texts } = setup();
+  
+              expect(Texts[0]).toHaveStyleRule("white-space", "nowrap");
+            });
           });
         });
   
@@ -307,6 +369,32 @@ describe("molecules / Commit", () => {
             expect(Texts[1]).toHaveStyleRule("color", "#78b0b5");
           });
         });
+
+        describe("ellipsis", () => {
+          describe("text-overflow", () => {
+            test("should have ellipsis", () => {
+              const { Texts } = setup();
+  
+              expect(Texts[1]).toHaveStyleRule("text-overflow", "ellipsis");
+            });
+          });
+
+          describe("overflow", () => {
+            test("should have hidden", () => {
+              const { Texts } = setup();
+  
+              expect(Texts[1]).toHaveStyleRule("overflow", "hidden");
+            });
+          });
+
+          describe("white-space", () => {
+            test("should have nowrap", () => {
+              const { Texts } = setup();
+  
+              expect(Texts[1]).toHaveStyleRule("white-space", "nowrap");
+            });
+          });
+        });
   
         describe("font-family", () => {
           test("should have 'Anonymous Pro',monospace", () => {
@@ -333,7 +421,8 @@ describe("molecules / Commit", () => {
         test("should have inline", () => {
           const { Link } = setup();
     
-          expect(Link.getAttribute("display")).toEqual("inline");
+          expect(Link).toHaveStyleRule("display", "inline");
+
         });
       });
 
@@ -341,7 +430,7 @@ describe("molecules / Commit", () => {
         test("should have unset", () => {
           const { Link } = setup();
     
-          expect(Link.getAttribute("height")).toEqual("unset");
+          expect(Link).toHaveStyleRule("height", "unset");
         });
       });
 
@@ -370,6 +459,7 @@ interface Setup extends RenderResult {
   CommitContainer: Element;
   CommitFlexContainer: Element;
   CommitSpacingContainer: Element;
+  FlexItems: Element[];
   Link: Element;
   Texts: Element[];
 }
@@ -394,6 +484,7 @@ function setup(addedProps?: CommitTestProps): Setup {
   const CommitContainer: Element = queryAllByTestId("Commit")[0];
   const CommitFlexContainer: Element = queryAllByTestId("CommitFlexContainer")[0];
   const CommitSpacingContainer: Element = queryAllByTestId("CommitSpacingContainer")[0];
+  const FlexItems: Element[] = queryAllByTestId("FlexItem");
   const Link: Element = queryAllByTestId("Link")[0];
   const Texts: Element[] = queryAllByTestId("Text");
 
@@ -402,6 +493,7 @@ function setup(addedProps?: CommitTestProps): Setup {
     CommitContainer,
     CommitFlexContainer,
     CommitSpacingContainer,
+    FlexItems,
     Link,
     Texts
   };

@@ -30,7 +30,7 @@ const Error = ({
       flexFlow="column nowrap"
       justifyContent="center"
     >
-      <Error.Icon />
+      <Error.Icon data-testid="ErrorIcon" />
       <Text
         fontSize="font24"
         fontWeight="bold"

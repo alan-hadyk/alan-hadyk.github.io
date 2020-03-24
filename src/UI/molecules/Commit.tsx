@@ -10,6 +10,7 @@ import Link from "<atoms>/Link";
 import {
   CommitProps
 } from "<molecules>/__typings__/Commit.d.ts";
+import FlexItem from "<layout>/FlexItem";
 
 const Commit = ({
   date,
@@ -24,33 +25,45 @@ const Commit = ({
       dataTestId="CommitSpacingContainer"
       paddingTop="spacing4"
       paddingBottom="spacing4"
+      width="100%"
     >
       <FlexContainer
         alignItems="center"
         dataTestId="CommitFlexContainer"
-        gap="spacing24"
         flexFlow="row nowrap"
-        justifyContent="center"
+        justifyContent="space-between"
       >
-        <Link 
-          href={htmlUrl}
-          isExternal={true}
+        <FlexItem
+          flex="0 0 60.97%"
+          overflow="hidden"
+        >
+          <Link 
+            href={htmlUrl}
+            isExternal={true}
+          >
+            <Text
+              color="blue100"
+              ellipsis={true}
+              fontSize="font8"
+              shouldShuffle={true}
+              shuffleDelay={delay}
+              textTransform="uppercase"
+            >
+              {sha}
+            </Text>
+          </Link>
+        </FlexItem>
+        <FlexItem
+          flex="0 0 30.66%"
+          overflow="hidden"
         >
           <Text
-            color="blue100"
             fontSize="font8"
-            shouldShuffle={true}
-            shuffleDelay={delay}
-            textTransform="uppercase"
+            ellipsis={true}
           >
-            {sha}
+            {date}
           </Text>
-        </Link>
-        <Text
-          fontSize="font8"
-        >
-          {date}
-        </Text>
+        </FlexItem>
       </FlexContainer>
     </SpacingContainer>
   </Commit.Container>
@@ -65,7 +78,8 @@ Commit.Container = styled.div`
     align-items: center;
     border-top: 1px solid ${blue400};
     display: none;
-
+    width: 100%;
+    
     @media (min-height: 800px)  {
       height: 2.26vh;
 

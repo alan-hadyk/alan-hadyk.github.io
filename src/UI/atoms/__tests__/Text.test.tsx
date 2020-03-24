@@ -37,6 +37,38 @@ describe("atoms / Text", () => {
         expect(TextContainer).toHaveStyleRule("color", "#2b595e");
       });
     });
+
+    describe("ellipsis", () => {
+      describe("text-overflow", () => {
+        test("should have ellipsis when ellipsis is true", () => {
+          const { TextContainer } = setup({
+            ellipsis: true
+          });
+
+          expect(TextContainer).toHaveStyleRule("text-overflow", "ellipsis");
+        });
+      });
+
+      describe("overflow", () => {
+        test("should have hidden when ellipsis is true", () => {
+          const { TextContainer } = setup({
+            ellipsis: true
+          });
+
+          expect(TextContainer).toHaveStyleRule("overflow", "hidden");
+        });
+      });
+
+      describe("white-space", () => {
+        test("should have nowrap when ellipsis is true", () => {
+          const { TextContainer } = setup({
+            ellipsis: true
+          });
+
+          expect(TextContainer).toHaveStyleRule("white-space", "nowrap");
+        });
+      });
+    });
     
     describe("font-family", () => {      
       test("should have AnonymousPro by default", () => {
@@ -67,6 +99,22 @@ describe("atoms / Text", () => {
         });
       
         expect(TextContainer).toHaveStyleRule("font-size", "72px");
+      });
+    });
+
+    describe("font-weight", () => {      
+      test("should have 400 by default", () => {
+        const { TextContainer } = setup();
+      
+        expect(TextContainer).toHaveStyleRule("font-weight", "400");
+      });
+    
+      test("should have correct value when passed via fontWeight value in prop", () => {
+        const { TextContainer } = setup({
+          fontWeight: "bold"
+        });
+      
+        expect(TextContainer).toHaveStyleRule("font-weight", "700");
       });
     });
     

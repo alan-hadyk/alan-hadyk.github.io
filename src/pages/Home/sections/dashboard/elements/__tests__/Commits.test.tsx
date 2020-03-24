@@ -31,10 +31,10 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
   describe("DashboardElement", () => {
     describe("Props", () => {
       describe("flex", () => {
-        test("should have 0 1 20%", () => {
+        test("should have 0 1 16.6%", () => {
           const { DashboardElement } = setup();
 
-          expect(DashboardElement).toHaveStyleRule("flex", "0 1 20%");
+          expect(DashboardElement).toHaveStyleRule("flex", "0 1 16.6%");
         });
       });
 
@@ -255,13 +255,13 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
 
           const { ListOfCommits } = setup({ commitsList });
 
-          expect(ListOfCommits.children[0].children[0].children[0].children[0].getAttribute("href")).toEqual(commitsList[0].html_url);
-          expect(ListOfCommits.children[1].children[0].children[0].children[0].getAttribute("href")).toEqual(commitsList[1].html_url);
+          expect(ListOfCommits.children[0].children[0].children[0].children[0].children[0].getAttribute("href")).toEqual(commitsList[0].html_url);
+          expect(ListOfCommits.children[1].children[0].children[0].children[0].children[0].getAttribute("href")).toEqual(commitsList[1].html_url);
         });
       });
 
       describe("hasError", () => {
-        test("should render CommitsError if hasError is true", () => {
+        test("should render Error if hasError is true", () => {
           const {
             Error,
             DashboardElement
@@ -272,7 +272,7 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
           expect(DashboardElement.children[1].children[4].children[0].children[0]).toEqual(Error);
         });
 
-        test("should not render CommitsError if hasError is false", () => {
+        test("should not render Error if hasError is false", () => {
           const {
             Error
           } = setup({

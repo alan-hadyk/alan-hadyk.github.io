@@ -276,10 +276,10 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
       });
 
       describe("flex", () => {
-        test("should have 0 1 20%", () => {
+        test("should have 0 1 16.6%", () => {
           const { Commits } = setup();
 
-          expect(Commits).toHaveStyleRule("flex", "0 1 20%");
+          expect(Commits).toHaveStyleRule("flex", "0 1 16.6%");
         });
       });
 
@@ -312,8 +312,9 @@ function setup(): Setup {
   );
 
   const { queryByTestId, queryAllByTestId }: RenderResult = utils;
+  
   const Code: Element = queryByTestId("Code");
-  const Commits: Element = queryByTestId("Commits");
+  const Commits: Element = queryAllByTestId("Commits")[0];
   const Coords: Element = queryByTestId("Coords");
   const Flux: Element = queryByTestId("Flux");
   const Console: Element = queryByTestId("Console");
