@@ -56,7 +56,7 @@ Error.Icon = styled(IconWarning)`
       keyframes: { glow },
       transitionTimes
     }
-}): FlattenSimpleInterpolation => css`
+  }): FlattenSimpleInterpolation => css`
     animation-duration: ${transitionTimes.verySlow};
     animation-iteration-count: infinite;
     animation-name: ${glow};

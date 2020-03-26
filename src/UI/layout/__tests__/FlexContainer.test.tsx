@@ -180,7 +180,7 @@ describe("layout / FlexContainer", () => {
         });
       });
 
-      test("should apply padding-left equal to gap passed via props to all children except the first one when flexFlow includes row", () => {
+      test("should apply padding-left equal to custom gap passed via props to all children except the first one when flexFlow includes row", () => {
         const { FlexContainer } = setup({
           flexFlow: "row nowrap",
           gap: "40rem"
@@ -208,7 +208,7 @@ describe("layout / FlexContainer", () => {
         });
       });
 
-      test("should apply padding-top equal to gap passed via props to all children except the first one when flexFlow includes column", () => {
+      test("should apply padding-top equal to custom gap passed via props to all children except the first one when flexFlow includes column", () => {
         const { FlexContainer } = setup({
           flexFlow: "column nowrap",
           gap: "50rem"
