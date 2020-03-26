@@ -39,13 +39,13 @@ const Commit = ({
         >
           <Link 
             href={htmlUrl}
-            isExternal={true}
+            isExternal
           >
             <Text
               color="blue100"
-              ellipsis={true}
+              ellipsis
               fontSize="font8"
-              shouldShuffle={true}
+              shouldShuffle
               shuffleDelay={delay}
               textTransform="uppercase"
             >
@@ -59,7 +59,7 @@ const Commit = ({
         >
           <Text
             fontSize="font8"
-            ellipsis={true}
+            ellipsis
           >
             {date}
           </Text>
@@ -76,7 +76,7 @@ Commit.Container = styled.div`
     }
   }): FlattenSimpleInterpolation => css`
     align-items: center;
-    border-top: 1px solid ${blue400};
+    border-top: thin solid ${blue400};
     display: none;
     width: 100%;
     

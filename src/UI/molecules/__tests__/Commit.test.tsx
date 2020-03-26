@@ -49,10 +49,10 @@ describe("molecules / Commit", () => {
           });
         });
 
-        test("should have 1px solid #526065 for the rest of children", () => {
+        test("should have thin solid #526065 for the rest of children", () => {
           const { CommitContainer } = setup();
 
-          expect(CommitContainer).toHaveStyleRule("border-top", "1px solid #526065");
+          expect(CommitContainer).toHaveStyleRule("border-top", "thin solid #526065");
         });
       });
 
@@ -142,6 +142,15 @@ describe("molecules / Commit", () => {
           const { CommitSpacingContainer } = setup();
 
           expect(CommitSpacingContainer).toHaveStyleRule("padding-bottom", ".4rem");
+        });
+      });
+
+      
+      describe("width", () => {      
+        test("should have 100%", () => {
+          const { CommitSpacingContainer } = setup();
+
+          expect(CommitSpacingContainer).toHaveStyleRule("width", "100%");
         });
       });
     });

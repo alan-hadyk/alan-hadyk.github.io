@@ -40,32 +40,56 @@ describe("atoms / Text", () => {
 
     describe("ellipsis", () => {
       describe("text-overflow", () => {
-        test("should have ellipsis when ellipsis is true", () => {
+        test("should have ellipsis if ellipsis is true", () => {
           const { TextContainer } = setup({
             ellipsis: true
           });
 
           expect(TextContainer).toHaveStyleRule("text-overflow", "ellipsis");
         });
+
+        test("should not have if ellipsis is false", () => {
+          const { TextContainer } = setup({
+            ellipsis: false
+          });
+
+          expect(TextContainer).not.toHaveStyleRule("text-overflow");
+        });
       });
 
       describe("overflow", () => {
-        test("should have hidden when ellipsis is true", () => {
+        test("should have hidden if ellipsis is true", () => {
           const { TextContainer } = setup({
             ellipsis: true
           });
 
           expect(TextContainer).toHaveStyleRule("overflow", "hidden");
         });
+
+        test("should not have if ellipsis is false", () => {
+          const { TextContainer } = setup({
+            ellipsis: false
+          });
+
+          expect(TextContainer).not.toHaveStyleRule("overflow");
+        });
       });
 
       describe("white-space", () => {
-        test("should have nowrap when ellipsis is true", () => {
+        test("should have nowrap if ellipsis is true", () => {
           const { TextContainer } = setup({
             ellipsis: true
           });
 
           expect(TextContainer).toHaveStyleRule("white-space", "nowrap");
+        });
+
+        test("should not have if ellipsis is false", () => {
+          const { TextContainer } = setup({
+            ellipsis: false
+          });
+
+          expect(TextContainer).not.toHaveStyleRule("white-space");
         });
       });
     });

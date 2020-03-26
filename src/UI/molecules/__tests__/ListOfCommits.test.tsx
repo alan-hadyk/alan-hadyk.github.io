@@ -1,5 +1,6 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
+import ShuffleText from "shuffle-text";
 
 import ListOfCommits from "<molecules>/ListOfCommits";
 
@@ -193,6 +194,35 @@ describe("molecules / ListOfCommits", () => {
         });
       });
     });
+
+    describe("delay", () => {
+      test("should render each commit in intervals with 300ms delay", () => {
+        jest.spyOn(ShuffleText.prototype, "start");
+        jest.useFakeTimers();
+
+        setup();
+
+        expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
+
+        jest.advanceTimersByTime(3600);
+
+        expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
+  
+        jest.advanceTimersByTime(300);
+
+        expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
+  
+        jest.advanceTimersByTime(3300);
+  
+        expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
+
+        jest.advanceTimersByTime(300);
+  
+        expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(4);
+  
+        jest.clearAllTimers();
+      });
+    });
   });
 
   describe("ListOfCommits", () => {
@@ -299,7 +329,7 @@ function setup(addedProps?: ListOfCommitsTestProps): Setup {
   const { queryByTestId, queryAllByTestId } = utils || {};
 
   const Commits: Element[] = queryAllByTestId("Commit");
-  const ListOfCommitsWrapper: Element = queryByTestId("ListOfCommits");
+  const ListOfCommitsWrapper: Element = queryAllByTestId("ListOfCommits")[0];
   const Error: Element = queryByTestId("Error");
   const FlexContainer: Element = queryByTestId("FlexContainer");
   const IconWarning: SVGSVGElement = document.querySelector("svg");

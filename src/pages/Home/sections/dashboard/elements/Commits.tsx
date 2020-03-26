@@ -14,6 +14,7 @@ export const Commits = ({ commitsList, hasError }: ListOfCommitsProps): JSX.Elem
     childrenHeight="22.6vh"
     dataTestId="Commits"
     flex="0 1 16.6%"
+    shuffleDelay={3000}
     shouldDisplayCorners={hasError}
     title="Commits" 
   >

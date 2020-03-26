@@ -234,7 +234,7 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
         });
 
         describe("gap", () => {
-          test("should have row 4.8rem", () => {
+          test("should have 4.8rem", () => {
             const { FlexContainers } = setup();
 
             expect(FlexContainers[2]).toHaveStyleRule("padding-left", "4.8rem", {
