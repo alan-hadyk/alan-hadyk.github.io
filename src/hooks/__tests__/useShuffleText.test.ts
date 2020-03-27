@@ -116,14 +116,16 @@ describe("hooks / useShuffleText", () => {
         shuffleState: shuffleText,
         text: "Text"
       });
+
   
       expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
 
       shuffleText.start();
-
+      
       jest.advanceTimersByTime(10);
 
       expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
+      jest.clearAllTimers();
     });
 
     test("should fire with a given delay", () => {
@@ -156,6 +158,7 @@ describe("hooks / useShuffleText", () => {
       jest.advanceTimersByTime(446);
 
       expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
+      jest.clearAllTimers();
     });
 
     test("should not fire if there is no ref", () => {

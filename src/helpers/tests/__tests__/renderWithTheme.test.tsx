@@ -21,6 +21,7 @@ describe("helpers / tests / renderWithTheme", () => {
     easing,
     fontFamilies,
     fontSizes,
+    fontWeights,
     spacing,
     transitionTimes,
     zIndex
@@ -28,6 +29,7 @@ describe("helpers / tests / renderWithTheme", () => {
         color: ${colorPalette.blue300};
         font-family: ${fontFamilies.Exan};
         font-size: ${fontSizes.font20};
+        font-weight: ${fontWeights.bold};
         height: ${spacing.spacing96};
         transition: all ${transitionTimes.fast} ${easing.easeInOut};
         width: ${breakpoints.breakpoint1920};
@@ -44,6 +46,7 @@ describe("helpers / tests / renderWithTheme", () => {
     expect(childrenComponent).toHaveStyleRule("color", "#78b0b5");
     expect(childrenComponent).toHaveStyleRule("font-family", "ExanModifiedRegular,monospace");
     expect(childrenComponent).toHaveStyleRule("font-size", "20px");
+    expect(childrenComponent).toHaveStyleRule("font-weight", "700");
     expect(childrenComponent).toHaveStyleRule("height", "9.6rem");
     expect(childrenComponent).toHaveStyleRule("transition", "all 150ms ease-in-out");
     expect(childrenComponent).toHaveStyleRule("width", "1920px");
