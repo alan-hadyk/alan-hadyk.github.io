@@ -1,16 +1,15 @@
 import React, { memo } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import FlexContainer from "<layout>/FlexContainer";
-import SpacingContainer from "<layout>/SpacingContainer";
-
 import Text from "<atoms>/Text";
 import Link from "<atoms>/Link";
+import FlexContainer from "<layout>/FlexContainer";
+import SpacingContainer from "<layout>/SpacingContainer";
+import FlexItem from "<layout>/FlexItem";
 
 import {
   CommitProps
 } from "<molecules>/__typings__/Commit.d.ts";
-import FlexItem from "<layout>/FlexItem";
 
 const Commit = ({
   date,
