@@ -74,6 +74,7 @@ declare module "styled-components" {
       spacing220: string;
       spacing240: string;
       spacing248: string;
+      spacing288: string;
     };
 
     transitionTimes: {

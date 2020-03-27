@@ -22,5 +22,6 @@ export default {
   spacing184: "18.4rem",
   spacing220: "22rem",
   spacing240: "24rem",
-  spacing248: "24.8rem"
+  spacing248: "24.8rem",
+  spacing288: "28rem"
 };
