@@ -3,11 +3,11 @@ import React, { memo } from "react";
 import DashboardElement from "<molecules>/DashboardElement";
 import FpsChart from "<molecules>/FpsChart";
 
+// TODO - tests after component will be ready
 const Fps = (): JSX.Element => (
   <DashboardElement
-    childrenHeight="22.6vh"
     dataTestId="Fps"
-    flex="0 1 15%"
+    flex="0 1 16.33%"
     title="Fps" 
   >
     <FpsChart />

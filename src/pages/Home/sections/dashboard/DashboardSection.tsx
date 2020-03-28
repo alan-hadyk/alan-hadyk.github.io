@@ -28,6 +28,7 @@ function DashboardSection(): JSX.Element {
         paddingTop="spacing96"
       >
         <PositionContainer
+          dataTestId="DashboardSectionPositionContainer"
           height="100%"
           position="relative"
         >
@@ -54,11 +55,11 @@ function DashboardSection(): JSX.Element {
       <SpacingContainer
         dataTestId="DashboardSectionSpacingContainer"
         height={`calc(17vh + ${spacing.spacing36})`}
-        paddingTop="2.22vh"
+        marginTop="2.22vh"
         width="100%"
       >
         <FlexContainer
-          alignItems="flex-start"
+          alignItems="stretch"
           dataTestId="DashboardSectionFlexContainer"
           flexFlow="row nowrap"
           gap="spacing48"
@@ -79,9 +80,11 @@ function DashboardSection(): JSX.Element {
       <SpacingContainer
         dataTestId="DashboardSectionSpacingContainer"
         height={`calc(22.6vh + ${spacing.spacing36})`}
+        marginBottom="2.22vh"
+        width="100%"
       >
         <FlexContainer
-          alignItems="flex-start"
+          alignItems="stretch"
           dataTestId="DashboardSectionFlexContainer"
           flexFlow="row nowrap"
           gap="spacing48"

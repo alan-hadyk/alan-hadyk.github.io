@@ -19,14 +19,16 @@ function Console(): JSX.Element {
 
   return (
     <PositionContainer
+      dataTestId="Console"
       left="spacing0"
       position="absolute"
       right="spacing0"
       top="50%"
       transform="translateY(-50%)"
     >
-      <Console.Container data-testid="Console">
+      <Console.Container data-testid="ConsoleContainer">
         <PositionContainer
+          dataTestId="InnerPositionContainer"
           left="spacing0"
           position="absolute"
           top="spacing0"
@@ -35,7 +37,7 @@ function Console(): JSX.Element {
           <Text
             fontSize="font12"
             lineHeight="spacing28"
-            shouldShuffle={true}
+            shouldShuffle
             shuffleDelay={2400}
             textTransform="uppercase"
           >

@@ -5,7 +5,6 @@ import FlowChart from "<src>/UI/molecules/FlowChart";
 
 const Flux = (): JSX.Element => (
   <DashboardElement
-    childrenHeight="17vh"
     dataTestId="Flux"
     flex="0 1 30%"
     title="Flux" 

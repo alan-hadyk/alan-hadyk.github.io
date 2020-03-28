@@ -18,15 +18,15 @@ describe("templates / PageTemplate", () => {
   
   describe("Styles", () => {
     describe("padding", () => {      
-      test("should have '9.6rem 4.8rem' by default", () => {
+      test("should have '0 4.8rem 9.6rem'", () => {
         const { PageTemplate } = setup();
   
-        expect(PageTemplate).toHaveStyleRule("padding", "9.6rem 4.8rem");
+        expect(PageTemplate).toHaveStyleRule("padding", "0 4.8rem 9.6rem");
       });
     });
 
     describe("max-width", () => {      
-      test("should have '1920px' by default", () => {
+      test("should have '1920px'", () => {
         const { PageTemplate } = setup();
   
         expect(PageTemplate).toHaveStyleRule("max-width", "1920px");
@@ -34,7 +34,7 @@ describe("templates / PageTemplate", () => {
     }); 
 
     describe("margin", () => {      
-      test("should have '0 auto' by default", () => {
+      test("should have '0 auto'", () => {
         const { PageTemplate } = setup();
   
         expect(PageTemplate).toHaveStyleRule("margin", "0 auto");

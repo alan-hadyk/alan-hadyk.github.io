@@ -4,7 +4,7 @@ import { act, RenderResult, waitForElement } from "@testing-library/react";
 import withCommitsState from "<state>/withCommitsState";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
-import { CommitProps, ListOfCommitsProps } from "<src>/UI/molecules/__typings__/ListOfCommits";
+import { CommitProps, ListOfCommitsProps } from "<molecules>/__typings__/ListOfCommits.d.ts";
 
 jest.mock("node-fetch");
 

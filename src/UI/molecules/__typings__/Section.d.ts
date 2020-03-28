@@ -5,6 +5,6 @@ import {
 export interface SectionProps {
   children: JSX.Element | JSX.Element[] | string;
   id: string;
-  minHeight?: Spacing | "100vh";
+  minHeight?: Spacing | "100vh" | "200vh";
   title?: string;
 }

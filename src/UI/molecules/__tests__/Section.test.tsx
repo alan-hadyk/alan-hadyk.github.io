@@ -52,7 +52,15 @@ describe("molecules / Section", () => {
   describe("SpacingContainers", () => { 
     describe("SectionContainer", () => { 
       describe("Props", () => {
-        describe("min-height", () => {      
+        describe("marginBottom", () => {      
+          test("should have 1.6rem", () => {
+            const { SectionContainer } = setup();
+
+            expect(SectionContainer).toHaveStyleRule("margin-bottom", "1.6rem");
+          });
+        });
+
+        describe("minHeight", () => {      
           test("should not have min-height by default", () => {
             const { SectionContainer } = setup();
 
@@ -76,7 +84,7 @@ describe("molecules / Section", () => {
           });
         });
 
-        describe("padding-bottom", () => {      
+        describe("paddingBottom", () => {      
           test("should have 0 if there is no title", () => {
             const { SectionContainer } = setup({
               title: undefined
@@ -109,8 +117,8 @@ describe("molecules / Section", () => {
     });
 
     describe("TitleSpacingContainer", () => { 
-      describe("Styles", () => {
-        describe("margin-bottom", () => {      
+      describe("Props", () => {
+        describe("marginBottom", () => {      
           test("should have 9.6rem", () => {
             const { TitleSpacingContainer } = setup();
 
@@ -118,11 +126,11 @@ describe("molecules / Section", () => {
           });
         });
 
-        describe("padding-top", () => {      
-          test("should have 12rem", () => {
+        describe("paddingTop", () => {      
+          test("should have 10.8rem", () => {
             const { TitleSpacingContainer } = setup();
 
-            expect(TitleSpacingContainer).toHaveStyleRule("padding-top", "12rem");
+            expect(TitleSpacingContainer).toHaveStyleRule("padding-top", "10.8rem");
           });
         });
       });
@@ -130,7 +138,7 @@ describe("molecules / Section", () => {
   });
 
   describe("Text", () => { 
-    describe("Styles", () => {
+    describe("Props", () => {
       describe("color", () => {      
         test("should have #bcd8db", () => {
           const { Text } = setup();
@@ -139,7 +147,7 @@ describe("molecules / Section", () => {
         });
       });
 
-      describe("font-family", () => {      
+      describe("fontFamily", () => {      
         test("should have ExanModifiedRegular,monospace", () => {
           const { Text } = setup();
 
@@ -147,7 +155,7 @@ describe("molecules / Section", () => {
         });
       });
 
-      describe("font-size", () => {      
+      describe("fontSize", () => {      
         test("should have 72px", () => {
           const { Text } = setup();
 
@@ -155,7 +163,7 @@ describe("molecules / Section", () => {
         });
       });
 
-      describe("line-height", () => {      
+      describe("lineHeight", () => {      
         test("should have 8rem", () => {
           const { Text } = setup();
 
@@ -163,7 +171,7 @@ describe("molecules / Section", () => {
         });
       });
 
-      describe("text-align", () => {      
+      describe("textAlign", () => {      
         test("should have center", () => {
           const { Text } = setup();
 
@@ -171,7 +179,7 @@ describe("molecules / Section", () => {
         });
       });
 
-      describe("text-transform", () => {      
+      describe("textTransform", () => {      
         test("should have lowercase", () => {
           const { Text } = setup();
 

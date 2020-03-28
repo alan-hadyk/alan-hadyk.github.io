@@ -9,12 +9,13 @@ import SpacingContainer from "<layout>/SpacingContainer";
 
 import Cross from "<assets>/svg/Cross.svg";
 
+import spacing from "<styles>/variables/spacing";
+
 import { DashboardElementProps } from "<molecules>/__typings__/DashboardElement.d.ts";
 
 function DashboardElement({
   alignSelf = "auto",
   children,
-  childrenHeight = "unset",
   dataTestId,
   flex,
   shouldDisplayCorners = false,
@@ -41,7 +42,7 @@ function DashboardElement({
         {title}
       </Text>
       <PositionContainer
-        height={childrenHeight}
+        height={`calc(100% - ${spacing.spacing36})`}
         position="relative"
       >
         {shouldDisplayCorners && <Corners />}

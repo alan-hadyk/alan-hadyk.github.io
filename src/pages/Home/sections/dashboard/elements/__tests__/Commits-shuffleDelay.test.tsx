@@ -8,7 +8,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
   ListOfCommitsProps
-} from "<molecules>/__typings__/ListOfCommits";
+} from "<molecules>/__typings__/ListOfCommits.d.ts";
 
 jest.mock("<molecules>/ListOfCommits", () => (): JSX.Element => (
   <div />

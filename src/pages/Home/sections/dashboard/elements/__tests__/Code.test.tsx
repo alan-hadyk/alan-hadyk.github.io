@@ -68,10 +68,10 @@ describe("pages / Home / sections / dashboard / elements / Code", () => {
       });
 
       describe("childrenHeight", () => {
-        test("should have 17vh", () => {
+        test("should have calc(100% - 3.6rem)", () => {
           const { DashboardElement } = setup();
       
-          expect(DashboardElement.children[1]).toHaveStyleRule("height", "17vh");
+          expect(DashboardElement.children[1]).toHaveStyleRule("height", "calc(100% - 3.6rem)");
         });
       });
 
