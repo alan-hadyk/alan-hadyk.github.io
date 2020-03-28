@@ -4,4 +4,5 @@ export interface FlexItemProps {
   dataTestId?: string;
   flex: string;
   order?: number;
+  overflow?: string;
 }

@@ -150,7 +150,7 @@ describe("molecules / DashboardElement", () => {
         });
       });
  
-      describe("fontFamily", () => {
+      describe("font-family", () => {
         test("should have 'Anonymous Pro',monospace", () => {
           const { Text } = setup();
   

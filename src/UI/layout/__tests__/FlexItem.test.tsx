@@ -100,6 +100,22 @@ describe("layout / FlexItem", () => {
         expect(FlexItem).toHaveStyleRule("order", "4");
       });
     });
+
+    describe("overflow", () => {      
+      test("should have auto by default", () => {
+        const { FlexItem } = setup();
+  
+        expect(FlexItem).toHaveStyleRule("overflow", "auto");
+      });
+  
+      test("should have correct value when passed via prop", () => {
+        const { FlexItem } = setup({
+          overflow: "hidden"
+        });
+  
+        expect(FlexItem).toHaveStyleRule("overflow", "hidden");
+      });
+    });
   });
 });
 

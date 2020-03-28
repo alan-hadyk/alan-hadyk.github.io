@@ -4,6 +4,7 @@ import TechStack from "<pages>/Home/sections/dashboard/elements/TechStack";
 import Coords from "<pages>/Home/sections/dashboard/elements/Coords";
 import Flux from "<pages>/Home/sections/dashboard/elements/Flux";
 import Code from "<pages>/Home/sections/dashboard/elements/Code";
+import Commits from "<pages>/Home/sections/dashboard/elements/Commits";
 import Navigator from "<pages>/Home/sections/dashboard/elements/Navigator";
 
 import Console from "<molecules>/Console";
@@ -63,10 +64,11 @@ const DashboardSection = (): JSX.Element => (
         height="100%"
         justifyContent="center"
       >
+        <Commits />
         <Navigator />
       </FlexContainer>
     </SpacingContainer>
   </Section>
 );
-  
+
 export default memo(DashboardSection);

@@ -39,6 +39,11 @@ declare module "styled-components" {
       font72: string;
     };
 
+    fontWeights: {
+      bold: string;
+      normal: string;
+    };
+
     keyframes: {
       blink: Keyframes;
       borderDanceHorizontal: Keyframes;

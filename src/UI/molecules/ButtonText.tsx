@@ -28,7 +28,6 @@ function ButtonText({ buttonText, size }: ButtonTextProps): JSX.Element {
         {buttonText}
       </Text>
     </SpacingContainer>
-
   );
 }
 

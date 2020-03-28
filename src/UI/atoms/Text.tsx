@@ -12,8 +12,10 @@ import { ShuffleState } from "<hooks>/__typings__/useShuffleText.d.ts";
 function Text({ 
   children, 
   color = "blue300",
-  fontSize = "font20",
+  ellipsis = false,
   fontFamily = "AnonymousPro",
+  fontSize = "font20",
+  fontWeight = "normal",
   lineHeight = "1",
   paddingBottom = "spacing0",
   paddingLeft = "spacing0",
@@ -42,7 +44,6 @@ function Text({
     if (!textElement.current || !shouldShuffle) {
       return;
     }
-
     shuffleText && shuffleText.start();
   }, shuffleInterval);
 
@@ -50,8 +51,10 @@ function Text({
     <Text.Container
       color={color}
       data-testid="Text"
+      ellipsis={ellipsis}
       fontFamily={fontFamily}
       fontSize={fontSize} 
+      fontWeight={fontWeight} 
       lineHeight={lineHeight}
       onMouseOver={handleMouseOver}
       paddingBottom={paddingBottom}
@@ -78,8 +81,10 @@ function Text({
 Text.Container = styled.div<TextProps>`
   ${({
     color,
-    fontSize,
+    ellipsis,
     fontFamily,
+    fontSize,
+    fontWeight,
     lineHeight,
     paddingBottom,
     paddingLeft,
@@ -89,14 +94,16 @@ Text.Container = styled.div<TextProps>`
     textTransform,
     theme: {
       colorPalette,
-      fontSizes,
       fontFamilies,
+      fontSizes,
+      fontWeights,
       spacing
     }
   }): FlattenSimpleInterpolation => css`
     color: ${color in colorPalette && colorPalette[color]};
     font-family: ${fontFamily in fontFamilies && fontFamilies[fontFamily]};
     font-size: ${fontSize in fontSizes && fontSizes[fontSize]};
+    font-weight: ${fontWeight in fontWeights && fontWeights[fontWeight]};
     line-height: ${(lineHeight in spacing && spacing[lineHeight]) || lineHeight};
     padding-bottom: ${paddingBottom in spacing && spacing[paddingBottom]};
     padding-left: ${paddingLeft in spacing && spacing[paddingLeft]};
@@ -104,6 +111,12 @@ Text.Container = styled.div<TextProps>`
     padding-top: ${paddingTop in spacing && spacing[paddingTop]};
     text-align: ${textAlign};
     text-transform: ${textTransform};
+    
+    ${ellipsis && `
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    `}
   `}
 `;
 

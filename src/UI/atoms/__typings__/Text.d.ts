@@ -2,15 +2,17 @@ import {
   ColorPalette,
   FontFamilies,
   FontSizes,
-  Spacing,
-  TransitionTimes
+  FontWeights,
+  Spacing
 } from "<styles>/variables/__typings__/variables.d.ts";
 
 export interface TextProps {
   children: string;
   color?: ColorPalette;
+  ellipsis?: boolean;
   fontFamily?: FontFamilies;
   fontSize?: FontSizes;
+  fontWeight?: FontWeights;
   lineHeight?: Spacing | "1";
   paddingBottom?: Spacing;
   paddingLeft?: Spacing;
@@ -23,4 +25,3 @@ export interface TextProps {
   textAlign?: "left" | "center" | "right";
   textTransform?: "none" | "lowercase" | "uppercase" | "capitalize";
 }
-

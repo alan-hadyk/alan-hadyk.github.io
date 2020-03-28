@@ -7,7 +7,7 @@ export interface FlexContainerProps {
   children: JSX.Element | JSX.Element[];
   dataTestId?: string;
   flexFlow?: "row wrap" | "row nowrap" | "column wrap" | "column nowrap";
-  gap?: Spacing;
+  gap?: Spacing | string;
   height?: Spacing | "unset" | "50%" | "100%";
   justifyContent?: "flex-start" | "flex-end" | "center" | "space-between"; 
 }

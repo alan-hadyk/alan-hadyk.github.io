@@ -9,8 +9,8 @@ export interface IconProps {
   iconName:
     "btnCodeSandbox" |
     "btnDownload" |
-    "btnExternalLink" | 
-    "btnSend" | 
+    "btnExternalLink" |
+    "btnSend" |
     "apollo" |
     "graphql" |
     "javascript" |

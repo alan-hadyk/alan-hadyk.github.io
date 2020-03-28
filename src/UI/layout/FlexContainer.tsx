@@ -46,13 +46,13 @@ FlexContainer.Container = styled.div<FlexContainerProps>`
     ${gap !== "spacing0" && `
       & > * {
         ${flexFlow.includes("row") ? `
-          padding-left: ${(gap in spacing && spacing[gap])};
+          padding-left: ${(gap in spacing && spacing[gap]) || gap};
 
           &:first-child {
             padding-left: 0;
           }  
         ` : `
-          padding-top: ${(gap in spacing && spacing[gap])};
+          padding-top: ${(gap in spacing && spacing[gap]) || gap};
 
           &:first-child {
             padding-top: 0;
