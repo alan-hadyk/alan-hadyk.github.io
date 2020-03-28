@@ -49,6 +49,7 @@ describe("molecules / NavItem", () => {
         jest.advanceTimersByTime(10);
 
         expect(ShuffleText.prototype.start).toHaveBeenCalled();
+        jest.clearAllTimers();
       });
     });
   }); 

@@ -37,6 +37,62 @@ describe("atoms / Text", () => {
         expect(TextContainer).toHaveStyleRule("color", "#2b595e");
       });
     });
+
+    describe("ellipsis", () => {
+      describe("text-overflow", () => {
+        test("should have ellipsis if ellipsis is true", () => {
+          const { TextContainer } = setup({
+            ellipsis: true
+          });
+
+          expect(TextContainer).toHaveStyleRule("text-overflow", "ellipsis");
+        });
+
+        test("should not have if ellipsis is false", () => {
+          const { TextContainer } = setup({
+            ellipsis: false
+          });
+
+          expect(TextContainer).not.toHaveStyleRule("text-overflow");
+        });
+      });
+
+      describe("overflow", () => {
+        test("should have hidden if ellipsis is true", () => {
+          const { TextContainer } = setup({
+            ellipsis: true
+          });
+
+          expect(TextContainer).toHaveStyleRule("overflow", "hidden");
+        });
+
+        test("should not have if ellipsis is false", () => {
+          const { TextContainer } = setup({
+            ellipsis: false
+          });
+
+          expect(TextContainer).not.toHaveStyleRule("overflow");
+        });
+      });
+
+      describe("white-space", () => {
+        test("should have nowrap if ellipsis is true", () => {
+          const { TextContainer } = setup({
+            ellipsis: true
+          });
+
+          expect(TextContainer).toHaveStyleRule("white-space", "nowrap");
+        });
+
+        test("should not have if ellipsis is false", () => {
+          const { TextContainer } = setup({
+            ellipsis: false
+          });
+
+          expect(TextContainer).not.toHaveStyleRule("white-space");
+        });
+      });
+    });
     
     describe("font-family", () => {      
       test("should have AnonymousPro by default", () => {
@@ -67,6 +123,22 @@ describe("atoms / Text", () => {
         });
       
         expect(TextContainer).toHaveStyleRule("font-size", "72px");
+      });
+    });
+
+    describe("font-weight", () => {      
+      test("should have 400 by default", () => {
+        const { TextContainer } = setup();
+      
+        expect(TextContainer).toHaveStyleRule("font-weight", "400");
+      });
+    
+      test("should have correct value when passed via fontWeight value in prop", () => {
+        const { TextContainer } = setup({
+          fontWeight: "bold"
+        });
+      
+        expect(TextContainer).toHaveStyleRule("font-weight", "700");
       });
     });
     
@@ -208,7 +280,7 @@ describe("atoms / Text", () => {
   });
 
   describe("Event handlers", () => {
-    test("should fire shuffleText.start onMouseOver if shouldShuffleOnHover: true ", () => {
+    test("should fire shuffleText.start onMouseOver if shouldShuffleOnHover: true", () => {
       jest.spyOn(ShuffleText.prototype, "start");
       jest.useFakeTimers();
 
@@ -249,9 +321,10 @@ describe("atoms / Text", () => {
       jest.advanceTimersByTime(290);
 
       expect(ShuffleText.prototype.start).toHaveBeenCalled();
+      jest.clearAllTimers();
     });
 
-    test("should not fire shuffleText.start onMouseOver if shouldShuffleOnHover: false ", () => {
+    test("should not fire shuffleText.start onMouseOver if shouldShuffleOnHover: false", () => {
       jest.spyOn(ShuffleText.prototype, "start");
       jest.useFakeTimers();
 
@@ -266,6 +339,7 @@ describe("atoms / Text", () => {
       jest.advanceTimersByTime(10);
 
       expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
+      jest.clearAllTimers();
     });
 
     test("should fire shuffleText.start in intervals if shouldShuffle: true (3600ms by default)", () => {

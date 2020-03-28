@@ -52,10 +52,10 @@ function Icon({
   };
 
   const IconComponent: SVGIcon = iconComponents[iconName];
-  
+
   return (
     <Icon.Container
-      data-testid="IconContainer" 
+      data-testid="IconContainer"
       animationDelay={animationDelay}
       animationTime={animationTime}
       height={height}
@@ -75,12 +75,12 @@ Icon.Container = styled.div<IconContainerProps>`
     height,
     shouldDisplayGlowAnimation,
     shouldGlowOnHover,
-    theme: { 
-      colorPalette, 
-      easing, 
-      keyframes, 
-      spacing, 
-      transitionTimes 
+    theme: {
+      colorPalette,
+      easing,
+      keyframes,
+      spacing,
+      transitionTimes
     },
     width
   }): FlattenSimpleInterpolation => css`

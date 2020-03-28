@@ -10,13 +10,15 @@ const FlexItem = ({
   children,
   dataTestId,
   flex,
-  order = 0
+  order = 0,
+  overflow = "auto"
 }: FlexItemProps): JSX.Element => (
   <FlexItem.Container
     alignSelf={alignSelf}
     data-testid={dataTestId || "FlexItem"}
     flex={flex}
     order={order}
+    overflow={overflow}
   >
     {children}
   </FlexItem.Container>
@@ -26,11 +28,13 @@ FlexItem.Container = styled.div<FlexItemProps>`
   ${({
     alignSelf,
     flex,
-    order
+    order,
+    overflow
   }): FlattenSimpleInterpolation => css`
     align-self: ${alignSelf};
     flex: ${flex};
     order: ${order};
+    overflow: ${overflow};
   `}
 `;
   
