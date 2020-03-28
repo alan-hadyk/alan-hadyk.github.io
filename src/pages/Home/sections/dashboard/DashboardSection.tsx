@@ -4,6 +4,7 @@ import TechStack from "<pages>/Home/sections/dashboard/elements/TechStack";
 import Coords from "<pages>/Home/sections/dashboard/elements/Coords";
 import Flux from "<pages>/Home/sections/dashboard/elements/Flux";
 import Code from "<pages>/Home/sections/dashboard/elements/Code";
+import Navigator from "<pages>/Home/sections/dashboard/elements/Navigator";
 
 import Console from "<molecules>/Console";
 import Section from "<molecules>/Section";
@@ -48,6 +49,21 @@ const DashboardSection = (): JSX.Element => (
         justifyContent="center"
       >
         <Console />
+      </FlexContainer>
+    </SpacingContainer>
+    <SpacingContainer
+      dataTestId="DashboardSectionSpacingContainer"
+      height={`calc(22.6vh + ${spacing.spacing36})`}
+    >
+      <FlexContainer
+        alignItems="flex-start"
+        dataTestId="DashboardSectionFlexContainer"
+        flexFlow="row nowrap"
+        gap="spacing48"
+        height="100%"
+        justifyContent="center"
+      >
+        <Navigator />
       </FlexContainer>
     </SpacingContainer>
   </Section>
