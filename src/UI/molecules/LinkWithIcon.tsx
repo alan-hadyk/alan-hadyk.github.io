@@ -24,7 +24,7 @@ function LinkWithIcon({
         height={height}
         iconName={iconName} 
         width={width} 
-        shouldGlowOnHover={true} 
+        shouldGlowOnHover
       />
     </Link>
   );

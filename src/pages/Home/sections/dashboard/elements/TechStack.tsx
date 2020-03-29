@@ -7,7 +7,7 @@ const TechStack = (): JSX.Element => (
   <DashboardElement
     dataTestId="TechStack"
     flex="0 1 30%"
-    shouldDisplayCorners={true}
+    shouldDisplayCorners
     title="Tech Stack" 
   >
     <AnimatedIcons />
