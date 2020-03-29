@@ -34,7 +34,7 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
         test("should have 0 1 16.6%", () => {
           const { DashboardElement } = setup();
 
-          expect(DashboardElement).toHaveStyleRule("flex", "0 1 16.6%");
+          expect(DashboardElement).toHaveStyleRule("flex", "0 1 15.73%");
         });
       });
 
