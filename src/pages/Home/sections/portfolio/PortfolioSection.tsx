@@ -6,7 +6,6 @@ const PortfolioSection = (): JSX.Element => (
   <Section
     id="portfolio"
     title="Portfolio"
-    minHeight="200vh"
   >
     Portfolio
   </Section>
