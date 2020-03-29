@@ -7,13 +7,12 @@ import ListOfCommits from "<molecules>/ListOfCommits";
 
 import {
   ListOfCommitsProps
-} from "<molecules>/__typings__/ListOfCommits";
+} from "<molecules>/__typings__/ListOfCommits.d.ts";
 
 export const Commits = ({ commitsList, hasError }: ListOfCommitsProps): JSX.Element => (
   <DashboardElement
-    childrenHeight="22.6vh"
     dataTestId="Commits"
-    flex="0 1 15%"
+    flex="0 1 15.73%"
     shuffleDelay={3000}
     shouldDisplayCorners={hasError}
     title="Commits"

@@ -58,15 +58,15 @@ SpacingContainer.Container = styled.div<SpacingContainerProps>`
     width
   }): FlattenSimpleInterpolation => css`
     height: ${(height in spacing && spacing[height]) || height};
-    margin-bottom: ${marginBottom in spacing && spacing[marginBottom]};
-    margin-left: ${marginLeft in spacing && spacing[marginLeft]};
-    margin-right: ${marginRight in spacing && spacing[marginRight]};
-    margin-top: ${marginTop in spacing && spacing[marginTop]};
+    margin-bottom: ${(marginBottom in spacing && spacing[marginBottom]) || marginBottom};
+    margin-left: ${(marginLeft in spacing && spacing[marginLeft]) || marginLeft};
+    margin-right: ${(marginRight in spacing && spacing[marginRight]) || marginRight};
+    margin-top: ${(marginTop in spacing && spacing[marginTop]) || marginTop};
     min-height: ${(minHeight in spacing && spacing[minHeight]) || minHeight};
-    padding-bottom: ${paddingBottom in spacing && spacing[paddingBottom]};
-    padding-left: ${paddingLeft in spacing && spacing[paddingLeft]};
-    padding-right: ${paddingRight in spacing && spacing[paddingRight]};
-    padding-top: ${paddingTop in spacing && spacing[paddingTop]};
+    padding-bottom: ${(paddingBottom in spacing && spacing[paddingBottom]) || paddingBottom};
+    padding-left: ${(paddingLeft in spacing && spacing[paddingLeft]) || paddingLeft};
+    padding-right: ${(paddingRight in spacing && spacing[paddingRight]) || paddingRight};
+    padding-top: ${(paddingTop in spacing && spacing[paddingTop]) || paddingTop};
     width: ${(width in spacing && spacing[width]) || width};
   `}
 `;

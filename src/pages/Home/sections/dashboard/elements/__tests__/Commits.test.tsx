@@ -7,7 +7,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
   ListOfCommitsProps
-} from "<molecules>/__typings__/ListOfCommits";
+} from "<molecules>/__typings__/ListOfCommits.d.ts";
 
 describe("pages / Home / sections / dashboard / elements / Commits", () => {
   test("should have correct structure if has no error", () => {
@@ -34,15 +34,15 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
         test("should have 0 1 15%", () => {
           const { DashboardElement } = setup();
 
-          expect(DashboardElement).toHaveStyleRule("flex", "0 1 15%");
+          expect(DashboardElement).toHaveStyleRule("flex", "0 1 15.73%");
         });
       });
 
       describe("childrenHeight", () => {
-        test("should have 22.6vh", () => {
+        test("should have calc(100% - 3.6rem)", () => {
           const { DashboardElement } = setup();
-
-          expect(DashboardElement.children[1]).toHaveStyleRule("height", "22.6vh");
+      
+          expect(DashboardElement.children[1]).toHaveStyleRule("height", "calc(100% - 3.6rem)");
         });
       });
 

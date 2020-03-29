@@ -5,7 +5,6 @@ import Sonar from "<molecules>/Sonar";
 
 const Coords = (): JSX.Element => (
   <DashboardElement
-    childrenHeight="17vh"
     dataTestId="Coords"
     flex="0 1 15%"
     shuffleDelay={600}

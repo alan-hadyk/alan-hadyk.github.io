@@ -267,26 +267,10 @@ describe("molecules / DashboardElement", () => {
 
     describe("Props", () => {
       describe("height", () => {
-        test("should have unset by default", () => {
+        test("should have calc(100% - 3.6rem)", () => {
           const { PositionContainer } = setup();
   
-          expect(PositionContainer).toHaveStyleRule("height", "unset");
-        });
-
-        test("should have 1.2rem when passed via childrenHeight prop value", () => {
-          const { PositionContainer } = setup({
-            childrenHeight: "spacing12"
-          });
-  
-          expect(PositionContainer).toHaveStyleRule("height", "1.2rem");
-        });
-
-        test("should have 2.4rem when passed via childrenHeight prop value", () => {
-          const { PositionContainer } = setup({
-            childrenHeight: "spacing24"
-          });
-  
-          expect(PositionContainer).toHaveStyleRule("height", "2.4rem");
+          expect(PositionContainer).toHaveStyleRule("height", "calc(100% - 3.6rem)");
         });
       });
 

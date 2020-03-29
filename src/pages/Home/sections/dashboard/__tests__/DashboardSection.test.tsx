@@ -6,7 +6,8 @@ import DashboardSection from "<pages>/Home/sections/dashboard/DashboardSection";
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 jest.mock("vivus");
-jest.mock("<state>/withCommitsState", () => (WrappedComponent: React.FunctionComponent<any>) => (props: unknown) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+jest.mock("<state>/withCommitsState", () => (WrappedComponent: React.FunctionComponent<any>) => (props: unknown): JSX.Element => {
   const commitsList = [
     {
       commit: {
@@ -43,26 +44,34 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
       Console,
       Coords,
       FlexContainers,
+      Flux,
+      Fps,
+      PositionContainers,
       Section,
       SpacingContainers,
-      TechStack,
-      Flux
+      TechStack
     } = setup();
 
     expect(Section.children[0]).toEqual(SpacingContainers[0]);
-    expect(SpacingContainers[0].children[0]).toEqual(FlexContainers[0]);
-    expect(FlexContainers[0].children[0]).toEqual(TechStack);
-    expect(FlexContainers[0].children[1]).toEqual(Coords);
-    expect(FlexContainers[0].children[2]).toEqual(Flux);
-    expect(FlexContainers[0].children[3]).toEqual(Code);
+    expect(SpacingContainers[0].children[0]).toEqual(PositionContainers[0]);
+    expect(PositionContainers[0].children[0]).toEqual(FlexContainers[0]);
 
-    expect(Section.children[1]).toEqual(SpacingContainers[1]);
+    // Top row
+    expect(FlexContainers[0].children[0]).toEqual(SpacingContainers[1]);
     expect(SpacingContainers[1].children[0]).toEqual(FlexContainers[1]);
-    expect(FlexContainers[1].children[0]).toEqual(Console);
+    expect(FlexContainers[1].children[0]).toEqual(TechStack);
+    expect(FlexContainers[1].children[1]).toEqual(Coords);
+    expect(FlexContainers[1].children[2]).toEqual(Flux);
+    expect(FlexContainers[1].children[3]).toEqual(Code);
 
-    expect(Section.children[2]).toEqual(SpacingContainers[2]);
+    // Console
+    expect(FlexContainers[0].children[1]).toEqual(Console);
+
+    // Bottom row
+    expect(FlexContainers[0].children[2]).toEqual(SpacingContainers[2]);
     expect(SpacingContainers[2].children[0]).toEqual(FlexContainers[2]);
-    expect(FlexContainers[2].children[0]).toEqual(Commits);
+    expect(FlexContainers[2].children[0]).toEqual(Fps);
+    expect(FlexContainers[2].children[1]).toEqual(Commits);
   });
 
   describe("Section", () => {
@@ -85,103 +94,106 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
     });
   });
 
-  describe("SpacingContainers", () => {
-    describe("SpacingContainers[0]", () => {
-      describe("Props", () => {
-        describe("paddingTop", () => {
-          test("should have 2.4rem", () => {
-            const { SpacingContainers } = setup();
+  describe("SpacingContainers[0]", () => {
+    describe("Props", () => {
+      describe("paddingTop", () => {
+        test("should have 9.6rem", () => {
+          const { SpacingContainers } = setup();
 
-            expect(SpacingContainers[0]).toHaveStyleRule("padding-top", "2.4rem");
-          });
-        });
-
-        describe("height", () => {
-          test("should have calc(17vh + 3.6rem)", () => {
-            const { SpacingContainers } = setup();
-
-            expect(SpacingContainers[0]).toHaveStyleRule("height", "calc(17vh + 3.6rem)");
-          });
+          expect(SpacingContainers[0]).toHaveStyleRule("padding-top", "9.6rem");
         });
       });
-    });
 
-    describe("SpacingContainers[1]", () => {
-      describe("Props", () => {
-        describe("marginTop", () => {
-          test("should have 5.6rem", () => {
-            const { SpacingContainers } = setup();
+      describe("height", () => {
+        test("should have 100vh", () => {
+          const { SpacingContainers } = setup();
 
-            expect(SpacingContainers[1]).toHaveStyleRule("margin-top", "5.6rem");
-          });
-        });
-
-        describe("marginBottom", () => {
-          test("should have 4rem", () => {
-            const { SpacingContainers } = setup();
-
-            expect(SpacingContainers[1]).toHaveStyleRule("margin-bottom", "4rem");
-          });
-        });
-      });
-    });
-
-    describe("SpacingContainers[2]", () => {
-      describe("Props", () => {
-        describe("height", () => {
-          test("should have calc(22.6vh + 3.6rem)", () => {
-            const { SpacingContainers } = setup();
-
-            expect(SpacingContainers[2]).toHaveStyleRule("height", "calc(22.6vh + 3.6rem)");
-          });
+          expect(SpacingContainers[0]).toHaveStyleRule("height", "100vh");
         });
       });
     });
   });
 
-  describe("FlexContainers", () => {
-    describe("FlexContainers[0]", () => {
+  describe("PositionContainers[0]", () => {
+    describe("Props", () => {
+      describe("height", () => {
+        test("should have 100%", () => {
+          const { PositionContainers } = setup();
+
+          expect(PositionContainers[0]).toHaveStyleRule("height", "100%");
+        });
+      });
+
+      describe("position", () => {
+        test("should have relative", () => {
+          const { PositionContainers } = setup();
+
+          expect(PositionContainers[0]).toHaveStyleRule("position", "relative");
+        });
+      });
+    });
+  });
+
+  describe("FlexContainers[0]", () => {
+    describe("Props", () => {
+      describe("alignItems", () => {
+        test("should have center", () => {
+          const { FlexContainers } = setup();
+
+          expect(FlexContainers[0]).toHaveStyleRule("align-items", "center");
+        });
+      });
+
+      describe("flexFlow", () => {
+        test("should have column nowrap", () => {
+          const { FlexContainers } = setup();
+
+          expect(FlexContainers[0]).toHaveStyleRule("flex-flow", "column nowrap");
+        });
+      });
+
+      describe("height", () => {
+        test("should have 100%", () => {
+          const { FlexContainers } = setup();
+
+          expect(FlexContainers[0]).toHaveStyleRule("height", "100%");
+        });
+      });
+
+      describe("justifyContent", () => {
+        test("should have space-between", () => {
+          const { FlexContainers } = setup();
+
+          expect(FlexContainers[0]).toHaveStyleRule("justify-content", "space-between");
+        });
+      });
+    });
+  });
+
+  describe("Top row", () => {
+    describe("SpacingContainers[1]", () => {
       describe("Props", () => {
-        describe("alignItems", () => {
-          test("should have flex-start", () => {
-            const { FlexContainers } = setup();
-
-            expect(FlexContainers[0]).toHaveStyleRule("align-items", "flex-start");
-          });
-        });
-
-        describe("flexFlow", () => {
-          test("should have row nowrap", () => {
-            const { FlexContainers } = setup();
-
-            expect(FlexContainers[0]).toHaveStyleRule("flex-flow", "row nowrap");
-          });
-        });
-
-        describe("gap", () => {
-          test("each child should have padding-left: 4.8rem (except the first item)", () => {
-            const { FlexContainers } = setup();
-
-            expect(FlexContainers[0]).toHaveStyleRule("padding-left", "4.8rem", {
-              modifier: "& > *"
-            });
-
-          });
-        });
-
         describe("height", () => {
-          test("should have row 22rem", () => {
-            const { FlexContainers } = setup();
+          test("should have calc(17vh + 3.6rem)", () => {
+            const { SpacingContainers } = setup();
 
-            expect(FlexContainers[0]).toHaveStyleRule("height", "22rem");
+            expect(SpacingContainers[1]).toHaveStyleRule("height", "calc(17vh + 3.6rem)");
           });
         });
 
-        describe("justifyContent", () => {
-          test("should have center", () => {
-            const { FlexContainers } = setup();
+        describe("marginTop", () => {
+          test("should have 2.22vh", () => {
+            const { SpacingContainers } = setup();
 
-            expect(FlexContainers[0]).toHaveStyleRule("justify-content", "center");
+            expect(SpacingContainers[1]).toHaveStyleRule("margin-top", "2.22vh");
+          });
+        });
+
+        describe("width", () => {
+          test("should have 100%", () => {
+            const { SpacingContainers } = setup();
+
+            expect(SpacingContainers[1]).toHaveStyleRule("width", "100%");
           });
         });
       });
@@ -190,10 +202,10 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
     describe("FlexContainers[1]", () => {
       describe("Props", () => {
         describe("alignItems", () => {
-          test("should have center", () => {
+          test("should have stretch", () => {
             const { FlexContainers } = setup();
 
-            expect(FlexContainers[1]).toHaveStyleRule("align-items", "center");
+            expect(FlexContainers[1]).toHaveStyleRule("align-items", "stretch");
           });
         });
 
@@ -202,6 +214,27 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
             const { FlexContainers } = setup();
 
             expect(FlexContainers[1]).toHaveStyleRule("flex-flow", "row nowrap");
+          });
+        });
+
+        describe("gap", () => {
+          test("should have padding-left: 4.8rem for all children (except first)", () => {
+            const { FlexContainers } = setup();
+
+            expect(FlexContainers[1]).toHaveStyleRule("padding-left", "4.8rem", {
+              modifier: "& > *"
+            });
+            expect(FlexContainers[1]).toHaveStyleRule("padding-left", "0", {
+              modifier: "& > *:first-child"
+            });
+          });
+        });
+
+        describe("height", () => {
+          test("should have 100%", () => {
+            const { FlexContainers } = setup();
+
+            expect(FlexContainers[1]).toHaveStyleRule("height", "100%");
           });
         });
 
@@ -215,13 +248,168 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
       });
     });
 
+    describe("TechStack", () => {
+      describe("Props", () => {
+        describe("flex", () => {
+          test("should have 0 1 30%", () => {
+            const { TechStack } = setup();
+  
+            expect(TechStack).toHaveStyleRule("flex", "0 1 30%");
+          });
+        });
+  
+        describe("title", () => {
+          test("should render TechStack", () => {
+            const { TechStack } = setup();
+  
+            expect(TechStack.children[0].textContent).toEqual("Tech Stack");
+          });
+        });
+      });
+    });  
+
+    describe("Coords", () => {
+      describe("Props", () => {
+        describe("flex", () => {
+          test("should have 0 1 15%", () => {
+            const { Coords } = setup();
+  
+            expect(Coords).toHaveStyleRule("flex", "0 1 15%");
+          });
+        });
+  
+        describe("title", () => {
+          test("should render Coords", () => {
+            const { Coords } = setup();
+  
+            expect(Coords.children[0].textContent).toEqual("Coords");
+          });
+        });
+      });
+    });  
+
+    describe("Flux", () => {
+      describe("Props", () => {
+        describe("flex", () => {
+          test("should have 0 1 30%", () => {
+            const { Flux } = setup();
+  
+            expect(Flux).toHaveStyleRule("flex", "0 1 30%");
+          });
+        });
+  
+        describe("title", () => {
+          test("should render Flux", () => {
+            const { Flux } = setup();
+  
+            expect(Flux.children[0].textContent).toEqual("Flux");
+          });
+        });
+      });
+    });  
+
+    describe("Code", () => {
+      describe("Props", () => {
+        describe("flex", () => {
+          test("should have 0 1 25%", () => {
+            const { Code } = setup();
+  
+            expect(Code).toHaveStyleRule("flex", "0 1 25%");
+          });
+        });
+  
+        describe("title", () => {
+          test("should render Code", () => {
+            const { Code } = setup();
+  
+            expect(Code.children[0].textContent).toEqual("Code");
+          });
+        });
+      });
+    });  
+
+  });
+
+  describe("Console", () => {
+    describe("Props", () => {
+      describe("left", () => {
+        test("should have 0", () => {
+          const { Console } = setup();
+
+          expect(Console).toHaveStyleRule("left", "0");
+        });
+      });
+
+      describe("position", () => {
+        test("should have absolute", () => {
+          const { Console } = setup();
+
+          expect(Console).toHaveStyleRule("position", "absolute");
+        });
+      });
+
+      describe("right", () => {
+        test("should have 0", () => {
+          const { Console } = setup();
+
+          expect(Console).toHaveStyleRule("right", "0");
+        });
+      });
+
+      describe("top", () => {
+        test("should have 50%", () => {
+          const { Console } = setup();
+
+          expect(Console).toHaveStyleRule("top", "50%");
+        });
+      });
+
+      describe("transform", () => {
+        test("should have translateY(-50%)", () => {
+          const { Console } = setup();
+
+          expect(Console).toHaveStyleRule("transform", "translateY(-50%)");
+        });
+      });
+    });
+  });
+
+  describe("Bottom row", () => {
+    describe("SpacingContainers[2]", () => {
+      describe("Props", () => {
+        describe("height", () => {
+          test("should have calc(22.6vh + 3.6rem)", () => {
+            const { SpacingContainers } = setup();
+
+            expect(SpacingContainers[2]).toHaveStyleRule("height", "calc(22.6vh + 3.6rem)");
+          });
+        });
+
+        describe("marginBottom", () => {
+          test("should have 2.22vh", () => {
+            const { SpacingContainers } = setup();
+
+            expect(SpacingContainers[2]).toHaveStyleRule("margin-bottom", "2.22vh");
+          });
+        });
+
+        describe("width", () => {
+          test("should have 100%", () => {
+            const { SpacingContainers } = setup();
+
+            expect(SpacingContainers[2]).toHaveStyleRule("width", "100%");
+          });
+        });
+      });
+    });
+
     describe("FlexContainers[2]", () => {
       describe("Props", () => {
         describe("alignItems", () => {
-          test("should have flex-start", () => {
+          test("should have stretch", () => {
             const { FlexContainers } = setup();
 
-            expect(FlexContainers[2]).toHaveStyleRule("align-items", "flex-start");
+            expect(FlexContainers[2]).toHaveStyleRule("align-items", "stretch");
           });
         });
 
@@ -234,7 +422,7 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
         });
 
         describe("gap", () => {
-          test("should have 4.8rem", () => {
+          test("should have padding-left: 4.8rem for all children (except first)", () => {
             const { FlexContainers } = setup();
 
             expect(FlexContainers[2]).toHaveStyleRule("padding-left", "4.8rem", {
@@ -263,35 +451,49 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
         });
       });
     });
+
+    describe("Fps", () => {
+      describe("Props", () => {
+        describe("flex", () => {
+          test("should have 0 1 16.33%", () => {
+            const { Fps } = setup();
+  
+            expect(Fps).toHaveStyleRule("flex", "0 1 16.33%");
+          });
+        });
+  
+        describe("title", () => {
+          test("should render Fps", () => {
+            const { Fps } = setup();
+  
+            expect(Fps.children[0].textContent).toEqual("Fps");
+          });
+        });
+      });
+    });  
+
+    describe("Commits", () => {
+      describe("Props", () => {
+        describe("flex", () => {
+          test("should have 0 1 15.73%", () => {
+            const { Commits } = setup();
+  
+            expect(Commits).toHaveStyleRule("flex", "0 1 15.73%");
+          });
+        });
+  
+        describe("title", () => {
+          test("should render Commits", () => {
+            const { Commits } = setup();
+  
+            expect(Commits.children[0].textContent).toEqual("Commits");
+          });
+        });
+      });
+    });  
+
   });
 
-  describe("Commits", () => {
-    describe("Props", () => {
-      describe("childrenHeight", () => {
-        test("should have 22.6vh", () => {
-          const { Commits } = setup();
-
-          expect(Commits.children[1]).toHaveStyleRule("height", "22.6vh");
-        });
-      });
-
-      describe("flex", () => {
-        test("should have 0 1 15%", () => {
-          const { Commits } = setup();
-
-          expect(Commits).toHaveStyleRule("flex", "0 1 15%");
-        });
-      });
-
-      describe("title", () => {
-        test("should render Commits", () => {
-          const { Commits } = setup();
-
-          expect(Commits.children[0].textContent).toEqual("Commits");
-        });
-      });
-    });
-  });
 });
 
 interface Setup extends RenderResult {
@@ -301,6 +503,8 @@ interface Setup extends RenderResult {
   Coords: Element;
   FlexContainers: Element[];
   Flux: Element;
+  Fps: Element;
+  PositionContainers: Element[];
   Section: Element;
   SpacingContainers: Element[];
   TechStack: Element;
@@ -320,6 +524,8 @@ function setup(): Setup {
   const Console: Element = queryByTestId("Console");
   const FlexContainers: Element[] = queryAllByTestId("DashboardSectionFlexContainer");
   const Section: Element = queryByTestId("Section");
+  const Fps: Element = queryByTestId("Fps");
+  const PositionContainers: Element[] = queryAllByTestId("DashboardSectionPositionContainer");
   const SpacingContainers: Element[] = queryAllByTestId("DashboardSectionSpacingContainer");
   const TechStack: Element = queryByTestId("TechStack");
 
@@ -331,6 +537,8 @@ function setup(): Setup {
     Coords,
     FlexContainers,
     Flux,
+    Fps,
+    PositionContainers,
     Section,
     SpacingContainers,
     TechStack
