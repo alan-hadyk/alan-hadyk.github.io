@@ -17,6 +17,7 @@ function Section({
     <SpacingContainer 
       dataTestId="Section"
       id={id}
+      marginBottom="spacing16"
       minHeight={minHeight}
       paddingBottom={title ? "spacing96" : "spacing0"}
     >
@@ -36,7 +37,7 @@ function Section({
       <SpacingContainer
         dataTestId="TitleSpacingContainer"
         marginBottom="spacing96"
-        paddingTop="spacing120"
+        paddingTop="spacing108"
       >
         <Text
           color="blue100"

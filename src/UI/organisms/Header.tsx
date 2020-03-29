@@ -98,7 +98,7 @@ function Header({
             height={height}
             href={href}
             iconName={iconName}
-            isExternal={true}
+            isExternal
           />
         ))}
       </Fragment>

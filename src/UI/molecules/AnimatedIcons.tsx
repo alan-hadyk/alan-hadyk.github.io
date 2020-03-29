@@ -47,7 +47,7 @@ function AnimatedIcons(): JSX.Element {
             animationTime="verySlow"
             height="auto"
             iconName={icon} 
-            shouldDisplayGlowAnimation={true}
+            shouldDisplayGlowAnimation
             width="100%"
           />
         </PositionContainer>

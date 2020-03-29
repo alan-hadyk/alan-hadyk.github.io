@@ -11,21 +11,79 @@ describe("molecules / Console", () => {
     const { 
       ConsoleContainer,
       ConsoleText,
-      FlexContainer,
-      PositionContainer,
-      SpacingContainer,
+      InnerPositionContainer,
+      OuterPositionContainer,
       Text
     } = setup();
 
-    expect(ConsoleContainer.children[0]).toEqual(PositionContainer);
-    expect(ConsoleContainer.children[1]).toEqual(SpacingContainer);
-    expect(PositionContainer.children[0]).toEqual(Text);
-    expect(SpacingContainer.children[0]).toEqual(FlexContainer);
-    expect(FlexContainer.children[0]).toEqual(ConsoleText);
+    expect(OuterPositionContainer.children[0]).toEqual(ConsoleContainer);
+    expect(ConsoleContainer.children[0]).toEqual(InnerPositionContainer);
+    expect(InnerPositionContainer.children[0]).toEqual(Text);
+    expect(ConsoleContainer.children[1]).toEqual(ConsoleText);
+  });
+
+  describe("OuterPositionContainer", () => {
+    describe("Props", () => {
+      describe("left", () => {
+        test("should have 0", () => {
+          const { OuterPositionContainer } = setup();
+
+          expect(OuterPositionContainer).toHaveStyleRule("left", "0");
+        });
+      });
+       
+      describe("position", () => {
+        test("should have absolute", () => {
+          const { OuterPositionContainer } = setup();
+
+          expect(OuterPositionContainer).toHaveStyleRule("position", "absolute");
+        });
+      });
+     
+      describe("right", () => {
+        test("should have 0", () => {
+          const { OuterPositionContainer } = setup();
+
+          expect(OuterPositionContainer).toHaveStyleRule("right", "0");
+        });
+      });
+     
+      describe("top", () => {
+        test("should have 50%", () => {
+          const { OuterPositionContainer } = setup();
+
+          expect(OuterPositionContainer).toHaveStyleRule("top", "50%");
+        });
+      });
+      
+      describe("transform", () => {
+        test("should have translateY(-50%)", () => {
+          const { OuterPositionContainer } = setup();
+
+          expect(OuterPositionContainer).toHaveStyleRule("transform", "translateY(-50%)");
+        });
+      });
+    });
   });
 
   describe("Console.Container", () => {
     describe("Styles", () => {
+      describe("align-items", () => {
+        test("should have center", () => {
+          const { ConsoleContainer } = setup();
+
+          expect(ConsoleContainer).toHaveStyleRule("align-items", "center");
+        });
+      });
+      
+      describe("background-color", () => {
+        test("should have rgba(30,34,36,0.75)", () => {
+          const { ConsoleContainer } = setup();
+
+          expect(ConsoleContainer).toHaveStyleRule("background-color", "rgba(30,34,36,0.75)");
+        });
+      });
+      
       describe("border", () => {
         test("should have 1px solid #78b0b5", () => {
           const { ConsoleContainer } = setup();
@@ -42,11 +100,43 @@ describe("molecules / Console", () => {
         });
       });
       
+      describe("display", () => {
+        test("should have flex", () => {
+          const { ConsoleContainer } = setup();
+
+          expect(ConsoleContainer).toHaveStyleRule("display", "flex");
+        });
+      });
+      
       describe("height", () => {
+        test("should have 26.6%", () => {
+          const { ConsoleContainer } = setup();
+
+          expect(ConsoleContainer).toHaveStyleRule("height", "26.6%");
+        });
+      });
+      
+      describe("justify-content", () => {
+        test("should have center", () => {
+          const { ConsoleContainer } = setup();
+
+          expect(ConsoleContainer).toHaveStyleRule("justify-content", "center");
+        });
+      });
+      
+      describe("min-height", () => {
         test("should have 26.6vh", () => {
           const { ConsoleContainer } = setup();
 
-          expect(ConsoleContainer).toHaveStyleRule("height", "26.6vh");
+          expect(ConsoleContainer).toHaveStyleRule("min-height", "26.6vh");
+        });
+      });
+      
+      describe("padding", () => {
+        test("should have 1.11vh 0.62vw", () => {
+          const { ConsoleContainer } = setup();
+
+          expect(ConsoleContainer).toHaveStyleRule("padding", "1.11vh 0.62vw");
         });
       });
       
@@ -68,37 +158,37 @@ describe("molecules / Console", () => {
     });
   });
 
-  describe("PositionContainer", () => {
+  describe("InnerPositionContainer", () => {
     describe("Props", () => {
       describe("left", () => {
         test("should have 0", () => {
-          const { PositionContainer } = setup();
+          const { InnerPositionContainer } = setup();
 
-          expect(PositionContainer).toHaveStyleRule("left", "0");
+          expect(InnerPositionContainer).toHaveStyleRule("left", "0");
         });
       });
        
       describe("position", () => {
         test("should have absolute", () => {
-          const { PositionContainer } = setup();
+          const { InnerPositionContainer } = setup();
 
-          expect(PositionContainer).toHaveStyleRule("position", "absolute");
+          expect(InnerPositionContainer).toHaveStyleRule("position", "absolute");
         });
       });
      
       describe("top", () => {
         test("should have 0", () => {
-          const { PositionContainer } = setup();
+          const { InnerPositionContainer } = setup();
 
-          expect(PositionContainer).toHaveStyleRule("top", "0");
+          expect(InnerPositionContainer).toHaveStyleRule("top", "0");
         });
       });
       
       describe("transform", () => {
         test("should have translateY(-100%)", () => {
-          const { PositionContainer } = setup();
+          const { InnerPositionContainer } = setup();
 
-          expect(PositionContainer).toHaveStyleRule("transform", "translateY(-100%)");
+          expect(InnerPositionContainer).toHaveStyleRule("transform", "translateY(-100%)");
         });
       });
     });
@@ -172,78 +262,6 @@ describe("molecules / Console", () => {
           const { Text } = setup();
 
           expect(Text).toHaveStyleRule("text-transform", "uppercase");
-        });
-      });
-    });
-  });
-
-  describe("SpacingContainer", () => {
-    describe("Props", () => {
-      describe("height", () => {
-        test("should have 100%", () => {
-          const { SpacingContainer } = setup();
-
-          expect(SpacingContainer).toHaveStyleRule("height", "100%");
-        });
-      });
-       
-      describe("paddingBottom", () => {
-        test("should have 1.2rem", () => {
-          const { SpacingContainer } = setup();
-
-          expect(SpacingContainer).toHaveStyleRule("padding-bottom", "1.2rem");
-        });
-      });
-      
-      describe("paddingLeft", () => {
-        test("should have 1.2rem", () => {
-          const { SpacingContainer } = setup();
-
-          expect(SpacingContainer).toHaveStyleRule("padding-left", "1.2rem");
-        });
-      });
-      
-      describe("paddingRight", () => {
-        test("should have 1.2rem", () => {
-          const { SpacingContainer } = setup();
-
-          expect(SpacingContainer).toHaveStyleRule("padding-right", "1.2rem");
-        });
-      });
-      
-      describe("paddingTop", () => {
-        test("should have 1.2rem", () => {
-          const { SpacingContainer } = setup();
-
-          expect(SpacingContainer).toHaveStyleRule("padding-top", "1.2rem");
-        });
-      });
-    });
-  });
-
-  describe("FlexContainer", () => {
-    describe("Props", () => {
-      describe("alignItems", () => {
-        test("should have center", () => {
-          const { FlexContainer } = setup();
-
-          expect(FlexContainer).toHaveStyleRule("align-items", "center");
-        });
-      });
-       
-      describe("height", () => {
-        test("should have 100%", () => {
-          const { FlexContainer } = setup();
-
-          expect(FlexContainer).toHaveStyleRule("height", "100%");
-        });
-      });
-      
-      describe("justifyContent", () => {
-        test("should have center", () => {
-          const { FlexContainer } = setup();
-
-          expect(FlexContainer).toHaveStyleRule("justify-content", "center");
         });
       });
     });
@@ -462,9 +480,8 @@ describe("molecules / Console", () => {
 interface Setup extends RenderResult {
   ConsoleContainer: Element;
   ConsoleText: Element;
-  FlexContainer: Element;
-  PositionContainer: Element;
-  SpacingContainer: Element;
+  InnerPositionContainer: Element;
+  OuterPositionContainer: Element;
   Text: Element;
 }
 
@@ -474,20 +491,18 @@ function setup(): Setup {
   );
 
   const { queryByTestId }: RenderResult = utils;
-  const ConsoleContainer: Element = queryByTestId("Console");
-  const PositionContainer: Element = queryByTestId("PositionContainer");
+  const OuterPositionContainer: Element = queryByTestId("Console");
+  const ConsoleContainer: Element = queryByTestId("ConsoleContainer");
+  const InnerPositionContainer: Element = queryByTestId("InnerPositionContainer");
   const Text: Element = queryByTestId("Text");
-  const SpacingContainer: Element = queryByTestId("SpacingContainer");
-  const FlexContainer: Element = queryByTestId("FlexContainer");
   const ConsoleText: Element = queryByTestId("ConsoleText");
  
   return {
     ...utils,
     ConsoleContainer,
     ConsoleText,
-    FlexContainer,
-    PositionContainer,
-    SpacingContainer,
+    InnerPositionContainer,
+    OuterPositionContainer,
     Text
   };
 }
