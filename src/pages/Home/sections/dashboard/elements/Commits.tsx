@@ -13,13 +13,13 @@ export const Commits = ({ commitsList, hasError }: ListOfCommitsProps): JSX.Elem
   <DashboardElement
     childrenHeight="22.6vh"
     dataTestId="Commits"
-    flex="0 1 16.6%"
+    flex="0 1 15%"
     shuffleDelay={3000}
     shouldDisplayCorners={hasError}
-    title="Commits" 
+    title="Commits"
   >
     <ListOfCommits commitsList={commitsList} hasError={hasError} />
   </DashboardElement>
 );
-  
+
 export default withCommitsState(memo(Commits));

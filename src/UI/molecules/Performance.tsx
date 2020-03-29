@@ -32,14 +32,25 @@ function Performance(): JSX.Element {
     <FlexContainer
       flexFlow="column nowrap"
     >
-      {performanceItems.map(({ title }: PerformanceItemProps): JSX.Element => (
-        <PerformanceItem
-          key={title}
-          title={title}
-        />
-      ))}
+      {performanceItems.map(({ title }, index): JSX.Element => {
+        const animationDelay = `${getRandomDelay(0, index * 600)}ms`;
+ 
+        return (
+          <PerformanceItem
+            animationDelay={animationDelay}
+            key={title}
+            title={title}
+          />
+        );
+      })}
     </FlexContainer>
   );
+}
+
+function getRandomDelay(min: number, max: number): number {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
 }
 
 export default memo(Performance);

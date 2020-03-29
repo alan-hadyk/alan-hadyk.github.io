@@ -1,4 +1,5 @@
 import "styled-components";
+import { Keyframes } from "styled-components";
 
 declare module "styled-components" {
   export interface DefaultTheme {
@@ -45,6 +46,7 @@ declare module "styled-components" {
     };
 
     keyframes: {
+      barChartWidth: Keyframes;
       blink: Keyframes;
       borderDanceHorizontal: Keyframes;
       borderDanceVertical: Keyframes;

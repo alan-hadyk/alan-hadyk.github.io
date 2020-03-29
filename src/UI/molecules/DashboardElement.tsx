@@ -9,6 +9,8 @@ import SpacingContainer from "<layout>/SpacingContainer";
 
 import Cross from "<assets>/svg/Cross.svg";
 
+import transitionTimes from "<styles>/variables/transitionTimes";
+
 import { DashboardElementProps } from "<molecules>/__typings__/DashboardElement.d.ts";
 
 function DashboardElement({
@@ -36,6 +38,7 @@ function DashboardElement({
         lineHeight="spacing36"
         shouldShuffle
         shuffleDelay={shuffleDelay}
+        shuffleInterval={parseInt(transitionTimes.superSlow)}
         textTransform="uppercase"
       >
         {title}

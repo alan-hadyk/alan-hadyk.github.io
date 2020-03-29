@@ -276,10 +276,10 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
       });
 
       describe("flex", () => {
-        test("should have 0 1 16.6%", () => {
+        test("should have 0 1 15%", () => {
           const { Commits } = setup();
 
-          expect(Commits).toHaveStyleRule("flex", "0 1 16.6%");
+          expect(Commits).toHaveStyleRule("flex", "0 1 15%");
         });
       });
 
