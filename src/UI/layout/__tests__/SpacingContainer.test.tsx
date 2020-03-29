@@ -65,6 +65,14 @@ describe("layout / SpacingContainer", () => {
   
         expect(SpacingContainer).toHaveStyleRule("margin-bottom", "4.8rem");
       });
+  
+      test("should have correct value when passed via custom value in prop", () => {
+        const { SpacingContainer } = setup({
+          marginBottom: "4vh"
+        });
+  
+        expect(SpacingContainer).toHaveStyleRule("margin-bottom", "4vh");
+      });
     });
 
     describe("margin-left", () => {      
@@ -80,6 +88,14 @@ describe("layout / SpacingContainer", () => {
         });
   
         expect(SpacingContainer).toHaveStyleRule("margin-left", "4.8rem");
+      });
+        
+      test("should have correct value when passed via custom value in prop", () => {
+        const { SpacingContainer } = setup({
+          marginLeft: "4vw"
+        });
+  
+        expect(SpacingContainer).toHaveStyleRule("margin-left", "4vw");
       });
     });
 
@@ -97,6 +113,14 @@ describe("layout / SpacingContainer", () => {
   
         expect(SpacingContainer).toHaveStyleRule("margin-right", "4.8rem");
       });
+              
+      test("should have correct value when passed via custom value in prop", () => {
+        const { SpacingContainer } = setup({
+          marginRight: "4vw"
+        });
+  
+        expect(SpacingContainer).toHaveStyleRule("margin-right", "4vw");
+      });
     });
 
     describe("margin-top", () => {      
@@ -112,6 +136,14 @@ describe("layout / SpacingContainer", () => {
         });
   
         expect(SpacingContainer).toHaveStyleRule("margin-top", "4.8rem");
+      });
+        
+      test("should have correct value when passed via custom value in prop", () => {
+        const { SpacingContainer } = setup({
+          marginTop: "4vh"
+        });
+  
+        expect(SpacingContainer).toHaveStyleRule("margin-top", "4vh");
       });
     });
 
@@ -153,6 +185,14 @@ describe("layout / SpacingContainer", () => {
   
         expect(SpacingContainer).toHaveStyleRule("padding-bottom", "4.8rem");
       });
+              
+      test("should have correct value when passed via custom value in prop", () => {
+        const { SpacingContainer } = setup({
+          paddingBottom: "8vh"
+        });
+  
+        expect(SpacingContainer).toHaveStyleRule("padding-bottom", "8vh");
+      });
     });
 
     describe("padding-left", () => {      
@@ -168,6 +208,14 @@ describe("layout / SpacingContainer", () => {
         });
   
         expect(SpacingContainer).toHaveStyleRule("padding-left", "4.8rem");
+      });
+                    
+      test("should have correct value when passed via custom value in prop", () => {
+        const { SpacingContainer } = setup({
+          paddingLeft: "8vw"
+        });
+  
+        expect(SpacingContainer).toHaveStyleRule("padding-left", "8vw");
       });
     });
 
@@ -185,6 +233,14 @@ describe("layout / SpacingContainer", () => {
   
         expect(SpacingContainer).toHaveStyleRule("padding-right", "4.8rem");
       });
+                          
+      test("should have correct value when passed via custom value in prop", () => {
+        const { SpacingContainer } = setup({
+          paddingRight: "8vw"
+        });
+  
+        expect(SpacingContainer).toHaveStyleRule("padding-right", "8vw");
+      });
     });
 
     describe("padding-top", () => {      
@@ -200,6 +256,14 @@ describe("layout / SpacingContainer", () => {
         });
   
         expect(SpacingContainer).toHaveStyleRule("padding-top", "4.8rem");
+      });
+                    
+      test("should have correct value when passed via custom value in prop", () => {
+        const { SpacingContainer } = setup({
+          paddingTop: "8vh"
+        });
+  
+        expect(SpacingContainer).toHaveStyleRule("padding-top", "8vh");
       });
     });
 
