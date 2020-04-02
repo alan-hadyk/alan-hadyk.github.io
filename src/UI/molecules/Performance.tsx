@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, Fragment } from "react";
 
 import FlexContainer from "<layout>/FlexContainer";
 import PerformanceItem from "<molecules>/PerformanceItem";
@@ -6,6 +6,8 @@ import PerformanceItem from "<molecules>/PerformanceItem";
 import {
   PerformanceItemProps
 } from "<molecules>/__typings__/PerformanceItem.d.ts";
+
+import getRandomDelay from "<helpers>/math/getRandomDelay";
 
 const performanceItems: PerformanceItemProps[] = [
   { title: "Total heap size" },
@@ -30,27 +32,32 @@ const performanceItems: PerformanceItemProps[] = [
 function Performance(): JSX.Element {
   return (
     <FlexContainer
+      alignItems="flex-start"
       flexFlow="column nowrap"
+      dataTestId="Performance"
+      justifyContent="flex-start"
     >
-      {performanceItems.map(({ title }, index): JSX.Element => {
-        const animationDelay = `${getRandomDelay(0, index * 600)}ms`;
- 
-        return (
-          <PerformanceItem
-            animationDelay={animationDelay}
-            key={title}
-            title={title}
-          />
-        );
-      })}
+      {renderPerformanceItems()}
     </FlexContainer>
   );
-}
 
-function getRandomDelay(min: number, max: number): number {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min;
+  function renderPerformanceItems(): JSX.Element {
+    return (
+      <Fragment>
+        {performanceItems.map(({ title }, index): JSX.Element => {
+          const animationDelay = `${getRandomDelay(0, index * 600)}ms`;
+  
+          return (
+            <PerformanceItem
+              animationDelay={animationDelay}
+              key={title}
+              title={title}
+            />
+          );
+        })}
+      </Fragment>
+    );
+  }
 }
 
 export default memo(Performance);

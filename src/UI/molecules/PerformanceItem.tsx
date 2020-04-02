@@ -14,7 +14,9 @@ import {
 
 function PerformanceItem({ animationDelay, title }: PerformanceItemProps): JSX.Element {
   return (
-    <PerformanceItem.Container>
+    <PerformanceItem.Container
+      data-testid="PerformanceItem"
+    >
       <SpacingContainer
         paddingBottom="spacing2"
         paddingTop="spacing2"
@@ -24,7 +26,7 @@ function PerformanceItem({ animationDelay, title }: PerformanceItemProps): JSX.E
           flexFlow="row nowrap"
         >
           <FlexItem
-            flex="0 1 50%"
+            flex="0 1 40%"
           >
             <Text
               color="blue100"
@@ -38,10 +40,11 @@ function PerformanceItem({ animationDelay, title }: PerformanceItemProps): JSX.E
             </Text>
           </FlexItem>
           <FlexItem
-            flex="0 1 50%"
+            flex="0 1 60%"
           >
             <PerformanceItem.Barchart
               animationDelay={animationDelay}
+              data-testid="PerformanceItemBarchart"
             />
           </FlexItem>
         </FlexContainer>
@@ -75,6 +78,7 @@ PerformanceItem.Barchart = styled.div<PerformanceItemBarchartProps>`
 
 PerformanceItem.Container = styled.div`
   display: none;
+  height: 5.88%;
   width: 100%;
 
   @media (min-height: 900px)  {

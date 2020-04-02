@@ -41,6 +41,7 @@ function Console(): JSX.Element {
             lineHeight="spacing28"
             shouldShuffle
             shuffleDelay={2400}
+            shuffleInterval={parseInt(transitionTimes.superSlow)}
             textTransform="uppercase"
           >
           GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin19)

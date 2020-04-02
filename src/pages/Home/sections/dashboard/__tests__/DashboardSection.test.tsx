@@ -46,6 +46,7 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
       FlexContainers,
       Flux,
       Fps,
+      Navigator,
       PositionContainers,
       Section,
       SpacingContainers,
@@ -72,6 +73,7 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
     expect(SpacingContainers[2].children[0]).toEqual(FlexContainers[2]);
     expect(FlexContainers[2].children[0]).toEqual(Fps);
     expect(FlexContainers[2].children[1]).toEqual(Commits);
+    expect(FlexContainers[2].children[2]).toEqual(Navigator);
   });
 
   describe("Section", () => {
@@ -475,10 +477,10 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
     describe("Commits", () => {
       describe("Props", () => {
         describe("flex", () => {
-          test("should have 0 1 15.73%", () => {
+          test("should have 1 1 15.73%", () => {
             const { Commits } = setup();
   
-            expect(Commits).toHaveStyleRule("flex", "0 1 15.73%");
+            expect(Commits).toHaveStyleRule("flex", "1 1 15.73%");
           });
         });
   
@@ -492,8 +494,26 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
       });
     });  
 
+    describe("Navigator", () => {
+      describe("Props", () => {
+        describe("flex", () => {
+          test("should have 1 1 12%", () => {
+            const { Navigator } = setup();
+  
+            expect(Navigator).toHaveStyleRule("flex", "1 1 12%");
+          });
+        });
+  
+        describe("title", () => {
+          test("should render Navigator", () => {
+            const { Navigator } = setup();
+  
+            expect(Navigator.children[0].textContent).toEqual("Navigator");
+          });
+        });
+      });
+    });  
   });
-
 });
 
 interface Setup extends RenderResult {
@@ -504,6 +524,7 @@ interface Setup extends RenderResult {
   FlexContainers: Element[];
   Flux: Element;
   Fps: Element;
+  Navigator: Element;
   PositionContainers: Element[];
   Section: Element;
   SpacingContainers: Element[];
@@ -519,12 +540,13 @@ function setup(): Setup {
   
   const Code: Element = queryByTestId("Code");
   const Commits: Element = queryAllByTestId("Commits")[0];
+  const Console: Element = queryByTestId("Console");
   const Coords: Element = queryByTestId("Coords");
   const Flux: Element = queryByTestId("Flux");
-  const Console: Element = queryByTestId("Console");
   const FlexContainers: Element[] = queryAllByTestId("DashboardSectionFlexContainer");
-  const Section: Element = queryByTestId("Section");
   const Fps: Element = queryByTestId("Fps");
+  const Navigator: Element = queryByTestId("Navigator");
+  const Section: Element = queryByTestId("Section");
   const PositionContainers: Element[] = queryAllByTestId("DashboardSectionPositionContainer");
   const SpacingContainers: Element[] = queryAllByTestId("DashboardSectionSpacingContainer");
   const TechStack: Element = queryByTestId("TechStack");
@@ -538,6 +560,7 @@ function setup(): Setup {
     FlexContainers,
     Flux,
     Fps,
+    Navigator,
     PositionContainers,
     Section,
     SpacingContainers,
