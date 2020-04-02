@@ -33,8 +33,8 @@ function Performance(): JSX.Element {
   return (
     <FlexContainer
       alignItems="flex-start"
-      flexFlow="column nowrap"
       dataTestId="Performance"
+      flexFlow="column nowrap"
       justifyContent="flex-start"
     >
       {renderPerformanceItems()}

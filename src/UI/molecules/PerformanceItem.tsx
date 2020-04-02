@@ -58,17 +58,17 @@ PerformanceItem.Barchart = styled.div<PerformanceItemBarchartProps>`
     animationDelay,
     theme: {
       colorPalette: { blue300 },
-      easing,
-      keyframes,
+      easing: { easeInOut },
+      keyframes: { barChartWidth },
       spacing: { spacing4 },
-      transitionTimes
+      transitionTimes: { verySlow }
     }
   }): FlattenSimpleInterpolation => css`
     animation-delay: ${animationDelay};
-    animation-duration: ${transitionTimes.verySlow};
+    animation-duration: ${verySlow};
     animation-iteration-count: infinite;
-    animation-name: ${keyframes.barChartWidth};
-    animation-timing-function: ${easing.easeInOut};
+    animation-name: ${barChartWidth};
+    animation-timing-function: ${easeInOut};
     background-color: ${blue300};
     height: ${spacing4};
     padding-right: ${spacing4};

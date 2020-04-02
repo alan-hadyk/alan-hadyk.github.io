@@ -8,7 +8,6 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 describe("pages / Home / sections / dashboard / elements / Navigator", () => {
   test("should have correct structure", () => {
-
     const {
       DashboardElement,
       Performance

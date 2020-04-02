@@ -9,9 +9,7 @@ import {
   PerformanceItemProps
 } from "<molecules>/__typings__/PerformanceItem.d.ts";
 
-jest.mock("<helpers>/math/getRandomDelay", () => (min: number, max: number): number => max);
-
-describe("molecules / Performance", () => {
+describe("molecules / PerformanceItem", () => {
   test("should have correct structure", () => {
     const {
       Barchart,
@@ -120,7 +118,6 @@ describe("molecules / Performance", () => {
           expect(SpacingContainer).toHaveStyleRule("padding-bottom", ".2rem");
         });
       });
-
       
       describe("width", () => {      
         test("should have 100%", () => {
@@ -171,88 +168,86 @@ describe("molecules / Performance", () => {
   });
 
   describe("Text", () => { 
-    describe("Text", () => {
-      test("should render textContent equal to title prop", () => {
-        const { Text } = setup({
-          title: "Hello"
-        });
-  
-        expect(Text.textContent).toEqual("Hello");
+    test("should render textContent equal to title prop", () => {
+      const { Text } = setup({
+        title: "Hello"
       });
 
-      describe("Props", () => {
-        describe("color", () => {
-          test("should have #bcd8db", () => {
+      expect(Text.textContent).toEqual("Hello");
+    });
+
+    describe("Props", () => {
+      describe("color", () => {
+        test("should have #bcd8db", () => {
+          const { Text } = setup();
+    
+          expect(Text).toHaveStyleRule("color", "#bcd8db");
+        });
+      });
+
+      describe("ellipsis", () => {
+        describe("text-overflow", () => {
+          test("should have ellipsis", () => {
             const { Text } = setup();
-      
-            expect(Text).toHaveStyleRule("color", "#bcd8db");
+
+            expect(Text).toHaveStyleRule("text-overflow", "ellipsis");
           });
         });
 
-        describe("ellipsis", () => {
-          describe("text-overflow", () => {
-            test("should have ellipsis", () => {
-              const { Text } = setup();
-  
-              expect(Text).toHaveStyleRule("text-overflow", "ellipsis");
-            });
-          });
-
-          describe("overflow", () => {
-            test("should have hidden", () => {
-              const { Text } = setup();
-  
-              expect(Text).toHaveStyleRule("overflow", "hidden");
-            });
-          });
-
-          describe("white-space", () => {
-            test("should have nowrap", () => {
-              const { Text } = setup();
-  
-              expect(Text).toHaveStyleRule("white-space", "nowrap");
-            });
-          });
-        });
-  
-        describe("font-family", () => {
-          test("should have 'Anonymous Pro',monospace", () => {
+        describe("overflow", () => {
+          test("should have hidden", () => {
             const { Text } = setup();
 
-            expect(Text).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
-          });
-        });
-  
-        describe("fontSize", () => {
-          test("should have 8px", () => {
-            const { Text } = setup();
-      
-            expect(Text).toHaveStyleRule("font-size", "8px");
+            expect(Text).toHaveStyleRule("overflow", "hidden");
           });
         });
 
-        describe("paddingRight", () => {
-          test("should have .4rem", () => {
+        describe("white-space", () => {
+          test("should have nowrap", () => {
             const { Text } = setup();
-      
-            expect(Text).toHaveStyleRule("padding-right", ".4rem");
+
+            expect(Text).toHaveStyleRule("white-space", "nowrap");
           });
         });
+      });
 
-        describe("textAlign", () => {
-          test("should have right", () => {
-            const { Text } = setup();
-      
-            expect(Text).toHaveStyleRule("text-align", "right");
-          });
+      describe("font-family", () => {
+        test("should have 'Anonymous Pro',monospace", () => {
+          const { Text } = setup();
+
+          expect(Text).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
         });
+      });
 
-        describe("textTransform", () => {
-          test("should have uppercase", () => {
-            const { Text } = setup();
-      
-            expect(Text).toHaveStyleRule("text-transform", "uppercase");
-          });
+      describe("fontSize", () => {
+        test("should have 8px", () => {
+          const { Text } = setup();
+    
+          expect(Text).toHaveStyleRule("font-size", "8px");
+        });
+      });
+
+      describe("paddingRight", () => {
+        test("should have .4rem", () => {
+          const { Text } = setup();
+    
+          expect(Text).toHaveStyleRule("padding-right", ".4rem");
+        });
+      });
+
+      describe("textAlign", () => {
+        test("should have right", () => {
+          const { Text } = setup();
+    
+          expect(Text).toHaveStyleRule("text-align", "right");
+        });
+      });
+
+      describe("textTransform", () => {
+        test("should have uppercase", () => {
+          const { Text } = setup();
+    
+          expect(Text).toHaveStyleRule("text-transform", "uppercase");
         });
       });
     });
@@ -261,7 +256,7 @@ describe("molecules / Performance", () => {
   describe("Barchart", () => { 
     describe("Styles", () => {
       describe("animation-delay", () => {
-        test("should have proper value", () => {
+        test("should have proper value passed via props", () => {
           const { Barchart } = setup({
             animationDelay: "500ms"
           });
@@ -287,7 +282,7 @@ describe("molecules / Performance", () => {
       });
 
       describe("animation-timing-function", () => {
-        test("should have infinite", () => {
+        test("should have ease-in-out", () => {
           const { Barchart } = setup();
     
           expect(Barchart).toHaveStyleRule("animation-timing-function", "ease-in-out");
