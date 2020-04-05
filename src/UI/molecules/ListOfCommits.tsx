@@ -1,4 +1,6 @@
 import React, { memo, Fragment } from "react";
+import isEmpty from "lodash/isEmpty";
+import isEqual from "lodash/isEqual";
 
 import FlexContainer from "<layout>/FlexContainer";
 
@@ -11,9 +13,6 @@ import {
   ListOfCommitsProps,
   CommitProps
 } from "<molecules>/__typings__/ListOfCommits.d.ts";
-
-import isEmpty from "lodash/isEmpty";
-import isEqual from "lodash/isEqual";
 
 function ListOfCommits({ commitsList, hasError }: ListOfCommitsProps): JSX.Element {
   return hasError ? (
@@ -59,8 +58,7 @@ function ListOfCommits({ commitsList, hasError }: ListOfCommitsProps): JSX.Eleme
   }
 }
 
-const areEqual = (prevProps: ListOfCommitsProps, nextProps: ListOfCommitsProps): boolean => {
-  return isEqual(prevProps.commitsList, nextProps.commitsList) && prevProps.hasError === nextProps.hasError;
-};
+const areEqual = (prevProps: ListOfCommitsProps, nextProps: ListOfCommitsProps): boolean =>
+  isEqual(prevProps.commitsList, nextProps.commitsList) && prevProps.hasError === nextProps.hasError;
 
 export default memo(ListOfCommits, areEqual);

@@ -8,6 +8,7 @@ const Fps = (): JSX.Element => (
   <DashboardElement
     dataTestId="Fps"
     flex="0 1 16.33%"
+    overflow="visible"
     title="Fps" 
   >
     <FpsChart />
