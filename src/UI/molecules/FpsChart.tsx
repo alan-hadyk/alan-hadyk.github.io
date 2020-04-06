@@ -1,26 +1,31 @@
-import React, { memo, useRef, useLayoutEffect, Fragment } from "react";
+import React, { memo, useRef, useLayoutEffect } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize } from "polished";
 
 import PositionContainer from "<layout>/PositionContainer";
 
-import colorPalette from "<styles>/variables/colorPalette";
+import useLineChart from "<hooks>/useLineChart";
 
 import {
   FpsChartHorizontalLine,
   FpsChartLabel
 } from "<molecules>/__typings__/FpsChart.d.ts";
+import { LineChartData } from "<hooks>/__typings__/useLineChart.d.ts";
 
 // TODO - tests after component will be ready
 function FpsChart(): JSX.Element {
   const times = useRef([]);
-  const points = useRef([]);
+  const chartData = useRef<LineChartData[]>([]);
   const fps = useRef(null);
-  const canvas = useRef(null);
+  const canvas = useRef<HTMLCanvasElement>(null);
+
+  useLineChart({
+    canvas,
+    chartData
+  });
 
   useLayoutEffect(() => {
     calculateFps();
-    window.requestAnimationFrame(renderChart);
   }, []);
 
   return (
@@ -29,7 +34,7 @@ function FpsChart(): JSX.Element {
       position="relative"
     >
       <FpsChart.Container>
-        <FpsChart.FPS ref={fps} />
+        <FpsChart.FpsCounter ref={fps} />
         <FpsChart.Canvas ref={canvas} />
         {renderLines()}
         {renderLabels()}
@@ -38,75 +43,23 @@ function FpsChart(): JSX.Element {
   );
 
   function renderLines(): JSX.Element[] {
-    const steps = [15, 30, 45];
-
-    return steps.map(step => (
-      <Fragment key={step}>
-        <FpsChart.HorizontalLine bottom={`${(step / 60) * 100}%`} />
-      </Fragment>
+    return [15, 30, 45].map(step => (
+      <FpsChart.HorizontalLine 
+        bottom={`${(step / 60) * 100}%`} 
+        key={step}
+      />
     ));
   }
 
   function renderLabels(): JSX.Element[] {
-    const steps = [0, 15, 30, 45, 60];
-
-    return steps.map(step => (
+    return [0, 15, 30, 45, 60].map(label => (
       <FpsChart.Label
-        bottom={`${(step / 60) * 100}%`}
-        key={step}
+        bottom={`${(label / 60) * 100}%`}
+        key={label}
       >
-        {step}
+        {label}
       </FpsChart.Label>
     ));
-  }
-
-  function renderChart(): void {
-    if (points.current.length < 2) {
-      window.requestAnimationFrame(renderChart);
-      return;
-    }
-
-    const lastElement = points.current.slice(-1)[0];
-
-    const maxTime = lastElement.time;
-    const { height, width } = canvas.current.getBoundingClientRect();
-
-    canvas.current.width = width;
-    canvas.current.height = height;
-
-    const ctx = canvas.current.getContext("2d");
-    ctx.clearRect(0, 0, width, height);
-    ctx.strokeStyle = colorPalette.blue300;
-    ctx.shadowOffsetX = 0;
-    ctx.shadowOffsetY = 0;
-    ctx.shadowColor = colorPalette.blue100;
-    ctx.shadowBlur = 8;
-    ctx.beginPath();
-
-    points.current.forEach(({ time, value }, index) => {
-      const nextItem = points.current[index + 1];
-
-      if (!nextItem) {
-        return;
-      }
-
-      const {
-        time: nextItemTime,
-        value: nextItemValue
-      } = nextItem;
-
-      const left = (time / maxTime) * width;
-      const top = ((60 - value) / 60) * height;
-      const nextItemLeft = (nextItemTime / maxTime) * width;
-      const nextItemTop = ((60 - nextItemValue) / 60) * height;
-
-      ctx.moveTo(left, top);
-      ctx.lineTo(nextItemLeft, nextItemTop);
-    });
-
-    ctx.stroke();
-
-    window.requestAnimationFrame(renderChart);
   }
 
   function calculateFps(): void {
@@ -123,15 +76,16 @@ function FpsChart(): JSX.Element {
 
       fps.current.textContent = currentFPS;
 
-      points.current.push({
+      chartData.current.push({
+        time: 0,
         value: currentFPS
       });
 
-      if (points.current.length > 120) {
-        points.current.shift();
+      if (chartData.current.length > 120) {
+        chartData.current.shift();
       }
       
-      points.current = points.current
+      chartData.current = chartData.current
         .map(({ value }, index) => ({
           time: index,
           value
@@ -153,7 +107,7 @@ FpsChart.Container = styled.div`
   `}
 `;
 
-FpsChart.FPS = styled.div`
+FpsChart.FpsCounter = styled.div`
   ${({
     theme: {
       colorPalette: { blue100 },
