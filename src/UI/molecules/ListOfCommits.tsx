@@ -58,7 +58,7 @@ function ListOfCommits({ commitsList, hasError }: ListOfCommitsProps): JSX.Eleme
   }
 }
 
-const areEqual = (prevProps: ListOfCommitsProps, nextProps: ListOfCommitsProps): boolean =>
+const arePropsEqual = (prevProps: ListOfCommitsProps, nextProps: ListOfCommitsProps): boolean =>
   isEqual(prevProps.commitsList, nextProps.commitsList) && prevProps.hasError === nextProps.hasError;
 
-export default memo(ListOfCommits, areEqual);
+export default memo(ListOfCommits, arePropsEqual);

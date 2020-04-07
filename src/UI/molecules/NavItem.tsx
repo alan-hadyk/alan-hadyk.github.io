@@ -132,7 +132,7 @@ NavItem.Line = styled.div<NavItemLineProps>`
   `}
 `;
 
-const areEqual = (prevProps: NavItemProps, nextProps: NavItemProps): boolean =>
+const arePropsEqual = (prevProps: NavItemProps, nextProps: NavItemProps): boolean =>
   prevProps.isActive === nextProps.isActive;
   
-export default memo(NavItem, areEqual);
+export default memo(NavItem, arePropsEqual);
