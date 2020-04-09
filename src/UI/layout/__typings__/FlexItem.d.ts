@@ -3,6 +3,9 @@ export interface FlexItemProps {
   children: JSX.Element | JSX.Element[];
   dataTestId?: string;
   flex: string;
+  height?: Spacing | string;
   order?: number;
   overflow?: string;
+  paddingBottom?: Spacing | string;
+  paddingTop?: Spacing | string;
 }

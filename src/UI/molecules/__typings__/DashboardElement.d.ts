@@ -4,6 +4,7 @@ import {
 
 export interface DashboardElementProps extends FlexItemProps {
   dataTestId?: string;
+  description?: string;
   shouldDisplayCorners?: boolean;
   shuffleDelay?: number;
   title: string;

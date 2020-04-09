@@ -14,6 +14,8 @@ export interface TextProps {
   fontSize?: FontSizes;
   fontWeight?: FontWeights;
   lineHeight?: Spacing | "1";
+  maxHeight?: Spacing;
+  overflow?: "visible" | "hidden";
   paddingBottom?: Spacing;
   paddingLeft?: Spacing;
   paddingRight?: Spacing;

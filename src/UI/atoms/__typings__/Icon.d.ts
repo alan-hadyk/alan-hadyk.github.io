@@ -7,21 +7,28 @@ export interface IconProps {
   animationTime?: TransitionTimes;
   height?: string | Spacing;
   iconName:
+    "apollo" |
+    "brave" |
     "btnCodeSandbox" |
     "btnDownload" |
     "btnExternalLink" |
     "btnSend" |
-    "apollo" |
-    "graphql" |
-    "javascript" |
-    "node" |
-    "react" |
-    "typescript" |
-    "webpack" |
-    "logo" |
+    "chrome" |
     "codeSandbox" |
+    "firefox" |
     "gitHub" |
-    "linkedIn";
+    "graphql" |
+    "ie" |
+    "javascript" |
+    "logo" |
+    "linkedIn" |
+    "node" |
+    "opera" |
+    "react" |
+    "safari" |
+    "typescript" |
+    "webpack";
+  isActive?: boolean;
   shouldDisplayGlowAnimation?: boolean;
   shouldGlowOnHover?: boolean;
   width?: string | Spacing;
