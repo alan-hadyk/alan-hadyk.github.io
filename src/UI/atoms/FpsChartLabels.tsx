@@ -18,6 +18,7 @@ function FpsChartLabels({ labels }: FpsChartLabelsProps): JSX.Element {
       {labels.map((label: Label, index: number) => (
         <FpsChartLabels.Label
           bottom={`${(label / maxValue) * 100}%`}
+          data-testid="Label"
           key={label}
           transform={calculateTransform(index)}
         >

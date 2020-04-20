@@ -22,11 +22,11 @@ function NavItem({
   title
 }: NavItemProps): JSX.Element {
   const [shuffleText, setShuffleText] = useState<ShuffleState | undefined>();
-  const navItemElement = useRef<HTMLAnchorElement>(null);
+  const navItemElementRef = useRef<HTMLAnchorElement>(null);
 
   useShuffleText({
     onShuffleReady: setShuffleText,
-    ref: navItemElement,
+    ref: navItemElementRef,
     shuffleState: shuffleText,
     text: title
   });
@@ -39,7 +39,7 @@ function NavItem({
         isActive={isActive}
         onMouseUp={handleClick}
         onMouseOver={handleMouseOver}
-        ref={navItemElement}
+        ref={navItemElementRef}
       >
         {title}
       </NavItem.Link>
@@ -64,7 +64,7 @@ function NavItem({
   }
 
   function handleMouseOver(): void {
-    if (!navItemElement.current) {
+    if (!navItemElementRef.current) {
       return;
     }
 
