@@ -30,7 +30,9 @@ export default function useFpsCounter({
 
       const currentFPS: number = times.current.length > 60 ? 60 : times.current.length;
 
-      fpsContainer.current.textContent = String(currentFPS);
+      if (fpsContainer.current) {
+        fpsContainer.current.textContent = String(currentFPS);
+      }
 
       chartData.current.push({
         time: 0,

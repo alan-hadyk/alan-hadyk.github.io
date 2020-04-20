@@ -156,56 +156,6 @@ describe("molecules / AnimatedIcons", () => {
     });
 
     describe("Props", () => {
-      describe("animationDelay & animationTime & shouldDisplayGlowAnimation", () => {
-        describe("animation-delay", () => {      
-          test("should have index * 300ms", () => {
-            const { IconContainers } = setup();
-      
-            IconContainers.forEach((Icon, index) => {
-              expect(Icon).toHaveStyleRule("animation-delay", `${index * 300}ms`, {
-                modifier: "& > *"
-              });
-            });
-          });
-        });
-  
-        describe("animation-duration", () => {      
-          test("should have 3600ms", () => {
-            const { IconContainers } = setup();
-      
-            IconContainers.forEach((Icon) => {
-              expect(Icon).toHaveStyleRule("animation-duration", "3600ms", {
-                modifier: "& > *"
-              });
-            });
-          });
-        });
-  
-        describe("animation-iteration-count", () => {      
-          test("should have infinite", () => {
-            const { IconContainers } = setup();
-      
-            IconContainers.forEach((Icon) => {
-              expect(Icon).toHaveStyleRule("animation-iteration-count", "infinite", {
-                modifier: "& > *"
-              });
-            });
-          });
-        });
-  
-        describe("animation-timing-function", () => {      
-          test("should have ease-in-out", () => {
-            const { IconContainers } = setup();
-      
-            IconContainers.forEach((Icon) => {
-              expect(Icon).toHaveStyleRule("animation-timing-function", "ease-in-out", {
-                modifier: "& > *"
-              });
-            });
-          });
-        });
-      });
-
       describe("height", () => { 
         test("should have auto", () => {
           const { IconContainers } = setup();
