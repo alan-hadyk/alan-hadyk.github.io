@@ -1,9 +1,8 @@
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useCallback } from "react";
 
 import {
   LineChartData
 } from "<hooks>/__typings__/useLineChart.d.ts";
-
 import {
   UseFpsCounter
 } from "<hooks>/__typings__/useFpsCounter.d.ts";
@@ -13,13 +12,14 @@ export default function useFpsCounter({
   fpsContainer
 }: UseFpsCounter): void {
   const times = useRef<number[]>([]);
+  const calculateFps = useCallback<() => void>(_calculateFps, [_calculateFps]);
 
   useLayoutEffect(() => {
     calculateFps();
-  }, []);
+  }, [calculateFps]);
 
-  function calculateFps(): void {
-    window.requestAnimationFrame(() => {
+  function _calculateFps(): void {
+    window.requestAnimationFrame((): void => {
       const now: number = performance.now();
 
       while (times.current.length > 0 && times.current[0] <= now - 1000) {

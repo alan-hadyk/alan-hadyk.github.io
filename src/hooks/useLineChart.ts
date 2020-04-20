@@ -1,4 +1,4 @@
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useCallback } from "react";
 
 import colorPalette from "<styles>/variables/colorPalette";
 
@@ -14,11 +14,13 @@ export default function useLineChart({
   canvas,
   chartData
 }: UseLineChart): void {
+  const drawChart = useCallback<() => void>(_drawChart, [_drawChart]);
+
   useLayoutEffect(() => {
     window.requestAnimationFrame(drawChart);
-  }, [canvas, chartData]);
+  }, [canvas, chartData, drawChart]);
 
-  function drawChart(): void {
+  function _drawChart(): void {
     if (chartData.current.length < 2 || !canvas.current) {
       window.requestAnimationFrame(drawChart);
 
