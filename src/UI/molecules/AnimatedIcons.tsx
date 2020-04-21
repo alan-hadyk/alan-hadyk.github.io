@@ -33,26 +33,19 @@ function AnimatedIcons(): JSX.Element {
   );
 
   function renderIcons(): JSX.Element[] {
-    return animatedIcons.map((icon, index): JSX.Element => {
-      const animationDelay = `${index * 300}ms`;
-
-      return (
-        <PositionContainer 
-          key={icon}
-          position="relative"
-          width={`${100 / animatedIcons.length}%`}
-        >
-          <Icon 
-            animationDelay={animationDelay}
-            animationTime="verySlow"
-            height="auto"
-            iconName={icon} 
-            shouldDisplayGlowAnimation
-            width="100%"
-          />
-        </PositionContainer>
-      );
-    });
+    return animatedIcons.map((icon: IconProps["iconName"]): JSX.Element => (
+      <PositionContainer 
+        key={icon}
+        position="relative"
+        width={`${100 / animatedIcons.length}%`}
+      >
+        <Icon 
+          height="auto"
+          iconName={icon} 
+          width="100%"
+        />
+      </PositionContainer>
+    ));
   }
 }
 

@@ -29,11 +29,11 @@ function Text({
   textTransform = "none"
 }: TextProps): JSX.Element {
   const [shuffleText, setShuffleText] = useState<ShuffleState | undefined>();
-  const textElement = useRef<HTMLDivElement>(null);
+  const textElementRef = useRef<HTMLDivElement>(null);
 
   useShuffleText({
     onShuffleReady: setShuffleText,
-    ref: textElement,
+    ref: textElementRef,
     shouldInitialize: shouldShuffleOnHover || shouldShuffle,
     shuffleDelay,
     shuffleState: shuffleText,
@@ -41,7 +41,7 @@ function Text({
   });
 
   useInterval(() => {
-    if (!textElement.current || !shouldShuffle) {
+    if (!textElementRef.current || !shouldShuffle) {
       return;
     }
     shuffleText && shuffleText.start();
@@ -61,7 +61,7 @@ function Text({
       paddingLeft={paddingLeft}
       paddingRight={paddingRight}
       paddingTop={paddingTop}  
-      ref={textElement}
+      ref={textElementRef}
       textAlign={textAlign}
       textTransform={textTransform}
     >
@@ -70,7 +70,7 @@ function Text({
   );
 
   function handleMouseOver(): void {
-    if (!textElement.current || !shouldShuffleOnHover) {
+    if (!textElementRef.current || !shouldShuffleOnHover) {
       return;
     }
 

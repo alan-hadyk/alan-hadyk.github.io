@@ -42,7 +42,7 @@ export default function useIntersectionObserver({
   }, [onElementVisible, selectors]);`;
 
 function TypingAnimation(): JSX.Element {
-  const codeContainer = useRef<HTMLDivElement>(null);
+  const codeContainerRef = useRef<HTMLDivElement>(null);
   const currentChar = useRef<number>(0);
 
   useInterval(() => {
@@ -58,7 +58,7 @@ function TypingAnimation(): JSX.Element {
       <TypingAnimation.Pre data-testid="TypingAnimationPre">
         <TypingAnimation.Code 
           data-testid="TypingAnimationCode"
-          ref={codeContainer} 
+          ref={codeContainerRef} 
         />
       </TypingAnimation.Pre>
     </PositionContainer>
@@ -66,11 +66,11 @@ function TypingAnimation(): JSX.Element {
 
   function updateText(): void {
     if (currentChar.current <= code.length) {
-      codeContainer.current.innerHTML += code.charAt(currentChar.current);
+      codeContainerRef.current.innerHTML += code.charAt(currentChar.current);
 
       currentChar.current++;
     } else {
-      codeContainer.current.innerHTML = "";
+      codeContainerRef.current.innerHTML = "";
 
       currentChar.current = 0;
     }

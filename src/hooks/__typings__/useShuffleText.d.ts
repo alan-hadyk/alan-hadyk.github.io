@@ -12,5 +12,5 @@ export interface UseShuffleText {
   shouldInitialize?: boolean;
   shuffleDelay?: number;
   shuffleState: ShuffleState | undefined;
-  text: string;
+  text: string | number;
 }

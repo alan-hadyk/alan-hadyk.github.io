@@ -10,7 +10,7 @@ import useInterval from "<hooks>/useInterval";
 export const hero = "Vision driven change agent with career-long record of front-end user strategy and UI development";
 
 function Console(): JSX.Element {
-  const heroContainer = useRef<HTMLDivElement>(null);
+  const heroContainerRef = useRef<HTMLDivElement>(null);
   const currentChar = useRef<number>(0);
 
   useInterval(() => {
@@ -47,7 +47,7 @@ function Console(): JSX.Element {
 
         <Console.Text 
           data-testid="ConsoleText"
-          ref={heroContainer} 
+          ref={heroContainerRef} 
         />
       </Console.Container>
     </PositionContainer>
@@ -55,7 +55,7 @@ function Console(): JSX.Element {
 
   function updateText(): void {
     if (currentChar.current <= hero.length) {
-      heroContainer.current.innerHTML += hero.charAt(currentChar.current);
+      heroContainerRef.current.innerHTML += hero.charAt(currentChar.current);
 
       currentChar.current++;
     }
