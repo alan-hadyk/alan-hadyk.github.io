@@ -14,7 +14,7 @@ export default function useFpsCounter({
   const times = useRef<number[]>([]);
   const calculateFps = useCallback<() => void>(_calculateFps, [_calculateFps]);
 
-  useLayoutEffect(() => {
+  useLayoutEffect((): void => {
     calculateFps();
   }, [calculateFps]);
 

@@ -17,7 +17,7 @@ export default function useLineChart({
 }: UseLineChart): void {
   const drawChart = useCallback<() => void>(_drawChart, [_drawChart]);
 
-  useLayoutEffect(() => {
+  useLayoutEffect((): void => {
     window.requestAnimationFrame(drawChart);
   }, [canvas, chartData, drawChart]);
 
