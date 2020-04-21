@@ -1,4 +1,4 @@
-import React, { memo, useRef } from "react";
+import React, { useRef } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import FpsChartLabels from "<atoms>/FpsChartLabels";
@@ -10,30 +10,36 @@ import useFpsCounter from "<hooks>/useFpsCounter";
 
 import { LineChartData } from "<hooks>/__typings__/useLineChart.d.ts";
 
-// TODO - tests after component will be ready
 function FpsChart(): JSX.Element {
   const chartData = useRef<LineChartData[]>([]);
-  const fpsContainer = useRef<HTMLDivElement>(null);
-  const canvas = useRef<HTMLCanvasElement>(null);
+  const fpsContainerRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useFpsCounter({
     chartData,
-    fpsContainer
+    fpsContainer: fpsContainerRef
   });
 
   useLineChart({
-    canvas,
+    canvas: canvasRef,
     chartData
   });
 
   return (
     <PositionContainer
+      dataTestId="FpsChart"
       height="100%"
       position="relative"
     >
-      <FpsChart.Container>
-        <FpsChart.FpsCounter ref={fpsContainer} />
-        <FpsChart.Canvas ref={canvas} />
+      <FpsChart.Container data-testid="Container">
+        <FpsChart.FpsCounter 
+          data-testid="FpsCounter"
+          ref={fpsContainerRef} 
+        />
+        <FpsChart.Canvas 
+          data-testid="Canvas"
+          ref={canvasRef} 
+        />
         <FpsChartLines 
           lines={[15, 30, 45]} 
           maxValue={60}
@@ -60,16 +66,16 @@ FpsChart.FpsCounter = styled.div`
     theme: {
       colorPalette: { blue100 },
       fontSizes: { font16 },
-      spacing: { spacing36 }
+      spacing: { spacing0, spacing36 }
     }
   }): FlattenSimpleInterpolation => css`
     color: ${blue100};
     font-size: ${font16};
     line-height: ${spacing36};
-    position:absolute;
-    right: 0;
+    position: absolute;
+    right: ${spacing0};
     text-align: right;
-    top: 0;
+    top: ${spacing0};
     transform: translateY(-${spacing36});
   `}
 `;
@@ -79,4 +85,4 @@ FpsChart.Canvas = styled.canvas`
   width: 100%;
 `;
   
-export default memo(FpsChart);
+export default FpsChart;

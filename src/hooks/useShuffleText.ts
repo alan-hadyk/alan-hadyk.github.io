@@ -18,7 +18,7 @@ export default function useShuffleText({
     }
 
     const shuffle: ShuffleTextType = new ShuffleText(ref.current);
-    shuffle.setText(`${text}`);
+    shuffle.setText(String(text));
     shuffle.duration = duration;
 
     onShuffleReady({

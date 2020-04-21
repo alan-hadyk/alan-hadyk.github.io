@@ -49,7 +49,7 @@ export default function useFpsCounter({
           value
         }));
 
-      calculateFps();
+      _calculateFps();
     });
   }
 }

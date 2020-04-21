@@ -10,6 +10,7 @@ import {
   UseLineChart
 } from "<hooks>/__typings__/useLineChart.d.ts";
 
+// TODO: Write acceptance tests for this hook
 export default function useLineChart({
   canvas,
   chartData
@@ -31,7 +32,7 @@ export default function useLineChart({
     const maxTime: number = lastItem.time;
 
     const { height, width }: DOMRect = canvas.current.getBoundingClientRect();
-    const context: CanvasRenderingContext2D = canvas.current.getContext("2d");
+    const context: CanvasRenderingContext2D = canvas.current && canvas.current.getContext("2d");
 
     clearCanvas({
       canvas: canvas.current,
@@ -61,11 +62,15 @@ export default function useLineChart({
         width
       });
 
-      context.moveTo(x1, y1);
-      context.lineTo(x2, y2);
+      if (context) {
+        context.moveTo(x1, y1);
+        context.lineTo(x2, y2);
+      }
     });
 
-    context.stroke();
+    if (context) {
+      context.stroke();
+    }
 
     window.requestAnimationFrame(drawChart);
   }
@@ -76,6 +81,10 @@ export default function useLineChart({
     height,
     width
   }: ClearCanvas): void {
+    if (!context) {
+      return;
+    }
+
     canvas.width = width;
     canvas.height = height;
 

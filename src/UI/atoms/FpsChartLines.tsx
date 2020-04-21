@@ -1,6 +1,5 @@
-import React, { Fragment, memo } from "react";
+import React, { Fragment } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
-import isEqual from "lodash/isEqual";
 import { transparentize } from "polished";
 
 import {
@@ -10,9 +9,10 @@ import {
 
 const FpsChartLines = ({ lines, maxValue = 0 }: FpsChartLinesProps): JSX.Element => (
   <Fragment>
-    {lines.map((line: number) => (
+    {lines.map((line: number): JSX.Element => (
       <FpsChartLines.HorizontalLine
         bottom={`${(line / maxValue) * 100}%`}
+        data-testid="HorizontalLine"
         key={line}
       />
     ))}
@@ -35,8 +35,5 @@ FpsChartLines.HorizontalLine = styled.div<FpsChartLinesHorizontalLineProps>`
     right: 0;
   `}
 `;
-  
-const arePropsEqual = (prevProps: FpsChartLinesProps, nextProps: FpsChartLinesProps): boolean =>
-  isEqual(prevProps.lines, nextProps.lines);
 
-export default memo(FpsChartLines, arePropsEqual);
+export default FpsChartLines;

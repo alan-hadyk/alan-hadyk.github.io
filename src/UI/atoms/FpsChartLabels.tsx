@@ -1,8 +1,7 @@
-import React, { Fragment, memo } from "react";
+import React, { Fragment } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import isEmpty from "lodash/isEmpty";
 import max from "lodash/max";
-import isEqual from "lodash/isEqual";
 
 import {
   Label,
@@ -15,7 +14,7 @@ function FpsChartLabels({ labels }: FpsChartLabelsProps): JSX.Element {
 
   return !isEmpty(labels) && (
     <Fragment>
-      {labels.map((label: Label, index: number) => (
+      {labels.map((label: Label, index: number): JSX.Element => (
         <FpsChartLabels.Label
           bottom={`${(label / maxValue) * 100}%`}
           data-testid="Label"
@@ -64,8 +63,5 @@ FpsChartLabels.Label = styled.div<FpsChartLabelProps>`
     transform: ${transform};
   `}
 `;
-  
-const arePropsEqual = (prevProps: FpsChartLabelsProps, nextProps: FpsChartLabelsProps): boolean =>
-  isEqual(prevProps.labels, nextProps.labels);
 
-export default memo(FpsChartLabels, arePropsEqual);
+export default FpsChartLabels;
