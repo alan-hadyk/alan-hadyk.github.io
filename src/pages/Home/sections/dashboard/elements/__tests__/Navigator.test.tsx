@@ -27,7 +27,7 @@ describe("pages / Home / sections / dashboard / elements / Navigator", () => {
       });
 
       describe("shuffleDelay", () => {
-        test("should trigger shuffleText.start in intervals with 3600ms delay", () => {
+        test("should trigger shuffleText.start in intervals with 4800ms delay", () => {
           jest.spyOn(ShuffleText.prototype, "start");
           jest.useFakeTimers();
     
@@ -35,7 +35,7 @@ describe("pages / Home / sections / dashboard / elements / Navigator", () => {
 
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
 
-          jest.advanceTimersByTime(3600);
+          jest.advanceTimersByTime(4800);
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
     
@@ -43,7 +43,7 @@ describe("pages / Home / sections / dashboard / elements / Navigator", () => {
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
     
-          jest.advanceTimersByTime(3600);
+          jest.advanceTimersByTime(4800);
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
     
@@ -51,7 +51,7 @@ describe("pages / Home / sections / dashboard / elements / Navigator", () => {
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
     
-          jest.advanceTimersByTime(3600);
+          jest.advanceTimersByTime(4800);
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
     
@@ -59,9 +59,9 @@ describe("pages / Home / sections / dashboard / elements / Navigator", () => {
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(4);
     
-          jest.advanceTimersByTime(3600);
+          jest.advanceTimersByTime(4800);
     
-          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(4);
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(5);
     
           jest.clearAllTimers();
         });

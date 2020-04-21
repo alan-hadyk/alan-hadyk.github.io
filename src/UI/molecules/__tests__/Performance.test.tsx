@@ -32,27 +32,27 @@ describe("molecules / Performance", () => {
           const { PerformanceItems } = setup();
 
           const performanceItems = [
-            { title: "Total heap size" },
-            { title: "Used heap size" },
-            { title: "Heap size limit" },
-            { title: "Navi start" },
-            { title: "Fetch start" },
-            { title: "Domain lookup" },
-            { title: "Connect start" },
-            { title: "Connect end" },
-            { title: "Request start" },
-            { title: "Rasponse start" },
-            { title: "Response end" },
-            { title: "Dom loading" },
-            { title: "Interactive" },
-            { title: "Event start" },
-            { title: "Event end" },
-            { title: "Dom complete" },
-            { title: "Load event" }
+            "Total heap size",
+            "Used heap size",
+            "Heap size limit",
+            "Navi start",
+            "Fetch start",
+            "Domain lookup",
+            "Connect start",
+            "Connect end",
+            "Request start",
+            "Rasponse start",
+            "Response end",
+            "Dom loading",
+            "Interactive",
+            "Event start",
+            "Event end",
+            "Dom complete",
+            "Load event"
           ];  
   
           PerformanceItems.forEach((PerformanceItem, index) => {
-            expect(PerformanceItem.textContent).toEqual(performanceItems[index].title);
+            expect(PerformanceItem.textContent).toEqual(performanceItems[index]);
           });
         });
       });

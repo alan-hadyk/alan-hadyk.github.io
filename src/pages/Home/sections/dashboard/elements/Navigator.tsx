@@ -7,7 +7,7 @@ const Navigator = (): JSX.Element => (
   <DashboardElement
     dataTestId="Navigator"
     flex="1 1 12%"
-    shuffleDelay={3600}
+    shuffleDelay={4800}
     title="Navigator"
   >
     <Performance />

@@ -83,14 +83,6 @@ describe("molecules / PerformanceItem", () => {
         });
       });
 
-      describe("height", () => {      
-        test("should have 5.88%x", () => {
-          const { PerformanceItemContainer } = setup();
-
-          expect(PerformanceItemContainer).toHaveStyleRule("height", "5.88%");
-        });
-      });
-
       describe("width", () => {      
         test("should have 100%", () => {
           const { PerformanceItemContainer } = setup();
@@ -167,10 +159,10 @@ describe("molecules / PerformanceItem", () => {
     });
   });
 
-  describe("Text", () => { 
-    test("should render textContent equal to title prop", () => {
+  describe("Label", () => { 
+    test("should render textContent equal to label prop", () => {
       const { Text } = setup({
-        title: "Hello"
+        label: "Hello"
       });
 
       expect(Text.textContent).toEqual("Hello");
@@ -338,7 +330,7 @@ type PerformanceItemTestProps = Partial<PerformanceItemProps>;
 function setup(addedProps?: PerformanceItemTestProps): Setup {
   const props: PerformanceItemProps = {
     animationDelay: "600ms",
-    title: "Total heap size",
+    label: "Total heap size",
     ...addedProps
   };
 

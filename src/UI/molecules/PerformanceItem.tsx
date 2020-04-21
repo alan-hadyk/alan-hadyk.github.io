@@ -12,46 +12,44 @@ import {
   PerformanceItemProps
 } from "<molecules>/__typings__/PerformanceItem.d.ts";
 
-function PerformanceItem({ animationDelay, title }: PerformanceItemProps): JSX.Element {
-  return (
-    <PerformanceItem.Container
-      data-testid="PerformanceItem"
+const PerformanceItem = ({ animationDelay, label }: PerformanceItemProps): JSX.Element => (
+  <PerformanceItem.Container
+    data-testid="PerformanceItem"
+  >
+    <SpacingContainer
+      paddingBottom="spacing2"
+      paddingTop="spacing2"
+      width="100%"
     >
-      <SpacingContainer
-        paddingBottom="spacing2"
-        paddingTop="spacing2"
-        width="100%"
+      <FlexContainer
+        flexFlow="row nowrap"
       >
-        <FlexContainer
-          flexFlow="row nowrap"
+        <FlexItem
+          flex="0 1 40%"
         >
-          <FlexItem
-            flex="0 1 40%"
+          <Text
+            color="blue100"
+            ellipsis
+            fontSize="font8"
+            paddingRight="spacing4"
+            textAlign="right"
+            textTransform="uppercase"
           >
-            <Text
-              color="blue100"
-              ellipsis
-              fontSize="font8"
-              paddingRight="spacing4"
-              textAlign="right"
-              textTransform="uppercase"
-            >
-              {title}
-            </Text>
-          </FlexItem>
-          <FlexItem
-            flex="0 1 60%"
-          >
-            <PerformanceItem.Barchart
-              animationDelay={animationDelay}
-              data-testid="PerformanceItemBarchart"
-            />
-          </FlexItem>
-        </FlexContainer>
-      </SpacingContainer>
-    </PerformanceItem.Container>
-  );
-}
+            {label}
+          </Text>
+        </FlexItem>
+        <FlexItem
+          flex="0 1 60%"
+        >
+          <PerformanceItem.Barchart
+            animationDelay={animationDelay}
+            data-testid="PerformanceItemBarchart"
+          />
+        </FlexItem>
+      </FlexContainer>
+    </SpacingContainer>
+  </PerformanceItem.Container>
+);
 
 PerformanceItem.Barchart = styled.div<PerformanceItemBarchartProps>`
   ${({
@@ -78,7 +76,6 @@ PerformanceItem.Barchart = styled.div<PerformanceItemBarchartProps>`
 
 PerformanceItem.Container = styled.div`
   display: none;
-  height: 5.88%;
   width: 100%;
 
   @media (min-height: 900px)  {
