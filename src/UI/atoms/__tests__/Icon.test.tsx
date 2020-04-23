@@ -33,6 +33,16 @@ describe("atoms / Icon", () => {
   
         expect(IconContainer).toHaveStyleRule("height", "2.4rem");
       });
+
+      test("should have 100% for svg if is browser icon", () => {
+        const { IconContainer } = setup({
+          isBrowserIcon: true
+        });
+  
+        expect(IconContainer).toHaveStyleRule("height", "100%", {
+          modifier: "svg"
+        });
+      });
     });
 
     describe("width", () => {      
@@ -56,6 +66,16 @@ describe("atoms / Icon", () => {
         });
   
         expect(IconContainer).toHaveStyleRule("width", "100%");
+      });
+
+      test("should have 100% for svg if is browser icon", () => {
+        const { IconContainer } = setup({
+          isBrowserIcon: true
+        });
+  
+        expect(IconContainer).toHaveStyleRule("width", "100%", {
+          modifier: "svg"
+        });
       });
     });
 
@@ -255,6 +275,30 @@ describe("atoms / Icon", () => {
 
       });
     });
+
+    describe("fill", () => {  
+      describe("when isActive is true", () => {          
+        test("should have #78b0b5", () => {
+          const { IconContainer } = setup({
+            isActive: true
+          });
+
+          expect(IconContainer).toHaveStyleRule("fill", "#78b0b5", {
+            modifier: "svg path"
+          });
+        });
+      });    
+
+      test("should not have fill when isActive is false", () => {
+        const { IconContainer } = setup({
+          isActive: false
+        });
+
+        expect(IconContainer).not.toHaveStyleRule("fill", {
+          modifier: "svg path"
+        });
+      });
+    });
   });
   
   describe("Props", () => {
@@ -299,12 +343,29 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Btn-Send.svg");
       });
 
+      
+      test("should render corect icon for chrome", () => {
+        const { IconComponent } = setup({
+          iconName: "chrome"
+        });
+  
+        expect(IconComponent.textContent).toEqual("Icon-Chrome.svg");
+      });
+
       test("should render corect icon for codeSandbox", () => {
         const { IconComponent } = setup({
           iconName: "codeSandbox"
         });
   
         expect(IconComponent.textContent).toEqual("Icon-CodeSandbox.svg");
+      });
+
+      test("should render corect icon for firefox", () => {
+        const { IconComponent } = setup({
+          iconName: "firefox"
+        });
+  
+        expect(IconComponent.textContent).toEqual("Icon-Firefox.svg");
       });
 
       test("should render corect icon for gitHub", () => {
@@ -321,6 +382,14 @@ describe("atoms / Icon", () => {
         });
   
         expect(IconComponent.textContent).toEqual("Icon-Graphql.svg");
+      });
+
+      test("should render corect icon for ie", () => {
+        const { IconComponent } = setup({
+          iconName: "ie"
+        });
+  
+        expect(IconComponent.textContent).toEqual("Icon-IE.svg");
       });
 
       test("should render corect icon for javascript", () => {
@@ -355,6 +424,15 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Node.svg");
       });
 
+      
+      test("should render corect icon for opera", () => {
+        const { IconComponent } = setup({
+          iconName: "opera"
+        });
+  
+        expect(IconComponent.textContent).toEqual("Icon-Opera.svg");
+      });
+
       test("should render corect icon for react", () => {
         const { IconComponent } = setup({
           iconName: "react"
@@ -363,12 +441,29 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-React.svg");
       });
 
+    
+      test("should render corect icon for safari", () => {
+        const { IconComponent } = setup({
+          iconName: "safari"
+        });
+  
+        expect(IconComponent.textContent).toEqual("Icon-Safari.svg");
+      });
+
       test("should render corect icon for typescript", () => {
         const { IconComponent } = setup({
           iconName: "typescript"
         });
   
         expect(IconComponent.textContent).toEqual("Icon-Typescript.svg");
+      });
+
+      test("should render corect icon for unknown", () => {
+        const { IconComponent } = setup({
+          iconName: "unknown"
+        });
+  
+        expect(IconComponent.textContent).toEqual("Icon-Unknown.svg");
       });
 
       test("should render corect icon for webpack", () => {

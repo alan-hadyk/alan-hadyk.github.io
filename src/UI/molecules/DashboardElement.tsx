@@ -53,10 +53,12 @@ function DashboardElement({
       </Text>
       {description && (
         <SpacingContainer
+          dataTestId="DashboardElementDescription"
           marginBottom="spacing28"
         >
           <Text
             color="blue300"
+            dataTestId="DashboardElementDescriptionText"
             fontSize="font8"
             lineHeight="spacing12"
             maxHeight="spacing36"

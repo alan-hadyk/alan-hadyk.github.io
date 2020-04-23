@@ -84,6 +84,22 @@ describe("layout / FlexItem", () => {
         expect(FlexItem).toHaveStyleRule("flex", "0 1 50%");
       });
     });
+
+    describe("height", () => {      
+      test("should have unset by default", () => {
+        const { FlexItem } = setup();
+  
+        expect(FlexItem).toHaveStyleRule("height", "unset");
+      });
+  
+      test("should have correct value when passed via prop", () => {
+        const { FlexItem } = setup({
+          height: "spacing24"
+        });
+  
+        expect(FlexItem).toHaveStyleRule("height", "2.4rem");
+      });
+    });
  
     describe("order", () => {      
       test("should have 0 by default", () => {
@@ -114,6 +130,38 @@ describe("layout / FlexItem", () => {
         });
   
         expect(FlexItem).toHaveStyleRule("overflow", "hidden");
+      });
+    });
+
+    describe("padding-bottom", () => {      
+      test("should have 0 by default", () => {
+        const { FlexItem } = setup();
+  
+        expect(FlexItem).toHaveStyleRule("padding-bottom", "0");
+      });
+  
+      test("should have correct value when passed via prop", () => {
+        const { FlexItem } = setup({
+          paddingBottom: "spacing24"
+        });
+  
+        expect(FlexItem).toHaveStyleRule("padding-bottom", "2.4rem");
+      });
+    });
+
+    describe("padding-top", () => {      
+      test("should have 0 by default", () => {
+        const { FlexItem } = setup();
+  
+        expect(FlexItem).toHaveStyleRule("padding-top", "0");
+      });
+  
+      test("should have correct value when passed via prop", () => {
+        const { FlexItem } = setup({
+          paddingTop: "spacing24"
+        });
+  
+        expect(FlexItem).toHaveStyleRule("padding-top", "2.4rem");
       });
     });
   });

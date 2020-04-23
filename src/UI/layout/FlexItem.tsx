@@ -14,7 +14,7 @@ const FlexItem = ({
   order = 0,
   overflow = "auto",
   paddingBottom = "spacing0",
-  paddingTop = "spacing0",
+  paddingTop = "spacing0"
 }: FlexItemProps): JSX.Element => (
   <FlexItem.Container
     alignSelf={alignSelf}

@@ -8,7 +8,6 @@ export interface IconProps {
   height?: string | Spacing;
   iconName:
     "apollo" |
-    "brave" |
     "btnCodeSandbox" |
     "btnDownload" |
     "btnExternalLink" |
@@ -27,8 +26,10 @@ export interface IconProps {
     "react" |
     "safari" |
     "typescript" |
+    "unknown" |
     "webpack";
   isActive?: boolean;
+  isBrowserIcon?: boolean;
   shouldDisplayGlowAnimation?: boolean;
   shouldGlowOnHover?: boolean;
   width?: string | Spacing;

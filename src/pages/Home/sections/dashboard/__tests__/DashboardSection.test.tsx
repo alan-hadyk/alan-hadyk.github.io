@@ -36,6 +36,11 @@ jest.mock("<state>/withCommitsState", () => (WrappedComponent: React.FunctionCom
   );
 });
 
+jest.mock("detect-browser", () => ({
+  detect: () => ({name: "chrome"})
+}));
+
+
 describe("pages / Home / sections / dashboard / DashboardSection", () => {
   test("should have correct structure", () => {
     const {
@@ -49,7 +54,8 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
       PositionContainers,
       Section,
       SpacingContainers,
-      TechStack
+      TechStack,
+      UserAgent
     } = setup();
 
     expect(Section.children[0]).toEqual(SpacingContainers[0]);
@@ -72,6 +78,7 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
     expect(SpacingContainers[2].children[0]).toEqual(FlexContainers[2]);
     expect(FlexContainers[2].children[0]).toEqual(Fps);
     expect(FlexContainers[2].children[1]).toEqual(Commits);
+    expect(FlexContainers[2].children[2]).toEqual(UserAgent);
   });
 
   describe("Section", () => {
@@ -490,10 +497,28 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
           });
         });
       });
-    });  
-
+    }); 
+    
+    describe("UserAgent", () => {
+      describe("Props", () => {
+        describe("flex", () => {
+          test("should have 0 1 13.6%", () => {
+            const { UserAgent } = setup();
+  
+            expect(UserAgent).toHaveStyleRule("flex", "0 1 13.6%");
+          });
+        });
+  
+        describe("title", () => {
+          test("should render User Agent:", () => {
+            const { UserAgent } = setup();
+  
+            expect(UserAgent.children[0].textContent).toEqual("User Agent:");
+          });
+        });
+      });
+    });
   });
-
 });
 
 interface Setup extends RenderResult {
@@ -508,6 +533,7 @@ interface Setup extends RenderResult {
   Section: Element;
   SpacingContainers: Element[];
   TechStack: Element;
+  UserAgent: Element;
 }
 
 function setup(): Setup {
@@ -528,6 +554,7 @@ function setup(): Setup {
   const PositionContainers: Element[] = queryAllByTestId("DashboardSectionPositionContainer");
   const SpacingContainers: Element[] = queryAllByTestId("DashboardSectionSpacingContainer");
   const TechStack: Element = queryByTestId("TechStack");
+  const UserAgent: Element = queryByTestId("UserAgent");
 
   return {
     ...utils,
@@ -541,6 +568,7 @@ function setup(): Setup {
     PositionContainers,
     Section,
     SpacingContainers,
-    TechStack
+    TechStack,
+    UserAgent
   };
 }

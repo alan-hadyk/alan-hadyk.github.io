@@ -17,12 +17,12 @@ import { ReactComponent as IconLogo } from "<assets>/svg/Icon-Logo.svg";
 import { ReactComponent as IconCodeSandbox } from "<assets>/svg/Icon-CodeSandbox.svg";
 import { ReactComponent as IconGitHub } from "<assets>/svg/Icon-GitHub.svg";
 import { ReactComponent as IconLinkedIn } from "<assets>/svg/Icon-LinkedIn.svg";
-import { ReactComponent as IconBrave } from "<assets>/svg/Icon-Brave.svg";
 import { ReactComponent as IconChrome } from "<assets>/svg/Icon-Chrome.svg";
 import { ReactComponent as IconFirefox } from "<assets>/svg/Icon-Firefox.svg";
 import { ReactComponent as IconIE } from "<assets>/svg/Icon-IE.svg";
 import { ReactComponent as IconOpera } from "<assets>/svg/Icon-Opera.svg";
 import { ReactComponent as IconSafari } from "<assets>/svg/Icon-Safari.svg";
+import { ReactComponent as IconUnknown } from "<assets>/svg/Icon-Unknown.svg";
 
 import {
   IconContainerProps,
@@ -36,13 +36,13 @@ function Icon({
   height = "auto",
   iconName,
   isActive = false,
+  isBrowserIcon = false,
   shouldDisplayGlowAnimation = false,
   shouldGlowOnHover = false,
   width = "auto"
 }: IconProps): JSX.Element {
   const iconComponents = {
     apollo: IconApollo,
-    brave: IconBrave,
     btnCodeSandbox: BtnCodeSandbox,
     btnDownload: BtnDownload,
     btnExternalLink: BtnExternalLink,
@@ -61,6 +61,7 @@ function Icon({
     react: IconReact,
     safari: IconSafari,
     typescript: IconTypescript,
+    unknown: IconUnknown,
     webpack: IconWebpack
   };
 
@@ -73,6 +74,7 @@ function Icon({
       animationTime={animationTime}
       height={height}
       isActive={isActive}
+      isBrowserIcon={isBrowserIcon}
       shouldDisplayGlowAnimation={shouldDisplayGlowAnimation}
       shouldGlowOnHover={shouldGlowOnHover}
       width={width}
@@ -88,6 +90,7 @@ Icon.Container = styled.div<IconContainerProps>`
     animationTime,
     height,
     isActive,
+    isBrowserIcon,
     shouldDisplayGlowAnimation,
     shouldGlowOnHover,
     theme: {
@@ -102,10 +105,12 @@ Icon.Container = styled.div<IconContainerProps>`
     height: ${(height in spacing && spacing[height]) || height};
     width: ${(width in spacing && spacing[width]) || width};
 
-    svg {
-      height: 100%;
-      width: 100%;
-    }
+    ${isBrowserIcon && `
+      svg {
+        height: 100%;
+        width: 100%;
+      }
+    `}
 
     & > * {
       ${shouldDisplayGlowAnimation && css`
