@@ -1,5 +1,5 @@
 export interface PerformanceItemProps {
-  animationDelay?: string;
+  animationDelay: string;
   label: string;
 }
 

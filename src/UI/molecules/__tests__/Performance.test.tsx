@@ -5,7 +5,7 @@ import Performance from "<molecules>/Performance";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-jest.mock("<helpers>/math/getRandomDelay", () => (min: number, max: number): number => max);
+jest.mock("<helpers>/math/getRandomDelay", () => (_min: number, max: number): number => max);
 
 describe("molecules / Performance", () => {
   test("should have correct structure", () => {
@@ -27,8 +27,8 @@ describe("molecules / Performance", () => {
     });
 
     describe("Props", () => {
-      describe("title", () => {
-        test("should render each item with title", () => {
+      describe("label", () => {
+        test("should render each item with label", () => {
           const { PerformanceItems } = setup();
 
           const performanceItems = [

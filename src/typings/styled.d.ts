@@ -1,5 +1,4 @@
 import "styled-components";
-import { Keyframes } from "styled-components";
 
 declare module "styled-components" {
   export interface DefaultTheme {

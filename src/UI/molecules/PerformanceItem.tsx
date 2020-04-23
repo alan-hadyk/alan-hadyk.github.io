@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import FlexContainer from "<layout>/FlexContainer";
@@ -109,4 +109,4 @@ PerformanceItem.Container = styled.div`
   }
 `;
 
-export default memo(PerformanceItem);
+export default PerformanceItem;

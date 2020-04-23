@@ -31,7 +31,7 @@ describe("molecules / PerformanceItem", () => {
   describe("PerformanceItemContainer", () => {    
     describe("Styles", () => {
       describe("display", () => {      
-        test("should have none by default", () => {
+        test("should have none", () => {
           const { PerformanceItemContainer } = setup();
 
           expect(PerformanceItemContainer).toHaveStyleRule("display", "none");
