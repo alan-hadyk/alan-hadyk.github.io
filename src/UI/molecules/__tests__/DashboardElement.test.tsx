@@ -156,6 +156,14 @@ describe("molecules / DashboardElement", () => {
           expect(FlexItem).toHaveStyleRule("order", "2");
         });
       });
+
+      describe("overflow", () => {
+        test("should have visible", () => {
+          const { FlexItem } = setup();
+    
+          expect(FlexItem).toHaveStyleRule("overflow", "visible");
+        });
+      });
     });
   });
 
@@ -210,11 +218,11 @@ describe("molecules / DashboardElement", () => {
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
     
-          jest.advanceTimersByTime(3600);
+          jest.advanceTimersByTime(7200);
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
     
-          jest.advanceTimersByTime(3600);
+          jest.advanceTimersByTime(7200);
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
     
@@ -237,7 +245,7 @@ describe("molecules / DashboardElement", () => {
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
     
-          jest.advanceTimersByTime(3600);
+          jest.advanceTimersByTime(7200);
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
     
@@ -245,7 +253,7 @@ describe("molecules / DashboardElement", () => {
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
     
-          jest.advanceTimersByTime(3600);
+          jest.advanceTimersByTime(7200);
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
     
@@ -253,7 +261,7 @@ describe("molecules / DashboardElement", () => {
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
     
-          jest.advanceTimersByTime(3600);
+          jest.advanceTimersByTime(7200);
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
     
@@ -377,10 +385,18 @@ describe("molecules / DashboardElement", () => {
       });
 
       describe("overflow", () => {
-        test("should have hidden", () => {
+        test("should have hidden by default", () => {
           const { DashboardElementInnerContainer } = setup();
     
           expect(DashboardElementInnerContainer).toHaveStyleRule("overflow", "hidden");
+        });
+
+        test("should have visible when passed via prop value", () => {
+          const { DashboardElementInnerContainer } = setup({
+            overflow: "visible"
+          });
+    
+          expect(DashboardElementInnerContainer).toHaveStyleRule("overflow", "visible");
         });
       });
 

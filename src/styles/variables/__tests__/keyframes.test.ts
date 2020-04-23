@@ -2,6 +2,7 @@
 import keyframes from "<styles>/variables/keyframes";
 
 interface KeyframesVariables {
+  barChartWidth: any;
   blink: any;
   borderDanceHorizontal: any;
   borderDanceVertical: any;
@@ -12,6 +13,7 @@ interface KeyframesVariables {
 }
 
 const {
+  barChartWidth,
   blink,
   borderDanceHorizontal,
   borderDanceVertical,
@@ -22,6 +24,20 @@ const {
 }: KeyframesVariables = keyframes;
 
 describe("styles / variables / keyframes", () => {
+  test("should have correct keyframe - barChartWidth", () => {
+    expect(barChartWidth.stringifyArgs[0]).toEqual(`
+    0% {
+      width: 100%;
+    }
+    50% {
+      width: 20%;
+    }
+    100% {
+      width: 100%;
+    }
+  `);
+  });
+
   test("should have correct keyframe - blink", () => {
     expect(blink.stringifyArgs[0]).toEqual(`
     0% {

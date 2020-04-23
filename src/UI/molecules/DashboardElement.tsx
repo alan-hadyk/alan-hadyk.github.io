@@ -9,6 +9,7 @@ import SpacingContainer from "<layout>/SpacingContainer";
 
 import Cross from "<assets>/svg/Cross.svg";
 
+import transitionTimes from "<styles>/variables/transitionTimes";
 import spacing from "<styles>/variables/spacing";
 
 import { DashboardElementProps } from "<molecules>/__typings__/DashboardElement.d.ts";
@@ -19,6 +20,7 @@ function DashboardElement({
   description,
   dataTestId,
   flex,
+  overflow = "hidden",
   shouldDisplayCorners = false,
   shuffleDelay = 0,
   order = 0,
@@ -38,6 +40,7 @@ function DashboardElement({
       dataTestId={dataTestId || "DashboardElement"}
       flex={flex}
       order={order}
+      overflow="visible"
     >
       <Text 
         color="blue300"
@@ -47,6 +50,7 @@ function DashboardElement({
         lineHeight="spacing36"
         shouldShuffle
         shuffleDelay={shuffleDelay}
+        shuffleInterval={parseInt(transitionTimes.superSlow)}
         textTransform="uppercase"
       >
         {title}
@@ -93,6 +97,7 @@ function DashboardElement({
   function renderInnerContainer(): JSX.Element {
     return (
       <DashboardElement.InnerContainer
+        overflow={overflow}
         shouldDisplayCorners={shouldDisplayCorners}
         data-testid="DashboardElementInnerContainer"
       >
@@ -118,6 +123,7 @@ type DashboardElementInnerContainer = Partial<DashboardElementProps>;
 
 DashboardElement.InnerContainer = styled.div<DashboardElementInnerContainer>`
   ${({
+    overflow,
     shouldDisplayCorners,
     theme: {
       spacing: { 
@@ -126,7 +132,7 @@ DashboardElement.InnerContainer = styled.div<DashboardElementInnerContainer>`
     }
   }): FlattenSimpleInterpolation => css`
       height: 100%;
-      overflow: hidden;
+      overflow: ${overflow};
       
       ${shouldDisplayCorners && `
         background: url(${Cross});

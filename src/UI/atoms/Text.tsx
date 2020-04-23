@@ -9,8 +9,8 @@ import transitionTimes from "<styles>/variables/transitionTimes";
 import { TextProps } from "<atoms>/__typings__/Text.d.ts";
 import { ShuffleState } from "<hooks>/__typings__/useShuffleText.d.ts";
 
-function Text({ 
-  children, 
+function Text({
+  children,
   color = "blue300",
   dataTestId,
   ellipsis = false,
@@ -32,11 +32,11 @@ function Text({
   textTransform = "none"
 }: TextProps, ref?: Ref<HTMLDivElement>): JSX.Element {
   const [shuffleText, setShuffleText] = useState<ShuffleState | undefined>();
-  const textElement = useRef<HTMLDivElement>(null);
+  const textElementRef = useRef<HTMLDivElement>(null);
 
   useShuffleText({
     onShuffleReady: setShuffleText,
-    ref: textElement,
+    ref: textElementRef,
     shouldInitialize: shouldShuffleOnHover || shouldShuffle,
     shuffleDelay,
     shuffleState: shuffleText,
@@ -44,7 +44,7 @@ function Text({
   });
 
   useInterval(() => {
-    if (!textElement.current || !shouldShuffle) {
+    if (!textElementRef.current || !shouldShuffle) {
       return;
     }
     shuffleText && shuffleText.start();
@@ -56,8 +56,8 @@ function Text({
       data-testid={dataTestId || "Text"}
       ellipsis={ellipsis}
       fontFamily={fontFamily}
-      fontSize={fontSize} 
-      fontWeight={fontWeight} 
+      fontSize={fontSize}
+      fontWeight={fontWeight}
       lineHeight={lineHeight}
       maxHeight={maxHeight}
       onMouseOver={handleMouseOver}
@@ -66,7 +66,7 @@ function Text({
       paddingLeft={paddingLeft}
       paddingRight={paddingRight}
       paddingTop={paddingTop}  
-      ref={ref ? ref : textElement}
+      ref={ref ? ref : textElementRef}
       textAlign={textAlign}
       textTransform={textTransform}
     >
@@ -75,7 +75,7 @@ function Text({
   );
 
   function handleMouseOver(): void {
-    if (!textElement.current || !shouldShuffleOnHover) {
+    if (!textElementRef.current || !shouldShuffleOnHover) {
       return;
     }
 

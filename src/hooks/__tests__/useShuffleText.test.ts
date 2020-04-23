@@ -35,6 +35,26 @@ describe("hooks / useShuffleText", () => {
       expect(ShuffleText.prototype.setText).toHaveBeenCalledWith("Text");
     });
 
+    test("should fire with number (converted to string)", () => {
+      jest.spyOn(ShuffleText.prototype, "setText");
+  
+      let shuffleText: ShuffleState | undefined;
+      const setShuffleText = (arg: ShuffleState): ShuffleState => shuffleText = arg;
+  
+      const navItemElement: RefElement = {
+        current: document.createElement("div")
+      };
+      
+      setup({
+        onShuffleReady: setShuffleText,
+        ref: navItemElement,
+        shuffleState: shuffleText,
+        text: 123
+      });
+  
+      expect(ShuffleText.prototype.setText).toHaveBeenCalledWith("123");
+    });
+
     test("should not fire if there is no ref", () => {
       jest.spyOn(ShuffleText.prototype, "setText");
   

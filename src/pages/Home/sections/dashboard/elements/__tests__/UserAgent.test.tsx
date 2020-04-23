@@ -72,6 +72,14 @@ describe("pages / Home / sections / dashboard / elements / UserAgent", () => {
     
           jest.advanceTimersByTime(3600);
     
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
+    
+          jest.advanceTimersByTime(4800);
+    
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
+    
+          jest.advanceTimersByTime(3600);
+    
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
     
           jest.advanceTimersByTime(4800);
@@ -80,25 +88,21 @@ describe("pages / Home / sections / dashboard / elements / UserAgent", () => {
     
           jest.advanceTimersByTime(3600);
     
-          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
-    
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
+
           jest.advanceTimersByTime(4800);
-    
-          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(4);
-    
-          jest.advanceTimersByTime(3600);
-    
-          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(5);
+
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
     
           jest.clearAllTimers();
         });
       });
 
       describe("title", () => {
-        test("should render User Agent:", () => {
+        test("should render User Agent", () => {
           const { DashboardElement } = setup();
       
-          expect(DashboardElement.children[0].textContent).toEqual("User Agent:");
+          expect(DashboardElement.children[0].textContent).toEqual("User Agent");
         });
       });
     });

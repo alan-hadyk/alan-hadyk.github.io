@@ -45,6 +45,7 @@ declare module "styled-components" {
     };
 
     keyframes: {
+      barChartWidth: Keyframes;
       blink: Keyframes;
       borderDanceHorizontal: Keyframes;
       borderDanceVertical: Keyframes;

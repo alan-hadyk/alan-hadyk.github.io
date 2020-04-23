@@ -2,34 +2,40 @@ import React from "react";
 import { RenderResult } from "@testing-library/react";
 import ShuffleText from "shuffle-text";
 
-import Flux from "<pages>/Home/sections/dashboard/elements/Flux";
+import Fps from "<pages>/Home/sections/dashboard/elements/Fps";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-jest.mock("vivus");
-
-describe("pages / Home / sections / dashboard / elements / Flux", () => {
+describe("pages / Home / sections / dashboard / elements / Fps", () => {
   test("should have correct structure", () => {
     const {
       DashboardElement,
-      FlowChart
+      FpsChart
     } = setup();
 
-    expect(DashboardElement.children[1].children[4].children[0].children[0]).toEqual(FlowChart);
+    expect(DashboardElement.children[1].children[0].children[0]).toEqual(FpsChart);
   });
 
   describe("DashboardElement", () => {
     describe("Props", () => {
       describe("flex", () => {
-        test("should have 0 1 30%", () => {
+        test("should have 0 1 16.33%", () => {
           const { DashboardElement } = setup();
       
-          expect(DashboardElement).toHaveStyleRule("flex", "0 1 30%");
+          expect(DashboardElement).toHaveStyleRule("flex", "0 1 16.33%");
+        });
+      });
+
+      describe("overflow", () => {
+        test("should have visible", () => {
+          const { DashboardElement } = setup();
+      
+          expect(DashboardElement).toHaveStyleRule("overflow", "visible");
         });
       });
 
       describe("shuffleDelay", () => {
-        test("should trigger shuffleText.start in intervals with 1200ms delay", () => {
+        test("should trigger shuffleText.start in intervals with 3000ms delay", () => {
           jest.spyOn(ShuffleText.prototype, "start");
           jest.useFakeTimers();
     
@@ -37,31 +43,39 @@ describe("pages / Home / sections / dashboard / elements / Flux", () => {
 
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
 
-          jest.advanceTimersByTime(1200);
+          jest.advanceTimersByTime(3000);
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
     
-          jest.advanceTimersByTime(7200);
+          jest.advanceTimersByTime(3600);
+    
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
+    
+          jest.advanceTimersByTime(3000);
+    
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
+    
+          jest.advanceTimersByTime(3600);
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
     
-          jest.advanceTimersByTime(1200);
+          jest.advanceTimersByTime(3000);
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
     
-          jest.advanceTimersByTime(7200);
+          jest.advanceTimersByTime(3600);
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
     
-          jest.advanceTimersByTime(1200);
+          jest.advanceTimersByTime(3000);
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
     
-          jest.advanceTimersByTime(7200);
+          jest.advanceTimersByTime(3600);
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
     
-          jest.advanceTimersByTime(1200);
+          jest.advanceTimersByTime(3000);
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
     
@@ -78,55 +92,42 @@ describe("pages / Home / sections / dashboard / elements / Flux", () => {
       });
 
       describe("title", () => {
-        test("should render Flux", () => {
+        test("should render Fps", () => {
           const { DashboardElement } = setup();
       
-          expect(DashboardElement.children[0].textContent).toEqual("Flux");
-        });
-      });
-
-      describe("shouldDisplayCorners", () => {
-        test("should render corners", () => {
-          const { Corners, DashboardElement } = setup();
-      
-          expect(DashboardElement.children[1].children[0]).toEqual(Corners[0]);
-          expect(DashboardElement.children[1].children[1]).toEqual(Corners[1]);
-          expect(DashboardElement.children[1].children[2]).toEqual(Corners[2]);
-          expect(DashboardElement.children[1].children[3]).toEqual(Corners[3]);
+          expect(DashboardElement.children[0].textContent).toEqual("Fps");
         });
       });
     });
   });
 
-  describe("FlowChart", () => {
+  describe("FpsChart", () => {
     test("should render", () => {
-      const { FlowChart } = setup();
+      const { FpsChart } = setup();
   
-      expect(FlowChart.textContent).toEqual("Flux-FlowChart.svg");
+      expect(FpsChart).toHaveStyleRule("height", "100%");
+      expect(FpsChart).toHaveStyleRule("position", "relative");
     });
   });
 });
 
 interface Setup extends RenderResult {
-  Corners: Element[];
   DashboardElement: Element;
-  FlowChart: Element;
+  FpsChart: Element;
 }
 
 function setup(): Setup {
   const utils: RenderResult = renderWithTheme(
-    <Flux />
+    <Fps />
   );
 
-  const { container, queryByTestId, queryAllByTestId } = utils || {};
-  const DashboardElement: Element = container.children[0];
-  const FlowChart: Element = queryByTestId("FlowChart");
-  const Corners: Element[] = queryAllByTestId("Corner");
+  const { queryByTestId } = utils || {};
+  const DashboardElement: Element = queryByTestId("Fps");
+  const FpsChart: Element = queryByTestId("FpsChart");
 
   return {
     ...utils,
-    Corners,
     DashboardElement,
-    FlowChart
+    FpsChart
   };
 }

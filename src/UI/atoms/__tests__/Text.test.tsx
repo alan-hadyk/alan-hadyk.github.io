@@ -13,12 +13,20 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 import { TextProps } from "<atoms>/__typings__/Text.d.ts";
 
 describe("atoms / Text", () => {
-  test("should render children", () => {
+  test("should render children (string)", () => {
     const { TextContainer } = setup({
       children: "Custom children"
     });
 
     expect(TextContainer.textContent).toEqual("Custom children");
+  });
+
+  test("should render children (number)", () => {
+    const { TextContainer } = setup({
+      children: 123
+    });
+
+    expect(TextContainer.textContent).toEqual("123");
   });
 
   describe("Styles", () => {

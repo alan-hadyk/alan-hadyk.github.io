@@ -7,10 +7,12 @@ import Text from "<atoms>/Text";
 
 import useInterval from "<hooks>/useInterval";
 
+import transitionTimes from "<styles>/variables/transitionTimes";
+
 export const hero = "Vision driven change agent with career-long record of front-end user strategy and UI development";
 
 function Console(): JSX.Element {
-  const heroContainer = useRef<HTMLDivElement>(null);
+  const heroContainerRef = useRef<HTMLDivElement>(null);
   const currentChar = useRef<number>(0);
 
   useInterval(() => {
@@ -39,6 +41,7 @@ function Console(): JSX.Element {
             lineHeight="spacing28"
             shouldShuffle
             shuffleDelay={2400}
+            shuffleInterval={parseInt(transitionTimes.superSlow)}
             textTransform="uppercase"
           >
           GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin19)
@@ -47,7 +50,7 @@ function Console(): JSX.Element {
 
         <Console.Text 
           data-testid="ConsoleText"
-          ref={heroContainer} 
+          ref={heroContainerRef} 
         />
       </Console.Container>
     </PositionContainer>
@@ -55,7 +58,7 @@ function Console(): JSX.Element {
 
   function updateText(): void {
     if (currentChar.current <= hero.length) {
-      heroContainer.current.innerHTML += hero.charAt(currentChar.current);
+      heroContainerRef.current.innerHTML += hero.charAt(currentChar.current);
 
       currentChar.current++;
     }

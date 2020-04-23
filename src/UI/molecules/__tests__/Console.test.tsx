@@ -213,7 +213,7 @@ describe("molecules / Console", () => {
 
       expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
 
-      jest.advanceTimersByTime(3600);
+      jest.advanceTimersByTime(7200);
 
       expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
 
@@ -221,21 +221,21 @@ describe("molecules / Console", () => {
 
       expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
 
-      jest.advanceTimersByTime(3600);
+      jest.advanceTimersByTime(7200);
 
       expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
 
       jest.advanceTimersByTime(2400);
 
+      expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
+
+      jest.advanceTimersByTime(7200);
+
       expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
-
-      jest.advanceTimersByTime(3600);
-
-      expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(4);
 
       jest.advanceTimersByTime(2400);
 
-      expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(5);
+      expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(4);
 
       jest.clearAllTimers();
     });

@@ -10,7 +10,7 @@ export const UserAgent = (): JSX.Element => (
     flex="0 1 13.6%"
     shouldDisplayCorners
     shuffleDelay={4800}
-    title="User Agent:" 
+    title="User Agent" 
   >
     <BrowserInfo />
   </DashboardElement>

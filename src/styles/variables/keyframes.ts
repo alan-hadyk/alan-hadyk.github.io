@@ -4,6 +4,17 @@ import colorPalette from "<styles>/variables/colorPalette";
 import spacing from "<styles>/variables/spacing";
 
 export default {
+  barChartWidth: keyframes`
+    0% {
+      width: 100%;
+    }
+    50% {
+      width: 20%;
+    }
+    100% {
+      width: 100%;
+    }
+  `,
   blink: keyframes`
     0% {
       opacity: 1;

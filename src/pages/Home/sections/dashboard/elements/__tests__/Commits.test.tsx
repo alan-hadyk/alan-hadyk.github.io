@@ -31,10 +31,10 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
   describe("DashboardElement", () => {
     describe("Props", () => {
       describe("flex", () => {
-        test("should have 0 1 16.6%", () => {
+        test("should have 1 1 15.73%", () => {
           const { DashboardElement } = setup();
 
-          expect(DashboardElement).toHaveStyleRule("flex", "0 1 15.73%");
+          expect(DashboardElement).toHaveStyleRule("flex", "1 1 15.73%");
         });
       });
 
