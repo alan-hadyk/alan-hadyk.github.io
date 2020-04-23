@@ -315,7 +315,7 @@ describe("molecules / DashboardElement", () => {
               height: 120,
               left: 0,
               right: 0,
-              toJSON: () => {},
+              toJSON: jest.fn(),
               top: 0,
               width: 120,
               x: 0,
