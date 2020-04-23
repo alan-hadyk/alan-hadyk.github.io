@@ -7,7 +7,7 @@ import {
 } from "<styles>/variables/__typings__/variables.d.ts";
 
 export interface TextProps {
-  children: string;
+  children: string | number;
   color?: ColorPalette;
   ellipsis?: boolean;
   fontFamily?: FontFamilies;

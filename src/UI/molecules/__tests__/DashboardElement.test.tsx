@@ -129,6 +129,14 @@ describe("molecules / DashboardElement", () => {
           expect(FlexItem).toHaveStyleRule("order", "2");
         });
       });
+
+      describe("overflow", () => {
+        test("should have visible", () => {
+          const { FlexItem } = setup();
+    
+          expect(FlexItem).toHaveStyleRule("overflow", "visible");
+        });
+      });
     });
   });
 
@@ -328,10 +336,18 @@ describe("molecules / DashboardElement", () => {
       });
 
       describe("overflow", () => {
-        test("should have hidden", () => {
+        test("should have hidden by default", () => {
           const { DashboardElementInnerContainer } = setup();
     
           expect(DashboardElementInnerContainer).toHaveStyleRule("overflow", "hidden");
+        });
+
+        test("should have visible when passed via prop value", () => {
+          const { DashboardElementInnerContainer } = setup({
+            overflow: "visible"
+          });
+    
+          expect(DashboardElementInnerContainer).toHaveStyleRule("overflow", "visible");
         });
       });
 

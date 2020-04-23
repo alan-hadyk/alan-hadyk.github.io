@@ -4,14 +4,14 @@ import {
 } from "<styles>/variables/__typings__/variables.d.ts";
 
 export interface PositionContainerProps {
-  bottom?: Spacing | "unset" | "50%" | "100%";
+  bottom?: Spacing | string;
   children: JSX.Element | JSX.Element[];
   dataTestId?: string;
   height?: Spacing | string;
-  left?: Spacing | "unset" | "50%" | "100%";
+  left?: Spacing | string;
   position?: "static" | "relative" | "fixed" | "sticky" | "absolute";
-  right?: Spacing | "unset" | "50%" | "100%";
-  top?: Spacing | "unset" | "50%" | "100%";
+  right?: Spacing | string;
+  top?: Spacing | string;
   transform?: string;
   width?: string | Spacing;
   zIndex?: ZIndex;

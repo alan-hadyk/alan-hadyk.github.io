@@ -10,7 +10,6 @@ jest.mock("vivus");
 
 describe("pages / Home / sections / dashboard / elements / Flux", () => {
   test("should have correct structure", () => {
-
     const {
       DashboardElement,
       FlowChart
