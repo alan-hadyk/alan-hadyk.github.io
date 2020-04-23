@@ -159,7 +159,7 @@ describe("atoms / Text", () => {
     });
 
     describe("max-height", () => {        
-      test("should have correct value when passed via maxHeight prop - spacing", () => {
+      test("should have correct value when passed via maxHeight prop", () => {
         const { TextContainer } = setup({
           maxHeight: "spacing24"
         });

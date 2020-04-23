@@ -6,7 +6,7 @@ import BrowserInfo from "<molecules>/BrowserInfo";
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 jest.mock("detect-browser", () => ({
-  detect: () => ({name: "chrome"})
+  detect: () => ({ name: "chrome" })
 }));
 
 describe("molecules / BrowserInfo", () => {

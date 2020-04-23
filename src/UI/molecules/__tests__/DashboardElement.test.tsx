@@ -303,7 +303,15 @@ describe("molecules / DashboardElement", () => {
         test("should have calc(100% - 3.6rem - 2.8rem -  ${height}px) if there is description", () => {
           Element.prototype.getBoundingClientRect = jest.fn(() => {
             return {
-              height: 120
+              bottom: 0,
+              height: 120,
+              left: 0,
+              right: 0,
+              toJSON: () => {},
+              top: 0,
+              width: 120,
+              x: 0,
+              y: 0
             };
           });
 

@@ -25,7 +25,7 @@ function DashboardElement({
   title
 }: DashboardElementProps): JSX.Element {
   const descriptionRef = useRef<HTMLDivElement>(null);
-  const [childrenHeight, setChildrenHeight] = useState(null);
+  const [childrenHeight, setChildrenHeight] = useState<string>(null);
 
   useLayoutEffect(() => {
     const height: string = calcChildrenHeight();
