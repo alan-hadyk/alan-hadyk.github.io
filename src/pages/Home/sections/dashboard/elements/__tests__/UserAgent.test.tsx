@@ -32,6 +32,7 @@ describe("pages / Home / sections / dashboard / elements / UserAgent", () => {
 
       describe("description", () => {
         test("should have Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/11.12.0", () => {
+          Object.defineProperty(window.navigator, "userAgent", {value: "Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/11.12.0"});
           const { DashboardElement } = setup();
       
           expect(DashboardElement.children[1].textContent).toEqual("Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/11.12.0");
