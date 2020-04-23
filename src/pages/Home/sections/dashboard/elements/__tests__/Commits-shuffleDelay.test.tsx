@@ -18,7 +18,7 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
   describe("DashboardElement", () => {
     describe("Props", () => {
       describe("shuffleDelay", () => {
-        test("should trigger shuffleText.start in intervals with 3000ms delay", () => {
+        test("should trigger shuffleText.start in intervals with 3600ms delay", () => {
           jest.spyOn(ShuffleText.prototype, "start");
           jest.useFakeTimers();
     
@@ -26,7 +26,7 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
 
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
 
-          jest.advanceTimersByTime(3000);
+          jest.advanceTimersByTime(3600);
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
     
@@ -34,7 +34,7 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
     
-          jest.advanceTimersByTime(3000);
+          jest.advanceTimersByTime(3600);
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
     
@@ -42,15 +42,15 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
     
-          jest.advanceTimersByTime(3000);
-    
-          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
-    
-          jest.advanceTimersByTime(7200);
+          jest.advanceTimersByTime(3600);
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
     
-          jest.advanceTimersByTime(3000);
+          jest.advanceTimersByTime(7200);
+    
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(4);
+    
+          jest.advanceTimersByTime(3600);
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(4);
     

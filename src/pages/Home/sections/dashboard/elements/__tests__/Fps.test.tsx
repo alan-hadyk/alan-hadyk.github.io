@@ -49,6 +49,14 @@ describe("pages / Home / sections / dashboard / elements / Fps", () => {
     
           jest.advanceTimersByTime(3600);
     
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
+    
+          jest.advanceTimersByTime(3000);
+    
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
+    
+          jest.advanceTimersByTime(3600);
+    
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
     
           jest.advanceTimersByTime(3000);
@@ -61,15 +69,15 @@ describe("pages / Home / sections / dashboard / elements / Fps", () => {
     
           jest.advanceTimersByTime(3000);
     
-          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
     
           jest.advanceTimersByTime(3600);
     
-          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(4);
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
     
           jest.advanceTimersByTime(3000);
     
-          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(5);
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
     
           jest.clearAllTimers();
         });
