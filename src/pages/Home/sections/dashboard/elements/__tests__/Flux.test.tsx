@@ -41,7 +41,7 @@ describe("pages / Home / sections / dashboard / elements / Flux", () => {
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
     
-          jest.advanceTimersByTime(3600);
+          jest.advanceTimersByTime(7200);
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
     
@@ -49,7 +49,7 @@ describe("pages / Home / sections / dashboard / elements / Flux", () => {
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
     
-          jest.advanceTimersByTime(3600);
+          jest.advanceTimersByTime(7200);
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
     
@@ -57,13 +57,13 @@ describe("pages / Home / sections / dashboard / elements / Flux", () => {
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
     
-          jest.advanceTimersByTime(3600);
+          jest.advanceTimersByTime(7200);
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
     
           jest.advanceTimersByTime(1200);
     
-          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(4);
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
     
           jest.clearAllTimers();
         });

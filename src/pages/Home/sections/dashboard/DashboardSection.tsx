@@ -6,6 +6,7 @@ import Flux from "<pages>/Home/sections/dashboard/elements/Flux";
 import Code from "<pages>/Home/sections/dashboard/elements/Code";
 import Fps from "<pages>/Home/sections/dashboard/elements/Fps";
 import Commits from "<pages>/Home/sections/dashboard/elements/Commits";
+import Navigator from "<pages>/Home/sections/dashboard/elements/Navigator";
 
 import Console from "<molecules>/Console";
 import Section from "<molecules>/Section";
@@ -93,6 +94,7 @@ function DashboardSection(): JSX.Element {
         >
           <Fps />
           <Commits />
+          <Navigator />
         </FlexContainer>
       </SpacingContainer>
     );

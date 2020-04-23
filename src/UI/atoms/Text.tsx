@@ -9,8 +9,8 @@ import transitionTimes from "<styles>/variables/transitionTimes";
 import { TextProps } from "<atoms>/__typings__/Text.d.ts";
 import { ShuffleState } from "<hooks>/__typings__/useShuffleText.d.ts";
 
-function Text({ 
-  children, 
+function Text({
+  children,
   color = "blue300",
   ellipsis = false,
   fontFamily = "AnonymousPro",
@@ -53,8 +53,8 @@ function Text({
       data-testid="Text"
       ellipsis={ellipsis}
       fontFamily={fontFamily}
-      fontSize={fontSize} 
-      fontWeight={fontWeight} 
+      fontSize={fontSize}
+      fontWeight={fontWeight}
       lineHeight={lineHeight}
       onMouseOver={handleMouseOver}
       paddingBottom={paddingBottom}
