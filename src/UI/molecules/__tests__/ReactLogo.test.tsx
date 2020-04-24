@@ -73,7 +73,7 @@ describe("molecules / ReactLogo", () => {
 
   describe("FlexContainer", () => {    
     describe("Props", () => {
-      describe("align-items", () => { 
+      describe("alignItems", () => { 
         test("should have center", () => {
           const { FlexContainer } = setup();
 
@@ -81,7 +81,7 @@ describe("molecules / ReactLogo", () => {
         });
       });
 
-      describe("justify-content", () => { 
+      describe("justifyContent", () => { 
         test("should have center", () => {
           const { FlexContainer } = setup();
 

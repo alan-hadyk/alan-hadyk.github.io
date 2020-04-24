@@ -349,7 +349,7 @@ describe("atoms / Icon", () => {
   
   describe("Props", () => {
     describe("iconName", () => {
-      test("should render corect icon for apollo", () => {
+      test("should render correct icon for apollo", () => {
         const { IconComponent } = setup({
           iconName: "apollo"
         });
@@ -357,7 +357,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Apollo.svg");
       });
 
-      test("should render corect icon for btnCodeSandbox", () => {
+      test("should render correct icon for btnCodeSandbox", () => {
         const { IconComponent } = setup({
           iconName: "btnCodeSandbox"
         });
@@ -365,7 +365,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Btn-CodeSandbox.svg");
       });
 
-      test("should render corect icon for btnDownload", () => {
+      test("should render correct icon for btnDownload", () => {
         const { IconComponent } = setup({
           iconName: "btnDownload"
         });
@@ -373,7 +373,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Btn-Download.svg");
       });
 
-      test("should render corect icon for btnExternalLink", () => {
+      test("should render correct icon for btnExternalLink", () => {
         const { IconComponent } = setup({
           iconName: "btnExternalLink"
         });
@@ -381,7 +381,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Btn-ExternalLink.svg");
       });
 
-      test("should render corect icon for btnSend", () => {
+      test("should render correct icon for btnSend", () => {
         const { IconComponent } = setup({
           iconName: "btnSend"
         });
@@ -389,7 +389,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Btn-Send.svg");
       });
 
-      test("should render corect icon for codeSandbox", () => {
+      test("should render correct icon for codeSandbox", () => {
         const { IconComponent } = setup({
           iconName: "codeSandbox"
         });
@@ -397,7 +397,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-CodeSandbox.svg");
       });
 
-      test("should render corect icon for gitHub", () => {
+      test("should render correct icon for gitHub", () => {
         const { IconComponent } = setup({
           iconName: "gitHub"
         });
@@ -405,7 +405,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-GitHub.svg");
       });
 
-      test("should render corect icon for graphql", () => {
+      test("should render correct icon for graphql", () => {
         const { IconComponent } = setup({
           iconName: "graphql"
         });
@@ -413,7 +413,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Graphql.svg");
       });
 
-      test("should render corect icon for javascript", () => {
+      test("should render correct icon for javascript", () => {
         const { IconComponent } = setup({
           iconName: "javascript"
         });
@@ -421,7 +421,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Javascript.svg");
       });
 
-      test("should render corect icon for linkedIn", () => {
+      test("should render correct icon for linkedIn", () => {
         const { IconComponent } = setup({
           iconName: "linkedIn"
         });
@@ -429,7 +429,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-LinkedIn.svg");
       });
 
-      test("should render corect icon for logo", () => {
+      test("should render correct icon for logo", () => {
         const { IconComponent } = setup({
           iconName: "logo"
         });
@@ -437,7 +437,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Logo.svg");
       });
 
-      test("should render corect icon for node", () => {
+      test("should render correct icon for node", () => {
         const { IconComponent } = setup({
           iconName: "node"
         });
@@ -445,7 +445,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Node.svg");
       });
 
-      test("should render corect icon for react", () => {
+      test("should render correct icon for react", () => {
         const { IconComponent } = setup({
           iconName: "react"
         });
@@ -453,7 +453,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-React.svg");
       });
 
-      test("should render corect icon for reactLogo", () => {
+      test("should render correct icon for reactLogo", () => {
         const { IconComponent } = setup({
           iconName: "reactLogo"
         });
@@ -462,7 +462,7 @@ describe("atoms / Icon", () => {
       });
 
 
-      test("should render corect icon for typescript", () => {
+      test("should render correct icon for typescript", () => {
         const { IconComponent } = setup({
           iconName: "typescript"
         });
@@ -470,7 +470,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Typescript.svg");
       });
 
-      test("should render corect icon for webpack", () => {
+      test("should render correct icon for webpack", () => {
         const { IconComponent } = setup({
           iconName: "webpack"
         });
