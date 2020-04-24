@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect, useState } from "react";
+import React, { useCallback, useRef, useLayoutEffect, useState } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import Text from "<atoms>/Text";
@@ -29,10 +29,20 @@ function DashboardElement({
   const descriptionRef = useRef<HTMLDivElement>(null);
   const [childrenHeight, setChildrenHeight] = useState<string>(null);
 
+  const calcChildrenHeight = useCallback((): string => {
+    if (descriptionRef.current) {
+      const { height }: DOMRect = descriptionRef.current.getBoundingClientRect();
+      return `calc(100% - ${spacing.spacing36} - ${spacing.spacing28} - ${height}px)`;
+    } else {
+      return `calc(100% - ${spacing.spacing36})`;
+    }
+  }, [descriptionRef.current]);
+
   useLayoutEffect(() => {
     const height: string = calcChildrenHeight();
+    
     setChildrenHeight(height);
-  });
+  }, [calcChildrenHeight]);
 
   return (
     <FlexItem
@@ -83,16 +93,6 @@ function DashboardElement({
       </PositionContainer>
     </FlexItem>
   );
-
-  function calcChildrenHeight(): string {
-    if (descriptionRef.current) {
-      const { height }: DOMRect = descriptionRef.current.getBoundingClientRect();
-
-      return `calc(100% - ${spacing.spacing36} - ${spacing.spacing28} - ${height}px)`;
-    } else {
-      return `calc(100% - ${spacing.spacing36})`;
-    }
-  }
 
   function renderInnerContainer(): JSX.Element {
     return (

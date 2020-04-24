@@ -73,6 +73,7 @@
   },
   "devDependencies": {
     "@testing-library/react-hooks": "^3.2.1",
+    "@types/detect-browser": "^4.0.0",
     "@types/jest": "^25.1.2",
     "@types/lodash": "^4.14.149",
     "@types/node": "^12.0.0",

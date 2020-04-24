@@ -8,7 +8,7 @@ import { DashboardElementProps } from "<molecules>/__typings__/DashboardElement.
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 describe("molecules / DashboardElement", () => {
-  test("should have correct structure if have no description", () => {
+  test("should have correct structure if there's no description", () => {
     const { 
       Corners,
       DashboardElementInnerContainer,
@@ -30,7 +30,7 @@ describe("molecules / DashboardElement", () => {
     expect(DashboardElementInnerContainer.children[0]).toEqual(SpacingContainer);
   });
 
-  test("should have correct structure if have description", () => {
+  test("should have correct structure if there's description", () => {
     const { 
       Corners,
       DashboardElementDescription,
@@ -536,7 +536,7 @@ describe("molecules / DashboardElement", () => {
   describe("DashboardElementDescription", () => {
     describe("Props", () => {
       describe("height", () => {
-        test("should have color auto", () => {
+        test("should have auto", () => {
           const { DashboardElementDescription } = setup({
             description: "Lorem ipsum dolor sit amet"
           });
@@ -569,62 +569,46 @@ describe("molecules / DashboardElement", () => {
 
   describe("DashboardElementDescriptionText", () => {
     describe("Props", () => {
+      let DashboardElementDescriptionText: Element;
+
+      beforeEach(() => {
+        DashboardElementDescriptionText = setup({
+          description: "Lorem ipsum dolor sit amet"
+        }).DashboardElementDescriptionText;
+      });
+
       describe("color", () => {
-        test("should have color #78b0b5", () => {
-          const { DashboardElementDescriptionText } = setup({
-            description: "Lorem ipsum dolor sit amet"
-          });
-  
+        test("should have color #78b0b5", () => {  
           expect(DashboardElementDescriptionText).toHaveStyleRule("color", "#78b0b5");
         });
       });
 
       describe("fontSize", () => {
         test("should have 8px", () => {
-          const { DashboardElementDescriptionText } = setup({
-            description: "Lorem ipsum dolor sit amet"
-          });
-
           expect(DashboardElementDescriptionText).toHaveStyleRule("font-size", "8px");
         });
       });
 
       describe("lineHeight", () => {
         test("should have 1.2rem", () => {
-          const { DashboardElementDescriptionText } = setup({
-            description: "Lorem ipsum dolor sit amet"
-          });
-
           expect(DashboardElementDescriptionText).toHaveStyleRule("line-height", "1.2rem");
         });
       });
 
       describe("maxHeight", () => {
         test("should have 3.6rem", () => {
-          const { DashboardElementDescriptionText } = setup({
-            description: "Lorem ipsum dolor sit amet"
-          });
-
           expect(DashboardElementDescriptionText).toHaveStyleRule("max-height", "3.6rem");
         });
       });
 
       describe("overflow", () => {
         test("should have hidden", () => {
-          const { DashboardElementDescriptionText } = setup({
-            description: "Lorem ipsum dolor sit amet"
-          });
-
           expect(DashboardElementDescriptionText).toHaveStyleRule("overflow", "hidden");
         });
       });
 
       describe("textTransform", () => {
         test("should have uppercase", () => {
-          const { DashboardElementDescriptionText } = setup({
-            description: "Lorem ipsum dolor sit amet"
-          });
-
           expect(DashboardElementDescriptionText).toHaveStyleRule("text-transform", "uppercase");
         });
       });

@@ -34,9 +34,9 @@ describe("atoms / Icon", () => {
         expect(IconContainer).toHaveStyleRule("height", "2.4rem");
       });
 
-      test("should have 100% for svg if is browser icon", () => {
+      test("should have 100% for svg if is responsive", () => {
         const { IconContainer } = setup({
-          isBrowserIcon: true
+          isResponsive: true
         });
   
         expect(IconContainer).toHaveStyleRule("height", "100%", {
@@ -68,9 +68,9 @@ describe("atoms / Icon", () => {
         expect(IconContainer).toHaveStyleRule("width", "100%");
       });
 
-      test("should have 100% for svg if is browser icon", () => {
+      test("should have 100% for svg if is responsive", () => {
         const { IconContainer } = setup({
-          isBrowserIcon: true
+          isResponsive: true
         });
   
         expect(IconContainer).toHaveStyleRule("width", "100%", {

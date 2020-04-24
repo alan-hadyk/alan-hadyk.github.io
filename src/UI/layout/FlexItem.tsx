@@ -8,6 +8,7 @@ import {
 const FlexItem = ({
   alignSelf = "auto",
   children,
+  className,
   dataTestId,
   flex,
   height = "unset",
@@ -18,6 +19,7 @@ const FlexItem = ({
 }: FlexItemProps): JSX.Element => (
   <FlexItem.Container
     alignSelf={alignSelf}
+    className={className}
     data-testid={dataTestId || "FlexItem"}
     flex={flex}
     height={height}

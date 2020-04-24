@@ -36,7 +36,8 @@ function Icon({
   height = "auto",
   iconName,
   isActive = false,
-  isBrowserIcon = false,
+  isResponsive = false,
+  overflow = "visible",
   shouldDisplayGlowAnimation = false,
   shouldGlowOnHover = false,
   width = "auto"
@@ -74,7 +75,8 @@ function Icon({
       animationTime={animationTime}
       height={height}
       isActive={isActive}
-      isBrowserIcon={isBrowserIcon}
+      isResponsive={isResponsive}
+      overflow={overflow}
       shouldDisplayGlowAnimation={shouldDisplayGlowAnimation}
       shouldGlowOnHover={shouldGlowOnHover}
       width={width}
@@ -90,7 +92,8 @@ Icon.Container = styled.div<IconContainerProps>`
     animationTime,
     height,
     isActive,
-    isBrowserIcon,
+    isResponsive,
+    overflow,
     shouldDisplayGlowAnimation,
     shouldGlowOnHover,
     theme: {
@@ -103,12 +106,19 @@ Icon.Container = styled.div<IconContainerProps>`
     width
   }): FlattenSimpleInterpolation => css`
     height: ${(height in spacing && spacing[height]) || height};
+    overflow: ${overflow};
     width: ${(width in spacing && spacing[width]) || width};
 
-    ${isBrowserIcon && `
+    ${isResponsive && `
       svg {
         height: 100%;
         width: 100%;
+      }
+    `}
+
+    ${isActive && `
+      svg path {
+        fill: ${blue300};
       }
     `}
 
@@ -129,12 +139,6 @@ Icon.Container = styled.div<IconContainerProps>`
         }
       `}
     }
-
-    ${isActive && `
-      svg path {
-        fill: ${blue300};
-      }
-    `}
   `}
 `;
 

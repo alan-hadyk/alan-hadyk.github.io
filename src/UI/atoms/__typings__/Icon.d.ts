@@ -29,7 +29,8 @@ export interface IconProps {
     "unknown" |
     "webpack";
   isActive?: boolean;
-  isBrowserIcon?: boolean;
+  isResponsive?: boolean;
+  overflow?: "hidden" | "visible";
   shouldDisplayGlowAnimation?: boolean;
   shouldGlowOnHover?: boolean;
   width?: string | Spacing;

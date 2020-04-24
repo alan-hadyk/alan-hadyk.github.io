@@ -1,4 +1,5 @@
-import React, { memo } from "react";
+import React from "react";
+import styled from "styled-components";
 import { detect } from "detect-browser";
 
 import FlexContainer from "<layout>/FlexContainer";
@@ -9,7 +10,7 @@ import Icon from "<atoms>/Icon";
 
 import { IconProps } from "<atoms>/__typings__/Icon.d.ts";
 
-const browserIcons: IconProps["iconName"][] = ["chrome", "firefox", "ie", "opera", "safari", "unknown"];
+const BROWSER_ICONS: IconProps["iconName"][] = ["chrome", "firefox", "ie", "opera", "safari", "unknown"];
 
 function BrowserInfo(): JSX.Element {
   return (
@@ -22,28 +23,30 @@ function BrowserInfo(): JSX.Element {
       paddingTop="1.25vh"
       width="100%"
     >
-      <FlexContainer 
-        alignItems="center" 
-        dataTestId="BrowserInfoFlexContainer"
-        flexFlow="row wrap"
-        height="100%"
-        justifyContent="space-between"
-      >
-        {renderIcons()}
-      </FlexContainer>
+      <BrowserInfo.IconsContainer data-testid="BrowserInfoIconsContainer">
+        <FlexContainer 
+          alignItems="center" 
+          dataTestId="BrowserInfoFlexContainer"
+          flexFlow="row wrap"
+          height="100%"
+          justifyContent="space-between"
+        >
+          {renderIcons()}
+        </FlexContainer>
+      </BrowserInfo.IconsContainer>
     </SpacingContainer>
   );
 
   function renderIcons(): JSX.Element[] {
-    return browserIcons.map((icon): JSX.Element => {
+    return BROWSER_ICONS.map((icon: IconProps["iconName"]): JSX.Element => {
       const { name } = detect();
 
-      // eslint-disable-next-line @typescript-eslint/no-inferrable-types
-      const isUnknown: boolean = !browserIcons.find(icon => icon === name);
+      const isUnknown = !BROWSER_ICONS.find((icon: IconProps["iconName"]) => icon === name);
       const isActive: boolean = icon === "ie" ? name === "ie" || name === "edge" : name === icon;
 
       return (
         <FlexItem
+          className={isActive ? "isActive" : "isInactive"}
           flex="0 1 28%"
           height="50%"
           key={icon}
@@ -55,7 +58,8 @@ function BrowserInfo(): JSX.Element {
             height="100%"
             iconName={icon}
             isActive={isActive || isUnknown}
-            isBrowserIcon
+            isResponsive
+            overflow="hidden"
             shouldDisplayGlowAnimation={isActive || isUnknown}
             width="100%"
           />
@@ -65,4 +69,20 @@ function BrowserInfo(): JSX.Element {
   }
 }
 
-export default memo(BrowserInfo);
+BrowserInfo.IconsContainer = styled.div`
+  height: 100%;
+
+  @media (max-height: 640px) {
+    .isInactive {
+      display: none;
+    }
+
+    .isActive {
+      display: block;
+      height: 100%;
+      margin: 0 auto;
+    }
+  }
+`;
+
+export default BrowserInfo;

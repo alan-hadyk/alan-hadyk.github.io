@@ -19,7 +19,7 @@ function Text({
   fontWeight = "normal",
   lineHeight = "1",
   maxHeight,
-  overflow,
+  overflow = "visible",
   paddingBottom = "spacing0",
   paddingLeft = "spacing0",
   paddingRight = "spacing0",

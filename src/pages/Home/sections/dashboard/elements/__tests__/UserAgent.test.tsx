@@ -59,7 +59,7 @@ describe("pages / Home / sections / dashboard / elements / UserAgent", () => {
       });
 
       describe("shuffleDelay", () => {
-        test("should trigger shuffleText.start in intervals with 600ms delay", () => {
+        test("should trigger shuffleText.start in intervals with 5400ms delay", () => {
           jest.spyOn(ShuffleText.prototype, "start");
           jest.useFakeTimers();
     
@@ -67,7 +67,7 @@ describe("pages / Home / sections / dashboard / elements / UserAgent", () => {
 
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
 
-          jest.advanceTimersByTime(4800);
+          jest.advanceTimersByTime(5400);
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
     
@@ -75,7 +75,7 @@ describe("pages / Home / sections / dashboard / elements / UserAgent", () => {
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
     
-          jest.advanceTimersByTime(4800);
+          jest.advanceTimersByTime(5400);
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
     
@@ -83,15 +83,15 @@ describe("pages / Home / sections / dashboard / elements / UserAgent", () => {
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
     
-          jest.advanceTimersByTime(4800);
+          jest.advanceTimersByTime(5400);
     
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
     
           jest.advanceTimersByTime(3600);
     
-          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
 
-          jest.advanceTimersByTime(4800);
+          jest.advanceTimersByTime(5400);
 
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
     
@@ -120,17 +120,19 @@ describe("pages / Home / sections / dashboard / elements / UserAgent", () => {
       expect(BrowserInfo).toHaveStyleRule("padding-right", "1.25vw");
       expect(BrowserInfo).toHaveStyleRule("width", "100%");
 
-      expect(BrowserInfo.children[0]).toHaveStyleRule("align-items", "center");
-      expect(BrowserInfo.children[0]).toHaveStyleRule("flex-flow", "row wrap");
       expect(BrowserInfo.children[0]).toHaveStyleRule("height", "100%");
-      expect(BrowserInfo.children[0]).toHaveStyleRule("justify-content", "space-between");
 
-      expect(BrowserInfo.children[0].children[0].children[0].textContent).toEqual("Icon-Chrome.svg");
-      expect(BrowserInfo.children[0].children[1].children[0].textContent).toEqual("Icon-Firefox.svg");
-      expect(BrowserInfo.children[0].children[2].children[0].textContent).toEqual("Icon-IE.svg");
-      expect(BrowserInfo.children[0].children[3].children[0].textContent).toEqual("Icon-Opera.svg");
-      expect(BrowserInfo.children[0].children[4].children[0].textContent).toEqual("Icon-Safari.svg");
-      expect(BrowserInfo.children[0].children[5].children[0].textContent).toEqual("Icon-Unknown.svg");
+      expect(BrowserInfo.children[0].children[0]).toHaveStyleRule("align-items", "center");
+      expect(BrowserInfo.children[0].children[0]).toHaveStyleRule("flex-flow", "row wrap");
+      expect(BrowserInfo.children[0].children[0]).toHaveStyleRule("height", "100%");
+      expect(BrowserInfo.children[0].children[0]).toHaveStyleRule("justify-content", "space-between");
+
+      expect(BrowserInfo.children[0].children[0].children[0].children[0].textContent).toEqual("Icon-Chrome.svg");
+      expect(BrowserInfo.children[0].children[0].children[1].children[0].textContent).toEqual("Icon-Firefox.svg");
+      expect(BrowserInfo.children[0].children[0].children[2].children[0].textContent).toEqual("Icon-IE.svg");
+      expect(BrowserInfo.children[0].children[0].children[3].children[0].textContent).toEqual("Icon-Opera.svg");
+      expect(BrowserInfo.children[0].children[0].children[4].children[0].textContent).toEqual("Icon-Safari.svg");
+      expect(BrowserInfo.children[0].children[0].children[5].children[0].textContent).toEqual("Icon-Unknown.svg");
     });
   });
 });

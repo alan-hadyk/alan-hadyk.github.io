@@ -177,6 +177,12 @@ describe("atoms / Text", () => {
     });
 
     describe("overflow", () => {        
+      test("should have visible by default", () => {
+        const { TextContainer } = setup();
+      
+        expect(TextContainer).toHaveStyleRule("overflow", "visible");
+      });
+
       test("should have correct value when passed via overflow prop", () => {
         const { TextContainer } = setup({
           overflow: "hidden"
