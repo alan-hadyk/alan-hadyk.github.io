@@ -33,6 +33,16 @@ describe("atoms / Icon", () => {
   
         expect(IconContainer).toHaveStyleRule("height", "2.4rem");
       });
+
+      test("should have 100% for svg if is responsive", () => {
+        const { IconContainer } = setup({
+          isResponsive: true
+        });
+
+        expect(IconContainer).toHaveStyleRule("height", "100%", {
+          modifier: "svg"
+        });
+      });
     });
 
     describe("width", () => {      
@@ -57,130 +67,210 @@ describe("atoms / Icon", () => {
   
         expect(IconContainer).toHaveStyleRule("width", "100%");
       });
+
+      test("should have 100% for svg if is responsive", () => {
+        const { IconContainer } = setup({
+          isResponsive: true
+        });
+
+        expect(IconContainer).toHaveStyleRule("width", "100%", {
+          modifier: "svg"
+        });
+      });
     });
 
     describe("animation", () => { 
-      describe("when shouldDisplayGlowAnimation is true", () => {
-        describe("animation-delay", () => {      
-          test("should have 0ms by default", () => {
+      describe("glow", () => {
+        describe("when shouldDisplayGlowAnimation is true", () => {
+          describe("animation-delay", () => {      
+            test("should have 0ms by default", () => {
+              const { IconContainer } = setup({
+                shouldDisplayGlowAnimation: true
+              });
+    
+              expect(IconContainer).toHaveStyleRule("animation-delay", "0ms", {
+                modifier: "& > *"
+              });
+            });
+  
+            test("should have 150ms when passed via animationDelay prop", () => {
+              const { IconContainer } = setup({
+                animationDelay: "150ms",
+                shouldDisplayGlowAnimation: true
+              });
+    
+              expect(IconContainer).toHaveStyleRule("animation-delay", "150ms", {
+                modifier: "& > *"
+              });
+            });
+          });
+    
+          describe("animation-duration", () => {      
+            test("should have 900ms by default", () => {
+              const { IconContainer } = setup({
+                shouldDisplayGlowAnimation: true
+              });
+    
+              expect(IconContainer).toHaveStyleRule("animation-duration", "900ms", {
+                modifier: "& > *"
+              });
+            });
+  
+            test("should have 300ms when passed via animationTime prop", () => {
+              const { IconContainer } = setup({
+                animationTime: "default",
+                shouldDisplayGlowAnimation: true
+              });
+    
+              expect(IconContainer).toHaveStyleRule("animation-duration", "300ms", {
+                modifier: "& > *"
+              });
+            });
+          });
+    
+          describe("animation-iteration-count", () => {      
+            test("should have infinite", () => {
+              const { IconContainer } = setup({
+                shouldDisplayGlowAnimation: true
+              });
+    
+              expect(IconContainer).toHaveStyleRule("animation-iteration-count", "infinite", {
+                modifier: "& > *"
+              });
+            });
+          });
+    
+          describe("animation-timing-function", () => {      
+            test("should have ease-in-out", () => {
+              const { IconContainer } = setup({
+                shouldDisplayGlowAnimation: true
+              });
+    
+              expect(IconContainer).toHaveStyleRule("animation-timing-function", "ease-in-out", {
+                modifier: "& > *"
+              });
+            });
+          });
+        });   
+  
+        describe("should not have glow animation when shouldDisplayGlowAnimation is false", () => {
+          test("animation-name", () => {      
             const { IconContainer } = setup({
-              shouldDisplayGlowAnimation: true
+              shouldDisplayGlowAnimation: false
             });
   
-            expect(IconContainer).toHaveStyleRule("animation-delay", "0ms", {
+            expect(IconContainer).not.toHaveStyleRule("animation-name", {
               modifier: "& > *"
-            });
+            });    
           });
-
-          test("should have 150ms when passed via animationDelay prop", () => {
+  
+          test("animation-delay", () => {      
             const { IconContainer } = setup({
-              animationDelay: "150ms",
-              shouldDisplayGlowAnimation: true
+              shouldDisplayGlowAnimation: false
             });
   
-            expect(IconContainer).toHaveStyleRule("animation-delay", "150ms", {
+            expect(IconContainer).not.toHaveStyleRule("animation-delay", {
               modifier: "& > *"
-            });
+            });    
           });
-        });
   
-        describe("animation-duration", () => {      
-          test("should have 900ms by default", () => {
+          test("animation-duration", () => {      
             const { IconContainer } = setup({
-              shouldDisplayGlowAnimation: true
+              shouldDisplayGlowAnimation: false
             });
   
-            expect(IconContainer).toHaveStyleRule("animation-duration", "900ms", {
+            expect(IconContainer).not.toHaveStyleRule("animation-duration", {
               modifier: "& > *"
-            });
+            });    
           });
-
-          test("should have 300ms when passed via animationTime prop", () => {
+  
+          test("animation-iteration-count", () => {      
             const { IconContainer } = setup({
-              animationTime: "default",
-              shouldDisplayGlowAnimation: true
+              shouldDisplayGlowAnimation: false
             });
   
-            expect(IconContainer).toHaveStyleRule("animation-duration", "300ms", {
+            expect(IconContainer).not.toHaveStyleRule("animation-iteration-count", {
               modifier: "& > *"
-            });
+            });    
           });
-        });
   
-        describe("animation-iteration-count", () => {      
-          test("should have infinite", () => {
+          test("animation-timing-function", () => {      
             const { IconContainer } = setup({
-              shouldDisplayGlowAnimation: true
+              shouldDisplayGlowAnimation: false
             });
   
-            expect(IconContainer).toHaveStyleRule("animation-iteration-count", "infinite", {
+            expect(IconContainer).not.toHaveStyleRule("animation-timing-function", {
               modifier: "& > *"
-            });
+            });    
           });
         });
+      });
+
+      describe("rotate", () => {
+        describe("when shouldRotate is true", () => {
+          describe("animation-duration", () => {      
+            test("should have 3600ms", () => {
+              const { IconContainer } = setup({
+                shouldRotate: true
+              });
+    
+              expect(IconContainer).toHaveStyleRule("animation-duration", "3600ms");
+            });
+          });
+    
+          describe("animation-iteration-count", () => {      
+            test("should have infinite", () => {
+              const { IconContainer } = setup({
+                shouldRotate: true
+              });
+    
+              expect(IconContainer).toHaveStyleRule("animation-iteration-count", "infinite");
+            });
+          });
+    
+          describe("animation-timing-function", () => {      
+            test("should have linear", () => {
+              const { IconContainer } = setup({
+                shouldRotate: true
+              });
+    
+              expect(IconContainer).toHaveStyleRule("animation-timing-function", "linear");
+            });
+          });
+        });   
   
-        describe("animation-timing-function", () => {      
-          test("should have ease-in-out", () => {
+        describe("should not have rotate animation when shouldRotate is false", () => {
+          test("animation-name", () => {      
             const { IconContainer } = setup({
-              shouldDisplayGlowAnimation: true
+              shouldRotate: false
             });
   
-            expect(IconContainer).toHaveStyleRule("animation-timing-function", "ease-in-out", {
-              modifier: "& > *"
+            expect(IconContainer).not.toHaveStyleRule("animation-name");    
+          });
+  
+          test("animation-duration", () => {      
+            const { IconContainer } = setup({
+              shouldRotate: false
             });
+  
+            expect(IconContainer).not.toHaveStyleRule("animation-duration");    
           });
-        });
-      });   
-
-      describe("should not have animation when shouldDisplayGlowAnimation is false", () => {
-        test("animation-name", () => {      
-          const { IconContainer } = setup({
-            shouldDisplayGlowAnimation: false
+  
+          test("animation-iteration-count", () => {      
+            const { IconContainer } = setup({
+              shouldRotate: false
+            });
+  
+            expect(IconContainer).not.toHaveStyleRule("animation-iteration-count");    
           });
-
-          expect(IconContainer).not.toHaveStyleRule("animation-name", {
-            modifier: "& > *"
-          });    
-        });
-
-        test("animation-delay", () => {      
-          const { IconContainer } = setup({
-            shouldDisplayGlowAnimation: false
+  
+          test("animation-timing-function", () => {      
+            const { IconContainer } = setup({
+              shouldRotate: false
+            });
+  
+            expect(IconContainer).not.toHaveStyleRule("animation-timing-function");    
           });
-
-          expect(IconContainer).not.toHaveStyleRule("animation-delay", {
-            modifier: "& > *"
-          });    
-        });
-
-        test("animation-duration", () => {      
-          const { IconContainer } = setup({
-            shouldDisplayGlowAnimation: false
-          });
-
-          expect(IconContainer).not.toHaveStyleRule("animation-duration", {
-            modifier: "& > *"
-          });    
-        });
-
-        test("animation-iteration-count", () => {      
-          const { IconContainer } = setup({
-            shouldDisplayGlowAnimation: false
-          });
-
-          expect(IconContainer).not.toHaveStyleRule("animation-iteration-count", {
-            modifier: "& > *"
-          });    
-        });
-
-        test("animation-timing-function", () => {      
-          const { IconContainer } = setup({
-            shouldDisplayGlowAnimation: false
-          });
-
-          expect(IconContainer).not.toHaveStyleRule("animation-timing-function", {
-            modifier: "& > *"
-          });    
         });
       });
     });
@@ -362,6 +452,15 @@ describe("atoms / Icon", () => {
   
         expect(IconComponent.textContent).toEqual("Icon-React.svg");
       });
+
+      test("should render corect icon for reactLogo", () => {
+        const { IconComponent } = setup({
+          iconName: "reactLogo"
+        });
+  
+        expect(IconComponent.textContent).toEqual("Icon-ReactLogo.svg");
+      });
+
 
       test("should render corect icon for typescript", () => {
         const { IconComponent } = setup({

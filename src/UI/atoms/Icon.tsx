@@ -7,16 +7,17 @@ import { ReactComponent as BtnDownload } from "<assets>/svg/Btn-Download.svg";
 import { ReactComponent as BtnExternalLink } from "<assets>/svg/Btn-ExternalLink.svg";
 import { ReactComponent as BtnSend } from "<assets>/svg/Btn-Send.svg";
 import { ReactComponent as IconApollo } from "<assets>/svg/Icon-Apollo.svg";
-import { ReactComponent as IconGraphql } from "<assets>/svg/Icon-Graphql.svg";
-import { ReactComponent as IconJavascript } from "<assets>/svg/Icon-Javascript.svg";
-import { ReactComponent as IconNode } from "<assets>/svg/Icon-Node.svg";
-import { ReactComponent as IconReact } from "<assets>/svg/Icon-React.svg";
-import { ReactComponent as IconTypescript } from "<assets>/svg/Icon-Typescript.svg";
-import { ReactComponent as IconWebpack } from "<assets>/svg/Icon-Webpack.svg";
-import { ReactComponent as IconLogo } from "<assets>/svg/Icon-Logo.svg";
 import { ReactComponent as IconCodeSandbox } from "<assets>/svg/Icon-CodeSandbox.svg";
 import { ReactComponent as IconGitHub } from "<assets>/svg/Icon-GitHub.svg";
+import { ReactComponent as IconGraphql } from "<assets>/svg/Icon-Graphql.svg";
+import { ReactComponent as IconJavascript } from "<assets>/svg/Icon-Javascript.svg";
 import { ReactComponent as IconLinkedIn } from "<assets>/svg/Icon-LinkedIn.svg";
+import { ReactComponent as IconLogo } from "<assets>/svg/Icon-Logo.svg";
+import { ReactComponent as IconNode } from "<assets>/svg/Icon-Node.svg";
+import { ReactComponent as IconReact } from "<assets>/svg/Icon-React.svg";
+import { ReactComponent as IconReactLogo } from "<assets>/svg/Icon-ReactLogo.svg";
+import { ReactComponent as IconTypescript } from "<assets>/svg/Icon-Typescript.svg";
+import { ReactComponent as IconWebpack } from "<assets>/svg/Icon-Webpack.svg";
 
 import {
   IconContainerProps,
@@ -29,8 +30,10 @@ function Icon({
   animationTime = "slow",
   height = "auto",
   iconName,
+  isResponsive = false,
   shouldDisplayGlowAnimation = false,
   shouldGlowOnHover = false,
+  shouldRotate = false,
   width = "auto"
 }: IconProps): JSX.Element {
   const iconComponents = {
@@ -47,6 +50,7 @@ function Icon({
     logo: IconLogo,
     node: IconNode,
     react: IconReact,
+    reactLogo: IconReactLogo,
     typescript: IconTypescript,
     webpack: IconWebpack
   };
@@ -59,8 +63,10 @@ function Icon({
       animationDelay={animationDelay}
       animationTime={animationTime}
       height={height}
+      isResponsive={isResponsive}
       shouldDisplayGlowAnimation={shouldDisplayGlowAnimation}
       shouldGlowOnHover={shouldGlowOnHover}
+      shouldRotate={shouldRotate}
       width={width}
     >
       <IconComponent />
@@ -73,12 +79,14 @@ Icon.Container = styled.div<IconContainerProps>`
     animationDelay,
     animationTime,
     height,
+    isResponsive,
     shouldDisplayGlowAnimation,
     shouldGlowOnHover,
+    shouldRotate,
     theme: {
-      colorPalette,
-      easing,
-      keyframes,
+      colorPalette: { white },
+      easing: { easeInOut, linear },
+      keyframes: { glow, rotate },
       spacing,
       transitionTimes
     },
@@ -87,20 +95,34 @@ Icon.Container = styled.div<IconContainerProps>`
     height: ${(height in spacing && spacing[height]) || height};
     width: ${(width in spacing && spacing[width]) || width};
 
+    ${isResponsive && `
+      svg {
+        height: 100%;
+        width: 100%;
+      }
+    `}
+
+    ${shouldRotate && css`
+      animation-duration: ${transitionTimes.verySlow};
+      animation-iteration-count: infinite;
+      animation-name: ${rotate};
+      animation-timing-function: ${linear};
+    `}
+
     & > * {
       ${shouldDisplayGlowAnimation && css`
         animation-delay: ${animationDelay};
         animation-duration: ${transitionTimes[animationTime]};
         animation-iteration-count: infinite;
-        animation-name: ${keyframes.glow};
-        animation-timing-function: ${easing.easeInOut};
+        animation-name: ${glow};
+        animation-timing-function: ${easeInOut};
       `}
   
       ${shouldGlowOnHover && `
-        transition: all ${transitionTimes[animationTime]} ${easing.easeInOut} ${animationDelay};
+        transition: all ${transitionTimes[animationTime]} ${easeInOut} ${animationDelay};
   
         &:hover {
-          filter: drop-shadow(0px 0px ${spacing.spacing4} ${transparentize(0.5, colorPalette.white)});
+          filter: drop-shadow(0px 0px ${spacing.spacing4} ${transparentize(0.5, white)});
         }
       `}
     }

@@ -157,6 +157,32 @@ describe("molecules / DashboardElement", () => {
           expect(Text).toHaveStyleRule("color", "#78b0b5");
         });
       });
+
+      describe("ellipsis", () => {
+        describe("text-overflow", () => {
+          test("should have ellipsis", () => {
+            const { Text } = setup();
+  
+            expect(Text).toHaveStyleRule("text-overflow", "ellipsis");
+          });
+        });
+  
+        describe("overflow", () => {
+          test("should have hidden", () => {
+            const { Text } = setup();
+  
+            expect(Text).toHaveStyleRule("overflow", "hidden");
+          });
+        });
+  
+        describe("white-space", () => {
+          test("should have nowrap", () => {
+            const { Text } = setup();
+  
+            expect(Text).toHaveStyleRule("white-space", "nowrap");
+          });
+        });
+      });
  
       describe("font-family", () => {
         test("should have 'Anonymous Pro',monospace", () => {

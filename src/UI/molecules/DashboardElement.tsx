@@ -35,6 +35,7 @@ function DashboardElement({
     >
       <Text 
         color="blue300"
+        ellipsis
         fontFamily="AnonymousPro"
         fontSize="font16"
         lineHeight="spacing36"
