@@ -7,18 +7,20 @@ import { ReactComponent as BtnDownload } from "<assets>/svg/Btn-Download.svg";
 import { ReactComponent as BtnExternalLink } from "<assets>/svg/Btn-ExternalLink.svg";
 import { ReactComponent as BtnSend } from "<assets>/svg/Btn-Send.svg";
 import { ReactComponent as IconApollo } from "<assets>/svg/Icon-Apollo.svg";
+import { ReactComponent as IconCodeSandbox } from "<assets>/svg/Icon-CodeSandbox.svg";
+import { ReactComponent as IconEarth } from "<assets>/svg/Icon-Earth.svg";
+import { ReactComponent as IconGitHub } from "<assets>/svg/Icon-GitHub.svg";
 import { ReactComponent as IconGraphql } from "<assets>/svg/Icon-Graphql.svg";
 import { ReactComponent as IconJavascript } from "<assets>/svg/Icon-Javascript.svg";
+import { ReactComponent as IconLinkedIn } from "<assets>/svg/Icon-LinkedIn.svg";
+import { ReactComponent as IconLogo } from "<assets>/svg/Icon-Logo.svg";
 import { ReactComponent as IconNode } from "<assets>/svg/Icon-Node.svg";
 import { ReactComponent as IconReact } from "<assets>/svg/Icon-React.svg";
 import { ReactComponent as IconTypescript } from "<assets>/svg/Icon-Typescript.svg";
 import { ReactComponent as IconWebpack } from "<assets>/svg/Icon-Webpack.svg";
-import { ReactComponent as IconLogo } from "<assets>/svg/Icon-Logo.svg";
-import { ReactComponent as IconCodeSandbox } from "<assets>/svg/Icon-CodeSandbox.svg";
-import { ReactComponent as IconGitHub } from "<assets>/svg/Icon-GitHub.svg";
-import { ReactComponent as IconLinkedIn } from "<assets>/svg/Icon-LinkedIn.svg";
 
 import {
+  IconComponents,
   IconContainerProps,
   IconProps,
   SVGIcon
@@ -29,17 +31,19 @@ function Icon({
   animationTime = "slow",
   height = "auto",
   iconName,
+  isResponsive = false,
   shouldDisplayGlowAnimation = false,
   shouldGlowOnHover = false,
   width = "auto"
 }: IconProps): JSX.Element {
-  const iconComponents = {
+  const iconComponents: IconComponents = {
     apollo: IconApollo,
     btnCodeSandbox: BtnCodeSandbox,
     btnDownload: BtnDownload,
     btnExternalLink: BtnExternalLink,
     btnSend: BtnSend,
     codeSandbox: IconCodeSandbox,
+    earth: IconEarth,
     gitHub: IconGitHub,
     graphql: IconGraphql,
     javascript: IconJavascript,
@@ -59,6 +63,7 @@ function Icon({
       animationDelay={animationDelay}
       animationTime={animationTime}
       height={height}
+      isResponsive={isResponsive}
       shouldDisplayGlowAnimation={shouldDisplayGlowAnimation}
       shouldGlowOnHover={shouldGlowOnHover}
       width={width}
@@ -73,6 +78,7 @@ Icon.Container = styled.div<IconContainerProps>`
     animationDelay,
     animationTime,
     height,
+    isResponsive,
     shouldDisplayGlowAnimation,
     shouldGlowOnHover,
     theme: {
@@ -86,6 +92,13 @@ Icon.Container = styled.div<IconContainerProps>`
   }): FlattenSimpleInterpolation => css`
     height: ${(height in spacing && spacing[height]) || height};
     width: ${(width in spacing && spacing[width]) || width};
+
+    ${isResponsive && `
+      svg {
+        height: 100%;
+        width: 100%;
+      }
+    `}
 
     & > * {
       ${shouldDisplayGlowAnimation && css`
