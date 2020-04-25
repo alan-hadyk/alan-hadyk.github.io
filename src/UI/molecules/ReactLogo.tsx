@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 
 import FlexContainer from "<layout>/FlexContainer";
 import SpacingContainer from "<layout>/SpacingContainer";
@@ -34,4 +34,4 @@ const ReactLogo = (): JSX.Element => (
   </SpacingContainer>
 );
 
-export default memo(ReactLogo);
+export default ReactLogo;
