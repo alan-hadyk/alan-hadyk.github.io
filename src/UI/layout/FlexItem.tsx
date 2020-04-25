@@ -8,17 +8,25 @@ import {
 const FlexItem = ({
   alignSelf = "auto",
   children,
+  className,
   dataTestId,
   flex,
+  height = "unset",
   order = 0,
-  overflow = "auto"
+  overflow = "auto",
+  paddingBottom = "spacing0",
+  paddingTop = "spacing0"
 }: FlexItemProps): JSX.Element => (
   <FlexItem.Container
     alignSelf={alignSelf}
+    className={className}
     data-testid={dataTestId || "FlexItem"}
     flex={flex}
+    height={height}
     order={order}
     overflow={overflow}
+    paddingBottom={paddingBottom}
+    paddingTop={paddingTop}
   >
     {children}
   </FlexItem.Container>
@@ -28,13 +36,22 @@ FlexItem.Container = styled.div<FlexItemProps>`
   ${({
     alignSelf,
     flex,
+    height,
     order,
-    overflow
+    overflow,
+    paddingBottom,
+    paddingTop,
+    theme: {
+      spacing
+    }
   }): FlattenSimpleInterpolation => css`
     align-self: ${alignSelf};
     flex: ${flex};
+    height: ${(height in spacing && spacing[height]) || height};
     order: ${order};
     overflow: ${overflow};
+    padding-bottom: ${(paddingBottom in spacing && spacing[paddingBottom]) || paddingBottom};
+    padding-top: ${(paddingTop in spacing && spacing[paddingTop]) || paddingTop};
   `}
 `;
   
