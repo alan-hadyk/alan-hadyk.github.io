@@ -1,4 +1,4 @@
-import React, { memo, useState, useRef } from "react";
+import React, { forwardRef, memo, useState, useRef, Ref } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import useShuffleText from "<hooks>/useShuffleText";
@@ -12,11 +12,14 @@ import { ShuffleState } from "<hooks>/__typings__/useShuffleText.d.ts";
 function Text({
   children,
   color = "blue300",
+  dataTestId,
   ellipsis = false,
   fontFamily = "AnonymousPro",
   fontSize = "font20",
   fontWeight = "normal",
   lineHeight = "1",
+  maxHeight,
+  overflow = "visible",
   paddingBottom = "spacing0",
   paddingLeft = "spacing0",
   paddingRight = "spacing0",
@@ -27,7 +30,7 @@ function Text({
   shuffleInterval = parseInt(transitionTimes.verySlow),
   textAlign = "left",
   textTransform = "none"
-}: TextProps): JSX.Element {
+}: TextProps, ref?: Ref<HTMLDivElement>): JSX.Element {
   const [shuffleText, setShuffleText] = useState<ShuffleState | undefined>();
   const textElementRef = useRef<HTMLDivElement>(null);
 
@@ -50,18 +53,20 @@ function Text({
   return (
     <Text.Container
       color={color}
-      data-testid="Text"
+      data-testid={dataTestId || "Text"}
       ellipsis={ellipsis}
       fontFamily={fontFamily}
       fontSize={fontSize}
       fontWeight={fontWeight}
       lineHeight={lineHeight}
+      maxHeight={maxHeight}
       onMouseOver={handleMouseOver}
+      overflow={overflow}
       paddingBottom={paddingBottom}
       paddingLeft={paddingLeft}
       paddingRight={paddingRight}
       paddingTop={paddingTop}  
-      ref={textElementRef}
+      ref={ref ? ref : textElementRef}
       textAlign={textAlign}
       textTransform={textTransform}
     >
@@ -86,6 +91,8 @@ Text.Container = styled.div<TextProps>`
     fontSize,
     fontWeight,
     lineHeight,
+    maxHeight,
+    overflow,
     paddingBottom,
     paddingLeft,
     paddingRight,
@@ -105,6 +112,8 @@ Text.Container = styled.div<TextProps>`
     font-size: ${fontSize in fontSizes && fontSizes[fontSize]};
     font-weight: ${fontWeight in fontWeights && fontWeights[fontWeight]};
     line-height: ${(lineHeight in spacing && spacing[lineHeight]) || lineHeight};
+    max-height: ${(maxHeight in spacing && spacing[maxHeight]) || maxHeight};
+    overflow: ${overflow};
     padding-bottom: ${paddingBottom in spacing && spacing[paddingBottom]};
     padding-left: ${paddingLeft in spacing && spacing[paddingLeft]};
     padding-right: ${paddingRight in spacing && spacing[paddingRight]};
@@ -120,4 +129,4 @@ Text.Container = styled.div<TextProps>`
   `}
 `;
 
-export default memo(Text);
+export default memo(forwardRef(Text));

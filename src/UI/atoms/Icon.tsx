@@ -9,6 +9,7 @@ import { ReactComponent as BtnSend } from "<assets>/svg/Btn-Send.svg";
 import { ReactComponent as IconApollo } from "<assets>/svg/Icon-Apollo.svg";
 import { ReactComponent as IconCodeSandbox } from "<assets>/svg/Icon-CodeSandbox.svg";
 import { ReactComponent as IconEarth } from "<assets>/svg/Icon-Earth.svg";
+import { ReactComponent as IconFirefox } from "<assets>/svg/Icon-Firefox.svg";
 import { ReactComponent as IconGitHub } from "<assets>/svg/Icon-GitHub.svg";
 import { ReactComponent as IconGraphql } from "<assets>/svg/Icon-Graphql.svg";
 import { ReactComponent as IconJavascript } from "<assets>/svg/Icon-Javascript.svg";
@@ -18,6 +19,11 @@ import { ReactComponent as IconNode } from "<assets>/svg/Icon-Node.svg";
 import { ReactComponent as IconReact } from "<assets>/svg/Icon-React.svg";
 import { ReactComponent as IconTypescript } from "<assets>/svg/Icon-Typescript.svg";
 import { ReactComponent as IconWebpack } from "<assets>/svg/Icon-Webpack.svg";
+import { ReactComponent as IconChrome } from "<assets>/svg/Icon-Chrome.svg";
+import { ReactComponent as IconIE } from "<assets>/svg/Icon-IE.svg";
+import { ReactComponent as IconOpera } from "<assets>/svg/Icon-Opera.svg";
+import { ReactComponent as IconSafari } from "<assets>/svg/Icon-Safari.svg";
+import { ReactComponent as IconUnknown } from "<assets>/svg/Icon-Unknown.svg";
 
 import {
   IconComponents,
@@ -31,7 +37,9 @@ function Icon({
   animationTime = "slow",
   height = "auto",
   iconName,
+  isActive = false,
   isResponsive = false,
+  overflow = "visible",
   shouldDisplayGlowAnimation = false,
   shouldGlowOnHover = false,
   width = "auto"
@@ -42,16 +50,22 @@ function Icon({
     btnDownload: BtnDownload,
     btnExternalLink: BtnExternalLink,
     btnSend: BtnSend,
+    chrome: IconChrome,
     codeSandbox: IconCodeSandbox,
     earth: IconEarth,
+    firefox: IconFirefox,
     gitHub: IconGitHub,
     graphql: IconGraphql,
+    ie: IconIE,
     javascript: IconJavascript,
     linkedIn: IconLinkedIn,
     logo: IconLogo,
     node: IconNode,
+    opera: IconOpera,
     react: IconReact,
+    safari: IconSafari,
     typescript: IconTypescript,
+    unknown: IconUnknown,
     webpack: IconWebpack
   };
 
@@ -63,7 +77,9 @@ function Icon({
       animationDelay={animationDelay}
       animationTime={animationTime}
       height={height}
+      isActive={isActive}
       isResponsive={isResponsive}
+      overflow={overflow}
       shouldDisplayGlowAnimation={shouldDisplayGlowAnimation}
       shouldGlowOnHover={shouldGlowOnHover}
       width={width}
@@ -78,11 +94,13 @@ Icon.Container = styled.div<IconContainerProps>`
     animationDelay,
     animationTime,
     height,
+    isActive,
     isResponsive,
+    overflow,
     shouldDisplayGlowAnimation,
     shouldGlowOnHover,
     theme: {
-      colorPalette,
+      colorPalette: { blue300, white },
       easing,
       keyframes,
       spacing,
@@ -91,12 +109,19 @@ Icon.Container = styled.div<IconContainerProps>`
     width
   }): FlattenSimpleInterpolation => css`
     height: ${(height in spacing && spacing[height]) || height};
+    overflow: ${overflow};
     width: ${(width in spacing && spacing[width]) || width};
 
     ${isResponsive && `
       svg {
         height: 100%;
         width: 100%;
+      }
+    `}
+
+    ${isActive && `
+      svg path {
+        fill: ${blue300};
       }
     `}
 
@@ -113,7 +138,7 @@ Icon.Container = styled.div<IconContainerProps>`
         transition: all ${transitionTimes[animationTime]} ${easing.easeInOut} ${animationDelay};
   
         &:hover {
-          filter: drop-shadow(0px 0px ${spacing.spacing4} ${transparentize(0.5, colorPalette.white)});
+          filter: drop-shadow(0px 0px ${spacing.spacing4} ${transparentize(0.5, white)});
         }
       `}
     }

@@ -165,6 +165,32 @@ describe("atoms / Text", () => {
         expect(TextContainer).toHaveStyleRule("line-height", "2.4rem");
       });
     });
+
+    describe("max-height", () => {        
+      test("should have correct value when passed via maxHeight prop", () => {
+        const { TextContainer } = setup({
+          maxHeight: "spacing24"
+        });
+      
+        expect(TextContainer).toHaveStyleRule("max-height", "2.4rem");
+      });
+    });
+
+    describe("overflow", () => {        
+      test("should have visible by default", () => {
+        const { TextContainer } = setup();
+      
+        expect(TextContainer).toHaveStyleRule("overflow", "visible");
+      });
+
+      test("should have correct value when passed via overflow prop", () => {
+        const { TextContainer } = setup({
+          overflow: "hidden"
+        });
+      
+        expect(TextContainer).toHaveStyleRule("overflow", "hidden");
+      });
+    });
     
     describe("padding-bottom", () => {      
       test("should have 0 by default", () => {
@@ -307,7 +333,7 @@ describe("atoms / Text", () => {
       expect(ShuffleText.prototype.start).toHaveBeenCalled();
     });
 
-    test("should fire shuffleText.start onMouseOver with given delay (shuffleDelay) ", () => {
+    test("should fire shuffleText.start onMouseOver with given delay (shuffleDelay)", () => {
       jest.spyOn(ShuffleText.prototype, "start");
       jest.useFakeTimers();
 

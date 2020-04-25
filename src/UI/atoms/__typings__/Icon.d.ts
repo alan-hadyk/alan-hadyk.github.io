@@ -12,18 +12,26 @@ export interface IconProps {
     "btnDownload" |
     "btnExternalLink" |
     "btnSend" |
+    "chrome" |
     "codeSandbox" |
     "earth" |
+    "firefox" |
     "gitHub" |
     "graphql" |
+    "ie" |
     "javascript" |
     "linkedIn" |
     "logo" |
     "node" |
+    "opera" |
     "react" |
+    "safari" |
     "typescript" |
+    "unknown" |
     "webpack";
+  isActive?: boolean;
   isResponsive?: boolean;
+  overflow?: "hidden" | "visible";
   shouldDisplayGlowAnimation?: boolean;
   shouldGlowOnHover?: boolean;
   width?: string | Spacing;
@@ -35,16 +43,22 @@ export interface IconComponents {
   btnDownload: SVGIcon;
   btnExternalLink: SVGIcon;
   btnSend: SVGIcon;
+  chrome: SVGIcon;
   codeSandbox: SVGIcon;
   earth: SVGIcon;
+  firefox: SVGIcon;
   gitHub: SVGIcon;
   graphql: SVGIcon;
+  ie: SVGIcon;
   javascript: SVGIcon;
   linkedIn: SVGIcon;
   logo: SVGIcon;
   node: SVGIcon;
+  opera: SVGIcon;
   react: SVGIcon;
+  safari: SVGIcon;
   typescript: SVGIcon;
+  unknown: SVGIcon;
   webpack: SVGIcon;
 }
 
