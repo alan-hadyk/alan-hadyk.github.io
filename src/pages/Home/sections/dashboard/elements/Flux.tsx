@@ -7,9 +7,9 @@ const Flux = (): JSX.Element => (
   <DashboardElement
     dataTestId="Flux"
     flex="0 1 30%"
-    title="Flux" 
     shouldDisplayCorners
     shuffleDelay={1200}
+    title="Flux" 
   >
     <FlowChart />
   </DashboardElement>

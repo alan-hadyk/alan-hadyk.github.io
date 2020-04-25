@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useRef, useLayoutEffect, useState } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import Text from "<atoms>/Text";
@@ -17,6 +17,7 @@ import { DashboardElementProps } from "<molecules>/__typings__/DashboardElement.
 function DashboardElement({
   alignSelf = "auto",
   children,
+  description,
   dataTestId,
   flex,
   overflow = "hidden",
@@ -25,6 +26,24 @@ function DashboardElement({
   order = 0,
   title
 }: DashboardElementProps): JSX.Element {
+  const descriptionRef = useRef<HTMLDivElement>(null);
+  const [childrenHeight, setChildrenHeight] = useState<string>(null);
+
+  const calcChildrenHeight = useCallback((): string => {
+    if (descriptionRef.current) {
+      const { height }: DOMRect = descriptionRef.current.getBoundingClientRect();
+      return `calc(100% - ${spacing.spacing36} - ${spacing.spacing28} - ${height}px)`;
+    } else {
+      return `calc(100% - ${spacing.spacing36})`;
+    }
+  }, []);
+
+  useLayoutEffect(() => {
+    const height: string = calcChildrenHeight();
+    
+    setChildrenHeight(height);
+  }, [calcChildrenHeight]);
+
   return (
     <FlexItem
       alignSelf={alignSelf}
@@ -46,8 +65,27 @@ function DashboardElement({
       >
         {title}
       </Text>
+      {description && (
+        <SpacingContainer
+          dataTestId="DashboardElementDescription"
+          marginBottom="spacing28"
+        >
+          <Text
+            color="blue300"
+            dataTestId="DashboardElementDescriptionText"
+            fontSize="font8"
+            lineHeight="spacing12"
+            maxHeight="spacing36"
+            overflow="hidden"
+            textTransform="uppercase"
+            ref={descriptionRef}
+          >
+            {description}
+          </Text>
+        </SpacingContainer>
+      )}
       <PositionContainer
-        height={`calc(100% - ${spacing.spacing36})`}
+        height={childrenHeight}
         position="relative"
       >
         {shouldDisplayCorners && <Corners />}

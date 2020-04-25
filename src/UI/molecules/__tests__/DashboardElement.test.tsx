@@ -8,7 +8,7 @@ import { DashboardElementProps } from "<molecules>/__typings__/DashboardElement.
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 describe("molecules / DashboardElement", () => {
-  test("should have correct structure", () => {
+  test("should have correct structure if there's no description", () => {
     const { 
       Corners,
       DashboardElementInnerContainer,
@@ -26,6 +26,33 @@ describe("molecules / DashboardElement", () => {
     expect(PositionContainer.children[1]).toEqual(Corners[1]);
     expect(PositionContainer.children[2]).toEqual(Corners[2]);
     expect(PositionContainer.children[3]).toEqual(Corners[3]);
+    expect(PositionContainer.children[4]).toEqual(DashboardElementInnerContainer);
+    expect(DashboardElementInnerContainer.children[0]).toEqual(SpacingContainer);
+  });
+
+  test("should have correct structure if there's description", () => {
+    const { 
+      Corners,
+      DashboardElementDescription,
+      DashboardElementDescriptionText,
+      DashboardElementInnerContainer,
+      FlexItem,
+      PositionContainer,
+      SpacingContainer,
+      Text
+    } = setup({
+      description: "Lorem ipsum dolor sit amet",
+      shouldDisplayCorners: true
+    });
+
+    expect(FlexItem.children[0]).toEqual(Text);
+    expect(FlexItem.children[1]).toEqual(DashboardElementDescription);
+    expect(FlexItem.children[2]).toEqual(PositionContainer);
+    expect(DashboardElementDescription.children[0]).toEqual(DashboardElementDescriptionText);
+    expect(PositionContainer.children[0]).toEqual(Corners[0]);
+    expect(PositionContainer.children[1]).toEqual(Corners[1]);
+    expect(PositionContainer.children[2]).toEqual(Corners[2]);
+    expect(PositionContainer.children[3]).toEqual(Corners[3]); 
     expect(PositionContainer.children[4]).toEqual(DashboardElementInnerContainer);
     expect(DashboardElementInnerContainer.children[0]).toEqual(SpacingContainer);
   });
@@ -301,10 +328,32 @@ describe("molecules / DashboardElement", () => {
 
     describe("Props", () => {
       describe("height", () => {
-        test("should have calc(100% - 3.6rem)", () => {
+        test("should have calc(100% - 3.6rem) if there is no description", () => {
           const { PositionContainer } = setup();
   
           expect(PositionContainer).toHaveStyleRule("height", "calc(100% - 3.6rem)");
+        });
+
+        test("should have calc(100% - 3.6rem - 2.8rem -  ${height}px) if there is description", () => {
+          Element.prototype.getBoundingClientRect = jest.fn(() => {
+            return {
+              bottom: 0,
+              height: 120,
+              left: 0,
+              right: 0,
+              toJSON: jest.fn(),
+              top: 0,
+              width: 120,
+              x: 0,
+              y: 0
+            };
+          });
+
+          const { PositionContainer } = setup({
+            description: "Lorem ipsum dolor sit amet"
+          });
+  
+          expect(PositionContainer).toHaveStyleRule("height", "calc(100% - 3.6rem - 2.8rem - 120px)");
         });
       });
 
@@ -484,27 +533,109 @@ describe("molecules / DashboardElement", () => {
         });
       });
 
-      describe("padding-right", () => {
+      describe("paddingRight", () => {
         test("should have .8rem", () => {
           expect(SpacingContainer).toHaveStyleRule("padding-right", ".8rem");
         });
       });
 
-      describe("padding-left", () => {
+      describe("paddingLeft", () => {
         test("should have .8rem", () => {
           expect(SpacingContainer).toHaveStyleRule("padding-left", ".8rem");
         });
       });
 
-      describe("padding-top", () => {
+      describe("paddingTop", () => {
         test("should have .8rem", () => {
           expect(SpacingContainer).toHaveStyleRule("padding-top", ".8rem");
         });
       });
 
-      describe("padding-bottom", () => {
+      describe("paddingBottom", () => {
         test("should have .8rem", () => {
           expect(SpacingContainer).toHaveStyleRule("padding-bottom", ".8rem");
+        });
+      });
+    });
+  });
+  
+  describe("DashboardElementDescription", () => {
+    describe("Props", () => {
+      describe("height", () => {
+        test("should have auto", () => {
+          const { DashboardElementDescription } = setup({
+            description: "Lorem ipsum dolor sit amet"
+          });
+  
+          expect(DashboardElementDescription).toHaveStyleRule("height", "auto");
+        });
+      });
+
+      describe("marginBottom", () => {
+        test("should have 2.8rem", () => {
+          const { DashboardElementDescription } = setup({
+            description: "Lorem ipsum dolor sit amet"
+          });
+
+          expect(DashboardElementDescription).toHaveStyleRule("margin-bottom", "2.8rem");
+        });
+      });
+
+      describe("width", () => {
+        test("should have auto", () => {
+          const { DashboardElementDescription } = setup({
+            description: "Lorem ipsum dolor sit amet"
+          });
+
+          expect(DashboardElementDescription).toHaveStyleRule("width", "auto");
+        });
+      });
+    });
+  });
+
+  describe("DashboardElementDescriptionText", () => {
+    describe("Props", () => {
+      let DashboardElementDescriptionText: Element;
+
+      beforeEach(() => {
+        DashboardElementDescriptionText = setup({
+          description: "Lorem ipsum dolor sit amet"
+        }).DashboardElementDescriptionText;
+      });
+
+      describe("color", () => {
+        test("should have color #78b0b5", () => {  
+          expect(DashboardElementDescriptionText).toHaveStyleRule("color", "#78b0b5");
+        });
+      });
+
+      describe("fontSize", () => {
+        test("should have 8px", () => {
+          expect(DashboardElementDescriptionText).toHaveStyleRule("font-size", "8px");
+        });
+      });
+
+      describe("lineHeight", () => {
+        test("should have 1.2rem", () => {
+          expect(DashboardElementDescriptionText).toHaveStyleRule("line-height", "1.2rem");
+        });
+      });
+
+      describe("maxHeight", () => {
+        test("should have 3.6rem", () => {
+          expect(DashboardElementDescriptionText).toHaveStyleRule("max-height", "3.6rem");
+        });
+      });
+
+      describe("overflow", () => {
+        test("should have hidden", () => {
+          expect(DashboardElementDescriptionText).toHaveStyleRule("overflow", "hidden");
+        });
+      });
+
+      describe("textTransform", () => {
+        test("should have uppercase", () => {
+          expect(DashboardElementDescriptionText).toHaveStyleRule("text-transform", "uppercase");
         });
       });
     });
@@ -513,6 +644,8 @@ describe("molecules / DashboardElement", () => {
 
 interface Setup extends RenderResult {
   Corners: HTMLElement[];
+  DashboardElementDescription: Element;
+  DashboardElementDescriptionText: Element;
   DashboardElementInnerContainer: Element;
   FlexItem: Element;
   PositionContainer: Element;
@@ -534,17 +667,21 @@ function setup(addedProps?: DashboardElementTestProps): Setup {
     <DashboardElement {...props} />
   );
 
-  const { container, queryByTestId, queryAllByTestId }: RenderResult = utils;
-  const FlexItem: Element = container.children[0];
-  const Text: Element = queryByTestId("Text");
-  const PositionContainer: Element = queryByTestId("PositionContainer");
+  const { container, queryAllByTestId }: RenderResult = utils;
   const Corners: HTMLElement[] = queryAllByTestId("Corner");
-  const DashboardElementInnerContainer: Element = queryByTestId("DashboardElementInnerContainer");
+  const DashboardElementDescription = queryAllByTestId("DashboardElementDescription")[0];
+  const DashboardElementDescriptionText = queryAllByTestId("DashboardElementDescriptionText")[0];
+  const DashboardElementInnerContainer: Element = queryAllByTestId("DashboardElementInnerContainer")[0];
+  const FlexItem: Element = container.children[0];
+  const PositionContainer: Element = queryAllByTestId("PositionContainer")[0];
   const SpacingContainer: Element = DashboardElementInnerContainer.querySelector("[data-testid=SpacingContainer]");
+  const Text: Element = queryAllByTestId("Text")[0];
  
   return {
     ...utils,
     Corners,
+    DashboardElementDescription,
+    DashboardElementDescriptionText,
     DashboardElementInnerContainer,
     FlexItem,
     PositionContainer,

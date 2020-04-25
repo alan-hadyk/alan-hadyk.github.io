@@ -12,18 +12,26 @@ export interface IconProps {
     "btnDownload" |
     "btnExternalLink" |
     "btnSend" |
+    "chrome" |
     "codeSandbox" |
+    "firefox" |
     "gitHub" |
     "graphql" |
+    "ie" |
     "javascript" |
-    "linkedIn" |
     "logo" |
+    "linkedIn" |
     "node" |
+    "opera" |
     "react" |
     "reactLogo" |
+    "safari" |
     "typescript" |
+    "unknown" |
     "webpack";
+  isActive?: boolean;
   isResponsive?: boolean;
+  overflow?: "hidden" | "visible";
   shouldDisplayGlowAnimation?: boolean;
   shouldGlowOnHover?: boolean;
   shouldRotate?: boolean;

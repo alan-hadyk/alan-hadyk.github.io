@@ -9,11 +9,14 @@ import {
 export interface TextProps {
   children: string | number;
   color?: ColorPalette;
+  dataTestId?: string;
   ellipsis?: boolean;
   fontFamily?: FontFamilies;
   fontSize?: FontSizes;
   fontWeight?: FontWeights;
   lineHeight?: Spacing | "1";
+  maxHeight?: Spacing;
+  overflow?: "visible" | "hidden";
   paddingBottom?: Spacing;
   paddingLeft?: Spacing;
   paddingRight?: Spacing;
