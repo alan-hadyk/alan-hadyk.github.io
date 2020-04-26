@@ -7,19 +7,20 @@ import { ReactComponent as BtnDownload } from "<assets>/svg/Btn-Download.svg";
 import { ReactComponent as BtnExternalLink } from "<assets>/svg/Btn-ExternalLink.svg";
 import { ReactComponent as BtnSend } from "<assets>/svg/Btn-Send.svg";
 import { ReactComponent as IconApollo } from "<assets>/svg/Icon-Apollo.svg";
+import { ReactComponent as IconChrome } from "<assets>/svg/Icon-Chrome.svg";
+import { ReactComponent as IconCodeSandbox } from "<assets>/svg/Icon-CodeSandbox.svg";
+import { ReactComponent as IconFirefox } from "<assets>/svg/Icon-Firefox.svg";
+import { ReactComponent as IconGitHub } from "<assets>/svg/Icon-GitHub.svg";
 import { ReactComponent as IconGraphql } from "<assets>/svg/Icon-Graphql.svg";
+import { ReactComponent as IconIE } from "<assets>/svg/Icon-IE.svg";
 import { ReactComponent as IconJavascript } from "<assets>/svg/Icon-Javascript.svg";
+import { ReactComponent as IconLinkedIn } from "<assets>/svg/Icon-LinkedIn.svg";
+import { ReactComponent as IconLogo } from "<assets>/svg/Icon-Logo.svg";
 import { ReactComponent as IconNode } from "<assets>/svg/Icon-Node.svg";
 import { ReactComponent as IconReact } from "<assets>/svg/Icon-React.svg";
+import { ReactComponent as IconReactLogo } from "<assets>/svg/Icon-ReactLogo.svg";
 import { ReactComponent as IconTypescript } from "<assets>/svg/Icon-Typescript.svg";
 import { ReactComponent as IconWebpack } from "<assets>/svg/Icon-Webpack.svg";
-import { ReactComponent as IconLogo } from "<assets>/svg/Icon-Logo.svg";
-import { ReactComponent as IconCodeSandbox } from "<assets>/svg/Icon-CodeSandbox.svg";
-import { ReactComponent as IconGitHub } from "<assets>/svg/Icon-GitHub.svg";
-import { ReactComponent as IconLinkedIn } from "<assets>/svg/Icon-LinkedIn.svg";
-import { ReactComponent as IconChrome } from "<assets>/svg/Icon-Chrome.svg";
-import { ReactComponent as IconFirefox } from "<assets>/svg/Icon-Firefox.svg";
-import { ReactComponent as IconIE } from "<assets>/svg/Icon-IE.svg";
 import { ReactComponent as IconOpera } from "<assets>/svg/Icon-Opera.svg";
 import { ReactComponent as IconSafari } from "<assets>/svg/Icon-Safari.svg";
 import { ReactComponent as IconUnknown } from "<assets>/svg/Icon-Unknown.svg";
@@ -40,6 +41,7 @@ function Icon({
   overflow = "visible",
   shouldDisplayGlowAnimation = false,
   shouldGlowOnHover = false,
+  shouldRotate = false,
   width = "auto"
 }: IconProps): JSX.Element {
   const iconComponents = {
@@ -60,6 +62,7 @@ function Icon({
     node: IconNode,
     opera: IconOpera,
     react: IconReact,
+    reactLogo: IconReactLogo,
     safari: IconSafari,
     typescript: IconTypescript,
     unknown: IconUnknown,
@@ -79,6 +82,7 @@ function Icon({
       overflow={overflow}
       shouldDisplayGlowAnimation={shouldDisplayGlowAnimation}
       shouldGlowOnHover={shouldGlowOnHover}
+      shouldRotate={shouldRotate}
       width={width}
     >
       <IconComponent />
@@ -96,10 +100,11 @@ Icon.Container = styled.div<IconContainerProps>`
     overflow,
     shouldDisplayGlowAnimation,
     shouldGlowOnHover,
+    shouldRotate,
     theme: {
       colorPalette: { blue300, white },
-      easing,
-      keyframes,
+      easing: { easeInOut, linear },
+      keyframes: { glow, rotate },
       spacing,
       transitionTimes
     },
@@ -116,7 +121,14 @@ Icon.Container = styled.div<IconContainerProps>`
       }
     `}
 
-    ${isActive && `
+    ${shouldRotate && css`
+      animation-duration: ${transitionTimes.verySlow};
+      animation-iteration-count: infinite;
+      animation-name: ${rotate};
+      animation-timing-function: ${linear};
+    `}
+
+    ${isActive && css`
       svg path {
         fill: ${blue300};
       }
@@ -127,12 +139,12 @@ Icon.Container = styled.div<IconContainerProps>`
         animation-delay: ${animationDelay};
         animation-duration: ${transitionTimes[animationTime]};
         animation-iteration-count: infinite;
-        animation-name: ${keyframes.glow};
-        animation-timing-function: ${easing.easeInOut};
+        animation-name: ${glow};
+        animation-timing-function: ${easeInOut};
       `}
   
       ${shouldGlowOnHover && `
-        transition: all ${transitionTimes[animationTime]} ${easing.easeInOut} ${animationDelay};
+        transition: all ${transitionTimes[animationTime]} ${easeInOut} ${animationDelay};
   
         &:hover {
           filter: drop-shadow(0px 0px ${spacing.spacing4} ${transparentize(0.5, white)});

@@ -6,7 +6,7 @@ import Performance from "<src>/UI/molecules/Performance";
 const Navigator = (): JSX.Element => (
   <DashboardElement
     dataTestId="Navigator"
-    flex="1 1 12%"
+    flex="0 1 13.6%"
     shuffleDelay={4800}
     title="Navigator"
   >

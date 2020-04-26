@@ -24,6 +24,7 @@ export interface IconProps {
     "node" |
     "opera" |
     "react" |
+    "reactLogo" |
     "safari" |
     "typescript" |
     "unknown" |
@@ -33,6 +34,7 @@ export interface IconProps {
   overflow?: "hidden" | "visible";
   shouldDisplayGlowAnimation?: boolean;
   shouldGlowOnHover?: boolean;
+  shouldRotate?: boolean;
   width?: string | Spacing;
 }
 

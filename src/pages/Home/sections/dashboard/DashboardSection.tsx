@@ -8,6 +8,7 @@ import Fps from "<pages>/Home/sections/dashboard/elements/Fps";
 import Commits from "<pages>/Home/sections/dashboard/elements/Commits";
 import Navigator from "<pages>/Home/sections/dashboard/elements/Navigator";
 import UserAgent from "<pages>/Home/sections/dashboard/elements/UserAgent";
+import PoweredBy from "<pages>/Home/sections/dashboard/elements/PoweredBy";
 
 import Console from "<molecules>/Console";
 import Section from "<molecules>/Section";
@@ -95,6 +96,7 @@ function DashboardSection(): JSX.Element {
         >
           <Fps />
           <Commits />
+          <PoweredBy />
           <Navigator />
           <UserAgent />
         </FlexContainer>
