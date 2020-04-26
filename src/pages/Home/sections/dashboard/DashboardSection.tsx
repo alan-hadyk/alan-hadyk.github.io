@@ -44,7 +44,7 @@ function DashboardSection(): JSX.Element {
             justifyContent="space-between"
           >
             {renderTopRow()}
-            
+
             <Console />
 
             {renderBottomRow()}
@@ -99,12 +99,12 @@ function DashboardSection(): JSX.Element {
           <Commits />
           <PoweredBy />
           <Navigator />
-          <Ip />
           <UserAgent />
+          <Ip />
         </FlexContainer>
       </SpacingContainer>
     );
   }
 }
-  
+
 export default memo(DashboardSection);

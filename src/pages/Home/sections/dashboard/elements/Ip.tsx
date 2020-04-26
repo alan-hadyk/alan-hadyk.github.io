@@ -2,7 +2,7 @@ import React from "react";
 import ip from "ip";
 
 import DashboardElement from "<molecules>/DashboardElement";
-import Icon from "<atoms>/Icon";
+import Earth from "<molecules>/Earth";
 
 const Ip = (): JSX.Element => (
   <DashboardElement
@@ -12,13 +12,7 @@ const Ip = (): JSX.Element => (
     shouldDisplayCorners
     title={`IP: ${ip.address()}`}
   >
-    <Icon
-      animationTime="verySlow"
-      height="100%"
-      iconName="earth"
-      isResponsive
-      width="100%"
-    />
+    <Earth />
   </DashboardElement>
 );
 
