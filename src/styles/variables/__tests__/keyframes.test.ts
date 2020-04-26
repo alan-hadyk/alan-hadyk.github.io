@@ -125,10 +125,10 @@ describe("styles / variables / keyframes", () => {
   test("should have correct keyframe - rotate", () => {
     expect(rotate.stringifyArgs[0]).toEqual(`
     from {
-      transform: rotate(0deg);
+      transform: rotateY(0deg);
     }
     to {
-      transform: rotate(360deg);
+      transform: rotateY(360deg);
     }
   `);
   });

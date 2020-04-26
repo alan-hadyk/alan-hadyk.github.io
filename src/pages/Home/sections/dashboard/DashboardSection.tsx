@@ -9,6 +9,7 @@ import Commits from "<pages>/Home/sections/dashboard/elements/Commits";
 import Navigator from "<pages>/Home/sections/dashboard/elements/Navigator";
 import Ip from "<pages>/Home/sections/dashboard/elements/Ip";
 import UserAgent from "<pages>/Home/sections/dashboard/elements/UserAgent";
+import PoweredBy from "<pages>/Home/sections/dashboard/elements/PoweredBy";
 
 import Console from "<molecules>/Console";
 import Section from "<molecules>/Section";
@@ -96,6 +97,7 @@ function DashboardSection(): JSX.Element {
         >
           <Fps />
           <Commits />
+          <PoweredBy />
           <Navigator />
           <Ip />
           <UserAgent />
