@@ -7,8 +7,8 @@ import Earth from "<molecules>/Earth";
 const Ip = (): JSX.Element => (
   <DashboardElement
     dataTestId="IP"
-    flex="1 1 12%"
-    shuffleDelay={5400}
+    flex="0 1 20%"
+    shuffleDelay={6000}
     shouldDisplayCorners
     title={`IP: ${ip.address()}`}
   >

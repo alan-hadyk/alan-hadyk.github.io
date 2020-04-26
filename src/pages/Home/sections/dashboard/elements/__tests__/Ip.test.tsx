@@ -2,18 +2,22 @@ import React from "react";
 import { RenderResult } from "@testing-library/react";
 import ShuffleText from "shuffle-text";
 
-import PoweredBy from "<pages>/Home/sections/dashboard/elements/PoweredBy";
+import Ip from "<pages>/Home/sections/dashboard/elements/Ip";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-describe("pages / Home / sections / dashboard / elements / PoweredBy", () => {
+jest.mock("ip", () => ({
+  address: (): string => "127.0.0.1"
+}));
+
+describe("pages / Home / sections / dashboard / elements / Ip", () => {
   test("should have correct structure", () => {
     const {
       DashboardElement,
-      ReactLogo
+      Earth
     } = setup();
 
-    expect(DashboardElement.children[1].children[4].children[0].children[0]).toEqual(ReactLogo);
+    expect(DashboardElement.children[1].children[4].children[0].children[0]).toEqual(Earth);
   });
 
   describe("DashboardElement", () => {
@@ -27,7 +31,7 @@ describe("pages / Home / sections / dashboard / elements / PoweredBy", () => {
       });
 
       describe("shuffleDelay", () => {
-        test("should trigger shuffleText.start in intervals with 4200ms delay", () => {
+        test("should trigger shuffleText.start in intervals with 6000ms delay", () => {
           jest.spyOn(ShuffleText.prototype, "start");
           jest.useFakeTimers();
 
@@ -35,7 +39,7 @@ describe("pages / Home / sections / dashboard / elements / PoweredBy", () => {
 
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
 
-          jest.advanceTimersByTime(4200);
+          jest.advanceTimersByTime(6000);
 
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
 
@@ -43,7 +47,7 @@ describe("pages / Home / sections / dashboard / elements / PoweredBy", () => {
 
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
 
-          jest.advanceTimersByTime(4200);
+          jest.advanceTimersByTime(6000);
 
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
 
@@ -51,7 +55,7 @@ describe("pages / Home / sections / dashboard / elements / PoweredBy", () => {
 
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
 
-          jest.advanceTimersByTime(4200);
+          jest.advanceTimersByTime(6000);
 
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
 
@@ -59,9 +63,9 @@ describe("pages / Home / sections / dashboard / elements / PoweredBy", () => {
 
           expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(4);
 
-          jest.advanceTimersByTime(4200);
+          jest.advanceTimersByTime(6000);
 
-          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(4);
+          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(5);
 
           jest.clearAllTimers();
         });
@@ -76,10 +80,10 @@ describe("pages / Home / sections / dashboard / elements / PoweredBy", () => {
       });
 
       describe("title", () => {
-        test("should render Powered by react", () => {
+        test("should render IP: ${ip.address} ", () => {
           const { DashboardElement } = setup();
 
-          expect(DashboardElement.children[0].textContent).toEqual("Powered by react");
+          expect(DashboardElement.children[0].textContent).toEqual("IP: 127.0.0.1");
         });
       });
 
@@ -96,11 +100,11 @@ describe("pages / Home / sections / dashboard / elements / PoweredBy", () => {
     });
   });
 
-  describe("ReactLogo", () => {
+  describe("Earth", () => {
     test("should render", () => {
-      const { ReactLogo } = setup();
+      const { Earth } = setup();
 
-      expect(ReactLogo.textContent).toEqual("Icon-ReactLogo.svg");
+      expect(Earth.textContent).toEqual("Icon-Earth.svg");
     });
   });
 });
@@ -108,23 +112,23 @@ describe("pages / Home / sections / dashboard / elements / PoweredBy", () => {
 interface Setup extends RenderResult {
   Corners: Element[];
   DashboardElement: Element;
-  ReactLogo: Element;
+  Earth: Element;
 }
 
 function setup(): Setup {
   const utils: RenderResult = renderWithTheme(
-    <PoweredBy />
+    <Ip />
   );
 
   const { queryByTestId, queryAllByTestId } = utils || {};
-  const DashboardElement: Element = queryByTestId("PoweredBy");
-  const ReactLogo: Element = queryByTestId("ReactLogo");
+  const DashboardElement: Element = queryByTestId("IP");
+  const Earth: Element = queryByTestId("Earth");
   const Corners: Element[] = queryAllByTestId("Corner");
 
   return {
     ...utils,
     Corners,
     DashboardElement,
-    ReactLogo
+    Earth
   };
 }

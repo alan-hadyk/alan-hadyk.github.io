@@ -22,11 +22,9 @@ const Earth = (): JSX.Element => (
       justifyContent="center"
     >
       <Icon
-        animationTime="verySlow"
         height="100%"
         iconName="earth"
         isResponsive
-        // shouldDisplayGlowAnimation
         width="100%"
       />
     </FlexContainer>

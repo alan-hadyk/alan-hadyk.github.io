@@ -5,6 +5,10 @@ import DashboardSection from "<pages>/Home/sections/dashboard/DashboardSection";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
+jest.mock("ip", () => ({
+  address: (): string => "127.0.0.1"
+}));
+
 jest.mock("vivus");
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 jest.mock("<state>/withCommitsState", () => (WrappedComponent: React.FunctionComponent<any>) => (props: unknown): JSX.Element => {
@@ -37,7 +41,7 @@ jest.mock("<state>/withCommitsState", () => (WrappedComponent: React.FunctionCom
 });
 
 jest.mock("detect-browser", () => ({
-  detect: () => ({name: "chrome"})
+  detect: () => ({ name: "chrome" })
 }));
 
 
@@ -51,6 +55,7 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
       FlexContainers,
       Flux,
       Fps,
+      Ip,
       Navigator,
       PositionContainers,
       PoweredBy,
@@ -83,6 +88,7 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
     expect(FlexContainers[2].children[2]).toEqual(PoweredBy);
     expect(FlexContainers[2].children[3]).toEqual(Navigator);
     expect(FlexContainers[2].children[4]).toEqual(UserAgent);
+    expect(FlexContainers[2].children[5]).toEqual(Ip);
   });
 
   describe("Section", () => {
@@ -264,80 +270,80 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
         describe("flex", () => {
           test("should have 0 1 30%", () => {
             const { TechStack } = setup();
-  
+
             expect(TechStack).toHaveStyleRule("flex", "0 1 30%");
           });
         });
-  
+
         describe("title", () => {
           test("should render TechStack", () => {
             const { TechStack } = setup();
-  
+
             expect(TechStack.children[0].textContent).toEqual("Tech Stack");
           });
         });
       });
-    });  
+    });
 
     describe("Coords", () => {
       describe("Props", () => {
         describe("flex", () => {
           test("should have 0 1 15%", () => {
             const { Coords } = setup();
-  
+
             expect(Coords).toHaveStyleRule("flex", "0 1 15%");
           });
         });
-  
+
         describe("title", () => {
           test("should render Coords", () => {
             const { Coords } = setup();
-  
+
             expect(Coords.children[0].textContent).toEqual("Coords");
           });
         });
       });
-    });  
+    });
 
     describe("Flux", () => {
       describe("Props", () => {
         describe("flex", () => {
           test("should have 0 1 30%", () => {
             const { Flux } = setup();
-  
+
             expect(Flux).toHaveStyleRule("flex", "0 1 30%");
           });
         });
-  
+
         describe("title", () => {
           test("should render Flux", () => {
             const { Flux } = setup();
-  
+
             expect(Flux.children[0].textContent).toEqual("Flux");
           });
         });
       });
-    });  
+    });
 
     describe("Code", () => {
       describe("Props", () => {
         describe("flex", () => {
           test("should have 0 1 25%", () => {
             const { Code } = setup();
-  
+
             expect(Code).toHaveStyleRule("flex", "0 1 25%");
           });
         });
-  
+
         describe("title", () => {
           test("should render Code", () => {
             const { Code } = setup();
-  
+
             expect(Code.children[0].textContent).toEqual("Code");
           });
         });
       });
-    });  
+    });
 
   });
 
@@ -466,102 +472,122 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
     describe("Fps", () => {
       describe("Props", () => {
         describe("flex", () => {
-          test("should have 0 1 16.33%", () => {
+          test("should have 0 1 20%", () => {
             const { Fps } = setup();
-  
-            expect(Fps).toHaveStyleRule("flex", "0 1 16.33%");
+
+            expect(Fps).toHaveStyleRule("flex", "0 1 20%");
           });
         });
-  
+
         describe("title", () => {
           test("should render Fps", () => {
             const { Fps } = setup();
-  
+
             expect(Fps.children[0].textContent).toEqual("Fps");
           });
         });
       });
-    });  
+    });
 
     describe("Commits", () => {
       describe("Props", () => {
         describe("flex", () => {
           test("should have 0 1 15.73%", () => {
             const { Commits } = setup();
-  
+
             expect(Commits).toHaveStyleRule("flex", "0 1 15.73%");
           });
         });
-  
+
         describe("title", () => {
           test("should render Commits", () => {
             const { Commits } = setup();
-  
+
             expect(Commits.children[0].textContent).toEqual("Commits");
           });
         });
       });
-    }); 
-    
+    });
+
     describe("UserAgent", () => {
       describe("Props", () => {
         describe("flex", () => {
           test("should have 0 1 13.6%", () => {
             const { UserAgent } = setup();
-  
+
             expect(UserAgent).toHaveStyleRule("flex", "0 1 13.6%");
           });
         });
-  
+
         describe("title", () => {
           test("should render User Agent", () => {
             const { UserAgent } = setup();
-  
+
             expect(UserAgent.children[0].textContent).toEqual("User Agent");
           });
         });
       });
-    });  
+    });
 
     describe("PoweredBy", () => {
       describe("Props", () => {
         describe("flex", () => {
-          test("should have 0 1 13.6%", () => {
+          test("should have 0 1 20%", () => {
             const { PoweredBy } = setup();
-  
-            expect(PoweredBy).toHaveStyleRule("flex", "0 1 13.6%");
+
+            expect(PoweredBy).toHaveStyleRule("flex", "0 1 20%");
           });
         });
-  
+
         describe("title", () => {
           test("should render Powered by react", () => {
             const { PoweredBy } = setup();
-  
+
             expect(PoweredBy.children[0].textContent).toEqual("Powered by react");
           });
         });
       });
-    });  
+    });
 
     describe("Navigator", () => {
       describe("Props", () => {
         describe("flex", () => {
           test("should have 0 1 13.6%", () => {
             const { Navigator } = setup();
-  
+
             expect(Navigator).toHaveStyleRule("flex", "0 1 13.6%");
           });
         });
-  
+
         describe("title", () => {
           test("should render Navigator", () => {
             const { Navigator } = setup();
-  
+
             expect(Navigator.children[0].textContent).toEqual("Navigator");
           });
         });
       });
-    });  
+    });
+
+    describe("Ip", () => {
+      describe("Props", () => {
+        describe("flex", () => {
+          test("should have 0 1 20%", () => {
+            const { Ip } = setup();
+
+            expect(Ip).toHaveStyleRule("flex", "0 1 20%");
+          });
+        });
+
+        describe("title", () => {
+          test("should render IP: ${ip.address}", () => {
+            const { Ip } = setup();
+
+            expect(Ip.children[0].textContent).toEqual("IP: 127.0.0.1");
+          });
+        });
+      });
+    });
   });
 });
 
@@ -573,6 +599,7 @@ interface Setup extends RenderResult {
   FlexContainers: Element[];
   Flux: Element;
   Fps: Element;
+  Ip: Element;
   Navigator: Element;
   PositionContainers: Element[];
   PoweredBy: Element;
@@ -588,7 +615,7 @@ function setup(): Setup {
   );
 
   const { queryByTestId, queryAllByTestId }: RenderResult = utils;
-  
+
   const Code: Element = queryByTestId("Code");
   const Commits: Element = queryAllByTestId("Commits")[0];
   const Console: Element = queryByTestId("Console");
@@ -596,6 +623,7 @@ function setup(): Setup {
   const Flux: Element = queryByTestId("Flux");
   const FlexContainers: Element[] = queryAllByTestId("DashboardSectionFlexContainer");
   const Fps: Element = queryByTestId("Fps");
+  const Ip: Element = queryByTestId("IP");
   const Navigator: Element = queryByTestId("Navigator");
   const Section: Element = queryByTestId("Section");
   const PositionContainers: Element[] = queryAllByTestId("DashboardSectionPositionContainer");
@@ -613,6 +641,7 @@ function setup(): Setup {
     FlexContainers,
     Flux,
     Fps,
+    Ip,
     Navigator,
     PositionContainers,
     PoweredBy,
