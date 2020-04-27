@@ -158,10 +158,12 @@ describe("molecules / IconWithLabel", () => {
 
     describe("Props", () => {      
       describe("color", () => {
-        test("should have value passed via props", () => {
-          const { Text } = setup();
+        test("should have correct value passed via color props", () => {
+          const { Text } = setup({
+            color: "blue500"
+          });
 
-          expect(Text).toHaveStyleRule("color", "#78b0b5");
+          expect(Text).toHaveStyleRule("color", "#2b595e");
         });
       });
 

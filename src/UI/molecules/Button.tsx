@@ -186,11 +186,16 @@ Button.Container = styled.button<ButtonContainerProps>`
       animation-duration: ${slow};
       animation-name: ${ripple};
       ${radialGradient({
-    colorStops: [`${transparentize(0.5, blue300)} 0%`, `${transparentize(1, blue200)} 50%`],
-    extent: `farthest-corner at ${spacing.spacing12} ${spacing.spacing12}`,
-    position: "center",
-    shape: "ellipse"
-  })}
+    // eslint-disable-next-line indent
+        colorStops: [`${transparentize(0.5, blue300)} 0%`, `${transparentize(1, blue200)} 50%`],
+    // eslint-disable-next-line indent
+        extent: `farthest-corner at ${spacing.spacing12} ${spacing.spacing12}`,
+    // eslint-disable-next-line indent
+        position: "center",
+    // eslint-disable-next-line indent
+        shape: "ellipse"
+    // eslint-disable-next-line indent
+      })}
       border-radius: 50%;
       height: ${spacing.spacing24};
       margin-left: -${spacing.spacing12};

@@ -77,7 +77,7 @@ describe("molecules / IconsWithLabels", () => {
             });
           });
 
-          test("should have 1.2rem to all children except the first one when when size is medium and position is horizontal", () => {
+          test("should have 1.2rem to all children except the first one when size is medium and position is horizontal", () => {
             const { FlexContainer } = setup({
               position: "horizontal",
               size: "medium"
@@ -91,7 +91,7 @@ describe("molecules / IconsWithLabels", () => {
             });
           });
     
-          test("should have 2.8rem to all children except the first one when when size is large and position is horizontal", () => {
+          test("should have 2.8rem to all children except the first one when size is large and position is horizontal", () => {
             const { FlexContainer } = setup({
               position: "horizontal",
               size: "large"
@@ -121,7 +121,7 @@ describe("molecules / IconsWithLabels", () => {
             });
           });
 
-          test("should have 1.2rem to all children except the first one when when size is medium and position is vertical", () => {
+          test("should have 1.2rem to all children except the first one when size is medium and position is vertical", () => {
             const { FlexContainer } = setup({
               position: "vertical",
               size: "medium"
@@ -135,7 +135,7 @@ describe("molecules / IconsWithLabels", () => {
             });
           });
     
-          test("should have 2.8rem to all children except the first one when when size is large and position is vertical", () => {
+          test("should have 2.8rem to all children except the first one when size is large and position is vertical", () => {
             const { FlexContainer } = setup({
               position: "vertical",
               size: "large"
