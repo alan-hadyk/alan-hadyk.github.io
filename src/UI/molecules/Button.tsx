@@ -79,14 +79,14 @@ function Button({
     >
       <Corners isActive={isActive} />
       <Button.InnerContainer ref={buttonInnerContainerRef} data-testid="ButtonInnerContainer">
-        <SpacingContainer paddingRight={buttonPadding} paddingLeft={buttonPadding}>
+        <SpacingContainer paddingRight={buttonPadding} paddingLeft={buttonPadding} width="100%">
           <FlexContainer
             flexFlow="row wrap"
-          > 
+          >
             <ButtonText buttonText={buttonText} size={size} />
-            <Icon 
-              iconName={iconName} 
-              height={mapSizeToIconHeight[size]} 
+            <Icon
+              iconName={iconName}
+              height={mapSizeToIconHeight[size]}
             />
           </FlexContainer>
         </SpacingContainer>
@@ -158,7 +158,7 @@ Button.Container = styled.button<ButtonContainerProps>`
       keyframes: {
         ripple
       },
-      spacing: spacingVariables,
+      spacing,
       transitionTimes: {
         fast,
         slow
@@ -171,7 +171,7 @@ Button.Container = styled.button<ButtonContainerProps>`
     border-color: ${borderColor in colorPalette && colorPalette[borderColor]};
     color: ${white};
     cursor: pointer;
-    height: ${height in spacingVariables && spacingVariables[height]};
+    height: ${height in spacing && spacing[height]};
     outline: 0;
     position: relative;
     text-transform: lowercase;
@@ -179,30 +179,25 @@ Button.Container = styled.button<ButtonContainerProps>`
     width: ${width};
 
     &:hover {
-      box-shadow: inset 0px 0px ${spacingVariables.spacing16} 0px ${transparentize(0.5, blue200)};
+      box-shadow: inset 0px 0px ${spacing.spacing16} 0px ${transparentize(0.5, blue200)};
     }
 
     .ripple {
       animation-duration: ${slow};
       animation-name: ${ripple};
       ${radialGradient({
-    // eslint-disable-next-line indent
-        colorStops: [`${transparentize(0.5, blue300)} 0%`, `${transparentize(1, blue200)} 50%`],
-    // eslint-disable-next-line indent
-        extent: `farthest-corner at ${spacingVariables.spacing12} ${spacingVariables.spacing12}`,
-    // eslint-disable-next-line indent
-        position: "center",
-    // eslint-disable-next-line indent
-        shape: "ellipse"
-    // eslint-disable-next-line indent
-      })}
+    colorStops: [`${transparentize(0.5, blue300)} 0%`, `${transparentize(1, blue200)} 50%`],
+    extent: `farthest-corner at ${spacing.spacing12} ${spacing.spacing12}`,
+    position: "center",
+    shape: "ellipse"
+  })}
       border-radius: 50%;
-      height: ${spacingVariables.spacing24};
-      margin-left: -${spacingVariables.spacing12};
-      margin-top: -${spacingVariables.spacing12};
+      height: ${spacing.spacing24};
+      margin-left: -${spacing.spacing12};
+      margin-top: -${spacing.spacing12};
       opacity: 0;
       position: absolute;
-      width: ${spacingVariables.spacing24};
+      width: ${spacing.spacing24};
     }
   `}
 `;

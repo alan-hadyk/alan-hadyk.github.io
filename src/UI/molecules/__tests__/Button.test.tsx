@@ -355,8 +355,8 @@ describe("molecules / Button", () => {
   });
 
   describe("SpacingContainer", () => {    
-    describe("Styles", () => {
-      describe("padding-right", () => {      
+    describe("Props", () => {
+      describe("paddingRight", () => {      
         test("should have 1.6rem when size is small", () => {
           const { SpacingContainer } = setup({
             size: "small"
@@ -382,7 +382,7 @@ describe("molecules / Button", () => {
         });
       });
       
-      describe("padding-left", () => {      
+      describe("paddingLeft", () => {      
         test("should have 1.6rem when size is small", () => {
           const { SpacingContainer } = setup({
             size: "small"
@@ -407,12 +407,20 @@ describe("molecules / Button", () => {
           expect(SpacingContainer).toHaveStyleRule("padding-left", "2.4rem");
         });
       });
+
+      describe("width", () => {      
+        test("should have 100%", () => {
+          const { SpacingContainer } = setup();
+
+          expect(SpacingContainer).toHaveStyleRule("width", "100%");
+        });
+      });
     });
   });
   
   describe("FlexContainer", () => {    
-    describe("Styles", () => {
-      describe("flex-flow", () => {      
+    describe("Props", () => {
+      describe("flexFlow", () => {      
         test("should have row wrap", () => {
           const { FlexContainer } = setup();
 
@@ -429,29 +437,31 @@ describe("molecules / Button", () => {
       expect(ButtonText.textContent).toEqual("Text content");
     });
 
-    describe("Styles", () => {
-      test("text should have font size 20px when size is small", () => {
-        const { ButtonText } = setup({
-          size: "small"
+    describe("Props", () => {
+      describe("fontSize", () => {
+        test("should have font size 20px when size is small", () => {
+          const { ButtonText } = setup({
+            size: "small"
+          });
+  
+          expect(ButtonText).toHaveStyleRule("font-size", "20px");
+        }); 
+  
+        test("should have font size 24px when size is medium", () => {
+          const { ButtonText } = setup({
+            size: "medium"
+          });
+  
+          expect(ButtonText).toHaveStyleRule("font-size", "24px");
         });
-
-        expect(ButtonText).toHaveStyleRule("font-size", "20px");
-      }); 
-
-      test("text should have font size 24px when size is medium", () => {
-        const { ButtonText } = setup({
-          size: "medium"
+  
+        test("should have font size 28px when size is large", () => {
+          const { ButtonText } = setup({
+            size: "large"
+          });
+  
+          expect(ButtonText).toHaveStyleRule("font-size", "28px");
         });
-
-        expect(ButtonText).toHaveStyleRule("font-size", "24px");
-      });
-
-      test("text should have font size 28px when size is large", () => {
-        const { ButtonText } = setup({
-          size: "large"
-        });
-
-        expect(ButtonText).toHaveStyleRule("font-size", "28px");
       });
     });
   });

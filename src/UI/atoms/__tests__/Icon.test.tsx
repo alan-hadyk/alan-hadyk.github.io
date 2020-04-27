@@ -369,6 +369,30 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Apollo.svg");
       });
 
+      test("should render correct icon for brandJS", () => {
+        const { IconComponent } = setup({
+          iconName: "brandJS"
+        });
+  
+        expect(IconComponent.textContent).toEqual("Brand-JS.svg");
+      });
+
+      test("should render correct icon for brandReact", () => {
+        const { IconComponent } = setup({
+          iconName: "brandReact"
+        });
+  
+        expect(IconComponent.textContent).toEqual("Brand-React.svg");
+      });
+
+      test("should render correct icon for brandWebpack", () => {
+        const { IconComponent } = setup({
+          iconName: "brandWebpack"
+        });
+  
+        expect(IconComponent.textContent).toEqual("Brand-Webpack.svg");
+      });
+
       test("should render correct icon for btnCodeSandbox", () => {
         const { IconComponent } = setup({
           iconName: "btnCodeSandbox"

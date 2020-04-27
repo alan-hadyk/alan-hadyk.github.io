@@ -8,6 +8,9 @@ export interface IconProps {
   height?: string | Spacing;
   iconName:
     "apollo" |
+    "brandJS" |
+    "brandReact" |
+    "brandWebpack" |
     "btnCodeSandbox" |
     "btnDownload" |
     "btnExternalLink" |
@@ -30,6 +33,7 @@ export interface IconProps {
     "unknown" |
     "webpack";
   isActive?: boolean;
+  isHeightResponsive?: boolean;
   isResponsive?: boolean;
   overflow?: "hidden" | "visible";
   shouldDisplayGlowAnimation?: boolean;

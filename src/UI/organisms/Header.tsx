@@ -8,7 +8,8 @@ import Button from "<molecules>/Button";
 import PositionContainer from "<layout>/PositionContainer";
 import FlexContainer from "<layout>/FlexContainer";
 
-import { HeaderProps }  from "<organisms>/__typings__/Header.d.ts";
+import { HeaderProps } from "<organisms>/__typings__/Header.d.ts";
+
 import { LinkWithIconProps } from "<molecules>/__typings__/LinkWithIcon.d.ts";
 
 function Header({
@@ -46,7 +47,7 @@ function Header({
             height="spacing48"
             width="spacing248"
           />
-      
+
           <FlexContainer
             flexFlow="row nowrap"
             height="spacing48"
@@ -54,16 +55,16 @@ function Header({
             justifyContent="flex-start"
           >
             <Nav />
-          
+
             <FlexContainer
               flexFlow="row nowrap"
               height="spacing48"
               gap="spacing24"
               justifyContent="flex-start"
             >
-              <Button 
-                buttonText="resume" 
-                iconName="btnDownload" 
+              <Button
+                buttonText="resume"
+                iconName="btnDownload"
                 size="medium"
               />
 
@@ -131,5 +132,5 @@ Header.InnerContainer = styled.div`
     width: 100%;
   `}
 `;
-  
+
 export default memo(Header);
