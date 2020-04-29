@@ -5,7 +5,13 @@ import PerformanceItem from "<molecules>/PerformanceItem";
 
 import getRandomDelay from "<helpers>/math/getRandomDelay";
 
-const performanceItems: string[] = [
+import useFpsCounter from "<hooks>/useFpsCounter";
+
+import {
+  UseFpsCounterResult
+} from "<hooks>/__typings__/useFpsCounter.d.ts";
+
+const PERFORMANCE_ITEMS: string[] = [
   "Total heap size",
   "Used heap size",
   "Heap size limit",
@@ -25,25 +31,30 @@ const performanceItems: string[] = [
   "Load event"
 ];
 
-const Performance = (): JSX.Element => (
-  <FlexContainer
-    alignItems="flex-start"
-    dataTestId="Performance"
-    flexFlow="column nowrap"
-    justifyContent="flex-start"
-  >
-    {performanceItems.map((label: string, index: number): JSX.Element => {
-      const animationDelay = `${getRandomDelay(0, index * 600)}ms`;
+function Performance(): JSX.Element {
+  const { isPerformanceLow }: UseFpsCounterResult = useFpsCounter({});
+
+  return (
+    <FlexContainer
+      alignItems="flex-start"
+      dataTestId="Performance"
+      flexFlow="column nowrap"
+      justifyContent="flex-start"
+    >
+      {PERFORMANCE_ITEMS.map((label: string, index: number): JSX.Element => {
+        const animationDelay = `${getRandomDelay(0, index * 600)}ms`;
   
-      return (
-        <PerformanceItem
-          animationDelay={animationDelay}
-          key={label}
-          label={label}
-        />
-      );
-    })}
-  </FlexContainer>
-);
+        return (
+          <PerformanceItem
+            animationDelay={animationDelay}
+            key={label}
+            label={label}
+            shouldAnimate={!isPerformanceLow}
+          />
+        );
+      })}
+    </FlexContainer>
+  );
+}
 
 export default Performance;

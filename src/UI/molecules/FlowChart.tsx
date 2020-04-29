@@ -1,22 +1,46 @@
-import React, { memo, useLayoutEffect } from "react";
+import React, { memo, useLayoutEffect, useState, useMemo } from "react";
 import Vivus from "vivus";
 import styled from "styled-components";
 
 import FlexContainer from "<layout>/FlexContainer";
 import SpacingContainer from "<layout>/SpacingContainer";
 
+import useFpsCounter from "<hooks>/useFpsCounter";
+
 import transitionTimes from "<styles>/variables/transitionTimes";
 
 import { ReactComponent as FluxFlowChart } from "<assets>/svg/Flux-FlowChart.svg";
 
+import {
+  UseFpsCounterResult
+} from "<hooks>/__typings__/useFpsCounter.d.ts";
+
 function FlowChart(): JSX.Element {
+  const { isPerformanceLow }: UseFpsCounterResult = useFpsCounter({});
+  const [vivusInstance, setVivusInstance] = useState<Vivus>(null);
+
   useLayoutEffect(() => {
-    new Vivus("flow-chart", {
+    const _vivusInstance: Vivus = new Vivus("flow-chart", {
       delay: parseInt(transitionTimes.fast),
       duration: parseInt(transitionTimes.default), 
       type: "delayed"
-    }, (myVivus: Vivus): Vivus => myVivus.play(myVivus.getStatus() === "end" ? -1 : 1));
-  });
+    }, (vivusCb: Vivus): Vivus => vivusCb.play(vivusCb.getStatus() === "end" ? -1 : 1));
+
+    setVivusInstance(_vivusInstance);
+  }, []);
+
+  useMemo(() => {
+    if (!vivusInstance) {
+      return;
+    }
+
+    if (isPerformanceLow) {
+      vivusInstance.finish();
+      vivusInstance.stop();
+    } else {
+      vivusInstance.play(vivusInstance.getStatus() === "end" ? -1 : 1);
+    }
+  }, [isPerformanceLow, vivusInstance]);
 
   return (
     <FlexContainer 

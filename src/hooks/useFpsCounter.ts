@@ -1,24 +1,21 @@
-import { useLayoutEffect, useRef, useCallback } from "react";
+import { useLayoutEffect, useRef, useCallback, useState } from "react";
 
 import {
   LineChartData
 } from "<hooks>/__typings__/useLineChart.d.ts";
 import {
-  UseFpsCounter
+  UseFpsCounter,
+  UseFpsCounterResult
 } from "<hooks>/__typings__/useFpsCounter.d.ts";
 
 export default function useFpsCounter({
   chartData,
   fpsContainer
-}: UseFpsCounter): void {
+}: UseFpsCounter): UseFpsCounterResult {
   const times = useRef<number[]>([]);
-  const calculateFps = useCallback<() => void>(_calculateFps, [_calculateFps]);
+  const [isPerformanceLow, setIsPerformanceLow] = useState<boolean>(false);
 
-  useLayoutEffect((): void => {
-    calculateFps();
-  }, [calculateFps]);
-
-  function _calculateFps(): void {
+  const calculateFps = useCallback<() => void>((): void => {
     window.requestAnimationFrame((): void => {
       const now: number = performance.now();
 
@@ -30,26 +27,87 @@ export default function useFpsCounter({
 
       const currentFPS: number = times.current.length > 60 ? 60 : times.current.length;
 
-      if (fpsContainer.current) {
+      if (fpsContainer && fpsContainer.current) {
         fpsContainer.current.textContent = String(currentFPS);
       }
 
-      chartData.current.push({
-        time: 0,
-        value: currentFPS
-      });
-
-      if (chartData.current.length > 120) {
-        chartData.current.shift();
+      if (chartData && chartData.current) {
+        chartData.current.push({
+          time: 0,
+          value: currentFPS
+        });
+  
+        if (chartData.current.length > 120) {
+          chartData.current.shift();
+        }
+        
+        chartData.current = chartData.current
+          .map(({ value }: LineChartData, index: number) => ({
+            time: index,
+            value
+          }));
       }
-      
-      chartData.current = chartData.current
-        .map(({ value }: LineChartData, index: number) => ({
-          time: index,
-          value
-        }));
 
-      _calculateFps();
+      if (!isPerformanceLow && currentFPS < 25) {
+        setIsPerformanceLow(true);
+      } else if (isPerformanceLow && currentFPS > 25) {
+        setIsPerformanceLow(false);
+      }
+
+      calculateFps();
     });
-  }
+  }, [chartData, fpsContainer, isPerformanceLow]);
+
+  useLayoutEffect((): void => {
+    calculateFps();
+  }, [calculateFps]);
+
+  return { isPerformanceLow };
+
+  // function _calculateFps(): void {
+  //   window.requestAnimationFrame((): void => {
+  //     const now: number = performance.now();
+
+  //     while (times.current.length > 0 && times.current[0] <= now - 1000) {
+  //       times.current.shift();
+  //     }
+  
+  //     times.current.push(now);
+
+  //     const currentFPS: number = times.current.length > 60 ? 60 : times.current.length;
+
+  //     if (fpsContainer && fpsContainer.current) {
+  //       fpsContainer.current.textContent = String(currentFPS);
+  //     }
+
+  //     console.log("currentFPS", currentFPS);
+
+  //     if (chartData && chartData.current) {
+  //       chartData.current.push({
+  //         time: 0,
+  //         value: currentFPS
+  //       });
+  
+  //       if (chartData.current.length > 120) {
+  //         chartData.current.shift();
+  //       }
+        
+  //       chartData.current = chartData.current
+  //         .map(({ value }: LineChartData, index: number) => ({
+  //           time: index,
+  //           value
+  //         }));
+  //     }
+
+  //     // setIsPerformanceLow(true);
+
+  //     if (!isPerformanceLow && currentFPS < 45) {
+  //       setIsPerformanceLow(true);
+  //     } else if (isPerformanceLow && currentFPS > 45) {
+  //       setIsPerformanceLow(false);
+  //     }
+
+  //     calculateFps();
+  //   });
+  // }
 }

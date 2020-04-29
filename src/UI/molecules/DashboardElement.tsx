@@ -58,7 +58,6 @@ function DashboardElement({
         fontFamily="AnonymousPro"
         fontSize="font16"
         lineHeight="spacing36"
-        shouldShuffle
         shuffleDelay={shuffleDelay}
         shuffleInterval={parseInt(transitionTimes.superSlow)}
         textTransform="uppercase"

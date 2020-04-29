@@ -6,12 +6,14 @@ import spacing from "<styles>/variables/spacing";
 export default {
   barChartWidth: keyframes`
     0% {
+      opacity: 0.99;
       width: 100%;
     }
     50% {
       width: 20%;
     }
     100% {
+      opacity: 1;
       width: 100%;
     }
   `,
@@ -29,22 +31,27 @@ export default {
   borderDanceHorizontal: keyframes`
     from {
       background-position: left top;
+      opacity: 0.99;
     }
     to {
       background-position: left ${spacing.spacing12} top;
+      opacity: 1;
     }
   `,
   borderDanceVertical: keyframes`
     from {
       background-position: left top;
+      opacity: 0.99;
     }
     to {
       background-position: left top ${spacing.spacing12};
+      opacity: 1;
     }
   `,
   glow: keyframes`
     0% {
       filter: drop-shadow(0px 0px 0px ${colorPalette.blue100});
+      opacity: 0.99;
     }
 
     16% {
@@ -57,6 +64,7 @@ export default {
 
     100% {
       filter: drop-shadow(0px 0px 0px ${colorPalette.blue100});
+      opacity: 1;
     }
   `,
   ripple: keyframes`
@@ -84,9 +92,11 @@ export default {
   rotate: keyframes`
     from {
       transform: rotateY(0deg);
+      opacity: 0.99;
     }
     to {
       transform: rotateY(360deg);
+      opacity: 1;
     }
   `
 }; 

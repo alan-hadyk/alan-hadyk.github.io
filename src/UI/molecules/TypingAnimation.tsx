@@ -1,9 +1,14 @@
-import React, { memo, useRef } from "react";
+import React, { memo, useRef, useMemo } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import PositionContainer from "<layout>/PositionContainer";
 
 import useInterval from "<hooks>/useInterval";
+import useFpsCounter from "<hooks>/useFpsCounter";
+
+import {
+  UseFpsCounterResult
+} from "<hooks>/__typings__/useFpsCounter.d.ts";
 
 export const code = `import { useLayoutEffect } from "react";
 
@@ -44,10 +49,19 @@ export default function useIntersectionObserver({
 function TypingAnimation(): JSX.Element {
   const codeContainerRef = useRef<HTMLDivElement>(null);
   const currentChar = useRef<number>(0);
+  const { isPerformanceLow }: UseFpsCounterResult = useFpsCounter({});
 
   useInterval(() => {
-    updateText();
+    if (!isPerformanceLow) {
+      updateText();
+    }
   }, 50);
+
+  useMemo(() => {
+    if (isPerformanceLow && codeContainerRef && codeContainerRef.current) {
+      codeContainerRef.current.innerHTML = code;
+    }
+  }, [isPerformanceLow]);
 
   return (
     <PositionContainer
