@@ -43,6 +43,16 @@ describe("atoms / Icon", () => {
           modifier: "svg"
         });
       });
+
+      test("should have 100% for svg if is height responsive", () => {
+        const { IconContainer } = setup({
+          isHeightResponsive: true
+        });
+
+        expect(IconContainer).toHaveStyleRule("height", "100%", {
+          modifier: "svg"
+        });
+      });
     });
 
     describe("width", () => {      

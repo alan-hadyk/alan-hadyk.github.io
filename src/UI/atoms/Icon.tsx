@@ -129,18 +129,10 @@ Icon.Container = styled.div<IconContainerProps>`
       }
     `}
 
-    ${isResponsive && `
-      svg {
-        height: 100%;
-        width: 100%;
-      }
-    `}
-
-    ${isHeightResponsive && `
-      svg {
-        height: 100%;
-      }
-    `}
+    svg {
+      height: ${isResponsive || isHeightResponsive  ? "100%" : "auto"};
+      width: ${(isResponsive && !isHeightResponsive)  ? "100%" : "auto"};
+    }
 
     ${shouldRotate && css`
       animation-duration: ${transitionTimes.verySlow};

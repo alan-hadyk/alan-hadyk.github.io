@@ -16,24 +16,24 @@ import {
   Spacing
 } from "<styles>/variables/__typings__/variables.d.ts";
 
+const mapSizeToIconHeight: MapSizeToIconHeight = {
+  large: "spacing40",
+  medium: "spacing32",
+  small: "spacing28"
+};
+
+const mapSizeToTextFontSize: MapSizeToTextFontSize = {
+  large: "font24",
+  medium: "font20",
+  small: "font16"
+};
+
 function IconWithLabel({
-  color = "blue100",
   iconName,
   label,
+  labelColor = "blue100",
   size = "medium"
 }: IconWithLabelProps): JSX.Element {
-  const mapSizeToIconHeight: MapSizeToIconHeight = {
-    large: "spacing40",
-    medium: "spacing32",
-    small: "spacing28"
-  };
-
-  const mapSizeToTextFontSize: MapSizeToTextFontSize = {
-    large: "font24",
-    medium: "font20",
-    small: "font16"
-  };
-
   const iconPadding: Spacing = size === "small" ? "spacing8" : "spacing12";
 
   return (
@@ -54,7 +54,7 @@ function IconWithLabel({
         />
       </SpacingContainer>
       <Text
-        color={color}
+        color={labelColor}
         ellipsis
         fontSize={mapSizeToTextFontSize[size]}
       >

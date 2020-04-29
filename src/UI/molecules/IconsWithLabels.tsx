@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 
 import IconWithLabel from "<molecules>/IconWithLabel";
 
@@ -13,19 +13,35 @@ import {
   MapSizeToFlexContainerGap
 } from "<molecules>/__typings__/IconsWithLabels.d.ts";
 
+import {
+  FlexContainerProps
+} from "<layout>/__typings__/FlexContainer.d.ts";
+
+const mapSizeToFlexContainerGap: MapSizeToFlexContainerGap = {
+  large: "spacing28",
+  medium: "spacing12",
+  small: "spacing16"
+};
+
 function IconsWithLabels({
-  color = "blue100",
   iconsWithLabels = [],
+  labelColor = "blue100",
   position = "vertical",
   size = "medium"
 }: IconsWithLabelsProps): JSX.Element {
-  const flexFlow = position === "horizontal" ? "row nowrap" : "column nowrap";
+  const flexFlow: FlexContainerProps["flexFlow"] = position === "horizontal" ? "row nowrap" : "column nowrap";
 
-  const mapSizeToFlexContainerGap: MapSizeToFlexContainerGap = {
-    large: "spacing28",
-    medium: "spacing12",
-    small: "spacing16"
-  };
+  const renderIconsWithLabels = useCallback((): JSX.Element[] => {
+    return iconsWithLabels.map(({iconName, label}: IconWithLabelProps): JSX.Element => (
+      <IconWithLabel
+        labelColor={labelColor}
+        iconName={iconName}
+        key={label}
+        label={label}
+        size={size}
+      />
+    ));
+  }, []);
 
   return (
     <FlexContainer
@@ -39,18 +55,6 @@ function IconsWithLabels({
       {renderIconsWithLabels()}
     </FlexContainer>
   );
-
-  function renderIconsWithLabels(): JSX.Element[] {
-    return iconsWithLabels.map(({iconName, label}: IconWithLabelProps): JSX.Element => (
-      <IconWithLabel
-        color={color}
-        iconName={iconName}
-        key={label}
-        label={label}
-        size={size}
-      />
-    ));
-  }
 }
   
 export default IconsWithLabels;

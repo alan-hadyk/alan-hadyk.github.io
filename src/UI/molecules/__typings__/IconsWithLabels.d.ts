@@ -8,10 +8,10 @@ import {
 } from "<molecules>/__typings__/IconWithLabel.d.ts";
 
 export interface IconsWithLabelsProps {
-  color?: ColorPalette;
   iconsWithLabels: IconWithLabelProps[];
+  labelColor?: ColorPalette;
   position: "vertical" | "horizontal";
-  size?: "small" | "medium" | "large";
+  size?: IconWithLabelProps["size"];
 }
 
 export interface MapSizeToFlexContainerGap {

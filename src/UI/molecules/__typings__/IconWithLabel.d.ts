@@ -9,9 +9,9 @@ import {
 } from "<atoms>/__typings__/Icon.d.ts";
 
 export interface IconWithLabelProps {
-  color?: ColorPalette;
   iconName: IconProps["iconName"];
   label: string;
+  labelColor?: ColorPalette;
   size?: "small" | "medium" | "large";
 }
 
