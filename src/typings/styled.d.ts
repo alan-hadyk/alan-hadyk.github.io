@@ -35,6 +35,7 @@ declare module "styled-components" {
       font20: string;
       font24: string;
       font28: string;
+      font48: string;
       font64: string;
       font72: string;
     };
