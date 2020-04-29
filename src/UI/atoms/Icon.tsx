@@ -95,24 +95,24 @@ function Icon({
 
 Icon.Container = styled.div<IconContainerProps>`
   ${({
-  animationDelay,
-  animationTime,
-  height,
-  isActive,
-  isResponsive,
-  overflow,
-  shouldDisplayGlowAnimation,
-  shouldGlowOnHover,
-  shouldRotate,
-  theme: {
-    colorPalette: { blue300, white },
-    easing: { easeInOut, linear },
-    keyframes: { glow, rotate },
-    spacing,
-    transitionTimes
-  },
-  width
-}): FlattenSimpleInterpolation => css`
+    animationDelay,
+    animationTime,
+    height,
+    isActive,
+    isResponsive,
+    overflow,
+    shouldDisplayGlowAnimation,
+    shouldGlowOnHover,
+    shouldRotate,
+    theme: {
+      colorPalette: { blue300, white },
+      easing: { easeInOut, linear },
+      keyframes: { glow, rotate },
+      spacing,
+      transitionTimes
+    },
+    width
+  }): FlattenSimpleInterpolation => css`
     height: ${(height in spacing && spacing[height]) || height};
     overflow: ${overflow};
     width: ${(width in spacing && spacing[width]) || width};

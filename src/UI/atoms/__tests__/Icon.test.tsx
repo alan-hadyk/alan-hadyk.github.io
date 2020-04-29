@@ -294,7 +294,7 @@ describe("atoms / Icon", () => {
 
           expect(IconContainer).toHaveStyleRule("transition", "all 900ms ease-in-out 150ms", {
             modifier: "& > *"
-          });
+          }); 
         });
       });
 

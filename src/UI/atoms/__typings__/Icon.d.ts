@@ -7,29 +7,29 @@ export interface IconProps {
   animationTime?: TransitionTimes;
   height?: string | Spacing;
   iconName:
-  "apollo" |
-  "btnCodeSandbox" |
-  "btnDownload" |
-  "btnExternalLink" |
-  "btnSend" |
-  "chrome" |
-  "codeSandbox" |
-  "earth" |
-  "firefox" |
-  "gitHub" |
-  "graphql" |
-  "ie" |
-  "javascript" |
-  "linkedIn" |
-  "logo" |
-  "node" |
-  "opera" |
-  "react" |
-  "reactLogo" |
-  "safari" |
-  "typescript" |
-  "unknown" |
-  "webpack";
+    "apollo" |
+    "btnCodeSandbox" |
+    "btnDownload" |
+    "btnExternalLink" |
+    "btnSend" |
+    "chrome" |
+    "codeSandbox" |
+    "earth" |
+    "firefox" |
+    "gitHub" |
+    "graphql" |
+    "ie" |
+    "javascript" |
+    "linkedIn" |
+    "logo" |
+    "node" |
+    "opera" |
+    "react" |
+    "reactLogo" |
+    "safari" |
+    "typescript" |
+    "unknown" |
+    "webpack";
   isActive?: boolean;
   isResponsive?: boolean;
   overflow?: "hidden" | "visible";

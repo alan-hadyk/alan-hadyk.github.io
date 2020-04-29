@@ -9,7 +9,6 @@ export const UserAgent = (): JSX.Element => (
     description={window.navigator.userAgent}
     flex="0 1 13.6%"
     shouldDisplayCorners
-    shuffleDelay={5400}
     title="User Agent" 
   >
     <BrowserInfo />

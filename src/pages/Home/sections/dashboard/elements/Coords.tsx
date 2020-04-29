@@ -7,7 +7,6 @@ const Coords = (): JSX.Element => (
   <DashboardElement
     dataTestId="Coords"
     flex="0 1 15%"
-    shuffleDelay={600}
     title="Coords" 
   >
     <Sonar />

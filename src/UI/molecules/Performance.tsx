@@ -7,10 +7,6 @@ import getRandomDelay from "<helpers>/math/getRandomDelay";
 
 import useFpsCounter from "<hooks>/useFpsCounter";
 
-import {
-  UseFpsCounterResult
-} from "<hooks>/__typings__/useFpsCounter.d.ts";
-
 const PERFORMANCE_ITEMS: string[] = [
   "Total heap size",
   "Used heap size",
@@ -32,7 +28,7 @@ const PERFORMANCE_ITEMS: string[] = [
 ];
 
 function Performance(): JSX.Element {
-  const { isPerformanceLow }: UseFpsCounterResult = useFpsCounter({});
+  const { isPerformanceLow } = useFpsCounter({}) || {};
 
   return (
     <FlexContainer

@@ -8,7 +8,6 @@ const Fps = (): JSX.Element => (
     dataTestId="Fps"
     flex="0 1 20%"
     overflow="visible"
-    shuffleDelay={3000}
     title="Fps"
   >
     <FpsChart />

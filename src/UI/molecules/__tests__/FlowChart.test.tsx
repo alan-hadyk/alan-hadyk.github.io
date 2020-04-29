@@ -8,6 +8,9 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 jest.mock("vivus");
 import Vivus from "vivus";
 
+jest.mock("<hooks>/useFpsCounter");
+import useFpsCounter from "<hooks>/useFpsCounter";
+
 describe("molecules / FlowChart", () => {
   test("should have correct structure", () => {
     const { 
@@ -37,6 +40,65 @@ describe("molecules / FlowChart", () => {
       type: "delayed"
     });
     expect(typeof mockCall[2]).toEqual("function");
+  });
+
+  test("should fire vivusInstance.finish() and vivusInstance.stop() if performance is low", () => {
+    jest.useFakeTimers();
+    const finish = jest.fn();
+    const stop = jest.fn();
+    const play = jest.fn();
+    const mockVivus: jest.Mock<unknown, unknown[]> = Vivus as unknown as jest.Mock;
+    const mockUseFpsCounter: jest.Mock<unknown, unknown[]> = useFpsCounter as unknown as jest.Mock;
+
+    mockVivus.mockImplementation(() => ({
+      finish,
+      play,
+      stop
+    }));
+
+    mockUseFpsCounter.mockImplementation(() => ({
+      isPerformanceLow: true
+    }));
+
+    setup();
+
+    jest.advanceTimersByTime(100);
+
+    expect(finish).toHaveBeenCalledTimes(1);
+    expect(stop).toHaveBeenCalledTimes(1);
+    expect(play).toHaveBeenCalledTimes(0);
+
+    jest.clearAllTimers();
+  });
+
+  test("should fire vivusInstance.play() if performance is high", () => {
+    jest.useFakeTimers();
+    const finish = jest.fn();
+    const stop = jest.fn();
+    const play = jest.fn();
+    const mockVivus: jest.Mock<unknown, unknown[]> = Vivus as unknown as jest.Mock;
+    const mockUseFpsCounter: jest.Mock<unknown, unknown[]> = useFpsCounter as unknown as jest.Mock;
+
+    mockVivus.mockImplementation(() => ({
+      finish,
+      getStatus: (): string => "beginning",
+      play,
+      stop
+    }));
+
+    mockUseFpsCounter.mockImplementation(() => ({
+      isPerformanceLow: false
+    }));
+
+    setup();
+
+    jest.advanceTimersByTime(100);
+
+    expect(finish).toHaveBeenCalledTimes(0);
+    expect(stop).toHaveBeenCalledTimes(0);
+    expect(play).toHaveBeenCalledWith(1);
+
+    jest.clearAllTimers();
   });
 
   describe("FlexContainer", () => {    

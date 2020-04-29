@@ -8,7 +8,6 @@ const Ip = (): JSX.Element => (
   <DashboardElement
     dataTestId="IP"
     flex="0 1 20%"
-    shuffleDelay={6000}
     shouldDisplayCorners
     title={`IP: ${ip.address()}`}
   >

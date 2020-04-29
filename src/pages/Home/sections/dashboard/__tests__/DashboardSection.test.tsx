@@ -9,6 +9,8 @@ jest.mock("ip", () => ({
   address: (): string => "127.0.0.1"
 }));
 
+jest.mock("<hooks>/useFpsCounter");
+
 jest.mock("vivus");
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 jest.mock("<state>/withCommitsState", () => (WrappedComponent: React.FunctionComponent<any>) => (props: unknown): JSX.Element => {
@@ -79,7 +81,7 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
 
     // Console
     expect(FlexContainers[0].children[1]).toEqual(Console);
-
+ 
     // Bottom row
     expect(FlexContainers[0].children[2]).toEqual(SpacingContainers[2]);
     expect(SpacingContainers[2].children[0]).toEqual(FlexContainers[2]);

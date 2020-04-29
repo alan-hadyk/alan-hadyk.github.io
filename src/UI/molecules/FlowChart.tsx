@@ -11,15 +11,11 @@ import transitionTimes from "<styles>/variables/transitionTimes";
 
 import { ReactComponent as FluxFlowChart } from "<assets>/svg/Flux-FlowChart.svg";
 
-import {
-  UseFpsCounterResult
-} from "<hooks>/__typings__/useFpsCounter.d.ts";
-
 function FlowChart(): JSX.Element {
-  const { isPerformanceLow }: UseFpsCounterResult = useFpsCounter({});
+  const { isPerformanceLow } = useFpsCounter({}) || {};
   const [vivusInstance, setVivusInstance] = useState<Vivus>(null);
 
-  useLayoutEffect(() => {
+  useLayoutEffect((): void => {
     const _vivusInstance: Vivus = new Vivus("flow-chart", {
       delay: parseInt(transitionTimes.fast),
       duration: parseInt(transitionTimes.default), 
@@ -29,7 +25,7 @@ function FlowChart(): JSX.Element {
     setVivusInstance(_vivusInstance);
   }, []);
 
-  useMemo(() => {
+  useMemo((): void => {
     if (!vivusInstance) {
       return;
     }

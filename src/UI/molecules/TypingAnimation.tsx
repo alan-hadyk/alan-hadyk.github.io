@@ -6,11 +6,7 @@ import PositionContainer from "<layout>/PositionContainer";
 import useInterval from "<hooks>/useInterval";
 import useFpsCounter from "<hooks>/useFpsCounter";
 
-import {
-  UseFpsCounterResult
-} from "<hooks>/__typings__/useFpsCounter.d.ts";
-
-export const code = `import { useLayoutEffect } from "react";
+export const CODE = `import { useLayoutEffect } from "react";
 
 import {
   IntersectionObserverWithPolyfill,
@@ -49,7 +45,7 @@ export default function useIntersectionObserver({
 function TypingAnimation(): JSX.Element {
   const codeContainerRef = useRef<HTMLDivElement>(null);
   const currentChar = useRef<number>(0);
-  const { isPerformanceLow }: UseFpsCounterResult = useFpsCounter({});
+  const { isPerformanceLow } = useFpsCounter({}) || {};
 
   useInterval(() => {
     if (!isPerformanceLow) {
@@ -59,7 +55,7 @@ function TypingAnimation(): JSX.Element {
 
   useMemo(() => {
     if (isPerformanceLow && codeContainerRef && codeContainerRef.current) {
-      codeContainerRef.current.innerHTML = code;
+      codeContainerRef.current.innerHTML = CODE;
     }
   }, [isPerformanceLow]);
 
@@ -79,8 +75,8 @@ function TypingAnimation(): JSX.Element {
   );
 
   function updateText(): void {
-    if (currentChar.current <= code.length) {
-      codeContainerRef.current.innerHTML += code.charAt(currentChar.current);
+    if (currentChar.current <= CODE.length) {
+      codeContainerRef.current.innerHTML += CODE.charAt(currentChar.current);
 
       currentChar.current++;
     } else {

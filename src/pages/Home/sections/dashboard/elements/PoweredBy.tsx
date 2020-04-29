@@ -8,7 +8,6 @@ const PoweredBy = (): JSX.Element => (
     dataTestId="PoweredBy"
     flex="0 1 20%"
     shouldDisplayCorners
-    shuffleDelay={4200}
     title="Powered by react"
   >
     <ReactLogo />
