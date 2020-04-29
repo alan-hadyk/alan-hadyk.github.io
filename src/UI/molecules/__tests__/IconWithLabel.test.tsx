@@ -158,9 +158,9 @@ describe("molecules / IconWithLabel", () => {
 
     describe("Props", () => {      
       describe("color", () => {
-        test("should have correct value passed via color props", () => {
+        test("should have correct value passed via labelColor props", () => {
           const { Text } = setup({
-            color: "blue500"
+            labelColor: "blue500"
           });
 
           expect(Text).toHaveStyleRule("color", "#2b595e");
@@ -234,9 +234,9 @@ type IconWithLabelTestProps = Partial<IconWithLabelProps>;
 
 function setup(addedProps?: IconWithLabelTestProps): Setup {
   const props: IconWithLabelProps = {
-    color: "blue300",
     iconName: "brandJS",
     label: "/",
+    labelColor: "blue300",
     size: "small",
     ...addedProps
   };
