@@ -332,7 +332,7 @@ function setup(addedProps?: IconsWithLabelsTestProps): Setup {
   const Icons: NodeListOf<SVGSVGElement> = document.querySelectorAll("svg");
   const IconsWithLabelsList: Element[] = queryAllByTestId("IconWithLabel");
   const SpacingContainers: Element[] = queryAllByTestId("SpacingContainer");
-  const Texts: Element[] = queryAllByTestId("Text");
+  const Texts: Element[] = queryAllByTestId("LabelText");
 
   return {
     ...utils,

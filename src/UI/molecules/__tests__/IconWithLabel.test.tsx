@@ -251,7 +251,7 @@ function setup(addedProps?: IconWithLabelTestProps): Setup {
   const Icon: SVGSVGElement = document.querySelector("svg");
   const IconContainer: Element = queryByTestId("IconContainer");
   const SpacingContainer: Element = queryByTestId("SpacingContainer");
-  const Text: Element = queryByTestId("Text");
+  const Text: Element = queryByTestId("LabelText");
 
   return {
     ...utils,
