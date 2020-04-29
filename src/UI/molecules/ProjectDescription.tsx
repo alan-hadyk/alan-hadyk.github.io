@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { useCallback, Fragment } from "react";
 import styled from "styled-components";
 
 import SpacingContainer from "<layout>/SpacingContainer";
@@ -15,19 +15,7 @@ function ProjectDescription({
   iconsWithLabels,
   title
 }: ProjectDescriptionProps): JSX.Element {
-  return (
-    <ProjectDescription.Container
-      data-testid="ProjectDescription"
-    >
-      {renderTitleWithDescription()}
-
-      {renderUsedTechnologies()}
-
-      {renderButtons()}
-    </ProjectDescription.Container>
-  );
-
-  function renderTitleWithDescription(): JSX.Element {
+  const renderTitleWithDescription = useCallback((): JSX.Element => {
     return (
       <Fragment>
         <Text
@@ -39,6 +27,7 @@ function ProjectDescription({
           {title}
         </Text>
         <SpacingContainer
+          dataTestId="TitleWithDescriptionSpacingContainer"
           marginBottom="spacing40"
           marginTop="spacing16"
         >
@@ -51,11 +40,12 @@ function ProjectDescription({
         </SpacingContainer>
       </Fragment>
     );
-  }
+  }, []);
 
-  function renderUsedTechnologies(): JSX.Element {
+  const renderUsedTechnologies = useCallback((): JSX.Element => {
     return (
       <SpacingContainer
+        dataTestId="UsedTechnologiesSpacingContainer"
         marginBottom="spacing40"
       >
         <Text
@@ -66,6 +56,7 @@ function ProjectDescription({
           Made with:
         </Text>
         <SpacingContainer
+          dataTestId="IconsWithLabelsSpacingContainer"
           marginTop="spacing8"
         >
           <IconsWithLabels
@@ -76,9 +67,9 @@ function ProjectDescription({
         </SpacingContainer>
       </SpacingContainer>
     );
-  }
+  }, []);
 
-  function renderButtons(): JSX.Element {
+  const renderButtons = useCallback((): JSX.Element => {
     return (
       <Fragment>
         <Button
@@ -87,6 +78,7 @@ function ProjectDescription({
           size="large"
         />
         <SpacingContainer
+          dataTestId="ButtonsSpacingContainer"
           marginTop="spacing16"
         >
           <Button
@@ -98,7 +90,19 @@ function ProjectDescription({
         </SpacingContainer>
       </Fragment>
     );
-  }
+  }, []);
+
+  return (
+    <ProjectDescription.Container
+      data-testid="ProjectDescription"
+    >
+      {renderTitleWithDescription()}
+
+      {renderUsedTechnologies()}
+
+      {renderButtons()}
+    </ProjectDescription.Container>
+  );
 }
 
 ProjectDescription.Container = styled.div``;

@@ -17,311 +17,352 @@ describe("molecules / ProjectDescription", () => {
   test("should have correct structure", () => {
     const {
       Buttons,
+      ButtonsSpacingContainer,
       IconsWithLabels,
+      IconsWithLabelsSpacingContainer,
       ProjectDescriptionContainer,
-      SpacingContainers,
-      Texts
+      Texts,
+      TitleWithDescriptionSpacingContainer,
+      UsedTechnologiesSpacingContainer
     } = setup();
 
     expect(ProjectDescriptionContainer.children[0]).toEqual(Texts[0]);
-    expect(ProjectDescriptionContainer.children[1]).toEqual(SpacingContainers[0]);
-    expect(SpacingContainers[0].children[0]).toEqual(Texts[1]);
-    expect(ProjectDescriptionContainer.children[2]).toEqual(SpacingContainers[1]);
-    expect(SpacingContainers[1].children[0]).toEqual(Texts[2]);
-    expect(SpacingContainers[1].children[1]).toEqual(SpacingContainers[2]);
-    expect(SpacingContainers[2].children[0]).toEqual(IconsWithLabels);
+    expect(ProjectDescriptionContainer.children[1]).toEqual(TitleWithDescriptionSpacingContainer);
+    expect(ProjectDescriptionContainer.children[2]).toEqual(UsedTechnologiesSpacingContainer);
     expect(ProjectDescriptionContainer.children[3]).toEqual(Buttons[0]);
-    expect(ProjectDescriptionContainer.children[4]).toEqual(SpacingContainers[3]);
+    expect(ProjectDescriptionContainer.children[4]).toEqual(ButtonsSpacingContainer);
 
-    // expect(SpacingContainer.children[0]).toEqual(FlexContainer);
-    // expect(FlexContainer.children[0]).toEqual(FlexItems[0]);
-    // expect(FlexContainer.children[1]).toEqual(FlexItems[1]);
-    // expect(FlexItems[0].children[0]).toEqual(Text);
-    // expect(FlexItems[1].children[0]).toEqual(Barchart);
+    expect(TitleWithDescriptionSpacingContainer.children[0]).toEqual(Texts[1]);
+    expect(UsedTechnologiesSpacingContainer.children[0]).toEqual(Texts[2]);
+    expect(UsedTechnologiesSpacingContainer.children[1]).toEqual(IconsWithLabelsSpacingContainer);
+    expect(IconsWithLabelsSpacingContainer.children[0]).toEqual(IconsWithLabels);
+    expect(ButtonsSpacingContainer.children[0]).toEqual(Buttons[1]);
   });
 
-  describe("ProjectDescriptionContainer", () => {    
-    describe("Styles", () => {
-      describe("display", () => {      
-        test("should have none", () => {
-          const { ProjectDescriptionContainer } = setup();
-
-          expect(ProjectDescriptionContainer).toHaveStyleRule("display", "none");
+  describe("Texts", () => { 
+    describe("Text[0]", () => {
+      test("should render textContent equal to title prop", () => {
+        const { Texts } = setup({
+          title: "New project"
         });
-
-        test("should have flex for 17 children if min-height: 900px", () => {
-          const { ProjectDescriptionContainer } = setup();
-
-          expect(ProjectDescriptionContainer).toHaveStyleRule("display", "flex", {
-            media: "(min-height: 900px)",
-            modifier: ":nth-child(-n+17)"
-          });
-        });
-
-        test("should have flex for 15 children if min-height: 800px and max-height: 899px", () => {
-          const { ProjectDescriptionContainer } = setup();
-
-          expect(ProjectDescriptionContainer).toHaveStyleRule("display", "flex", {
-            media: "(min-height: 800px) and (max-height: 899px)",
-            modifier: ":nth-child(-n+15)"
-          });
-        });
-
-        test("should have flex for 10 children if min-height: 520px and max-height: 799px", () => {
-          const { ProjectDescriptionContainer } = setup();
-
-          expect(ProjectDescriptionContainer).toHaveStyleRule("display", "flex", {
-            media: "(min-height: 520px) and (max-height: 799px)",
-            modifier: ":nth-child(-n+10)"
-          });
-        });
-
-        test("should have flex for 8 children if min-height: 415px and max-height: 519px", () => {
-          const { ProjectDescriptionContainer } = setup();
-
-          expect(ProjectDescriptionContainer).toHaveStyleRule("display", "flex", {
-            media: "(min-height: 415px) and (max-height: 519px)",
-            modifier: ":nth-child(-n+8)"
-          });
-        });
-
-        test("should have flex for 3 children if max-height: 414px", () => {
-          const { ProjectDescriptionContainer } = setup();
-
-          expect(ProjectDescriptionContainer).toHaveStyleRule("display", "flex", {
-            media: "(max-height: 414px)",
-            modifier: ":nth-child(-n+3)"
-          });
-        });
+  
+        expect(Texts[0].textContent).toEqual("New project");
       });
 
-      describe("width", () => {      
-        test("should have 100%", () => {
-          const { ProjectDescriptionContainer } = setup();
-
-          expect(ProjectDescriptionContainer).toHaveStyleRule("width", "100%");
-        });
-      });
-    });
-  });
-
-  describe("SpacingContainer", () => {    
-    describe("Props", () => {
-      describe("paddingTop", () => {      
-        test("should have .2rem", () => {
-          const { SpacingContainer } = setup();
-
-          expect(SpacingContainer).toHaveStyleRule("padding-top", ".2rem");
-        });
-      });
-
-      describe("paddingBottom", () => {      
-        test("should have .2rem", () => {
-          const { SpacingContainer } = setup();
-
-          expect(SpacingContainer).toHaveStyleRule("padding-bottom", ".2rem");
-        });
-      });
-      
-      describe("width", () => {      
-        test("should have 100%", () => {
-          const { SpacingContainer } = setup();
-
-          expect(SpacingContainer).toHaveStyleRule("width", "100%");
-        });
-      });
-    });
-  });
-
-  describe("FlexContainer", () => {    
-    describe("Props", () => {
-      describe("flexFlow", () => { 
-        test("should have row nowrap", () => {
-          const { FlexContainer } = setup();
-
-          expect(FlexContainer).toHaveStyleRule("flex-flow", "row nowrap");
-        });
-      });
-    });
-  });
-
-  describe("FlexItems", () => { 
-    describe("FlexItems[0]", () => {
       describe("Props", () => {
-        describe("flex", () => {
-          test("should have 0 1 40%", () => {
-            const { FlexItems } = setup();
+        describe("color", () => {
+          test("should have #fff", () => {
+            const { Texts } = setup();
       
-            expect(FlexItems[0]).toHaveStyleRule("flex", "0 1 40%");
+            expect(Texts[0]).toHaveStyleRule("color", "#fff");
+          });
+        });
+  
+        describe("font-family", () => {
+          test("should have ExanModifiedRegular, monospace", () => {
+            const { Texts } = setup();
+
+            expect(Texts[0]).toHaveStyleRule("font-family", "ExanModifiedRegular,monospace");
+          });
+        });
+  
+        describe("fontSize", () => {
+          test("should have 48px", () => {
+            const { Texts } = setup();
+      
+            expect(Texts[0]).toHaveStyleRule("font-size", "48px");
+          });
+        });
+
+        describe("textTransform", () => {
+          test("should have uppercase", () => {
+            const { Texts } = setup();
+      
+            expect(Texts[0]).toHaveStyleRule("text-transform", "uppercase");
           });
         });
       });
     });
 
-    describe("FlexItems[1]", () => {
+    describe("Text[1]", () => {
+      test("should render textContent equal to title prop", () => {
+        const { Texts } = setup({
+          description: "Project description"
+        });
+  
+        expect(Texts[1].textContent).toEqual("Project description");
+      });
+
       describe("Props", () => {
-        describe("flex", () => {
-          test("should have 0 1 60%", () => {
-            const { FlexItems } = setup();
+        describe("color", () => {
+          test("should have #78b0b5", () => {
+            const { Texts } = setup();
       
-            expect(FlexItems[1]).toHaveStyleRule("flex", "0 1 60%");
+            expect(Texts[1]).toHaveStyleRule("color", "#78b0b5");
+          });
+        });
+  
+        describe("font-family", () => {
+          test("should have 'Anonymous Pro',monospace", () => {
+            const { Texts } = setup();
+
+            expect(Texts[1]).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
+          });
+        });
+
+        describe("fontSize", () => {
+          test("should have 24px", () => {
+            const { Texts } = setup();
+      
+            expect(Texts[1]).toHaveStyleRule("font-size", "24px");
+          });
+        });
+      });
+    });
+
+    describe("Text[2]", () => {
+      test("should have correct content", () => {
+        const { Texts } = setup();
+  
+        expect(Texts[2].textContent).toEqual("Made with:");
+      });
+
+      describe("Props", () => {
+        describe("color", () => {
+          test("should have #fff", () => {
+            const { Texts } = setup();
+      
+            expect(Texts[2]).toHaveStyleRule("color", "#fff");
+          });
+        });
+  
+        describe("font-family", () => {
+          test("should have 'Anonymous Pro',monospace", () => {
+            const { Texts } = setup();
+
+            expect(Texts[2]).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
+          });
+        });
+
+        describe("fontSize", () => {
+          test("should have 24px", () => {
+            const { Texts } = setup();
+      
+            expect(Texts[2]).toHaveStyleRule("font-size", "24px");
+          });
+        });
+
+        describe("fontWeight", () => {
+          test("should have 700", () => {
+            const { Texts } = setup();
+      
+            expect(Texts[2]).toHaveStyleRule("font-weight", "700");
           });
         });
       });
     });
   });
 
-  describe("Label", () => { 
-    test("should render textContent equal to label prop", () => {
-      const { Text } = setup({
-        label: "Hello"
+  describe("IconsWithLabels", () => {
+    const iconsWithLabels: IconWithLabelProps[] = [
+      {
+        iconName: "brandJS",
+        label: "Javascript"
+      },
+      {
+        iconName: "brandReact",
+        label: "React"
+      }
+    ];
+
+    describe("Icon", () => {
+      test("there should be correct number of icons", () => {
+        const { Icons } = setup({
+          iconsWithLabels
+        });
+  
+        expect(Icons.length).toEqual(4);
+      });
+  
+      test("icons should render correct SVGs", () => {
+        const { Icons } = setup({
+          iconsWithLabels
+        });
+  
+        expect(Icons[0].textContent).toEqual("Brand-JS.svg");
+        expect(Icons[1].textContent).toEqual("Brand-React.svg");
       });
 
-      expect(Text.textContent).toEqual("Hello");
+      describe("IconContainer", () => {
+        describe("Props", () => {
+          describe("height", () => {
+            test("should have 4rem", () => {
+              const { IconContainers } = setup();
+      
+              expect(IconContainers[0]).toHaveStyleRule("height", "4rem");
+              expect(IconContainers[1]).toHaveStyleRule("height", "4rem");
+            });
+          });
+        });
+      });
     });
 
-    describe("Props", () => {
-      describe("color", () => {
-        test("should have #bcd8db", () => {
-          const { Text } = setup();
-    
-          expect(Text).toHaveStyleRule("color", "#bcd8db");
-        });
-      });
+    describe("Text", () => {
+      describe("Props", () => {
+        describe("label", () => {
+          describe("should have correct content passed via label props", () => {
+            const { LabelTexts } = setup({
+              iconsWithLabels
+            });
 
-      describe("ellipsis", () => {
-        describe("text-overflow", () => {
-          test("should have ellipsis", () => {
-            const { Text } = setup();
-
-            expect(Text).toHaveStyleRule("text-overflow", "ellipsis");
+            expect(LabelTexts[0].textContent).toEqual("Javascript");
+            expect(LabelTexts[1].textContent).toEqual("React");
           });
         });
 
-        describe("overflow", () => {
-          test("should have hidden", () => {
-            const { Text } = setup();
-
-            expect(Text).toHaveStyleRule("overflow", "hidden");
+        describe("fontSize", () => {  
+          test("should have 24px", () => {
+            const { LabelTexts } = setup();
+  
+            expect(LabelTexts[0]).toHaveStyleRule("font-size", "24px");
+            expect(LabelTexts[1]).toHaveStyleRule("font-size", "24px");
           });
-        });
-
-        describe("white-space", () => {
-          test("should have nowrap", () => {
-            const { Text } = setup();
-
-            expect(Text).toHaveStyleRule("white-space", "nowrap");
-          });
-        });
-      });
-
-      describe("font-family", () => {
-        test("should have 'Anonymous Pro',monospace", () => {
-          const { Text } = setup();
-
-          expect(Text).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
-        });
-      });
-
-      describe("fontSize", () => {
-        test("should have 8px", () => {
-          const { Text } = setup();
-    
-          expect(Text).toHaveStyleRule("font-size", "8px");
-        });
-      });
-
-      describe("paddingRight", () => {
-        test("should have .4rem", () => {
-          const { Text } = setup();
-    
-          expect(Text).toHaveStyleRule("padding-right", ".4rem");
-        });
-      });
-
-      describe("textAlign", () => {
-        test("should have right", () => {
-          const { Text } = setup();
-    
-          expect(Text).toHaveStyleRule("text-align", "right");
-        });
-      });
-
-      describe("textTransform", () => {
-        test("should have uppercase", () => {
-          const { Text } = setup();
-    
-          expect(Text).toHaveStyleRule("text-transform", "uppercase");
         });
       });
     });
   });
   
-  describe("Barchart", () => { 
-    describe("Styles", () => {
-      describe("animation-delay", () => {
-        test("should have proper value passed via props", () => {
-          const { Barchart } = setup({
-            animationDelay: "500ms"
+  describe("Buttons", () => {
+    describe("Buttons[0]", () => {      
+      test("should have correct icon and text", () => {
+        const { Buttons } = setup();
+  
+        const ButtonsText = Buttons[0].querySelector("[font-family=\"Exan\"]");
+        const ButtonsIcon = Buttons[0].querySelector("svg");
+  
+        expect(ButtonsText.textContent).toEqual("Launch project");
+        expect(ButtonsIcon.textContent).toEqual("Btn-ExternalLink.svg");
+      });
+  
+      describe("Props", () => {
+        describe("size", () => {
+          describe("should have correct height for large size", () => {     
+            describe("height", () => {      
+              test("should have 5.6rem", () => {
+                const { Buttons } = setup();
+          
+                expect(Buttons[0]).toHaveStyleRule("height", "5.6rem");
+              });
+            });
           });
-    
-          expect(Barchart).toHaveStyleRule("animation-delay", "500ms");
+        });
+
+        describe("type", () => {
+          describe("should have correct background-color for type primary", () => {       
+            describe("background-color", () => {      
+              test("should have #2b595e", () => {
+                const { Buttons } = setup();
+          
+                expect(Buttons[0]).toHaveStyleRule("background-color", "#2b595e");
+              });
+            });
+          });
         });
       });
+    });
 
-      describe("animation-duration", () => {
-        test("should have 3600ms", () => {
-          const { Barchart } = setup();
-    
-          expect(Barchart).toHaveStyleRule("animation-duration", "3600ms");
+    describe("Buttons[1]", () => {      
+      test("should have correct icon and text", () => {
+        const { Buttons } = setup();
+  
+        const ButtonsText = Buttons[1].querySelector("[font-family=\"Exan\"]");
+        const ButtonsIcon = Buttons[1].querySelector("svg");
+  
+        expect(ButtonsText.textContent).toEqual("Open in codesandbox");
+        expect(ButtonsIcon.textContent).toEqual("Btn-CodeSandbox.svg");
+      });
+  
+      describe("Props", () => {
+        describe("size", () => {
+          describe("should have correct height for large size", () => { 
+            describe("height", () => {      
+              test("should have 5.6rem", () => {
+                const { Buttons } = setup();
+          
+                expect(Buttons[1]).toHaveStyleRule("height", "5.6rem");
+              });
+            });
+          });
+        });
+
+        describe("type", () => {
+          describe("should have correct background-color for type secondary", () => {       
+            describe("background-color", () => {      
+              test("should have transparent", () => {
+                const { Buttons } = setup();
+          
+                expect(Buttons[1]).toHaveStyleRule("background-color", "transparent");
+              });
+            });
+          });
         });
       });
+    });
+  });
 
-      describe("animation-iteration-count", () => {
-        test("should have infinite", () => {
-          const { Barchart } = setup();
-    
-          expect(Barchart).toHaveStyleRule("animation-iteration-count", "infinite");
+  describe("SpacingContainers", () => { 
+    describe("TitleWithDescriptionSpacingContainer", () => { 
+      describe("Props", () => {
+        describe("marginBottom", () => {      
+          test("should have 4rem", () => {
+            const { TitleWithDescriptionSpacingContainer } = setup();
+
+            expect(TitleWithDescriptionSpacingContainer).toHaveStyleRule("margin-bottom", "4rem");
+          });
+        });
+
+        describe("marginTop", () => {      
+          test("should have 1.6rem", () => {
+            const { TitleWithDescriptionSpacingContainer } = setup();
+
+            expect(TitleWithDescriptionSpacingContainer).toHaveStyleRule("margin-top", "1.6rem");
+          });
         });
       });
+    });
 
-      describe("animation-timing-function", () => {
-        test("should have ease-in-out", () => {
-          const { Barchart } = setup();
-    
-          expect(Barchart).toHaveStyleRule("animation-timing-function", "ease-in-out");
+    describe("UsedTechnologiesSpacingContainer", () => { 
+      describe("Props", () => {
+        describe("marginBottom", () => {      
+          test("should have 4rem", () => {
+            const { UsedTechnologiesSpacingContainer } = setup();
+
+            expect(UsedTechnologiesSpacingContainer).toHaveStyleRule("margin-bottom", "4rem");
+          });
         });
       });
+    });
 
-      describe("background-color", () => {
-        test("should have #78b0b5", () => {
-          const { Barchart } = setup();
-    
-          expect(Barchart).toHaveStyleRule("background-color", "#78b0b5");
+    describe("IconsWithLabelsSpacingContainer", () => { 
+      describe("Props", () => {
+        describe("marginTop", () => {      
+          test("should have .8rem", () => {
+            const { IconsWithLabelsSpacingContainer } = setup();
+
+            expect(IconsWithLabelsSpacingContainer).toHaveStyleRule("margin-top", ".8rem");
+          });
         });
       });
+    });
 
-      describe("height", () => {
-        test("should have .4rem", () => {
-          const { Barchart } = setup();
-    
-          expect(Barchart).toHaveStyleRule("height", ".4rem");
-        });
-      });
+    describe("ButtonsSpacingContainer", () => { 
+      describe("Props", () => {
+        describe("marginTop", () => {      
+          test("should have 1.6rem", () => {
+            const { ButtonsSpacingContainer } = setup();
 
-      describe("padding-right", () => {
-        test("should have .4rem", () => {
-          const { Barchart } = setup();
-    
-          expect(Barchart).toHaveStyleRule("padding-right", ".4rem");
-        });
-      });
-
-      describe("width", () => {
-        test("should have 100%", () => {
-          const { Barchart } = setup();
-    
-          expect(Barchart).toHaveStyleRule("width", "100%");
+            expect(ButtonsSpacingContainer).toHaveStyleRule("margin-top", "1.6rem");
+          });
         });
       });
     });
@@ -329,11 +370,17 @@ describe("molecules / ProjectDescription", () => {
 });
 
 interface Setup extends RenderResult {
-  Buttons: Element[];
+  Buttons: NodeListOf<HTMLButtonElement>;
+  ButtonsSpacingContainer: Element;
+  IconContainers: Element[];
+  Icons: NodeListOf<SVGSVGElement>;
   IconsWithLabels: Element;
+  IconsWithLabelsSpacingContainer: Element;
+  LabelTexts: Element[];
   ProjectDescriptionContainer: Element;
-  SpacingContainers: Element[];
   Texts: Element[];
+  TitleWithDescriptionSpacingContainer: Element;
+  UsedTechnologiesSpacingContainer: Element;
 }
 
 type ProjectDescriptionTestProps = Partial<ProjectDescriptionProps>;
@@ -361,21 +408,34 @@ function setup(addedProps?: ProjectDescriptionTestProps): Setup {
     <ProjectDescription {...props} />
   );
 
-  const { queryByTestId, queryAllByTestId } = utils || {};
+  const { queryAllByTestId } = utils || {};
 
-  const Buttons: Element[] = queryAllByTestId("Button");
-  const IconsWithLabels: Element = queryByTestId("IconsWithLabels");
-  const ProjectDescriptionContainer: Element = queryByTestId("ProjectDescription");
-  const SpacingContainers: Element[] = queryAllByTestId("SpacingContainer");
+  const Buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll("button");
+  const ButtonsSpacingContainer: Element = queryAllByTestId("ButtonsSpacingContainer")[0];
+  const IconContainers: Element[] = queryAllByTestId("IconContainer");
+  const Icons: NodeListOf<SVGSVGElement> = document.querySelectorAll("svg");
+  const IconsWithLabels: Element = queryAllByTestId("IconsWithLabels")[0];
+  const IconsWithLabelsSpacingContainer: Element = queryAllByTestId("IconsWithLabelsSpacingContainer")[0];
+  const LabelTexts: Element[] = queryAllByTestId("LabelText");
+  const ProjectDescriptionContainer: Element = queryAllByTestId("ProjectDescription")[0];
   const Texts: Element[] = queryAllByTestId("Text");
+  const TitleWithDescriptionSpacingContainer: Element = queryAllByTestId("TitleWithDescriptionSpacingContainer")[0];
+  const UsedTechnologiesSpacingContainer: Element = queryAllByTestId("UsedTechnologiesSpacingContainer")[0];
+
 
   return {
     ...utils,
     Buttons,
+    ButtonsSpacingContainer,
+    IconContainers,
+    Icons,
     IconsWithLabels,
+    IconsWithLabelsSpacingContainer,
+    LabelTexts,
     ProjectDescriptionContainer,
-    SpacingContainers,
-    Texts
+    Texts,
+    TitleWithDescriptionSpacingContainer,
+    UsedTechnologiesSpacingContainer
   };
 }
  
