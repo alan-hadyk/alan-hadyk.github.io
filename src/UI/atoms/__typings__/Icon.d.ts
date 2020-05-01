@@ -45,6 +45,9 @@ export interface IconProps {
 
 export interface IconComponents {
   apollo: SVGIcon;
+  brandJS: SVGIcon;
+  brandReact: SVGIcon;
+  brandWebpack: SVGIcon;
   btnCodeSandbox: SVGIcon;
   btnDownload: SVGIcon;
   btnExternalLink: SVGIcon;
