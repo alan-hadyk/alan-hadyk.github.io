@@ -8,6 +8,9 @@ export interface IconProps {
   height?: string | Spacing;
   iconName:
     "apollo" |
+    "brandJS" |
+    "brandReact" |
+    "brandWebpack" |
     "btnCodeSandbox" |
     "btnDownload" |
     "btnExternalLink" |
@@ -31,6 +34,7 @@ export interface IconProps {
     "unknown" |
     "webpack";
   isActive?: boolean;
+  isHeightResponsive?: boolean;
   isResponsive?: boolean;
   overflow?: "hidden" | "visible";
   shouldDisplayGlowAnimation?: boolean;
@@ -41,6 +45,9 @@ export interface IconProps {
 
 export interface IconComponents {
   apollo: SVGIcon;
+  brandJS: SVGIcon;
+  brandReact: SVGIcon;
+  brandWebpack: SVGIcon;
   btnCodeSandbox: SVGIcon;
   btnDownload: SVGIcon;
   btnExternalLink: SVGIcon;

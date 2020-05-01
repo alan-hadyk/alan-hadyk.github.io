@@ -43,6 +43,16 @@ describe("atoms / Icon", () => {
           modifier: "svg"
         });
       });
+
+      test("should have 100% for svg if is height responsive", () => {
+        const { IconContainer } = setup({
+          isHeightResponsive: true
+        });
+
+        expect(IconContainer).toHaveStyleRule("height", "100%", {
+          modifier: "svg"
+        });
+      });
     });
 
     describe("width", () => {
@@ -367,6 +377,30 @@ describe("atoms / Icon", () => {
         });
 
         expect(IconComponent.textContent).toEqual("Icon-Apollo.svg");
+      });
+
+      test("should render correct icon for brandJS", () => {
+        const { IconComponent } = setup({
+          iconName: "brandJS"
+        });
+  
+        expect(IconComponent.textContent).toEqual("Brand-JS.svg");
+      });
+
+      test("should render correct icon for brandReact", () => {
+        const { IconComponent } = setup({
+          iconName: "brandReact"
+        });
+  
+        expect(IconComponent.textContent).toEqual("Brand-React.svg");
+      });
+
+      test("should render correct icon for brandWebpack", () => {
+        const { IconComponent } = setup({
+          iconName: "brandWebpack"
+        });
+  
+        expect(IconComponent.textContent).toEqual("Brand-Webpack.svg");
       });
 
       test("should render correct icon for btnCodeSandbox", () => {

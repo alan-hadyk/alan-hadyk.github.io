@@ -10,5 +10,5 @@ const PortfolioSection = (): JSX.Element => (
     Portfolio
   </Section>
 );
-  
+
 export default memo(PortfolioSection);

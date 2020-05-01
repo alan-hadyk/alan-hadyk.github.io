@@ -2,6 +2,9 @@ import React, { memo } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize } from "polished";
 
+import { ReactComponent as BrandJS } from "<assets>/svg/Brand-JS.svg";
+import { ReactComponent as BrandReact } from "<assets>/svg/Brand-React.svg";
+import { ReactComponent as BrandWebpack } from "<assets>/svg/Brand-Webpack.svg";
 import { ReactComponent as BtnCodeSandbox } from "<assets>/svg/Btn-CodeSandbox.svg";
 import { ReactComponent as BtnDownload } from "<assets>/svg/Btn-Download.svg";
 import { ReactComponent as BtnExternalLink } from "<assets>/svg/Btn-ExternalLink.svg";
@@ -39,6 +42,7 @@ function Icon({
   height = "auto",
   iconName,
   isActive = false,
+  isHeightResponsive = false,
   isResponsive = false,
   overflow = "visible",
   shouldDisplayGlowAnimation = false,
@@ -48,6 +52,9 @@ function Icon({
 }: IconProps): JSX.Element {
   const iconComponents: IconComponents = {
     apollo: IconApollo,
+    brandJS: BrandJS,
+    brandReact: BrandReact,
+    brandWebpack: BrandWebpack,
     btnCodeSandbox: BtnCodeSandbox,
     btnDownload: BtnDownload,
     btnExternalLink: BtnExternalLink,
@@ -81,6 +88,7 @@ function Icon({
       animationTime={animationTime}
       height={height}
       isActive={isActive}
+      isHeightResponsive={isHeightResponsive}
       isResponsive={isResponsive}
       overflow={overflow}
       shouldDisplayGlowAnimation={shouldDisplayGlowAnimation}
@@ -99,6 +107,7 @@ Icon.Container = styled.div<IconContainerProps>`
     animationTime,
     height,
     isActive,
+    isHeightResponsive,
     isResponsive,
     overflow,
     shouldDisplayGlowAnimation,
@@ -117,24 +126,22 @@ Icon.Container = styled.div<IconContainerProps>`
     overflow: ${overflow};
     width: ${(width in spacing && spacing[width]) || width};
 
-    ${isResponsive && `
-      svg {
-        height: 100%;
-        width: 100%;
+    ${isActive && css`
+      svg path {
+        fill: ${blue300};
       }
     `}
+
+    svg {
+      height: ${isResponsive || isHeightResponsive  ? "100%" : "auto"};
+      width: ${(isResponsive && !isHeightResponsive)  ? "100%" : "auto"};
+    }
 
     ${shouldRotate && css`
       animation-duration: ${transitionTimes.verySlow};
       animation-iteration-count: infinite;
       animation-name: ${rotate};
       animation-timing-function: ${linear};
-    `}
-
-    ${isActive && css`
-      svg path {
-        fill: ${blue300};
-      }
     `}
 
     & > * {
