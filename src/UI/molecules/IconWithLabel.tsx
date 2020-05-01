@@ -20,7 +20,7 @@ const mapSizeToIconHeight: MapSizeToIconHeight = {
   large: "spacing40",
   medium: "spacing32",
   small: "spacing28"
-}; 
+};
 
 const mapSizeToTextFontSize: MapSizeToTextFontSize = {
   large: "font24",
