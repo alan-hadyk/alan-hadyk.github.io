@@ -1,4 +1,4 @@
-import React, { memo, Fragment } from "react";
+import React, { Fragment } from "react";
 
 import Corner from "<atoms>/Corner";
 
@@ -31,4 +31,4 @@ function Corners({ isActive = false }: CornersProps): JSX.Element {
   }
 }
 
-export default memo(Corners);
+export default Corners;

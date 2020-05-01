@@ -1,6 +1,5 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
-import ShuffleText from "shuffle-text";
 
 import Coords from "<pages>/Home/sections/dashboard/elements/Coords";
 
@@ -23,47 +22,6 @@ describe("pages / Home / sections / dashboard / elements / Coords", () => {
           const { DashboardElement } = setup();
       
           expect(DashboardElement).toHaveStyleRule("flex", "0 1 15%");
-        });
-      });
-
-      describe("shuffleDelay", () => {
-        test("should trigger shuffleText.start in intervals with 600ms delay", () => {
-          jest.spyOn(ShuffleText.prototype, "start");
-          jest.useFakeTimers();
-    
-          setup();
-
-          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
-
-          jest.advanceTimersByTime(600);
-    
-          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
-    
-          jest.advanceTimersByTime(7200);
-    
-          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
-    
-          jest.advanceTimersByTime(600);
-    
-          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
-    
-          jest.advanceTimersByTime(7200);
-    
-          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
-    
-          jest.advanceTimersByTime(600);
-    
-          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
-    
-          jest.advanceTimersByTime(7200);
-    
-          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
-    
-          jest.advanceTimersByTime(600);
-    
-          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
-    
-          jest.clearAllTimers();
         });
       });
 

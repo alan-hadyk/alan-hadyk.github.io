@@ -5,6 +5,8 @@ import FpsChart from "<molecules>/FpsChart";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
+jest.mock("<hooks>/useFpsCounter");
+
 describe("molecules / FpsChart", () => {
   test("should have correct structure", () => {
     const { 

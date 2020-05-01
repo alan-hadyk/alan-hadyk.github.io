@@ -247,37 +247,80 @@ describe("molecules / PerformanceItem", () => {
   
   describe("Barchart", () => { 
     describe("Styles", () => {
-      describe("animation-delay", () => {
-        test("should have proper value passed via props", () => {
-          const { Barchart } = setup({
-            animationDelay: "500ms"
+      describe("when shouldAnimate is true", () => {
+        describe("animation-delay", () => {
+          test("should have proper value passed via props", () => {
+            const { Barchart } = setup({
+              animationDelay: "500ms",
+              shouldAnimate: true
+            });
+      
+            expect(Barchart).toHaveStyleRule("animation-delay", "500ms");
           });
-    
-          expect(Barchart).toHaveStyleRule("animation-delay", "500ms");
+        });
+  
+        describe("animation-duration", () => {
+          test("should have 3600ms", () => {
+            const { Barchart } = setup({
+              shouldAnimate: true
+            });
+      
+            expect(Barchart).toHaveStyleRule("animation-duration", "3600ms");
+          });
+        });
+  
+        describe("animation-iteration-count", () => {
+          test("should have infinite", () => {
+            const { Barchart } = setup({
+              shouldAnimate: true
+            });
+      
+            expect(Barchart).toHaveStyleRule("animation-iteration-count", "infinite");
+          });
+        });
+  
+        describe("animation-timing-function", () => {
+          test("should have ease-in-out", () => {
+            const { Barchart } = setup({
+              shouldAnimate: true
+            });
+      
+            expect(Barchart).toHaveStyleRule("animation-timing-function", "ease-in-out");
+          });
         });
       });
 
-      describe("animation-duration", () => {
-        test("should have 3600ms", () => {
-          const { Barchart } = setup();
-    
-          expect(Barchart).toHaveStyleRule("animation-duration", "3600ms");
-        });
-      });
+      describe("when shouldAnimate is false", () => {
+        let Barchart: Element;
 
-      describe("animation-iteration-count", () => {
-        test("should have infinite", () => {
-          const { Barchart } = setup();
-    
-          expect(Barchart).toHaveStyleRule("animation-iteration-count", "infinite");
+        beforeEach(() => {
+          Barchart = setup({
+            shouldAnimate: false
+          }).Barchart;
         });
-      });
 
-      describe("animation-timing-function", () => {
-        test("should have ease-in-out", () => {
-          const { Barchart } = setup();
-    
-          expect(Barchart).toHaveStyleRule("animation-timing-function", "ease-in-out");
+        describe("animation-delay", () => {
+          test("should not have", () => {      
+            expect(Barchart).not.toHaveStyleRule("animation-delay");
+          });
+        });
+  
+        describe("animation-duration", () => {
+          test("should not have", () => {      
+            expect(Barchart).not.toHaveStyleRule("animation-duration");
+          });
+        });
+  
+        describe("animation-iteration-count", () => {
+          test("should not have", () => {      
+            expect(Barchart).not.toHaveStyleRule("animation-iteration-count");
+          });
+        });
+  
+        describe("animation-timing-function", () => {
+          test("should not have", () => {      
+            expect(Barchart).not.toHaveStyleRule("animation-timing-function");
+          });
         });
       });
 
@@ -331,6 +374,7 @@ function setup(addedProps?: PerformanceItemTestProps): Setup {
   const props: PerformanceItemProps = {
     animationDelay: "600ms",
     label: "Total heap size",
+    shouldAnimate: true,
     ...addedProps
   };
 

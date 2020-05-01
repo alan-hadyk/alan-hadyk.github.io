@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable no-undef */
 import React from "react";
+import { act } from "@testing-library/react";
 
 import FpsChart from "<molecules>/FpsChart";
 
@@ -27,11 +28,15 @@ describe("molecules / FpsChart", () => {
 
       expect(FpsCounter.textContent).toEqual("");
 
-      jest.advanceTimersByTime(100);
+      act(() => {
+        jest.advanceTimersByTime(100);
+      });
 
       expect(FpsCounter.textContent).toEqual("60");
 
-      jest.advanceTimersByTime(100);
+      act(() => {
+        jest.advanceTimersByTime(100);
+      });
 
       expect(FpsCounter.textContent).toEqual("60");
       

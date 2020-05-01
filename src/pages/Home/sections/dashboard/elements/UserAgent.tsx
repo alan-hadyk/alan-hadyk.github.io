@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 
 import DashboardElement from "<molecules>/DashboardElement";
 import BrowserInfo from "<molecules>/BrowserInfo";
@@ -6,14 +6,13 @@ import BrowserInfo from "<molecules>/BrowserInfo";
 export const UserAgent = (): JSX.Element => (
   <DashboardElement
     dataTestId="UserAgent"
-    description={window.navigator.userAgent}
+    description={window && window.navigator && window.navigator.userAgent}
     flex="0 1 13.6%"
     shouldDisplayCorners
-    shuffleDelay={5400}
     title="User Agent" 
   >
     <BrowserInfo />
   </DashboardElement>
 );
   
-export default memo(UserAgent);
+export default UserAgent;
