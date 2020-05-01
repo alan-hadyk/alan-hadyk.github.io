@@ -1,4 +1,4 @@
-import React, { memo, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize, radialGradient } from "polished";
 
@@ -207,4 +207,4 @@ Button.Container = styled.button<ButtonContainerProps>`
   `}
 `;
 
-export default memo(Button);
+export default Button;

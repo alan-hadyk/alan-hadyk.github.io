@@ -3,6 +3,11 @@ import {
 } from "<hooks>/__typings__/useLineChart.d.ts";
 
 export interface UseFpsCounter {
-  chartData: MutableRefObject<LineChartData[]>;
-  fpsContainer: MutableRefObject<HTMLDivElement>;
+  chartData?: MutableRefObject<LineChartData[]>;
+  fpsContainer?: MutableRefObject<HTMLDivElement>;
 }
+
+export interface UseFpsCounterResult {
+  isPerformanceLow: boolean;
+}
+

@@ -17,13 +17,14 @@ export interface IconProps {
     "btnSend" |
     "chrome" |
     "codeSandbox" |
+    "earth" |
     "firefox" |
     "gitHub" |
     "graphql" |
     "ie" |
     "javascript" |
-    "logo" |
     "linkedIn" |
+    "logo" |
     "node" |
     "opera" |
     "react" |
@@ -40,6 +41,32 @@ export interface IconProps {
   shouldGlowOnHover?: boolean;
   shouldRotate?: boolean;
   width?: string | Spacing;
+}
+
+export interface IconComponents {
+  apollo: SVGIcon;
+  btnCodeSandbox: SVGIcon;
+  btnDownload: SVGIcon;
+  btnExternalLink: SVGIcon;
+  btnSend: SVGIcon;
+  chrome: SVGIcon;
+  codeSandbox: SVGIcon;
+  earth: SVGIcon;
+  firefox: SVGIcon;
+  gitHub: SVGIcon;
+  graphql: SVGIcon;
+  ie: SVGIcon;
+  javascript: SVGIcon;
+  linkedIn: SVGIcon;
+  logo: SVGIcon;
+  node: SVGIcon;
+  opera: SVGIcon;
+  react: SVGIcon;
+  reactLogo: SVGIcon;
+  safari: SVGIcon;
+  typescript: SVGIcon;
+  unknown: SVGIcon;
+  webpack: SVGIcon;
 }
 
 type SVGIcon = FunctionComponent<SVGProps<SVGSVGElement> & { title?: string }>;
