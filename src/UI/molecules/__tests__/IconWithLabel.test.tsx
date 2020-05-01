@@ -261,4 +261,4 @@ function setup(addedProps?: IconWithLabelTestProps): Setup {
     SpacingContainer,
     Text
   };
-}
+} 

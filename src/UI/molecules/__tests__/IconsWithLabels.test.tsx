@@ -343,4 +343,4 @@ function setup(addedProps?: IconsWithLabelsTestProps): Setup {
     SpacingContainers,
     Texts
   };
-}
+} 

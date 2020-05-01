@@ -21,7 +21,7 @@ const mapSizeToFlexContainerGap: MapSizeToFlexContainerGap = {
   large: "spacing28",
   medium: "spacing12",
   small: "spacing16"
-};
+}; 
 
 function IconsWithLabels({
   iconsWithLabels = [],
