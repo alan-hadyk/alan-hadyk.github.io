@@ -31,8 +31,8 @@ function IconsWithLabels({
 }: IconsWithLabelsProps): JSX.Element {
   const flexFlow: FlexContainerProps["flexFlow"] = position === "horizontal" ? "row nowrap" : "column nowrap";
 
-  const renderIconsWithLabels = useCallback((): JSX.Element[] => {
-    return iconsWithLabels.map(({iconName, label}: IconWithLabelProps): JSX.Element => (
+  const renderIconsWithLabels = useCallback((): JSX.Element[] =>
+    iconsWithLabels.map(({ iconName, label }: IconWithLabelProps): JSX.Element => (
       <IconWithLabel
         labelColor={labelColor}
         iconName={iconName}
@@ -40,8 +40,7 @@ function IconsWithLabels({
         label={label}
         size={size}
       />
-    ));
-  }, []);
+    )), []);
 
   return (
     <FlexContainer
