@@ -7,8 +7,9 @@ import { ReactComponent as BtnDownload } from "<assets>/svg/Btn-Download.svg";
 import { ReactComponent as BtnExternalLink } from "<assets>/svg/Btn-ExternalLink.svg";
 import { ReactComponent as BtnSend } from "<assets>/svg/Btn-Send.svg";
 import { ReactComponent as IconApollo } from "<assets>/svg/Icon-Apollo.svg";
-import { ReactComponent as IconChrome } from "<assets>/svg/Icon-Chrome.svg";
 import { ReactComponent as IconCodeSandbox } from "<assets>/svg/Icon-CodeSandbox.svg";
+import { ReactComponent as IconEarth } from "<assets>/svg/Icon-Earth.svg";
+import { ReactComponent as IconChrome } from "<assets>/svg/Icon-Chrome.svg";
 import { ReactComponent as IconFirefox } from "<assets>/svg/Icon-Firefox.svg";
 import { ReactComponent as IconGitHub } from "<assets>/svg/Icon-GitHub.svg";
 import { ReactComponent as IconGraphql } from "<assets>/svg/Icon-Graphql.svg";
@@ -26,6 +27,7 @@ import { ReactComponent as IconSafari } from "<assets>/svg/Icon-Safari.svg";
 import { ReactComponent as IconUnknown } from "<assets>/svg/Icon-Unknown.svg";
 
 import {
+  IconComponents,
   IconContainerProps,
   IconProps,
   SVGIcon
@@ -44,7 +46,7 @@ function Icon({
   shouldRotate = false,
   width = "auto"
 }: IconProps): JSX.Element {
-  const iconComponents = {
+  const iconComponents: IconComponents = {
     apollo: IconApollo,
     btnCodeSandbox: BtnCodeSandbox,
     btnDownload: BtnDownload,
@@ -52,6 +54,7 @@ function Icon({
     btnSend: BtnSend,
     chrome: IconChrome,
     codeSandbox: IconCodeSandbox,
+    earth: IconEarth,
     firefox: IconFirefox,
     gitHub: IconGitHub,
     graphql: IconGraphql,

@@ -1,4 +1,4 @@
-import React, { memo, useRef } from "react";
+import React, { useRef } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize } from "polished";
 
@@ -121,4 +121,4 @@ Console.Text = styled.div`
   `}
 `;
 
-export default memo(Console);
+export default Console;

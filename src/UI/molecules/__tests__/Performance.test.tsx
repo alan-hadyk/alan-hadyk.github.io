@@ -7,6 +7,9 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 jest.mock("<helpers>/math/getRandomDelay", () => (_min: number, max: number): number => max);
 
+jest.mock("<hooks>/useFpsCounter");
+import useFpsCounter from "<hooks>/useFpsCounter";
+
 describe("molecules / Performance", () => {
   test("should have correct structure", () => {
     const {
@@ -27,6 +30,16 @@ describe("molecules / Performance", () => {
     });
 
     describe("Props", () => {
+      describe("animationDelay", () => {
+        test("should render each item in intervals with random delay", () => {
+          const { PerformanceItems } = setup();
+
+          PerformanceItems.forEach((PerformanceItem, index) => {
+            expect(PerformanceItem.children[0].children[0].children[1].children[0]).toHaveStyleRule("animation-delay", `${index * 600}ms`);
+          });
+        });
+      });
+
       describe("label", () => {
         test("should render each item with label", () => {
           const { PerformanceItems } = setup();
@@ -57,11 +70,38 @@ describe("molecules / Performance", () => {
         });
       });
 
-      describe("animationDelay", () => {
-        test("should render each item in intervals with random delay", () => {
+      describe("shouldAnimate", () => {
+        test("should animate if performance is high", () => {
+          const mockUseFpsCounter: jest.Mock<unknown, unknown[]> = useFpsCounter as unknown as jest.Mock;
+
+          mockUseFpsCounter.mockImplementation(() => ({
+            isPerformanceLow: false
+          }));
+      
           const { PerformanceItems } = setup();
+          
           PerformanceItems.forEach((PerformanceItem, index) => {
             expect(PerformanceItem.children[0].children[0].children[1].children[0]).toHaveStyleRule("animation-delay", `${index * 600}ms`);
+            expect(PerformanceItem.children[0].children[0].children[1].children[0]).toHaveStyleRule("animation-duration", "3600ms");
+            expect(PerformanceItem.children[0].children[0].children[1].children[0]).toHaveStyleRule("animation-iteration-count", "infinite");
+            expect(PerformanceItem.children[0].children[0].children[1].children[0]).toHaveStyleRule("animation-timing-function", "ease-in-out");
+          });
+        });
+
+        test("should not animate if performance is low", () => {
+          const mockUseFpsCounter: jest.Mock<unknown, unknown[]> = useFpsCounter as unknown as jest.Mock;
+
+          mockUseFpsCounter.mockImplementation(() => ({
+            isPerformanceLow: true
+          }));
+      
+          const { PerformanceItems } = setup();
+          
+          PerformanceItems.forEach((PerformanceItem, index) => {
+            expect(PerformanceItem.children[0].children[0].children[1].children[0]).not.toHaveStyleRule("animation-delay");
+            expect(PerformanceItem.children[0].children[0].children[1].children[0]).not.toHaveStyleRule("animation-duration");
+            expect(PerformanceItem.children[0].children[0].children[1].children[0]).not.toHaveStyleRule("animation-iteration-count");
+            expect(PerformanceItem.children[0].children[0].children[1].children[0]).not.toHaveStyleRule("animation-timing-function");
           });
         });
       });

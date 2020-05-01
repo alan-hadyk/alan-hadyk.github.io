@@ -1,13 +1,21 @@
 import React from "react";
 import {
+  act,
   RenderResult
 } from "@testing-library/react";
 
-import TypingAnimation, { code } from "<molecules>/TypingAnimation";
+import TypingAnimation, { CODE } from "<molecules>/TypingAnimation";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
+jest.mock("<hooks>/useFpsCounter");
+import useFpsCounter from "<hooks>/useFpsCounter";
+
 describe("molecules / TypingAnimation", () => {
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
   test("should have correct structure", () => {
     const { 
       PositionContainer,
@@ -40,38 +48,58 @@ describe("molecules / TypingAnimation", () => {
   });
 
   describe("TypingAnimationCode", () => {   
-    test("should update code character by character in intervals (50ms)", () => {
+    test("should update code character by character in intervals (50ms) if performance is high", () => {
       jest.useFakeTimers();
+
+      const mockUseFpsCounter: jest.Mock<unknown, unknown[]> = useFpsCounter as unknown as jest.Mock;
+
+      mockUseFpsCounter.mockImplementation(() => ({
+        isPerformanceLow: false
+      }));
 
       const { TypingAnimationCode } = setup();
 
       expect(TypingAnimationCode.textContent).toEqual("");
 
-      jest.advanceTimersByTime(50);
+      act(() => {
+        jest.advanceTimersByTime(50);
+      });
 
       expect(TypingAnimationCode.textContent).toEqual("i");
 
-      jest.advanceTimersByTime(50);
+      act(() => {
+        jest.advanceTimersByTime(50);
+      });
 
       expect(TypingAnimationCode.textContent).toEqual("im");
 
-      jest.advanceTimersByTime(50);
+      act(() => {
+        jest.advanceTimersByTime(50);
+      });
 
       expect(TypingAnimationCode.textContent).toEqual("imp");
 
-      jest.advanceTimersByTime(50);
+      act(() => {
+        jest.advanceTimersByTime(50);
+      });
 
       expect(TypingAnimationCode.textContent).toEqual("impo");
 
-      jest.advanceTimersByTime(50);
+      act(() => {
+        jest.advanceTimersByTime(50);
+      });
 
       expect(TypingAnimationCode.textContent).toEqual("impor");
 
-      jest.advanceTimersByTime(50);
+      act(() => {
+        jest.advanceTimersByTime(50);
+      });
 
       expect(TypingAnimationCode.textContent).toEqual("import");
 
-      jest.advanceTimersByTime(5000);
+      act(() => {
+        jest.advanceTimersByTime(5000);
+      });
 
       expect(TypingAnimationCode.textContent).toEqual(`import { useLayoutEffect } from "react";
 
@@ -82,20 +110,86 @@ import {
       jest.clearAllTimers();
     });
     
-    test("should clear code after typing the whole text", () => {
+    test("should not update code character by character in intervals if performance is low", () => {
       jest.useFakeTimers();
+
+      const mockUseFpsCounter: jest.Mock<unknown, unknown[]> = useFpsCounter as unknown as jest.Mock;
+
+      mockUseFpsCounter.mockImplementation(() => ({
+        isPerformanceLow: true
+      }));
 
       const { TypingAnimationCode } = setup();
 
       expect(TypingAnimationCode.textContent).toEqual("");
 
-      jest.advanceTimersByTime(code.length * 50 + 105);
+      act(() => {
+        jest.advanceTimersByTime(50);
+      });
 
       expect(TypingAnimationCode.textContent).toEqual("");
 
-      jest.advanceTimersByTime(50);
+      act(() => {
+        jest.advanceTimersByTime(500);
+      });
+
+      expect(TypingAnimationCode.textContent).toEqual("");
+
+      jest.clearAllTimers();
+    });
+    
+    test("should clear code after typing the whole text if performance is high", () => {
+      jest.useFakeTimers();
+
+      const mockUseFpsCounter: jest.Mock<unknown, unknown[]> = useFpsCounter as unknown as jest.Mock;
+
+      mockUseFpsCounter.mockImplementation(() => ({
+        isPerformanceLow: false
+      }));
+
+      const { TypingAnimationCode } = setup();
+
+      expect(TypingAnimationCode.textContent).toEqual("");
+
+      act(() => {
+        jest.advanceTimersByTime(CODE.length * 50 + 105);
+      });
+
+      expect(TypingAnimationCode.textContent).toEqual("");
+
+      act(() => {
+        jest.advanceTimersByTime(50);
+      });
 
       expect(TypingAnimationCode.textContent).toEqual("i");
+
+      jest.clearAllTimers();
+    });
+    
+    test("should not clear code if performance is low", () => {
+      jest.useFakeTimers();
+
+      const mockUseFpsCounter: jest.Mock<unknown, unknown[]> = useFpsCounter as unknown as jest.Mock;
+
+      mockUseFpsCounter.mockImplementation(() => ({
+        isPerformanceLow: true
+      }));
+
+      const { TypingAnimationCode } = setup();
+
+      expect(TypingAnimationCode.textContent).toEqual("");
+
+      act(() => {
+        jest.advanceTimersByTime(CODE.length * 50 + 105);
+      });
+
+      expect(TypingAnimationCode.textContent).toEqual("");
+
+      act(() => {
+        jest.advanceTimersByTime(50);
+      });
+
+      expect(TypingAnimationCode.textContent).toEqual("");
 
       jest.clearAllTimers();
     });

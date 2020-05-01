@@ -9,7 +9,6 @@ import SpacingContainer from "<layout>/SpacingContainer";
 
 import Cross from "<assets>/svg/Cross.svg";
 
-import transitionTimes from "<styles>/variables/transitionTimes";
 import spacing from "<styles>/variables/spacing";
 
 import { DashboardElementProps } from "<molecules>/__typings__/DashboardElement.d.ts";
@@ -22,7 +21,6 @@ function DashboardElement({
   flex,
   overflow = "hidden",
   shouldDisplayCorners = false,
-  shuffleDelay = 0,
   order = 0,
   title
 }: DashboardElementProps): JSX.Element {
@@ -58,13 +56,11 @@ function DashboardElement({
         fontFamily="AnonymousPro"
         fontSize="font16"
         lineHeight="spacing36"
-        shouldShuffle
-        shuffleDelay={shuffleDelay}
-        shuffleInterval={parseInt(transitionTimes.superSlow)}
         textTransform="uppercase"
       >
         {title}
       </Text>
+
       {description && (
         <SpacingContainer
           dataTestId="DashboardElementDescription"
@@ -84,6 +80,7 @@ function DashboardElement({
           </Text>
         </SpacingContainer>
       )}
+      
       <PositionContainer
         height={childrenHeight}
         position="relative"

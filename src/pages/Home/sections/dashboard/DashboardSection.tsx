@@ -7,6 +7,7 @@ import Code from "<pages>/Home/sections/dashboard/elements/Code";
 import Fps from "<pages>/Home/sections/dashboard/elements/Fps";
 import Commits from "<pages>/Home/sections/dashboard/elements/Commits";
 import Navigator from "<pages>/Home/sections/dashboard/elements/Navigator";
+import Ip from "<pages>/Home/sections/dashboard/elements/Ip";
 import UserAgent from "<pages>/Home/sections/dashboard/elements/UserAgent";
 import PoweredBy from "<pages>/Home/sections/dashboard/elements/PoweredBy";
 
@@ -43,7 +44,7 @@ function DashboardSection(): JSX.Element {
             justifyContent="space-between"
           >
             {renderTopRow()}
-            
+
             <Console />
 
             {renderBottomRow()}
@@ -99,10 +100,11 @@ function DashboardSection(): JSX.Element {
           <PoweredBy />
           <Navigator />
           <UserAgent />
+          <Ip />
         </FlexContainer>
       </SpacingContainer>
     );
   }
 }
-  
+
 export default memo(DashboardSection);

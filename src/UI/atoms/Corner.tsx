@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import {
@@ -65,4 +65,4 @@ Corner.Container = styled.div<CornerContainerProps>`
   `}
 `;
 
-export default memo(Corner);
+export default Corner;

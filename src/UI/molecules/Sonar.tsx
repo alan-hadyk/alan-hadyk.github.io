@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import PositionContainer from "<layout>/PositionContainer";
@@ -118,4 +118,4 @@ Sonar.HorizontalLine = styled.div`
   `}
 `;
 
-export default memo(Sonar);
+export default Sonar;

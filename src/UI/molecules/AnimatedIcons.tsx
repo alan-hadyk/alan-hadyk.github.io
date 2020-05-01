@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 
 import Icon from "<atoms>/Icon";
 import FlexContainer from "<layout>/FlexContainer";
@@ -49,4 +49,4 @@ function AnimatedIcons(): JSX.Element {
   }
 }
 
-export default memo(AnimatedIcons);
+export default AnimatedIcons;

@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 
 import DashboardElement from "<molecules>/DashboardElement";
 import AnimatedIcons from "<molecules>/AnimatedIcons";
@@ -14,4 +14,4 @@ const TechStack = (): JSX.Element => (
   </DashboardElement>
 );
   
-export default memo(TechStack);
+export default TechStack;

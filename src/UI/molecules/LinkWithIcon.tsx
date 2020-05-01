@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 
 import Link from "<atoms>/Link";
 import Icon from "<atoms>/Icon";
@@ -30,4 +30,4 @@ function LinkWithIcon({
   );
 }
   
-export default memo(LinkWithIcon);
+export default LinkWithIcon;

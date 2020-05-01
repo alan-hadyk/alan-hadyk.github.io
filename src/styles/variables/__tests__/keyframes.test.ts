@@ -27,12 +27,14 @@ describe("styles / variables / keyframes", () => {
   test("should have correct keyframe - barChartWidth", () => {
     expect(barChartWidth.stringifyArgs[0]).toEqual(`
     0% {
+      opacity: 0.99;
       width: 100%;
     }
     50% {
       width: 20%;
     }
     100% {
+      opacity: 1;
       width: 100%;
     }
   `);
@@ -56,9 +58,11 @@ describe("styles / variables / keyframes", () => {
     expect(borderDanceHorizontal.stringifyArgs[0]).toEqual(`
     from {
       background-position: left top;
+      opacity: 0.99;
     }
     to {
       background-position: left 1.2rem top;
+      opacity: 1;
     }
   `);
   });
@@ -67,9 +71,11 @@ describe("styles / variables / keyframes", () => {
     expect(borderDanceVertical.stringifyArgs[0]).toEqual(`
     from {
       background-position: left top;
+      opacity: 0.99;
     }
     to {
       background-position: left top 1.2rem;
+      opacity: 1;
     }
   `);
   });
@@ -78,6 +84,7 @@ describe("styles / variables / keyframes", () => {
     expect(glow.stringifyArgs[0]).toEqual(`
     0% {
       filter: drop-shadow(0px 0px 0px #bcd8db);
+      opacity: 0.99;
     }
 
     16% {
@@ -90,6 +97,7 @@ describe("styles / variables / keyframes", () => {
 
     100% {
       filter: drop-shadow(0px 0px 0px #bcd8db);
+      opacity: 1;
     }
   `);
   });
@@ -126,9 +134,11 @@ describe("styles / variables / keyframes", () => {
     expect(rotate.stringifyArgs[0]).toEqual(`
     from {
       transform: rotateY(0deg);
+      opacity: 0.99;
     }
     to {
       transform: rotateY(360deg);
+      opacity: 1;
     }
   `);
   });

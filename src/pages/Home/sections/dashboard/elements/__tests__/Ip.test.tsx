@@ -1,54 +1,54 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import Flux from "<pages>/Home/sections/dashboard/elements/Flux";
+import Ip from "<pages>/Home/sections/dashboard/elements/Ip";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-jest.mock("vivus");
+jest.mock("ip", () => ({
+  address: (): string => "127.0.0.1"
+}));
 
-jest.mock("<hooks>/useFpsCounter");
-
-describe("pages / Home / sections / dashboard / elements / Flux", () => {
+describe("pages / Home / sections / dashboard / elements / Ip", () => {
   test("should have correct structure", () => {
     const {
       DashboardElement,
-      FlowChart
+      Earth
     } = setup();
 
-    expect(DashboardElement.children[1].children[4].children[0].children[0]).toEqual(FlowChart);
+    expect(DashboardElement.children[1].children[4].children[0].children[0]).toEqual(Earth);
   });
 
   describe("DashboardElement", () => {
     describe("Props", () => {
       describe("flex", () => {
-        test("should have 0 1 30%", () => {
+        test("should have 0 1 20%", () => {
           const { DashboardElement } = setup();
-      
-          expect(DashboardElement).toHaveStyleRule("flex", "0 1 30%");
+
+          expect(DashboardElement).toHaveStyleRule("flex", "0 1 20%");
         });
       });
 
       describe("childrenHeight", () => {
         test("should have calc(100% - 3.6rem)", () => {
           const { DashboardElement } = setup();
-      
+
           expect(DashboardElement.children[1]).toHaveStyleRule("height", "calc(100% - 3.6rem)");
         });
       });
 
       describe("title", () => {
-        test("should render Flux", () => {
+        test("should render IP: ${ip.address} ", () => {
           const { DashboardElement } = setup();
-      
-          expect(DashboardElement.children[0].textContent).toEqual("Flux");
+
+          expect(DashboardElement.children[0].textContent).toEqual("IP: 127.0.0.1");
         });
       });
 
       describe("shouldDisplayCorners", () => {
         test("should render corners", () => {
           const { Corners, DashboardElement } = setup();
-      
+
           expect(DashboardElement.children[1].children[0]).toEqual(Corners[0]);
           expect(DashboardElement.children[1].children[1]).toEqual(Corners[1]);
           expect(DashboardElement.children[1].children[2]).toEqual(Corners[2]);
@@ -58,11 +58,11 @@ describe("pages / Home / sections / dashboard / elements / Flux", () => {
     });
   });
 
-  describe("FlowChart", () => {
+  describe("Earth", () => {
     test("should render", () => {
-      const { FlowChart } = setup();
-  
-      expect(FlowChart.textContent).toEqual("Flux-FlowChart.svg");
+      const { Earth } = setup();
+
+      expect(Earth.textContent).toEqual("Icon-Earth.svg");
     });
   });
 });
@@ -70,23 +70,23 @@ describe("pages / Home / sections / dashboard / elements / Flux", () => {
 interface Setup extends RenderResult {
   Corners: Element[];
   DashboardElement: Element;
-  FlowChart: Element;
+  Earth: Element;
 }
 
 function setup(): Setup {
   const utils: RenderResult = renderWithTheme(
-    <Flux />
+    <Ip />
   );
 
-  const { container, queryByTestId, queryAllByTestId } = utils || {};
-  const DashboardElement: Element = container.children[0];
-  const FlowChart: Element = queryByTestId("FlowChart");
+  const { queryByTestId, queryAllByTestId } = utils || {};
+  const DashboardElement: Element = queryByTestId("IP");
+  const Earth: Element = queryByTestId("Earth");
   const Corners: Element[] = queryAllByTestId("Corner");
 
   return {
     ...utils,
     Corners,
     DashboardElement,
-    FlowChart
+    Earth
   };
 }
