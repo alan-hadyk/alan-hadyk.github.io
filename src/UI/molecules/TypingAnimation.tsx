@@ -1,4 +1,4 @@
-import React, { memo, useRef, useMemo } from "react";
+import React, { useRef, useMemo } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import PositionContainer from "<layout>/PositionContainer";
@@ -127,4 +127,4 @@ TypingAnimation.Code = styled.code`
   `}
 `;
 
-export default memo(TypingAnimation);
+export default TypingAnimation;

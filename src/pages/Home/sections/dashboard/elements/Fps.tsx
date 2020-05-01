@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 
 import DashboardElement from "<molecules>/DashboardElement";
 import FpsChart from "<molecules>/FpsChart";
@@ -14,4 +14,4 @@ const Fps = (): JSX.Element => (
   </DashboardElement>
 );
 
-export default memo(Fps);
+export default Fps;

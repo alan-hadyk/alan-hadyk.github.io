@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import FlexContainer from "<layout>/FlexContainer";
@@ -64,4 +64,4 @@ Error.Icon = styled(IconWarning)`
   `}
 `;
 
-export default memo(Error);
+export default Error;

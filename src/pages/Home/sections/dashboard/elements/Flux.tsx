@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 
 import DashboardElement from "<molecules>/DashboardElement";
 import FlowChart from "<src>/UI/molecules/FlowChart";
@@ -14,4 +14,4 @@ const Flux = (): JSX.Element => (
   </DashboardElement>
 );
   
-export default memo(Flux);
+export default Flux;

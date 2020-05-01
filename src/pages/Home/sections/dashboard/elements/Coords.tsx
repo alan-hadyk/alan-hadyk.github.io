@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 
 import DashboardElement from "<molecules>/DashboardElement";
 import Sonar from "<molecules>/Sonar";
@@ -13,4 +13,4 @@ const Coords = (): JSX.Element => (
   </DashboardElement>
 );
   
-export default memo(Coords);
+export default Coords;

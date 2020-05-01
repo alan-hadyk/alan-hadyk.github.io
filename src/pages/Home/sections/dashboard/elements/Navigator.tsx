@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 
 import DashboardElement from "<molecules>/DashboardElement";
 import Performance from "<src>/UI/molecules/Performance";
@@ -13,4 +13,4 @@ const Navigator = (): JSX.Element => (
   </DashboardElement>
 );
 
-export default memo(Navigator);
+export default Navigator;
