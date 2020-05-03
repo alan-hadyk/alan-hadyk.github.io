@@ -11,8 +11,10 @@ import IconsWithLabels from "<molecules>/IconsWithLabels";
 import { ProjectDescriptionProps } from "<molecules>/__typings__/ProjectDescription.d.ts";
 
 function ProjectDescription({
+  codeSandboxLink = "https://codesandbox.io/u/alan-hadyk",
   description,
   iconsWithLabels,
+  projectLink = "https://github.com/alan-hadyk",
   title
 }: ProjectDescriptionProps): JSX.Element {
   const renderTitleWithDescription = useCallback((): JSX.Element => (
@@ -21,6 +23,7 @@ function ProjectDescription({
         color="white"
         fontFamily="Exan"
         fontSize="font48"
+        lineHeight="spacing48"
         textTransform="uppercase"
       >
         {title}
@@ -33,6 +36,7 @@ function ProjectDescription({
         <Text
           color="blue300"
           fontSize="font24"
+          lineHeight="spacing32"
         >
           {description}
         </Text>
@@ -46,9 +50,10 @@ function ProjectDescription({
       marginBottom="spacing40"
     >
       <Text
-        color="white"
+        color="blue100"
         fontSize="font24"
         fontWeight="bold"
+        lineHeight="spacing40"
       >
           Made with:
       </Text>

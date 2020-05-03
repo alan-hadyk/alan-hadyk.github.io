@@ -58,7 +58,7 @@ describe("molecules / ProjectDescription", () => {
           });
         });
   
-        describe("font-family", () => {
+        describe("fontFamily", () => {
           test("should have ExanModifiedRegular, monospace", () => {
             const { Texts } = setup();
 
@@ -74,6 +74,14 @@ describe("molecules / ProjectDescription", () => {
           });
         });
 
+        describe("lineHeight", () => {
+          test("should have 4.8rem", () => {
+            const { Texts } = setup();
+      
+            expect(Texts[0]).toHaveStyleRule("line-height", "4.8rem");
+          });
+        });
+
         describe("textTransform", () => {
           test("should have uppercase", () => {
             const { Texts } = setup();
@@ -85,7 +93,7 @@ describe("molecules / ProjectDescription", () => {
     });
 
     describe("Text[1]", () => {
-      test("should render textContent equal to title prop", () => {
+      test("should render textContent equal to description prop", () => {
         const { Texts } = setup({
           description: "Project description"
         });
@@ -117,6 +125,14 @@ describe("molecules / ProjectDescription", () => {
             expect(Texts[1]).toHaveStyleRule("font-size", "24px");
           });
         });
+
+        describe("lineHeight", () => {
+          test("should have 3.2rem", () => {
+            const { Texts } = setup();
+      
+            expect(Texts[1]).toHaveStyleRule("line-height", "3.2rem");
+          });
+        });
       });
     });
 
@@ -129,14 +145,14 @@ describe("molecules / ProjectDescription", () => {
 
       describe("Props", () => {
         describe("color", () => {
-          test("should have #fff", () => {
+          test("should have #bcd8db", () => {
             const { Texts } = setup();
       
-            expect(Texts[2]).toHaveStyleRule("color", "#fff");
+            expect(Texts[2]).toHaveStyleRule("color", "#bcd8db");
           });
         });
   
-        describe("font-family", () => {
+        describe("fontFamily", () => {
           test("should have 'Anonymous Pro',monospace", () => {
             const { Texts } = setup();
 
@@ -159,6 +175,14 @@ describe("molecules / ProjectDescription", () => {
             expect(Texts[2]).toHaveStyleRule("font-weight", "700");
           });
         });
+
+        describe("lineHeight", () => {
+          test("should have 4rem", () => {
+            const { Texts } = setup();
+      
+            expect(Texts[2]).toHaveStyleRule("line-height", "4rem");
+          });
+        });
       });
     });
   });
@@ -174,6 +198,16 @@ describe("molecules / ProjectDescription", () => {
         label: "React"
       }
     ];
+
+    describe("Props", () => {
+      describe("flexFlow", () => {      
+        test("should have row nowrap", () => {
+          const { IconsWithLabels } = setup();
+
+          expect(IconsWithLabels).toHaveStyleRule("flex-flow", "row nowrap");
+        });
+      });
+    });
 
     describe("Icon", () => {
       test("there should be correct number of icons", () => {
@@ -191,19 +225,6 @@ describe("molecules / ProjectDescription", () => {
   
         expect(Icons[0].textContent).toEqual("Brand-JS.svg");
         expect(Icons[1].textContent).toEqual("Brand-React.svg");
-      });
-
-      describe("IconContainer", () => {
-        describe("Props", () => {
-          describe("height", () => {
-            test("should have 4rem", () => {
-              const { IconContainers } = setup();
-      
-              expect(IconContainers[0]).toHaveStyleRule("height", "4rem");
-              expect(IconContainers[1]).toHaveStyleRule("height", "4rem");
-            });
-          });
-        });
       });
     });
 
@@ -372,7 +393,6 @@ describe("molecules / ProjectDescription", () => {
 interface Setup extends RenderResult {
   Buttons: NodeListOf<HTMLButtonElement>;
   ButtonsSpacingContainer: Element;
-  IconContainers: Element[];
   Icons: NodeListOf<SVGSVGElement>;
   IconsWithLabels: Element;
   IconsWithLabelsSpacingContainer: Element;
@@ -412,7 +432,6 @@ function setup(addedProps?: ProjectDescriptionTestProps): Setup {
 
   const Buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll("button");
   const ButtonsSpacingContainer: Element = queryAllByTestId("ButtonsSpacingContainer")[0];
-  const IconContainers: Element[] = queryAllByTestId("IconContainer");
   const Icons: NodeListOf<SVGSVGElement> = document.querySelectorAll("svg");
   const IconsWithLabels: Element = queryAllByTestId("IconsWithLabels")[0];
   const IconsWithLabelsSpacingContainer: Element = queryAllByTestId("IconsWithLabelsSpacingContainer")[0];
@@ -427,7 +446,6 @@ function setup(addedProps?: ProjectDescriptionTestProps): Setup {
     ...utils,
     Buttons,
     ButtonsSpacingContainer,
-    IconContainers,
     Icons,
     IconsWithLabels,
     IconsWithLabelsSpacingContainer,
