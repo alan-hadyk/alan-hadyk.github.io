@@ -199,93 +199,81 @@ describe("molecules / ProjectDescription", () => {
       }
     ];
 
+    test("there should be correct number of icons", () => {
+      const { Icons } = setup({
+        iconsWithLabels
+      });
+
+      expect(Icons.length).toEqual(4);
+    });
+
+    test("icons should render correct SVGs", () => {
+      const { Icons } = setup({
+        iconsWithLabels
+      });
+
+      expect(Icons[0].textContent).toEqual("Brand-JS.svg");
+      expect(Icons[1].textContent).toEqual("Brand-React.svg");
+    });
+
+    test("should have correct content passed via label props", () => {
+      const { LabelTexts } = setup({
+        iconsWithLabels
+      });
+
+      expect(LabelTexts[0].textContent).toEqual("Javascript");
+      expect(LabelTexts[1].textContent).toEqual("React");
+    });
+
     describe("Props", () => {
-      describe("gap", () => {    
-        test("should have 2.8rem to all children except the first one", () => {
-          const { IconsWithLabels } = setup();
-          
-          expect(IconsWithLabels).toHaveStyleRule("padding-left", "2.8rem", {
-            modifier: "& > *"
-          });
-          expect(IconsWithLabels).toHaveStyleRule("padding-left", "0", {
-            modifier: "& > *:first-child"
-          });
-        });
-      });
-
-      describe("flexFlow", () => {      
-        test("should have row nowrap", () => {
-          const { IconsWithLabels } = setup();
-
-          expect(IconsWithLabels).toHaveStyleRule("flex-flow", "row nowrap");
-        });
-      });
-    });
-
-    describe("Icon", () => {
-      test("there should be correct number of icons", () => {
-        const { Icons } = setup({
-          iconsWithLabels
-        });
-  
-        expect(Icons.length).toEqual(4);
-      });
-  
-      test("icons should render correct SVGs", () => {
-        const { Icons } = setup({
-          iconsWithLabels
-        });
-  
-        expect(Icons[0].textContent).toEqual("Brand-JS.svg");
-        expect(Icons[1].textContent).toEqual("Brand-React.svg");
-      });
-
-      describe("IconContainer", () => {
-        describe("Props", () => {
-          describe("height", () => {
-            test("should have 4rem", () => {
-              const { IconContainers } = setup();
-      
-              expect(IconContainers[0]).toHaveStyleRule("height", "4rem");
-              expect(IconContainers[1]).toHaveStyleRule("height", "4rem");
+      describe("size", () => {
+        describe("FlexContainer - gap", () => {    
+          test("should have 2.8rem to all children except the first one", () => {
+            const { IconsWithLabels } = setup();
+            
+            expect(IconsWithLabels).toHaveStyleRule("padding-left", "2.8rem", {
+              modifier: "& > *"
+            });
+            expect(IconsWithLabels).toHaveStyleRule("padding-left", "0", {
+              modifier: "& > *:first-child"
             });
           });
         });
-      });
 
-      describe("IconWithLabelSpacingContainer", () => {
-        describe("Props", () => {
-          describe("paddingRight", () => {
-            test("should have 1.2rem", () => {
-              const { IconWithLabelSpacingContainers } = setup();
-      
-              expect(IconWithLabelSpacingContainers[0]).toHaveStyleRule("padding-right", "1.2rem");
-              expect(IconWithLabelSpacingContainers[1]).toHaveStyleRule("padding-right", "1.2rem");
-            });
-          });
-        });
-      });
-    });
-
-    describe("Text", () => {
-      describe("Props", () => {
-        describe("label", () => {
-          describe("should have correct content passed via label props", () => {
-            const { LabelTexts } = setup({
-              iconsWithLabels
-            });
-
-            expect(LabelTexts[0].textContent).toEqual("Javascript");
-            expect(LabelTexts[1].textContent).toEqual("React");
+        describe("IconContainer - height", () => {
+          test("should have 4rem", () => {
+            const { IconContainers } = setup();
+    
+            expect(IconContainers[0]).toHaveStyleRule("height", "4rem");
+            expect(IconContainers[1]).toHaveStyleRule("height", "4rem");
           });
         });
 
-        describe("fontSize", () => {  
+        describe("IconWithLabelSpacingContainer - paddingRight", () => {
+          test("should have 1.2rem", () => {
+            const { IconWithLabelSpacingContainers } = setup();
+    
+            expect(IconWithLabelSpacingContainers[0]).toHaveStyleRule("padding-right", "1.2rem");
+            expect(IconWithLabelSpacingContainers[1]).toHaveStyleRule("padding-right", "1.2rem");
+          });
+        });
+
+        describe("LabelTexts - fontSize", () => {  
           test("should have 24px", () => {
             const { LabelTexts } = setup();
   
             expect(LabelTexts[0]).toHaveStyleRule("font-size", "24px");
             expect(LabelTexts[1]).toHaveStyleRule("font-size", "24px");
+          });
+        });
+      });
+
+      describe("position", () => {
+        describe("FlexContainer - flexFlow", () => {      
+          test("should have row nowrap", () => {
+            const { IconsWithLabels } = setup();
+  
+            expect(IconsWithLabels).toHaveStyleRule("flex-flow", "row nowrap");
           });
         });
       });
@@ -306,7 +294,7 @@ describe("molecules / ProjectDescription", () => {
   
       describe("Props", () => {
         describe("size", () => {
-          describe("should have correct height for large size", () => {     
+          describe("should have large", () => {     
             describe("height", () => {      
               test("should have 5.6rem", () => {
                 const { Buttons } = setup();
@@ -318,7 +306,7 @@ describe("molecules / ProjectDescription", () => {
         });
 
         describe("type", () => {
-          describe("should have correct background-color for type primary", () => {       
+          describe("should have primary", () => {       
             describe("background-color", () => {      
               test("should have #2b595e", () => {
                 const { Buttons } = setup();
@@ -344,7 +332,7 @@ describe("molecules / ProjectDescription", () => {
   
       describe("Props", () => {
         describe("size", () => {
-          describe("should have correct height for large size", () => { 
+          describe("should have large", () => { 
             describe("height", () => {      
               test("should have 5.6rem", () => {
                 const { Buttons } = setup();
@@ -356,7 +344,7 @@ describe("molecules / ProjectDescription", () => {
         });
 
         describe("type", () => {
-          describe("should have correct background-color for type secondary", () => {       
+          describe("should have secondary", () => {       
             describe("background-color", () => {      
               test("should have transparent", () => {
                 const { Buttons } = setup();

@@ -55,7 +55,7 @@ function ProjectDescription({
         fontWeight="bold"
         lineHeight="spacing40"
       >
-          Made with:
+        Made with:
       </Text>
       <SpacingContainer
         dataTestId="IconsWithLabelsSpacingContainer"
