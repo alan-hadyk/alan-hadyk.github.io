@@ -175,6 +175,21 @@ describe("molecules / ProjectDescription", () => {
       }
     ];
 
+    describe("Props", () => {
+      describe("gap", () => {    
+        test("should have 2.8rem to all children except the first one", () => {
+          const { IconsWithLabels } = setup();
+          
+          expect(IconsWithLabels).toHaveStyleRule("padding-left", "2.8rem", {
+            modifier: "& > *"
+          });
+          expect(IconsWithLabels).toHaveStyleRule("padding-left", "0", {
+            modifier: "& > *:first-child"
+          });
+        });
+      });
+    });
+
     describe("Icon", () => {
       test("there should be correct number of icons", () => {
         const { Icons } = setup({
@@ -201,6 +216,19 @@ describe("molecules / ProjectDescription", () => {
       
               expect(IconContainers[0]).toHaveStyleRule("height", "4rem");
               expect(IconContainers[1]).toHaveStyleRule("height", "4rem");
+            });
+          });
+        });
+      });
+
+      describe("IconWithLabelSpacingContainer", () => {
+        describe("Props", () => {
+          describe("paddingRight", () => {
+            test("should have 1.2rem", () => {
+              const { IconWithLabelSpacingContainers } = setup();
+      
+              expect(IconWithLabelSpacingContainers[0]).toHaveStyleRule("padding-right", "1.2rem");
+              expect(IconWithLabelSpacingContainers[1]).toHaveStyleRule("padding-right", "1.2rem");
             });
           });
         });
@@ -373,6 +401,7 @@ interface Setup extends RenderResult {
   Buttons: NodeListOf<HTMLButtonElement>;
   ButtonsSpacingContainer: Element;
   IconContainers: Element[];
+  IconWithLabelSpacingContainers: Element[];
   Icons: NodeListOf<SVGSVGElement>;
   IconsWithLabels: Element;
   IconsWithLabelsSpacingContainer: Element;
@@ -413,9 +442,10 @@ function setup(addedProps?: ProjectDescriptionTestProps): Setup {
   const Buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll("button");
   const ButtonsSpacingContainer: Element = queryAllByTestId("ButtonsSpacingContainer")[0];
   const IconContainers: Element[] = queryAllByTestId("IconContainer");
+  const IconsWithLabelsSpacingContainer: Element = queryAllByTestId("IconsWithLabelsSpacingContainer")[0];
   const Icons: NodeListOf<SVGSVGElement> = document.querySelectorAll("svg");
   const IconsWithLabels: Element = queryAllByTestId("IconsWithLabels")[0];
-  const IconsWithLabelsSpacingContainer: Element = queryAllByTestId("IconsWithLabelsSpacingContainer")[0];
+  const IconWithLabelSpacingContainers: Element[] = queryAllByTestId("IconWithLabelSpacingContainer");
   const LabelTexts: Element[] = queryAllByTestId("LabelText");
   const ProjectDescriptionContainer: Element = queryAllByTestId("ProjectDescription")[0];
   const Texts: Element[] = queryAllByTestId("Text");
@@ -428,6 +458,7 @@ function setup(addedProps?: ProjectDescriptionTestProps): Setup {
     Buttons,
     ButtonsSpacingContainer,
     IconContainers,
+    IconWithLabelSpacingContainers,
     Icons,
     IconsWithLabels,
     IconsWithLabelsSpacingContainer,

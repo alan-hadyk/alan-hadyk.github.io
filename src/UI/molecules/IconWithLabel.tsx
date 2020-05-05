@@ -45,6 +45,7 @@ function IconWithLabel({
       justifyContent="flex-start" 
     >
       <SpacingContainer
+        dataTestId="IconWithLabelSpacingContainer"
         paddingRight={iconPadding}
       >
         <Icon 
