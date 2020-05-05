@@ -12,7 +12,7 @@ import {
   PerformanceItemProps
 } from "<molecules>/__typings__/PerformanceItem.d.ts";
 
-const PerformanceItem = ({ animationDelay, label }: PerformanceItemProps): JSX.Element => (
+const PerformanceItem = ({ animationDelay, label, shouldAnimate }: PerformanceItemProps): JSX.Element => (
   <PerformanceItem.Container
     data-testid="PerformanceItem"
   >
@@ -44,6 +44,7 @@ const PerformanceItem = ({ animationDelay, label }: PerformanceItemProps): JSX.E
           <PerformanceItem.Barchart
             animationDelay={animationDelay}
             data-testid="PerformanceItemBarchart"
+            shouldAnimate={shouldAnimate}
           />
         </FlexItem>
       </FlexContainer>
@@ -60,13 +61,17 @@ PerformanceItem.Barchart = styled.div<PerformanceItemBarchartProps>`
       keyframes: { barChartWidth },
       spacing: { spacing4 },
       transitionTimes: { verySlow }
-    }
+    },
+    shouldAnimate
   }): FlattenSimpleInterpolation => css`
-    animation-delay: ${animationDelay};
-    animation-duration: ${verySlow};
-    animation-iteration-count: infinite;
-    animation-name: ${barChartWidth};
-    animation-timing-function: ${easeInOut};
+    ${shouldAnimate && css`    
+      animation-delay: ${animationDelay};
+      animation-duration: ${verySlow};
+      animation-iteration-count: infinite;
+      animation-name: ${barChartWidth};
+      animation-timing-function: ${easeInOut};
+    `}
+
     background-color: ${blue300};
     height: ${spacing4};
     padding-right: ${spacing4};

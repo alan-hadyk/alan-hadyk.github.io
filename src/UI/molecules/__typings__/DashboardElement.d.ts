@@ -7,6 +7,5 @@ export interface DashboardElementProps extends FlexItemProps {
   description?: string;
   overflow?: "visible" | "hidden";
   shouldDisplayCorners?: boolean;
-  shuffleDelay?: number;
   title: string;
 }

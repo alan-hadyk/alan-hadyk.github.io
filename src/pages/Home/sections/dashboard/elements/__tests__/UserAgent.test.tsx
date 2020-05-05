@@ -1,13 +1,12 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
-import ShuffleText from "shuffle-text";
 
 import UserAgent from "<pages>/Home/sections/dashboard/elements/UserAgent";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 jest.mock("detect-browser", () => ({
-  detect: () => ({name: "chrome"})
+  detect: (): { name: string } => ({ name: "chrome" })
 }));
 
 describe("pages / Home / sections / dashboard / elements / UserAgent", () => {
@@ -55,47 +54,6 @@ describe("pages / Home / sections / dashboard / elements / UserAgent", () => {
           expect(DashboardElement.children[2].children[1]).toEqual(Corners[1]);
           expect(DashboardElement.children[2].children[2]).toEqual(Corners[2]);
           expect(DashboardElement.children[2].children[3]).toEqual(Corners[3]);
-        });
-      });
-
-      describe("shuffleDelay", () => {
-        test("should trigger shuffleText.start in intervals with 5400ms delay", () => {
-          jest.spyOn(ShuffleText.prototype, "start");
-          jest.useFakeTimers();
-    
-          setup();
-
-          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
-
-          jest.advanceTimersByTime(5400);
-    
-          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
-    
-          jest.advanceTimersByTime(3600);
-    
-          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
-    
-          jest.advanceTimersByTime(5400);
-    
-          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
-    
-          jest.advanceTimersByTime(3600);
-    
-          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
-    
-          jest.advanceTimersByTime(5400);
-    
-          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
-    
-          jest.advanceTimersByTime(3600);
-    
-          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
-
-          jest.advanceTimersByTime(5400);
-
-          expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
-    
-          jest.clearAllTimers();
         });
       });
 

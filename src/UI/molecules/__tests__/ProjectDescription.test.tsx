@@ -58,7 +58,7 @@ describe("molecules / ProjectDescription", () => {
           });
         });
   
-        describe("font-family", () => {
+        describe("fontFamily", () => {
           test("should have ExanModifiedRegular, monospace", () => {
             const { Texts } = setup();
 
@@ -74,6 +74,14 @@ describe("molecules / ProjectDescription", () => {
           });
         });
 
+        describe("lineHeight", () => {
+          test("should have 4.8rem", () => {
+            const { Texts } = setup();
+      
+            expect(Texts[0]).toHaveStyleRule("line-height", "4.8rem");
+          });
+        });
+
         describe("textTransform", () => {
           test("should have uppercase", () => {
             const { Texts } = setup();
@@ -85,7 +93,7 @@ describe("molecules / ProjectDescription", () => {
     });
 
     describe("Text[1]", () => {
-      test("should render textContent equal to title prop", () => {
+      test("should render textContent equal to description prop", () => {
         const { Texts } = setup({
           description: "Project description"
         });
@@ -117,6 +125,14 @@ describe("molecules / ProjectDescription", () => {
             expect(Texts[1]).toHaveStyleRule("font-size", "24px");
           });
         });
+
+        describe("lineHeight", () => {
+          test("should have 3.2rem", () => {
+            const { Texts } = setup();
+      
+            expect(Texts[1]).toHaveStyleRule("line-height", "3.2rem");
+          });
+        });
       });
     });
 
@@ -129,14 +145,14 @@ describe("molecules / ProjectDescription", () => {
 
       describe("Props", () => {
         describe("color", () => {
-          test("should have #fff", () => {
+          test("should have #bcd8db", () => {
             const { Texts } = setup();
       
-            expect(Texts[2]).toHaveStyleRule("color", "#fff");
+            expect(Texts[2]).toHaveStyleRule("color", "#bcd8db");
           });
         });
   
-        describe("font-family", () => {
+        describe("fontFamily", () => {
           test("should have 'Anonymous Pro',monospace", () => {
             const { Texts } = setup();
 
@@ -157,6 +173,14 @@ describe("molecules / ProjectDescription", () => {
             const { Texts } = setup();
       
             expect(Texts[2]).toHaveStyleRule("font-weight", "700");
+          });
+        });
+
+        describe("lineHeight", () => {
+          test("should have 4rem", () => {
+            const { Texts } = setup();
+      
+            expect(Texts[2]).toHaveStyleRule("line-height", "4rem");
           });
         });
       });
@@ -186,6 +210,14 @@ describe("molecules / ProjectDescription", () => {
           expect(IconsWithLabels).toHaveStyleRule("padding-left", "0", {
             modifier: "& > *:first-child"
           });
+        });
+      });
+
+      describe("flexFlow", () => {      
+        test("should have row nowrap", () => {
+          const { IconsWithLabels } = setup();
+
+          expect(IconsWithLabels).toHaveStyleRule("flex-flow", "row nowrap");
         });
       });
     });
