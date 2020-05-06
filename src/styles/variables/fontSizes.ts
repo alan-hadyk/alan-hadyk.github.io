@@ -5,6 +5,7 @@ export default {
   font20: "20px",
   font24: "24px",
   font28: "28px",
+  font48: "48px",
   font64: "64px",
   font72: "72px"
 };

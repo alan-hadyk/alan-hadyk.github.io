@@ -250,8 +250,8 @@ function setup(addedProps?: IconWithLabelTestProps): Setup {
   const FlexContainer: Element = queryByTestId("IconWithLabel");
   const Icon: SVGSVGElement = document.querySelector("svg");
   const IconContainer: Element = queryByTestId("IconContainer");
-  const SpacingContainer: Element = queryByTestId("SpacingContainer");
-  const Text: Element = queryByTestId("Text");
+  const SpacingContainer: Element = queryByTestId("IconWithLabelSpacingContainer");
+  const Text: Element = queryByTestId("LabelText");
 
   return {
     ...utils,
@@ -261,4 +261,4 @@ function setup(addedProps?: IconWithLabelTestProps): Setup {
     SpacingContainer,
     Text
   };
-}
+} 
