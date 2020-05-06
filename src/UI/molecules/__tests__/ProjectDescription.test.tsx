@@ -226,7 +226,7 @@ describe("molecules / ProjectDescription", () => {
     });
 
     describe("Props", () => {
-      describe("size", () => {
+      describe("size - large", () => {
         describe("FlexContainer - gap", () => {    
           test("should have 2.8rem to all children except the first one", () => {
             const { IconsWithLabels } = setup();
@@ -268,7 +268,7 @@ describe("molecules / ProjectDescription", () => {
         });
       });
 
-      describe("position", () => {
+      describe("position - horizontal", () => {
         describe("FlexContainer - flexFlow", () => {      
           test("should have row nowrap", () => {
             const { IconsWithLabels } = setup();
