@@ -74,8 +74,8 @@
   },
   "devDependencies": {
     "@testing-library/react-hooks": "^3.2.1",
-    "@types/ip": "^1.1.0",
     "@types/detect-browser": "^4.0.0",
+    "@types/ip": "^1.1.0",
     "@types/jest": "^25.1.2",
     "@types/lodash": "^4.14.149",
     "@types/node": "^12.0.0",
@@ -90,6 +90,7 @@
     "eslint": "^6.8.0",
     "eslint-plugin-better-styled-components": "^1.1.2",
     "eslint-plugin-react": "^7.18.2",
+    "eslint-plugin-react-hooks": "^4.0.0",
     "eslint-plugin-typescript-sort-keys": "^0.5.0",
     "gh-pages": "^2.2.0",
     "jsdom": "^16.2.0",

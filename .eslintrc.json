@@ -25,7 +25,8 @@
         "react",
         "@typescript-eslint",
         "typescript-sort-keys",
-        "better-styled-components"
+        "better-styled-components",
+        "react-hooks"
     ],
     "settings": {
       "react": {
@@ -61,6 +62,8 @@
           { "caseSensitive": true, "natural": true }
         ],
         "typescript-sort-keys/string-enum": 2,
-        "better-styled-components/sort-declarations-alphabetically": 2
+        "better-styled-components/sort-declarations-alphabetically": 2,
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn"
     }
 }
