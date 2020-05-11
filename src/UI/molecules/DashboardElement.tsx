@@ -133,8 +133,8 @@ DashboardElement.InnerContainer = styled.div<DashboardElementInnerContainer>`
       
       ${shouldDisplayCorners && `
         background: url(${Cross});
-        background-repeat: space;
         background-position: center;
+        background-repeat: space;
         background-size: ${spacing32} ${spacing32};
     `}
   `}
