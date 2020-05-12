@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 
 import Section from "<molecules>/Section";
-import ExperienceDescription from "<organisms>/ExperienceDescription";
+import CompanyDescription from "<organisms>/CompanyDescription";
 
 import {
   IconWithLabelProps
@@ -27,7 +27,7 @@ const ExperienceSection = (): JSX.Element => (
     id="experience"
     title="Experience"
   >
-    <ExperienceDescription
+    <CompanyDescription
       date="August 2018 to present"
       iconsWithLabels={iconsWithLabels}
       responsibilites={[

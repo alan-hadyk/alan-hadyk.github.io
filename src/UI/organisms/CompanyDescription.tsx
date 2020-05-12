@@ -7,14 +7,14 @@ import IconWithLabel from "<molecules>/IconWithLabel";
 import UnorderedList from "<molecules>/UnorderedList";
 import SpacingContainer from "<layout>/SpacingContainer";
 
-import { ExperienceDescriptionProps } from "<organisms>/__typings__/ExperienceDescription.d.ts";
+import { CompanyDescriptionProps } from "<organisms>/__typings__/CompanyDescription.d.ts";
 
-function ExperienceDescription({
+function CompanyDescription({
   date,
   iconsWithLabels,
   responsibilites,
   title
-}: ExperienceDescriptionProps): JSX.Element {
+}: CompanyDescriptionProps): JSX.Element {
   const renderTitleAndDate = useCallback((): JSX.Element => (
     <Fragment>
       <Text
@@ -99,18 +99,18 @@ function ExperienceDescription({
   ), [responsibilites]);
 
   return (
-    <ExperienceDescription.Container
-      data-testid="ExperienceDescription"
+    <CompanyDescription.Container
+      data-testid="CompanyDescription"
     >
       {renderTitleAndDate()}
 
       {renderTechStack()}
 
       {renderResponsibilities()}
-    </ExperienceDescription.Container>
+    </CompanyDescription.Container>
   );
 }
 
-ExperienceDescription.Container = styled.div``;
+CompanyDescription.Container = styled.div``;
 
-export default ExperienceDescription;
+export default CompanyDescription;

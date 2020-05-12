@@ -1,24 +1,24 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import ExperienceDescription from "<organisms>/ExperienceDescription";
+import CompanyDescription from "<organisms>/CompanyDescription";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
-  ExperienceDescriptionProps
-} from "<organisms>/__typings__/ExperienceDescription.d.ts";
+  CompanyDescriptionProps
+} from "<organisms>/__typings__/CompanyDescription.d.ts";
 
 import {
   IconWithLabelProps
 } from "<molecules>/__typings__/IconWithLabel.d.ts";
 
-describe("organisms / ExperienceDescription", () => {
+describe("organisms / CompanyDescription", () => {
   test("should have correct structure", () => {
     const {
       DateIconWithLabel,
       DateSpacingContainer,
-      ExperienceDescriptionContainer,
+      CompanyDescriptionContainer,
       IconsWithLabels,
       IconsWithLabelsSpacingContainer,
       MainTitle,
@@ -30,10 +30,10 @@ describe("organisms / ExperienceDescription", () => {
       UnorderedList
     } = setup();
 
-    expect(ExperienceDescriptionContainer.children[0]).toEqual(MainTitle);
-    expect(ExperienceDescriptionContainer.children[1]).toEqual(DateSpacingContainer);
-    expect(ExperienceDescriptionContainer.children[2]).toEqual(TechStackSpacingContainer);
-    expect(ExperienceDescriptionContainer.children[3]).toEqual(ResponsibilitiesSpacingContainer);
+    expect(CompanyDescriptionContainer.children[0]).toEqual(MainTitle);
+    expect(CompanyDescriptionContainer.children[1]).toEqual(DateSpacingContainer);
+    expect(CompanyDescriptionContainer.children[2]).toEqual(TechStackSpacingContainer);
+    expect(CompanyDescriptionContainer.children[3]).toEqual(ResponsibilitiesSpacingContainer);
 
     expect(DateSpacingContainer.children[0]).toEqual(DateIconWithLabel);
 
@@ -397,9 +397,9 @@ describe("organisms / ExperienceDescription", () => {
 });
 
 interface Setup extends RenderResult {
+  CompanyDescriptionContainer: Element;
   DateIconWithLabel: Element;
   DateSpacingContainer: Element;
-  ExperienceDescriptionContainer: Element;
   Icons: Element[];
   IconsWithLabels: Element;
   IconsWithLabelsSpacingContainer: Element;
@@ -412,15 +412,15 @@ interface Setup extends RenderResult {
   UnorderedList: Element;
 }
 
-type ExperienceDescriptionTestProps = Partial<ExperienceDescriptionProps>;
+type CompanyDescriptionTestProps = Partial<CompanyDescriptionProps>;
 
-function setup(addedProps?: ExperienceDescriptionTestProps): Setup {
-  const responsibilites: ExperienceDescriptionProps["responsibilites"] = [
+function setup(addedProps?: CompanyDescriptionTestProps): Setup {
+  const responsibilites: CompanyDescriptionProps["responsibilites"] = [
     "Create> scalable and sane front-end architecture", 
     "Orchestrate and direct collaborative team operational objectives for front-end layer of an application designed to manage payment systems"
   ];
 
-  const iconsWithLabels: ExperienceDescriptionProps["iconsWithLabels"] = [
+  const iconsWithLabels: CompanyDescriptionProps["iconsWithLabels"] = [
     {
       iconName: "brandJS",
       label: "Javascript"
@@ -431,7 +431,7 @@ function setup(addedProps?: ExperienceDescriptionTestProps): Setup {
     }
   ];
 
-  const props: ExperienceDescriptionProps = {
+  const props: CompanyDescriptionProps = {
     date: "August 2018 to present",
     iconsWithLabels,
     responsibilites,
@@ -440,14 +440,14 @@ function setup(addedProps?: ExperienceDescriptionTestProps): Setup {
   };
 
   const utils: RenderResult = renderWithTheme(
-    <ExperienceDescription {...props} />
+    <CompanyDescription {...props} />
   );
 
   const { queryAllByTestId } = utils || {};
   
   const DateIconWithLabel: Element = queryAllByTestId("IconWithLabel")[0];
   const DateSpacingContainer: Element = queryAllByTestId("DateSpacingContainer")[0];
-  const ExperienceDescriptionContainer: Element = queryAllByTestId("ExperienceDescription")[0];
+  const CompanyDescriptionContainer: Element = queryAllByTestId("CompanyDescription")[0];
   const Icons: Element[] = queryAllByTestId("IconContainer");
   const IconsWithLabels: Element = queryAllByTestId("IconsWithLabels")[0];
   const IconsWithLabelsSpacingContainer: Element = queryAllByTestId("IconsWithLabelsSpacingContainer")[0];
@@ -463,7 +463,7 @@ function setup(addedProps?: ExperienceDescriptionTestProps): Setup {
     ...utils,
     DateIconWithLabel,
     DateSpacingContainer,
-    ExperienceDescriptionContainer,
+    CompanyDescriptionContainer,
     Icons,
     IconsWithLabels,
     IconsWithLabelsSpacingContainer,
