@@ -1,46 +1,36 @@
 import React from "react";
-import styled, { css, FlattenSimpleInterpolation } from "styled-components";
+import styled from "styled-components";
 
-import Cross from "<assets>/svg/Cross.svg";
 import Icon from "<atoms>/Icon";
 
 import {
-  HexagonContainerProps,
   HexagonProps
 } from "<molecules>/__typings__/Hexagon.d.ts";
 
 function Hexagon ({
-  background = "transparent", 
+  fill = "none", 
   children
 }: HexagonProps): JSX.Element {
   return (
-    <Hexagon.Container background={background}>
-      <Icon 
-        iconName="hexagon"
-        isActive={background === "blue"}
-      />
-      <Hexagon.InnerContainer>
+    <Hexagon.Container>
+      {fill === "pattern" ?
+        <Icon 
+          iconName="hexagonWithPattern"
+        /> :
+        <Icon 
+          iconName="hexagon"
+          isActive={fill === "solid"}
+        />
+      }
+      {/* <Hexagon.InnerContainer>
         {children}
-      </Hexagon.InnerContainer>
+      </Hexagon.InnerContainer> */}
     </Hexagon.Container>
   );
 }
 
-Hexagon.Container = styled.div<HexagonContainerProps>`
-  ${({
-    background,
-    theme: {
-      spacing: { spacing32 }
-    }
-  }): FlattenSimpleInterpolation => css`
-    position: relative;
-
-    ${background === "crossed" && css`
-      svg path {
-        fill: url(#dots); 
-      }
-    `}
-  `}
+Hexagon.Container = styled.div`
+  // position: relative;
 `;
 
 Hexagon.InnerContainer = styled.div`

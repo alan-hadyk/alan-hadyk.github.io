@@ -9,7 +9,7 @@ const PortfolioSection = (): JSX.Element => (
     id="portfolio"
     title="Portfolio"
   >
-    <Hexagon background="crossed">
+    <Hexagon fill="pattern">
       <Text>Hello</Text>
     </Hexagon>
   </Section>
