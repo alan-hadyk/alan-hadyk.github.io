@@ -264,7 +264,7 @@ describe("organisms / CompanyDescription", () => {
       expect(Icons.length).toEqual(3);
     });
 
-    test("icons should render correct SVGs", () => {
+    test("icons should render correct SVGs passed via iconsWithLabels.iconName props", () => {
       const { Icons } = setup({
         iconsWithLabels
       });
@@ -273,14 +273,14 @@ describe("organisms / CompanyDescription", () => {
       expect(Icons[2].textContent).toEqual("Icon-Node.svg");
     });
 
-    // test("should have correct content passed via label props", () => {
-    //   const { LabelTexts } = setup({
-    //     iconsWithLabels
-    //   });
+    test("should have correct content passed via iconsWithLabels.label props", () => {
+      const { IconsWithLabels } = setup({
+        iconsWithLabels
+      });
 
-    //   expect(LabelTexts[0].textContent).toEqual("Javascript");
-    //   expect(LabelTexts[1].textContent).toEqual("React");
-    // });
+      expect(IconsWithLabels.children[0].children[1].textContent).toEqual("Webpack");
+      expect(IconsWithLabels.children[1].children[1].textContent).toEqual("Node");
+    });
 
     // describe("Props", () => {
     //   describe("size - large", () => {
