@@ -21,6 +21,7 @@ export interface IconProps {
     "firefox" |
     "gitHub" |
     "graphql" |
+    "hexagon" |
     "ie" |
     "javascript" |
     "linkedIn" |
@@ -58,6 +59,7 @@ export interface IconComponents {
   firefox: SVGIcon;
   gitHub: SVGIcon;
   graphql: SVGIcon;
+  hexagon: SVGIcon;
   ie: SVGIcon;
   javascript: SVGIcon;
   linkedIn: SVGIcon;

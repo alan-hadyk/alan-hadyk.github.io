@@ -1,8 +1,8 @@
 export interface HexagonContainerProps {
-  size: "small" | "medium" | "large";
+  background?: "transparent" | "blue" | "crossed";
 }
 
 export interface HexagonProps {
+  background?: "transparent" | "blue" | "crossed";
   children: JSX.Element;
-  size: "medium" | "large";
 }

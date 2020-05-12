@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize } from "polished";
 
@@ -9,6 +9,7 @@ import { ReactComponent as BtnCodeSandbox } from "<assets>/svg/Btn-CodeSandbox.s
 import { ReactComponent as BtnDownload } from "<assets>/svg/Btn-Download.svg";
 import { ReactComponent as BtnExternalLink } from "<assets>/svg/Btn-ExternalLink.svg";
 import { ReactComponent as BtnSend } from "<assets>/svg/Btn-Send.svg";
+import { ReactComponent as Hexagon } from "<assets>/svg/Hexagon-Vector.svg";
 import { ReactComponent as IconApollo } from "<assets>/svg/Icon-Apollo.svg";
 import { ReactComponent as IconCodeSandbox } from "<assets>/svg/Icon-CodeSandbox.svg";
 import { ReactComponent as IconEarth } from "<assets>/svg/Icon-Earth.svg";
@@ -65,6 +66,7 @@ function Icon({
     firefox: IconFirefox,
     gitHub: IconGitHub,
     graphql: IconGraphql,
+    hexagon: Hexagon,
     ie: IconIE,
     javascript: IconJavascript,
     linkedIn: IconLinkedIn,
@@ -164,4 +166,4 @@ Icon.Container = styled.div<IconContainerProps>`
   `}
 `;
 
-export default memo(Icon);
+export default Icon;
