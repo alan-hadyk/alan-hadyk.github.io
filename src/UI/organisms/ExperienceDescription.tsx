@@ -1,7 +1,6 @@
 import React, { useCallback, Fragment } from "react";
 import styled from "styled-components";
 
-
 import Text from "<atoms>/Text";
 import IconsWithLabels from "<molecules>/IconsWithLabels";
 import IconWithLabel from "<molecules>/IconWithLabel";
@@ -20,6 +19,7 @@ function ExperienceDescription({
     <Fragment>
       <Text
         color="white"
+        dataTestId="MainTitle"
         fontFamily="Exan"
         fontSize="font36"
         lineHeight="spacing36"
@@ -34,7 +34,7 @@ function ExperienceDescription({
       >
         <IconWithLabel
           labelColor="blue300"
-          iconName="brandReact"
+          iconName="calendar"
           label={date}
           size="medium"
         />
@@ -49,6 +49,7 @@ function ExperienceDescription({
     >
       <Text
         color="blue100"
+        dataTestId="TechStackTitle"
         fontFamily="AnonymousPro"
         fontSize="font24"
         fontWeight="bold"
@@ -77,6 +78,7 @@ function ExperienceDescription({
     >
       <Text
         color="blue100"
+        dataTestId="ResponsibilitiesTitle"
         fontFamily="AnonymousPro"
         fontSize="font24"
         fontWeight="bold"

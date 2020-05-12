@@ -15,6 +15,7 @@ export interface IconProps {
     "btnDownload" |
     "btnExternalLink" |
     "btnSend" |
+    "calendar" |
     "chrome" |
     "codeSandbox" |
     "earth" |
@@ -52,6 +53,7 @@ export interface IconComponents {
   btnDownload: SVGIcon;
   btnExternalLink: SVGIcon;
   btnSend: SVGIcon;
+  calendar: SVGIcon;
   chrome: SVGIcon;
   codeSandbox: SVGIcon;
   earth: SVGIcon;
