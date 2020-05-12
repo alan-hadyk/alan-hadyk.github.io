@@ -282,59 +282,59 @@ describe("organisms / CompanyDescription", () => {
       expect(IconsWithLabels.children[1].children[1].textContent).toEqual("Node");
     });
 
-    // describe("Props", () => {
-    //   describe("size - large", () => {
-    //     describe("FlexContainer - gap", () => {    
-    //       test("should have 2.8rem to all children except the first one", () => {
-    //         const { IconsWithLabels } = setup();
+    describe("Props", () => {
+      describe("size - large", () => {
+        describe("FlexContainer - gap", () => {    
+          test("should have 2.8rem to all children except the first one", () => {
+            const { IconsWithLabels } = setup();
             
-    //         expect(IconsWithLabels).toHaveStyleRule("padding-left", "2.8rem", {
-    //           modifier: "& > *"
-    //         });
-    //         expect(IconsWithLabels).toHaveStyleRule("padding-left", "0", {
-    //           modifier: "& > *:first-child"
-    //         });
-    //       });
-    //     });
+            expect(IconsWithLabels).toHaveStyleRule("padding-left", "2.8rem", {
+              modifier: "& > *"
+            });
+            expect(IconsWithLabels).toHaveStyleRule("padding-left", "0", {
+              modifier: "& > *:first-child"
+            });
+          });
+        });
 
-    //     describe("IconContainer - height", () => {
-    //       test("should have 4rem", () => {
-    //         const { IconContainers } = setup();
+        describe("IconContainer - height", () => {
+          test("should have 4rem", () => {
+            const { IconContainers } = setup();
     
-    //         expect(IconContainers[0]).toHaveStyleRule("height", "4rem");
-    //         expect(IconContainers[1]).toHaveStyleRule("height", "4rem");
-    //       });
-    //     });
+            expect(IconContainers[0]).toHaveStyleRule("height", "4rem");
+            expect(IconContainers[1]).toHaveStyleRule("height", "4rem");
+          });
+        });
 
-    //     describe("IconWithLabelSpacingContainer - paddingRight", () => {
-    //       test("should have 1.2rem", () => {
-    //         const { IconWithLabelSpacingContainers } = setup();
+        describe("IconWithLabelSpacingContainer - paddingRight", () => {
+          test("should have 1.2rem", () => {
+            const { IconWithLabelSpacingContainers } = setup();
     
-    //         expect(IconWithLabelSpacingContainers[0]).toHaveStyleRule("padding-right", "1.2rem");
-    //         expect(IconWithLabelSpacingContainers[1]).toHaveStyleRule("padding-right", "1.2rem");
-    //       });
-    //     });
+            expect(IconWithLabelSpacingContainers[0]).toHaveStyleRule("padding-right", "1.2rem");
+            expect(IconWithLabelSpacingContainers[1]).toHaveStyleRule("padding-right", "1.2rem");
+          });
+        });
 
-    //     describe("LabelTexts - fontSize", () => {  
-    //       test("should have 24px", () => {
-    //         const { LabelTexts } = setup();
+        describe("LabelTexts - fontSize", () => {  
+          test("should have 24px", () => {
+            const { LabelTexts } = setup();
   
-    //         expect(LabelTexts[0]).toHaveStyleRule("font-size", "24px");
-    //         expect(LabelTexts[1]).toHaveStyleRule("font-size", "24px");
-    //       });
-    //     });
-    //   });
+            expect(LabelTexts[0]).toHaveStyleRule("font-size", "24px");
+            expect(LabelTexts[1]).toHaveStyleRule("font-size", "24px");
+          });
+        });
+      });
 
-    //   describe("position - horizontal", () => {
-    //     describe("FlexContainer - flexFlow", () => {      
-    //       test("should have row nowrap", () => {
-    //         const { IconsWithLabels } = setup();
+      describe("position - horizontal", () => {
+        describe("FlexContainer - flexFlow", () => {      
+          test("should have row nowrap", () => {
+            const { IconsWithLabels } = setup();
   
-    //         expect(IconsWithLabels).toHaveStyleRule("flex-flow", "row nowrap");
-    //       });
-    //     });
-    //   });
-    // });
+            expect(IconsWithLabels).toHaveStyleRule("flex-flow", "row nowrap");
+          });
+        });
+      });
+    });
   });
 
   describe.skip("SpacingContainers", () => { 
