@@ -115,10 +115,10 @@ interface Setup extends RenderResult {
 
 type TextTestProps = Partial<TextProps>;
 
-export function setup(addedProps?: TextTestProps): Setup {
+export function setup(additionalProps?: TextTestProps): Setup {
   const props: TextProps = {
     children: "Text",
-    ...addedProps
+    ...additionalProps
   };
 
   const utils: RenderResult = renderWithTheme(

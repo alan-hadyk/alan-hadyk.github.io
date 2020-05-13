@@ -590,12 +590,12 @@ interface Setup extends RenderResult {
 
 type DashboardElementTestProps = Partial<DashboardElementProps>;
 
-function setup(addedProps?: DashboardElementTestProps): Setup {
+function setup(additionalProps?: DashboardElementTestProps): Setup {
   const props: DashboardElementProps = {
     children: <div>Child</div>,
     flex: "1 1 30%",
     title: "Tech Stack",
-    ...addedProps
+    ...additionalProps
   };
 
   const utils: RenderResult = renderWithTheme(

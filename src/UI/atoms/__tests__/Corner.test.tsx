@@ -273,11 +273,11 @@ interface Setup extends RenderResult {
 
 type CornerTestProps = Partial<CornerProps>;
 
-function setup(addedProps?: CornerTestProps): Setup {
+function setup(additionalProps?: CornerTestProps): Setup {
   const props: CornerProps = {
     isActive: false,
     position: "topLeft",
-    ...addedProps
+    ...additionalProps
   };
 
   const utils: RenderResult = renderWithTheme(

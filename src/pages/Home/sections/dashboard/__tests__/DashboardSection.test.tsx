@@ -42,8 +42,12 @@ jest.mock("<state>/withCommitsState", () => (WrappedComponent: React.FunctionCom
   );
 });
 
+interface Detect {
+  name: string;
+}
+
 jest.mock("detect-browser", () => ({
-  detect: () => ({ name: "chrome" })
+  detect: (): Detect => ({ name: "chrome" })
 }));
 
 
@@ -237,13 +241,13 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
         });
 
         describe("gap", () => {
-          test("should have padding-left: 4.8rem for all children (except first)", () => {
+          test("should have margin-left: 4.8rem for all children (except first)", () => {
             const { FlexContainers } = setup();
 
-            expect(FlexContainers[1]).toHaveStyleRule("padding-left", "4.8rem", {
+            expect(FlexContainers[1]).toHaveStyleRule("margin-left", "4.8rem", {
               modifier: "& > *"
             });
-            expect(FlexContainers[1]).toHaveStyleRule("padding-left", "0", {
+            expect(FlexContainers[1]).toHaveStyleRule("margin-left", "0", {
               modifier: "& > *:first-child"
             });
           });
@@ -441,13 +445,13 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
         });
 
         describe("gap", () => {
-          test("should have padding-left: 4.8rem for all children (except first)", () => {
+          test("should have margin-left: 4.8rem for all children (except first)", () => {
             const { FlexContainers } = setup();
 
-            expect(FlexContainers[2]).toHaveStyleRule("padding-left", "4.8rem", {
+            expect(FlexContainers[2]).toHaveStyleRule("margin-left", "4.8rem", {
               modifier: "& > *"
             });
-            expect(FlexContainers[2]).toHaveStyleRule("padding-left", "0", {
+            expect(FlexContainers[2]).toHaveStyleRule("margin-left", "0", {
               modifier: "& > *:first-child"
             });
           });

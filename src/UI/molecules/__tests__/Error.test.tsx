@@ -254,13 +254,13 @@ interface Setup extends RenderResult {
 
 type ErrorTestProps = Partial<ErrorProps>;
 
-function setup(addedProps?: ErrorTestProps): Setup {
+function setup(additionalProps?: ErrorTestProps): Setup {
   const defaultProps: ErrorProps = {
     description: "Cannot get request",
     title: "Error"
   };
 
-  const props: ErrorProps = { ...defaultProps, ...addedProps };
+  const props: ErrorProps = { ...defaultProps, ...additionalProps };
 
   const utils: RenderResult = renderWithTheme(
     <Error {...props} />

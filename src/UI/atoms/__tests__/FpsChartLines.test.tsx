@@ -98,10 +98,10 @@ interface Setup extends RenderResult {
 
 type FpsChartLinesTestProps = Partial<FpsChartLinesProps>;
 
-function setup(addedProps?: FpsChartLinesTestProps): Setup {
+function setup(additionalProps?: FpsChartLinesTestProps): Setup {
   const props: FpsChartLinesProps = {
     lines: [0, 15, 30, 45],
-    ...addedProps
+    ...additionalProps
   };
 
   const utils: RenderResult = renderWithTheme(

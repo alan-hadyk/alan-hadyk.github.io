@@ -382,11 +382,11 @@ interface Setup extends RenderResult {
 
 type NavItemTestProps = Partial<NavItemProps>;
 
-function setup(addedProps?: NavItemTestProps): Setup {
+function setup(additionalProps?: NavItemTestProps): Setup {
   const props: NavItemProps = {
     href: "#element",
     title: "Title",
-    ...addedProps
+    ...additionalProps
   };
 
   const utils: RenderResult = renderWithTheme(

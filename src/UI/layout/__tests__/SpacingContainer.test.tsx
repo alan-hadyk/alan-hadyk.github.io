@@ -318,10 +318,10 @@ interface Setup extends RenderResult {
 
 type SpacingContainerTestProps = Partial<SpacingContainerProps>;
 
-function setup(addedProps?: SpacingContainerTestProps): Setup {
+function setup(additionalProps?: SpacingContainerTestProps): Setup {
   const props: SpacingContainerProps = {
     children: <div>SpacingContainer</div>,
-    ...addedProps
+    ...additionalProps
   };
 
   const utils: RenderResult = renderWithTheme(

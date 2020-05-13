@@ -12,6 +12,7 @@ import { ReactComponent as BtnSend } from "<assets>/svg/Btn-Send.svg";
 import { ReactComponent as Hexagon } from "<assets>/svg/Hexagon.svg";
 import { ReactComponent as HexagonWithPattern } from "<assets>/svg/Hexagon-With-Pattern.svg";
 import { ReactComponent as IconApollo } from "<assets>/svg/Icon-Apollo.svg";
+import { ReactComponent as IconCalendar } from "<assets>/svg/Icon-Calendar.svg";
 import { ReactComponent as IconCodeSandbox } from "<assets>/svg/Icon-CodeSandbox.svg";
 import { ReactComponent as IconEarth } from "<assets>/svg/Icon-Earth.svg";
 import { ReactComponent as IconChrome } from "<assets>/svg/Icon-Chrome.svg";
@@ -61,6 +62,7 @@ function Icon({
     btnDownload: BtnDownload,
     btnExternalLink: BtnExternalLink,
     btnSend: BtnSend,
+    calendar: IconCalendar,
     chrome: IconChrome,
     codeSandbox: IconCodeSandbox,
     earth: IconEarth,
