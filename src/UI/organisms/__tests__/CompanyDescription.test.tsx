@@ -468,7 +468,7 @@ type CompanyDescriptionTestProps = Partial<CompanyDescriptionProps>;
 
 function setup(additionalProps?: CompanyDescriptionTestProps): Setup {
   const responsibilites: CompanyDescriptionProps["responsibilites"] = [
-    "Create> scalable and sane front-end architecture", 
+    "Create scalable and sane front-end architecture", 
     "Orchestrate and direct collaborative team operational objectives for front-end layer of an application designed to manage payment systems"
   ];
 

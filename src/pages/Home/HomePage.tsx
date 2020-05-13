@@ -7,6 +7,7 @@ import ExperienceSection from "<pages>/Home/sections/experience/ExperienceSectio
 import Header from "<organisms>/Header";
 import PageTemplate from "<templates>/PageTemplate";
 
+// TODO: Add tests when the component will be ready
 const HomePage = (): JSX.Element => (
   <PageTemplate>
     <Header 
