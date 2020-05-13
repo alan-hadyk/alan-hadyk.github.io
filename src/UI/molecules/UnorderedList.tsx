@@ -9,8 +9,8 @@ import { ListItemProps } from "<atoms>/__typings__/ListItem.d.ts";
 function UnorderedList({ items }: UnorderedListProps): JSX.Element {
   const renderItems = useCallback((): JSX.Element => (
     <Fragment>
-      {items.map((item: ListItemProps["children"]): JSX.Element => (
-        <ListItem key={typeof item === "string" ? item : item.textContent}>{item}</ListItem>
+      {items.map((item: ListItemProps["children"], index: number): JSX.Element => (
+        <ListItem key={index}>{item}</ListItem>
       ))}
     </Fragment>
   ), [items]);
