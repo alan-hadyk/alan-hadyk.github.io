@@ -10,7 +10,7 @@ import { ListItemProps } from "<atoms>/__typings__/ListItem.d.ts";
 describe("atoms / ListItem", () => {
   test("should render children", () => {
     const { ListItemContainer } = setup({
-      children: <div>Custom children</div>
+      children: "Custom children"
     });
 
     expect(ListItemContainer.textContent).toEqual("Custom children");
@@ -63,7 +63,7 @@ type ListItemTestProps = Partial<ListItemProps>;
 
 function setup(additionalProps?: ListItemTestProps): Setup {
   const props: ListItemProps = {
-    children: <div>ListItem</div>,
+    children: "ListItem",
     ...additionalProps
   };
 
