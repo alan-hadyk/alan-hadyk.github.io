@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize } from "polished";
 
@@ -168,4 +168,4 @@ Icon.Container = styled.div<IconContainerProps>`
   `}
 `;
 
-export default Icon;
+export default memo(Icon);
