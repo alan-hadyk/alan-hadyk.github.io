@@ -11,10 +11,10 @@ import IconsWithLabels from "<molecules>/IconsWithLabels";
 import { ProjectDescriptionProps } from "<molecules>/__typings__/ProjectDescription.d.ts";
 
 function ProjectDescription({
-  codeSandboxLink = "https://codesandbox.io/u/alan-hadyk",
+  // codeSandboxLink = "https://codesandbox.io/u/alan-hadyk",
   description,
   iconsWithLabels,
-  projectLink = "https://github.com/alan-hadyk",
+  // projectLink = "https://github.com/alan-hadyk",
   title
 }: ProjectDescriptionProps): JSX.Element {
   const renderTitleWithDescription = useCallback((): JSX.Element => (

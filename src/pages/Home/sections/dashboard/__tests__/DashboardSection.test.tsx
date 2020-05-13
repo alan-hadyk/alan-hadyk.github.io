@@ -42,8 +42,12 @@ jest.mock("<state>/withCommitsState", () => (WrappedComponent: React.FunctionCom
   );
 });
 
+interface Detect {
+  name: string;
+}
+
 jest.mock("detect-browser", () => ({
-  detect: () => ({ name: "chrome" })
+  detect: (): Detect => ({ name: "chrome" })
 }));
 
 
