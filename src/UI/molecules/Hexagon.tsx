@@ -8,11 +8,11 @@ import {
 } from "<molecules>/__typings__/Hexagon.d.ts";
 
 function Hexagon ({
-  fill = "none", 
-  children
+  children,
+  fill = "none"
 }: HexagonProps): JSX.Element {
   return (
-    <Hexagon.Container>
+    <Hexagon.Container data-testid="Hexagon">
       {fill === "pattern" ?
         <Icon 
           iconName="hexagonWithPattern"
@@ -22,15 +22,15 @@ function Hexagon ({
           isActive={fill === "solid"}
         />
       }
-      {/* <Hexagon.InnerContainer>
+      <Hexagon.InnerContainer data-testid="HexagonInnerContainer">
         {children}
-      </Hexagon.InnerContainer> */}
+      </Hexagon.InnerContainer>
     </Hexagon.Container>
   );
 }
 
 Hexagon.Container = styled.div`
-  // position: relative;
+  position: relative;
 `;
 
 Hexagon.InnerContainer = styled.div`

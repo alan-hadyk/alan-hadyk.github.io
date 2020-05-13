@@ -460,6 +460,22 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Firefox.svg");
       });
 
+      test("should render corect icon for hexagon", () => {
+        const { IconComponent } = setup({
+          iconName: "hexagon"
+        });
+
+        expect(IconComponent.textContent).toEqual("Hexagon.svg");
+      });
+
+      test("should render corect icon for hexagonWithPattern", () => {
+        const { IconComponent } = setup({
+          iconName: "hexagonWithPattern"
+        });
+
+        expect(IconComponent.textContent).toEqual("Hexagon-With-Pattern.svg");
+      });
+
       test("should render corect icon for earth", () => {
         const { IconComponent } = setup({
           iconName: "earth"
