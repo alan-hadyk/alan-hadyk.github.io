@@ -166,58 +166,58 @@ describe("layout / FlexContainer", () => {
 
   describe("Props", () => {
     describe("gap", () => {
-      test("should apply padding-left equal to gap to all children except the first one when flexFlow includes row", () => {
+      test("should apply margin-left equal to gap to all children except the first one when flexFlow includes row", () => {
         const { FlexContainer } = setup({
           flexFlow: "row nowrap",
           gap: "spacing32"
         });
         
-        expect(FlexContainer).toHaveStyleRule("padding-left", "3.2rem", {
+        expect(FlexContainer).toHaveStyleRule("margin-left", "3.2rem", {
           modifier: "& > *"
         });
-        expect(FlexContainer).toHaveStyleRule("padding-left", "0", {
+        expect(FlexContainer).toHaveStyleRule("margin-left", "0", {
           modifier: "& > *:first-child"
         });
       });
 
-      test("should apply padding-left equal to custom gap passed via props to all children except the first one when flexFlow includes row", () => {
+      test("should apply margin-left equal to custom gap passed via props to all children except the first one when flexFlow includes row", () => {
         const { FlexContainer } = setup({
           flexFlow: "row nowrap",
           gap: "40rem"
         });
         
-        expect(FlexContainer).toHaveStyleRule("padding-left", "40rem", {
+        expect(FlexContainer).toHaveStyleRule("margin-left", "40rem", {
           modifier: "& > *"
         });
-        expect(FlexContainer).toHaveStyleRule("padding-left", "0", {
+        expect(FlexContainer).toHaveStyleRule("margin-left", "0", {
           modifier: "& > *:first-child"
         });
       });
 
-      test("should apply padding-top equal to gap to all children except the first one when flexFlow includes column", () => {
+      test("should apply margin-top equal to gap to all children except the first one when flexFlow includes column", () => {
         const { FlexContainer } = setup({
           flexFlow: "column nowrap",
           gap: "spacing40"
         });
         
-        expect(FlexContainer).toHaveStyleRule("padding-top", "4rem", {
+        expect(FlexContainer).toHaveStyleRule("margin-top", "4rem", {
           modifier: "& > *"
         });
-        expect(FlexContainer).toHaveStyleRule("padding-top", "0", {
+        expect(FlexContainer).toHaveStyleRule("margin-top", "0", {
           modifier: "& > *:first-child"
         });
       });
 
-      test("should apply padding-top equal to custom gap passed via props to all children except the first one when flexFlow includes column", () => {
+      test("should apply margin-top equal to custom gap passed via props to all children except the first one when flexFlow includes column", () => {
         const { FlexContainer } = setup({
           flexFlow: "column nowrap",
           gap: "50rem"
         });
         
-        expect(FlexContainer).toHaveStyleRule("padding-top", "50rem", {
+        expect(FlexContainer).toHaveStyleRule("margin-top", "50rem", {
           modifier: "& > *"
         });
-        expect(FlexContainer).toHaveStyleRule("padding-top", "0", {
+        expect(FlexContainer).toHaveStyleRule("margin-top", "0", {
           modifier: "& > *:first-child"
         });
       });

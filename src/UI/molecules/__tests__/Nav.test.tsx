@@ -57,13 +57,13 @@ describe("molecules / Nav", () => {
       });
 
       describe("gap", () => {      
-        test("each child of FlexContainer should have padding-left: 2.4rem, except first item", () => {
+        test("each child of FlexContainer should have margin-left: 2.4rem, except first item", () => {
           const { FlexContainer } = setup();
 
-          expect(FlexContainer).toHaveStyleRule("padding-left", "2.4rem", {
+          expect(FlexContainer).toHaveStyleRule("margin-left", "2.4rem", {
             modifier: "& > *"
           });
-          expect(FlexContainer).toHaveStyleRule("padding-left", "0", {
+          expect(FlexContainer).toHaveStyleRule("margin-left", "0", {
             modifier: "& > *:first-child"
           });
         });

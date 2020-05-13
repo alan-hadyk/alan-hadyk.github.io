@@ -231,10 +231,10 @@ describe("molecules / ProjectDescription", () => {
           test("should have 2.8rem to all children except the first one", () => {
             const { IconsWithLabels } = setup();
             
-            expect(IconsWithLabels).toHaveStyleRule("padding-left", "2.8rem", {
+            expect(IconsWithLabels).toHaveStyleRule("margin-left", "2.8rem", {
               modifier: "& > *"
             });
-            expect(IconsWithLabels).toHaveStyleRule("padding-left", "0", {
+            expect(IconsWithLabels).toHaveStyleRule("margin-left", "0", {
               modifier: "& > *:first-child"
             });
           });
