@@ -5,8 +5,12 @@ import BrowserInfo from "<molecules>/BrowserInfo";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
+interface Detect {
+  name: string;
+}
+
 jest.mock("detect-browser", () => ({
-  detect: () => ({ name: "chrome" })
+  detect: (): Detect => ({ name: "chrome" })
 }));
 
 describe("molecules / BrowserInfo", () => {

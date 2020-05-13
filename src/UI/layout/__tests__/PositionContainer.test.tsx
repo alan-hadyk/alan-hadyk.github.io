@@ -307,10 +307,10 @@ interface Setup extends RenderResult {
 
 type PositionContainerTestProps = Partial<PositionContainerProps>;
 
-function setup(addedProps?: PositionContainerTestProps): Setup {
+function setup(additionalProps?: PositionContainerTestProps): Setup {
   const props: PositionContainerProps = {
     children: <div>PositionContainer</div>,
-    ...addedProps
+    ...additionalProps
   };
 
   const utils: RenderResult = renderWithTheme(

@@ -62,10 +62,10 @@ interface RenderWithThemeProps {
   children?: JSX.Element | JSX.Element[];
 }
 
-function setup(addedProps?: RenderWithThemeProps): Setup {
+function setup(additionalProps?: RenderWithThemeProps): Setup {
   const props: RenderWithThemeProps = {
     children: <div>PageTemplate</div>,
-    ...addedProps
+    ...additionalProps
   };
 
   const utils: RenderResult = renderWithTheme(props.children);

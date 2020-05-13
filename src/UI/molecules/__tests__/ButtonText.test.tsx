@@ -97,11 +97,11 @@ interface Setup extends RenderResult {
 
 type ButtonTextTestProps = Partial<ButtonTextProps>;
 
-function setup(addedProps?: ButtonTextTestProps): Setup {
+function setup(additionalProps?: ButtonTextTestProps): Setup {
   const props: ButtonTextProps = {
     buttonText: "Text content",
     size: "small",
-    ...addedProps
+    ...additionalProps
   };
 
   const utils: RenderResult = renderWithTheme(

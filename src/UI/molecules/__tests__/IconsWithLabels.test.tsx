@@ -69,10 +69,10 @@ describe("molecules / IconsWithLabels", () => {
               size: "small"
             });
             
-            expect(FlexContainer).toHaveStyleRule("padding-left", "1.6rem", {
+            expect(FlexContainer).toHaveStyleRule("margin-left", "1.6rem", {
               modifier: "& > *"
             });
-            expect(FlexContainer).toHaveStyleRule("padding-left", "0", {
+            expect(FlexContainer).toHaveStyleRule("margin-left", "0", {
               modifier: "& > *:first-child"
             });
           });
@@ -83,10 +83,10 @@ describe("molecules / IconsWithLabels", () => {
               size: "medium"
             });
             
-            expect(FlexContainer).toHaveStyleRule("padding-left", "1.2rem", {
+            expect(FlexContainer).toHaveStyleRule("margin-left", "1.2rem", {
               modifier: "& > *"
             });
-            expect(FlexContainer).toHaveStyleRule("padding-left", "0", {
+            expect(FlexContainer).toHaveStyleRule("margin-left", "0", {
               modifier: "& > *:first-child"
             });
           });
@@ -97,10 +97,10 @@ describe("molecules / IconsWithLabels", () => {
               size: "large"
             });
             
-            expect(FlexContainer).toHaveStyleRule("padding-left", "2.8rem", {
+            expect(FlexContainer).toHaveStyleRule("margin-left", "2.8rem", {
               modifier: "& > *"
             });
-            expect(FlexContainer).toHaveStyleRule("padding-left", "0", {
+            expect(FlexContainer).toHaveStyleRule("margin-left", "0", {
               modifier: "& > *:first-child"
             });
           });
@@ -113,10 +113,10 @@ describe("molecules / IconsWithLabels", () => {
               size: "small"
             });
             
-            expect(FlexContainer).toHaveStyleRule("padding-top", "1.6rem", {
+            expect(FlexContainer).toHaveStyleRule("margin-top", "1.6rem", {
               modifier: "& > *"
             });
-            expect(FlexContainer).toHaveStyleRule("padding-top", "0", {
+            expect(FlexContainer).toHaveStyleRule("margin-top", "0", {
               modifier: "& > *:first-child"
             });
           });
@@ -127,10 +127,10 @@ describe("molecules / IconsWithLabels", () => {
               size: "medium"
             });
             
-            expect(FlexContainer).toHaveStyleRule("padding-top", "1.2rem", {
+            expect(FlexContainer).toHaveStyleRule("margin-top", "1.2rem", {
               modifier: "& > *"
             });
-            expect(FlexContainer).toHaveStyleRule("padding-top", "0", {
+            expect(FlexContainer).toHaveStyleRule("margin-top", "0", {
               modifier: "& > *:first-child"
             });
           });
@@ -141,10 +141,10 @@ describe("molecules / IconsWithLabels", () => {
               size: "large"
             });
             
-            expect(FlexContainer).toHaveStyleRule("padding-top", "2.8rem", {
+            expect(FlexContainer).toHaveStyleRule("margin-top", "2.8rem", {
               modifier: "& > *"
             });
-            expect(FlexContainer).toHaveStyleRule("padding-top", "0", {
+            expect(FlexContainer).toHaveStyleRule("margin-top", "0", {
               modifier: "& > *:first-child"
             });
           });
@@ -301,7 +301,7 @@ interface Setup extends RenderResult {
 
 type IconsWithLabelsTestProps = Partial<IconsWithLabelsProps>;
 
-function setup(addedProps?: IconsWithLabelsTestProps): Setup {
+function setup(additionalProps?: IconsWithLabelsTestProps): Setup {
   const iconsWithLabels: IconWithLabelProps[] = [
     {
       iconName: "brandJS",
@@ -318,7 +318,7 @@ function setup(addedProps?: IconsWithLabelsTestProps): Setup {
     labelColor: "blue200",
     position: "horizontal",
     size: "small",
-    ...addedProps
+    ...additionalProps
   };
   
   const utils: RenderResult = renderWithTheme(

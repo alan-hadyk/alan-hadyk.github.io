@@ -173,11 +173,11 @@ interface Setup extends RenderResult {
 
 type FlexItemTestProps = Partial<FlexItemProps>;
 
-function setup(addedProps?: FlexItemTestProps): Setup {
+function setup(additionalProps?: FlexItemTestProps): Setup {
   const props: FlexItemProps = {
     children: <div>FlexItem</div>,
     flex: "0 0 100%",
-    ...addedProps
+    ...additionalProps
   };
 
   const utils: RenderResult = renderWithTheme(

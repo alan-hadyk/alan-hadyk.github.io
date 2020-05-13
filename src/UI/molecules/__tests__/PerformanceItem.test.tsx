@@ -370,12 +370,12 @@ interface Setup extends RenderResult {
 
 type PerformanceItemTestProps = Partial<PerformanceItemProps>;
 
-function setup(addedProps?: PerformanceItemTestProps): Setup {
+function setup(additionalProps?: PerformanceItemTestProps): Setup {
   const props: PerformanceItemProps = {
     animationDelay: "600ms",
     label: "Total heap size",
     shouldAnimate: true,
-    ...addedProps
+    ...additionalProps
   };
 
   const utils: RenderResult = renderWithTheme(

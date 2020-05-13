@@ -156,10 +156,10 @@ interface Setup extends RenderResult {
 
 type FpsChartLabelsTestProps = Partial<FpsChartLabelsProps>;
 
-function setup(addedProps?: FpsChartLabelsTestProps): Setup {
+function setup(additionalProps?: FpsChartLabelsTestProps): Setup {
   const props: FpsChartLabelsProps = {
     labels: [0, 15, 30, 45],
-    ...addedProps
+    ...additionalProps
   };
 
   const utils: RenderResult = renderWithTheme(

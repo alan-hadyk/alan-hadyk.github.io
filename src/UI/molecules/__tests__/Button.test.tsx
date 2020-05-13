@@ -644,13 +644,13 @@ interface Setup extends RenderResult {
 
 type ButtonTestProps = Partial<ButtonProps>;
 
-function setup(addedProps?: ButtonTestProps): Setup {
+function setup(additionalProps?: ButtonTestProps): Setup {
   const props: ButtonProps = {
     buttonText: "Text content",
     iconName: "btnCodeSandbox",
     size: "small",
     type: "primary",
-    ...addedProps
+    ...additionalProps
   };
 
   const utils: RenderResult = renderWithTheme(

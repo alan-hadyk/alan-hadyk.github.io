@@ -232,13 +232,13 @@ interface Setup extends RenderResult {
 
 type IconWithLabelTestProps = Partial<IconWithLabelProps>;
 
-function setup(addedProps?: IconWithLabelTestProps): Setup {
+function setup(additionalProps?: IconWithLabelTestProps): Setup {
   const props: IconWithLabelProps = {
     iconName: "brandJS",
     label: "/",
     labelColor: "blue300",
     size: "small",
-    ...addedProps
+    ...additionalProps
   };
   
   const utils: RenderResult = renderWithTheme(

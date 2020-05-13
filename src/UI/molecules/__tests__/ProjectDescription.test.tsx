@@ -231,10 +231,10 @@ describe("molecules / ProjectDescription", () => {
           test("should have 2.8rem to all children except the first one", () => {
             const { IconsWithLabels } = setup();
             
-            expect(IconsWithLabels).toHaveStyleRule("padding-left", "2.8rem", {
+            expect(IconsWithLabels).toHaveStyleRule("margin-left", "2.8rem", {
               modifier: "& > *"
             });
-            expect(IconsWithLabels).toHaveStyleRule("padding-left", "0", {
+            expect(IconsWithLabels).toHaveStyleRule("margin-left", "0", {
               modifier: "& > *:first-child"
             });
           });
@@ -434,7 +434,7 @@ interface Setup extends RenderResult {
 
 type ProjectDescriptionTestProps = Partial<ProjectDescriptionProps>;
 
-function setup(addedProps?: ProjectDescriptionTestProps): Setup {
+function setup(additionalProps?: ProjectDescriptionTestProps): Setup {
   const iconsWithLabels: IconWithLabelProps[] = [
     {
       iconName: "brandJS",
@@ -450,7 +450,7 @@ function setup(addedProps?: ProjectDescriptionTestProps): Setup {
     description: "Lorem ipsum dolor sit amet",
     iconsWithLabels,
     title: "Roland 303",
-    ...addedProps
+    ...additionalProps
   };
 
   const utils: RenderResult = renderWithTheme(

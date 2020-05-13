@@ -475,13 +475,13 @@ interface Setup extends RenderResult {
 
 type CommitTestProps = Partial<CommitProps>;
 
-function setup(addedProps?: CommitTestProps): Setup {
+function setup(additionalProps?: CommitTestProps): Setup {
   const props: CommitProps = {
     date: "2020-03-10T22:34:52Z",
     delay: 0,
     htmlUrl: "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2964",
     sha: "4380d5d391eee216e651d34700a331ec501c2964",
-    ...addedProps
+    ...additionalProps
   };
 
   const utils: RenderResult = renderWithTheme(

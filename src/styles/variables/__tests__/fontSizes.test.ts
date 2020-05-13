@@ -9,6 +9,7 @@ describe("styles / variables / fontSizes", () => {
       font20: "20px",
       font24: "24px",
       font28: "28px",
+      font36: "36px",
       font48: "48px",
       font64: "64px",
       font72: "72px"
