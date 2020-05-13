@@ -231,10 +231,10 @@ interface Setup extends RenderResult {
 
 type FlexContainerTestProps = Partial<FlexContainerProps>;
 
-function setup(addedProps?: FlexContainerTestProps): Setup {
+function setup(additionalProps?: FlexContainerTestProps): Setup {
   const props: FlexContainerProps = {
     children: <div>FlexContainer</div>,
-    ...addedProps
+    ...additionalProps
   };
 
   const utils: RenderResult = renderWithTheme(

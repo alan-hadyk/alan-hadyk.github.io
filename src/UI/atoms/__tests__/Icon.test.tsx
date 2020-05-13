@@ -591,10 +591,10 @@ interface Setup extends RenderResult {
 
 type IconTestProps = Partial<IconProps>;
 
-function setup(addedProps?: IconTestProps): Setup {
+function setup(additionalProps?: IconTestProps): Setup {
   const props: IconProps = {
     iconName: "codeSandbox",
-    ...addedProps
+    ...additionalProps
   };
 
   const utils: RenderResult = renderWithTheme(

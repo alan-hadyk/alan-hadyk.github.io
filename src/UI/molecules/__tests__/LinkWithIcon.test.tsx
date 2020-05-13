@@ -171,12 +171,12 @@ interface Setup extends RenderResult {
 
 type LinkWithIconTestProps = Partial<LinkWithIconProps>;
 
-function setup(addedProps?: LinkWithIconTestProps): Setup {
+function setup(additionalProps?: LinkWithIconTestProps): Setup {
   const props: LinkWithIconProps = {
     height: "spacing48",
     href: "/",
     iconName: "logo",
-    ...addedProps
+    ...additionalProps
   };
   
   const utils: RenderResult = renderWithTheme(

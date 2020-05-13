@@ -448,10 +448,10 @@ interface Setup extends RenderResult {
 
 type HeaderTestProps = Partial<HeaderProps>;
 
-function setup(addedProps?: HeaderTestProps): Setup {
+function setup(additionalProps?: HeaderTestProps): Setup {
   const props: HeaderProps = {
     zIndex: "layer1",
-    ...addedProps
+    ...additionalProps
   };
 
   const utils: RenderResult = renderWithTheme(

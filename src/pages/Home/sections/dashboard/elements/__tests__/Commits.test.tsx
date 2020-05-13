@@ -295,7 +295,7 @@ interface Setup extends RenderResult {
 
 type ListOfCommitsTestProps = Partial<ListOfCommitsProps>;
 
-function setup(addedProps?: ListOfCommitsTestProps): Setup {
+function setup(additionalProps?: ListOfCommitsTestProps): Setup {
   const defaultProps: ListOfCommitsProps = {
     commitsList: [
       {
@@ -312,7 +312,7 @@ function setup(addedProps?: ListOfCommitsTestProps): Setup {
     hasError: false
   };
 
-  const props: ListOfCommitsProps = { ...defaultProps, ...addedProps };
+  const props: ListOfCommitsProps = { ...defaultProps, ...additionalProps };
 
   const utils: RenderResult = renderWithTheme(
     <Commits {...props} />

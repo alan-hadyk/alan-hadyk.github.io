@@ -466,7 +466,7 @@ interface Setup extends RenderResult {
 
 type CompanyDescriptionTestProps = Partial<CompanyDescriptionProps>;
 
-function setup(addedProps?: CompanyDescriptionTestProps): Setup {
+function setup(additionalProps?: CompanyDescriptionTestProps): Setup {
   const responsibilites: CompanyDescriptionProps["responsibilites"] = [
     "Create> scalable and sane front-end architecture", 
     "Orchestrate and direct collaborative team operational objectives for front-end layer of an application designed to manage payment systems"
@@ -488,7 +488,7 @@ function setup(addedProps?: CompanyDescriptionTestProps): Setup {
     iconsWithLabels,
     responsibilites,
     title: "Front end developer",
-    ...addedProps
+    ...additionalProps
   };
 
   const utils: RenderResult = renderWithTheme(

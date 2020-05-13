@@ -111,11 +111,11 @@ interface Setup extends RenderResult {
 
 type LinkTestProps = Partial<LinkProps>;
 
-function setup(addedProps?: LinkTestProps): Setup {
+function setup(additionalProps?: LinkTestProps): Setup {
   const props: LinkProps = {
     children: <div>Link</div>,
     href: "/",
-    ...addedProps
+    ...additionalProps
   };
 
   const utils: RenderResult = renderWithTheme(

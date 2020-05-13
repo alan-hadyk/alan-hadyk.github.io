@@ -301,7 +301,7 @@ interface Setup extends RenderResult {
 
 type IconsWithLabelsTestProps = Partial<IconsWithLabelsProps>;
 
-function setup(addedProps?: IconsWithLabelsTestProps): Setup {
+function setup(additionalProps?: IconsWithLabelsTestProps): Setup {
   const iconsWithLabels: IconWithLabelProps[] = [
     {
       iconName: "brandJS",
@@ -318,7 +318,7 @@ function setup(addedProps?: IconsWithLabelsTestProps): Setup {
     labelColor: "blue200",
     position: "horizontal",
     size: "small",
-    ...addedProps
+    ...additionalProps
   };
   
   const utils: RenderResult = renderWithTheme(

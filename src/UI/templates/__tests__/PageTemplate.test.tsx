@@ -49,10 +49,10 @@ interface Setup extends RenderResult {
 
 type PageTemplateTestProps = Partial<PageTemplateProps>;
 
-function setup(addedProps?: PageTemplateTestProps): Setup {
+function setup(additionalProps?: PageTemplateTestProps): Setup {
   const props: PageTemplateProps = {
     children: <div>PageTemplate</div>,
-    ...addedProps
+    ...additionalProps
   };
 
   const utils: RenderResult = renderWithTheme(

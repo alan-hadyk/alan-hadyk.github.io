@@ -434,7 +434,7 @@ interface Setup extends RenderResult {
 
 type ProjectDescriptionTestProps = Partial<ProjectDescriptionProps>;
 
-function setup(addedProps?: ProjectDescriptionTestProps): Setup {
+function setup(additionalProps?: ProjectDescriptionTestProps): Setup {
   const iconsWithLabels: IconWithLabelProps[] = [
     {
       iconName: "brandJS",
@@ -450,7 +450,7 @@ function setup(addedProps?: ProjectDescriptionTestProps): Setup {
     description: "Lorem ipsum dolor sit amet",
     iconsWithLabels,
     title: "Roland 303",
-    ...addedProps
+    ...additionalProps
   };
 
   const utils: RenderResult = renderWithTheme(
