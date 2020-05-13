@@ -16,15 +16,15 @@ import {
 describe("organisms / CompanyDescription", () => {
   test("should have correct structure", () => {
     const {
+      CompanyDescriptionContainer,
       DateIconWithLabel,
       DateSpacingContainer,
-      CompanyDescriptionContainer,
       IconsWithLabels,
-      IconsWithLabelsSpacingContainer,
       MainTitle,
       ResponsibilitiesListSpacingContainer,
       ResponsibilitiesSpacingContainer,
       ResponsibilitiesTitle,
+      TechStackIconsWithLabelsSpacingContainer,
       TechStackSpacingContainer,
       TechStackTitle,
       UnorderedList
@@ -38,8 +38,8 @@ describe("organisms / CompanyDescription", () => {
     expect(DateSpacingContainer.children[0]).toEqual(DateIconWithLabel);
 
     expect(TechStackSpacingContainer.children[0]).toEqual(TechStackTitle);
-    expect(TechStackSpacingContainer.children[1]).toEqual(IconsWithLabelsSpacingContainer);
-    expect(IconsWithLabelsSpacingContainer.children[0]).toEqual(IconsWithLabels);
+    expect(TechStackSpacingContainer.children[1]).toEqual(TechStackIconsWithLabelsSpacingContainer);
+    expect(TechStackIconsWithLabelsSpacingContainer.children[0]).toEqual(IconsWithLabels);
 
     expect(ResponsibilitiesSpacingContainer.children[0]).toEqual(ResponsibilitiesTitle);
     expect(ResponsibilitiesSpacingContainer.children[1]).toEqual(ResponsibilitiesListSpacingContainer);
@@ -283,44 +283,44 @@ describe("organisms / CompanyDescription", () => {
     });
 
     describe("Props", () => {
-      describe("size - large", () => {
+      describe("size - small", () => {
         describe("FlexContainer - gap", () => {    
-          test("should have 2.8rem to all children except the first one", () => {
+          test("should have 1.6rem in all children, except the first one", () => {
             const { IconsWithLabels } = setup();
             
-            expect(IconsWithLabels).toHaveStyleRule("padding-left", "2.8rem", {
+            expect(IconsWithLabels).toHaveStyleRule("margin-left", "1.6rem", {
               modifier: "& > *"
             });
-            expect(IconsWithLabels).toHaveStyleRule("padding-left", "0", {
+            expect(IconsWithLabels).toHaveStyleRule("margin-left", "0", {
               modifier: "& > *:first-child"
             });
           });
         });
 
         describe("IconContainer - height", () => {
-          test("should have 4rem", () => {
-            const { IconContainers } = setup();
+          test("should have 2.8rem", () => {
+            const { IconsWithLabels } = setup();
     
-            expect(IconContainers[0]).toHaveStyleRule("height", "4rem");
-            expect(IconContainers[1]).toHaveStyleRule("height", "4rem");
+            expect(IconsWithLabels.children[0].children[0].children[0]).toHaveStyleRule("height", "2.8rem");
+            expect(IconsWithLabels.children[1].children[0].children[0]).toHaveStyleRule("height", "2.8rem");
           });
         });
 
         describe("IconWithLabelSpacingContainer - paddingRight", () => {
-          test("should have 1.2rem", () => {
-            const { IconWithLabelSpacingContainers } = setup();
+          test("should have .8rem", () => {
+            const { IconsWithLabels } = setup();
     
-            expect(IconWithLabelSpacingContainers[0]).toHaveStyleRule("padding-right", "1.2rem");
-            expect(IconWithLabelSpacingContainers[1]).toHaveStyleRule("padding-right", "1.2rem");
+            expect(IconsWithLabels.children[0].children[0]).toHaveStyleRule("padding-right", ".8rem");
+            expect(IconsWithLabels.children[0].children[0]).toHaveStyleRule("padding-right", ".8rem");
           });
         });
 
         describe("LabelTexts - fontSize", () => {  
-          test("should have 24px", () => {
-            const { LabelTexts } = setup();
+          test("should have 16px", () => {
+            const { IconsWithLabels } = setup();
   
-            expect(LabelTexts[0]).toHaveStyleRule("font-size", "24px");
-            expect(LabelTexts[1]).toHaveStyleRule("font-size", "24px");
+            expect(IconsWithLabels.children[0].children[1]).toHaveStyleRule("font-size", "16px");
+            expect(IconsWithLabels.children[1].children[1]).toHaveStyleRule("font-size", "16px");
           });
         });
       });
@@ -337,58 +337,109 @@ describe("organisms / CompanyDescription", () => {
     });
   });
 
-  describe.skip("SpacingContainers", () => { 
-    describe("TitleWithDescriptionSpacingContainer", () => { 
+  describe("SpacingContainers", () => { 
+    describe("DateSpacingContainer", () => { 
       describe("Props", () => {
         describe("marginBottom", () => {      
-          test("should have 4rem", () => {
-            const { TitleWithDescriptionSpacingContainer } = setup();
+          test("should have 3.2rem", () => {
+            const { DateSpacingContainer } = setup();
 
-            expect(TitleWithDescriptionSpacingContainer).toHaveStyleRule("margin-bottom", "4rem");
+            expect(DateSpacingContainer).toHaveStyleRule("margin-bottom", "3.2rem");
+          });
+        });
+
+        describe("marginTop", () => {      
+          test("should have 3.2rem", () => {
+            const { DateSpacingContainer } = setup();
+
+            expect(DateSpacingContainer).toHaveStyleRule("margin-top", "3.2rem");
+          });
+        });
+      });
+    });
+
+    describe("TechStackSpacingContainer", () => { 
+      describe("Props", () => {
+        describe("marginBottom", () => {      
+          test("should have 3.2rem", () => {
+            const { TechStackSpacingContainer } = setup();
+
+            expect(TechStackSpacingContainer).toHaveStyleRule("margin-bottom", "3.2rem");
+          });
+        });
+      });
+    });
+
+    describe("TechStackIconsWithLabelsSpacingContainer", () => { 
+      describe("Props", () => {
+        describe("marginLeft", () => {      
+          test("should have 1.6rem", () => {
+            const { TechStackIconsWithLabelsSpacingContainer } = setup();
+
+            expect(TechStackIconsWithLabelsSpacingContainer).toHaveStyleRule("margin-left", "1.6rem");
           });
         });
 
         describe("marginTop", () => {      
           test("should have 1.6rem", () => {
-            const { TitleWithDescriptionSpacingContainer } = setup();
+            const { TechStackIconsWithLabelsSpacingContainer } = setup();
 
-            expect(TitleWithDescriptionSpacingContainer).toHaveStyleRule("margin-top", "1.6rem");
+            expect(TechStackIconsWithLabelsSpacingContainer).toHaveStyleRule("margin-top", "1.6rem");
           });
         });
       });
     });
 
-    describe("UsedTechnologiesSpacingContainer", () => { 
+    describe("ResponsibilitiesSpacingContainer", () => { 
       describe("Props", () => {
-        describe("marginBottom", () => {      
-          test("should have 4rem", () => {
-            const { UsedTechnologiesSpacingContainer } = setup();
+        describe("paddingBottom", () => {      
+          test("should have 8.4rem", () => {
+            const { ResponsibilitiesSpacingContainer } = setup();
 
-            expect(UsedTechnologiesSpacingContainer).toHaveStyleRule("margin-bottom", "4rem");
+            expect(ResponsibilitiesSpacingContainer).toHaveStyleRule("padding-bottom", "8.4rem");
           });
         });
       });
     });
 
-    describe("IconsWithLabelsSpacingContainer", () => { 
+    describe("ResponsibilitiesListSpacingContainer", () => { 
       describe("Props", () => {
-        describe("marginTop", () => {      
-          test("should have .8rem", () => {
-            const { IconsWithLabelsSpacingContainer } = setup();
+        describe("marginLeft", () => {      
+          test("should have 1.6rem", () => {
+            const { ResponsibilitiesListSpacingContainer } = setup();
 
-            expect(IconsWithLabelsSpacingContainer).toHaveStyleRule("margin-top", ".8rem");
+            expect(ResponsibilitiesListSpacingContainer).toHaveStyleRule("margin-left", "1.6rem");
           });
         });
-      });
-    });
 
-    describe("ButtonsSpacingContainer", () => { 
-      describe("Props", () => {
         describe("marginTop", () => {      
           test("should have 1.6rem", () => {
-            const { ButtonsSpacingContainer } = setup();
+            const { ResponsibilitiesListSpacingContainer } = setup();
 
-            expect(ButtonsSpacingContainer).toHaveStyleRule("margin-top", "1.6rem");
+            expect(ResponsibilitiesListSpacingContainer).toHaveStyleRule("margin-top", "1.6rem");
+          });
+        });
+      });
+    });
+  });
+
+  describe("UnorderedList", () => { 
+    describe("Props", () => {
+      describe("items", () => {      
+        test("should render items based on responsibilites prop", () => {
+          const responsibilites: CompanyDescriptionProps["responsibilites"] = [
+            "Streamline project timelines to ensure application is being developed in React.js with JavaScript",
+            "Develop API gateway in the form of Express / Node.js server, along with Apollo / GraphQL stack",
+            "Author unit, integration and acceptance test"
+          ];
+
+          const { UnorderedList } = setup({
+            responsibilites
+          });
+
+          expect(UnorderedList.childElementCount).toEqual(responsibilites.length);
+          responsibilites.forEach((resposibility: string, index: number) => {            
+            expect(UnorderedList.children[index].textContent).toEqual(resposibility);
           });
         });
       });
@@ -402,11 +453,12 @@ interface Setup extends RenderResult {
   DateSpacingContainer: Element;
   Icons: Element[];
   IconsWithLabels: Element;
-  IconsWithLabelsSpacingContainer: Element;
+  IconsWithLabelsSpacingContainers: Element[];
   MainTitle: Element;
   ResponsibilitiesListSpacingContainer: Element;
   ResponsibilitiesSpacingContainer: Element;
   ResponsibilitiesTitle: Element;
+  TechStackIconsWithLabelsSpacingContainer: Element;
   TechStackSpacingContainer: Element;
   TechStackTitle: Element;
   UnorderedList: Element;
@@ -445,32 +497,34 @@ function setup(addedProps?: CompanyDescriptionTestProps): Setup {
 
   const { queryAllByTestId } = utils || {};
   
+  const CompanyDescriptionContainer: Element = queryAllByTestId("CompanyDescription")[0];
   const DateIconWithLabel: Element = queryAllByTestId("IconWithLabel")[0];
   const DateSpacingContainer: Element = queryAllByTestId("DateSpacingContainer")[0];
-  const CompanyDescriptionContainer: Element = queryAllByTestId("CompanyDescription")[0];
   const Icons: Element[] = queryAllByTestId("IconContainer");
   const IconsWithLabels: Element = queryAllByTestId("IconsWithLabels")[0];
-  const IconsWithLabelsSpacingContainer: Element = queryAllByTestId("IconsWithLabelsSpacingContainer")[0];
+  const IconsWithLabelsSpacingContainers: Element[] = queryAllByTestId("IconsWithLabelsSpacingContainer");
   const MainTitle: Element = queryAllByTestId("MainTitle")[0];
   const ResponsibilitiesListSpacingContainer: Element = queryAllByTestId("ResponsibilitiesListSpacingContainer")[0];
   const ResponsibilitiesSpacingContainer: Element = queryAllByTestId("ResponsibilitiesSpacingContainer")[0];
   const ResponsibilitiesTitle: Element = queryAllByTestId("ResponsibilitiesTitle")[0];
   const TechStackSpacingContainer: Element = queryAllByTestId("TechStackSpacingContainer")[0];
+  const TechStackIconsWithLabelsSpacingContainer: Element = queryAllByTestId("TechStackIconsWithLabelsSpacingContainer")[0];
   const TechStackTitle: Element = queryAllByTestId("TechStackTitle")[0];
   const UnorderedList: Element = queryAllByTestId("UnorderedList")[0];
 
   return {
     ...utils,
+    CompanyDescriptionContainer,
     DateIconWithLabel,
     DateSpacingContainer,
-    CompanyDescriptionContainer,
     Icons,
     IconsWithLabels,
-    IconsWithLabelsSpacingContainer,
+    IconsWithLabelsSpacingContainers,
     MainTitle,
     ResponsibilitiesListSpacingContainer,
     ResponsibilitiesSpacingContainer,
     ResponsibilitiesTitle,
+    TechStackIconsWithLabelsSpacingContainer,
     TechStackSpacingContainer,
     TechStackTitle,
     UnorderedList

@@ -58,7 +58,7 @@ function CompanyDescription({
         Tech stack
       </Text>
       <SpacingContainer
-        dataTestId="IconsWithLabelsSpacingContainer"
+        dataTestId="TechStackIconsWithLabelsSpacingContainer"
         marginLeft="spacing16"
         marginTop="spacing16"
       >
