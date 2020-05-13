@@ -435,6 +435,13 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Btn-Send.svg");
       });
 
+      test("should render corect icon for calendar", () => {
+        const { IconComponent } = setup({
+          iconName: "calendar"
+        });
+
+        expect(IconComponent.textContent).toEqual("Icon-Calendar.svg");
+      });
 
       test("should render corect icon for chrome", () => {
         const { IconComponent } = setup({
