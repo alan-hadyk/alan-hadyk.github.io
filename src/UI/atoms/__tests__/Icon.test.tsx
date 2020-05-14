@@ -435,6 +435,13 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Btn-Send.svg");
       });
 
+      test("should render corect icon for calendar", () => {
+        const { IconComponent } = setup({
+          iconName: "calendar"
+        });
+
+        expect(IconComponent.textContent).toEqual("Icon-Calendar.svg");
+      });
 
       test("should render corect icon for chrome", () => {
         const { IconComponent } = setup({
@@ -458,6 +465,22 @@ describe("atoms / Icon", () => {
         });
 
         expect(IconComponent.textContent).toEqual("Icon-Firefox.svg");
+      });
+
+      test("should render corect icon for hexagon", () => {
+        const { IconComponent } = setup({
+          iconName: "hexagon"
+        });
+
+        expect(IconComponent.textContent).toEqual("Hexagon.svg");
+      });
+
+      test("should render corect icon for hexagonWithPattern", () => {
+        const { IconComponent } = setup({
+          iconName: "hexagonWithPattern"
+        });
+
+        expect(IconComponent.textContent).toEqual("Hexagon-With-Pattern.svg");
       });
 
       test("should render corect icon for earth", () => {
