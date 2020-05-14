@@ -1,5 +1,5 @@
 import React from "react";
-import { act, RenderResult, waitForElement } from "@testing-library/react";
+import { act, RenderResult } from "@testing-library/react";
 
 import withCommitsState from "<state>/withCommitsState";
 

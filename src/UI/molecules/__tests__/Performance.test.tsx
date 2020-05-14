@@ -97,7 +97,7 @@ describe("molecules / Performance", () => {
       
           const { PerformanceItems } = setup();
           
-          PerformanceItems.forEach((PerformanceItem, index) => {
+          PerformanceItems.forEach((PerformanceItem) => {
             expect(PerformanceItem.children[0].children[0].children[1].children[0]).not.toHaveStyleRule("animation-delay");
             expect(PerformanceItem.children[0].children[0].children[1].children[0]).not.toHaveStyleRule("animation-duration");
             expect(PerformanceItem.children[0].children[0].children[1].children[0]).not.toHaveStyleRule("animation-iteration-count");

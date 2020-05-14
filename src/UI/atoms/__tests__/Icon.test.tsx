@@ -435,6 +435,13 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Btn-Send.svg");
       });
 
+      test("should render corect icon for calendar", () => {
+        const { IconComponent } = setup({
+          iconName: "calendar"
+        });
+
+        expect(IconComponent.textContent).toEqual("Icon-Calendar.svg");
+      });
 
       test("should render corect icon for chrome", () => {
         const { IconComponent } = setup({
@@ -607,10 +614,10 @@ interface Setup extends RenderResult {
 
 type IconTestProps = Partial<IconProps>;
 
-function setup(addedProps?: IconTestProps): Setup {
+function setup(additionalProps?: IconTestProps): Setup {
   const props: IconProps = {
     iconName: "codeSandbox",
-    ...addedProps
+    ...additionalProps
   };
 
   const utils: RenderResult = renderWithTheme(

@@ -232,13 +232,13 @@ interface Setup extends RenderResult {
 
 type IconWithLabelTestProps = Partial<IconWithLabelProps>;
 
-function setup(addedProps?: IconWithLabelTestProps): Setup {
+function setup(additionalProps?: IconWithLabelTestProps): Setup {
   const props: IconWithLabelProps = {
     iconName: "brandJS",
     label: "/",
     labelColor: "blue300",
     size: "small",
-    ...addedProps
+    ...additionalProps
   };
   
   const utils: RenderResult = renderWithTheme(
@@ -250,8 +250,8 @@ function setup(addedProps?: IconWithLabelTestProps): Setup {
   const FlexContainer: Element = queryByTestId("IconWithLabel");
   const Icon: SVGSVGElement = document.querySelector("svg");
   const IconContainer: Element = queryByTestId("IconContainer");
-  const SpacingContainer: Element = queryByTestId("SpacingContainer");
-  const Text: Element = queryByTestId("Text");
+  const SpacingContainer: Element = queryByTestId("IconWithLabelSpacingContainer");
+  const Text: Element = queryByTestId("LabelText");
 
   return {
     ...utils,
@@ -261,4 +261,4 @@ function setup(addedProps?: IconWithLabelTestProps): Setup {
     SpacingContainer,
     Text
   };
-}
+} 

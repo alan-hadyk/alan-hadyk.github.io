@@ -238,13 +238,13 @@ describe("organisms / Header", () => {
       });
 
       describe("gap", () => {      
-        test("each child of InnerFlexContainer should have padding-left: 4.8rem, except first item", () => {
+        test("each child of InnerFlexContainer should have margin-left: 4.8rem, except first item", () => {
           const { InnerFlexContainer } = setup();
 
-          expect(InnerFlexContainer).toHaveStyleRule("padding-left", "4.8rem", {
+          expect(InnerFlexContainer).toHaveStyleRule("margin-left", "4.8rem", {
             modifier: "& > *"
           });
-          expect(InnerFlexContainer).toHaveStyleRule("padding-left", "0", {
+          expect(InnerFlexContainer).toHaveStyleRule("margin-left", "0", {
             modifier: "& > *:first-child"
           });
         });
@@ -369,13 +369,13 @@ describe("organisms / Header", () => {
       });
 
       describe("gap", () => {      
-        test("each child of FlexContainer should have padding-left: 2.4rem, except first item", () => {
+        test("each child of FlexContainer should have margin-left: 2.4rem, except first item", () => {
           const { FlexContainers } = setup();
 
-          expect(FlexContainers[3]).toHaveStyleRule("padding-left", "2.4rem", {
+          expect(FlexContainers[3]).toHaveStyleRule("margin-left", "2.4rem", {
             modifier: "& > *"
           });
-          expect(FlexContainers[3]).toHaveStyleRule("padding-left", "0", {
+          expect(FlexContainers[3]).toHaveStyleRule("margin-left", "0", {
             modifier: "& > *:first-child"
           });
         });
@@ -448,10 +448,10 @@ interface Setup extends RenderResult {
 
 type HeaderTestProps = Partial<HeaderProps>;
 
-function setup(addedProps?: HeaderTestProps): Setup {
+function setup(additionalProps?: HeaderTestProps): Setup {
   const props: HeaderProps = {
     zIndex: "layer1",
-    ...addedProps
+    ...additionalProps
   };
 
   const utils: RenderResult = renderWithTheme(
