@@ -7,7 +7,7 @@ import { HexagonProps } from "<molecules>/__typings__/Hexagon.d.ts";
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 describe("molecules / Hexagon", () => {
-  test("should have correct structure when fill is equal pattern", () => {
+  test("should have correct structure", () => {
     const { 
       HexagonContainer,
       HexagonInnerContainer,
@@ -20,6 +20,14 @@ describe("molecules / Hexagon", () => {
     expect(HexagonContainer.children[0]).toEqual(IconContainer);
     expect(IconContainer.children[0]).toEqual(Icon);
     expect(HexagonContainer.children[1]).toEqual(HexagonInnerContainer);
+  });
+
+  test("should render children", () => {
+    const { HexagonInnerContainer } = setup({
+      children: <div>Custom children</div>
+    });
+
+    expect(HexagonInnerContainer.textContent).toEqual("Custom children");
   });
 
   describe("HexagonContainer", () => {    
@@ -103,6 +111,16 @@ describe("molecules / Hexagon", () => {
           });
 
           expect(IconContainer).toHaveStyleRule("fill", "#78b0b5", {
+            modifier: "svg path"
+          });
+        });
+
+        test("should have false when fill is none", () => {
+          const { IconContainer } = setup({
+            fill: "none"
+          });
+
+          expect(IconContainer).not.toHaveStyleRule("fill", {
             modifier: "svg path"
           });
         });
