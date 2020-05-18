@@ -19,6 +19,7 @@ export default {
   spacing72: "7.2rem",
   spacing80: "8rem",
   spacing84: "8.4rem",
+  spacing88: "8.8rem",
   spacing96: "9.6rem",
   spacing108: "10.8rem",
   spacing120: "12rem",
@@ -26,5 +27,6 @@ export default {
   spacing220: "22rem",
   spacing240: "24rem",
   spacing248: "24.8rem",
-  spacing288: "28rem"
+  spacing288: "28rem",
+  spacing1056: "105.6rem"
 };

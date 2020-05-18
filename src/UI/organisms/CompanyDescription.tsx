@@ -42,62 +42,6 @@ function CompanyDescription({
     </Fragment>
   ), [date, title]);
 
-  const renderTechStack = useCallback((): JSX.Element => (
-    <SpacingContainer
-      dataTestId="TechStackSpacingContainer"
-      marginBottom="spacing32"
-    >
-      <Text
-        color="blue100"
-        dataTestId="TechStackTitle"
-        fontFamily="AnonymousPro"
-        fontSize="font24"
-        fontWeight="bold"
-        lineHeight="spacing32"
-      >
-        Tech stack
-      </Text>
-      <SpacingContainer
-        dataTestId="TechStackIconsWithLabelsSpacingContainer"
-        marginLeft="spacing16"
-        marginTop="spacing16"
-      >
-        <IconsWithLabels
-          iconsWithLabels={iconsWithLabels}
-          position="horizontal"
-          size="small"
-        />
-      </SpacingContainer>
-    </SpacingContainer>
-  ), [iconsWithLabels]);
-
-  const renderResponsibilities = useCallback((): JSX.Element => (
-    <SpacingContainer
-      dataTestId="ResponsibilitiesSpacingContainer"
-      paddingBottom="spacing84"
-    >
-      <Text
-        color="blue100"
-        dataTestId="ResponsibilitiesTitle"
-        fontFamily="AnonymousPro"
-        fontSize="font24"
-        fontWeight="bold"
-        lineHeight="spacing32"
-      >
-        Responsibilites
-      </Text>
-      <SpacingContainer
-        dataTestId="ResponsibilitiesListSpacingContainer"
-        marginLeft="spacing16"
-        marginTop="spacing16"
-      >
-        <UnorderedList
-          items={responsibilites}
-        />
-      </SpacingContainer>
-    </SpacingContainer>
-  ), [responsibilites]);
-
   return (
     <CompanyDescription.Container
       data-testid="CompanyDescription"
@@ -109,6 +53,68 @@ function CompanyDescription({
       {renderResponsibilities()}
     </CompanyDescription.Container>
   );
+
+  function renderTechStack(): JSX.Element {
+    return (
+      <SpacingContainer
+        dataTestId="TechStackSpacingContainer"
+        marginBottom="spacing32"
+      >
+        <Text
+          color="blue100"
+          dataTestId="TechStackTitle"
+          fontFamily="AnonymousPro"
+          fontSize="font24"
+          fontWeight="bold"
+          lineHeight="spacing32"
+        >
+        Tech stack
+        </Text>
+        <SpacingContainer
+          dataTestId="TechStackIconsWithLabelsSpacingContainer"
+          marginLeft="spacing16"
+          marginTop="spacing16"
+        >
+          <IconsWithLabels
+            iconsWithLabels={iconsWithLabels}
+            position="horizontal"
+            size="small"
+          />
+        </SpacingContainer>
+      </SpacingContainer>
+    );
+  }
+
+  function renderResponsibilities(): JSX.Element {
+    return (
+      <SpacingContainer
+        dataTestId="ResponsibilitiesSpacingContainer"
+        paddingBottom="spacing84"
+      >
+        <Text
+          color="blue100"
+          dataTestId="ResponsibilitiesTitle"
+          fontFamily="AnonymousPro"
+          fontSize="font24"
+          fontWeight="bold"
+          lineHeight="spacing32"
+        >
+        Responsibilites
+        </Text>
+        <SpacingContainer
+          dataTestId="ResponsibilitiesListSpacingContainer"
+          marginLeft="spacing16"
+          marginTop="spacing16"
+        >
+          <UnorderedList
+            items={responsibilites}
+          />
+        </SpacingContainer>
+      </SpacingContainer>
+    );
+  }
+
+
 }
 
 CompanyDescription.Container = styled.div``;

@@ -10,4 +10,5 @@ export interface FlexContainerProps {
   gap?: Spacing | string;
   height?: Spacing | "unset" | "50%" | "100%";
   justifyContent?: "flex-start" | "flex-end" | "center" | "space-between"; 
+  maxWidth?: Spacing | "unset"; 
 }

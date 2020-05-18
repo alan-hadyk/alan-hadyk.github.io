@@ -15,13 +15,7 @@ export default function useLineChart({
   canvas,
   chartData
 }: UseLineChart): void {
-  const drawChart = useCallback<() => void>(_drawChart, [_drawChart]);
-
-  useLayoutEffect((): void => {
-    window.requestAnimationFrame(drawChart);
-  }, [canvas, chartData, drawChart]);
-
-  function _drawChart(): void {
+  const drawChart = useCallback<() => void>((): void => {
     if (chartData.current.length < 2 || !canvas.current) {
       window.requestAnimationFrame(drawChart);
 
@@ -73,53 +67,57 @@ export default function useLineChart({
     }
 
     window.requestAnimationFrame(drawChart);
+  }, [canvas, chartData]);
+
+  useLayoutEffect((): void => {
+    window.requestAnimationFrame(drawChart);
+  }, [canvas, chartData, drawChart]);
+}
+
+function getLineCoordinates({
+  height,
+  maxTime,
+  nextItem,
+  time,
+  value,
+  width
+}: GetLineCoordinates): GetLineCoordinatesResult {
+  const {
+    time: nextItemTime,
+    value: nextItemValue
+  }: LineChartData = nextItem;
+  
+  const x1: number = (time / maxTime) * width;
+  const y1: number = ((60 - value) / 60) * height;
+  const x2: number = (nextItemTime / maxTime) * width;
+  const y2: number = ((60 - nextItemValue) / 60) * height;
+  
+  return {
+    x1,
+    x2,
+    y1,
+    y2
+  };
+}
+
+function clearCanvas({
+  canvas,
+  context,
+  height,
+  width
+}: ClearCanvas): void {
+  if (!context) {
+    return;
   }
 
-  function clearCanvas({
-    canvas,
-    context,
-    height,
-    width
-  }: ClearCanvas): void {
-    if (!context) {
-      return;
-    }
+  canvas.width = width;
+  canvas.height = height;
 
-    canvas.width = width;
-    canvas.height = height;
-
-    context.clearRect(0, 0, width, height);
-    context.strokeStyle = colorPalette.blue300;
-    context.shadowOffsetX = 0;
-    context.shadowOffsetY = 0;
-    context.shadowColor = colorPalette.blue100;
-    context.shadowBlur = 8;
-    context.beginPath();
-  }
-
-  function getLineCoordinates({
-    height,
-    maxTime,
-    nextItem,
-    time,
-    value,
-    width
-  }: GetLineCoordinates): GetLineCoordinatesResult {
-    const {
-      time: nextItemTime,
-      value: nextItemValue
-    }: LineChartData = nextItem;
-
-    const x1: number = (time / maxTime) * width;
-    const y1: number = ((60 - value) / 60) * height;
-    const x2: number = (nextItemTime / maxTime) * width;
-    const y2: number = ((60 - nextItemValue) / 60) * height;
-
-    return {
-      x1,
-      x2,
-      y1,
-      y2
-    };
-  }
+  context.clearRect(0, 0, width, height);
+  context.strokeStyle = colorPalette.blue300;
+  context.shadowOffsetX = 0;
+  context.shadowOffsetY = 0;
+  context.shadowColor = colorPalette.blue100;
+  context.shadowBlur = 8;
+  context.beginPath();
 }

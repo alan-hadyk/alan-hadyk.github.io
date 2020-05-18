@@ -18,6 +18,7 @@ export interface IconProps {
     "calendar" |
     "chrome" |
     "codeSandbox" |
+    "companyOmise" |
     "earth" |
     "firefox" |
     "gitHub" |
@@ -58,6 +59,7 @@ export interface IconComponents {
   calendar: SVGIcon;
   chrome: SVGIcon;
   codeSandbox: SVGIcon;
+  companyOmise: SVGIcon;
   earth: SVGIcon;
   firefox: SVGIcon;
   gitHub: SVGIcon;

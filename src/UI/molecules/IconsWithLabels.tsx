@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 
 import IconWithLabel from "<molecules>/IconWithLabel";
 
@@ -31,17 +31,6 @@ function IconsWithLabels({
 }: IconsWithLabelsProps): JSX.Element {
   const flexFlow: FlexContainerProps["flexFlow"] = position === "horizontal" ? "row nowrap" : "column nowrap";
 
-  const renderIconsWithLabels = useCallback((): JSX.Element[] =>
-    iconsWithLabels.map(({ iconName, label }: IconWithLabelProps): JSX.Element => (
-      <IconWithLabel
-        labelColor={labelColor}
-        iconName={iconName}
-        key={label}
-        label={label}
-        size={size}
-      />
-    )), [iconsWithLabels, labelColor, size]);
-
   return (
     <FlexContainer
       alignItems="flex-start" 
@@ -51,7 +40,15 @@ function IconsWithLabels({
       height="100%"
       justifyContent="flex-start" 
     >
-      {renderIconsWithLabels()}
+      {iconsWithLabels.map(({ iconName, label }: IconWithLabelProps): JSX.Element => (
+        <IconWithLabel
+          labelColor={labelColor}
+          iconName={iconName}
+          key={label}
+          label={label}
+          size={size}
+        />
+      ))}
     </FlexContainer>
   );
 }
