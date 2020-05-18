@@ -1,15 +1,11 @@
 import React, { useCallback } from "react";
-import styled from "styled-components";
 
-// import Text from "<atoms>/Text";
-// import IconsWithLabels from "<molecules>/IconsWithLabels";
-// import IconWithLabel from "<molecules>/IconWithLabel";
-// import UnorderedList from "<molecules>/UnorderedList";
 import Icon from "<atoms>/Icon";
-import SpacingContainer from "<layout>/SpacingContainer";
-import FlexContainer from "<layout>/FlexContainer";
-import FlexItem from "<layout>/FlexItem";
+import Timeline from "<molecules>/Timeline";
 import CompanyDescription from "<organisms>/CompanyDescription";
+import FlexContainer from "<layout>/FlexContainer";
+import PositionContainer from "<layout>/PositionContainer";
+import FlexItem from "<layout>/FlexItem";
 
 import { CompanyProps } from "<organisms>/__typings__/Company.d.ts";
 
@@ -33,33 +29,48 @@ function Company({
     </FlexContainer>
   ), [logo]);
 
+  const renderTimeline = useCallback((): JSX.Element => (
+    <PositionContainer
+      bottom="negativeSpacing16"
+      left="50%"
+      position="absolute"
+      top="spacing16"
+      transform="translateX(-50%)"
+    >
+      <Timeline />
+    </PositionContainer>
+  ), []);
+
   return (
-    <FlexContainer>
-      <FlexContainer
-        alignItems="flex-start"
-        dataTestId="Company"
-        flexFlow="row nowrap"
-        gap="spacing88"
-        maxWidth="spacing1056"
+    <FlexContainer dataTestId="Company">
+      <PositionContainer
+        position="relative"
       >
-        <FlexItem flex="0 0 50%">
-          {renderLogo()}
-        </FlexItem>
+        {renderTimeline()}
+          
+        <FlexContainer
+          alignItems="flex-start"
+          dataTestId="CompanyInnerFlexContainer"
+          flexFlow="row nowrap"
+          gap="spacing88"
+          maxWidth="spacing1056"
+        >
+          <FlexItem flex="0 0 50%">
+            {renderLogo()}
+          </FlexItem>
 
-        <FlexItem flex="0 0 50%">
-          <CompanyDescription
-            date={date}
-            iconsWithLabels={iconsWithLabels}
-            responsibilites={responsibilites}
-            title={title}
-          />
-        </FlexItem>
-
-      </FlexContainer>
+          <FlexItem flex="0 0 50%">
+            <CompanyDescription
+              date={date}
+              iconsWithLabels={iconsWithLabels}
+              responsibilites={responsibilites}
+              title={title}
+            />
+          </FlexItem>
+        </FlexContainer>
+      </PositionContainer>
     </FlexContainer>
   );
 }
-
-Company.Container = styled.div``;
 
 export default Company;

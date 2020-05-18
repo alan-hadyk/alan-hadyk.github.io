@@ -50,6 +50,7 @@ function Icon({
   isResponsive = false,
   overflow = "visible",
   shouldDisplayGlowAnimation = false,
+  shouldGlow = false,
   shouldGlowOnHover = false,
   shouldRotate = false,
   width = "auto"
@@ -100,6 +101,7 @@ function Icon({
       isResponsive={isResponsive}
       overflow={overflow}
       shouldDisplayGlowAnimation={shouldDisplayGlowAnimation}
+      shouldGlow={shouldGlow}
       shouldGlowOnHover={shouldGlowOnHover}
       shouldRotate={shouldRotate}
       width={width}
@@ -119,12 +121,22 @@ Icon.Container = styled.div<IconContainerProps>`
     isResponsive,
     overflow,
     shouldDisplayGlowAnimation,
+    shouldGlow,
     shouldGlowOnHover,
     shouldRotate,
     theme: {
-      colorPalette: { blue300, white },
-      easing: { easeInOut, linear },
-      keyframes: { glow, rotate },
+      colorPalette: {
+        blue300,
+        white
+      },
+      easing: {
+        easeInOut,
+        linear
+      },
+      keyframes: {
+        glow,
+        rotate
+      },
       spacing,
       transitionTimes
     },
@@ -167,6 +179,10 @@ Icon.Container = styled.div<IconContainerProps>`
         &:hover {
           filter: drop-shadow(0px 0px ${spacing.spacing4} ${transparentize(0.5, white)});
         }
+      `}
+  
+      ${shouldGlow && `
+        filter: drop-shadow(0px 0px ${spacing.spacing4} ${transparentize(0.5, white)});
       `}
     }
   `}

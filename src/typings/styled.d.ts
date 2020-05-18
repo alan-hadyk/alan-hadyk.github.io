@@ -58,6 +58,7 @@ declare module "styled-components" {
     };
 
     spacing: {
+      negativeSpacing16: string;
       spacing0: string;
       spacing1: string;
       spacing2: string;
@@ -75,6 +76,7 @@ declare module "styled-components" {
       spacing56: string;
       spacing60: string;
       spacing64: string;
+      spacing68: string;
       spacing72: string;
       spacing80: string;
       spacing84: string;

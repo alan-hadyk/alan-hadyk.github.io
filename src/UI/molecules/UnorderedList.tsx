@@ -36,6 +36,8 @@ UnorderedList.Container = styled.ul`
         height: ${spacing8};
         margin-right: ${spacing8};
         margin-top: ${spacing10};
+        min-height: ${spacing8};
+        min-width: ${spacing8};
         width: ${spacing8};
       }
     }

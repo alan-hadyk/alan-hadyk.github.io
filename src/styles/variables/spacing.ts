@@ -1,4 +1,5 @@
 export default {
+  negativeSpacing16: "-1.6rem",
   spacing0: "0",
   spacing1: ".1rem",
   spacing2: ".2rem",
@@ -16,6 +17,7 @@ export default {
   spacing56: "5.6rem",
   spacing60: "6rem",
   spacing64: "6.4rem",
+  spacing68: "6.8rem",
   spacing72: "7.2rem",
   spacing80: "8rem",
   spacing84: "8.4rem",

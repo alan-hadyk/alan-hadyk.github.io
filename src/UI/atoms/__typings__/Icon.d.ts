@@ -42,6 +42,7 @@ export interface IconProps {
   isResponsive?: boolean;
   overflow?: "hidden" | "visible";
   shouldDisplayGlowAnimation?: boolean;
+  shouldGlow?: boolean;
   shouldGlowOnHover?: boolean;
   shouldRotate?: boolean;
   width?: string | Spacing;

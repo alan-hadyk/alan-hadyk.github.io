@@ -22,7 +22,7 @@ function CompanyDescription({
         dataTestId="MainTitle"
         fontFamily="Exan"
         fontSize="font36"
-        lineHeight="spacing36"
+        lineHeight="spacing48"
         textTransform="uppercase"
       >
         {title}
@@ -68,7 +68,7 @@ function CompanyDescription({
           fontWeight="bold"
           lineHeight="spacing32"
         >
-        Tech stack
+          Tech stack
         </Text>
         <SpacingContainer
           dataTestId="TechStackIconsWithLabelsSpacingContainer"
@@ -89,7 +89,7 @@ function CompanyDescription({
     return (
       <SpacingContainer
         dataTestId="ResponsibilitiesSpacingContainer"
-        paddingBottom="spacing84"
+        paddingBottom="spacing68"
       >
         <Text
           color="blue100"
