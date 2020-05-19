@@ -21,7 +21,7 @@ const Timeline = (): JSX.Element => (
     >
       <Hexagon fill="solid"/>
     </PositionContainer>
-    <Timeline.Line />
+    <Timeline.Line data-testid="TimelineLine" />
   </PositionContainer>
 );
 
@@ -29,14 +29,14 @@ Timeline.Line = styled.div`
   ${({
     theme: {
       colorPalette: { blue300 },
-      spacing: { spacing2 }
+      spacing: { spacing0, spacing2 }
     }
   }): FlattenSimpleInterpolation => css`
     background-color: ${blue300};
-    bottom: 0;
+    bottom: ${spacing0};
     left: 50%;
     position: absolute;
-    top: 0;
+    top: ${spacing0};
     transform: translateX(-50%);
     width: ${spacing2};
   `}
