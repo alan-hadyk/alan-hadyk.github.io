@@ -146,17 +146,6 @@ Icon.Container = styled.div<IconContainerProps>`
     overflow: ${overflow};
     width: ${(width in spacing && spacing[width]) || width};
 
-    ${isActive && css`
-      svg path {
-        fill: ${blue300};
-      }
-    `}
-
-    svg {
-      height: ${isResponsive || isHeightResponsive  ? "100%" : "auto"};
-      width: ${(isResponsive && !isHeightResponsive)  ? "100%" : "auto"};
-    }
-
     ${shouldRotate && css`
       animation-duration: ${transitionTimes.verySlow};
       animation-iteration-count: infinite;
@@ -164,7 +153,16 @@ Icon.Container = styled.div<IconContainerProps>`
       animation-timing-function: ${linear};
     `}
 
-    & > * {
+    svg {
+      height: ${isResponsive || isHeightResponsive ? "100%" : "auto"};
+      width: ${(isResponsive && !isHeightResponsive) ? "100%" : "auto"};
+
+      ${isActive && css`
+        path {
+          fill: ${blue300};
+        }
+      `}
+
       ${shouldDisplayGlowAnimation && css`
         animation-delay: ${animationDelay};
         animation-duration: ${transitionTimes[animationTime]};
@@ -172,17 +170,17 @@ Icon.Container = styled.div<IconContainerProps>`
         animation-name: ${glow};
         animation-timing-function: ${easeInOut};
       `}
-  
+    
+      ${shouldGlow && `
+        filter: drop-shadow(0px 0px ${spacing.spacing4} ${transparentize(0.5, white)});
+      `}
+
       ${shouldGlowOnHover && `
         transition: all ${transitionTimes[animationTime]} ${easeInOut} ${animationDelay};
   
         &:hover {
           filter: drop-shadow(0px 0px ${spacing.spacing4} ${transparentize(0.5, white)});
         }
-      `}
-  
-      ${shouldGlow && `
-        filter: drop-shadow(0px 0px ${spacing.spacing4} ${transparentize(0.5, white)});
       `}
     }
   `}
