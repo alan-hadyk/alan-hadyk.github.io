@@ -19,9 +19,10 @@ const Hexagon = ({
       <Icon 
         iconName="hexagon"
         isActive={fill === "solid"}
-        shouldGlow
+        shouldGlow={fill === "solid"}
       />
     }
+    
     {children && (
       <Hexagon.InnerContainer data-testid="HexagonInnerContainer">
         {children}

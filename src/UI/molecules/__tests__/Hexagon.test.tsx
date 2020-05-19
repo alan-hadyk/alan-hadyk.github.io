@@ -31,7 +31,7 @@ describe("molecules / Hexagon", () => {
   });
 
   describe("HexagonContainer", () => {    
-    describe("Style", () => {
+    describe("Styles", () => {
       describe("position", () => { 
         test("should have relative", () => {
           const { HexagonContainer } = setup();
@@ -42,8 +42,16 @@ describe("molecules / Hexagon", () => {
     });
   });
 
-  describe("HexagonInnerContainer", () => {    
-    describe("Style", () => {
+  describe("HexagonInnerContainer", () => { 
+    test("should not render if children are not passed", () => {
+      const { HexagonInnerContainer } = setup({
+        children: undefined
+      });
+  
+      expect(HexagonInnerContainer).toBeFalsy();
+    });
+  
+    describe("Styles", () => {
       describe("left", () => { 
         test("should have 50%", () => {
           const { HexagonInnerContainer } = setup();
@@ -79,7 +87,7 @@ describe("molecules / Hexagon", () => {
   });
 
   describe("Icon", () => {   
-    test("should have correct icon for fill pattern", () => {
+    test("should have correct icon for fill: pattern", () => {
       const { Icon } = setup({
         fill: "pattern"
       });
@@ -87,7 +95,7 @@ describe("molecules / Hexagon", () => {
       expect(Icon.textContent).toEqual("Hexagon-With-Pattern.svg");
     });
 
-    test("should have correct icon for fill none", () => {
+    test("should have correct icon for fill: none", () => {
       const { Icon } = setup({
         fill: "none"
       });
@@ -95,7 +103,7 @@ describe("molecules / Hexagon", () => {
       expect(Icon.textContent).toEqual("Hexagon.svg");
     });
 
-    test("should have correct icon for fill solid", () => {
+    test("should have correct icon for fill: solid", () => {
       const { Icon } = setup({
         fill: "solid"
       });
@@ -105,23 +113,59 @@ describe("molecules / Hexagon", () => {
 
     describe("Props", () => {
       describe("isActive", () => {
-        test("should have true when fill is solid", () => {
-          const { IconContainer } = setup({
-            fill: "solid"
+        describe("svg path - fill", () => {
+          test("should have true when fill is solid", () => {
+            const { IconContainer } = setup({
+              fill: "solid"
+            });
+
+            expect(IconContainer).toHaveStyleRule("fill", "#78b0b5", {
+              modifier: "svg path"
+            });
           });
 
-          expect(IconContainer).toHaveStyleRule("fill", "#78b0b5", {
-            modifier: "svg path"
+          test("should have false when fill is none", () => {
+            const { IconContainer } = setup({
+              fill: "none"
+            });
+
+            expect(IconContainer).not.toHaveStyleRule("fill", {
+              modifier: "svg path"
+            });
           });
         });
+      });
 
-        test("should have false when fill is none", () => {
-          const { IconContainer } = setup({
-            fill: "none"
+      describe("shouldGlow", () => {
+        describe("svg - filter", () => {
+          test("should have drop-shadow(0px 0px .4rem rgba(255,255,255,0.5)) - fill: solid", () => {
+            const { IconContainer } = setup({
+              fill: "solid"
+            });
+  
+            expect(IconContainer).toHaveStyleRule("filter", "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", {
+              modifier: "svg"
+            });
           });
-
-          expect(IconContainer).not.toHaveStyleRule("fill", {
-            modifier: "svg path"
+  
+          test("should not have filter - fill: none", () => {
+            const { IconContainer } = setup({
+              fill: "none"
+            });
+  
+            expect(IconContainer).not.toHaveStyleRule("filter", "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", {
+              modifier: "svg"
+            });
+          });
+  
+          test("should not have filter - fill: pattern", () => {
+            const { IconContainer } = setup({
+              fill: "pattern"
+            });
+  
+            expect(IconContainer).not.toHaveStyleRule("filter", "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", {
+              modifier: "svg"
+            });
           });
         });
       });
