@@ -22,6 +22,7 @@ function Section({
       paddingBottom={title ? "spacing96" : "spacing0"}
     >
       {renderTitle()}
+      
       <Fragment>
         {children}
       </Fragment>
