@@ -42,7 +42,7 @@ function BrowserInfo(): JSX.Element {
       const { name } = detect();
 
       const isUnknown = !BROWSER_ICONS.find((icon: IconProps["iconName"]) => icon === name);
-      const isActive: boolean = icon === "ie" ? name === "ie" || name === "edge" : name === icon;
+      const isActive: boolean = icon === "ie" ? (name === "ie" || name === "edge") : name === icon;
 
       return (
         <FlexItem
