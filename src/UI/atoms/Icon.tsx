@@ -43,6 +43,7 @@ import {
 function Icon({
   animationDelay = "0ms",
   animationTime = "slow",
+  dataTestId,
   height = "auto",
   iconName,
   isActive = false,
@@ -92,7 +93,7 @@ function Icon({
 
   return (
     <Icon.Container
-      data-testid="IconContainer"
+      data-testid={dataTestId || "IconContainer"}
       animationDelay={animationDelay}
       animationTime={animationTime}
       height={height}

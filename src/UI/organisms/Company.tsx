@@ -16,22 +16,10 @@ function Company({
   responsibilites,
   title
 }: CompanyProps): JSX.Element {
-  const renderLogo = useCallback((): JSX.Element => (
-    <FlexContainer
-      alignItems="flex-start"
-      justifyContent="flex-end"
-    >
-      <Icon
-        height="spacing48"
-        iconName={logo}
-        isHeightResponsive
-      />
-    </FlexContainer>
-  ), [logo]);
-
   const renderTimeline = useCallback((): JSX.Element => (
     <PositionContainer
       bottom="negativeSpacing16"
+      dataTestId="TimelinePositionContainer"
       left="50%"
       position="absolute"
       top="spacing16"
@@ -41,9 +29,25 @@ function Company({
     </PositionContainer>
   ), []);
 
+  const renderLogo = useCallback((): JSX.Element => (
+    <FlexContainer
+      alignItems="flex-start"
+      dataTestId="LogoFlexContainer"
+      justifyContent="flex-end"
+    >
+      <Icon
+        dataTestId="Logo"
+        height="spacing48"
+        iconName={logo}
+        isHeightResponsive
+      />
+    </FlexContainer>
+  ), [logo]);
+
   return (
     <FlexContainer dataTestId="Company">
       <PositionContainer
+        dataTestId="CompanyPositionContainer"
         position="relative"
       >
         {renderTimeline()}

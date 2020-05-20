@@ -5,6 +5,7 @@ import { Spacing, TransitionTimes } from "<styles>/variables/__typings__/variabl
 export interface IconProps {
   animationDelay?: string;
   animationTime?: TransitionTimes;
+  dataTestId?: string;
   height?: string | Spacing;
   iconName:
     "apollo" |
