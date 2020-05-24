@@ -162,6 +162,30 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("justify-content", "space-between");
       });
     });
+
+    describe("max-width", () => {      
+      test("should have unset by default", () => {
+        const { FlexContainer } = setup();
+  
+        expect(FlexContainer).toHaveStyleRule("max-width", "unset");
+      });
+  
+      test("should have 2.4rem when passed via maxWidth prop", () => {
+        const { FlexContainer } = setup({
+          maxWidth: "spacing24"
+        });
+  
+        expect(FlexContainer).toHaveStyleRule("max-width", "2.4rem");
+      });
+  
+      test("should have 4.8rem when passed via maxWidth prop", () => {
+        const { FlexContainer } = setup({
+          maxWidth: "spacing48"
+        });
+  
+        expect(FlexContainer).toHaveStyleRule("max-width", "4.8rem");
+      });
+    });
   });
 
   describe("Props", () => {

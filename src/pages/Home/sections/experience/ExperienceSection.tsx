@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 
 import Section from "<molecules>/Section";
-import CompanyDescription from "<organisms>/CompanyDescription";
+import Company from "<organisms>/Company";
 
 import {
   IconWithLabelProps
@@ -22,14 +22,26 @@ const iconsWithLabels: IconWithLabelProps[] = [
   }
 ];
 
+// TODO: Write tests when this section will be ready
 const ExperienceSection = (): JSX.Element => (
   <Section
     id="experience"
     title="Experience"
   >
-    <CompanyDescription
+    <Company
       date="August 2018 to present"
       iconsWithLabels={iconsWithLabels}
+      logo="companyOmise"
+      responsibilites={[
+        <span key="create-scalable"><strong>Create</strong> scalable and sane front-end architecture</span>, 
+        "Orchestrate and direct collaborative team operational objectives for front-end layer of an application designed to manage payment systems"
+      ]}
+      title="Front end developer"
+    />
+    <Company
+      date="August 2018 to present"
+      iconsWithLabels={iconsWithLabels}
+      logo="companyOmise"
       responsibilites={[
         <span key="create-scalable"><strong>Create</strong> scalable and sane front-end architecture</span>, 
         "Orchestrate and direct collaborative team operational objectives for front-end layer of an application designed to manage payment systems"

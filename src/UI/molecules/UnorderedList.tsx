@@ -1,4 +1,4 @@
-import React, { useCallback, Fragment } from "react";
+import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import ListItem from "<atoms>/ListItem";
@@ -6,21 +6,13 @@ import ListItem from "<atoms>/ListItem";
 import { UnorderedListProps } from "<molecules>/__typings__/UnorderedList.d.ts";
 import { ListItemProps } from "<atoms>/__typings__/ListItem.d.ts";
 
-function UnorderedList({ items }: UnorderedListProps): JSX.Element {
-  const renderItems = useCallback((): JSX.Element => (
-    <Fragment>
-      {items.map((item: ListItemProps["children"], index: number): JSX.Element => (
-        <ListItem key={index}>{item}</ListItem>
-      ))}
-    </Fragment>
-  ), [items]);
-
-  return (
-    <UnorderedList.Container data-testid="UnorderedList">
-      {renderItems()}
-    </UnorderedList.Container>
-  );
-}
+const UnorderedList = ({ items }: UnorderedListProps): JSX.Element => (
+  <UnorderedList.Container data-testid="UnorderedList">
+    {items.map((item: ListItemProps["children"], index: number): JSX.Element => (
+      <ListItem key={index}>{item}</ListItem>
+    ))}
+  </UnorderedList.Container>
+);
 
 UnorderedList.Container = styled.ul`
   ${({
@@ -44,6 +36,8 @@ UnorderedList.Container = styled.ul`
         height: ${spacing8};
         margin-right: ${spacing8};
         margin-top: ${spacing10};
+        min-height: ${spacing8};
+        min-width: ${spacing8};
         width: ${spacing8};
       }
     }

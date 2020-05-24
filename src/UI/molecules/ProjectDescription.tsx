@@ -44,32 +44,6 @@ function ProjectDescription({
     </Fragment>
   ), [description, title]);
 
-  const renderUsedTechnologies = useCallback((): JSX.Element => (
-    <SpacingContainer
-      dataTestId="UsedTechnologiesSpacingContainer"
-      marginBottom="spacing40"
-    >
-      <Text
-        color="blue100"
-        fontSize="font24"
-        fontWeight="bold"
-        lineHeight="spacing40"
-      >
-        Made with:
-      </Text>
-      <SpacingContainer
-        dataTestId="IconsWithLabelsSpacingContainer"
-        marginTop="spacing8"
-      >
-        <IconsWithLabels
-          iconsWithLabels={iconsWithLabels}
-          position="horizontal"
-          size="large"
-        />
-      </SpacingContainer>
-    </SpacingContainer>
-  ), [iconsWithLabels]);
-
   const renderButtons = useCallback((): JSX.Element => (
     <Fragment>
       <Button
@@ -102,6 +76,34 @@ function ProjectDescription({
       {renderButtons()}
     </ProjectDescription.Container>
   );
+
+  function renderUsedTechnologies(): JSX.Element {
+    return (
+      <SpacingContainer
+        dataTestId="UsedTechnologiesSpacingContainer"
+        marginBottom="spacing40"
+      >
+        <Text
+          color="blue100"
+          fontSize="font24"
+          fontWeight="bold"
+          lineHeight="spacing40"
+        >
+        Made with:
+        </Text>
+        <SpacingContainer
+          dataTestId="IconsWithLabelsSpacingContainer"
+          marginTop="spacing8"
+        >
+          <IconsWithLabels
+            iconsWithLabels={iconsWithLabels}
+            position="horizontal"
+            size="large"
+          />
+        </SpacingContainer>
+      </SpacingContainer>
+    );
+  }
 }
 
 ProjectDescription.Container = styled.div``;

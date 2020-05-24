@@ -9,6 +9,7 @@ import { ReactComponent as BtnCodeSandbox } from "<assets>/svg/Btn-CodeSandbox.s
 import { ReactComponent as BtnDownload } from "<assets>/svg/Btn-Download.svg";
 import { ReactComponent as BtnExternalLink } from "<assets>/svg/Btn-ExternalLink.svg";
 import { ReactComponent as BtnSend } from "<assets>/svg/Btn-Send.svg";
+import { ReactComponent as CompanyOmise } from "<assets>/svg/Company-Omise.svg";
 import { ReactComponent as Hexagon } from "<assets>/svg/Hexagon.svg";
 import { ReactComponent as HexagonWithPattern } from "<assets>/svg/Hexagon-With-Pattern.svg";
 import { ReactComponent as IconApollo } from "<assets>/svg/Icon-Apollo.svg";
@@ -42,6 +43,7 @@ import {
 function Icon({
   animationDelay = "0ms",
   animationTime = "slow",
+  dataTestId,
   height = "auto",
   iconName,
   isActive = false,
@@ -49,6 +51,7 @@ function Icon({
   isResponsive = false,
   overflow = "visible",
   shouldDisplayGlowAnimation = false,
+  shouldGlow = false,
   shouldGlowOnHover = false,
   shouldRotate = false,
   width = "auto"
@@ -65,6 +68,7 @@ function Icon({
     calendar: IconCalendar,
     chrome: IconChrome,
     codeSandbox: IconCodeSandbox,
+    companyOmise: CompanyOmise,
     earth: IconEarth,
     firefox: IconFirefox,
     gitHub: IconGitHub,
@@ -89,7 +93,7 @@ function Icon({
 
   return (
     <Icon.Container
-      data-testid="IconContainer"
+      data-testid={dataTestId || "IconContainer"}
       animationDelay={animationDelay}
       animationTime={animationTime}
       height={height}
@@ -98,6 +102,7 @@ function Icon({
       isResponsive={isResponsive}
       overflow={overflow}
       shouldDisplayGlowAnimation={shouldDisplayGlowAnimation}
+      shouldGlow={shouldGlow}
       shouldGlowOnHover={shouldGlowOnHover}
       shouldRotate={shouldRotate}
       width={width}
@@ -117,12 +122,22 @@ Icon.Container = styled.div<IconContainerProps>`
     isResponsive,
     overflow,
     shouldDisplayGlowAnimation,
+    shouldGlow,
     shouldGlowOnHover,
     shouldRotate,
     theme: {
-      colorPalette: { blue300, white },
-      easing: { easeInOut, linear },
-      keyframes: { glow, rotate },
+      colorPalette: {
+        blue300,
+        white
+      },
+      easing: {
+        easeInOut,
+        linear
+      },
+      keyframes: {
+        glow,
+        rotate
+      },
       spacing,
       transitionTimes
     },
@@ -132,17 +147,6 @@ Icon.Container = styled.div<IconContainerProps>`
     overflow: ${overflow};
     width: ${(width in spacing && spacing[width]) || width};
 
-    ${isActive && css`
-      svg path {
-        fill: ${blue300};
-      }
-    `}
-
-    svg {
-      height: ${isResponsive || isHeightResponsive  ? "100%" : "auto"};
-      width: ${(isResponsive && !isHeightResponsive)  ? "100%" : "auto"};
-    }
-
     ${shouldRotate && css`
       animation-duration: ${transitionTimes.verySlow};
       animation-iteration-count: infinite;
@@ -150,7 +154,16 @@ Icon.Container = styled.div<IconContainerProps>`
       animation-timing-function: ${linear};
     `}
 
-    & > * {
+    svg {
+      height: ${isResponsive || isHeightResponsive ? "100%" : "auto"};
+      width: ${(isResponsive && !isHeightResponsive) ? "100%" : "auto"};
+
+      ${isActive && css`
+        path {
+          fill: ${blue300};
+        }
+      `}
+
       ${shouldDisplayGlowAnimation && css`
         animation-delay: ${animationDelay};
         animation-duration: ${transitionTimes[animationTime]};
@@ -158,7 +171,11 @@ Icon.Container = styled.div<IconContainerProps>`
         animation-name: ${glow};
         animation-timing-function: ${easeInOut};
       `}
-  
+    
+      ${shouldGlow && `
+        filter: drop-shadow(0px 0px ${spacing.spacing4} ${transparentize(0.5, white)});
+      `}
+
       ${shouldGlowOnHover && `
         transition: all ${transitionTimes[animationTime]} ${easeInOut} ${animationDelay};
   

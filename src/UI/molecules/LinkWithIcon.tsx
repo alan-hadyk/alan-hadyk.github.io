@@ -5,29 +5,27 @@ import Icon from "<atoms>/Icon";
 
 import { LinkWithIconProps } from "<molecules>/__typings__/LinkWithIcon.d.ts";
 
-function LinkWithIcon({
+const LinkWithIcon = ({
   height = "spacing48",
   href,
   iconName,
   isExternal = false,
   width = "auto"
-}: LinkWithIconProps): JSX.Element {
-  return (
-    <Link 
-      display="block"
+}: LinkWithIconProps): JSX.Element => (
+  <Link 
+    display="block"
+    height={height}
+    href={href}
+    isExternal={isExternal}
+  >
+    <Icon 
+      animationTime="fast"
       height={height}
-      href={href}
-      isExternal={isExternal}
-    >
-      <Icon 
-        animationTime="fast"
-        height={height}
-        iconName={iconName} 
-        width={width} 
-        shouldGlowOnHover
-      />
-    </Link>
-  );
-}
+      iconName={iconName} 
+      width={width} 
+      shouldGlowOnHover
+    />
+  </Link>
+);
   
 export default LinkWithIcon;
