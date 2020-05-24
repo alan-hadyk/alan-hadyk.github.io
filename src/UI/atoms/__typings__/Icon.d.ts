@@ -9,6 +9,7 @@ export interface IconProps {
   height?: string | Spacing;
   iconName:
     "apollo" |
+    "brandAirbnb" |
     "brandApollo" |
     "brandCypress" |
     "brandDocker" |
@@ -62,6 +63,7 @@ export interface IconProps {
 
 export interface IconComponents {
   apollo: SVGIcon;
+  brandAirbnb: SVGIcon;
   brandApollo: SVGIcon;
   brandCypress: SVGIcon;
   brandDocker: SVGIcon;

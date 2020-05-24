@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize } from "polished";
 
+import { ReactComponent as BrandAirbnb } from "<assets>/svg/Brand-Airbnb.svg";
 import { ReactComponent as BrandApollo } from "<assets>/svg/Brand-Apollo.svg";
 import { ReactComponent as BrandCypress } from "<assets>/svg/Brand-Cypress.svg";
 import { ReactComponent as BrandDocker } from "<assets>/svg/Brand-Docker.svg";
@@ -69,6 +70,7 @@ function Icon({
 }: IconProps): JSX.Element {
   const iconComponents: IconComponents = {
     apollo: IconApollo,
+    brandAirbnb: BrandAirbnb,
     brandApollo: BrandApollo,
     brandCypress: BrandCypress,
     brandDocker: BrandDocker,

@@ -26,7 +26,7 @@ const iconsWithLabels: CompanyProps["iconsWithLabels"] = [
     label: "JEST"
   },
   {
-    iconName: "brandJEST",
+    iconName: "brandAirbnb",
     label: "Enzyme"
   },
   {
