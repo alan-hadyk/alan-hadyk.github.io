@@ -9,8 +9,19 @@ export interface IconProps {
   height?: string | Spacing;
   iconName:
     "apollo" |
+    "brandApollo" |
+    "brandCypress" |
+    "brandDocker" |
+    "brandExpress" |
+    "brandGallery" |
+    "brandGraphQL" |
+    "brandJEST" |
     "brandJS" |
+    "brandJenkins" |
+    "brandNode" |
     "brandReact" |
+    "brandStyledComponents" |
+    "brandTestingLibrary" |
     "brandWebpack" |
     "btnCodeSandbox" |
     "btnDownload" |
@@ -51,8 +62,19 @@ export interface IconProps {
 
 export interface IconComponents {
   apollo: SVGIcon;
+  brandApollo: SVGIcon;
+  brandCypress: SVGIcon;
+  brandDocker: SVGIcon;
+  brandExpress: SVGIcon;
+  brandGallery: SVGIcon;
+  brandGraphQL: SVGIcon;
+  brandJEST: SVGIcon;
   brandJS: SVGIcon;
+  brandJenkins: SVGIcon;
+  brandNode: SVGIcon;
   brandReact: SVGIcon;
+  brandStyledComponents: SVGIcon;
+  brandTestingLibrary: SVGIcon;
   brandWebpack: SVGIcon;
   btnCodeSandbox: SVGIcon;
   btnDownload: SVGIcon;

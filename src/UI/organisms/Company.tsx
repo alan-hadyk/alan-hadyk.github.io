@@ -13,7 +13,7 @@ function Company({
   date,
   iconsWithLabels,
   logo,
-  responsibilites,
+  responsibilities,
   title
 }: CompanyProps): JSX.Element {
   const renderTimeline = useCallback((): JSX.Element => (
@@ -67,7 +67,7 @@ function Company({
             <CompanyDescription
               date={date}
               iconsWithLabels={iconsWithLabels}
-              responsibilites={responsibilites}
+              responsibilities={responsibilities}
               title={title}
             />
           </FlexItem>

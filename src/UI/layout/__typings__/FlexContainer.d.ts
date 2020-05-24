@@ -12,3 +12,10 @@ export interface FlexContainerProps {
   justifyContent?: "flex-start" | "flex-end" | "center" | "space-between"; 
   maxWidth?: Spacing | "unset"; 
 }
+
+export interface CalculateGap {
+  flexFlow: FlexContainerProps["flexFlow"];
+  gap: FlexContainerProps["gap"];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  spacing: any;
+}

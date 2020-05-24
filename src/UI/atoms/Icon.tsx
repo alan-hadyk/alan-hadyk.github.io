@@ -2,8 +2,19 @@ import React, { memo } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize } from "polished";
 
+import { ReactComponent as BrandApollo } from "<assets>/svg/Brand-Apollo.svg";
+import { ReactComponent as BrandCypress } from "<assets>/svg/Brand-Cypress.svg";
+import { ReactComponent as BrandDocker } from "<assets>/svg/Brand-Docker.svg";
+import { ReactComponent as BrandExpress } from "<assets>/svg/Brand-Express.svg";
+import { ReactComponent as BrandGallery } from "<assets>/svg/Brand-Gallery.svg";
+import { ReactComponent as BrandGraphQL } from "<assets>/svg/Brand-GraphQL.svg";
+import { ReactComponent as BrandJEST } from "<assets>/svg/Brand-JEST.svg";
 import { ReactComponent as BrandJS } from "<assets>/svg/Brand-JS.svg";
+import { ReactComponent as BrandJenkins } from "<assets>/svg/Brand-Jenkins.svg";
+import { ReactComponent as BrandNode } from "<assets>/svg/Brand-Node.svg";
 import { ReactComponent as BrandReact } from "<assets>/svg/Brand-React.svg";
+import { ReactComponent as BrandStyledComponents } from "<assets>/svg/Brand-StyledComponents.svg";
+import { ReactComponent as BrandTestingLibrary } from "<assets>/svg/Brand-TestingLibrary.svg";
 import { ReactComponent as BrandWebpack } from "<assets>/svg/Brand-Webpack.svg";
 import { ReactComponent as BtnCodeSandbox } from "<assets>/svg/Btn-CodeSandbox.svg";
 import { ReactComponent as BtnDownload } from "<assets>/svg/Btn-Download.svg";
@@ -58,8 +69,19 @@ function Icon({
 }: IconProps): JSX.Element {
   const iconComponents: IconComponents = {
     apollo: IconApollo,
+    brandApollo: BrandApollo,
+    brandCypress: BrandCypress,
+    brandDocker: BrandDocker,
+    brandExpress: BrandExpress,
+    brandGallery: BrandGallery,
+    brandGraphQL: BrandGraphQL,
+    brandJEST: BrandJEST,
     brandJS: BrandJS,
+    brandJenkins: BrandJenkins,
+    brandNode: BrandNode,
     brandReact: BrandReact,
+    brandStyledComponents: BrandStyledComponents,
+    brandTestingLibrary: BrandTestingLibrary,
     brandWebpack: BrandWebpack,
     btnCodeSandbox: BtnCodeSandbox,
     btnDownload: BtnDownload,
