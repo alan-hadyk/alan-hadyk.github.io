@@ -9,10 +9,6 @@ import {
   CompanyProps
 } from "<organisms>/__typings__/Company.d.ts";
 
-import {
-  IconWithLabelProps
-} from "<molecules>/__typings__/IconWithLabel.d.ts";
-
 describe("organisms / Company", () => {
   test("should have correct structure", () => {
     const {
