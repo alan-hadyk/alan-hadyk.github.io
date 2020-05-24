@@ -133,6 +133,16 @@ describe("molecules / Hexagon", () => {
               modifier: "svg path"
             });
           });
+
+          test("should have false when fill is pattern", () => {
+            const { IconContainer } = setup({
+              fill: "pattern"
+            });
+
+            expect(IconContainer).not.toHaveStyleRule("fill", {
+              modifier: "svg path"
+            });
+          });
         });
       });
 

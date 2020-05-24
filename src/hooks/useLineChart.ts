@@ -67,13 +67,15 @@ export default function useLineChart({
     }
 
     window.requestAnimationFrame(drawChart);
-  }, [canvas, chartData]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useLayoutEffect((): void => {
     window.requestAnimationFrame(drawChart);
-  }, [canvas, chartData, drawChart]);
+  }, [drawChart]);
 }
 
+// TODO: Write unit tests - getLineCoordinates, clearCanvas
 function getLineCoordinates({
   height,
   maxTime,
