@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 
 import Section from "<molecules>/Section";
-import ProjectDescription from "<molecules>/ProjectDescription";
+import Project from "<organisms>/Project";
 
 import {
   IconWithLabelProps
@@ -27,8 +27,9 @@ const PortfolioSection = (): JSX.Element => (
     id="portfolio"
     title="Portfolio"
   >
-    <ProjectDescription
+    <Project
       title="Roland tb 303"
+      iconName="react"
       iconsWithLabels={iconsWithLabels}
       description="A tribute to an iconic bass synthesizer released by Roland Corporation in 1981."
     />

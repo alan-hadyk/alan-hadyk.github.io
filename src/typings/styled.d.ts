@@ -3,6 +3,7 @@ import "styled-components";
 declare module "styled-components" {
   export interface DefaultTheme {
     breakpoints: {
+      breakpoint1056: string;
       breakpoint1920: string;
     };
 

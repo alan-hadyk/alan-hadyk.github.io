@@ -14,6 +14,7 @@ const SpacingContainer = ({
   marginLeft = "spacing0",
   marginRight = "spacing0",
   marginTop = "spacing0",
+  maxWidth,
   minHeight = "spacing0",
   paddingBottom = "spacing0",
   paddingLeft = "spacing0",
@@ -29,6 +30,7 @@ const SpacingContainer = ({
     marginLeft={marginLeft}
     marginRight={marginRight}
     marginTop={marginTop}
+    maxWidth={maxWidth}
     minHeight={minHeight}
     paddingBottom={paddingBottom}
     paddingLeft={paddingLeft}
@@ -47,12 +49,14 @@ SpacingContainer.Container = styled.div<SpacingContainerProps>`
     marginLeft,
     marginRight,
     marginTop,
+    maxWidth,
     minHeight,
     paddingBottom,
     paddingLeft,
     paddingRight,
     paddingTop,
     theme: {
+      breakpoints,
       spacing
     },
     width
@@ -62,6 +66,7 @@ SpacingContainer.Container = styled.div<SpacingContainerProps>`
     margin-left: ${(marginLeft in spacing && spacing[marginLeft]) || marginLeft};
     margin-right: ${(marginRight in spacing && spacing[marginRight]) || marginRight};
     margin-top: ${(marginTop in spacing && spacing[marginTop]) || marginTop};
+    max-width: ${(maxWidth in breakpoints && breakpoints[maxWidth]) || maxWidth};
     min-height: ${(minHeight in spacing && spacing[minHeight]) || minHeight};
     padding-bottom: ${(paddingBottom in spacing && spacing[paddingBottom]) || paddingBottom};
     padding-left: ${(paddingLeft in spacing && spacing[paddingLeft]) || paddingLeft};

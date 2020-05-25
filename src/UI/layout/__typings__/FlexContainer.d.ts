@@ -9,5 +9,5 @@ export interface FlexContainerProps {
   flexFlow?: "row wrap" | "row nowrap" | "column wrap" | "column nowrap";
   gap?: Spacing | string;
   height?: Spacing | "unset" | "50%" | "100%";
-  justifyContent?: "flex-start" | "flex-end" | "center" | "space-between"; 
+  justifyContent?: "flex-start" | "flex-end" | "center" | "space-between";
 }
