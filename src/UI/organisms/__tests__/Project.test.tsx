@@ -7,7 +7,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
   ProjectProps
-} from "<src>/UI/organisms/__typings__/Project";
+} from "<src>/UI/organisms/__typings__/Project.d.ts";
 
 import {
   IconWithLabelProps
@@ -124,7 +124,7 @@ describe("organism / Project", () => {
         });
 
         describe("overflow", () => {
-          test("should have 0 1 60%", () => {
+          test("should have unset", () => {
             const { FlexItems } = setup();
       
             expect(FlexItems[1]).toHaveStyleRule("overflow", "unset");
@@ -186,45 +186,6 @@ describe("organism / Project", () => {
         });
       });
 
-      describe("IconsWithLabels", () => {
-        const iconsWithLabels: IconWithLabelProps[] = [
-          {
-            iconName: "brandJS",
-            label: "Javascript"
-          },
-          {
-            iconName: "brandReact",
-            label: "React"
-          }
-        ];
-    
-        test("there should be correct number of icons", () => {
-          const { IconsWithLabels } = setup({
-            iconsWithLabels
-          });
-    
-          expect(IconsWithLabels.children.length).toEqual(2);
-        });
-    
-        test("icons should render correct SVGs", () => {
-          const { IconsWithLabels } = setup({
-            iconsWithLabels
-          });
-
-          expect(IconsWithLabels.children[0].children[0].children[0].children[0].textContent).toEqual("Brand-JS.svg");
-          expect(IconsWithLabels.children[1].children[0].children[0].children[0].textContent).toEqual("Brand-React.svg");
-        });
-    
-        test("should have correct content passed via label props", () => {
-          const { IconsWithLabels } = setup({
-            iconsWithLabels
-          });
-    
-          expect(IconsWithLabels.children[0].children[1].textContent).toEqual("Javascript");
-          expect(IconsWithLabels.children[1].children[1].textContent).toEqual("React");
-        });
-      });
-
       describe("description", () => {
         test("should have correct value passed via description props", () => {
           const { ProjectDescription } = setup({
@@ -233,6 +194,45 @@ describe("organism / Project", () => {
 
           expect(ProjectDescription).toHaveTextContent("Lorem ipsum dolor sit amet.");
         });
+      });
+    });
+
+    describe("IconsWithLabels", () => {
+      const iconsWithLabels: IconWithLabelProps[] = [
+        {
+          iconName: "brandJS",
+          label: "Javascript"
+        },
+        {
+          iconName: "brandReact",
+          label: "React"
+        }
+      ];
+  
+      test("there should be correct number of icons", () => {
+        const { IconsWithLabels } = setup({
+          iconsWithLabels
+        });
+  
+        expect(IconsWithLabels.children.length).toEqual(2);
+      });
+  
+      test("icons should render correct SVGs", () => {
+        const { IconsWithLabels } = setup({
+          iconsWithLabels
+        });
+
+        expect(IconsWithLabels.children[0].children[0].children[0].children[0].textContent).toEqual("Brand-JS.svg");
+        expect(IconsWithLabels.children[1].children[0].children[0].children[0].textContent).toEqual("Brand-React.svg");
+      });
+  
+      test("should have correct content passed via label props", () => {
+        const { IconsWithLabels } = setup({
+          iconsWithLabels
+        });
+  
+        expect(IconsWithLabels.children[0].children[1].textContent).toEqual("Javascript");
+        expect(IconsWithLabels.children[1].children[1].textContent).toEqual("React");
       });
     });
   });

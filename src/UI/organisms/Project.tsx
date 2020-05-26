@@ -12,7 +12,7 @@ import Icon from "<atoms>/Icon";
 
 import {
   ProjectProps
-} from "<organisms>/__typings__/Project";
+} from "<organisms>/__typings__/Project.d.ts";
 
 const Project = ({
   description,

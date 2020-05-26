@@ -22,6 +22,7 @@ const iconsWithLabels: IconWithLabelProps[] = [
   }
 ];
 
+// TODO: Write tests when this section will be ready
 const PortfolioSection = (): JSX.Element => (
   <Section
     id="portfolio"

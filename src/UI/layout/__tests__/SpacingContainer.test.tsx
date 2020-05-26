@@ -147,13 +147,13 @@ describe("layout / SpacingContainer", () => {
       });
     });
 
-    describe("margin-top", () => {      
+    describe("max-width", () => {      
       test("should have correct value when passed via maxWidth prop", () => {
         const { SpacingContainer } = setup({
           maxWidth: "breakpoint1056"
         });
   
-        expect(SpacingContainer).toHaveStyleRule("max-width", "1054px");
+        expect(SpacingContainer).toHaveStyleRule("max-width", "1056px");
       });
     });
 

@@ -8,7 +8,7 @@ import Text from "<atoms>/Text";
 import Button from "<molecules>/Button";
 import IconsWithLabels from "<molecules>/IconsWithLabels";
 
-import { ProjectDescriptionProps } from "<organisms>/__typings__/ProjectDescription";
+import { ProjectDescriptionProps } from "<organisms>/__typings__/ProjectDescription.d.ts";
 
 function ProjectDescription({
   // codeSandboxLink = "https://codesandbox.io/u/alan-hadyk",
