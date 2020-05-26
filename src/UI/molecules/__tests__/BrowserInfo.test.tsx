@@ -185,92 +185,12 @@ describe("molecules / BrowserInfo", () => {
     });
 
     describe("Props", () => {
-      describe("shouldDisplayGlowAnimation", () => {
-        describe("if icon is active", () => {
-          describe("animation-duration", () => {
-            test("should have 3600ms", () => {
-              const { IconContainers } = setup();
-        
-              IconContainers.forEach((IconContainer) => {
-                if(IconContainer.children[0].textContent === "Icon-Chrome.svg") {
-                  expect(IconContainer).toHaveStyleRule("animation-duration", "3600ms", {
-                    modifier: "& > *"
-                  });
-                }
-              });
-            });
-          });
+      describe("height", () => { 
+        test("should have 100%", () => {
+          const { IconContainers } = setup();
 
-          describe("animation-iteration-count", () => {      
-            test("should have infinite", () => {
-              const { IconContainers } = setup();
-        
-              IconContainers.forEach((IconContainer) => {
-                if(IconContainer.children[0].textContent === "Icon-Chrome.svg") {
-                  expect(IconContainer).toHaveStyleRule("animation-iteration-count", "infinite", {
-                    modifier: "& > *"
-                  });
-                }
-              });
-            });
-          });
-    
-          describe("animation-timing-function", () => {      
-            test("should have ease-in-out", () => {
-              const { IconContainers } = setup();
-        
-              IconContainers.forEach((IconContainer) => {
-                if(IconContainer.children[0].textContent === "Icon-Chrome.svg") {
-                  expect(IconContainer).toHaveStyleRule("animation-timing-function", "ease-in-out", {
-                    modifier: "& > *"
-                  });
-                }
-              });
-            });
-          });
-        });
-
-        describe("if icon is not active", () => {
-          describe("animation-duration", () => {
-            test("should not have", () => {
-              const { IconContainers } = setup();
-        
-              IconContainers.forEach((IconContainer) => {
-                if(IconContainer.children[0].textContent !== "Icon-Chrome.svg") {
-                  expect(IconContainer).not.toHaveStyleRule("animation-duration", "3600ms", {
-                    modifier: "& > *"
-                  });
-                }
-              });
-            });
-          });
-
-          describe("animation-iteration-count", () => {      
-            test("should not have", () => {
-              const { IconContainers } = setup();
-        
-              IconContainers.forEach((IconContainer) => {
-                if(IconContainer.children[0].textContent !== "Icon-Chrome.svg") {
-                  expect(IconContainer).not.toHaveStyleRule("animation-iteration-count", "infinite", {
-                    modifier: "& > *"
-                  });
-                }
-              });
-            });
-          });
-    
-          describe("animation-timing-function", () => {      
-            test("should not have", () => {
-              const { IconContainers } = setup();
-        
-              IconContainers.forEach((IconContainer) => {
-                if(IconContainer.children[0].textContent !== "Icon-Chrome.svg") {
-                  expect(IconContainer).not.toHaveStyleRule("animation-timing-function", "ease-in-out", {
-                    modifier: "& > *"
-                  });
-                }
-              });
-            });
+          IconContainers.forEach(IconContainer => {
+            expect(IconContainer).toHaveStyleRule("height", "100%");
           });
         });
       });
@@ -335,12 +255,100 @@ describe("molecules / BrowserInfo", () => {
         });
       });
 
-      describe("height", () => { 
-        test("should have 100%", () => {
+      describe("overflow", () => { 
+        test("should have hidden", () => {
           const { IconContainers } = setup();
 
           IconContainers.forEach(IconContainer => {
-            expect(IconContainer).toHaveStyleRule("height", "100%");
+            expect(IconContainer).toHaveStyleRule("overflow", "hidden");
+          });
+        });
+      });
+
+      describe("shouldDisplayGlowAnimation", () => {
+        describe("if icon is active", () => {
+          describe("animation-delay", () => {
+            test("should have 0ms", () => {
+              const { IconContainers } = setup();
+        
+              IconContainers.forEach((IconContainer) => {
+                if(IconContainer.children[0].textContent === "Icon-Chrome.svg") {
+                  expect(IconContainer).toHaveStyleRule("animation-delay", "0ms", {
+                    modifier: "svg"
+                  });
+                }
+              });
+            });
+          });
+
+          describe("animation-duration", () => {
+            test("should have 3600ms", () => {
+              const { IconContainers } = setup();
+        
+              IconContainers.forEach((IconContainer) => {
+                if(IconContainer.children[0].textContent === "Icon-Chrome.svg") {
+                  expect(IconContainer).toHaveStyleRule("animation-duration", "3600ms", {
+                    modifier: "svg"
+                  });
+                }
+              });
+            });
+          });
+
+          describe("animation-iteration-count", () => {      
+            test("should have infinite", () => {
+              const { IconContainers } = setup();
+        
+              IconContainers.forEach((IconContainer) => {
+                if(IconContainer.children[0].textContent === "Icon-Chrome.svg") {
+                  expect(IconContainer).toHaveStyleRule("animation-iteration-count", "infinite", {
+                    modifier: "svg"
+                  });
+                }
+              });
+            });
+          });
+    
+          describe("animation-timing-function", () => {      
+            test("should have ease-in-out", () => {
+              const { IconContainers } = setup();
+        
+              IconContainers.forEach((IconContainer) => {
+                if(IconContainer.children[0].textContent === "Icon-Chrome.svg") {
+                  expect(IconContainer).toHaveStyleRule("animation-timing-function", "ease-in-out", {
+                    modifier: "svg"
+                  });
+                }
+              });
+            });
+          });
+        });
+
+        describe("if icon is not active", () => {
+          describe("animation-duration, animation-iteration-count, animation-timing-function", () => {
+            test("should not have", () => {
+              const { IconContainers } = setup();
+        
+              IconContainers.forEach((IconContainer) => {
+                if(IconContainer.children[0].textContent !== "Icon-Chrome.svg") {
+                  expect(IconContainer).not.toHaveStyleRule("animation-delay", "0ms", {
+                    modifier: "svg"
+                  });
+
+                  expect(IconContainer).not.toHaveStyleRule("animation-duration", "3600ms", {
+                    modifier: "svg"
+                  });
+
+                  expect(IconContainer).not.toHaveStyleRule("animation-iteration-count", "infinite", {
+                    modifier: "svg"
+                  });
+
+                  expect(IconContainer).not.toHaveStyleRule("animation-timing-function", "ease-in-out", {
+                    modifier: "svg"
+                  });
+                }
+              });
+            });
           });
         });
       });

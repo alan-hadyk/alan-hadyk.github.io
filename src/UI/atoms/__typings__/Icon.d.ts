@@ -5,6 +5,7 @@ import { Spacing, TransitionTimes } from "<styles>/variables/__typings__/variabl
 export interface IconProps {
   animationDelay?: string;
   animationTime?: TransitionTimes;
+  dataTestId?: string;
   height?: string | Spacing;
   iconName:
     "apollo" |
@@ -18,6 +19,7 @@ export interface IconProps {
     "calendar" |
     "chrome" |
     "codeSandbox" |
+    "companyOmise" |
     "earth" |
     "firefox" |
     "gitHub" |
@@ -41,6 +43,7 @@ export interface IconProps {
   isResponsive?: boolean;
   overflow?: "hidden" | "visible";
   shouldDisplayGlowAnimation?: boolean;
+  shouldGlow?: boolean;
   shouldGlowOnHover?: boolean;
   shouldRotate?: boolean;
   width?: string | Spacing;
@@ -58,6 +61,7 @@ export interface IconComponents {
   calendar: SVGIcon;
   chrome: SVGIcon;
   codeSandbox: SVGIcon;
+  companyOmise: SVGIcon;
   earth: SVGIcon;
   firefox: SVGIcon;
   gitHub: SVGIcon;

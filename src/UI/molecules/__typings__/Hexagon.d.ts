@@ -1,4 +1,4 @@
 export interface HexagonProps {
-  children: JSX.Element;
+  children?: JSX.Element;
   fill?: "none" | "solid" | "pattern";
 }

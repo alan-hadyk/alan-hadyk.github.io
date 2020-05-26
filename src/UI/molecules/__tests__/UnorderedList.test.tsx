@@ -134,6 +134,26 @@ describe("molecules / UnorderedList", () => {
           });
         });
         
+        describe("min-height", () => {      
+          test("should have .8rem", () => {
+            const { UnorderedListContainer } = setup();
+  
+            expect(UnorderedListContainer).toHaveStyleRule("min-height", ".8rem", {
+              modifier: "& li::before"
+            });
+          });
+        });
+        
+        describe("min-width", () => {      
+          test("should have .8rem", () => {
+            const { UnorderedListContainer } = setup();
+  
+            expect(UnorderedListContainer).toHaveStyleRule("min-width", ".8rem", {
+              modifier: "& li::before"
+            });
+          });
+        });
+        
         describe("width", () => {      
           test("should have .8rem", () => {
             const { UnorderedListContainer } = setup();

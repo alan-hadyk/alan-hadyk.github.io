@@ -7,27 +7,29 @@ import {
   HexagonProps
 } from "<molecules>/__typings__/Hexagon.d.ts";
 
-function Hexagon ({
+const Hexagon = ({
   children,
   fill = "none"
-}: HexagonProps): JSX.Element {
-  return (
-    <Hexagon.Container data-testid="Hexagon">
-      {fill === "pattern" ?
-        <Icon 
-          iconName="hexagonWithPattern"
-        /> :
-        <Icon 
-          iconName="hexagon"
-          isActive={fill === "solid"}
-        />
-      }
+}: HexagonProps): JSX.Element => (
+  <Hexagon.Container data-testid="Hexagon">
+    {fill === "pattern" ?
+      <Icon 
+        iconName="hexagonWithPattern"
+      /> :
+      <Icon 
+        iconName="hexagon"
+        isActive={fill === "solid"}
+        shouldGlow={fill === "solid"}
+      />
+    }
+    
+    {children && (
       <Hexagon.InnerContainer data-testid="HexagonInnerContainer">
         {children}
       </Hexagon.InnerContainer>
-    </Hexagon.Container>
-  );
-}
+    )}
+  </Hexagon.Container>
+);
 
 Hexagon.Container = styled.div`
   position: relative;

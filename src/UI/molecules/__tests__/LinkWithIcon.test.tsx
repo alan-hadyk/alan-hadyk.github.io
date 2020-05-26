@@ -15,7 +15,7 @@ describe("molecules / LinkWithIcon", () => {
           const { IconContainer } = setup();
     
           expect(IconContainer).toHaveStyleRule("transition", "all 150ms ease-in-out 0ms", {
-            modifier: "& > *"
+            modifier: "svg"
           });
         });
       });
@@ -57,14 +57,8 @@ describe("molecules / LinkWithIcon", () => {
           const { IconContainer } = setup();
     
           expect(IconContainer).toHaveStyleRule("filter", "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", {
-            modifier: "& > *:hover"
+            modifier: "svg:hover"
           });
-        });
-
-        test("should not have filter without hover", () => {
-          const { IconContainer } = setup();
-    
-          expect(IconContainer).not.toHaveStyleRule("filter", "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))");
         });
       });
     });

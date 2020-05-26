@@ -82,8 +82,8 @@ describe("organisms / CompanyDescription", () => {
         });
 
         describe("lineHeight", () => {
-          test("should have 3.6rem", () => {
-            expect(MainTitle).toHaveStyleRule("line-height", "3.6rem");
+          test("should have 4.8rem", () => {
+            expect(MainTitle).toHaveStyleRule("line-height", "4.8rem");
           });
         });
 
@@ -393,10 +393,10 @@ describe("organisms / CompanyDescription", () => {
     describe("ResponsibilitiesSpacingContainer", () => { 
       describe("Props", () => {
         describe("paddingBottom", () => {      
-          test("should have 8.4rem", () => {
+          test("should have 6.8rem", () => {
             const { ResponsibilitiesSpacingContainer } = setup();
 
-            expect(ResponsibilitiesSpacingContainer).toHaveStyleRule("padding-bottom", "8.4rem");
+            expect(ResponsibilitiesSpacingContainer).toHaveStyleRule("padding-bottom", "6.8rem");
           });
         });
       });

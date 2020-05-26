@@ -146,12 +146,22 @@ describe("molecules / ReactLogo", () => {
       });
 
       describe("shouldDisplayGlowAnimation", () => {
+        describe("animation-delay", () => {
+          test("should have 3600ms", () => {
+            const { IconContainer } = setup();
+
+            expect(IconContainer).toHaveStyleRule("animation-delay", "0ms", {
+              modifier: "svg"
+            });
+          });
+        });
+
         describe("animation-duration", () => {
           test("should have 3600ms", () => {
             const { IconContainer } = setup();
 
             expect(IconContainer).toHaveStyleRule("animation-duration", "3600ms", {
-              modifier: "& > *"
+              modifier: "svg"
             });
           });
         });
@@ -161,7 +171,7 @@ describe("molecules / ReactLogo", () => {
             const { IconContainer } = setup();
 
             expect(IconContainer).toHaveStyleRule("animation-iteration-count", "infinite", {
-              modifier: "& > *"
+              modifier: "svg"
             });
           });
         });
@@ -171,7 +181,7 @@ describe("molecules / ReactLogo", () => {
             const { IconContainer } = setup();
 
             expect(IconContainer).toHaveStyleRule("animation-timing-function", "ease-in-out", {
-              modifier: "& > *"
+              modifier: "svg"
             });
           });
         });

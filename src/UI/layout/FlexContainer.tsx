@@ -12,7 +12,8 @@ const FlexContainer = ({
   flexFlow = "row wrap",
   gap = "spacing0",
   height = "unset",
-  justifyContent = "center"
+  justifyContent = "center",
+  maxWidth = "unset"
 }: FlexContainerProps): JSX.Element => (
   <FlexContainer.Container
     alignItems={alignItems}
@@ -21,6 +22,7 @@ const FlexContainer = ({
     gap={gap}
     height={height}
     justifyContent={justifyContent}
+    maxWidth={maxWidth}
   >
     {children}
   </FlexContainer.Container>
@@ -33,6 +35,7 @@ FlexContainer.Container = styled.div<FlexContainerProps>`
     gap,
     height,
     justifyContent,
+    maxWidth,
     theme: {
       spacing
     }
@@ -42,6 +45,7 @@ FlexContainer.Container = styled.div<FlexContainerProps>`
     flex-flow: ${flexFlow};
     height: ${(height in spacing && spacing[height]) || height};
     justify-content: ${justifyContent};
+    max-width: ${(maxWidth in spacing && spacing[maxWidth]) || "unset"};
 
     ${gap !== "spacing0" && `
       & > * {
