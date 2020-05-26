@@ -13,7 +13,7 @@ import {
   IconWithLabelProps
 } from "<molecules>/__typings__/IconWithLabel.d.ts";
 
-describe("organism / Project", () => {
+describe("organisms / Project", () => {
   test("should have correct structure", () => {
     const {
       FlexContainer,

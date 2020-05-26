@@ -13,7 +13,7 @@ import {
   IconWithLabelProps
 } from "<molecules>/__typings__/IconWithLabel.d.ts";
 
-describe("organism / ProjectDescription", () => {
+describe("organisms / ProjectDescription", () => {
   test("should have correct structure", () => {
     const {
       Buttons,
