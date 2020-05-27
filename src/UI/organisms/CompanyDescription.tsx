@@ -99,7 +99,7 @@ function CompanyDescription({
           fontWeight="bold"
           lineHeight="spacing32"
         >
-        Responsibilites
+          Responsibilites
         </Text>
         <SpacingContainer
           dataTestId="ResponsibilitiesListSpacingContainer"

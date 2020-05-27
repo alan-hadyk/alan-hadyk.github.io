@@ -9,9 +9,10 @@ import {
 
 const Hexagon = ({
   children,
+  dataTestId,
   fill = "none"
 }: HexagonProps): JSX.Element => (
-  <Hexagon.Container data-testid="Hexagon">
+  <Hexagon.Container data-testid={dataTestId || "Hexagon"}>
     {fill === "pattern" ?
       <Icon 
         iconName="hexagonWithPattern"
