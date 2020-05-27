@@ -13,17 +13,25 @@ export interface IconProps {
     "brandApollo" |
     "brandCypress" |
     "brandDocker" |
+    "brandEmber" |
     "brandExpress" |
     "brandGallery" |
     "brandGraphQL" |
     "brandJEST" |
+    "brandJIRA" |
     "brandJS" |
     "brandJenkins" |
     "brandNode" |
+    "brandQunit" |
+    "brandREST" |
     "brandReact" |
+    "brandRedux" |
+    "brandSass" |
     "brandStyledComponents" |
+    "brandTS" |
     "brandTestingLibrary" |
     "brandWebpack" |
+    "brandZeplin" |
     "btnCodeSandbox" |
     "btnDownload" |
     "btnExternalLink" |
@@ -32,6 +40,7 @@ export interface IconProps {
     "chrome" |
     "codeSandbox" |
     "companyOmise" |
+    "companyShiji" |
     "earth" |
     "firefox" |
     "gitHub" |
@@ -67,17 +76,25 @@ export interface IconComponents {
   brandApollo: SVGIcon;
   brandCypress: SVGIcon;
   brandDocker: SVGIcon;
+  brandEmber: SVGIcon;
   brandExpress: SVGIcon;
   brandGallery: SVGIcon;
   brandGraphQL: SVGIcon;
   brandJEST: SVGIcon;
+  brandJIRA: SVGIcon;
   brandJS: SVGIcon;
   brandJenkins: SVGIcon;
   brandNode: SVGIcon;
+  brandQunit: SVGIcon;
+  brandREST: SVGIcon;
   brandReact: SVGIcon;
+  brandRedux: SVGIcon;
+  brandSass: SVGIcon;
   brandStyledComponents: SVGIcon;
+  brandTS: SVGIcon;
   brandTestingLibrary: SVGIcon;
   brandWebpack: SVGIcon;
+  brandZeplin: SVGIcon;
   btnCodeSandbox: SVGIcon;
   btnDownload: SVGIcon;
   btnExternalLink: SVGIcon;
@@ -86,6 +103,7 @@ export interface IconComponents {
   chrome: SVGIcon;
   codeSandbox: SVGIcon;
   companyOmise: SVGIcon;
+  companyShiji: SVGIcon;
   earth: SVGIcon;
   firefox: SVGIcon;
   gitHub: SVGIcon;

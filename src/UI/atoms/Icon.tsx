@@ -6,22 +6,31 @@ import { ReactComponent as BrandAirbnb } from "<assets>/svg/Brand-Airbnb.svg";
 import { ReactComponent as BrandApollo } from "<assets>/svg/Brand-Apollo.svg";
 import { ReactComponent as BrandCypress } from "<assets>/svg/Brand-Cypress.svg";
 import { ReactComponent as BrandDocker } from "<assets>/svg/Brand-Docker.svg";
+import { ReactComponent as BrandEmber } from "<assets>/svg/Brand-Ember.svg";
 import { ReactComponent as BrandExpress } from "<assets>/svg/Brand-Express.svg";
 import { ReactComponent as BrandGallery } from "<assets>/svg/Brand-Gallery.svg";
 import { ReactComponent as BrandGraphQL } from "<assets>/svg/Brand-GraphQL.svg";
 import { ReactComponent as BrandJEST } from "<assets>/svg/Brand-JEST.svg";
+import { ReactComponent as BrandJIRA } from "<assets>/svg/Brand-JIRA.svg";
 import { ReactComponent as BrandJS } from "<assets>/svg/Brand-JS.svg";
 import { ReactComponent as BrandJenkins } from "<assets>/svg/Brand-Jenkins.svg";
 import { ReactComponent as BrandNode } from "<assets>/svg/Brand-Node.svg";
+import { ReactComponent as BrandQunit } from "<assets>/svg/Brand-Qunit.svg";
+import { ReactComponent as BrandREST } from "<assets>/svg/Brand-REST.svg";
 import { ReactComponent as BrandReact } from "<assets>/svg/Brand-React.svg";
+import { ReactComponent as BrandRedux } from "<assets>/svg/Brand-Redux.svg";
+import { ReactComponent as BrandSass } from "<assets>/svg/Brand-Sass.svg";
 import { ReactComponent as BrandStyledComponents } from "<assets>/svg/Brand-StyledComponents.svg";
+import { ReactComponent as BrandTS } from "<assets>/svg/Brand-TS.svg";
 import { ReactComponent as BrandTestingLibrary } from "<assets>/svg/Brand-TestingLibrary.svg";
 import { ReactComponent as BrandWebpack } from "<assets>/svg/Brand-Webpack.svg";
+import { ReactComponent as BrandZeplin } from "<assets>/svg/Brand-Zeplin.svg";
 import { ReactComponent as BtnCodeSandbox } from "<assets>/svg/Btn-CodeSandbox.svg";
 import { ReactComponent as BtnDownload } from "<assets>/svg/Btn-Download.svg";
 import { ReactComponent as BtnExternalLink } from "<assets>/svg/Btn-ExternalLink.svg";
 import { ReactComponent as BtnSend } from "<assets>/svg/Btn-Send.svg";
 import { ReactComponent as CompanyOmise } from "<assets>/svg/Company-Omise.svg";
+import { ReactComponent as CompanyShiji } from "<assets>/svg/Company-Shiji.svg";
 import { ReactComponent as Hexagon } from "<assets>/svg/Hexagon.svg";
 import { ReactComponent as HexagonWithPattern } from "<assets>/svg/Hexagon-With-Pattern.svg";
 import { ReactComponent as IconApollo } from "<assets>/svg/Icon-Apollo.svg";
@@ -74,17 +83,25 @@ function Icon({
     brandApollo: BrandApollo,
     brandCypress: BrandCypress,
     brandDocker: BrandDocker,
+    brandEmber: BrandEmber,
     brandExpress: BrandExpress,
     brandGallery: BrandGallery,
     brandGraphQL: BrandGraphQL,
     brandJEST: BrandJEST,
+    brandJIRA: BrandJIRA,
     brandJS: BrandJS,
     brandJenkins: BrandJenkins,
     brandNode: BrandNode,
+    brandQunit: BrandQunit, 
+    brandREST: BrandREST,
     brandReact: BrandReact,
+    brandRedux: BrandRedux,
+    brandSass: BrandSass,
     brandStyledComponents: BrandStyledComponents,
+    brandTS: BrandTS,
     brandTestingLibrary: BrandTestingLibrary,
     brandWebpack: BrandWebpack,
+    brandZeplin: BrandZeplin,
     btnCodeSandbox: BtnCodeSandbox,
     btnDownload: BtnDownload,
     btnExternalLink: BtnExternalLink,
@@ -93,6 +110,7 @@ function Icon({
     chrome: IconChrome,
     codeSandbox: IconCodeSandbox,
     companyOmise: CompanyOmise,
+    companyShiji: CompanyShiji,
     earth: IconEarth,
     firefox: IconFirefox,
     gitHub: IconGitHub,
