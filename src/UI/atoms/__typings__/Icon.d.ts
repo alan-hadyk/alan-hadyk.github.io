@@ -11,20 +11,27 @@ export interface IconProps {
     "apollo" |
     "brandAirbnb" |
     "brandApollo" |
+    "brandCSSModules" |
+    "brandCoffeeScript" |
     "brandCypress" |
     "brandDocker" |
+    "brandDocpad" |
     "brandEmber" |
     "brandExpress" |
     "brandGallery" |
     "brandGraphQL" |
     "brandJEST" |
     "brandJIRA" |
+    "brandJQuery" |
     "brandJS" |
     "brandJenkins" |
+    "brandLESS" |
     "brandNode" |
+    "brandPrestaShop" |
     "brandQunit" |
     "brandREST" |
     "brandReact" |
+    "brandRedmine" |
     "brandRedux" |
     "brandSass" |
     "brandStyledComponents" |
@@ -39,7 +46,9 @@ export interface IconProps {
     "calendar" |
     "chrome" |
     "codeSandbox" |
+    "companyDIH" |
     "companyOmise" |
+    "companySAP" |
     "companyShiji" |
     "earth" |
     "firefox" |
@@ -74,20 +83,27 @@ export interface IconComponents {
   apollo: SVGIcon;
   brandAirbnb: SVGIcon;
   brandApollo: SVGIcon;
+  brandCSSModules: SVGIcon;
+  brandCoffeeScript: SVGIcon;
   brandCypress: SVGIcon;
   brandDocker: SVGIcon;
+  brandDocpad: SVGIcon;
   brandEmber: SVGIcon;
   brandExpress: SVGIcon;
   brandGallery: SVGIcon;
   brandGraphQL: SVGIcon;
   brandJEST: SVGIcon;
   brandJIRA: SVGIcon;
+  brandJQuery: SVGIcon;
   brandJS: SVGIcon;
   brandJenkins: SVGIcon;
+  brandLESS: SVGIcon;
   brandNode: SVGIcon;
+  brandPrestaShop: SVGIcon;
   brandQunit: SVGIcon;
   brandREST: SVGIcon;
   brandReact: SVGIcon;
+  brandRedmine: SVGIcon;
   brandRedux: SVGIcon;
   brandSass: SVGIcon;
   brandStyledComponents: SVGIcon;
@@ -102,7 +118,9 @@ export interface IconComponents {
   calendar: SVGIcon;
   chrome: SVGIcon;
   codeSandbox: SVGIcon;
+  companyDIH: SVGIcon;
   companyOmise: SVGIcon;
+  companySAP: SVGIcon;
   companyShiji: SVGIcon;
   earth: SVGIcon;
   firefox: SVGIcon;
