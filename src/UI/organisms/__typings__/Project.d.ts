@@ -5,7 +5,7 @@ import {
 
 export interface ProjectProps {
   description: string;
-  iconName: IconProps["iconName"];
   iconsWithLabels: IconWithLabelProps[];
+  projectIcon: IconProps["iconName"];
   title: string;
 }

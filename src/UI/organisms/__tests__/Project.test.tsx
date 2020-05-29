@@ -1,13 +1,13 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import Project from "<src>/UI/organisms/Project";
+import Project from "<organisms>/Project";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
   ProjectProps
-} from "<src>/UI/organisms/__typings__/Project.d.ts";
+} from "<organisms>/__typings__/Project.d.ts";
 
 import {
   IconWithLabelProps
@@ -58,10 +58,10 @@ describe("organisms / Project", () => {
         });
 
         describe("maxWidth", () => {      
-          test("should have 1056px", () => {
+          test("should have 105.6rem", () => {
             const { ProjectSpacingContainer } = setup();
 
-            expect(ProjectSpacingContainer).toHaveStyleRule("max-width", "1056px");
+            expect(ProjectSpacingContainer).toHaveStyleRule("max-width", "105.6rem");
           });
         });
       });
@@ -104,10 +104,10 @@ describe("organisms / Project", () => {
     describe("FlexItems[0]", () => {
       describe("Props", () => {
         describe("flex", () => {
-          test("should have 0 1 40%", () => {
+          test("should have 0 1 50%", () => {
             const { FlexItems } = setup();
       
-            expect(FlexItems[0]).toHaveStyleRule("flex", "0 1 40%");
+            expect(FlexItems[0]).toHaveStyleRule("flex", "0 1 50%");
           });
         });
       });
@@ -116,10 +116,10 @@ describe("organisms / Project", () => {
     describe("FlexItems[1]", () => {
       describe("Props", () => {
         describe("flex", () => {
-          test("should have 0 1 60%", () => {
+          test("should have 0 1 50%", () => {
             const { FlexItems } = setup();
       
-            expect(FlexItems[1]).toHaveStyleRule("flex", "0 1 60%");
+            expect(FlexItems[1]).toHaveStyleRule("flex", "0 1 50%");
           });
         });
 
@@ -142,33 +142,33 @@ describe("organisms / Project", () => {
     });
 
     describe("Props", () => {
-      describe("children", () => {
+      describe("projectIcon", () => {
         test("should have correct icon passed via iconName props", () => {
           const { HexagonInnerContainer } = setup({
-            iconName: "react"
+            projectIcon: "react"
           });
 
           expect(HexagonInnerContainer.children[0].textContent).toEqual("Icon-React.svg");
         });
+      });
+    });
+  });
 
-        describe("Icon", () => {         
-          describe("Props", () => {
-            describe("height", () => {
-              test("should have auto", () => {
-                const { HexagonInnerContainer } = setup();
-      
-                expect(HexagonInnerContainer.children[0]).toHaveStyleRule("height", "auto");
-              });
-            });
-      
-            describe("width", () => {
-              test("should have 100%", () => {
-                const { HexagonInnerContainer } = setup();
-      
-                expect(HexagonInnerContainer.children[0]).toHaveStyleRule("width", "100%");
-              });
-            });
-          });
+  describe("Icon", () => {         
+    describe("Props", () => {
+      describe("height", () => {
+        test("should have auto", () => {
+          const { HexagonInnerContainer } = setup();
+
+          expect(HexagonInnerContainer.children[0]).toHaveStyleRule("height", "auto");
+        });
+      });
+
+      describe("width", () => {
+        test("should have 100%", () => {
+          const { HexagonInnerContainer } = setup();
+
+          expect(HexagonInnerContainer.children[0]).toHaveStyleRule("width", "100%");
         });
       });
     });
@@ -195,44 +195,44 @@ describe("organisms / Project", () => {
           expect(ProjectDescription).toHaveTextContent("Lorem ipsum dolor sit amet.");
         });
       });
-    });
 
-    describe("IconsWithLabels", () => {
-      const iconsWithLabels: IconWithLabelProps[] = [
-        {
-          iconName: "brandJS",
-          label: "Javascript"
-        },
-        {
-          iconName: "brandReact",
-          label: "React"
-        }
-      ];
-  
-      test("there should be correct number of icons", () => {
-        const { IconsWithLabels } = setup({
-          iconsWithLabels
+      describe("iconsWithLabels", () => {
+        const iconsWithLabels: IconWithLabelProps[] = [
+          {
+            iconName: "brandJS",
+            label: "Javascript"
+          },
+          {
+            iconName: "brandReact",
+            label: "React"
+          }
+        ];
+    
+        test("there should be correct number of icons", () => {
+          const { IconsWithLabels } = setup({
+            iconsWithLabels
+          });
+    
+          expect(IconsWithLabels.children.length).toEqual(2);
         });
+    
+        test("icons should render correct SVGs", () => {
+          const { IconsWithLabels } = setup({
+            iconsWithLabels
+          });
   
-        expect(IconsWithLabels.children.length).toEqual(2);
-      });
-  
-      test("icons should render correct SVGs", () => {
-        const { IconsWithLabels } = setup({
-          iconsWithLabels
+          expect(IconsWithLabels.children[0].children[0].children[0].children[0].textContent).toEqual("Brand-JS.svg");
+          expect(IconsWithLabels.children[1].children[0].children[0].children[0].textContent).toEqual("Brand-React.svg");
         });
-
-        expect(IconsWithLabels.children[0].children[0].children[0].children[0].textContent).toEqual("Brand-JS.svg");
-        expect(IconsWithLabels.children[1].children[0].children[0].children[0].textContent).toEqual("Brand-React.svg");
-      });
-  
-      test("should have correct content passed via label props", () => {
-        const { IconsWithLabels } = setup({
-          iconsWithLabels
+    
+        test("should have correct content passed via label props", () => {
+          const { IconsWithLabels } = setup({
+            iconsWithLabels
+          });
+    
+          expect(IconsWithLabels.children[0].children[1].textContent).toEqual("Javascript");
+          expect(IconsWithLabels.children[1].children[1].textContent).toEqual("React");
         });
-  
-        expect(IconsWithLabels.children[0].children[1].textContent).toEqual("Javascript");
-        expect(IconsWithLabels.children[1].children[1].textContent).toEqual("React");
       });
     });
   });
@@ -267,8 +267,8 @@ function setup(additionalProps?: ProjectTestProps): Setup {
 
   const props: ProjectProps = {
     description: "Lorem ipsum dolor sit amet",
-    iconName: "react",
     iconsWithLabels,
+    projectIcon: "react",
     title: "Roland 303",
     ...additionalProps
   };

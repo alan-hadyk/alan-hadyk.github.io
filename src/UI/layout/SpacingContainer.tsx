@@ -56,7 +56,6 @@ SpacingContainer.Container = styled.div<SpacingContainerProps>`
     paddingRight,
     paddingTop,
     theme: {
-      breakpoints,
       spacing
     },
     width
@@ -66,7 +65,7 @@ SpacingContainer.Container = styled.div<SpacingContainerProps>`
     margin-left: ${(marginLeft in spacing && spacing[marginLeft]) || marginLeft};
     margin-right: ${(marginRight in spacing && spacing[marginRight]) || marginRight};
     margin-top: ${(marginTop in spacing && spacing[marginTop]) || marginTop};
-    max-width: ${(maxWidth in breakpoints && breakpoints[maxWidth]) || maxWidth};
+    max-width: ${(maxWidth in spacing  && spacing [maxWidth]) || maxWidth};
     min-height: ${(minHeight in spacing && spacing[minHeight]) || minHeight};
     padding-bottom: ${(paddingBottom in spacing && spacing[paddingBottom]) || paddingBottom};
     padding-left: ${(paddingLeft in spacing && spacing[paddingLeft]) || paddingLeft};

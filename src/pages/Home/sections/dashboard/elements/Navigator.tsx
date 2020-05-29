@@ -1,7 +1,7 @@
 import React from "react";
 
 import DashboardElement from "<molecules>/DashboardElement";
-import Performance from "<src>/UI/molecules/Performance";
+import Performance from "<molecules>/Performance";
 
 const Navigator = (): JSX.Element => (
   <DashboardElement

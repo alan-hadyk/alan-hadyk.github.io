@@ -1,13 +1,13 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import ProjectDescription from "<src>/UI/organisms/ProjectDescription";
+import ProjectDescription from "<organisms>/ProjectDescription";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
   ProjectDescriptionProps
-} from "<src>/UI/organisms/__typings__/ProjectDescription.d.ts";
+} from "<organisms>/__typings__/ProjectDescription.d.ts";
 
 import {
   IconWithLabelProps
@@ -83,10 +83,10 @@ describe("organisms / ProjectDescription", () => {
         });
 
         describe("textTransform", () => {
-          test("should have uppercase", () => {
+          test("should have lowercase", () => {
             const { Texts } = setup();
       
-            expect(Texts[0]).toHaveStyleRule("text-transform", "uppercase");
+            expect(Texts[0]).toHaveStyleRule("text-transform", "lowercase");
           });
         });
       });

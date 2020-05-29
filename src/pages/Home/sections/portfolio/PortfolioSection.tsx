@@ -30,8 +30,8 @@ const PortfolioSection = (): JSX.Element => (
   >
     <Project
       title="Roland tb 303"
-      iconName="react"
       iconsWithLabels={iconsWithLabels}
+      projectIcon="react"
       description="A tribute to an iconic bass synthesizer released by Roland Corporation in 1981."
     />
   </Section>

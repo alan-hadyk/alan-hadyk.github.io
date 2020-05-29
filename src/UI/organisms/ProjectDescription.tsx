@@ -24,7 +24,7 @@ function ProjectDescription({
         fontFamily="Exan"
         fontSize="font48"
         lineHeight="spacing48"
-        textTransform="uppercase"
+        textTransform="lowercase"
       >
         {title}
       </Text>

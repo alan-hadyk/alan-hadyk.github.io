@@ -1,5 +1,4 @@
 import {
-  Breakpoint,
   Spacing
 } from "<styles>/variables/__typings__/variables.d.ts";
 
@@ -12,7 +11,7 @@ export interface SpacingContainerProps {
   marginLeft?: Spacing | string;
   marginRight?: Spacing | string;
   marginTop?: Spacing | string;
-  maxWidth?: Breakpoint | string;
+  maxWidth?: Spacing | string;
   minHeight?: Spacing | "100vh";
   paddingBottom?: Spacing | string;
   paddingLeft?: Spacing | string;
