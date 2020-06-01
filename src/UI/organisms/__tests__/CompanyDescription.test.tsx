@@ -285,14 +285,14 @@ describe("organisms / CompanyDescription", () => {
     describe("Props", () => {
       describe("size - small", () => {
         describe("FlexContainer - gap", () => {    
-          test("should have 1.6rem in all children, except the first one", () => {
+          test("should have margin-bottom: 1.6rem and margin-right: 1.6rem in all children", () => {
             const { IconsWithLabels } = setup();
             
-            expect(IconsWithLabels).toHaveStyleRule("margin-left", "1.6rem", {
+            expect(IconsWithLabels).toHaveStyleRule("margin-bottom", "1.6rem", {
               modifier: "& > *"
             });
-            expect(IconsWithLabels).toHaveStyleRule("margin-left", "0", {
-              modifier: "& > *:first-child"
+            expect(IconsWithLabels).toHaveStyleRule("margin-right", "1.6rem", {
+              modifier: "& > *"
             });
           });
         });
@@ -330,7 +330,7 @@ describe("organisms / CompanyDescription", () => {
           test("should have row nowrap", () => {
             const { IconsWithLabels } = setup();
   
-            expect(IconsWithLabels).toHaveStyleRule("flex-flow", "row nowrap");
+            expect(IconsWithLabels).toHaveStyleRule("flex-flow", "row wrap");
           });
         });
       });
@@ -361,10 +361,10 @@ describe("organisms / CompanyDescription", () => {
     describe("TechStackSpacingContainer", () => { 
       describe("Props", () => {
         describe("marginBottom", () => {      
-          test("should have 3.2rem", () => {
+          test("should have 1.6rem", () => {
             const { TechStackSpacingContainer } = setup();
 
-            expect(TechStackSpacingContainer).toHaveStyleRule("margin-bottom", "3.2rem");
+            expect(TechStackSpacingContainer).toHaveStyleRule("margin-bottom", "1.6rem");
           });
         });
       });

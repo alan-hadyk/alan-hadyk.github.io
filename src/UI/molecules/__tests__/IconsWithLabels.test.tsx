@@ -49,7 +49,7 @@ describe("molecules / IconsWithLabels", () => {
             position: "horizontal"
           });
 
-          expect(FlexContainer).toHaveStyleRule("flex-flow", "row nowrap");
+          expect(FlexContainer).toHaveStyleRule("flex-flow", "row wrap");
         });
 
         test("should have column nowrap when position is vertical", () => {
@@ -62,51 +62,51 @@ describe("molecules / IconsWithLabels", () => {
       });
 
       describe("gap", () => {
-        describe("paddingLeft", () => {
-          test("should have 1.6rem for all children except the first one when size is small and position is horizontal", () => {
+        describe("margin-right, margin-bottom", () => {
+          test("should have margin-right: 1.6rem and margin-bottom: 1.6rem in all children when size is small and position is horizontal", () => {
             const { FlexContainer } = setup({
               position: "horizontal",
               size: "small"
             });
             
-            expect(FlexContainer).toHaveStyleRule("margin-left", "1.6rem", {
+            expect(FlexContainer).toHaveStyleRule("margin-right", "1.6rem", {
               modifier: "& > *"
             });
-            expect(FlexContainer).toHaveStyleRule("margin-left", "0", {
-              modifier: "& > *:first-child"
+            expect(FlexContainer).toHaveStyleRule("margin-bottom", "1.6rem", {
+              modifier: "& > *"
             });
           });
 
-          test("should have 1.2rem to all children except the first one when size is medium and position is horizontal", () => {
+          test("should have margin-right: 1.2rem and margin-bottom: 1.2rem in all children when size is medium and position is horizontal", () => {
             const { FlexContainer } = setup({
               position: "horizontal",
               size: "medium"
             });
             
-            expect(FlexContainer).toHaveStyleRule("margin-left", "1.2rem", {
+            expect(FlexContainer).toHaveStyleRule("margin-right", "1.2rem", {
               modifier: "& > *"
             });
-            expect(FlexContainer).toHaveStyleRule("margin-left", "0", {
-              modifier: "& > *:first-child"
+            expect(FlexContainer).toHaveStyleRule("margin-bottom", "1.2rem", {
+              modifier: "& > *"
             });
           });
-    
-          test("should have 2.8rem to all children except the first one when size is large and position is horizontal", () => {
+
+          test("should have margin-right: 2.8rem and margin-bottom: 2.8rem in all children when size is large and position is horizontal", () => {
             const { FlexContainer } = setup({
               position: "horizontal",
               size: "large"
             });
             
-            expect(FlexContainer).toHaveStyleRule("margin-left", "2.8rem", {
+            expect(FlexContainer).toHaveStyleRule("margin-right", "2.8rem", {
               modifier: "& > *"
             });
-            expect(FlexContainer).toHaveStyleRule("margin-left", "0", {
-              modifier: "& > *:first-child"
+            expect(FlexContainer).toHaveStyleRule("margin-bottom", "2.8rem", {
+              modifier: "& > *"
             });
           });
         });
 
-        describe("paddingTop", () => {
+        describe("margin-top", () => {
           test("should have 1.6rem for all children except the first one when size is small and position is vertical", () => {
             const { FlexContainer } = setup({
               position: "vertical",
