@@ -1,7 +1,7 @@
 import React from "react";
 
 import DashboardElement from "<molecules>/DashboardElement";
-import FlowChart from "<src>/UI/molecules/FlowChart";
+import FlowChart from "<molecules>/FlowChart";
 
 const Flux = (): JSX.Element => (
   <DashboardElement

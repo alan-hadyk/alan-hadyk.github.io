@@ -1,19 +1,19 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import ProjectDescription from "<molecules>/ProjectDescription";
+import ProjectDescription from "<organisms>/ProjectDescription";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
   ProjectDescriptionProps
-} from "<molecules>/__typings__/ProjectDescription.d.ts";
+} from "<organisms>/__typings__/ProjectDescription.d.ts";
 
 import {
   IconWithLabelProps
 } from "<molecules>/__typings__/IconWithLabel.d.ts";
 
-describe("molecules / ProjectDescription", () => {
+describe("organisms / ProjectDescription", () => {
   test("should have correct structure", () => {
     const {
       Buttons,
@@ -83,10 +83,10 @@ describe("molecules / ProjectDescription", () => {
         });
 
         describe("textTransform", () => {
-          test("should have uppercase", () => {
+          test("should have lowercase", () => {
             const { Texts } = setup();
       
-            expect(Texts[0]).toHaveStyleRule("text-transform", "uppercase");
+            expect(Texts[0]).toHaveStyleRule("text-transform", "lowercase");
           });
         });
       });
@@ -471,7 +471,6 @@ function setup(additionalProps?: ProjectDescriptionTestProps): Setup {
   const Texts: Element[] = queryAllByTestId("Text");
   const TitleWithDescriptionSpacingContainer: Element = queryAllByTestId("TitleWithDescriptionSpacingContainer")[0];
   const UsedTechnologiesSpacingContainer: Element = queryAllByTestId("UsedTechnologiesSpacingContainer")[0];
-
 
   return {
     ...utils,

@@ -8,7 +8,7 @@ import Text from "<atoms>/Text";
 import Button from "<molecules>/Button";
 import IconsWithLabels from "<molecules>/IconsWithLabels";
 
-import { ProjectDescriptionProps } from "<molecules>/__typings__/ProjectDescription.d.ts";
+import { ProjectDescriptionProps } from "<organisms>/__typings__/ProjectDescription.d.ts";
 
 function ProjectDescription({
   // codeSandboxLink = "https://codesandbox.io/u/alan-hadyk",
@@ -24,7 +24,7 @@ function ProjectDescription({
         fontFamily="Exan"
         fontSize="font48"
         lineHeight="spacing48"
-        textTransform="uppercase"
+        textTransform="lowercase"
       >
         {title}
       </Text>

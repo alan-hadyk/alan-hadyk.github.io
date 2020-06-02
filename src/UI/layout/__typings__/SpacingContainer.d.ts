@@ -11,6 +11,7 @@ export interface SpacingContainerProps {
   marginLeft?: Spacing | string;
   marginRight?: Spacing | string;
   marginTop?: Spacing | string;
+  maxWidth?: Spacing | string;
   minHeight?: Spacing | "100vh";
   paddingBottom?: Spacing | string;
   paddingLeft?: Spacing | string;

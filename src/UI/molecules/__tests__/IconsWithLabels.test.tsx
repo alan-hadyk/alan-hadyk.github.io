@@ -1,7 +1,7 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import IconsWithLabels from "<src>/UI/molecules/IconsWithLabels";
+import IconsWithLabels from "<molecules>/IconsWithLabels";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 

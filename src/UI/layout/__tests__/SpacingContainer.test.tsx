@@ -147,6 +147,24 @@ describe("layout / SpacingContainer", () => {
       });
     });
 
+    describe("max-width", () => {      
+      test("should have correct value when passed via spacing value in prop", () => {
+        const { SpacingContainer } = setup({
+          maxWidth: "spacing1056"
+        });
+  
+        expect(SpacingContainer).toHaveStyleRule("max-width", "105.6rem");
+      });
+
+      test("should have correct value when passed via custom value in prop", () => {
+        const { SpacingContainer } = setup({
+          maxWidth: "100px"
+        });
+  
+        expect(SpacingContainer).toHaveStyleRule("max-width", "100px");
+      });
+    });
+
     describe("min-height", () => {      
       test("should have 0 by default", () => {
         const { SpacingContainer } = setup();
