@@ -34,24 +34,6 @@ function Project ({
     </FlexItem>
   ), [projectIcon]);
 
-  const renderDescription = useCallback((): JSX.Element => (
-    <FlexItem
-      flex="0 1 50%"
-      overflow="unset"
-    >
-      <SpacingContainer
-        dataTestId="ProjectDescriptionSpacingContainer"
-        marginLeft="spacing48"
-      >
-        <ProjectDescription
-          title={title}
-          iconsWithLabels={iconsWithLabels}
-          description={description}
-        />
-      </SpacingContainer>
-    </FlexItem>
-  ), [title, iconsWithLabels, description]);
-
   return (
     <SpacingContainer
       dataTestId="Project"
@@ -65,7 +47,21 @@ function Project ({
       >
         {renderImage()}
 
-        {renderDescription()}
+        <FlexItem
+          flex="0 1 50%"
+          overflow="unset"
+        >
+          <SpacingContainer
+            dataTestId="ProjectDescriptionSpacingContainer"
+            marginLeft="spacing48"
+          >
+            <ProjectDescription
+              title={title}
+              iconsWithLabels={iconsWithLabels}
+              description={description}
+            />
+          </SpacingContainer>
+        </FlexItem>
       </FlexContainer>
     </SpacingContainer>
   );

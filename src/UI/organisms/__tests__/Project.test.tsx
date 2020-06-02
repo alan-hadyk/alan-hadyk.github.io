@@ -140,18 +140,6 @@ describe("organisms / Project", () => {
 
       expect(Hexagon.children[0].textContent).toEqual("Hexagon-With-Pattern.svg");
     });
-
-    describe("Props", () => {
-      describe("projectIcon", () => {
-        test("should have correct icon passed via iconName props", () => {
-          const { HexagonInnerContainer } = setup({
-            projectIcon: "react"
-          });
-
-          expect(HexagonInnerContainer.children[0].textContent).toEqual("Icon-React.svg");
-        });
-      });
-    });
   });
 
   describe("Icon", () => {         
@@ -161,6 +149,16 @@ describe("organisms / Project", () => {
           const { HexagonInnerContainer } = setup();
 
           expect(HexagonInnerContainer.children[0]).toHaveStyleRule("height", "auto");
+        });
+      });
+
+      describe("projectIcon", () => {
+        test("should have correct icon passed via iconName props", () => {
+          const { HexagonInnerContainer } = setup({
+            projectIcon: "react"
+          });
+
+          expect(HexagonInnerContainer.children[0].textContent).toEqual("Icon-React.svg");
         });
       });
 
