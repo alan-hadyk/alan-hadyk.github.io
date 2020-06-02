@@ -19,10 +19,6 @@ const iconsWithLabels: IconWithLabelProps[] = [
   {
     iconName: "brandWebpack",
     label: "Webpack"
-  },
-  {
-    iconName: "brandReact",
-    label: "React"
   }
 ];
 

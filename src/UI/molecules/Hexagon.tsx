@@ -20,7 +20,7 @@ const Hexagon = ({
       <Icon 
         iconName="hexagon"
         isActive={fill === "solid"}
-        shouldGlow={fill === "solid"}
+        shouldGlow
       />
     }
     

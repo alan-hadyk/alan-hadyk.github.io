@@ -16,13 +16,13 @@ import {
   Spacing
 } from "<styles>/variables/__typings__/variables.d.ts";
 
-const mapSizeToIconHeight: MapSizeToIconHeight = {
+export const mapSizeToIconHeight: MapSizeToIconHeight = {
   large: "spacing40",
   medium: "spacing32",
   small: "spacing28"
 };
 
-const mapSizeToTextFontSize: MapSizeToTextFontSize = {
+export const mapSizeToTextFontSize: MapSizeToTextFontSize = {
   large: "font24",
   medium: "font20",
   small: "font16"

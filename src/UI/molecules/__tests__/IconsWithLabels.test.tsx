@@ -12,24 +12,52 @@ import {
 } from "<molecules>/__typings__/IconWithLabel.d.ts";
 
 describe("molecules / IconsWithLabels", () => {
-  test("should have correct structure", () => {
+  test("should have correct structure when position is horizontal", () => {
     const {
       FlexContainer,
       IconContainers,
       IconsWithLabelsList,
       Icons,
-      SpacingContainers,
+      IconWithLabelSpacingContainers,
       Texts
-    } = setup();
+    } = setup({
+      position: "horizontal"
+    });
 
     expect(FlexContainer.children[0]).toEqual(IconsWithLabelsList[0]);
     expect(FlexContainer.children[1]).toEqual(IconsWithLabelsList[1]);
 
     IconsWithLabelsList.forEach((IconWithLabel, index) => {
-      expect(IconWithLabel.children[0]).toEqual(SpacingContainers[index]);
+      expect(IconWithLabel.children[0]).toEqual(IconWithLabelSpacingContainers[index]);
       expect(IconWithLabel.children[1]).toEqual(Texts[index]);
-      expect(SpacingContainers[index].children[0]).toEqual(IconContainers[index]);
+      expect(IconWithLabelSpacingContainers[index].children[0]).toEqual(IconContainers[index]);
       expect(IconContainers[index].children[0]).toEqual(Icons[index]); 
+    });
+  });
+
+  test("should have correct structure when position is vertical", () => {
+    const {
+      FlexContainer,
+      FlexItems,
+      IconContainers,
+      Icons,
+      IconSpacingContainers,
+      LabelSpacingContainers,
+      Texts
+    } = setup({
+      position: "vertical"
+    });
+
+    expect(FlexContainer.children[0]).toEqual(FlexItems[0]);
+    expect(FlexContainer.children[1]).toEqual(FlexItems[1]);
+
+    IconSpacingContainers.forEach((IconSpacingContainer, index) => {
+      expect(IconSpacingContainer.children[0]).toEqual(IconContainers[index]);
+      expect(IconContainers[index].children[0]).toEqual(Icons[index]); 
+    });
+
+    LabelSpacingContainers.forEach((LabelSpacingContainer, index) => {
+      expect(LabelSpacingContainer.children[0]).toEqual(Texts[index]);
     });
   });
 
@@ -44,28 +72,17 @@ describe("molecules / IconsWithLabels", () => {
       });
 
       describe("flexFlow", () => {      
-        test("should have row nowrap when position is horizontal", () => {
-          const { FlexContainer } = setup({
-            position: "horizontal"
-          });
+        test("should have row nowrap", () => {
+          const { FlexContainer } = setup();
 
           expect(FlexContainer).toHaveStyleRule("flex-flow", "row nowrap");
-        });
-
-        test("should have column nowrap when position is vertical", () => {
-          const { FlexContainer } = setup({
-            position: "vertical"
-          });
-
-          expect(FlexContainer).toHaveStyleRule("flex-flow", "column nowrap");
         });
       });
 
       describe("gap", () => {
-        describe("paddingLeft", () => {
-          test("should have 1.6rem for all children except the first one when size is small and position is horizontal", () => {
+        describe("marginLeft", () => {
+          test("should have 1.6rem for all children except the first one when size is small", () => {
             const { FlexContainer } = setup({
-              position: "horizontal",
               size: "small"
             });
             
@@ -77,9 +94,8 @@ describe("molecules / IconsWithLabels", () => {
             });
           });
 
-          test("should have 1.2rem to all children except the first one when size is medium and position is horizontal", () => {
+          test("should have 1.2rem to all children except the first one when size is medium", () => {
             const { FlexContainer } = setup({
-              position: "horizontal",
               size: "medium"
             });
             
@@ -91,9 +107,8 @@ describe("molecules / IconsWithLabels", () => {
             });
           });
     
-          test("should have 2.8rem to all children except the first one when size is large and position is horizontal", () => {
+          test("should have 2.8rem to all children except the first one when size is large", () => {
             const { FlexContainer } = setup({
-              position: "horizontal",
               size: "large"
             });
             
@@ -101,50 +116,6 @@ describe("molecules / IconsWithLabels", () => {
               modifier: "& > *"
             });
             expect(FlexContainer).toHaveStyleRule("margin-left", "0", {
-              modifier: "& > *:first-child"
-            });
-          });
-        });
-
-        describe("paddingTop", () => {
-          test("should have 1.6rem for all children except the first one when size is small and position is vertical", () => {
-            const { FlexContainer } = setup({
-              position: "vertical",
-              size: "small"
-            });
-            
-            expect(FlexContainer).toHaveStyleRule("margin-top", "1.6rem", {
-              modifier: "& > *"
-            });
-            expect(FlexContainer).toHaveStyleRule("margin-top", "0", {
-              modifier: "& > *:first-child"
-            });
-          });
-
-          test("should have 1.2rem to all children except the first one when size is medium and position is vertical", () => {
-            const { FlexContainer } = setup({
-              position: "vertical",
-              size: "medium"
-            });
-            
-            expect(FlexContainer).toHaveStyleRule("margin-top", "1.2rem", {
-              modifier: "& > *"
-            });
-            expect(FlexContainer).toHaveStyleRule("margin-top", "0", {
-              modifier: "& > *:first-child"
-            });
-          });
-    
-          test("should have 2.8rem to all children except the first one when size is large and position is vertical", () => {
-            const { FlexContainer } = setup({
-              position: "vertical",
-              size: "large"
-            });
-            
-            expect(FlexContainer).toHaveStyleRule("margin-top", "2.8rem", {
-              modifier: "& > *"
-            });
-            expect(FlexContainer).toHaveStyleRule("margin-top", "0", {
               modifier: "& > *:first-child"
             });
           });
@@ -164,6 +135,62 @@ describe("molecules / IconsWithLabels", () => {
           const { FlexContainer } = setup();
 
           expect(FlexContainer).toHaveStyleRule("justify-content", "flex-start");
+        });
+      });
+
+      describe("margin", () => {      
+        test("should have 0 auto", () => {
+          const { FlexContainer } = setup();
+
+          expect(FlexContainer).toHaveStyleRule("margin", "0 auto");
+        });
+      });
+
+      describe("maxWidth", () => {      
+        test("should have 50%", () => {
+          const { FlexContainer } = setup();
+
+          expect(FlexContainer).toHaveStyleRule("max-width", "50%");
+        });
+      });
+    });
+  });
+
+  describe("FlexItems", () => {
+    describe("FlexItems[0]", () => {
+      describe("Props", () => {
+        describe("flex", () => {
+          test("should have 0 0 25%", () => {
+            const { FlexItems } = setup({
+              position: "vertical"
+            });
+
+            expect(FlexItems[0]).toHaveStyleRule("flex", "0 0 25%");
+          });
+        });
+
+        describe("overflow", () => {
+          test("should have hidden", () => {
+            const { FlexItems } = setup({
+              position: "vertical"
+            });
+
+            expect(FlexItems[0]).toHaveStyleRule("overflow", "hidden");
+          });
+        });
+      });
+    });
+
+    describe("FlexItems[1]", () => {
+      describe("Props", () => {
+        describe("flex", () => {
+          test("should have 0 0 75%", () => {
+            const { FlexItems } = setup({
+              position: "vertical"
+            });
+
+            expect(FlexItems[1]).toHaveStyleRule("flex", "0 0 75%");
+          });
         });
       });
     });
@@ -288,14 +315,47 @@ describe("molecules / IconsWithLabels", () => {
       });
     });
   });
+
+  describe("SpacingContainer", () => {
+    describe("IconSpacingContainer", () => {
+      describe("Props", () => {
+        describe("marginBottom", () => {
+          test("should have 1.2rem", () => {
+            const { IconSpacingContainers } = setup({
+              position: "vertical"
+            });
+  
+            expect(IconSpacingContainers[0]).toHaveStyleRule("margin-bottom", "1.2rem");
+          });
+        });
+      });
+    });
+
+    describe("LabelSpacingContainer", () => {
+      describe("Props", () => {
+        describe("marginBottom", () => {
+          test("should have 1.2rem", () => {
+            const { LabelSpacingContainers } = setup({
+              position: "vertical"
+            });
+  
+            expect(LabelSpacingContainers[0]).toHaveStyleRule("margin-bottom", "1.2rem");
+          });
+        });
+      });
+    });
+  });
 });
 
 interface Setup extends RenderResult {
   FlexContainer: Element;
+  FlexItems: Element[];
   IconContainers: Element[];
+  IconSpacingContainers: Element[];
+  IconWithLabelSpacingContainers: Element[];
   Icons: NodeListOf<SVGSVGElement>;
   IconsWithLabelsList: Element[];
-  SpacingContainers: Element[];
+  LabelSpacingContainers: Element[];
   Texts: Element[];
 }
 
@@ -328,19 +388,25 @@ function setup(additionalProps?: IconsWithLabelsTestProps): Setup {
   const { queryAllByTestId }: RenderResult = utils;
 
   const FlexContainer: Element = queryAllByTestId("IconsWithLabels")[0];
+  const FlexItems: Element[] = queryAllByTestId("FlexItem");
   const IconContainers: Element[] = queryAllByTestId("IconContainer");
   const Icons: NodeListOf<SVGSVGElement> = document.querySelectorAll("svg");
   const IconsWithLabelsList: Element[] = queryAllByTestId("IconWithLabel");
-  const SpacingContainers: Element[] = queryAllByTestId("IconWithLabelSpacingContainer");
+  const IconWithLabelSpacingContainers: Element[] = queryAllByTestId("IconWithLabelSpacingContainer");
+  const LabelSpacingContainers: Element[] = queryAllByTestId("LabelSpacingContainer");
+  const IconSpacingContainers: Element[] = queryAllByTestId("IconSpacingContainer");
   const Texts: Element[] = queryAllByTestId("LabelText");
 
   return {
     ...utils,
     FlexContainer,
+    FlexItems,
     IconContainers,
+    IconSpacingContainers,
+    IconWithLabelSpacingContainers,
     Icons,
     IconsWithLabelsList,
-    SpacingContainers,
+    LabelSpacingContainers,
     Texts
   };
 } 

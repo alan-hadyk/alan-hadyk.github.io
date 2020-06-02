@@ -101,7 +101,7 @@ describe("molecules / SkillsItem", () => {
       });
 
       expect(IconsWithLabels.children[0].children[0].children[0].children[0].textContent).toEqual("Brand-JS.svg");
-      expect(IconsWithLabels.children[1].children[0].children[0].children[0].textContent).toEqual("Brand-React.svg");
+      expect(IconsWithLabels.children[0].children[1].textContent).toEqual("Brand-React.svg");
     });
 
     test("should have correct content passed via label props", () => {
@@ -109,14 +109,42 @@ describe("molecules / SkillsItem", () => {
         iconsWithLabels
       });
 
-      expect(IconsWithLabels.children[0].children[1].textContent).toEqual("Javascript");
+      expect(IconsWithLabels.children[1].children[0].children[0].textContent).toEqual("Javascript");
       expect(IconsWithLabels.children[1].children[1].textContent).toEqual("React");
+    });
+
+    describe("Props", () => {
+      describe("position", () => {      
+        test("should have vertical", () => {
+          const {
+            IconFlexItems,
+            IconsWithLabels
+          } = setup();
+
+          expect(IconsWithLabels.children[0]).toEqual(IconFlexItems[0]);
+          expect(IconsWithLabels.children[1]).toEqual(IconFlexItems[1]);
+        });
+      });
+
+      describe("size", () => {      
+        test("should have medium", () => {
+          const { IconsWithLabels } = setup();
+
+          expect(IconsWithLabels).toHaveStyleRule("margin-left", "1.2rem", {
+            modifier: "& > *"
+          });
+          expect(IconsWithLabels).toHaveStyleRule("margin-left", "0", {
+            modifier: "& > *:first-child"
+          });
+        });
+      });
     });
   });
 });
 
 interface Setup extends RenderResult {
   HexagonInnerContainer: Element;
+  IconFlexItems: Element[];
   IconsWithLabels: Element;
   SkillsItemContainer: Element;
   SpacingContainer: Element;
@@ -147,9 +175,10 @@ function setup(additionalProps?: SkillsItemTestProps): Setup {
     <SkillsItem {...props} />
   );
 
-  const { queryByTestId }: RenderResult = utils;
+  const { queryByTestId, queryAllByTestId }: RenderResult = utils;
 
   const HexagonInnerContainer: Element = queryByTestId("HexagonInnerContainer");
+  const IconFlexItems: Element[] = queryAllByTestId("FlexItem");
   const IconsWithLabels: Element = queryByTestId("IconsWithLabels");
   const SkillsItemContainer: Element = queryByTestId("SkillsItem");
   const SpacingContainer: Element = queryByTestId("SpacingContainer");
@@ -158,6 +187,7 @@ function setup(additionalProps?: SkillsItemTestProps): Setup {
   return {
     ...utils,
     HexagonInnerContainer,
+    IconFlexItems,
     IconsWithLabels,
     SkillsItemContainer,
     SpacingContainer,
