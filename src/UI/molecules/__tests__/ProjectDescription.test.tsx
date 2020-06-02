@@ -228,14 +228,14 @@ describe("molecules / ProjectDescription", () => {
     describe("Props", () => {
       describe("size - large", () => {
         describe("FlexContainer - gap", () => {    
-          test("should have 2.8rem to all children except the first one", () => {
+          test("should have margin-bottom: 2.8rem and margin-right: 2.8rem in all children", () => {
             const { IconsWithLabels } = setup();
             
-            expect(IconsWithLabels).toHaveStyleRule("margin-left", "2.8rem", {
+            expect(IconsWithLabels).toHaveStyleRule("margin-bottom", "2.8rem", {
               modifier: "& > *"
             });
-            expect(IconsWithLabels).toHaveStyleRule("margin-left", "0", {
-              modifier: "& > *:first-child"
+            expect(IconsWithLabels).toHaveStyleRule("margin-right", "2.8rem", {
+              modifier: "& > *"
             });
           });
         });
@@ -273,7 +273,7 @@ describe("molecules / ProjectDescription", () => {
           test("should have row nowrap", () => {
             const { IconsWithLabels } = setup();
   
-            expect(IconsWithLabels).toHaveStyleRule("flex-flow", "row nowrap");
+            expect(IconsWithLabels).toHaveStyleRule("flex-flow", "row wrap");
           });
         });
       });

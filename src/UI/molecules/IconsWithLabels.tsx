@@ -29,7 +29,7 @@ function IconsWithLabels({
   position = "vertical",
   size = "medium"
 }: IconsWithLabelsProps): JSX.Element {
-  const flexFlow: FlexContainerProps["flexFlow"] = position === "horizontal" ? "row nowrap" : "column nowrap";
+  const flexFlow: FlexContainerProps["flexFlow"] = position === "horizontal" ? "row wrap" : "column nowrap";
 
   return (
     <FlexContainer
