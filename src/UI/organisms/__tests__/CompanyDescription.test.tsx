@@ -142,10 +142,10 @@ describe("organisms / CompanyDescription", () => {
     });
 
     describe("ResponsibilitiesTitle", () => {
-      test("should render textContent - Responsibilites", () => {
+      test("should render textContent - Responsibilities", () => {
         const { ResponsibilitiesTitle } = setup();
   
-        expect(ResponsibilitiesTitle.textContent).toEqual("Responsibilites");
+        expect(ResponsibilitiesTitle.textContent).toEqual("Responsibilities");
       });
 
       describe("Props", () => {
@@ -285,14 +285,14 @@ describe("organisms / CompanyDescription", () => {
     describe("Props", () => {
       describe("size - small", () => {
         describe("FlexContainer - gap", () => {    
-          test("should have 1.6rem in all children, except the first one", () => {
+          test("should have margin-bottom: 1.6rem and margin-right: 1.6rem in all children", () => {
             const { IconsWithLabels } = setup();
             
-            expect(IconsWithLabels).toHaveStyleRule("margin-left", "1.6rem", {
+            expect(IconsWithLabels).toHaveStyleRule("margin-bottom", "1.6rem", {
               modifier: "& > *"
             });
-            expect(IconsWithLabels).toHaveStyleRule("margin-left", "0", {
-              modifier: "& > *:first-child"
+            expect(IconsWithLabels).toHaveStyleRule("margin-right", "1.6rem", {
+              modifier: "& > *"
             });
           });
         });
@@ -330,7 +330,7 @@ describe("organisms / CompanyDescription", () => {
           test("should have row nowrap", () => {
             const { IconsWithLabels } = setup();
   
-            expect(IconsWithLabels).toHaveStyleRule("flex-flow", "row nowrap");
+            expect(IconsWithLabels).toHaveStyleRule("flex-flow", "row wrap");
           });
         });
       });
@@ -361,10 +361,10 @@ describe("organisms / CompanyDescription", () => {
     describe("TechStackSpacingContainer", () => { 
       describe("Props", () => {
         describe("marginBottom", () => {      
-          test("should have 3.2rem", () => {
+          test("should have 1.6rem", () => {
             const { TechStackSpacingContainer } = setup();
 
-            expect(TechStackSpacingContainer).toHaveStyleRule("margin-bottom", "3.2rem");
+            expect(TechStackSpacingContainer).toHaveStyleRule("margin-bottom", "1.6rem");
           });
         });
       });
@@ -426,19 +426,19 @@ describe("organisms / CompanyDescription", () => {
   describe("UnorderedList", () => { 
     describe("Props", () => {
       describe("items", () => {      
-        test("should render items based on responsibilites prop", () => {
-          const responsibilites: CompanyDescriptionProps["responsibilites"] = [
+        test("should render items based on responsibilities prop", () => {
+          const responsibilities: CompanyDescriptionProps["responsibilities"] = [
             "Streamline project timelines to ensure application is being developed in React.js with JavaScript",
             "Develop API gateway in the form of Express / Node.js server, along with Apollo / GraphQL stack",
             "Author unit, integration and acceptance test"
           ];
 
           const { UnorderedList } = setup({
-            responsibilites
+            responsibilities
           });
 
-          expect(UnorderedList.childElementCount).toEqual(responsibilites.length);
-          responsibilites.forEach((resposibility: string, index: number) => {            
+          expect(UnorderedList.childElementCount).toEqual(responsibilities.length);
+          responsibilities.forEach((resposibility: string, index: number) => {            
             expect(UnorderedList.children[index].textContent).toEqual(resposibility);
           });
         });
@@ -467,7 +467,7 @@ interface Setup extends RenderResult {
 type CompanyDescriptionTestProps = Partial<CompanyDescriptionProps>;
 
 function setup(additionalProps?: CompanyDescriptionTestProps): Setup {
-  const responsibilites: CompanyDescriptionProps["responsibilites"] = [
+  const responsibilities: CompanyDescriptionProps["responsibilities"] = [
     "Create scalable and sane front-end architecture", 
     "Orchestrate and direct collaborative team operational objectives for front-end layer of an application designed to manage payment systems"
   ];
@@ -486,7 +486,7 @@ function setup(additionalProps?: CompanyDescriptionTestProps): Setup {
   const props: CompanyDescriptionProps = {
     date: "August 2018 to present",
     iconsWithLabels,
-    responsibilites,
+    responsibilities,
     title: "Front end developer",
     ...additionalProps
   };

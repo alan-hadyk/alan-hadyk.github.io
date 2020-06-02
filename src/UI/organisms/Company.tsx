@@ -10,10 +10,11 @@ import FlexItem from "<layout>/FlexItem";
 import { CompanyProps } from "<organisms>/__typings__/Company.d.ts";
 
 function Company({
+  dataTestId,
   date,
   iconsWithLabels,
   logo,
-  responsibilites,
+  responsibilities,
   title
 }: CompanyProps): JSX.Element {
   const renderTimeline = useCallback((): JSX.Element => (
@@ -45,7 +46,7 @@ function Company({
   ), [logo]);
 
   return (
-    <FlexContainer dataTestId="Company">
+    <FlexContainer dataTestId={dataTestId || "Company"}>
       <PositionContainer
         dataTestId="CompanyPositionContainer"
         position="relative"
@@ -67,7 +68,7 @@ function Company({
             <CompanyDescription
               date={date}
               iconsWithLabels={iconsWithLabels}
-              responsibilites={responsibilites}
+              responsibilities={responsibilities}
               title={title}
             />
           </FlexItem>

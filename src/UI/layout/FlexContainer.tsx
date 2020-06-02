@@ -1,7 +1,10 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
+import spacing from "<styles>/variables/spacing";
+
 import {
+  CalculateGap,
   FlexContainerProps
 } from "<layout>/__typings__/FlexContainer.d.ts";
 
@@ -49,21 +52,39 @@ FlexContainer.Container = styled.div<FlexContainerProps>`
 
     ${gap !== "spacing0" && `
       & > * {
-        ${flexFlow.includes("row") ? `
-          margin-left: ${(gap in spacing && spacing[gap]) || gap};
-
-          &:first-child {
-            margin-left: 0;
-          }  
-        ` : `
-          margin-top: ${(gap in spacing && spacing[gap]) || gap};
-
-          &:first-child {
-            margin-top: 0;
-          }  
-        `}
-      }`} 
+        ${calculateGap({ flexFlow, gap })}
+      }
+    `} 
   `}
 `;
+
+function calculateGap({ flexFlow, gap }: CalculateGap): string {
+  switch(flexFlow) {
+  case "row nowrap":
+    return `
+      margin-left: ${(gap in spacing && spacing[gap]) || gap};
+
+      &:first-child {
+        margin-left: 0;
+      }  
+    `;
+
+  case "row wrap":
+    return `
+      margin-bottom: ${(gap in spacing && spacing[gap]) || gap};
+      margin-right: ${(gap in spacing && spacing[gap]) || gap};
+    `;
+
+  case "column wrap":
+  case "column nowrap":
+    return `
+      margin-top: ${(gap in spacing && spacing[gap]) || gap};
+
+      &:first-child {
+        margin-top: 0;
+      }  
+    `;
+  }
+}
   
 export default FlexContainer;
