@@ -1,6 +1,8 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
+import spacing from "<styles>/variables/spacing";
+
 import {
   CalculateGap,
   FlexContainerProps
@@ -50,13 +52,13 @@ FlexContainer.Container = styled.div<FlexContainerProps>`
 
     ${gap !== "spacing0" && `
       & > * {
-        ${calculateGap({ flexFlow, gap, spacing })}
+        ${calculateGap({ flexFlow, gap })}
       }
     `} 
   `}
 `;
 
-function calculateGap({ flexFlow, gap, spacing }: CalculateGap): string {
+function calculateGap({ flexFlow, gap }: CalculateGap): string {
   switch(flexFlow) {
   case "row nowrap":
     return `

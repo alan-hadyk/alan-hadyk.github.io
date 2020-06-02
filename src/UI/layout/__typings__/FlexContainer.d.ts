@@ -16,6 +16,4 @@ export interface FlexContainerProps {
 export interface CalculateGap {
   flexFlow: FlexContainerProps["flexFlow"];
   gap: FlexContainerProps["gap"];
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  spacing: any;
 }

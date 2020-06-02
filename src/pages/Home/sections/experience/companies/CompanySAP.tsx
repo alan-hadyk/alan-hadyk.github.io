@@ -69,6 +69,7 @@ const responsibilities: CompanyProps["responsibilities"] = [
 
 const CompanySAP = (): JSX.Element => (
   <Company
+    dataTestId="CompanySAP"
     date="November 2015 to May 2017"
     iconsWithLabels={iconsWithLabels}
     logo="companySAP"

@@ -24,6 +24,7 @@ const responsibilities: CompanyProps["responsibilities"] = [
 
 const CompanyPersonallyEmployed = (): JSX.Element => (
   <Company
+    dataTestId="CompanyPersonallyEmployed"
     date="May 2008 to September 2010"
     iconsWithLabels={iconsWithLabels}
     logo="logo"

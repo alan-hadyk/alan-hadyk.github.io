@@ -190,7 +190,35 @@ describe("layout / FlexContainer", () => {
 
   describe("Props", () => {
     describe("gap", () => {
-      test("should apply margin-left equal to gap to all children except the first one when flexFlow includes row", () => {
+      test("should apply margin-bottom and margin-right equal to gap to all children when flexFlow: row wrap", () => {
+        const { FlexContainer } = setup({
+          flexFlow: "row wrap",
+          gap: "spacing32"
+        });
+        
+        expect(FlexContainer).toHaveStyleRule("margin-bottom", "3.2rem", {
+          modifier: "& > *"
+        });
+        expect(FlexContainer).toHaveStyleRule("margin-right", "3.2rem", {
+          modifier: "& > *"
+        });
+      });
+
+      test("should apply margin-bottom and margin-right equal to custom gap passed via props to all children when flexFlow: row wrap", () => {
+        const { FlexContainer } = setup({
+          flexFlow: "row wrap",
+          gap: "40rem"
+        });
+        
+        expect(FlexContainer).toHaveStyleRule("margin-bottom", "40rem", {
+          modifier: "& > *"
+        });
+        expect(FlexContainer).toHaveStyleRule("margin-right", "40rem", {
+          modifier: "& > *"
+        });
+      });
+
+      test("should apply margin-left equal to gap to all children except the first one when flexFlow: row nowrap", () => {
         const { FlexContainer } = setup({
           flexFlow: "row nowrap",
           gap: "spacing32"
@@ -204,7 +232,7 @@ describe("layout / FlexContainer", () => {
         });
       });
 
-      test("should apply margin-left equal to custom gap passed via props to all children except the first one when flexFlow includes row", () => {
+      test("should apply margin-left equal to custom gap passed via props to all children except the first one when flexFlow: row nowrap", () => {
         const { FlexContainer } = setup({
           flexFlow: "row nowrap",
           gap: "40rem"
@@ -234,7 +262,7 @@ describe("layout / FlexContainer", () => {
 
       test("should apply margin-top equal to custom gap passed via props to all children except the first one when flexFlow includes column", () => {
         const { FlexContainer } = setup({
-          flexFlow: "column nowrap",
+          flexFlow: "column wrap",
           gap: "50rem"
         });
         

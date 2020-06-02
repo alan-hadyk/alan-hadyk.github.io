@@ -10,6 +10,7 @@ import FlexItem from "<layout>/FlexItem";
 import { CompanyProps } from "<organisms>/__typings__/Company.d.ts";
 
 function Company({
+  dataTestId,
   date,
   iconsWithLabels,
   logo,
@@ -45,7 +46,7 @@ function Company({
   ), [logo]);
 
   return (
-    <FlexContainer dataTestId="Company">
+    <FlexContainer dataTestId={dataTestId || "Company"}>
       <PositionContainer
         dataTestId="CompanyPositionContainer"
         position="relative"

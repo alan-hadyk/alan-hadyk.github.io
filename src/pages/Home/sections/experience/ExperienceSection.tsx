@@ -7,7 +7,6 @@ import CompanySAP from "<pages>/Home/sections/experience/companies/CompanySAP";
 import CompanyDiH from "<pages>/Home/sections/experience/companies/CompanyDiH";
 import CompanyPersonallyEmployed from "<pages>/Home/sections/experience/companies/CompanyPersonallyEmployed";
 
-// TODO: Write tests when this section will be ready
 const ExperienceSection = (): JSX.Element => (
   <Section
     id="experience"
