@@ -274,24 +274,6 @@ describe("layout / FlexContainer", () => {
         });
       });
     });
-
-    describe("margin", () => {      
-      test("should have 0 auto when passed via margin prop", () => {
-        const { FlexContainer } = setup({
-          margin: "0 auto"
-        });
-  
-        expect(FlexContainer).toHaveStyleRule("margin", "0 auto");
-      });
-  
-      test("should have 15px when passed via maxWidth prop", () => {
-        const { FlexContainer } = setup({
-          margin: "15px"
-        });
-  
-        expect(FlexContainer).toHaveStyleRule("margin", "15px");
-      });
-    });
   });
 });
 

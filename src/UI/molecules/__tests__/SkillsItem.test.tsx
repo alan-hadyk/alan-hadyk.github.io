@@ -92,7 +92,7 @@ describe("molecules / SkillsItem", () => {
         iconsWithLabels
       });
 
-      expect(IconsWithLabels.children.length).toEqual(2);
+      expect(IconsWithLabels.children[0].children.length).toEqual(2);
     });
 
     test("icons should render correct SVGs", () => {
@@ -101,7 +101,7 @@ describe("molecules / SkillsItem", () => {
       });
 
       expect(IconsWithLabels.children[0].children[0].children[0].children[0].textContent).toEqual("Brand-JS.svg");
-      expect(IconsWithLabels.children[0].children[1].textContent).toEqual("Brand-React.svg");
+      expect(IconsWithLabels.children[0].children[0].children[1].children[0].textContent).toEqual("Brand-React.svg");
     });
 
     test("should have correct content passed via label props", () => {
@@ -109,20 +109,19 @@ describe("molecules / SkillsItem", () => {
         iconsWithLabels
       });
 
-      expect(IconsWithLabels.children[1].children[0].children[0].textContent).toEqual("Javascript");
-      expect(IconsWithLabels.children[1].children[1].textContent).toEqual("React");
+      expect(IconsWithLabels.children[0].children[1].children[0].children[0].textContent).toEqual("Javascript");
+      expect(IconsWithLabels.children[0].children[1].children[1].children[0].textContent).toEqual("React");
     });
 
     describe("Props", () => {
       describe("position", () => {      
         test("should have vertical", () => {
           const {
-            IconFlexItems,
-            IconsWithLabels
+            IconsWithLabels,
+            VerticalIconsWithLabels
           } = setup();
 
-          expect(IconsWithLabels.children[0]).toEqual(IconFlexItems[0]);
-          expect(IconsWithLabels.children[1]).toEqual(IconFlexItems[1]);
+          expect(IconsWithLabels.children[0]).toEqual(VerticalIconsWithLabels);
         });
       });
 
@@ -149,6 +148,7 @@ interface Setup extends RenderResult {
   SkillsItemContainer: Element;
   SpacingContainer: Element;
   Text: Element;
+  VerticalIconsWithLabels: Element;
 }
 
 type SkillsItemTestProps = Partial<SkillsItemProps>;
@@ -183,6 +183,7 @@ function setup(additionalProps?: SkillsItemTestProps): Setup {
   const SkillsItemContainer: Element = queryByTestId("SkillsItem");
   const SpacingContainer: Element = queryByTestId("SpacingContainer");
   const Text: Element = queryByTestId("Text");
+  const VerticalIconsWithLabels: Element = queryByTestId("VerticalIconsWithLabels");
 
   return {
     ...utils,
@@ -191,6 +192,7 @@ function setup(additionalProps?: SkillsItemTestProps): Setup {
     IconsWithLabels,
     SkillsItemContainer,
     SpacingContainer,
-    Text
+    Text,
+    VerticalIconsWithLabels
   };
 }

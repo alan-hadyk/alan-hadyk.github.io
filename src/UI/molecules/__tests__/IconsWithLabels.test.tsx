@@ -43,13 +43,16 @@ describe("molecules / IconsWithLabels", () => {
       Icons,
       IconSpacingContainers,
       LabelSpacingContainers,
-      Texts
+      Texts,
+      VerticalIconsWithLabels
     } = setup({
       position: "vertical"
     });
 
-    expect(FlexContainer.children[0]).toEqual(FlexItems[0]);
-    expect(FlexContainer.children[1]).toEqual(FlexItems[1]);
+    expect(FlexContainer.children[0]).toEqual(VerticalIconsWithLabels);
+
+    expect(VerticalIconsWithLabels.children[0]).toEqual(FlexItems[0]);
+    expect(VerticalIconsWithLabels.children[1]).toEqual(FlexItems[1]);
 
     IconSpacingContainers.forEach((IconSpacingContainer, index) => {
       expect(IconSpacingContainer.children[0]).toEqual(IconContainers[index]);
@@ -72,10 +75,20 @@ describe("molecules / IconsWithLabels", () => {
       });
 
       describe("flexFlow", () => {      
-        test("should have row nowrap", () => {
-          const { FlexContainer } = setup();
+        test("should have row wrap when position is horizontal", () => {
+          const { FlexContainer } = setup({
+            position: "horizontal"
+          });
 
           expect(FlexContainer).toHaveStyleRule("flex-flow", "row wrap");
+        });
+
+        test("should have row nowrap when position is vertical", () => {
+          const { FlexContainer } = setup({
+            position: "vertical"
+          });
+
+          expect(FlexContainer).toHaveStyleRule("flex-flow", "row nowrap");
         });
       });
 
@@ -131,66 +144,20 @@ describe("molecules / IconsWithLabels", () => {
       });
 
       describe("justifyContent", () => {      
-        test("should have flex-start", () => {
-          const { FlexContainer } = setup();
+        test("should have flex-start when position is horizontal", () => {
+          const { FlexContainer } = setup({
+            position: "horizontal"
+          });
 
           expect(FlexContainer).toHaveStyleRule("justify-content", "flex-start");
         });
-      });
 
-      describe("margin", () => {      
-        test("should have 0 auto", () => {
-          const { FlexContainer } = setup();
-
-          expect(FlexContainer).toHaveStyleRule("margin", "0 auto");
-        });
-      });
-
-      describe("maxWidth", () => {      
-        test("should have 50%", () => {
-          const { FlexContainer } = setup();
-
-          expect(FlexContainer).toHaveStyleRule("max-width", "50%");
-        });
-      });
-    });
-  });
-
-  describe("FlexItems", () => {
-    describe("FlexItems[0]", () => {
-      describe("Props", () => {
-        describe("flex", () => {
-          test("should have 0 0 25%", () => {
-            const { FlexItems } = setup({
-              position: "vertical"
-            });
-
-            expect(FlexItems[0]).toHaveStyleRule("flex", "0 0 25%");
+        test("should have center when position is vertical", () => {
+          const { FlexContainer } = setup({
+            position: "vertical"
           });
-        });
 
-        describe("overflow", () => {
-          test("should have hidden", () => {
-            const { FlexItems } = setup({
-              position: "vertical"
-            });
-
-            expect(FlexItems[0]).toHaveStyleRule("overflow", "hidden");
-          });
-        });
-      });
-    });
-
-    describe("FlexItems[1]", () => {
-      describe("Props", () => {
-        describe("flex", () => {
-          test("should have 0 0 75%", () => {
-            const { FlexItems } = setup({
-              position: "vertical"
-            });
-
-            expect(FlexItems[1]).toHaveStyleRule("flex", "0 0 75%");
-          });
+          expect(FlexContainer).toHaveStyleRule("justify-content", "center");
         });
       });
     });
@@ -315,36 +282,6 @@ describe("molecules / IconsWithLabels", () => {
       });
     });
   });
-
-  describe("SpacingContainer", () => {
-    describe("IconSpacingContainer", () => {
-      describe("Props", () => {
-        describe("marginBottom", () => {
-          test("should have 1.2rem", () => {
-            const { IconSpacingContainers } = setup({
-              position: "vertical"
-            });
-  
-            expect(IconSpacingContainers[0]).toHaveStyleRule("margin-bottom", "1.2rem");
-          });
-        });
-      });
-    });
-
-    describe("LabelSpacingContainer", () => {
-      describe("Props", () => {
-        describe("marginBottom", () => {
-          test("should have 1.2rem", () => {
-            const { LabelSpacingContainers } = setup({
-              position: "vertical"
-            });
-  
-            expect(LabelSpacingContainers[0]).toHaveStyleRule("margin-bottom", "1.2rem");
-          });
-        });
-      });
-    });
-  });
 });
 
 interface Setup extends RenderResult {
@@ -357,6 +294,7 @@ interface Setup extends RenderResult {
   IconsWithLabelsList: Element[];
   LabelSpacingContainers: Element[];
   Texts: Element[];
+  VerticalIconsWithLabels: Element;
 }
 
 type IconsWithLabelsTestProps = Partial<IconsWithLabelsProps>;
@@ -396,6 +334,7 @@ function setup(additionalProps?: IconsWithLabelsTestProps): Setup {
   const LabelSpacingContainers: Element[] = queryAllByTestId("LabelSpacingContainer");
   const IconSpacingContainers: Element[] = queryAllByTestId("IconSpacingContainer");
   const Texts: Element[] = queryAllByTestId("LabelText");
+  const VerticalIconsWithLabels: Element = queryAllByTestId("VerticalIconsWithLabels")[0];
 
   return {
     ...utils,
@@ -407,6 +346,7 @@ function setup(additionalProps?: IconsWithLabelsTestProps): Setup {
     Icons,
     IconsWithLabelsList,
     LabelSpacingContainers,
-    Texts
+    Texts,
+    VerticalIconsWithLabels
   };
 } 

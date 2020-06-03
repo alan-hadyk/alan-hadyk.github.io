@@ -15,6 +15,10 @@ import {
   MapSizeToFlexContainerGap
 } from "<molecules>/__typings__/IconsWithLabels.d.ts";
 
+import {	
+  FlexContainerProps	
+} from "<layout>/__typings__/FlexContainer.d.ts";
+
 const mapSizeToFlexContainerGap: MapSizeToFlexContainerGap = {
   large: "spacing28",
   medium: "spacing12",
@@ -27,14 +31,17 @@ function IconsWithLabels({
   position = "vertical",
   size = "medium"
 }: IconsWithLabelsProps): JSX.Element {
+  const justifyContent: FlexContainerProps["justifyContent"] = position === "horizontal" ? "flex-start" : "center";
+  const flexFlow: FlexContainerProps["flexFlow"] = position === "horizontal" ? "row wrap" : "row nowrap";
+
   return (
     <FlexContainer
       alignItems="flex-start" 
       dataTestId="IconsWithLabels"
-      flexFlow="row nowrap"
+      flexFlow={flexFlow}
       gap={mapSizeToFlexContainerGap[size]}
       height="100%"
-      justifyContent="center"
+      justifyContent={justifyContent}
     >
       {
         position === "horizontal" ? (
@@ -47,7 +54,13 @@ function IconsWithLabels({
               size={size}
             />
           ))
-        ) : <VerticalIconsWithLabels labelColor={labelColor} iconsWithLabels={iconsWithLabels} size={size} />
+        ) : (
+          <VerticalIconsWithLabels
+            labelColor={labelColor}
+            iconsWithLabels={iconsWithLabels}
+            size={size}
+          />
+        )
       }
     </FlexContainer>
   );
