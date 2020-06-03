@@ -12,7 +12,7 @@ import { CompanyDescriptionProps } from "<organisms>/__typings__/CompanyDescript
 function CompanyDescription({
   date,
   iconsWithLabels,
-  responsibilites,
+  responsibilities,
   title
 }: CompanyDescriptionProps): JSX.Element {
   const renderTitleAndDate = useCallback((): JSX.Element => (
@@ -58,7 +58,7 @@ function CompanyDescription({
     return (
       <SpacingContainer
         dataTestId="TechStackSpacingContainer"
-        marginBottom="spacing32"
+        marginBottom="spacing16"
       >
         <Text
           color="blue100"
@@ -99,7 +99,7 @@ function CompanyDescription({
           fontWeight="bold"
           lineHeight="spacing32"
         >
-          Responsibilites
+        Responsibilities
         </Text>
         <SpacingContainer
           dataTestId="ResponsibilitiesListSpacingContainer"
@@ -107,7 +107,7 @@ function CompanyDescription({
           marginTop="spacing16"
         >
           <UnorderedList
-            items={responsibilites}
+            items={responsibilities}
           />
         </SpacingContainer>
       </SpacingContainer>

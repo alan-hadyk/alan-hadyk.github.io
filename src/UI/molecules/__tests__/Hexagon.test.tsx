@@ -83,6 +83,14 @@ describe("molecules / Hexagon", () => {
           expect(HexagonInnerContainer).toHaveStyleRule("transform", "translate(-50%,-50%)");
         });
       });
+
+      describe("width", () => { 
+        test("should have 100%", () => {
+          const { HexagonInnerContainer } = setup();
+
+          expect(HexagonInnerContainer).toHaveStyleRule("width", "100%");
+        });
+      });
     });
   });
 

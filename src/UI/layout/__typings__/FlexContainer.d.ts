@@ -13,3 +13,8 @@ export interface FlexContainerProps {
   margin?: "0 auto" | string;
   maxWidth?: Spacing | "unset" | "50%"; 
 }
+
+export interface CalculateGap {
+  flexFlow: FlexContainerProps["flexFlow"];
+  gap: FlexContainerProps["gap"];
+}

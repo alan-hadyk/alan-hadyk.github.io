@@ -6,6 +6,6 @@ import { UnorderedListProps } from "<molecules>/__typings__/UnorderedList.d.ts";
 export interface CompanyDescriptionProps {
   date: string;
   iconsWithLabels: IconWithLabelProps[];
-  responsibilites: UnorderedListProps["children"];
+  responsibilities: UnorderedListProps["children"];
   title: string;
 }

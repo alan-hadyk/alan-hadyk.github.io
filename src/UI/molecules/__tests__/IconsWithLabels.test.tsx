@@ -1,7 +1,7 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import IconsWithLabels from "<src>/UI/molecules/IconsWithLabels";
+import IconsWithLabels from "<molecules>/IconsWithLabels";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
@@ -75,48 +75,48 @@ describe("molecules / IconsWithLabels", () => {
         test("should have row nowrap", () => {
           const { FlexContainer } = setup();
 
-          expect(FlexContainer).toHaveStyleRule("flex-flow", "row nowrap");
+          expect(FlexContainer).toHaveStyleRule("flex-flow", "row wrap");
         });
       });
 
       describe("gap", () => {
-        describe("marginLeft", () => {
-          test("should have 1.6rem for all children except the first one when size is small", () => {
+        describe("margin-right, margin-bottom", () => {
+          test("should have margin-right: 1.6rem and margin-bottom: 1.6rem in all children when size is small", () => {
             const { FlexContainer } = setup({
               size: "small"
             });
             
-            expect(FlexContainer).toHaveStyleRule("margin-left", "1.6rem", {
+            expect(FlexContainer).toHaveStyleRule("margin-right", "1.6rem", {
               modifier: "& > *"
             });
-            expect(FlexContainer).toHaveStyleRule("margin-left", "0", {
-              modifier: "& > *:first-child"
+            expect(FlexContainer).toHaveStyleRule("margin-bottom", "1.6rem", {
+              modifier: "& > *"
             });
           });
 
-          test("should have 1.2rem to all children except the first one when size is medium", () => {
+          test("should have margin-right: 1.2rem and margin-bottom: 1.2rem in all children when size is medium", () => {
             const { FlexContainer } = setup({
               size: "medium"
             });
             
-            expect(FlexContainer).toHaveStyleRule("margin-left", "1.2rem", {
+            expect(FlexContainer).toHaveStyleRule("margin-right", "1.2rem", {
               modifier: "& > *"
             });
-            expect(FlexContainer).toHaveStyleRule("margin-left", "0", {
-              modifier: "& > *:first-child"
+            expect(FlexContainer).toHaveStyleRule("margin-bottom", "1.2rem", {
+              modifier: "& > *"
             });
           });
-    
-          test("should have 2.8rem to all children except the first one when size is large", () => {
+
+          test("should have margin-right: 2.8rem and margin-bottom: 2.8rem in all children when size is large", () => {
             const { FlexContainer } = setup({
               size: "large"
             });
             
-            expect(FlexContainer).toHaveStyleRule("margin-left", "2.8rem", {
+            expect(FlexContainer).toHaveStyleRule("margin-right", "2.8rem", {
               modifier: "& > *"
             });
-            expect(FlexContainer).toHaveStyleRule("margin-left", "0", {
-              modifier: "& > *:first-child"
+            expect(FlexContainer).toHaveStyleRule("margin-bottom", "2.8rem", {
+              modifier: "& > *"
             });
           });
         });

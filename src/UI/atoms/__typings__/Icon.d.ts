@@ -9,9 +9,36 @@ export interface IconProps {
   height?: string | Spacing;
   iconName:
     "apollo" |
+    "brandAirbnb" |
+    "brandApollo" |
+    "brandCSSModules" |
+    "brandCoffeeScript" |
+    "brandCypress" |
+    "brandDocker" |
+    "brandDocpad" |
+    "brandEmber" |
+    "brandExpress" |
+    "brandGallery" |
+    "brandGraphQL" |
+    "brandJEST" |
+    "brandJIRA" |
+    "brandJQuery" |
     "brandJS" |
+    "brandJenkins" |
+    "brandLESS" |
+    "brandNode" |
+    "brandPrestaShop" |
+    "brandQunit" |
+    "brandREST" |
     "brandReact" |
+    "brandRedmine" |
+    "brandRedux" |
+    "brandSass" |
+    "brandStyledComponents" |
+    "brandTS" |
+    "brandTestingLibrary" |
     "brandWebpack" |
+    "brandZeplin" |
     "btnCodeSandbox" |
     "btnDownload" |
     "btnExternalLink" |
@@ -19,7 +46,10 @@ export interface IconProps {
     "calendar" |
     "chrome" |
     "codeSandbox" |
+    "companyDIH" |
     "companyOmise" |
+    "companySAP" |
+    "companyShiji" |
     "earth" |
     "firefox" |
     "gitHub" |
@@ -51,9 +81,36 @@ export interface IconProps {
 
 export interface IconComponents {
   apollo: SVGIcon;
+  brandAirbnb: SVGIcon;
+  brandApollo: SVGIcon;
+  brandCSSModules: SVGIcon;
+  brandCoffeeScript: SVGIcon;
+  brandCypress: SVGIcon;
+  brandDocker: SVGIcon;
+  brandDocpad: SVGIcon;
+  brandEmber: SVGIcon;
+  brandExpress: SVGIcon;
+  brandGallery: SVGIcon;
+  brandGraphQL: SVGIcon;
+  brandJEST: SVGIcon;
+  brandJIRA: SVGIcon;
+  brandJQuery: SVGIcon;
   brandJS: SVGIcon;
+  brandJenkins: SVGIcon;
+  brandLESS: SVGIcon;
+  brandNode: SVGIcon;
+  brandPrestaShop: SVGIcon;
+  brandQunit: SVGIcon;
+  brandREST: SVGIcon;
   brandReact: SVGIcon;
+  brandRedmine: SVGIcon;
+  brandRedux: SVGIcon;
+  brandSass: SVGIcon;
+  brandStyledComponents: SVGIcon;
+  brandTS: SVGIcon;
+  brandTestingLibrary: SVGIcon;
   brandWebpack: SVGIcon;
+  brandZeplin: SVGIcon;
   btnCodeSandbox: SVGIcon;
   btnDownload: SVGIcon;
   btnExternalLink: SVGIcon;
@@ -61,7 +118,10 @@ export interface IconComponents {
   calendar: SVGIcon;
   chrome: SVGIcon;
   codeSandbox: SVGIcon;
+  companyDIH: SVGIcon;
   companyOmise: SVGIcon;
+  companySAP: SVGIcon;
+  companyShiji: SVGIcon;
   earth: SVGIcon;
   firefox: SVGIcon;
   gitHub: SVGIcon;

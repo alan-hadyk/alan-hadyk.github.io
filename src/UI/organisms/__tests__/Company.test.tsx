@@ -330,35 +330,35 @@ describe("organisms / Company", () => {
         });
       });
 
-      describe("responsibilites", () => {
-        test("should render correct responsibilites - test 1", () => {
-          const responsibilites: CompanyProps["responsibilites"] = [
+      describe("responsibilities", () => {
+        test("should render correct responsibilities - test 1", () => {
+          const responsibilities: CompanyProps["responsibilities"] = [
             "Create scalable and sane front-end architecture", 
             "Orchestrate and direct collaborative team operational objectives for front-end layer of an application designed to manage payment systems"    
           ];
           const { CompanyDescription } = setup({
-            responsibilites
+            responsibilities
           });
           const UnorderedList: Element = CompanyDescription.children[3].children[1].children[0];
 
           expect(UnorderedList.children.length).toEqual(2);
-          responsibilites.forEach((responsibility: string, index: number) => {
+          responsibilities.forEach((responsibility: string, index: number) => {
             expect(UnorderedList.children[index].textContent).toEqual(responsibility);
           });
         });
 
-        test("should render correct responsibilites - test 2", () => {
-          const responsibilites: CompanyProps["responsibilites"] = [
+        test("should render correct responsibilities - test 2", () => {
+          const responsibilities: CompanyProps["responsibilities"] = [
             "Apply development and certify adherence to best practices to deliver PoC based on React.js", 
             "Transform and create reusable components and manage adapters, models and serializers"    
           ];
           const { CompanyDescription } = setup({
-            responsibilites
+            responsibilities
           });
           const UnorderedList: Element = CompanyDescription.children[3].children[1].children[0];
 
           expect(UnorderedList.children.length).toEqual(2);
-          responsibilites.forEach((responsibility: string, index: number) => {
+          responsibilities.forEach((responsibility: string, index: number) => {
             expect(UnorderedList.children[index].textContent).toEqual(responsibility);
           });
         });
@@ -404,7 +404,7 @@ interface Setup extends RenderResult {
 type CompanyTestProps = Partial<CompanyProps>;
 
 function setup(additionalProps?: CompanyTestProps): Setup {
-  const responsibilites: CompanyProps["responsibilites"] = [
+  const responsibilities: CompanyProps["responsibilities"] = [
     "Create scalable and sane front-end architecture", 
     "Orchestrate and direct collaborative team operational objectives for front-end layer of an application designed to manage payment systems"
   ];
@@ -424,7 +424,7 @@ function setup(additionalProps?: CompanyTestProps): Setup {
     date: "August 2018 to present",
     iconsWithLabels,
     logo: "companyOmise",
-    responsibilites,
+    responsibilities,
     title: "Front end developer",
     ...additionalProps
   };
