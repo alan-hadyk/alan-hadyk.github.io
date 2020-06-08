@@ -7,11 +7,12 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import { IconWithLabelProps } from "<molecules>/__typings__/IconWithLabel.d.ts";
 
-import { VerticalIconsWithLabelsProps } from "<molecules>/__typings__/VerticalIconsWithLabels";
+import { VerticalIconsWithLabelsProps } from "<molecules>/__typings__/VerticalIconsWithLabels.d.ts";
 
 describe("molecules / VerticalIconsWithLabels", () => {
   test("should have correct structure", () => {
     const {
+      debug,
       FlexContainer,
       FlexItems,
       IconContainers,
@@ -21,10 +22,14 @@ describe("molecules / VerticalIconsWithLabels", () => {
       Texts
     } = setup();
 
+    debug();
+
     expect(FlexContainer.children[0]).toEqual(FlexItems[0]);
     expect(FlexContainer.children[1]).toEqual(FlexItems[1]);
 
     IconSpacingContainers.forEach((IconSpacingContainer, index) => {
+      expect(FlexItems[0].children[index]).toEqual(IconSpacingContainer);
+
       expect(IconSpacingContainer.children[0]).toEqual(IconContainers[index]);
       expect(IconContainers[index].children[0]).toEqual(Icons[index]); 
     });
@@ -74,10 +79,10 @@ describe("molecules / VerticalIconsWithLabels", () => {
     describe("FlexItems[0]", () => {
       describe("Props", () => {
         describe("flex", () => {
-          test("should have 0 0 13.69%", () => {
+          test("should have 0 0 6.4rem", () => {
             const { FlexItems } = setup();
 
-            expect(FlexItems[0]).toHaveStyleRule("flex", "0 0 13.69%");
+            expect(FlexItems[0]).toHaveStyleRule("flex", "0 0 6.4rem");
           });
         });
       });
@@ -86,10 +91,10 @@ describe("molecules / VerticalIconsWithLabels", () => {
     describe("FlexItems[1]", () => {
       describe("Props", () => {
         describe("flex", () => {
-          test("should have 0 0 30.32%", () => {
+          test("should have 0 1 100%", () => {
             const { FlexItems } = setup();
 
-            expect(FlexItems[1]).toHaveStyleRule("flex", "0 0 30.32%");
+            expect(FlexItems[1]).toHaveStyleRule("flex", "0 1 100%");
           });
         });
       });
@@ -158,33 +163,62 @@ describe("molecules / VerticalIconsWithLabels", () => {
             const { IconContainers } = setup({
               size: "small"
             });
-    
-            expect(IconContainers[0]).toHaveStyleRule("height", "2.8rem");
-            expect(IconContainers[1]).toHaveStyleRule("height", "2.8rem");
+
+            IconContainers.forEach((IconContainer) => {
+              expect(IconContainer).toHaveStyleRule("height", "2.8rem");
+            });
           });
   
           test("should have 3.2rem for medium size", () => {
             const { IconContainers } = setup({
               size: "medium"
             });
-    
-            expect(IconContainers[0]).toHaveStyleRule("height", "3.2rem");
-            expect(IconContainers[1]).toHaveStyleRule("height", "3.2rem");
+
+            IconContainers.forEach((IconContainer) => {
+              expect(IconContainer).toHaveStyleRule("height", "3.2rem");
+            });
           });
   
           test("should have 4rem for large size", () => {
             const { IconContainers } = setup({
               size: "large"
             });
-    
-            expect(IconContainers[0]).toHaveStyleRule("height", "4rem");
-            expect(IconContainers[1]).toHaveStyleRule("height", "4rem");
+
+            IconContainers.forEach((IconContainer) => {
+              expect(IconContainer).toHaveStyleRule("height", "4rem");
+            });
+          });
+        });
+
+        describe("isResponsive", () => {
+          describe("height", () => {
+            test("should have 100%", () => {
+              const { IconContainers } = setup();
+        
+              IconContainers.forEach((IconContainer) => {
+                expect(IconContainer).toHaveStyleRule("height", "100%", {
+                  modifier: "svg"
+                });
+              });
+            });
+          });
+  
+          describe("width", () => {
+            test("should have 100%", () => {
+              const { IconContainers } = setup();
+        
+              IconContainers.forEach((IconContainer) => {
+                expect(IconContainer).toHaveStyleRule("width", "100%", {
+                  modifier: "svg"
+                });
+              });
+            });
           });
         });
       });
     });
-
   });
+
   describe("Text", () => {
     const iconsWithLabels: IconWithLabelProps[] = [
       {
@@ -197,101 +231,112 @@ describe("molecules / VerticalIconsWithLabels", () => {
       }
     ];
 
-    describe("Text[0]", () => {
-      describe("Props", () => {
-        describe("label", () => {
-          describe("should have correct content passed via label props", () => {
-            const { Texts } = setup({
-              iconsWithLabels
-            });
-  
-            expect(Texts[0].textContent).toEqual("Javascript");
+    describe("Props", () => {
+      describe("label", () => {
+        describe("should have correct content passed via label props", () => {
+          const { Texts } = setup({
+            iconsWithLabels
+          });
+
+          expect(Texts[0].textContent).toEqual("Javascript");
+          expect(Texts[1].textContent).toEqual("React");
+        });
+      });
+
+      describe("color", () => {
+        test("should have correct color passed via labelColor props", () => {
+          const { Texts } = setup({
+            labelColor: "blue200"
+          });
+
+          Texts.forEach((Text) => {
+            expect(Text).toHaveStyleRule("color", "#67d2df");
           });
         });
-  
-        describe("color", () => {
-          describe("should have correct color passed via labelColor props", () => {
-            const { Texts } = setup({
-              labelColor: "blue200"
-            });
-  
-            expect(Texts[0]).toHaveStyleRule("color", "#67d2df");
+
+        test("should have #fff", () => {
+          const { Texts } = setup({
+            labelColor: "white"
           });
-        });
-  
-        describe("fontSize", () => {
-          test("should have 16px when size is small", () => {
-            const { Texts } = setup({
-              size: "small"
-            });
-  
-            expect(Texts[0]).toHaveStyleRule("font-size", "16px");
-          });
-  
-          test("should have 20px when size is medium", () => {
-            const { Texts } = setup({
-              size: "medium"
-            });
-  
-            expect(Texts[0]).toHaveStyleRule("font-size", "20px");
-          });
-  
-          test("should have 24px when size is large", () => {
-            const { Texts } = setup({
-              size: "large"
-            });
-  
-            expect(Texts[0]).toHaveStyleRule("font-size", "24px");
+
+          Texts.forEach((Text) => {
+            expect(Text).toHaveStyleRule("color", "#fff");
           });
         });
       });
-    });
-    
-    describe("Text[1]", () => {
-      describe("Props", () => {
-        describe("label", () => {
-          describe("should have correct content passed via label props", () => {
-            const { Texts } = setup({
-              iconsWithLabels
+
+      describe("ellipsis", () => {
+        describe("text-overflow", () => {
+          test("should have ellipsis", () => {
+            const { Texts } = setup();
+
+            Texts.forEach((Text) => {
+              expect(Text).toHaveStyleRule("text-overflow", "ellipsis");
             });
-  
-            expect(Texts[1].textContent).toEqual("React");
           });
         });
-  
-        describe("color", () => {
-          describe("should have correct color passed via labelColor props", () => {
-            const { Texts } = setup({
-              labelColor: "blue200"
+
+        describe("overflow", () => {
+          test("should have hidden", () => {
+            const { Texts } = setup();
+
+            Texts.forEach((Text) => {
+              expect(Text).toHaveStyleRule("overflow", "hidden");
             });
-  
-            expect(Texts[1]).toHaveStyleRule("color", "#67d2df");
           });
         });
-  
-        describe("fontSize", () => {
-          test("should have 16px when size is small", () => {
-            const { Texts } = setup({
-              size: "small"
+
+        describe("white-space", () => {
+          test("should have nowrap", () => {
+            const { Texts } = setup();
+
+            Texts.forEach((Text) => {
+              expect(Text).toHaveStyleRule("white-space", "nowrap");
             });
-  
-            expect(Texts[1]).toHaveStyleRule("font-size", "16px");
           });
-  
-          test("should have 20px when size is medium", () => {
-            const { Texts } = setup({
-              size: "medium"
-            });
-  
-            expect(Texts[1]).toHaveStyleRule("font-size", "20px");
+        });
+      });
+
+      describe("fontSize", () => {
+        test("should have 16px when size is small", () => {
+          const { Texts } = setup({
+            size: "small"
           });
-  
-          test("should have 24px when size is large", () => {
-            const { Texts } = setup({
-              size: "large"
-            });
-  
-            expect(Texts[1]).toHaveStyleRule("font-size", "24px");
+
+          Texts.forEach((Text) => {
+            expect(Text).toHaveStyleRule("font-size", "16px");
+          });
+        });
+
+        test("should have 20px when size is medium", () => {
+          const { Texts } = setup({
+            size: "medium"
+          });
+
+          Texts.forEach((Text) => {
+            expect(Text).toHaveStyleRule("font-size", "20px");
+          });
+        });
+
+        test("should have 24px when size is large", () => {
+          const { Texts } = setup({
+            size: "large"
+          });
+
+          Texts.forEach((Text) => {
+            expect(Text).toHaveStyleRule("font-size", "24px");
+          });
+        });
+      });
+
+      describe("lineHeight", () => {
+        describe("should have 3.2rem", () => {
+          const { Texts } = setup({
+            labelColor: "blue200"
+          });
+
+          Texts.forEach((Text) => {
+            expect(Text).toHaveStyleRule("line-height", "3.2rem");
           });
         });
       });

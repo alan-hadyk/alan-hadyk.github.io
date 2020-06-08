@@ -53,6 +53,22 @@ describe("molecules / SkillsItem", () => {
         }); 
       });
 
+      describe("lineHeight", () => {
+        test("should have 4rem", () => {
+          const { Text } = setup();
+  
+          expect(Text).toHaveStyleRule("line-height", "4rem");
+        }); 
+      });
+
+      describe("textAlign", () => {
+        test("should have center", () => {
+          const { Text } = setup();
+  
+          expect(Text).toHaveStyleRule("text-align", "center");
+        }); 
+      });
+
       describe("textTransform", () => {
         test("should have capitalize", () => {
           const { Text } = setup();

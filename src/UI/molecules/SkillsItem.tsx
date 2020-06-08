@@ -16,10 +16,10 @@ const SkillsItem = ({ iconsWithLabels, title }: SkillsItemProps): JSX.Element =>
     dataTestId="SkillsItem"
   >
     <Text 
-      textAlign="center"
       color="blue300"
       fontSize="font32"
       lineHeight="spacing40"
+      textAlign="center"
       textTransform="capitalize"
     >
       {title}

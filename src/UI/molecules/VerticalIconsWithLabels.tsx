@@ -18,7 +18,9 @@ import Text from "<atoms>/Text";
 
 import {
   VerticalIconsWithLabelsProps
-} from "<molecules>/__typings__/VerticalIconsWithLabels";
+} from "<molecules>/__typings__/VerticalIconsWithLabels.d.ts";
+
+import spacing from "<styles>/variables/spacing";
 
 const VerticalIconsWithLabels = ({
   iconsWithLabels,
@@ -33,8 +35,7 @@ const VerticalIconsWithLabels = ({
     justifyContent="center" 
   >
     <FlexItem
-      alignSelf="center"
-      flex="0 0 13.69%"
+      flex={`0 0 ${spacing.spacing64}`}
     >
       {iconsWithLabels.map(({ iconName }: IconWithLabelProps): JSX.Element => (
         <SpacingContainer
@@ -51,7 +52,7 @@ const VerticalIconsWithLabels = ({
       ))}
     </FlexItem>
     <FlexItem
-      flex="0 0 30.32%"
+      flex="0 1 100%"
     >
       {iconsWithLabels.map(({ label }: IconWithLabelProps): JSX.Element => (
         <SpacingContainer
