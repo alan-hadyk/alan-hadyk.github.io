@@ -25,7 +25,10 @@ const SkillsItem = ({ iconsWithLabels, title }: SkillsItemProps): JSX.Element =>
       {title}
     </Text>
     <SpacingContainer
+      marginLeft="auto"
+      marginRight="auto"
       marginTop="spacing16"
+      maxWidth="75%"
     >
       <IconsWithLabels
         iconsWithLabels={iconsWithLabels}

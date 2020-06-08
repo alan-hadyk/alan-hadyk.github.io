@@ -1,4 +1,4 @@
-import React, { forwardRef, memo, useState, useRef, Ref } from "react";
+import React, { forwardRef, useState, useRef, Ref } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import useShuffleText from "<hooks>/useShuffleText";
@@ -129,4 +129,4 @@ Text.Container = styled.div<TextProps>`
   `}
 `;
 
-export default memo(forwardRef(Text));
+export default forwardRef(Text);
