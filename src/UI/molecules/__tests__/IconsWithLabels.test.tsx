@@ -12,24 +12,55 @@ import {
 } from "<molecules>/__typings__/IconWithLabel.d.ts";
 
 describe("molecules / IconsWithLabels", () => {
-  test("should have correct structure", () => {
+  test("should have correct structure when position is horizontal", () => {
     const {
       FlexContainer,
       IconContainers,
       IconsWithLabelsList,
       Icons,
-      SpacingContainers,
+      IconWithLabelSpacingContainers,
       Texts
-    } = setup();
+    } = setup({
+      position: "horizontal"
+    });
 
     expect(FlexContainer.children[0]).toEqual(IconsWithLabelsList[0]);
     expect(FlexContainer.children[1]).toEqual(IconsWithLabelsList[1]);
 
     IconsWithLabelsList.forEach((IconWithLabel, index) => {
-      expect(IconWithLabel.children[0]).toEqual(SpacingContainers[index]);
+      expect(IconWithLabel.children[0]).toEqual(IconWithLabelSpacingContainers[index]);
       expect(IconWithLabel.children[1]).toEqual(Texts[index]);
-      expect(SpacingContainers[index].children[0]).toEqual(IconContainers[index]);
+      expect(IconWithLabelSpacingContainers[index].children[0]).toEqual(IconContainers[index]);
       expect(IconContainers[index].children[0]).toEqual(Icons[index]); 
+    });
+  });
+
+  test("should have correct structure when position is vertical", () => {
+    const {
+      FlexContainer,
+      FlexItems,
+      IconContainers,
+      Icons,
+      IconSpacingContainers,
+      LabelSpacingContainers,
+      Texts,
+      VerticalIconsWithLabels
+    } = setup({
+      position: "vertical"
+    });
+
+    expect(FlexContainer.children[0]).toEqual(VerticalIconsWithLabels);
+
+    expect(VerticalIconsWithLabels.children[0]).toEqual(FlexItems[0]);
+    expect(VerticalIconsWithLabels.children[1]).toEqual(FlexItems[1]);
+
+    IconSpacingContainers.forEach((IconSpacingContainer, index) => {
+      expect(IconSpacingContainer.children[0]).toEqual(IconContainers[index]);
+      expect(IconContainers[index].children[0]).toEqual(Icons[index]); 
+    });
+
+    LabelSpacingContainers.forEach((LabelSpacingContainer, index) => {
+      expect(LabelSpacingContainer.children[0]).toEqual(Texts[index]);
     });
   });
 
@@ -44,7 +75,7 @@ describe("molecules / IconsWithLabels", () => {
       });
 
       describe("flexFlow", () => {      
-        test("should have row nowrap when position is horizontal", () => {
+        test("should have row wrap when position is horizontal", () => {
           const { FlexContainer } = setup({
             position: "horizontal"
           });
@@ -52,20 +83,19 @@ describe("molecules / IconsWithLabels", () => {
           expect(FlexContainer).toHaveStyleRule("flex-flow", "row wrap");
         });
 
-        test("should have column nowrap when position is vertical", () => {
+        test("should have row nowrap when position is vertical", () => {
           const { FlexContainer } = setup({
             position: "vertical"
           });
 
-          expect(FlexContainer).toHaveStyleRule("flex-flow", "column nowrap");
+          expect(FlexContainer).toHaveStyleRule("flex-flow", "row nowrap");
         });
       });
 
       describe("gap", () => {
         describe("margin-right, margin-bottom", () => {
-          test("should have margin-right: 1.6rem and margin-bottom: 1.6rem in all children when size is small and position is horizontal", () => {
+          test("should have margin-right: 1.6rem and margin-bottom: 1.6rem in all children when size is small", () => {
             const { FlexContainer } = setup({
-              position: "horizontal",
               size: "small"
             });
             
@@ -77,9 +107,8 @@ describe("molecules / IconsWithLabels", () => {
             });
           });
 
-          test("should have margin-right: 1.2rem and margin-bottom: 1.2rem in all children when size is medium and position is horizontal", () => {
+          test("should have margin-right: 1.2rem and margin-bottom: 1.2rem in all children when size is medium", () => {
             const { FlexContainer } = setup({
-              position: "horizontal",
               size: "medium"
             });
             
@@ -91,9 +120,8 @@ describe("molecules / IconsWithLabels", () => {
             });
           });
 
-          test("should have margin-right: 2.8rem and margin-bottom: 2.8rem in all children when size is large and position is horizontal", () => {
+          test("should have margin-right: 2.8rem and margin-bottom: 2.8rem in all children when size is large", () => {
             const { FlexContainer } = setup({
-              position: "horizontal",
               size: "large"
             });
             
@@ -102,50 +130,6 @@ describe("molecules / IconsWithLabels", () => {
             });
             expect(FlexContainer).toHaveStyleRule("margin-bottom", "2.8rem", {
               modifier: "& > *"
-            });
-          });
-        });
-
-        describe("margin-top", () => {
-          test("should have 1.6rem for all children except the first one when size is small and position is vertical", () => {
-            const { FlexContainer } = setup({
-              position: "vertical",
-              size: "small"
-            });
-            
-            expect(FlexContainer).toHaveStyleRule("margin-top", "1.6rem", {
-              modifier: "& > *"
-            });
-            expect(FlexContainer).toHaveStyleRule("margin-top", "0", {
-              modifier: "& > *:first-child"
-            });
-          });
-
-          test("should have 1.2rem to all children except the first one when size is medium and position is vertical", () => {
-            const { FlexContainer } = setup({
-              position: "vertical",
-              size: "medium"
-            });
-            
-            expect(FlexContainer).toHaveStyleRule("margin-top", "1.2rem", {
-              modifier: "& > *"
-            });
-            expect(FlexContainer).toHaveStyleRule("margin-top", "0", {
-              modifier: "& > *:first-child"
-            });
-          });
-    
-          test("should have 2.8rem to all children except the first one when size is large and position is vertical", () => {
-            const { FlexContainer } = setup({
-              position: "vertical",
-              size: "large"
-            });
-            
-            expect(FlexContainer).toHaveStyleRule("margin-top", "2.8rem", {
-              modifier: "& > *"
-            });
-            expect(FlexContainer).toHaveStyleRule("margin-top", "0", {
-              modifier: "& > *:first-child"
             });
           });
         });
@@ -160,10 +144,20 @@ describe("molecules / IconsWithLabels", () => {
       });
 
       describe("justifyContent", () => {      
-        test("should have flex-start", () => {
-          const { FlexContainer } = setup();
+        test("should have flex-start when position is horizontal", () => {
+          const { FlexContainer } = setup({
+            position: "horizontal"
+          });
 
           expect(FlexContainer).toHaveStyleRule("justify-content", "flex-start");
+        });
+
+        test("should have center when position is vertical", () => {
+          const { FlexContainer } = setup({
+            position: "vertical"
+          });
+
+          expect(FlexContainer).toHaveStyleRule("justify-content", "center");
         });
       });
     });
@@ -292,11 +286,15 @@ describe("molecules / IconsWithLabels", () => {
 
 interface Setup extends RenderResult {
   FlexContainer: Element;
+  FlexItems: Element[];
   IconContainers: Element[];
+  IconSpacingContainers: Element[];
+  IconWithLabelSpacingContainers: Element[];
   Icons: NodeListOf<SVGSVGElement>;
   IconsWithLabelsList: Element[];
-  SpacingContainers: Element[];
+  LabelSpacingContainers: Element[];
   Texts: Element[];
+  VerticalIconsWithLabels: Element;
 }
 
 type IconsWithLabelsTestProps = Partial<IconsWithLabelsProps>;
@@ -328,19 +326,27 @@ function setup(additionalProps?: IconsWithLabelsTestProps): Setup {
   const { queryAllByTestId }: RenderResult = utils;
 
   const FlexContainer: Element = queryAllByTestId("IconsWithLabels")[0];
+  const FlexItems: Element[] = queryAllByTestId("FlexItem");
   const IconContainers: Element[] = queryAllByTestId("IconContainer");
   const Icons: NodeListOf<SVGSVGElement> = document.querySelectorAll("svg");
   const IconsWithLabelsList: Element[] = queryAllByTestId("IconWithLabel");
-  const SpacingContainers: Element[] = queryAllByTestId("IconWithLabelSpacingContainer");
+  const IconWithLabelSpacingContainers: Element[] = queryAllByTestId("IconWithLabelSpacingContainer");
+  const LabelSpacingContainers: Element[] = queryAllByTestId("LabelSpacingContainer");
+  const IconSpacingContainers: Element[] = queryAllByTestId("IconSpacingContainer");
   const Texts: Element[] = queryAllByTestId("LabelText");
+  const VerticalIconsWithLabels: Element = queryAllByTestId("VerticalIconsWithLabels")[0];
 
   return {
     ...utils,
     FlexContainer,
+    FlexItems,
     IconContainers,
+    IconSpacingContainers,
+    IconWithLabelSpacingContainers,
     Icons,
     IconsWithLabelsList,
-    SpacingContainers,
-    Texts
+    LabelSpacingContainers,
+    Texts,
+    VerticalIconsWithLabels
   };
 } 

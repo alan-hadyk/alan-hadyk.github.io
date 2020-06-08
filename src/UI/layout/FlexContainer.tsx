@@ -48,7 +48,7 @@ FlexContainer.Container = styled.div<FlexContainerProps>`
     flex-flow: ${flexFlow};
     height: ${(height in spacing && spacing[height]) || height};
     justify-content: ${justifyContent};
-    max-width: ${(maxWidth in spacing && spacing[maxWidth]) || "unset"};
+    max-width: ${(maxWidth in spacing && spacing[maxWidth]) || maxWidth};
 
     ${gap !== "spacing0" && `
       & > * {

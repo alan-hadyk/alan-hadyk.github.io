@@ -166,12 +166,12 @@ describe("molecules / Hexagon", () => {
             });
           });
   
-          test("should not have filter - fill: none", () => {
+          test("should have drop-shadow(0px 0px .4rem rgba(255,255,255,0.5)) - fill: none", () => {
             const { IconContainer } = setup({
               fill: "none"
             });
   
-            expect(IconContainer).not.toHaveStyleRule("filter", "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", {
+            expect(IconContainer).toHaveStyleRule("filter", "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", {
               modifier: "svg"
             });
           });

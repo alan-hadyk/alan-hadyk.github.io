@@ -2,6 +2,8 @@ import React from "react";
 
 import IconWithLabel from "<molecules>/IconWithLabel";
 
+import VerticalIconsWithLabels from "<molecules>/VerticalIconsWithLabels";
+
 import FlexContainer from "<layout>/FlexContainer";
 
 import {
@@ -13,8 +15,8 @@ import {
   MapSizeToFlexContainerGap
 } from "<molecules>/__typings__/IconsWithLabels.d.ts";
 
-import {
-  FlexContainerProps
+import {	
+  FlexContainerProps	
 } from "<layout>/__typings__/FlexContainer.d.ts";
 
 const mapSizeToFlexContainerGap: MapSizeToFlexContainerGap = {
@@ -29,7 +31,8 @@ function IconsWithLabels({
   position = "vertical",
   size = "medium"
 }: IconsWithLabelsProps): JSX.Element {
-  const flexFlow: FlexContainerProps["flexFlow"] = position === "horizontal" ? "row wrap" : "column nowrap";
+  const justifyContent: FlexContainerProps["justifyContent"] = position === "horizontal" ? "flex-start" : "center";
+  const flexFlow: FlexContainerProps["flexFlow"] = position === "horizontal" ? "row wrap" : "row nowrap";
 
   return (
     <FlexContainer
@@ -38,17 +41,27 @@ function IconsWithLabels({
       flexFlow={flexFlow}
       gap={mapSizeToFlexContainerGap[size]}
       height="100%"
-      justifyContent="flex-start" 
+      justifyContent={justifyContent}
     >
-      {iconsWithLabels.map(({ iconName, label }: IconWithLabelProps): JSX.Element => (
-        <IconWithLabel
-          labelColor={labelColor}
-          iconName={iconName}
-          key={label}
-          label={label}
-          size={size}
-        />
-      ))}
+      {
+        position === "horizontal" ? (
+          iconsWithLabels.map(({ iconName, label }: IconWithLabelProps): JSX.Element => (
+            <IconWithLabel
+              labelColor={labelColor}
+              iconName={iconName}
+              key={label}
+              label={label}
+              size={size}
+            />
+          ))
+        ) : (
+          <VerticalIconsWithLabels
+            labelColor={labelColor}
+            iconsWithLabels={iconsWithLabels}
+            size={size}
+          />
+        )
+      }
     </FlexContainer>
   );
 }
