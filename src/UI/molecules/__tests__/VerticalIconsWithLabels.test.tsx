@@ -12,7 +12,6 @@ import { VerticalIconsWithLabelsProps } from "<molecules>/__typings__/VerticalIc
 describe("molecules / VerticalIconsWithLabels", () => {
   test("should have correct structure", () => {
     const {
-      debug,
       FlexContainer,
       FlexItems,
       IconContainers,
@@ -22,14 +21,16 @@ describe("molecules / VerticalIconsWithLabels", () => {
       Texts
     } = setup();
 
-    debug();
-
     expect(FlexContainer.children[0]).toEqual(FlexItems[0]);
     expect(FlexContainer.children[1]).toEqual(FlexItems[1]);
+    
+    expect(FlexItems[0].children[0]).toEqual(IconSpacingContainers[0]);
+    expect(FlexItems[0].children[1]).toEqual(IconSpacingContainers[1]);
 
+    expect(FlexItems[1].children[0]).toEqual(LabelSpacingContainers[0]);
+    expect(FlexItems[1].children[1]).toEqual(LabelSpacingContainers[1]);
+    
     IconSpacingContainers.forEach((IconSpacingContainer, index) => {
-      expect(FlexItems[0].children[index]).toEqual(IconSpacingContainer);
-
       expect(IconSpacingContainer.children[0]).toEqual(IconContainers[index]);
       expect(IconContainers[index].children[0]).toEqual(Icons[index]); 
     });
