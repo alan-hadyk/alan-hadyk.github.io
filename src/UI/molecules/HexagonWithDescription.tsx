@@ -12,7 +12,7 @@ function HexagonWithDescription(): JSX.Element {
   function renderDescription(): JSX.Element {
     return (
       <span>
-        <strong>Proven talent</strong> for aligning software development strategy and objectives with established user interface implementation and technology management paradigms to achieve maximum operational impacts with minimum resource expenditures. <strong> Growth-focused thought leader</strong> with expertise spanning application layering, polygot language coding expertise, best practice compliance, agile methodology, cross-functional team leadership, REST & GraphQL architectural styles, comprehensive components, and project management. <strong>Exceptionally dedicated technical professional</strong> with keen organizational skills.
+        <strong>Proven talent</strong> for aligning software development strategy and objectives with established user interface implementation and technology management paradigms to achieve maximum operational impacts with minimum resource expenditures. <strong>Growth-focused thought leader</strong> with expertise spanning application layering, polygot language coding expertise, best practice compliance, agile methodology, cross-functional team leadership, REST & GraphQL architectural styles, comprehensive components, and project management. <strong>Exceptionally dedicated technical professional</strong> with keen organizational skills.
       </span>
     );
   }

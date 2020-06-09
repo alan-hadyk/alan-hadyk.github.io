@@ -5,10 +5,6 @@ import HexagonWithDescription from "<molecules>/HexagonWithDescription";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  IconWithLabelProps
-} from "<molecules>/__typings__/IconWithLabel.d.ts";
-
 describe("molecules / HexagonWithDescription", () => {
   test("should have correct structure", () => {
     const {
@@ -16,7 +12,6 @@ describe("molecules / HexagonWithDescription", () => {
       FlexContainer,
       FlexItems,
       Hexagon,
-      HexagonInnerContainer,
       HexagonWithDescriptionContainer,
       Text
     } = setup();
@@ -131,7 +126,7 @@ describe("molecules / HexagonWithDescription", () => {
     test("should render correct content", () => {
       const { Text } = setup();
 
-      expect(Text.textContent).toEqual("Proven talent for aligning software development strategy and objectives with established user interface implementation and technology management paradigms to achieve maximum operational impacts with minimum resource expenditures.  Growth-focused thought leader with expertise spanning application layering, polygot language coding expertise, best practice compliance, agile methodology, cross-functional team leadership, REST & GraphQL architectural styles, comprehensive components, and project management. Exceptionally dedicated technical professional with keen organizational skills.");
+      expect(Text.textContent).toEqual("Proven talent for aligning software development strategy and objectives with established user interface implementation and technology management paradigms to achieve maximum operational impacts with minimum resource expenditures. Growth-focused thought leader with expertise spanning application layering, polygot language coding expertise, best practice compliance, agile methodology, cross-functional team leadership, REST & GraphQL architectural styles, comprehensive components, and project management. Exceptionally dedicated technical professional with keen organizational skills.");
     });
 
     describe("Props", () => {
@@ -175,7 +170,6 @@ interface Setup extends RenderResult {
   FlexContainer: Element;
   FlexItems: Element[];
   Hexagon: Element;
-  HexagonInnerContainer: Element;
   HexagonWithDescriptionContainer: Element;
   Text: Element;
 }
@@ -191,7 +185,6 @@ function setup(): Setup {
   const FlexContainer: Element = queryAllByTestId("FlexContainer")[0];
   const FlexItems: Element[] = queryAllByTestId("FlexItem");
   const Hexagon: Element = queryAllByTestId("Hexagon")[0];
-  const HexagonInnerContainer: Element = queryAllByTestId("HexagonInnerContainer")[0];
   const HexagonWithDescriptionContainer: Element = queryAllByTestId("HexagonWithDescription")[0];
   const Text: Element = queryAllByTestId("Text")[0];
 
@@ -201,7 +194,6 @@ function setup(): Setup {
     FlexContainer,
     FlexItems,
     Hexagon,
-    HexagonInnerContainer,
     HexagonWithDescriptionContainer,
     Text
   };

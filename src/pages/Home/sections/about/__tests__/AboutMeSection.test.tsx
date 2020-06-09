@@ -15,7 +15,7 @@ describe("pages / Home / sections / about / AboutMeSection", () => {
     expect(AboutMeSectionContainer.children[1]).toEqual(HexagonWithDescription);
   });
 
-  describe("ExperienceSectionContainer", () => {
+  describe("AboutMeSectionContainer", () => {
     describe("Props", () => {
       describe("title", () => {
         test("should have About me", () => {
