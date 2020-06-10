@@ -5,6 +5,10 @@ import HexagonWithDescription from "<molecules>/HexagonWithDescription";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
+import {
+  HexagonWithDescriptionProps
+} from "<molecules>/__typings__/HexagonWithDescription.d.ts";
+
 describe("molecules / HexagonWithDescription", () => {
   test("should have correct structure", () => {
     const {
@@ -115,26 +119,42 @@ describe("molecules / HexagonWithDescription", () => {
   });
 
   describe("Hexagon", () => {
-    test("should have fill none", () => {
-      const { Hexagon } = setup();
+    test("should render children", () => {
+      const { Hexagon } = setup({
+        children: <div>Custom image</div>,
+        description: <span>Custom text</span>
+      });
 
-      expect(Hexagon.children[0].textContent).not.toEqual("Hexagon-With-Pattern.svg");
+      expect(Hexagon.children[1].children[0].textContent).toEqual("Custom image");
+    });
+
+    describe("Props", () => {
+      describe("width", () => {
+        test("should have 50%", () => {
+          const { Hexagon } = setup();
+    
+          expect(Hexagon.children[1]).toHaveStyleRule("width", "50%");
+        });
+      });
     });
   });
 
   describe("Text", () => {
-    test("should render correct content", () => {
-      const { Text } = setup();
+    test("should render correct content passed via description props", () => {
+      const { Text } = setup({
+        children: <div>Custom image</div>,
+        description: <span>Custom text</span>
+      });
 
-      expect(Text.textContent).toEqual("Proven talent for aligning software development strategy and objectives with established user interface implementation and technology management paradigms to achieve maximum operational impacts with minimum resource expenditures. Growth-focused thought leader with expertise spanning application layering, polygot language coding expertise, best practice compliance, agile methodology, cross-functional team leadership, REST & GraphQL architectural styles, comprehensive components, and project management. Exceptionally dedicated technical professional with keen organizational skills.");
+      expect(Text.children[0].textContent).toEqual("Custom text");
     });
 
     describe("Props", () => {
       describe("color", () => {
-        test("should have #bcd8db", () => {
+        test("should have #78b0b5", () => {
           const { Text } = setup();
     
-          expect(Text).toHaveStyleRule("color", "#bcd8db");
+          expect(Text).toHaveStyleRule("color", "#78b0b5");
         });
       });
 
@@ -173,10 +193,19 @@ interface Setup extends RenderResult {
   HexagonWithDescriptionContainer: Element;
   Text: Element;
 }
+type HexagonWithDescriptionTestProps = Partial<HexagonWithDescriptionProps>;
 
-function setup(): Setup {
+function setup(additionalProps?: HexagonWithDescriptionTestProps): Setup {
+  const props: HexagonWithDescriptionProps = {
+    children: <div>Image</div>,
+    description: <span>Custom text</span>,
+    ...additionalProps
+  };
+
   const utils: RenderResult = renderWithTheme(
-    <HexagonWithDescription />
+    <HexagonWithDescription {...props}>
+      {props.children}
+    </HexagonWithDescription>
   );
 
   const { queryAllByTestId } = utils || {};

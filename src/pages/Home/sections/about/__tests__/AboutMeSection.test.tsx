@@ -29,10 +29,24 @@ describe("pages / Home / sections / about / AboutMeSection", () => {
     });
   });
   
+  describe("AboutMeSectionDescription", () => {
+    describe("Styles", () => {
+      describe("color", () => {
+        test("should have #bcd8db", () => {
+          const { AboutMeSectionDescription } = setup();
+  
+          expect(AboutMeSectionDescription).toHaveStyleRule("color", "#bcd8db", {
+            modifier: "& strong"
+          });
+        });
+      });
+    });
+  });
 });
 
 interface Setup extends RenderResult {
   AboutMeSectionContainer: Element;
+  AboutMeSectionDescription: Element;
   HexagonWithDescription: Element;
 }
 
@@ -44,11 +58,13 @@ function setup(): Setup {
   const { queryAllByTestId } = utils || {};
   
   const AboutMeSectionContainer: Element = document.querySelectorAll("#about-me")[0];
+  const AboutMeSectionDescription: Element = queryAllByTestId("AboutMeSectionDescription")[0];
   const HexagonWithDescription: Element = queryAllByTestId("HexagonWithDescription")[0];
 
   return {
     ...utils,
     AboutMeSectionContainer,
+    AboutMeSectionDescription,
     HexagonWithDescription
   };
 }

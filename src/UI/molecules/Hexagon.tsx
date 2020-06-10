@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import Icon from "<atoms>/Icon";
 
@@ -10,7 +10,8 @@ import {
 const Hexagon = ({
   children,
   dataTestId,
-  fill = "none"
+  fill = "none",
+  width = "100%"
 }: HexagonProps): JSX.Element => (
   <Hexagon.Container data-testid={dataTestId || "Hexagon"}>
     {fill === "pattern" ?
@@ -25,7 +26,10 @@ const Hexagon = ({
     }
     
     {children && (
-      <Hexagon.InnerContainer data-testid="HexagonInnerContainer">
+      <Hexagon.InnerContainer
+        data-testid="HexagonInnerContainer"
+        width={width}
+      >
         {children}
       </Hexagon.InnerContainer>
     )}
@@ -36,12 +40,16 @@ Hexagon.Container = styled.div`
   position: relative;
 `;
 
-Hexagon.InnerContainer = styled.div`
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
+Hexagon.InnerContainer = styled.div<HexagonProps>`
+  ${({
+    width
+  }): FlattenSimpleInterpolation => css`
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: ${width};
+  `}
 `;
 
 export default Hexagon;

@@ -29,6 +29,14 @@ describe("atoms / Text", () => {
     expect(TextContainer.textContent).toEqual("123");
   });
 
+  test("should render children (JSX.Element)", () => {
+    const { TextContainer } = setup({
+      children: <div>Custom children</div>
+    });
+
+    expect(TextContainer.textContent).toEqual("Custom children");
+  });
+
   describe("Styles", () => {
     describe("color", () => {      
       test("should have blue300 by default", () => {

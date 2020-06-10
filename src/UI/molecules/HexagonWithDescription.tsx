@@ -1,31 +1,39 @@
-import React from "react";
+import React, { useCallback } from "react";
 
 import Text from "<atoms>/Text";
+import Hexagon from "<molecules>/Hexagon";
 
 import FlexContainer from "<layout>/FlexContainer";
 import FlexItem from "<layout>/FlexItem";
 import SpacingContainer from "<layout>/SpacingContainer";
 
-import Hexagon from "<molecules>//Hexagon";
+import {
+  HexagonWithDescriptionProps
+} from "<molecules>/__typings__/HexagonWithDescription.d.ts";
 
-function HexagonWithDescription(): JSX.Element {
-  function renderDescription(): JSX.Element {
-    return (
-      <span>
-        <strong>Proven talent</strong> for aligning software development strategy and objectives with established user interface implementation and technology management paradigms to achieve maximum operational impacts with minimum resource expenditures. <strong>Growth-focused thought leader</strong> with expertise spanning application layering, polygot language coding expertise, best practice compliance, agile methodology, cross-functional team leadership, REST & GraphQL architectural styles, comprehensive components, and project management. <strong>Exceptionally dedicated technical professional</strong> with keen organizational skills.
-      </span>
-    );
-  }
-  
-  function renderImage(): JSX.Element {
-    return (
-      <FlexItem
-        flex="0 1 50%"
+function HexagonWithDescription({
+  children,
+  description
+}: HexagonWithDescriptionProps): JSX.Element {
+  const renderDescription = useCallback((): JSX.Element => (
+    <FlexItem
+      flex="0 1 50%"
+    >
+      <SpacingContainer
+        dataTestId="DescriptionSpacingContainer"
+        marginLeft="spacing48"
       >
-        <Hexagon></Hexagon>
-      </FlexItem>
-    );
-  }
+        <Text
+          color="blue300"
+          fontFamily="AnonymousPro"
+          fontSize="font20"
+          lineHeight="spacing36"
+        >
+          {description}
+        </Text>
+      </SpacingContainer>
+    </FlexItem>
+  ), [description]);
 
   return (
     <SpacingContainer
@@ -40,26 +48,22 @@ function HexagonWithDescription(): JSX.Element {
       >
         {renderImage()}
 
-        <FlexItem
-          flex="0 1 50%"
-        >
-          <SpacingContainer
-            dataTestId="DescriptionSpacingContainer"
-            marginLeft="spacing48"
-          >
-            <Text
-              color="blue100"
-              fontFamily="AnonymousPro"
-              fontSize="font20"
-              lineHeight="spacing36"
-            >
-              {renderDescription()}
-            </Text>
-          </SpacingContainer>
-        </FlexItem>
+        {renderDescription()}
       </FlexContainer>
     </SpacingContainer>
   );
+
+  function renderImage(): JSX.Element {
+    return (
+      <FlexItem
+        flex="0 1 50%"
+      >
+        <Hexagon width="50%">
+          {children}
+        </Hexagon>
+      </FlexItem>
+    );
+  }
 } 
 
 export default HexagonWithDescription;

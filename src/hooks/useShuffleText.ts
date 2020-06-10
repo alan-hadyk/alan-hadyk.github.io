@@ -18,7 +18,13 @@ export default function useShuffleText({
     }
 
     const shuffle: ShuffleTextType = new ShuffleText(ref.current);
-    shuffle.setText(String(text));
+
+    if(typeof text === "string" || typeof text === "number") {
+      shuffle.setText(String(text));
+    } else {
+      shuffle.setText(String(text.props.children));
+    }
+
     shuffle.duration = duration;
 
     onShuffleReady({
