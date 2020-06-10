@@ -126,6 +126,12 @@ Text.Container = styled.div<TextProps>`
       overflow: hidden;
       white-space: nowrap;
     `}
+
+    ${color === "blue300" && `
+      strong {
+        color: ${colorPalette.blue100};
+      }
+    `}
   `}
 `;
 
