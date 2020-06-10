@@ -1,3 +1,5 @@
+import React from "react";
+
 import { renderHook, RenderHookResult } from "@testing-library/react-hooks";
 
 import useShuffleText from "<hooks>/useShuffleText";
@@ -53,6 +55,28 @@ describe("hooks / useShuffleText", () => {
       });
   
       expect(ShuffleText.prototype.setText).toHaveBeenCalledWith("123");
+    });
+
+    test("should fire with JSX.Element (converted to string)", () => {
+      jest.spyOn(ShuffleText.prototype, "setText");
+  
+      let shuffleText: ShuffleState | undefined;
+      const setShuffleText = (arg: ShuffleState): ShuffleState => shuffleText = arg;
+  
+      const navItemElement: RefElement = {
+        current: document.createElement("div")
+      };
+      
+      const text: React.ReactElement = React.createElement("div", [], "Custom text");
+
+      setup({
+        onShuffleReady: setShuffleText,
+        ref: navItemElement,
+        shuffleState: shuffleText,
+        text
+      });
+  
+      expect(ShuffleText.prototype.setText).toHaveBeenCalledWith("Custom text");
     });
 
     test("should not fire if there is no ref", () => {

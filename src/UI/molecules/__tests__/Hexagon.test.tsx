@@ -85,10 +85,18 @@ describe("molecules / Hexagon", () => {
       });
 
       describe("width", () => { 
-        test("should have 100%", () => {
+        test("should have 100% by default", () => {
           const { HexagonInnerContainer } = setup();
 
           expect(HexagonInnerContainer).toHaveStyleRule("width", "100%");
+        });
+
+        test("should have correct value passed via contentWidth prop", () => {
+          const { HexagonInnerContainer } = setup({
+            contentWidth: "50%"
+          });
+
+          expect(HexagonInnerContainer).toHaveStyleRule("width", "50%");
         });
       });
     });

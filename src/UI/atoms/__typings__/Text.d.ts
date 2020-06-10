@@ -7,7 +7,7 @@ import {
 } from "<styles>/variables/__typings__/variables.d.ts";
 
 export interface TextProps {
-  children: string | number;
+  children: string | number | JSX.Element;
   color?: ColorPalette;
   dataTestId?: string;
   ellipsis?: boolean;
