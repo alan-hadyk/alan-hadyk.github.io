@@ -38,7 +38,7 @@ function HexagonWithDescription({
       <FlexItem
         flex="0 1 50%"
       >
-        <Hexagon width="75%">
+        <Hexagon contentWidth="75%">
           {children}
         </Hexagon>
       </FlexItem>

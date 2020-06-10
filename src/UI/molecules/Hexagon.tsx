@@ -4,14 +4,15 @@ import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import Icon from "<atoms>/Icon";
 
 import {
+  HexagonInnerContainerProps,
   HexagonProps
 } from "<molecules>/__typings__/Hexagon.d.ts";
 
 const Hexagon = ({
   children,
+  contentWidth = "100%",
   dataTestId,
-  fill = "none",
-  width = "100%"
+  fill = "none"
 }: HexagonProps): JSX.Element => (
   <Hexagon.Container data-testid={dataTestId || "Hexagon"}>
     {fill === "pattern" ?
@@ -28,7 +29,7 @@ const Hexagon = ({
     {children && (
       <Hexagon.InnerContainer
         data-testid="HexagonInnerContainer"
-        width={width}
+        width={contentWidth}
       >
         {children}
       </Hexagon.InnerContainer>
@@ -40,7 +41,7 @@ Hexagon.Container = styled.div`
   position: relative;
 `;
 
-Hexagon.InnerContainer = styled.div<HexagonProps>`
+Hexagon.InnerContainer = styled.div<HexagonInnerContainerProps>`
   ${({
     width
   }): FlattenSimpleInterpolation => css`
