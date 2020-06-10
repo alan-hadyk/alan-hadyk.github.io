@@ -91,7 +91,7 @@ describe("molecules / Hexagon", () => {
           expect(HexagonInnerContainer).toHaveStyleRule("width", "100%");
         });
 
-        test("should have correct value passed via width props", () => {
+        test("should have correct value passed via width prop", () => {
           const { HexagonInnerContainer } = setup({
             width: "50%"
           });

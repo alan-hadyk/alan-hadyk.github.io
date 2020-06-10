@@ -39,7 +39,7 @@ describe("atoms / Text", () => {
 
   describe("Styles", () => {
     describe("color", () => {      
-      test("should have blue300 by default", () => {
+      test("should have #78b0b5 by default", () => {
         const { TextContainer } = setup();
   
         expect(TextContainer).toHaveStyleRule("color", "#78b0b5");
@@ -51,6 +51,18 @@ describe("atoms / Text", () => {
         });
   
         expect(TextContainer).toHaveStyleRule("color", "#2b595e");
+      });
+
+      describe("strong", () => {
+        test("should have #bcd8db when color prop is blue300", () => {
+          const { TextContainer } = setup({
+            color: "blue300"
+          });
+    
+          expect(TextContainer).toHaveStyleRule("color", "#bcd8db", {
+            modifier: "strong"
+          });
+        });
       });
     });
 

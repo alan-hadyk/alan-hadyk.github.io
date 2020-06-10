@@ -130,17 +130,17 @@ describe("molecules / HexagonWithDescription", () => {
 
     describe("Props", () => {
       describe("width", () => {
-        test("should have 50%", () => {
+        test("should have 75%", () => {
           const { Hexagon } = setup();
     
-          expect(Hexagon.children[1]).toHaveStyleRule("width", "50%");
+          expect(Hexagon.children[1]).toHaveStyleRule("width", "75%");
         });
       });
     });
   });
 
   describe("Text", () => {
-    test("should render correct content passed via description props", () => {
+    test("should render correct content passed via description prop", () => {
       const { Text } = setup({
         children: <div>Custom image</div>,
         description: <span>Custom text</span>
@@ -158,7 +158,7 @@ describe("molecules / HexagonWithDescription", () => {
         });
       });
 
-      describe("font-family", () => {
+      describe("fontFamily", () => {
         test("should have 'Anonymous Pro',monospace", () => {
           const { Text } = setup();
 

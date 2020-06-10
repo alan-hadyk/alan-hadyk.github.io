@@ -15,26 +15,6 @@ function HexagonWithDescription({
   children,
   description
 }: HexagonWithDescriptionProps): JSX.Element {
-  const renderDescription = useCallback((): JSX.Element => (
-    <FlexItem
-      flex="0 1 50%"
-    >
-      <SpacingContainer
-        dataTestId="DescriptionSpacingContainer"
-        marginLeft="spacing48"
-      >
-        <Text
-          color="blue300"
-          fontFamily="AnonymousPro"
-          fontSize="font20"
-          lineHeight="spacing36"
-        >
-          {description}
-        </Text>
-      </SpacingContainer>
-    </FlexItem>
-  ), [description]);
-
   return (
     <SpacingContainer
       dataTestId="HexagonWithDescription"
@@ -58,9 +38,31 @@ function HexagonWithDescription({
       <FlexItem
         flex="0 1 50%"
       >
-        <Hexagon width="50%">
+        <Hexagon width="75%">
           {children}
         </Hexagon>
+      </FlexItem>
+    );
+  }
+
+  function renderDescription(): JSX.Element  {
+    return (
+      <FlexItem
+        flex="0 1 50%"
+      >
+        <SpacingContainer
+          dataTestId="DescriptionSpacingContainer"
+          marginLeft="spacing48"
+        >
+          <Text
+            color="blue300"
+            fontFamily="AnonymousPro"
+            fontSize="font20"
+            lineHeight="spacing36"
+          >
+            {description}
+          </Text>
+        </SpacingContainer>
       </FlexItem>
     );
   }

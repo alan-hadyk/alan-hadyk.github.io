@@ -19,7 +19,7 @@ export default function useShuffleText({
 
     const shuffle: ShuffleTextType = new ShuffleText(ref.current);
 
-    if(typeof text === "string" || typeof text === "number") {
+    if (typeof text === "string" || typeof text === "number") {
       shuffle.setText(String(text));
     } else {
       shuffle.setText(String(text.props.children));

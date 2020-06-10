@@ -9,10 +9,12 @@ describe("pages / Home / sections / about / AboutMeSection", () => {
   test("should have correct structure", () => {
     const {
       AboutMeSectionContainer,
-      HexagonWithDescription
+      HexagonWithDescription,
+      IconContainer
     } = setup();
 
     expect(AboutMeSectionContainer.children[1]).toEqual(HexagonWithDescription);
+    expect(HexagonWithDescription.children[0].children[0].children[0].children[0]).toEqual(IconContainer);
   });
 
   describe("AboutMeSectionContainer", () => {
@@ -28,16 +30,16 @@ describe("pages / Home / sections / about / AboutMeSection", () => {
       });
     });
   });
+
+  describe("HexagonWithDescription", () => {
+    describe("Props", () => {
+      describe("description", () => {
+        test("should have correct description", () => {
+          const {
+            HexagonWithDescription
+          } = setup();
   
-  describe("AboutMeSectionDescription", () => {
-    describe("Styles", () => {
-      describe("color", () => {
-        test("should have #bcd8db", () => {
-          const { AboutMeSectionDescription } = setup();
-  
-          expect(AboutMeSectionDescription).toHaveStyleRule("color", "#bcd8db", {
-            modifier: "& strong"
-          });
+          expect(HexagonWithDescription.children[0].children[1].children[0].children[0].textContent).toEqual("Proven talent for aligning software development strategy and objectives with established user interface implementation and technology management paradigms to achieve maximum operational impacts with minimum resource expenditures. Growth-focused thought leader with expertise spanning application layering, polygot language coding expertise, best practice compliance, agile methodology, cross-functional team leadership, REST & GraphQL architectural styles, comprehensive components, and project management. Exceptionally dedicated technical professional with keen organizational skills.");
         });
       });
     });
@@ -46,8 +48,8 @@ describe("pages / Home / sections / about / AboutMeSection", () => {
 
 interface Setup extends RenderResult {
   AboutMeSectionContainer: Element;
-  AboutMeSectionDescription: Element;
   HexagonWithDescription: Element;
+  IconContainer: Element;
 }
 
 function setup(): Setup {
@@ -58,14 +60,14 @@ function setup(): Setup {
   const { queryAllByTestId } = utils || {};
   
   const AboutMeSectionContainer: Element = document.querySelectorAll("#about-me")[0];
-  const AboutMeSectionDescription: Element = queryAllByTestId("AboutMeSectionDescription")[0];
   const HexagonWithDescription: Element = queryAllByTestId("HexagonWithDescription")[0];
+  const IconContainer: Element = queryAllByTestId("IconContainer")[0];
 
   return {
     ...utils,
     AboutMeSectionContainer,
-    AboutMeSectionDescription,
-    HexagonWithDescription
+    HexagonWithDescription,
+    IconContainer
   };
 }
  
