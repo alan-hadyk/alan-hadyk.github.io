@@ -11,6 +11,8 @@ export interface IconProps {
     "apollo" |
     "brandAirbnb" |
     "brandApollo" |
+    "brandBasecamp" |
+    "brandBuildkite" |
     "brandCSSModules" |
     "brandCoffeeScript" |
     "brandCypress" |
@@ -19,6 +21,7 @@ export interface IconProps {
     "brandEmber" |
     "brandExpress" |
     "brandGallery" |
+    "brandGitlab" |
     "brandGraphQL" |
     "brandJEST" |
     "brandJIRA" |
@@ -83,6 +86,8 @@ export interface IconComponents {
   apollo: SVGIcon;
   brandAirbnb: SVGIcon;
   brandApollo: SVGIcon;
+  brandBasecamp: SVGIcon;
+  brandBuildkite: SVGIcon;
   brandCSSModules: SVGIcon;
   brandCoffeeScript: SVGIcon;
   brandCypress: SVGIcon;
@@ -91,6 +96,7 @@ export interface IconComponents {
   brandEmber: SVGIcon;
   brandExpress: SVGIcon;
   brandGallery: SVGIcon;
+  brandGitlab: SVGIcon;
   brandGraphQL: SVGIcon;
   brandJEST: SVGIcon;
   brandJIRA: SVGIcon;

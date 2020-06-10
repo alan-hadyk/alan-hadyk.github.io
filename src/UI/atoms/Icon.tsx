@@ -4,6 +4,8 @@ import { transparentize } from "polished";
 
 import { ReactComponent as BrandAirbnb } from "<assets>/svg/Brand-Airbnb.svg";
 import { ReactComponent as BrandApollo } from "<assets>/svg/Brand-Apollo.svg";
+import { ReactComponent as BrandBasecamp } from "<assets>/svg/Brand-Basecamp.svg";
+import { ReactComponent as BrandBuildkite } from "<assets>/svg/Brand-Buildkite.svg";
 import { ReactComponent as BrandCSSModules } from "<assets>/svg/Brand-CSSModules.svg";
 import { ReactComponent as BrandCoffeeScript } from "<assets>/svg/Brand-CoffeeScript.svg";
 import { ReactComponent as BrandCypress } from "<assets>/svg/Brand-Cypress.svg";
@@ -12,6 +14,7 @@ import { ReactComponent as BrandDocpad } from "<assets>/svg/Brand-Docpad.svg";
 import { ReactComponent as BrandEmber } from "<assets>/svg/Brand-Ember.svg";
 import { ReactComponent as BrandExpress } from "<assets>/svg/Brand-Express.svg";
 import { ReactComponent as BrandGallery } from "<assets>/svg/Brand-Gallery.svg";
+import { ReactComponent as BrandGitlab } from "<assets>/svg/Brand-Gitlab.svg";
 import { ReactComponent as BrandGraphQL } from "<assets>/svg/Brand-GraphQL.svg";
 import { ReactComponent as BrandJEST } from "<assets>/svg/Brand-JEST.svg";
 import { ReactComponent as BrandJIRA } from "<assets>/svg/Brand-JIRA.svg";
@@ -90,6 +93,8 @@ function Icon({
     apollo: IconApollo,
     brandAirbnb: BrandAirbnb,
     brandApollo: BrandApollo,
+    brandBasecamp: BrandBasecamp,
+    brandBuildkite: BrandBuildkite,
     brandCSSModules: BrandCSSModules,
     brandCoffeeScript: BrandCoffeeScript,
     brandCypress: BrandCypress,
@@ -98,6 +103,7 @@ function Icon({
     brandEmber: BrandEmber,
     brandExpress: BrandExpress,
     brandGallery: BrandGallery,
+    brandGitlab: BrandGitlab,
     brandGraphQL: BrandGraphQL,
     brandJEST: BrandJEST,
     brandJIRA: BrandJIRA,
