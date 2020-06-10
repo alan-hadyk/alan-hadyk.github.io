@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 
 import Text from "<atoms>/Text";
 import Hexagon from "<molecules>/Hexagon";
