@@ -9,20 +9,29 @@ export interface IconProps {
   height?: string | Spacing;
   iconName:
     "apollo" |
+    "brandAfterEffects" |
     "brandAirbnb" |
     "brandApollo" |
     "brandBasecamp" |
+    "brandBamboo" |
     "brandBuildkite" |
+    "brandCSS" |
     "brandCSSModules" |
     "brandCoffeeScript" |
+    "brandCorel" |
     "brandCypress" |
     "brandDocker" |
     "brandDocpad" |
     "brandEmber" |
     "brandExpress" |
+    "brandFigma" |
     "brandGallery" |
+    "brandGithub" |
     "brandGitlab" |
     "brandGraphQL" |
+    "brandGrunt" |
+    "brandGulp" |
+    "brandHTML" |
     "brandJEST" |
     "brandJIRA" |
     "brandJQuery" |
@@ -30,6 +39,7 @@ export interface IconProps {
     "brandJenkins" |
     "brandLESS" |
     "brandNode" |
+    "brandPhotoshop" |
     "brandPrestaShop" |
     "brandQunit" |
     "brandREST" |
@@ -37,10 +47,14 @@ export interface IconProps {
     "brandRedmine" |
     "brandRedux" |
     "brandSass" |
+    "brandSketch" |
+    "brandStash" |
     "brandStyledComponents" |
     "brandTS" |
     "brandTestingLibrary" |
+    "brandTrello" |
     "brandWebpack" |
+    "brandWebsocket" |
     "brandZeplin" |
     "btnCodeSandbox" |
     "btnDownload" |
@@ -84,20 +98,29 @@ export interface IconProps {
 
 export interface IconComponents {
   apollo: SVGIcon;
+  brandAfterEffects: SVGIcon;
   brandAirbnb: SVGIcon;
   brandApollo: SVGIcon;
+  brandBamboo: SVGIcon;
   brandBasecamp: SVGIcon;
   brandBuildkite: SVGIcon;
+  brandCSS: SVGIcon;
   brandCSSModules: SVGIcon;
   brandCoffeeScript: SVGIcon;
+  brandCorel: SVGIcon;
   brandCypress: SVGIcon;
   brandDocker: SVGIcon;
   brandDocpad: SVGIcon;
   brandEmber: SVGIcon;
   brandExpress: SVGIcon;
+  brandFigma: SVGIcon;
   brandGallery: SVGIcon;
+  brandGithub: SVGIcon;
   brandGitlab: SVGIcon;
   brandGraphQL: SVGIcon;
+  brandGrunt: SVGIcon;
+  brandGulp: SVGIcon;
+  brandHTML: SVGIcon;
   brandJEST: SVGIcon;
   brandJIRA: SVGIcon;
   brandJQuery: SVGIcon;
@@ -105,6 +128,7 @@ export interface IconComponents {
   brandJenkins: SVGIcon;
   brandLESS: SVGIcon;
   brandNode: SVGIcon;
+  brandPhotoshop: SVGIcon;
   brandPrestaShop: SVGIcon;
   brandQunit: SVGIcon;
   brandREST: SVGIcon;
@@ -112,10 +136,14 @@ export interface IconComponents {
   brandRedmine: SVGIcon;
   brandRedux: SVGIcon;
   brandSass: SVGIcon;
+  brandSketch: SVGIcon;
+  brandStash: SVGIcon;
   brandStyledComponents: SVGIcon;
   brandTS: SVGIcon;
   brandTestingLibrary: SVGIcon;
+  brandTrello: SVGIcon;
   brandWebpack: SVGIcon;
+  brandWebsocket: SVGIcon;
   brandZeplin: SVGIcon;
   btnCodeSandbox: SVGIcon;
   btnDownload: SVGIcon;
