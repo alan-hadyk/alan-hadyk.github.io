@@ -20,11 +20,11 @@ const iconsWithLabels: IconWithLabelProps[] = [
     label: "Bamboo"
   },
   {
-    iconName: "brandGithub",
+    iconName: "gitHub",
     label: "GitHub Actions"
   },
   {
-    iconName: "brandGithub",
+    iconName: "gitHub",
     label: "GitHub Enterprise"
   },
   {
@@ -41,11 +41,11 @@ const iconsWithLabels: IconWithLabelProps[] = [
   }
 ];
 
-const CDCICategory = (): JSX.Element => (
+const CICDCategory = (): JSX.Element => (
   <SkillsItem
     iconsWithLabels={iconsWithLabels}
-    title="CD / CI"
+    title="CI / CD"
   />
 );
 
-export default CDCICategory;
+export default CICDCategory;

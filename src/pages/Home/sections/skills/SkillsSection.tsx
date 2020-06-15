@@ -9,7 +9,7 @@ import StateManagementCategory from "<pages>/Home/sections/skills/categories/Sta
 import WebApisCategory from "<pages>/Home/sections/skills/categories/WebApisCategory";
 import WebTechnologiesCategory from "<pages>/Home/sections/skills/categories/WebTechnologiesCategory";
 import TestingCategory from "<pages>/Home/sections/skills/categories/TestingCategory";
-import CDCICategory from "<pages>/Home/sections/skills/categories/CDCICategory";
+import CICDCategory from "<pages>/Home/sections/skills/categories/CICDCategory";
 import BundlersCategory from "<pages>/Home/sections/skills/categories/BundlersCategory";
 import TaskManagementCategory from "<pages>/Home/sections/skills/categories/TaskManagementCategory";
 import DesignToolsCategory from "<pages>/Home/sections/skills/categories/DesignToolsCategory";
@@ -26,7 +26,7 @@ const SkillsSection = (): JSX.Element => (
       <WebApisCategory />
       <WebTechnologiesCategory />
       <TestingCategory />
-      <CDCICategory />
+      <CICDCategory />
       <BundlersCategory />
       <TaskManagementCategory />
       <DesignToolsCategory />

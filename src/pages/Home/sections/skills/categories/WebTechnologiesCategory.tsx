@@ -20,7 +20,7 @@ const iconsWithLabels: IconWithLabelProps[] = [
 const WebTechnologiesCategory = (): JSX.Element => (
   <SkillsItem
     iconsWithLabels={iconsWithLabels}
-    title="Web Technologies"
+    title="Web technologies"
   />
 );
 

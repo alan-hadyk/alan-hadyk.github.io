@@ -9,7 +9,7 @@ import {
 const iconsWithLabels: IconWithLabelProps[] = [
   {
     iconName: "brandPhotoshop",
-    label: "Adobe Photoshop"
+    label: "Photoshop"
   },
   {
     iconName: "brandSketch",
@@ -25,7 +25,7 @@ const iconsWithLabels: IconWithLabelProps[] = [
   },
   {
     iconName: "brandAfterEffects",
-    label: "Adobe After Effects"
+    label: "After Effects"
   },
   {
     iconName: "brandZeplin",

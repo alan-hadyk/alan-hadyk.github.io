@@ -20,7 +20,6 @@ const SkillsItem = ({ iconsWithLabels, title }: SkillsItemProps): JSX.Element =>
       fontSize="font32"
       lineHeight="spacing40"
       textAlign="center"
-      textTransform="capitalize"
     >
       {title}
     </Text>

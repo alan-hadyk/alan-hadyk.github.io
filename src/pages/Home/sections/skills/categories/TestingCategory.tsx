@@ -16,7 +16,7 @@ const iconsWithLabels: IconWithLabelProps[] = [
     label: "Enzyme"
   },
   {
-    iconName: "brandReact",
+    iconName: "brandTestingLibrary",
     label: "React Testing Library"
   },
   {
