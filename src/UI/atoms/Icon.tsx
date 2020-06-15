@@ -32,8 +32,10 @@ import { ReactComponent as BrandJS } from "<assets>/svg/Brand-JS.svg";
 import { ReactComponent as BrandJenkins } from "<assets>/svg/Brand-Jenkins.svg";
 import { ReactComponent as BrandLESS } from "<assets>/svg/Brand-LESS.svg";
 import { ReactComponent as BrandNode } from "<assets>/svg/Brand-Node.svg";
+import { ReactComponent as BrandPhabricator } from "<assets>/svg/Brand-Phabricator.svg";
 import { ReactComponent as BrandPhotoshop } from "<assets>/svg/Brand-Photoshop.svg";
 import { ReactComponent as BrandPrestaShop } from "<assets>/svg/Brand-PrestaShop.svg";
+import { ReactComponent as BrandQuire } from "<assets>/svg/Brand-Quire.svg";
 import { ReactComponent as BrandQunit } from "<assets>/svg/Brand-Qunit.svg";
 import { ReactComponent as BrandREST } from "<assets>/svg/Brand-REST.svg";
 import { ReactComponent as BrandReact } from "<assets>/svg/Brand-React.svg";
@@ -44,6 +46,7 @@ import { ReactComponent as BrandSketch } from "<assets>/svg/Brand-Sketch.svg";
 import { ReactComponent as BrandStash } from "<assets>/svg/Brand-Stash.svg";
 import { ReactComponent as BrandStyledComponents } from "<assets>/svg/Brand-StyledComponents.svg";
 import { ReactComponent as BrandTS } from "<assets>/svg/Brand-TS.svg";
+import { ReactComponent as BrandTaskade } from "<assets>/svg/Brand-Taskade.svg";
 import { ReactComponent as BrandTestingLibrary } from "<assets>/svg/Brand-TestingLibrary.svg";
 import { ReactComponent as BrandTrello } from "<assets>/svg/Brand-Trello.svg";
 import { ReactComponent as BrandWebpack } from "<assets>/svg/Brand-Webpack.svg";
@@ -135,8 +138,10 @@ function Icon({
     brandJenkins: BrandJenkins,
     brandLESS: BrandLESS,
     brandNode: BrandNode,
+    brandPhabricator: BrandPhabricator,
     brandPhotoshop: BrandPhotoshop,
     brandPrestaShop: BrandPrestaShop,
+    brandQuire: BrandQuire,
     brandQunit: BrandQunit, 
     brandREST: BrandREST,
     brandReact: BrandReact,
@@ -147,6 +152,7 @@ function Icon({
     brandStash: BrandStash,
     brandStyledComponents: BrandStyledComponents,
     brandTS: BrandTS,
+    brandTaskade: BrandTaskade,
     brandTestingLibrary: BrandTestingLibrary,
     brandTrello: BrandTrello,
     brandWebpack: BrandWebpack,

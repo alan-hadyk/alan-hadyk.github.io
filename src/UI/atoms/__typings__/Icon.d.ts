@@ -39,8 +39,10 @@ export interface IconProps {
     "brandJenkins" |
     "brandLESS" |
     "brandNode" |
+    "brandPhabricator" |
     "brandPhotoshop" |
     "brandPrestaShop" |
+    "brandQuire" |
     "brandQunit" |
     "brandREST" |
     "brandReact" |
@@ -51,6 +53,7 @@ export interface IconProps {
     "brandStash" |
     "brandStyledComponents" |
     "brandTS" |
+    "brandTaskade" |
     "brandTestingLibrary" |
     "brandTrello" |
     "brandWebpack" |
@@ -128,8 +131,10 @@ export interface IconComponents {
   brandJenkins: SVGIcon;
   brandLESS: SVGIcon;
   brandNode: SVGIcon;
+  brandPhabricator: SVGIcon;
   brandPhotoshop: SVGIcon;
   brandPrestaShop: SVGIcon;
+  brandQuire: SVGIcon;
   brandQunit: SVGIcon;
   brandREST: SVGIcon;
   brandReact: SVGIcon;
@@ -140,6 +145,7 @@ export interface IconComponents {
   brandStash: SVGIcon;
   brandStyledComponents: SVGIcon;
   brandTS: SVGIcon;
+  brandTaskade: SVGIcon;
   brandTestingLibrary: SVGIcon;
   brandTrello: SVGIcon;
   brandWebpack: SVGIcon;

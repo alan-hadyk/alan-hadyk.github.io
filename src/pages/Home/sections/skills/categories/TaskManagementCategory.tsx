@@ -12,7 +12,7 @@ const iconsWithLabels: IconWithLabelProps[] = [
     label: "JIRA"
   },
   {
-    iconName: "brandAirbnb",
+    iconName: "brandPhabricator",
     label: "Phabricator"
   },
   {
@@ -20,7 +20,7 @@ const iconsWithLabels: IconWithLabelProps[] = [
     label: "Redmine"
   },
   {
-    iconName: "brandCypress",
+    iconName: "brandQuire",
     label: "Quire"
   },
   {
@@ -28,7 +28,7 @@ const iconsWithLabels: IconWithLabelProps[] = [
     label: "Trello"
   },
   {
-    iconName: "brandQunit",
+    iconName: "brandTaskade",
     label: "Taskade"
   }
 ];
