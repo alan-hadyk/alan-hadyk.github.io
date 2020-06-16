@@ -14,6 +14,7 @@ export interface TextProps {
   fontFamily?: FontFamilies;
   fontSize?: FontSizes;
   fontWeight?: FontWeights;
+  isHovered?: boolean;
   lineHeight?: Spacing | "1";
   maxHeight?: Spacing;
   overflow?: "visible" | "hidden";

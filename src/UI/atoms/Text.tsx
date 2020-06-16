@@ -17,6 +17,7 @@ function Text({
   fontFamily = "AnonymousPro",
   fontSize = "font20",
   fontWeight = "normal",
+  isHovered = false,
   lineHeight = "1",
   maxHeight,
   overflow = "visible",
@@ -58,6 +59,7 @@ function Text({
       fontFamily={fontFamily}
       fontSize={fontSize}
       fontWeight={fontWeight}
+      isHovered={isHovered}
       lineHeight={lineHeight}
       maxHeight={maxHeight}
       onMouseOver={handleMouseOver}
@@ -90,6 +92,7 @@ Text.Container = styled.div<TextProps>`
     fontFamily,
     fontSize,
     fontWeight,
+    isHovered,
     lineHeight,
     maxHeight,
     overflow,
@@ -101,10 +104,12 @@ Text.Container = styled.div<TextProps>`
     textTransform,
     theme: {
       colorPalette,
+      easing: { easeInOut },
       fontFamilies,
       fontSizes,
       fontWeights,
-      spacing
+      spacing,
+      transitionTimes: { fast }
     }
   }): FlattenSimpleInterpolation => css`
     color: ${color in colorPalette && colorPalette[color]};
@@ -120,6 +125,7 @@ Text.Container = styled.div<TextProps>`
     padding-top: ${paddingTop in spacing && spacing[paddingTop]};
     text-align: ${textAlign};
     text-transform: ${textTransform};
+    transition: all ${fast} ${easeInOut};
     
     ${ellipsis && `
       text-overflow: ellipsis;
@@ -130,6 +136,12 @@ Text.Container = styled.div<TextProps>`
     ${color === "blue300" && `
       strong {
         color: ${colorPalette.blue100};
+      }
+    `}
+
+    ${isHovered && `
+      &:hover {
+        color: ${colorPalette.white};
       }
     `}
   `}

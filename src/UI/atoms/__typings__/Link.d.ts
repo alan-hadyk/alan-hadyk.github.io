@@ -1,9 +1,14 @@
 import { Spacing } from "<styles>/variables/__typings__/variables.d.ts";
 
 export interface LinkProps {
-  children: JSX.Element | JSX.Element[] | string;
+  children: JSX.Element;
   display?: "block" | "inline";
   height?: Spacing | "unset" | "50%" | "100%";
   href: string;
   isExternal?: boolean;
+  isHovered?: boolean;
+}
+
+export interface LinkLineProps {
+  direction: "left" | "right";
 }
