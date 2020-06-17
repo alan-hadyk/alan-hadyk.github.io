@@ -22,7 +22,8 @@ function DashboardElement({
   overflow = "hidden",
   shouldDisplayCorners = false,
   order = 0,
-  title
+  title,
+  titleFontSize = "font16"
 }: DashboardElementProps): JSX.Element {
   const descriptionRef = useRef<HTMLDivElement>(null);
   const [childrenHeight, setChildrenHeight] = useState<string>(null);
@@ -54,40 +55,45 @@ function DashboardElement({
         color="blue300"
         ellipsis
         fontFamily="AnonymousPro"
-        fontSize="font16"
+        fontSize={titleFontSize}
         lineHeight="spacing36"
         textTransform="uppercase"
       >
         {title}
       </Text>
 
-      {description && (
-        <SpacingContainer
-          dataTestId="DashboardElementDescription"
-          marginBottom="spacing28"
-        >
-          <Text
-            color="blue300"
-            dataTestId="DashboardElementDescriptionText"
-            fontSize="font8"
-            lineHeight="spacing12"
-            maxHeight="spacing36"
-            overflow="hidden"
-            textTransform="uppercase"
-            ref={descriptionRef}
-          >
-            {description}
-          </Text>
-        </SpacingContainer>
-      )}
-      
-      <PositionContainer
-        height={childrenHeight}
-        position="relative"
+      <SpacingContainer
+        dataTestId="DashboardElementContentSpacingContainer"
+        marginTop={titleFontSize === "font28" ? "spacing8" : "spacing0"}
       >
-        {shouldDisplayCorners && <Corners />}
-        {renderInnerContainer()}
-      </PositionContainer>
+        {description && (
+          <SpacingContainer
+            dataTestId="DashboardElementDescription"
+            marginBottom="spacing28"
+          >
+            <Text
+              color="blue300"
+              dataTestId="DashboardElementDescriptionText"
+              fontSize="font8"
+              lineHeight="spacing12"
+              maxHeight="spacing36"
+              overflow="hidden"
+              textTransform="uppercase"
+              ref={descriptionRef}
+            >
+              {description}
+            </Text>
+          </SpacingContainer>
+        )}
+      
+        <PositionContainer
+          height={childrenHeight}
+          position="relative"
+        >
+          {shouldDisplayCorners && <Corners />}
+          {renderInnerContainer()}
+        </PositionContainer>
+      </SpacingContainer>
     </FlexItem>
   );
 

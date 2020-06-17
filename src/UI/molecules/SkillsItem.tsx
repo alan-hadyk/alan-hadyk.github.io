@@ -1,37 +1,28 @@
-import React, { useCallback } from "react";
-
-import Text from "<atoms>/Text";
+import React from "react";
 
 import IconsWithLabels from "<molecules>/IconsWithLabels";
+import DashboardElement from "<molecules>/DashboardElement";
 
 import SpacingContainer from "<layout>/SpacingContainer";
-import FlexItem from "<layout>/FlexItem";
 
 import {
   SkillsItemProps
 } from "<molecules>/__typings__/SkillsItem.d.ts";
 
 function SkillsItem({ iconsWithLabels, title }: SkillsItemProps): JSX.Element {
-  const renderTitle = useCallback(() => (
-    <Text 
-      color="blue300"
-      fontSize="font32"
-      lineHeight="spacing40"
-      textAlign="center"
-    >
-      {title}
-    </Text>
-  ), [title]);
-
   return (
-    <FlexItem flex="1 1 20%">
-      {renderTitle()}
-    
+    <DashboardElement
+      dataTestId="TechStack"
+      flex="1 1 20%"
+      shouldDisplayCorners
+      title={title}
+      titleFontSize="font28"
+    >
       <SpacingContainer
-        marginLeft="auto"
-        marginRight="auto"
-        marginTop="spacing16"
-        maxWidth="75%"
+        paddingBottom="spacing32"
+        paddingLeft="spacing32"
+        paddingRight="spacing32"
+        paddingTop="spacing32"
       >
         <IconsWithLabels
           iconsWithLabels={iconsWithLabels}
@@ -39,7 +30,7 @@ function SkillsItem({ iconsWithLabels, title }: SkillsItemProps): JSX.Element {
           size="medium"
         />
       </SpacingContainer>
-    </FlexItem>
+    </DashboardElement>
   );
 }
 

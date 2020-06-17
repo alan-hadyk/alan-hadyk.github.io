@@ -23,7 +23,7 @@ const SkillsSection = (): JSX.Element => (
     <FlexContainer
       alignItems="flex-start"
       flexFlow="row wrap"
-      gap="spacing24"    
+      gap="spacing48"    
     >
       <LanguagesCategory />
       <FrameworksCategory />
