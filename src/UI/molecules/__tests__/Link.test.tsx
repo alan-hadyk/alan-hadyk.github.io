@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import Link from "<atoms>/Link";
+import Link from "<molecules>/Link";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import { LinkProps } from "<atoms>/__typings__/Link.d.ts";
+import { LinkProps } from "<molecules>/__typings__/Link";
 
 describe("atoms / Link", () => {
   test("should render children", () => {

@@ -5,14 +5,15 @@ import React, {
 } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
+import Line from "<atoms>/Line";
+
 import PositionContainer from "<layout>/PositionContainer";
 
 import useShuffleText from "<hooks>/useShuffleText";
 
 import {
   NavItemProps,
-  NavItemLinkProps,
-  NavItemLineProps
+  NavItemLinkProps
 } from "<molecules>/__typings__/NavItem.d.ts";
 import { ShuffleState } from "<hooks>/__typings__/useShuffleText.d.ts";
 
@@ -43,11 +44,11 @@ function NavItem({
       >
         {title}
       </NavItem.Link>
-      <NavItem.Line 
+      <Line
         direction="left" 
         isActive={isActive}
       />
-      <NavItem.Line 
+      <Line
         direction="right" 
         isActive={isActive}
       />
@@ -100,35 +101,6 @@ NavItem.Link = styled.a<NavItemLinkProps>`
       color: ${white};
       text-shadow: 0px 0px ${spacing8} ${blue100};
     }
-  `}
-`;
-
-NavItem.Line = styled.div<NavItemLineProps>`
-  ${({
-    direction,
-    isActive,
-    theme: {
-      colorPalette: { blue100, white },
-      easing: { easeInOut },
-      spacing: { spacing4 },
-      transitionTimes,
-      zIndex
-    }
-  }): FlattenSimpleInterpolation => css`
-    background-color: ${white};
-    bottom: 0;
-    box-shadow: 0px 0px ${spacing4} 0px ${blue100};
-    display: block;
-    height: 1px;
-    opacity: ${isActive ? 1 : 0};
-    position: absolute;
-    transition: all ${transitionTimes.fast} ${easeInOut};
-    visibility: ${isActive ? "visible" : "hidden"};
-    width: ${isActive ? "50%" : 0};
-    z-index: ${zIndex.layer1};
-
-    ${direction === "left" && "left: 50%;"}
-    ${direction === "right" && "right: 50%;"}
   `}
 `;
 
