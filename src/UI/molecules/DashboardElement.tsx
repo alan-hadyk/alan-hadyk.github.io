@@ -53,7 +53,7 @@ function DashboardElement({
       overflow="visible"
     >
       <Text 
-        color="blue300"
+        color={titleFontSize === "font28" ? "blue100" : "blue300"}
         ellipsis
         fontFamily="AnonymousPro"
         fontSize={titleFontSize}
@@ -63,30 +63,31 @@ function DashboardElement({
         {title}
       </Text>
 
+      {description && (
+        <SpacingContainer
+          dataTestId="DashboardElementDescription"
+          marginBottom="spacing28"
+        >
+          <Text
+            color="blue300"
+            dataTestId="DashboardElementDescriptionText"
+            fontSize="font8"
+            lineHeight="spacing12"
+            maxHeight="spacing36"
+            overflow="hidden"
+            textTransform="uppercase"
+            ref={descriptionRef}
+          >
+            {description}
+          </Text>
+        </SpacingContainer>
+      )}
+      
       <SpacingContainer
         dataTestId="DashboardElementContentSpacingContainer"
+        height={childrenHeight}
         marginTop={titleFontSize === "font28" ? "spacing8" : "spacing0"}
       >
-        {description && (
-          <SpacingContainer
-            dataTestId="DashboardElementDescription"
-            marginBottom="spacing28"
-          >
-            <Text
-              color="blue300"
-              dataTestId="DashboardElementDescriptionText"
-              fontSize="font8"
-              lineHeight="spacing12"
-              maxHeight="spacing36"
-              overflow="hidden"
-              textTransform="uppercase"
-              ref={descriptionRef}
-            >
-              {description}
-            </Text>
-          </SpacingContainer>
-        )}
-      
         <PositionContainer
           height={childrenHeight}
           position="relative"
