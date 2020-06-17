@@ -5,7 +5,7 @@ import Line from "<atoms>/Line";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import { LineProps } from "<atoms>/__typings__/LineProps.d.ts";
+import { LineProps } from "<atoms>/__typings__/Line.d.ts";
 
 describe("atoms / Line", () => {
   describe("Styles", () => {
