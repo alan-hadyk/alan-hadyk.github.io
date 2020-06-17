@@ -1,7 +1,3 @@
-import React from "react";
-
-import SkillsItem from "<molecules>/SkillsItem";
-
 import {
   IconWithLabelProps
 } from "<molecules>/__typings__/IconWithLabel.d.ts";
@@ -30,14 +26,14 @@ const iconsWithLabels: IconWithLabelProps[] = [
   {
     iconName: "brandTaskade",
     label: "Taskade"
+  },
+  {
+    iconName: "brandBasecamp",
+    label: "Basecamp"
   }
 ];
 
-const TaskManagementCategory = (): JSX.Element => (
-  <SkillsItem
-    iconsWithLabels={iconsWithLabels}
-    title="Task management"
-  />
-);
-
-export default TaskManagementCategory;
+export default {
+  iconsWithLabels,
+  title: "Task management"
+};

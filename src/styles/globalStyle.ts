@@ -37,6 +37,7 @@ export default `
   *::before, 
   *::after {
     box-sizing: border-box;
+    outline: 0;
   }
 
   body {

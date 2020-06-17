@@ -35,7 +35,7 @@ const VerticalIconsWithLabels = ({
     justifyContent="center" 
   >
     <FlexItem
-      flex={`0 0 ${spacing.spacing64}`}
+      flex={`0 0 ${spacing.spacing72}`}
     >
       {iconsWithLabels.map(({ iconName }: IconWithLabelProps, index: number): JSX.Element => (
         <SpacingContainer
@@ -57,6 +57,7 @@ const VerticalIconsWithLabels = ({
       {iconsWithLabels.map(({ label }: IconWithLabelProps): JSX.Element => (
         <SpacingContainer
           dataTestId="LabelSpacingContainer"
+          height="spacing32"
           key={label}
           marginBottom="spacing12"
         >

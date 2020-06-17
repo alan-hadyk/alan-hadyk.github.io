@@ -1,7 +1,3 @@
-import React from "react";
-
-import SkillsItem from "<molecules>/SkillsItem";
-
 import {
   IconWithLabelProps
 } from "<molecules>/__typings__/IconWithLabel.d.ts";
@@ -37,11 +33,7 @@ const iconsWithLabels: IconWithLabelProps[] = [
   }
 ];
 
-const DesignToolsCategory = (): JSX.Element => (
-  <SkillsItem
-    iconsWithLabels={iconsWithLabels}
-    title="Design tools"
-  />
-);
-
-export default DesignToolsCategory;
+export default {
+  iconsWithLabels,
+  title: "Design tools"
+};

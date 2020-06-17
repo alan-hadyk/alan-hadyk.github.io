@@ -1,7 +1,3 @@
-import React from "react";
-
-import SkillsItem from "<molecules>/SkillsItem";
-
 import {
   IconWithLabelProps
 } from "<molecules>/__typings__/IconWithLabel.d.ts";
@@ -41,11 +37,7 @@ const iconsWithLabels: IconWithLabelProps[] = [
   }
 ];
 
-const CICDCategory = (): JSX.Element => (
-  <SkillsItem
-    iconsWithLabels={iconsWithLabels}
-    title="CI / CD"
-  />
-);
-
-export default CICDCategory;
+export default {
+  iconsWithLabels,
+  title: "CI / CD"
+};

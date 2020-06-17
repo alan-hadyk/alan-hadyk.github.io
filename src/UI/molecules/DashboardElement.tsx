@@ -20,6 +20,7 @@ function DashboardElement({
   dataTestId,
   flex,
   overflow = "hidden",
+  shouldDisplayBorder = false,
   shouldDisplayCorners = false,
   order = 0,
   title,
@@ -100,9 +101,10 @@ function DashboardElement({
   function renderInnerContainer(): JSX.Element {
     return (
       <DashboardElement.InnerContainer
-        overflow={overflow}
-        shouldDisplayCorners={shouldDisplayCorners}
         data-testid="DashboardElementInnerContainer"
+        overflow={overflow}
+        shouldDisplayBorder={shouldDisplayBorder}
+        shouldDisplayCorners={shouldDisplayCorners}
       >
         {
           shouldDisplayCorners ? (
@@ -127,21 +129,32 @@ type DashboardElementInnerContainer = Partial<DashboardElementProps>;
 DashboardElement.InnerContainer = styled.div<DashboardElementInnerContainer>`
   ${({
     overflow,
+    shouldDisplayBorder,
     shouldDisplayCorners,
     theme: {
-      spacing: { 
+      colorPalette: {
+        blue100,
+        blue300
+      },
+      spacing: {
+        spacing8,
         spacing32
       }
     }
   }): FlattenSimpleInterpolation => css`
-      height: 100%;
-      overflow: ${overflow};
-      
-      ${shouldDisplayCorners && `
-        background: url(${Cross});
-        background-position: center;
-        background-repeat: space;
-        background-size: ${spacing32} ${spacing32};
+    height: 100%;
+    overflow: ${overflow};
+    
+    ${shouldDisplayBorder && `
+      border: thin solid ${blue300};
+      box-shadow: 0px 0px ${spacing8} 0px ${blue100};
+    `}
+    
+    ${(shouldDisplayCorners || shouldDisplayBorder) && `
+      background: url(${Cross});
+      background-position: center;
+      background-repeat: space;
+      background-size: ${spacing32} ${spacing32};
     `}
   `}
 `;
