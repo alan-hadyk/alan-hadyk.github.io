@@ -53,6 +53,17 @@ describe("atoms / Text", () => {
         expect(TextContainer).toHaveStyleRule("color", "#2b595e");
       });
 
+      test("should have #fff if is hovered", () => {
+        const { TextContainer } = setup({
+          isHovered: true
+        });
+  
+        expect(TextContainer).toHaveStyleRule("color", "#fff", {
+          modifier: "&:hover"
+        });
+      });
+
+
       describe("strong", () => {
         test("should have #bcd8db when color prop is blue300", () => {
           const { TextContainer } = setup({

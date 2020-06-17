@@ -9,6 +9,3 @@ export interface LinkProps {
   isHovered?: boolean;
 }
 
-export interface LinkLineProps {
-  direction: "left" | "right";
-}

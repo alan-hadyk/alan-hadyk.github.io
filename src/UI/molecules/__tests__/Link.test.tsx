@@ -7,7 +7,21 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import { LinkProps } from "<molecules>/__typings__/Link";
 
-describe("atoms / Link", () => {
+describe("molecules / Link", () => {
+  test("should have correct structure if is hovered", () => {
+    const { 
+      Lines,
+      LinkContainer,
+      PositionContainer
+    } = setup({
+      isHovered: true
+    });
+
+    expect(LinkContainer.children[1]).toEqual(PositionContainer);
+    expect(PositionContainer.children[0]).toEqual(Lines[0]);
+    expect(PositionContainer.children[1]).toEqual(Lines[1]);
+  });
+
   test("should render children", () => {
     const { LinkContainer } = setup({
       children: <div>Custom children</div>
@@ -72,6 +86,36 @@ describe("atoms / Link", () => {
         expect(LinkContainer).toHaveStyleRule("line-height", "1");
       });
     });
+
+    describe("opacity", () => {      
+      test("should have 1", () => {
+        const { LinkContainer } = setup();
+  
+        expect(LinkContainer).toHaveStyleRule("opacity", "1", {
+          modifier: "&:hover span"
+        });
+      });
+    });
+
+    describe("visibility", () => {      
+      test("should have visible", () => {
+        const { LinkContainer } = setup();
+  
+        expect(LinkContainer).toHaveStyleRule("visibility", "visible", {
+          modifier: "&:hover span"
+        });
+      });
+    });
+
+    describe("width", () => {      
+      test("should have 50%", () => {
+        const { LinkContainer } = setup();
+  
+        expect(LinkContainer).toHaveStyleRule("width", "50%", {
+          modifier: "&:hover span"
+        });
+      });
+    });
   });
   
   describe("Props", () => {
@@ -103,10 +147,50 @@ describe("atoms / Link", () => {
       });
     });
   });
+
+  describe("PositionContainer", () => {
+    describe("Props", () => {
+      describe("position", () => { 
+        test("should be relative", () => {
+          const { PositionContainer } = setup();
+  
+          expect(PositionContainer).toHaveStyleRule("position", "relative");
+        });
+      });
+    });
+  });
+
+  describe("Lines", () => {
+    describe("Line[0]", () => {
+      describe("Props", () => {
+        describe("direction", () => { 
+          test("should be left", () => {
+            const { Lines } = setup();
+    
+            expect(Lines[0]).toHaveStyleRule("left", "50%");
+          });
+        });
+      });
+    });
+
+    describe("Line[1]", () => {
+      describe("Props", () => {
+        describe("direction", () => { 
+          test("should be right", () => {
+            const { Lines } = setup();
+    
+            expect(Lines[1]).toHaveStyleRule("right", "50%");
+          });
+        });
+      });
+    });
+  });
 });
 
 interface Setup extends RenderResult {
+  Lines: Element[];
   LinkContainer: Element;
+  PositionContainer: Element;
 }
 
 type LinkTestProps = Partial<LinkProps>;
@@ -115,6 +199,7 @@ function setup(additionalProps?: LinkTestProps): Setup {
   const props: LinkProps = {
     children: <div>Link</div>,
     href: "/",
+    isHovered: true,
     ...additionalProps
   };
 
@@ -124,10 +209,16 @@ function setup(additionalProps?: LinkTestProps): Setup {
     </Link>
   );
 
-  const { container } = utils || {};
+  const { queryByTestId, queryAllByTestId }: RenderResult = utils;
+
+  const Lines: Element[]  = queryAllByTestId("Line");
+  const LinkContainer: Element = queryByTestId("Link");
+  const PositionContainer: Element = queryByTestId("PositionContainer");
 
   return {
     ...utils,
-    LinkContainer: container.children[0]
+    Lines,
+    LinkContainer,
+    PositionContainer
   };
 }

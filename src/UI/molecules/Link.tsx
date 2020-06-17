@@ -7,7 +7,7 @@ import PositionContainer from "<layout>/PositionContainer";
 
 import {
   LinkProps
-} from "<molecules>/__typings__/Link";
+} from "<molecules>/__typings__/Link.d.ts";
 
 const Link = ({
   children,

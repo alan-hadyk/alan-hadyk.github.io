@@ -34,9 +34,11 @@ function NavItem({
 
   return (
     <PositionContainer 
+      dataTestId="NavItem"
       position="relative"
     >
       <NavItem.Link
+        data-testid="NavItemLink"
         isActive={isActive}
         onMouseUp={handleClick}
         onMouseOver={handleMouseOver}
