@@ -163,9 +163,7 @@ function setup(additionalProps?: LineTestProps): Setup {
   };
 
   const utils: RenderResult = renderWithTheme(
-    <Line {...props}>
-      {props.children}
-    </Line>
+    <Line {...props} />
   );
 
   const { queryByTestId } = utils || {};
