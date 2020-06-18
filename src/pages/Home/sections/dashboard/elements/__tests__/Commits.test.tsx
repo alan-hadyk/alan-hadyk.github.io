@@ -16,7 +16,7 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
       ListOfCommits
     } = setup();
 
-    expect(DashboardElement.children[1].children[0].children[0]).toEqual(ListOfCommits);
+    expect(DashboardElement.children[1].children[0].children[0].children[0]).toEqual(ListOfCommits);
   });
 
   test("should have correct structure if has an error", () => {
@@ -25,7 +25,7 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
       DashboardElement
     } = setup({ hasError: true });
 
-    expect(DashboardElement.children[1].children[4].children[0].children[0]).toEqual(Error);
+    expect(DashboardElement.children[1].children[0].children[4].children[0].children[0]).toEqual(Error);
   });
 
   describe("DashboardElement", () => {
@@ -52,10 +52,10 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
             hasError: true
           });
 
-          expect(DashboardElement.children[1].children[0]).toEqual(Corners[0]);
-          expect(DashboardElement.children[1].children[1]).toEqual(Corners[1]);
-          expect(DashboardElement.children[1].children[2]).toEqual(Corners[2]);
-          expect(DashboardElement.children[1].children[3]).toEqual(Corners[3]);
+          expect(DashboardElement.children[1].children[0].children[0]).toEqual(Corners[0]);
+          expect(DashboardElement.children[1].children[0].children[1]).toEqual(Corners[1]);
+          expect(DashboardElement.children[1].children[0].children[2]).toEqual(Corners[2]);
+          expect(DashboardElement.children[1].children[0].children[3]).toEqual(Corners[3]);
         });
 
         test("should not render corners if has no error", () => {
@@ -269,7 +269,7 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
             hasError: true
           });
 
-          expect(DashboardElement.children[1].children[4].children[0].children[0]).toEqual(Error);
+          expect(DashboardElement.children[1].children[0].children[4].children[0].children[0]).toEqual(Error);
         });
 
         test("should not render Error if hasError is false", () => {

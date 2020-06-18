@@ -16,7 +16,7 @@ describe("pages / Home / sections / dashboard / elements / UserAgent", () => {
       DashboardElement
     } = setup();
 
-    expect(DashboardElement.children[2].children[4].children[0].children[0]).toEqual(BrowserInfo);
+    expect(DashboardElement.children[2].children[0].children[4].children[0].children[0]).toEqual(BrowserInfo);
   });
 
   describe("DashboardElement", () => {
@@ -49,11 +49,11 @@ describe("pages / Home / sections / dashboard / elements / UserAgent", () => {
       describe("shouldDisplayCorners", () => {
         test("should render corners", () => {
           const { Corners, DashboardElement } = setup();
-      
-          expect(DashboardElement.children[2].children[0]).toEqual(Corners[0]);
-          expect(DashboardElement.children[2].children[1]).toEqual(Corners[1]);
-          expect(DashboardElement.children[2].children[2]).toEqual(Corners[2]);
-          expect(DashboardElement.children[2].children[3]).toEqual(Corners[3]);
+
+          expect(DashboardElement.children[2].children[0].children[0]).toEqual(Corners[0]);
+          expect(DashboardElement.children[2].children[0].children[1]).toEqual(Corners[1]);
+          expect(DashboardElement.children[2].children[0].children[2]).toEqual(Corners[2]);
+          expect(DashboardElement.children[2].children[0].children[3]).toEqual(Corners[3]);
         });
       });
 

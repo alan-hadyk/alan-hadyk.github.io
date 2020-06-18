@@ -80,6 +80,10 @@ describe("pages / Home / sections / experience / companies / CompanyShiji", () =
       {
         iconName: "brandJenkins",
         label: "Jenkins"
+      },
+      {
+        iconName: "brandGitlab",
+        label: "GitLab"
       }
     ];
 
@@ -101,6 +105,7 @@ describe("pages / Home / sections / experience / companies / CompanyShiji", () =
     expect(IconsWithLabels.children[11].children[0].children[0].textContent).toEqual("Brand-Zeplin.svg");
     expect(IconsWithLabels.children[12].children[0].children[0].textContent).toEqual("Brand-JIRA.svg");
     expect(IconsWithLabels.children[13].children[0].children[0].textContent).toEqual("Brand-Jenkins.svg");
+    expect(IconsWithLabels.children[14].children[0].children[0].textContent).toEqual("Brand-Gitlab.svg");
   });
 
   test("should render correct logo - companyShiji", () => {

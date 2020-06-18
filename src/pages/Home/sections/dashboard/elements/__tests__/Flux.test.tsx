@@ -16,7 +16,7 @@ describe("pages / Home / sections / dashboard / elements / Flux", () => {
       FlowChart
     } = setup();
 
-    expect(DashboardElement.children[1].children[4].children[0].children[0]).toEqual(FlowChart);
+    expect(DashboardElement.children[1].children[0].children[4].children[0].children[0]).toEqual(FlowChart);
   });
 
   describe("DashboardElement", () => {
@@ -49,10 +49,10 @@ describe("pages / Home / sections / dashboard / elements / Flux", () => {
         test("should render corners", () => {
           const { Corners, DashboardElement } = setup();
       
-          expect(DashboardElement.children[1].children[0]).toEqual(Corners[0]);
-          expect(DashboardElement.children[1].children[1]).toEqual(Corners[1]);
-          expect(DashboardElement.children[1].children[2]).toEqual(Corners[2]);
-          expect(DashboardElement.children[1].children[3]).toEqual(Corners[3]);
+          expect(DashboardElement.children[1].children[0].children[0]).toEqual(Corners[0]);
+          expect(DashboardElement.children[1].children[0].children[1]).toEqual(Corners[1]);
+          expect(DashboardElement.children[1].children[0].children[2]).toEqual(Corners[2]);
+          expect(DashboardElement.children[1].children[0].children[3]).toEqual(Corners[3]);
         });
       });
     });

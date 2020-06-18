@@ -54,6 +54,7 @@ function DashboardElement({
     >
       <Text 
         color={titleFontSize === "font28" ? "blue100" : "blue300"}
+        dataTestId="DashboardElementTitleText"
         ellipsis
         fontFamily="AnonymousPro"
         fontSize={titleFontSize}
@@ -110,6 +111,7 @@ function DashboardElement({
         {
           shouldDisplayCorners ? (
             <SpacingContainer 
+              dataTestId="DashboardElementChildrenSpacingContainer"
               height="100%"
               paddingRight="spacing8" 
               paddingLeft="spacing8" 

@@ -16,13 +16,14 @@ const SkillsItem = ({
   }
 }: SkillsItemProps): JSX.Element => (
   <DashboardElement
-    dataTestId="TechStack"
+    dataTestId="SkillsItem"
     flex="1 1 100%"
     shouldDisplayBorder
     title={title}
     titleFontSize="font28"
   >
     <SpacingContainer
+      dataTestId="SkillsItemSpacingContainer"
       paddingBottom="spacing32"
       paddingLeft="spacing32"
       paddingRight="spacing32"

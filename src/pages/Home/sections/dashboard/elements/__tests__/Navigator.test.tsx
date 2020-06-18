@@ -14,7 +14,7 @@ describe("pages / Home / sections / dashboard / elements / Navigator", () => {
       Performance
     } = setup();
 
-    expect(DashboardElement.children[1].children[0].children[0]).toEqual(Performance);
+    expect(DashboardElement.children[1].children[0].children[0].children[0]).toEqual(Performance);
   });
 
   describe("DashboardElement", () => {
