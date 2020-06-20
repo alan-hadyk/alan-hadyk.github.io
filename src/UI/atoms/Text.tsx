@@ -17,7 +17,7 @@ function Text({
   fontFamily = "AnonymousPro",
   fontSize = "font20",
   fontWeight = "normal",
-  isHovered = false,
+  isHoverable = false,
   lineHeight = "1",
   maxHeight,
   overflow = "visible",
@@ -59,7 +59,7 @@ function Text({
       fontFamily={fontFamily}
       fontSize={fontSize}
       fontWeight={fontWeight}
-      isHovered={isHovered}
+      isHoverable={isHoverable}
       lineHeight={lineHeight}
       maxHeight={maxHeight}
       onMouseOver={handleMouseOver}
@@ -92,7 +92,7 @@ Text.Container = styled.div<TextProps>`
     fontFamily,
     fontSize,
     fontWeight,
-    isHovered,
+    isHoverable,
     lineHeight,
     maxHeight,
     overflow,
@@ -139,7 +139,7 @@ Text.Container = styled.div<TextProps>`
       }
     `}
 
-    ${isHovered && `
+    ${isHoverable && `
       &:hover {
         color: ${colorPalette.white};
       }

@@ -15,7 +15,7 @@ const Link = ({
   height = "unset",
   href,
   isExternal = false,
-  isHovered = false
+  isHoverable = false
 }: LinkProps): JSX.Element => (
   <Link.Container
     data-testid="Link"
@@ -27,7 +27,7 @@ const Link = ({
     <Fragment>
       {children}
 
-      {isHovered && (
+      {isHoverable && (
         <PositionContainer 
           position="relative"
         >
@@ -55,7 +55,7 @@ Link.Container = styled.a<LinkProps>`
     height: ${(height in spacing && spacing[height]) || height};
     line-height: 1;
 
-    &:hover span {
+    &:hover .line {
       opacity: 1;
       visibility: visible;
       width: 50%;

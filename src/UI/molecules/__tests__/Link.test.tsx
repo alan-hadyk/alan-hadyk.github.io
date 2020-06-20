@@ -5,16 +5,16 @@ import Link from "<molecules>/Link";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import { LinkProps } from "<molecules>/__typings__/Link";
+import { LinkProps } from "<molecules>/__typings__/Link.d.ts";
 
 describe("molecules / Link", () => {
-  test("should have correct structure if is hovered", () => {
+  test("should have correct structure if it is hovered", () => {
     const { 
       Lines,
       LinkContainer,
       PositionContainer
     } = setup({
-      isHovered: true
+      isHoverable: true
     });
 
     expect(LinkContainer.children[1]).toEqual(PositionContainer);
@@ -87,32 +87,34 @@ describe("molecules / Link", () => {
       });
     });
 
-    describe("opacity", () => {      
-      test("should have 1", () => {
-        const { LinkContainer } = setup();
-  
-        expect(LinkContainer).toHaveStyleRule("opacity", "1", {
-          modifier: "&:hover span"
+    describe(":hover .Line", () => {    
+      describe("opacity", () => {      
+        test("should have 1", () => {
+          const { LinkContainer } = setup();
+    
+          expect(LinkContainer).toHaveStyleRule("opacity", "1", {
+            modifier: "&:hover .line"
+          });
         });
       });
-    });
-
-    describe("visibility", () => {      
-      test("should have visible", () => {
-        const { LinkContainer } = setup();
   
-        expect(LinkContainer).toHaveStyleRule("visibility", "visible", {
-          modifier: "&:hover span"
+      describe("visibility", () => {      
+        test("should have visible", () => {
+          const { LinkContainer } = setup();
+    
+          expect(LinkContainer).toHaveStyleRule("visibility", "visible", {
+            modifier: "&:hover .line"
+          });
         });
       });
-    });
-
-    describe("width", () => {      
-      test("should have 50%", () => {
-        const { LinkContainer } = setup();
   
-        expect(LinkContainer).toHaveStyleRule("width", "50%", {
-          modifier: "&:hover span"
+      describe("width", () => {      
+        test("should have 50%", () => {
+          const { LinkContainer } = setup();
+    
+          expect(LinkContainer).toHaveStyleRule("width", "50%", {
+            modifier: "&:hover .line"
+          });
         });
       });
     });
@@ -199,7 +201,7 @@ function setup(additionalProps?: LinkTestProps): Setup {
   const props: LinkProps = {
     children: <div>Link</div>,
     href: "/",
-    isHovered: true,
+    isHoverable: true,
     ...additionalProps
   };
 

@@ -6,6 +6,6 @@ export interface LinkProps {
   height?: Spacing | "unset" | "50%" | "100%";
   href: string;
   isExternal?: boolean;
-  isHovered?: boolean;
+  isHoverable?: boolean;
 }
 

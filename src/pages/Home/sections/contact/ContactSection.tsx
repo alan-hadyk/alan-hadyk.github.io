@@ -2,7 +2,6 @@ import React, { memo } from "react";
 
 import Text from "<atoms>/Text";
 import Link from "<molecules>/Link";
-
 import Section from "<molecules>/Section";
 import FlexContainer from "<layout>/FlexContainer";
 
@@ -16,14 +15,14 @@ const ContactSection = (): JSX.Element => (
     >
       <Link
         href="mailto:alan.hadyk@gmail.com"
-        isHovered
+        isHoverable
       >
         <Text
           color="blue300"
           dataTestId="EmailText"
           ellipsis
           fontSize="font28"
-          isHovered
+          isHoverable
           paddingBottom="spacing16"
           textAlign="center"
         >

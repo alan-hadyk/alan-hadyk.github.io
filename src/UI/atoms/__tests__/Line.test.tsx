@@ -135,6 +135,14 @@ describe("atoms / Line", () => {
   
         expect(LineContainer).toHaveStyleRule("left", "50%");
       });
+
+      test("should not have if direction is set to right", () => {
+        const { LineContainer } = setup({
+          direction: "right"
+        });
+  
+        expect(LineContainer).not.toHaveStyleRule("left", "50%");
+      });
     });
 
     describe("right", () => {  
@@ -144,6 +152,14 @@ describe("atoms / Line", () => {
         });
   
         expect(LineContainer).toHaveStyleRule("right", "50%");
+      });
+
+      test("should not have if direction is set to left", () => {
+        const { LineContainer } = setup({
+          direction: "left"
+        });
+  
+        expect(LineContainer).not.toHaveStyleRule("right", "50%");
       });
     });
   });

@@ -1,6 +1,4 @@
-import React, {
-  memo
-} from "react";
+import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import {
@@ -12,13 +10,14 @@ const Line = ({
   isActive = false
 }: LineProps): JSX.Element => (
   <Line.Container
+    className="line"
     data-testid="Line"
     direction={direction} 
     isActive={isActive}
   />
 );
 
-Line.Container = styled.span<LineProps>`
+Line.Container = styled.div<LineProps>`
   ${({
     direction,
     isActive,
@@ -47,4 +46,4 @@ Line.Container = styled.span<LineProps>`
   `}
 `;
 
-export default memo(Line);
+export default Line;

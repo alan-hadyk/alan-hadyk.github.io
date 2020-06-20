@@ -45,7 +45,7 @@ describe("molecules / NavItem", () => {
   });
 
   describe("PositionContainer", () => {    
-    describe("Styles", () => {
+    describe("Props", () => {
       describe("position", () => {      
         test("should have relative", () => {
           const { PositionContainer } = setup();
