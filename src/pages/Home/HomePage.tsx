@@ -5,6 +5,7 @@ import PortfolioSection from "<pages>/Home/sections/portfolio/PortfolioSection";
 import ExperienceSection from "<pages>/Home/sections/experience/ExperienceSection";
 import SkillsSection from "<pages>/Home/sections/skills/SkillsSection";
 import AboutMeSection from "<pages>/Home/sections/about/AboutMeSection";
+import ContactSection from "<pages>/Home/sections/contact/ContactSection";
 
 import Header from "<organisms>/Header";
 import PageTemplate from "<templates>/PageTemplate";
@@ -21,6 +22,7 @@ const HomePage = (): JSX.Element => (
     <ExperienceSection />
     <SkillsSection />
     <AboutMeSection />
+    <ContactSection />
   </PageTemplate>
 );
   

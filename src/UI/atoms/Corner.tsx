@@ -47,9 +47,9 @@ Corner.Container = styled.div<CornerContainerProps>`
     opacity,
     theme: {
       colorPalette: { white },
-      transitionTimes: { fast },
       easing: { easeInOut },
-      spacing: { spacing8 }
+      spacing: { spacing8 },
+      transitionTimes: { fast }
     }
   }): FlattenSimpleInterpolation => css`
     border-left: thin solid ${white};

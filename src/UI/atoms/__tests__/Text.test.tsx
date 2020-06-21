@@ -53,6 +53,17 @@ describe("atoms / Text", () => {
         expect(TextContainer).toHaveStyleRule("color", "#2b595e");
       });
 
+      test("should have #fff if is hoverable", () => {
+        const { TextContainer } = setup({
+          isHoverable: true
+        });
+  
+        expect(TextContainer).toHaveStyleRule("color", "#fff", {
+          modifier: "&:hover"
+        });
+      });
+
+
       describe("strong", () => {
         test("should have #bcd8db when color prop is blue300", () => {
           const { TextContainer } = setup({
@@ -62,6 +73,14 @@ describe("atoms / Text", () => {
           expect(TextContainer).toHaveStyleRule("color", "#bcd8db", {
             modifier: "strong"
           });
+        });
+      });
+
+      describe("transition", () => {
+        test("should have all 150ms ease-in-out", () => {
+          const { TextContainer } = setup();
+    
+          expect(TextContainer).toHaveStyleRule("transition", "all 150ms ease-in-out");
         });
       });
     });

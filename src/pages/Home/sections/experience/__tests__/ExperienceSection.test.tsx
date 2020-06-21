@@ -36,7 +36,6 @@ describe("pages / Home / sections / experience / ExperienceSection", () => {
       });
     });
   });
-  
 });
 
 interface Setup extends RenderResult {
