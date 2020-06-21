@@ -62,8 +62,14 @@ describe("pages / Home / sections / experience / companies / CompanyOmise", () =
     expect(IconsWithLabels.children[13].children[0].children[0].textContent).toEqual("Brand-Jenkins.svg");
     expect(IconsWithLabels.children[13].children[1].textContent).toEqual("Jenkins");
 
-    expect(IconsWithLabels.children[14].children[0].children[0].textContent).toEqual("Brand-Gallery.svg");
-    expect(IconsWithLabels.children[14].children[1].textContent).toEqual("Gallery");
+    expect(IconsWithLabels.children[14].children[0].children[0].textContent).toEqual("Brand-Buildkite.svg");
+    expect(IconsWithLabels.children[14].children[1].textContent).toEqual("Buildkite");
+
+    expect(IconsWithLabels.children[15].children[0].children[0].textContent).toEqual("Brand-Basecamp.svg");
+    expect(IconsWithLabels.children[15].children[1].textContent).toEqual("Basecamp");
+
+    expect(IconsWithLabels.children[16].children[0].children[0].textContent).toEqual("Brand-Gallery.svg");
+    expect(IconsWithLabels.children[16].children[1].textContent).toEqual("Gallery");
   });
 
   test("should render correct logo - companyOmise", () => {

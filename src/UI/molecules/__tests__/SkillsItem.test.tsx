@@ -16,76 +16,116 @@ import {
 describe("molecules / SkillsItem", () => {
   test("should have correct structure", () => {
     const {
-      HexagonInnerContainer,
       IconsWithLabels,
-      SpacingContainer,
-      Text
+      SkillsItemContainer,
+      SkillsItemSpacingContainer
     } = setup();
 
-    expect(HexagonInnerContainer.children[0]).toEqual(Text);
-    expect(HexagonInnerContainer.children[1]).toEqual(SpacingContainer);
-    expect(SpacingContainer.children[0]).toEqual(IconsWithLabels);
+    expect(SkillsItemContainer.children[1].children[0].children[0].children[0]).toEqual(SkillsItemSpacingContainer);
+    expect(SkillsItemSpacingContainer.children[0]).toEqual(IconsWithLabels);
   });
 
-  describe("Text", () => { 
-    test("should have correct content passed via title props", () => {
-      const { Text } = setup({
-        title: "Title"
-      });
+  describe("SkillsItemContainer", () => {
+    const iconsWithLabels: IconWithLabelProps[] = [
+      {
+        iconName: "brandJS",
+        label: "Javascript"
+      },
+      {
+        iconName: "brandReact",
+        label: "React"
+      }
+    ];
 
-      expect(Text.textContent).toEqual("Title");
-    });
+    const data = {
+      iconsWithLabels,
+      title: "Languages"
+    };
 
     describe("Props", () => {
-      describe("color", () => {
-        test("should have #78b0b5", () => {
-          const { Text } = setup();
-  
-          expect(Text).toHaveStyleRule("color", "#78b0b5");
+      describe("flex", () => {      
+        test("should have 1 1 100%", () => {
+          const { SkillsItemContainer } = setup({
+            data
+          });
+
+          expect(SkillsItemContainer).toHaveStyleRule("flex", "1 1 100%");
+        });
+      });
+
+      describe("shouldDisplayBorder", () => {   
+        describe("border", () => {
+          test("should have thin solid #78b0b5", () => {
+            const { SkillsItemContainer } = setup({
+              data
+            });
+      
+            expect(SkillsItemContainer.children[1].children[0].children[0]).toHaveStyleRule("border", "thin solid #78b0b5");
+          });
+        });
+
+        describe("box-shadow", () => {
+          test("should have 0px 0px .8rem 0px #bcd8db", () => {
+            const { SkillsItemContainer } = setup({
+              data
+            });
+      
+            expect(SkillsItemContainer.children[1].children[0].children[0]).toHaveStyleRule("box-shadow", "0px 0px .8rem 0px #bcd8db");
+          });
         }); 
       });
 
-      describe("fontSize", () => {
-        test("should have 32px", () => {
-          const { Text } = setup();
-  
-          expect(Text).toHaveStyleRule("font-size", "32px");
-        }); 
+      describe("title", () => {      
+        test("should have correct content", () => {
+          const { SkillsItemContainer } = setup({
+            data
+          });
+
+          expect(SkillsItemContainer.children[0].textContent).toEqual("Languages");
+        });
       });
 
-      describe("lineHeight", () => {
-        test("should have 4rem", () => {
-          const { Text } = setup();
-  
-          expect(Text).toHaveStyleRule("line-height", "4rem");
-        }); 
-      });
+      describe("titleFontSize", () => {      
+        test("should have 28px", () => {
+          const { SkillsItemContainer } = setup();
 
-      describe("textAlign", () => {
-        test("should have center", () => {
-          const { Text } = setup();
-  
-          expect(Text).toHaveStyleRule("text-align", "center");
-        }); 
-      });
-
-      describe("textTransform", () => {
-        test("should have capitalize", () => {
-          const { Text } = setup();
-  
-          expect(Text).toHaveStyleRule("text-transform", "capitalize");
-        }); 
+          expect(SkillsItemContainer.children[0]).toHaveStyleRule("font-size", "28px");
+        });
       });
     });
   });
   
-  describe("SpacingContainer", () => {    
+  describe("SkillsItemSpacingContainer", () => {    
     describe("Props", () => {
-      describe("marginTop", () => {      
-        test("should have 1.6rem", () => {
-          const { SpacingContainer } = setup();
+      describe("paddingBottom", () => {      
+        test("should have 3.2rem", () => {
+          const { SkillsItemSpacingContainer } = setup();
 
-          expect(SpacingContainer).toHaveStyleRule("margin-top", "1.6rem");
+          expect(SkillsItemSpacingContainer).toHaveStyleRule("padding-bottom", "3.2rem");
+        });
+      });
+
+      describe("paddingLeft", () => {      
+        test("should have 3.2rem", () => {
+          const { SkillsItemSpacingContainer } = setup();
+
+          expect(SkillsItemSpacingContainer).toHaveStyleRule("padding-left", "3.2rem");
+        });
+      });
+
+      describe("paddingRight", () => {      
+        test("should have 3.2rem", () => {
+          const { SkillsItemSpacingContainer } = setup();
+
+          expect(SkillsItemSpacingContainer).toHaveStyleRule("padding-right", "3.2rem");
+        });
+      });
+
+      describe("paddingTop", () => {      
+        test("should have 3.2rem", () => {
+          const { SkillsItemSpacingContainer } = setup();
+
+          expect(SkillsItemSpacingContainer).toHaveStyleRule("padding-top", "3.2rem");
         });
       });
     });
@@ -103,9 +143,15 @@ describe("molecules / SkillsItem", () => {
       }
     ];
 
+    const data = {
+      iconsWithLabels,
+      title: "Languages"
+    };
+
     test("there should be correct number of icons", () => {
+
       const { IconsWithLabels } = setup({
-        iconsWithLabels
+        data
       });
 
       expect(IconsWithLabels.children[0].children.length).toEqual(2);
@@ -113,7 +159,7 @@ describe("molecules / SkillsItem", () => {
 
     test("icons should render correct SVGs", () => {
       const { IconsWithLabels } = setup({
-        iconsWithLabels
+        data
       });
 
       expect(IconsWithLabels.children[0].children[0].children[0].children[0].textContent).toEqual("Brand-JS.svg");
@@ -122,7 +168,7 @@ describe("molecules / SkillsItem", () => {
 
     test("should have correct content passed via label props", () => {
       const { IconsWithLabels } = setup({
-        iconsWithLabels
+        data
       });
 
       expect(IconsWithLabels.children[0].children[1].children[0].children[0].textContent).toEqual("Javascript");
@@ -158,12 +204,10 @@ describe("molecules / SkillsItem", () => {
 });
 
 interface Setup extends RenderResult {
-  HexagonInnerContainer: Element;
   IconFlexItems: Element[];
   IconsWithLabels: Element;
   SkillsItemContainer: Element;
-  SpacingContainer: Element;
-  Text: Element;
+  SkillsItemSpacingContainer: Element;
   VerticalIconsWithLabels: Element;
 }
 
@@ -181,9 +225,13 @@ const iconsWithLabels: IconWithLabelProps[] = [
 ];
 
 function setup(additionalProps?: SkillsItemTestProps): Setup {
-  const props: SkillsItemProps = {
+  const data = {
     iconsWithLabels,
-    title: "Languages",
+    title: "Languages"
+  };
+
+  const props: SkillsItemProps = {
+    data,
     ...additionalProps
   };
 
@@ -193,22 +241,18 @@ function setup(additionalProps?: SkillsItemTestProps): Setup {
 
   const { queryByTestId, queryAllByTestId }: RenderResult = utils;
 
-  const HexagonInnerContainer: Element = queryByTestId("HexagonInnerContainer");
   const IconFlexItems: Element[] = queryAllByTestId("FlexItem");
   const IconsWithLabels: Element = queryByTestId("IconsWithLabels");
   const SkillsItemContainer: Element = queryByTestId("SkillsItem");
-  const SpacingContainer: Element = queryByTestId("SpacingContainer");
-  const Text: Element = queryByTestId("Text");
+  const SkillsItemSpacingContainer: Element = queryByTestId("SkillsItemSpacingContainer");
   const VerticalIconsWithLabels: Element = queryByTestId("VerticalIconsWithLabels");
 
   return {
     ...utils,
-    HexagonInnerContainer,
     IconFlexItems,
     IconsWithLabels,
     SkillsItemContainer,
-    SpacingContainer,
-    Text,
+    SkillsItemSpacingContainer,
     VerticalIconsWithLabels
   };
 }

@@ -70,11 +70,11 @@ describe("pages / Home / sections / experience / companies / CompanySAP", () => 
         label: "JIRA"
       },
       {
-        iconName: "brandJIRA",
+        iconName: "brandStash",
         label: "Stash"
       },
       {
-        iconName: "brandJIRA",
+        iconName: "brandBamboo",
         label: "Bamboo"
       }
     ];
@@ -94,8 +94,8 @@ describe("pages / Home / sections / experience / companies / CompanySAP", () => 
     expect(IconsWithLabels.children[8].children[0].children[0].textContent).toEqual("Brand-JEST.svg");
     expect(IconsWithLabels.children[9].children[0].children[0].textContent).toEqual("Brand-Airbnb.svg");
     expect(IconsWithLabels.children[10].children[0].children[0].textContent).toEqual("Brand-JIRA.svg");
-    expect(IconsWithLabels.children[11].children[0].children[0].textContent).toEqual("Brand-JIRA.svg");
-    expect(IconsWithLabels.children[12].children[0].children[0].textContent).toEqual("Brand-JIRA.svg");
+    expect(IconsWithLabels.children[11].children[0].children[0].textContent).toEqual("Brand-Stash.svg");
+    expect(IconsWithLabels.children[12].children[0].children[0].textContent).toEqual("Brand-Bamboo.svg");
   });
 
   test("should render correct logo - companySAP", () => {

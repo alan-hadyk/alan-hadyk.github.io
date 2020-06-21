@@ -12,7 +12,7 @@ describe("pages / Home / sections / dashboard / elements / Coords", () => {
       Sonar
     } = setup();
 
-    expect(DashboardElement.children[1].children[0].children[0]).toEqual(Sonar);
+    expect(DashboardElement.children[1].children[0].children[0].children[0]).toEqual(Sonar);
   });
 
   describe("DashboardElement", () => {

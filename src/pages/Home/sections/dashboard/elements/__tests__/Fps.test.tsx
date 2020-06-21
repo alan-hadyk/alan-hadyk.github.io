@@ -14,7 +14,7 @@ describe("pages / Home / sections / dashboard / elements / Fps", () => {
       FpsChart
     } = setup();
 
-    expect(DashboardElement.children[1].children[0].children[0]).toEqual(FpsChart);
+    expect(DashboardElement.children[1].children[0].children[0].children[0]).toEqual(FpsChart);
   });
 
   describe("DashboardElement", () => {

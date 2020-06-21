@@ -1,9 +1,7 @@
 import React from "react";
 
-import Text from "<atoms>/Text";
-
-import Hexagon from "<molecules>/Hexagon";
 import IconsWithLabels from "<molecules>/IconsWithLabels";
+import DashboardElement from "<molecules>/DashboardElement";
 
 import SpacingContainer from "<layout>/SpacingContainer";
 
@@ -11,21 +9,25 @@ import {
   SkillsItemProps
 } from "<molecules>/__typings__/SkillsItem.d.ts";
 
-const SkillsItem = ({ iconsWithLabels, title }: SkillsItemProps): JSX.Element => (
-  <Hexagon
+const SkillsItem = ({ 
+  data: {
+    iconsWithLabels,
+    title
+  }
+}: SkillsItemProps): JSX.Element => (
+  <DashboardElement
     dataTestId="SkillsItem"
+    flex="1 1 100%"
+    shouldDisplayBorder
+    title={title}
+    titleFontSize="font28"
   >
-    <Text 
-      color="blue300"
-      fontSize="font32"
-      lineHeight="spacing40"
-      textAlign="center"
-      textTransform="capitalize"
-    >
-      {title}
-    </Text>
     <SpacingContainer
-      marginTop="spacing16"
+      dataTestId="SkillsItemSpacingContainer"
+      paddingBottom="spacing32"
+      paddingLeft="spacing32"
+      paddingRight="spacing32"
+      paddingTop="spacing32"
     >
       <IconsWithLabels
         iconsWithLabels={iconsWithLabels}
@@ -33,7 +35,7 @@ const SkillsItem = ({ iconsWithLabels, title }: SkillsItemProps): JSX.Element =>
         size="medium"
       />
     </SpacingContainer>
-  </Hexagon>
+  </DashboardElement>
 );
- 
+
 export default SkillsItem;

@@ -457,6 +457,14 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Apollo.svg");
       });
 
+      test("should render correct icon for brandAfterEffects", () => {
+        const { IconComponent } = setup({
+          iconName: "brandAfterEffects"
+        });
+
+        expect(IconComponent.textContent).toEqual("Brand-AfterEffects.svg");
+      });
+
       test("should render correct icon for brandAirbnb", () => {
         const { IconComponent } = setup({
           iconName: "brandAirbnb"
@@ -473,6 +481,38 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Brand-Apollo.svg");
       });
 
+      test("should render correct icon for brandBamboo", () => {
+        const { IconComponent } = setup({
+          iconName: "brandBamboo"
+        });
+
+        expect(IconComponent.textContent).toEqual("Brand-Bamboo.svg");
+      });
+
+      test("should render correct icon for brandBasecamp", () => {
+        const { IconComponent } = setup({
+          iconName: "brandBasecamp"
+        });
+
+        expect(IconComponent.textContent).toEqual("Brand-Basecamp.svg");
+      });
+
+      test("should render correct icon for brandBuildkite", () => {
+        const { IconComponent } = setup({
+          iconName: "brandBuildkite"
+        });
+
+        expect(IconComponent.textContent).toEqual("Brand-Buildkite.svg");
+      });
+
+      test("should render correct icon for brandCSS", () => {
+        const { IconComponent } = setup({
+          iconName: "brandCSS"
+        });
+
+        expect(IconComponent.textContent).toEqual("Brand-CSS.svg");
+      });
+
       test("should render correct icon for brandCSSModules", () => {
         const { IconComponent } = setup({
           iconName: "brandCSSModules"
@@ -487,6 +527,14 @@ describe("atoms / Icon", () => {
         });
 
         expect(IconComponent.textContent).toEqual("Brand-CoffeeScript.svg");
+      });
+
+      test("should render correct icon for brandCorel", () => {
+        const { IconComponent } = setup({
+          iconName: "brandCorel"
+        });
+
+        expect(IconComponent.textContent).toEqual("Brand-Corel.svg");
       });
 
       test("should render correct icon for brandCypress", () => {
@@ -529,6 +577,14 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Brand-Express.svg");
       });
 
+      test("should render correct icon for brandFigma", () => {
+        const { IconComponent } = setup({
+          iconName: "brandFigma"
+        });
+
+        expect(IconComponent.textContent).toEqual("Brand-Figma.svg");
+      });
+
       test("should render correct icon for brandGallery", () => {
         const { IconComponent } = setup({
           iconName: "brandGallery"
@@ -537,12 +593,52 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Brand-Gallery.svg");
       });
 
+      test("should render correct icon for brandGithub", () => {
+        const { IconComponent } = setup({
+          iconName: "brandGithub"
+        });
+
+        expect(IconComponent.textContent).toEqual("Brand-Github.svg");
+      });
+
+      test("should render correct icon for brandGitlab", () => {
+        const { IconComponent } = setup({
+          iconName: "brandGitlab"
+        });
+
+        expect(IconComponent.textContent).toEqual("Brand-Gitlab.svg");
+      });
+
       test("should render correct icon for brandGraphQL", () => {
         const { IconComponent } = setup({
           iconName: "brandGraphQL"
         });
 
         expect(IconComponent.textContent).toEqual("Brand-GraphQL.svg");
+      });
+
+      test("should render correct icon for brandGrunt", () => {
+        const { IconComponent } = setup({
+          iconName: "brandGrunt"
+        });
+
+        expect(IconComponent.textContent).toEqual("Brand-Grunt.svg");
+      });
+
+      test("should render correct icon for brandGulp", () => {
+        const { IconComponent } = setup({
+          iconName: "brandGulp"
+        });
+
+        expect(IconComponent.textContent).toEqual("Brand-Gulp.svg");
+      });
+
+      test("should render correct icon for brandHTML", () => {
+        const { IconComponent } = setup({
+          iconName: "brandHTML"
+        });
+
+        expect(IconComponent.textContent).toEqual("Brand-HTML.svg");
       });
 
       test("should render correct icon for brandJEST", () => {
@@ -601,12 +697,36 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Brand-Node.svg");
       });
 
+      test("should render correct icon for brandPhabricator", () => {
+        const { IconComponent } = setup({
+          iconName: "brandPhabricator"
+        });
+
+        expect(IconComponent.textContent).toEqual("Brand-Phabricator.svg");
+      });
+
+      test("should render correct icon for brandPhotoshop", () => {
+        const { IconComponent } = setup({
+          iconName: "brandPhotoshop"
+        });
+
+        expect(IconComponent.textContent).toEqual("Brand-Photoshop.svg");
+      });
+
       test("should render correct icon for brandPrestaShop", () => {
         const { IconComponent } = setup({
           iconName: "brandPrestaShop"
         });
 
         expect(IconComponent.textContent).toEqual("Brand-PrestaShop.svg");
+      });
+
+      test("should render correct icon for brandQuire", () => {
+        const { IconComponent } = setup({
+          iconName: "brandQuire"
+        });
+
+        expect(IconComponent.textContent).toEqual("Brand-Quire.svg");
       });
 
       test("should render correct icon for brandQunit", () => {
@@ -657,6 +777,22 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Brand-Sass.svg");
       });
 
+      test("should render correct icon for brandSketch", () => {
+        const { IconComponent } = setup({
+          iconName: "brandSketch"
+        });
+
+        expect(IconComponent.textContent).toEqual("Brand-Sketch.svg");
+      });
+
+      test("should render correct icon for brandStash", () => {
+        const { IconComponent } = setup({
+          iconName: "brandStash"
+        });
+
+        expect(IconComponent.textContent).toEqual("Brand-Stash.svg");
+      });
+
       test("should render correct icon for brandStyledComponents", () => {
         const { IconComponent } = setup({
           iconName: "brandStyledComponents"
@@ -673,6 +809,14 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Brand-TS.svg");
       });
 
+      test("should render correct icon for brandTaskade", () => {
+        const { IconComponent } = setup({
+          iconName: "brandTaskade"
+        });
+
+        expect(IconComponent.textContent).toEqual("Brand-Taskade.svg");
+      });
+
       test("should render correct icon for brandTestingLibrary", () => {
         const { IconComponent } = setup({
           iconName: "brandTestingLibrary"
@@ -681,12 +825,28 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Brand-TestingLibrary.svg");
       });
 
+      test("should render correct icon for brandTrello", () => {
+        const { IconComponent } = setup({
+          iconName: "brandTrello"
+        });
+
+        expect(IconComponent.textContent).toEqual("Brand-Trello.svg");
+      });
+
       test("should render correct icon for brandWebpack", () => {
         const { IconComponent } = setup({
           iconName: "brandWebpack"
         });
   
         expect(IconComponent.textContent).toEqual("Brand-Webpack.svg");
+      });
+
+      test("should render correct icon for brandWebsocket", () => {
+        const { IconComponent } = setup({
+          iconName: "brandWebsocket"
+        });
+  
+        expect(IconComponent.textContent).toEqual("Brand-Websocket.svg");
       });
 
       test("should render correct icon for brandZeplin", () => {

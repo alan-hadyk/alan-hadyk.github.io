@@ -80,10 +80,10 @@ describe("molecules / VerticalIconsWithLabels", () => {
     describe("FlexItems[0]", () => {
       describe("Props", () => {
         describe("flex", () => {
-          test("should have 0 0 6.4rem", () => {
+          test("should have 0 0 7.2rem", () => {
             const { FlexItems } = setup();
 
-            expect(FlexItems[0]).toHaveStyleRule("flex", "0 0 6.4rem");
+            expect(FlexItems[0]).toHaveStyleRule("flex", "0 0 7.2rem");
           });
         });
       });
@@ -92,10 +92,10 @@ describe("molecules / VerticalIconsWithLabels", () => {
     describe("FlexItems[1]", () => {
       describe("Props", () => {
         describe("flex", () => {
-          test("should have 0 1 100%", () => {
+          test("should have 0 1 auto", () => {
             const { FlexItems } = setup();
 
-            expect(FlexItems[1]).toHaveStyleRule("flex", "0 1 100%");
+            expect(FlexItems[1]).toHaveStyleRule("flex", "0 1 auto");
           });
         });
       });
@@ -117,6 +117,14 @@ describe("molecules / VerticalIconsWithLabels", () => {
 
     describe("LabelSpacingContainer", () => {
       describe("Props", () => {
+        describe("height", () => {
+          test("should have 3.2rem", () => {
+            const { LabelSpacingContainers } = setup();
+  
+            expect(LabelSpacingContainers[0]).toHaveStyleRule("height", "3.2rem");
+          });
+        });
+
         describe("marginBottom", () => {
           test("should have 1.2rem", () => {
             const { LabelSpacingContainers } = setup();

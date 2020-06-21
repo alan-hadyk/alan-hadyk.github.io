@@ -48,6 +48,7 @@ describe("styles / globalStyle", () => {
       });
 
       expect(styles["box-sizing"]).toEqual("border-box");
+      expect(styles["outline"]).toEqual("0");
     });
 
     test("body", () => {

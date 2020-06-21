@@ -50,11 +50,11 @@ const iconsWithLabels: CompanyProps["iconsWithLabels"] = [
     label: "JIRA"
   },
   {
-    iconName: "brandJIRA",
+    iconName: "brandStash",
     label: "Stash"
   },
   {
-    iconName: "brandJIRA",
+    iconName: "brandBamboo",
     label: "Bamboo"
   }
 ];

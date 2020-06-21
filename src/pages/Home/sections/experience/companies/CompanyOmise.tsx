@@ -62,6 +62,14 @@ const iconsWithLabels: CompanyProps["iconsWithLabels"] = [
     label: "Jenkins"
   },
   {
+    iconName: "brandBuildkite",
+    label: "Buildkite"
+  },
+  {
+    iconName: "brandBasecamp",
+    label: "Basecamp"
+  },
+  {
     iconName: "brandGallery",
     label: "Gallery"
   }

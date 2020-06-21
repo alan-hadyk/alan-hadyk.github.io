@@ -12,7 +12,7 @@ describe("pages / Home / sections / dashboard / elements / PoweredBy", () => {
       ReactLogo
     } = setup();
 
-    expect(DashboardElement.children[1].children[4].children[0].children[0]).toEqual(ReactLogo);
+    expect(DashboardElement.children[1].children[0].children[4].children[0].children[0]).toEqual(ReactLogo);
   });
 
   describe("DashboardElement", () => {
@@ -45,10 +45,10 @@ describe("pages / Home / sections / dashboard / elements / PoweredBy", () => {
         test("should render corners", () => {
           const { Corners, DashboardElement } = setup();
 
-          expect(DashboardElement.children[1].children[0]).toEqual(Corners[0]);
-          expect(DashboardElement.children[1].children[1]).toEqual(Corners[1]);
-          expect(DashboardElement.children[1].children[2]).toEqual(Corners[2]);
-          expect(DashboardElement.children[1].children[3]).toEqual(Corners[3]);
+          expect(DashboardElement.children[1].children[0].children[0]).toEqual(Corners[0]);
+          expect(DashboardElement.children[1].children[0].children[1]).toEqual(Corners[1]);
+          expect(DashboardElement.children[1].children[0].children[2]).toEqual(Corners[2]);
+          expect(DashboardElement.children[1].children[0].children[3]).toEqual(Corners[3]);
         });
       });
     });

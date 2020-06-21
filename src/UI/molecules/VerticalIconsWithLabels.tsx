@@ -35,12 +35,12 @@ const VerticalIconsWithLabels = ({
     justifyContent="center" 
   >
     <FlexItem
-      flex={`0 0 ${spacing.spacing64}`}
+      flex={`0 0 ${spacing.spacing72}`}
     >
-      {iconsWithLabels.map(({ iconName }: IconWithLabelProps): JSX.Element => (
+      {iconsWithLabels.map(({ iconName }: IconWithLabelProps, index: number): JSX.Element => (
         <SpacingContainer
           dataTestId="IconSpacingContainer"
-          key={iconName}
+          key={iconName + index}
           marginBottom="spacing12"
         >
           <Icon 
@@ -52,11 +52,12 @@ const VerticalIconsWithLabels = ({
       ))}
     </FlexItem>
     <FlexItem
-      flex="0 1 100%"
+      flex="0 1 auto"
     >
       {iconsWithLabels.map(({ label }: IconWithLabelProps): JSX.Element => (
         <SpacingContainer
           dataTestId="LabelSpacingContainer"
+          height="spacing32"
           key={label}
           marginBottom="spacing12"
         >

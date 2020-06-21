@@ -14,7 +14,7 @@ describe("pages / Home / sections / dashboard / elements / Code", () => {
       TypingAnimation
     } = setup();
 
-    expect(DashboardElement.children[1].children[0].children[0]).toEqual(TypingAnimation);
+    expect(DashboardElement.children[1].children[0].children[0].children[0]).toEqual(TypingAnimation);
   });
 
   describe("DashboardElement", () => {
