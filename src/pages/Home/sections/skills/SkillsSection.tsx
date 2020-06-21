@@ -22,7 +22,6 @@ const SkillsSection = (): JSX.Element => (
     title="Skills, Technology & Tools"
   >
     <Masonry
-      data-testid="Masonry"
       columnGutter={48}
       columnWidth={300}
       items={[

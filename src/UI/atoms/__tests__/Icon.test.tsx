@@ -841,6 +841,14 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Brand-Webpack.svg");
       });
 
+      test("should render correct icon for brandWebsocket", () => {
+        const { IconComponent } = setup({
+          iconName: "brandWebsocket"
+        });
+  
+        expect(IconComponent.textContent).toEqual("Brand-Websocket.svg");
+      });
+
       test("should render correct icon for brandZeplin", () => {
         const { IconComponent } = setup({
           iconName: "brandZeplin"

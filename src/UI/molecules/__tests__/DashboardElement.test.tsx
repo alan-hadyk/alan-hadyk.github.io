@@ -300,9 +300,25 @@ describe("molecules / DashboardElement", () => {
           expect(DashboardElementInnerContainer).toHaveStyleRule("background", "url(Cross.svg)");
         });
 
+        test("should have url(Cross.svg) if shouldDisplayBorder is true", () => {
+          const { DashboardElementInnerContainer } = setup({
+            shouldDisplayBorder: true
+          });
+    
+          expect(DashboardElementInnerContainer).toHaveStyleRule("background", "url(Cross.svg)");
+        });
+
         test("should not have if shouldDisplayCorners is false", () => {
           const { DashboardElementInnerContainer } = setup({
             shouldDisplayCorners: false
+          });
+    
+          expect(DashboardElementInnerContainer).not.toHaveStyleRule("background");
+        });
+
+        test("should not have if shouldDisplayBorder is false", () => {
+          const { DashboardElementInnerContainer } = setup({
+            shouldDisplayBorder: false
           });
     
           expect(DashboardElementInnerContainer).not.toHaveStyleRule("background");
@@ -318,9 +334,25 @@ describe("molecules / DashboardElement", () => {
           expect(DashboardElementInnerContainer).toHaveStyleRule("background-repeat", "space");
         });
 
+        test("should have space if shouldDisplayBorder is true", () => {
+          const { DashboardElementInnerContainer } = setup({
+            shouldDisplayBorder: true
+          });
+    
+          expect(DashboardElementInnerContainer).toHaveStyleRule("background-repeat", "space");
+        });
+
         test("should not have if shouldDisplayCorners is false", () => {
           const { DashboardElementInnerContainer } = setup({
             shouldDisplayCorners: false
+          });
+    
+          expect(DashboardElementInnerContainer).not.toHaveStyleRule("background-repeat");
+        });
+
+        test("should not have if shouldDisplayBorder is false", () => {
+          const { DashboardElementInnerContainer } = setup({
+            shouldDisplayBorder: false
           });
     
           expect(DashboardElementInnerContainer).not.toHaveStyleRule("background-repeat");
@@ -336,9 +368,25 @@ describe("molecules / DashboardElement", () => {
           expect(DashboardElementInnerContainer).toHaveStyleRule("background-position", "center");
         });
 
+        test("should have center if shouldDisplayBorder is true", () => {
+          const { DashboardElementInnerContainer } = setup({
+            shouldDisplayBorder: true
+          });
+    
+          expect(DashboardElementInnerContainer).toHaveStyleRule("background-position", "center");
+        });
+
         test("should not have if shouldDisplayCorners is false", () => {
           const { DashboardElementInnerContainer } = setup({
             shouldDisplayCorners: false
+          });
+    
+          expect(DashboardElementInnerContainer).not.toHaveStyleRule("background-position");
+        });
+
+        test("should not have if shouldDisplayBorder is false", () => {
+          const { DashboardElementInnerContainer } = setup({
+            shouldDisplayBorder: false
           });
     
           expect(DashboardElementInnerContainer).not.toHaveStyleRule("background-position");
@@ -354,9 +402,25 @@ describe("molecules / DashboardElement", () => {
           expect(DashboardElementInnerContainer).toHaveStyleRule("background-size", "3.2rem 3.2rem");
         });
 
+        test("should have 3.2rem 3.2rem if shouldDisplayBorder is true", () => {
+          const { DashboardElementInnerContainer } = setup({
+            shouldDisplayBorder: true
+          });
+    
+          expect(DashboardElementInnerContainer).toHaveStyleRule("background-size", "3.2rem 3.2rem");
+        });
+
         test("should not have if shouldDisplayCorners is false", () => {
           const { DashboardElementInnerContainer } = setup({
             shouldDisplayCorners: false
+          });
+    
+          expect(DashboardElementInnerContainer).not.toHaveStyleRule("background-size");
+        });
+
+        test("should not have if shouldDisplayBorder is false", () => {
+          const { DashboardElementInnerContainer } = setup({
+            shouldDisplayBorder: false
           });
     
           expect(DashboardElementInnerContainer).not.toHaveStyleRule("background-size");
@@ -510,40 +574,6 @@ describe("molecules / DashboardElement", () => {
     });
   });
 
-  describe("DashboardElementDescription", () => {
-    describe("Props", () => {
-      describe("height", () => {
-        test("should have auto", () => {
-          const { DashboardElementDescription } = setup({
-            description: "Lorem ipsum dolor sit amet"
-          });
-  
-          expect(DashboardElementDescription).toHaveStyleRule("height", "auto");
-        });
-      });
-
-      describe("marginBottom", () => {
-        test("should have 2.8rem", () => {
-          const { DashboardElementDescription } = setup({
-            description: "Lorem ipsum dolor sit amet"
-          });
-
-          expect(DashboardElementDescription).toHaveStyleRule("margin-bottom", "2.8rem");
-        });
-      });
-
-      describe("width", () => {
-        test("should have auto", () => {
-          const { DashboardElementDescription } = setup({
-            description: "Lorem ipsum dolor sit amet"
-          });
-
-          expect(DashboardElementDescription).toHaveStyleRule("width", "auto");
-        });
-      });
-    });
-  });
-
   describe("Texts", () => {
     describe("DashboardElementTitleText", () => { 
       test("should render textContent equal to title prop", () => {
@@ -613,6 +643,14 @@ describe("molecules / DashboardElement", () => {
     
             expect(DashboardElementTitleText).toHaveStyleRule("font-size", "16px");
           });
+
+          test("should have 28px when passed via titleFontSize prop", () => {
+            const { DashboardElementTitleText } = setup({
+              titleFontSize: "font28"
+            });
+    
+            expect(DashboardElementTitleText).toHaveStyleRule("font-size", "28px");
+          });
         });
   
         describe("lineHeight", () => {
@@ -623,7 +661,7 @@ describe("molecules / DashboardElement", () => {
           });
         });
   
-        describe("DashboardElementTitleTextTransform", () => {
+        describe("textTransform", () => {
           test("should have uppercase", () => {
             const { DashboardElementTitleText } = setup();
     
