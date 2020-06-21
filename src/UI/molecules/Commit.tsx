@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import Text from "<atoms>/Text";
-import Link from "<atoms>/Link";
+import Link from "<molecules>/Link";
 import FlexContainer from "<layout>/FlexContainer";
 import SpacingContainer from "<layout>/SpacingContainer";
 import FlexItem from "<layout>/FlexItem";

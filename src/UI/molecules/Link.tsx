@@ -1,14 +1,21 @@
-import React from "react";
+import React, { Fragment } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import { LinkProps } from "<atoms>/__typings__/Link.d.ts";
+import Line from "<atoms>/Line";
+
+import PositionContainer from "<layout>/PositionContainer";
+
+import {
+  LinkProps
+} from "<molecules>/__typings__/Link.d.ts";
 
 const Link = ({
   children,
   display = "inline",
   height = "unset",
   href,
-  isExternal = false
+  isExternal = false,
+  isHoverable = false
 }: LinkProps): JSX.Element => (
   <Link.Container
     data-testid="Link"
@@ -17,7 +24,22 @@ const Link = ({
     href={href}
     target={isExternal ? "_blank" : "_self"}
   >
-    {children}
+    <Fragment>
+      {children}
+
+      {isHoverable && (
+        <PositionContainer 
+          position="relative"
+        >
+          <Line
+            direction="left" 
+          />
+          <Line
+            direction="right" 
+          />
+        </PositionContainer>
+      )}
+    </Fragment>
   </Link.Container>
 );
 
@@ -32,6 +54,12 @@ Link.Container = styled.a<LinkProps>`
     display: ${display};
     height: ${(height in spacing && spacing[height]) || height};
     line-height: 1;
+
+    &:hover .line {
+      opacity: 1;
+      visibility: visible;
+      width: 50%;
+    }
   `}
 `;
   
