@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import PropTypes from "prop-types";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import isEmpty from "lodash/isEmpty";
 import max from "lodash/max";
@@ -63,5 +64,9 @@ FpsChartLabels.Label = styled.div<FpsChartLabelProps>`
     transform: ${transform};
   `}
 `;
+
+FpsChartLabels.propTypes = {
+  labels: PropTypes.arrayOf(PropTypes.number).isRequired
+};
 
 export default FpsChartLabels;

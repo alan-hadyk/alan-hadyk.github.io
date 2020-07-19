@@ -21,7 +21,6 @@ jest.mock("<state>/withCommitsState", () => (WrappedComponent: React.FunctionCom
           date: "2020-03-10T22:34:52Z"
         }
       },
-      // eslint-disable-next-line @typescript-eslint/camelcase
       html_url: "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2964",
       sha: "4380d5d391eee216e651d34700a331ec501c2964"
     },
@@ -31,7 +30,6 @@ jest.mock("<state>/withCommitsState", () => (WrappedComponent: React.FunctionCom
           date: "2020-03-11T22:34:52Z"
         }
       },
-      // eslint-disable-next-line @typescript-eslint/camelcase
       html_url: "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2969",
       sha: "4380d5d391eee216e651d34700a331ec501c2969"
     }
