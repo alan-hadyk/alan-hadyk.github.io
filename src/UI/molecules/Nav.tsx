@@ -3,11 +3,19 @@ import React, { memo, useState } from "react";
 import NavItem from "<molecules>/NavItem";
 import FlexContainer from "<layout>/FlexContainer";
 
+import {	
+  FlexContainerProps	
+} from "<layout>/__typings__/FlexContainer.d.ts";
+
 import useIntersectionObserver from "<hooks>/useIntersectionObserver";
 
 import {
   NavItemProps
 } from "<molecules>/__typings__/NavItem.d.ts";
+
+import {
+  NavProps
+} from "<molecules>/__typings__/Nav.d.ts";
 
 const navItems: NavItemProps[] = [{
   href: "#portfolio",
@@ -26,8 +34,12 @@ const navItems: NavItemProps[] = [{
   title: "Contact"
 }];
 
-function Nav(): JSX.Element {
+function Nav({
+  position = "horizontal"
+}: NavProps): JSX.Element {
   const [activeNavItem, setActiveNavItem] = useState<NavItemProps["href"]>();
+
+  const flexFlow: FlexContainerProps["flexFlow"] = position === "horizontal" ? "row nowrap" : "column nowrap";
 
   useIntersectionObserver({
     onElementVisible: (element: string): void => setActiveNavItem(element),
@@ -36,9 +48,10 @@ function Nav(): JSX.Element {
 
   return (
     <FlexContainer
+      alignItems={position === "horizontal" ? "center" : "flex-end"}
       dataTestId="Nav"
-      flexFlow="row nowrap"
-      gap="spacing24"
+      flexFlow={flexFlow}
+      gap={position === "horizontal" ? "spacing24" : "spacing12"}
       justifyContent="center"
     >
       {renderNavItems()}

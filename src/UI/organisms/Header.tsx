@@ -1,20 +1,25 @@
-import React, { memo, Fragment } from "react";
+import React, { memo, useState } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize } from "polished";
 
 import LinkWithIcon from "<molecules>/LinkWithIcon";
 import Nav from "<molecules>/Nav";
 import Button from "<molecules>/Button";
+import ButtonWithIcon from "<molecules>/ButtonWithIcon";
+import SideMenu from "<molecules>/SideMenu";
+import MenuIcons from "<molecules>/MenuIcons";
+
 import PositionContainer from "<layout>/PositionContainer";
 import FlexContainer from "<layout>/FlexContainer";
+import Responsive from "<layout>/Responsive";
 
 import { HeaderProps } from "<organisms>/__typings__/Header.d.ts";
-
-import { LinkWithIconProps } from "<molecules>/__typings__/LinkWithIcon.d.ts";
 
 function Header({
   zIndex = "layer1"
 }: HeaderProps): JSX.Element {
+  const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false);
+
   return (
     <PositionContainer
       left="spacing0"
@@ -43,67 +48,74 @@ function Header({
         >
           <LinkWithIcon
             href={window.location.href}
-            iconName="logo"
             height="spacing48"
+            iconName="logo"
             width="spacing248"
           />
 
-          <FlexContainer
-            flexFlow="row nowrap"
-            height="spacing48"
-            gap="spacing48"
-            justifyContent="flex-start"
+          <Responsive
+            device="desktop"
           >
-            <Nav />
-
             <FlexContainer
               flexFlow="row nowrap"
               height="spacing48"
-              gap="spacing24"
+              gap="spacing48"
               justifyContent="flex-start"
             >
+              <Nav />
+
               <Button
                 buttonText="resume"
                 iconName="btnDownload"
                 size="medium"
               />
 
-              {renderIcons()}
+              <MenuIcons />
             </FlexContainer>
-          </FlexContainer>
+          </Responsive>
+
+          <Responsive
+            device="tablet"
+          >
+            <FlexContainer
+              flexFlow="row nowrap"
+              height="spacing48"
+              gap="spacing48"
+              justifyContent="flex-start"
+            >
+              <Nav />
+
+              <ButtonWithIcon
+                onClick={handleMenuButtonClick}
+              />
+
+              <SideMenu
+                device="tablet"
+                isExpanded={isMenuVisible}
+              />
+            </FlexContainer>
+          </Responsive>
+
+          <Responsive
+            device="mobile"
+          >
+            <ButtonWithIcon
+              onClick={handleMenuButtonClick}
+            />
+
+            <SideMenu
+              device="mobile"
+              isExpanded={isMenuVisible}
+            />
+          </Responsive>
+            
         </FlexContainer>
       </Header.InnerContainer>
     );
   }
 
-  function renderIcons(): JSX.Element {
-    const icons: LinkWithIconProps[] = [{
-      height: "spacing48",
-      href: "https://github.com/alan-hadyk",
-      iconName: "gitHub"
-    }, {
-      height: "spacing48",
-      href: "https://codesandbox.io/u/alan-hadyk",
-      iconName: "codeSandbox"
-    }, {
-      height: "spacing48",
-      href: "https://www.linkedin.com/in/alan-hadyk-78738099/",
-      iconName: "linkedIn"
-    }];
-
-    return (
-      <Fragment>
-        {icons.map(({ height, href, iconName }: LinkWithIconProps) => (
-          <LinkWithIcon
-            key={iconName}
-            height={height}
-            href={href}
-            iconName={iconName}
-            isExternal
-          />
-        ))}
-      </Fragment>
-    );
+  function handleMenuButtonClick(): void {
+    setIsMenuVisible(!isMenuVisible);
   }
 }
 
