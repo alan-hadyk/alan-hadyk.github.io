@@ -1,4 +1,5 @@
 import React, { memo, Fragment } from "react";
+import PropTypes from "prop-types";
 import isEmpty from "lodash/isEmpty";
 import isEqual from "lodash/isEqual";
 
@@ -33,7 +34,6 @@ function ListOfCommits({ commitsList, hasError }: ListOfCommitsProps): JSX.Eleme
         <Fragment>
           {!isEmpty(commitsList) && commitsList.map(({
             commit,
-            // eslint-disable-next-line @typescript-eslint/camelcase
             html_url,
             sha
           }: CommitProps, index: number): JSX.Element => {
@@ -45,7 +45,6 @@ function ListOfCommits({ commitsList, hasError }: ListOfCommitsProps): JSX.Eleme
               <Commit
                 date={date}
                 delay={delay}
-                // eslint-disable-next-line @typescript-eslint/camelcase
                 htmlUrl={html_url}
                 key={sha}
                 sha={sha}
@@ -57,6 +56,21 @@ function ListOfCommits({ commitsList, hasError }: ListOfCommitsProps): JSX.Eleme
     );
   }
 }
+
+ListOfCommits.propTypes = {
+  commitsList: PropTypes.arrayOf(
+    PropTypes.shape({
+      commit: PropTypes.shape({
+        author: PropTypes.shape({
+          date: PropTypes.string
+        })
+      }),
+      html_url: PropTypes.string,
+      sha: PropTypes.string
+    })
+  ).isRequired,
+  hasError: PropTypes.bool.isRequired
+};
 
 const arePropsEqual = (prevProps: ListOfCommitsProps, nextProps: ListOfCommitsProps): boolean =>
   isEqual(prevProps.commitsList, nextProps.commitsList) && prevProps.hasError === nextProps.hasError;

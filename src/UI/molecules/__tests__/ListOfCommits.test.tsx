@@ -76,7 +76,6 @@ describe("molecules / ListOfCommits", () => {
               date: "2020-03-15T14:58:16Z"
             }
           },
-          // eslint-disable-next-line @typescript-eslint/camelcase
           html_url: "https://github.com/alan-hadyk/portfolio/commit/6f05bb91f454878edcb0f0e30e39501d39b46e4f",
           sha: "6f05bb91f454878edcb0f0e30e39501d39b46e4f"
         },
@@ -86,7 +85,6 @@ describe("molecules / ListOfCommits", () => {
               date: "2020-03-14T16:05:26Z"
             }
           },
-          // eslint-disable-next-line @typescript-eslint/camelcase
           html_url: "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c5",
           sha: "b18b6616d0da725d49decc1b1f63c3322ca9c3c5"
         }
@@ -105,7 +103,6 @@ describe("molecules / ListOfCommits", () => {
               date: "2020-03-15T14:58:16Z"
             }
           },
-          // eslint-disable-next-line @typescript-eslint/camelcase
           html_url: "https://github.com/alan-hadyk/portfolio/commit/6f05bb91f454878edcb0f0e30e39501d39b46e4f",
           sha: "6f05bb91f454878edcb0f0e30e39501d39b46e4f"
         },
@@ -115,7 +112,6 @@ describe("molecules / ListOfCommits", () => {
               date: "2020-03-14T16:05:26Z"
             }
           },
-          // eslint-disable-next-line @typescript-eslint/camelcase
           html_url: "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c5",
           sha: "b18b6616d0da725d49decc1b1f63c3322ca9c3c5"
         },
@@ -125,7 +121,6 @@ describe("molecules / ListOfCommits", () => {
               date: "2020-03-14T16:05:26Z"
             }
           },
-          // eslint-disable-next-line @typescript-eslint/camelcase
           html_url: "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c7",
           sha: "b18b6616d0da725d49decc1b1f63c3322ca9c3c7"
         },
@@ -135,7 +130,6 @@ describe("molecules / ListOfCommits", () => {
               date: "2020-03-14T16:05:26Z"
             }
           },
-          // eslint-disable-next-line @typescript-eslint/camelcase
           html_url: "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c2",
           sha: "b18b6616d0da725d49decc1b1f63c3322ca9c3c2"
         }
@@ -158,7 +152,6 @@ describe("molecules / ListOfCommits", () => {
                 date: "2020-03-15T14:58:16Z"
               }
             },
-            // eslint-disable-next-line @typescript-eslint/camelcase
             html_url: "https://github.com/alan-hadyk/portfolio/commit/6f05bb91f454878edcb0f0e30e39501d39b46e4f",
             sha: "6f05bb91f454878edcb0f0e30e39501d39b46e4f"
           },
@@ -168,7 +161,6 @@ describe("molecules / ListOfCommits", () => {
                 date: "2020-03-14T16:05:26Z"
               }
             },
-            // eslint-disable-next-line @typescript-eslint/camelcase
             html_url: "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c5",
             sha: "b18b6616d0da725d49decc1b1f63c3322ca9c3c5"
           }
@@ -302,7 +294,6 @@ function setup(additionalProps?: ListOfCommitsTestProps): Setup {
             date: "2020-03-10T22:34:52Z"
           }
         },
-        // eslint-disable-next-line @typescript-eslint/camelcase
         html_url: "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2964",
         sha: "4380d5d391eee216e651d34700a331ec501c2964"
       },
@@ -312,7 +303,6 @@ function setup(additionalProps?: ListOfCommitsTestProps): Setup {
             date: "2020-03-11T22:34:52Z"
           }
         },
-        // eslint-disable-next-line @typescript-eslint/camelcase
         html_url: "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2969",
         sha: "4380d5d391eee216e651d34700a331ec501c2969"
       }
