@@ -4,4 +4,4 @@ export interface ButtonWithIconProps {
 
 export interface ButtonWithIconLineProps {
   isOpen: boolean;
-};
+}
