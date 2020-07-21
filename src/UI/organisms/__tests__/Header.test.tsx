@@ -474,7 +474,7 @@ function setup(additionalProps?: HeaderTestProps): Setup {
   const CodeSandbox = queryAllByTestId("mockLinkWithIcon")[2];
   const LinkedIn = queryAllByTestId("mockLinkWithIcon")[3];
   const PositionContainer = queryAllByTestId("PositionContainer")[0];
-  const Nav = queryByTestId("Nav");
+  const Nav = queryAllByTestId("Nav")[0];
   const Button = document.querySelector("button");
 
   return {

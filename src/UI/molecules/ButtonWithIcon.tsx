@@ -14,13 +14,14 @@ const ButtonWithIcon = ({
 
   return (
     <ButtonWithIcon.Container
+      data-testid="ButtonWithIconContainer"
       onClick={handleButtonClick}
       ref={buttonWithIconContainerRef}
     >
-      <ButtonWithIcon.Line isOpen={isOpen} />
-      <ButtonWithIcon.Line isOpen={isOpen} />
-      <ButtonWithIcon.Line isOpen={isOpen} />
-      <ButtonWithIcon.Line isOpen={isOpen} />
+      <ButtonWithIcon.Line data-testid="ButtonWithIconLine" isOpen={isOpen} />
+      <ButtonWithIcon.Line data-testid="ButtonWithIconLine" isOpen={isOpen} />
+      <ButtonWithIcon.Line data-testid="ButtonWithIconLine" isOpen={isOpen} />
+      <ButtonWithIcon.Line data-testid="ButtonWithIconLine" isOpen={isOpen} />
     </ButtonWithIcon.Container>
   );
 
@@ -54,7 +55,7 @@ ButtonWithIcon.Container = styled.button`
     height: ${spacing30};
     position: relative;
     transform: rotate(0deg);
-    transition: ${fast} ${easeInOut};
+    transition: all ${fast} ${easeInOut};
     width: ${spacing48};
     z-index: ${layer11};
   `}
@@ -75,6 +76,9 @@ ButtonWithIcon.Line = styled.span<ButtonWithIconLineProps>`
         spacing2,
         spacing14,
         spacing28
+      },
+      transitionTimes: {
+        fast
       }
     }
   }): FlattenSimpleInterpolation => css`
@@ -82,7 +86,7 @@ ButtonWithIcon.Line = styled.span<ButtonWithIconLineProps>`
     height: ${spacing2};
     left: ${spacing0};
     position: absolute;
-    transition: .25s ${easeInOut};
+    transition: all ${fast} ${easeInOut};
     width: 100%;
 
     &:nth-child(1) {

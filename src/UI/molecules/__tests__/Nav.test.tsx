@@ -160,9 +160,9 @@ function setup(additionalProps?: NavTestProps): Setup {
     <Nav {...props} />
   );
 
-  const { queryByTestId }: RenderResult = utils;
+  const { queryAllByTestId }: RenderResult = utils;
 
-  const FlexContainer: Element = queryByTestId("Nav");
+  const FlexContainer: Element = queryAllByTestId("Nav")[0];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const NavItems: NodeListOf<HTMLAnchorElement> = document.querySelectorAll("a");
 
