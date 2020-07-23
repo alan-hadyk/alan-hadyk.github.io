@@ -6,13 +6,15 @@ import Icon from "<atoms>/Icon";
 import { LinkWithIconProps } from "<molecules>/__typings__/LinkWithIcon.d.ts";
 
 const LinkWithIcon = ({
+  dataTestId,
   height = "spacing48",
   href,
   iconName,
   isExternal = false,
   width = "auto"
 }: LinkWithIconProps): JSX.Element => (
-  <Link 
+  <Link
+    dataTestId={dataTestId || "LinkWithIcon"}
     display="block"
     height={height}
     href={href}

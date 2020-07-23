@@ -22,15 +22,18 @@ const SideMenu = ({
     isExpanded={isExpanded}
   >
     <SpacingContainer
+      dataTestId="SideMenuOuterSpacingContainer"
       paddingTop="spacing96"
     >
       {device === "mobile" && (
         <FlexContainer
+          dataTestId="SideMenuMobileFlexContainer"
           flexFlow="row wrap"
           height="100%"
           justifyContent="center"
         >
           <SpacingContainer
+            dataTestId="SideMenuMobileSpacingContainer"
             marginBottom="spacing24"
           >
             <Nav position="vertical" />
@@ -39,6 +42,7 @@ const SideMenu = ({
       )}
 
       <FlexContainer
+        dataTestId="SideMenuOuterFlexContainer"
         flexFlow="column nowrap"
         justifyContent="center"
       >
@@ -49,9 +53,11 @@ const SideMenu = ({
         />
 
         <SpacingContainer
+          dataTestId="SideMenuInnerSpacingContainer"
           paddingTop="spacing24"
         >
           <FlexContainer
+            dataTestId="SideMenuInnerFlexContainer"
             flexFlow="row nowrap"
             gap="spacing24"
           >

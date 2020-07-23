@@ -3,8 +3,8 @@ import {
   act,
   cleanup,
   fireEvent, 
-  RenderResult, 
-  render } from "@testing-library/react";
+  RenderResult
+} from "@testing-library/react";
 
 import ButtonWithIcon from "<molecules>/ButtonWithIcon";
 
@@ -15,10 +15,21 @@ import {
 } from "<molecules>/__typings__/ButtonWithIcon.d.ts";
 
 describe("molecules / ButtonWithIcon", () => {
+  test("should have correct structure", () => {
+    const {
+      ButtonWithIconContainer,
+      ButtonWithIconLines
+    } = setup();
+
+    expect(ButtonWithIconContainer.children[0]).toEqual(ButtonWithIconLines[0]);
+    expect(ButtonWithIconContainer.children[1]).toEqual(ButtonWithIconLines[1]);
+    expect(ButtonWithIconContainer.children[2]).toEqual(ButtonWithIconLines[2]);
+    expect(ButtonWithIconContainer.children[3]).toEqual(ButtonWithIconLines[3]);
+  });
+
   describe("ButtonWithIconContainer", () => {
     test("captures clicks", () => {
       const onClick = jest.fn();
-      // window.HTMLElement.prototype.ButtonClick = mockButtonClick;
 
       const { ButtonWithIconContainer } = setup({
         onClick

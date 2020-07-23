@@ -3,15 +3,13 @@ import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize } from "polished";
 
 import LinkWithIcon from "<molecules>/LinkWithIcon";
-import Nav from "<molecules>/Nav";
-import Button from "<molecules>/Button";
-import ButtonWithIcon from "<molecules>/ButtonWithIcon";
-import SideMenu from "<molecules>/SideMenu";
-import MenuIcons from "<molecules>/MenuIcons";
+
+import HeaderDesktop from "<organisms>/Header/HeaderDesktop";
+import HeaderTablet from "<organisms>/Header/HeaderTablet";
+import HeaderMobile from "<organisms>/Header/HeaderMobile";
 
 import PositionContainer from "<layout>/PositionContainer";
 import FlexContainer from "<layout>/FlexContainer";
-import Responsive from "<layout>/Responsive";
 
 import { HeaderProps } from "<organisms>/__typings__/Header.d.ts";
 
@@ -28,8 +26,9 @@ function Header({
       top="spacing0"
       zIndex={zIndex}
     >
-      <Header.Container>
+      <Header.Container data-testid="HeaderContainer">
         <FlexContainer
+          dataTestId="HeaderOuterFlexContainer"
           flexFlow="row nowrap"
         >
           {renderHeaderInnerContainer()}
@@ -42,6 +41,7 @@ function Header({
     return (
       <Header.InnerContainer data-testid="HeaderInnerContainer">
         <FlexContainer
+          dataTestId="HeaderInnerFlexContainer"
           flexFlow="row nowrap"
           height="spacing48"
           justifyContent="space-between"
@@ -53,61 +53,17 @@ function Header({
             width="spacing248"
           />
 
-          <Responsive
-            device="desktop"
-          >
-            <FlexContainer
-              flexFlow="row nowrap"
-              height="spacing48"
-              gap="spacing48"
-              justifyContent="flex-start"
-            >
-              <Nav />
+          <HeaderDesktop />
 
-              <Button
-                buttonText="resume"
-                iconName="btnDownload"
-                size="medium"
-              />
+          <HeaderTablet
+            isMenuVisible={isMenuVisible}
+            onClick={handleMenuButtonClick}
+          />
 
-              <MenuIcons />
-            </FlexContainer>
-          </Responsive>
-
-          <Responsive
-            device="tablet"
-          >
-            <FlexContainer
-              flexFlow="row nowrap"
-              height="spacing48"
-              gap="spacing48"
-              justifyContent="flex-start"
-            >
-              <Nav />
-
-              <ButtonWithIcon
-                onClick={handleMenuButtonClick}
-              />
-
-              <SideMenu
-                device="tablet"
-                isExpanded={isMenuVisible}
-              />
-            </FlexContainer>
-          </Responsive>
-
-          <Responsive
-            device="mobile"
-          >
-            <ButtonWithIcon
-              onClick={handleMenuButtonClick}
-            />
-
-            <SideMenu
-              device="mobile"
-              isExpanded={isMenuVisible}
-            />
-          </Responsive>
+          <HeaderMobile
+            isMenuVisible={isMenuVisible}
+            onClick={handleMenuButtonClick}
+          />
             
         </FlexContainer>
       </Header.InnerContainer>
