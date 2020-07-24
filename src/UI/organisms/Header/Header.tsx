@@ -11,7 +11,7 @@ import HeaderMobile from "<organisms>/Header/HeaderMobile";
 import PositionContainer from "<layout>/PositionContainer";
 import FlexContainer from "<layout>/FlexContainer";
 
-import { HeaderProps } from "<organisms>/__typings__/Header.d.ts";
+import { HeaderProps } from "<organisms>/__typings__/Header/Header.d.ts";
 
 function Header({
   zIndex = "layer1"
