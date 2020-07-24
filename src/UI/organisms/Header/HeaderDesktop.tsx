@@ -12,6 +12,7 @@ const HeaderDesktop = (): JSX.Element => (
     device="desktop"
   >
     <FlexContainer
+      dataTestId="HeaderDesktopFlexContainer"
       flexFlow="row nowrap"
       height="spacing48"
       gap="spacing48"

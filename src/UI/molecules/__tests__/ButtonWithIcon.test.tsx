@@ -28,7 +28,7 @@ describe("molecules / ButtonWithIcon", () => {
   });
 
   describe("ButtonWithIconContainer", () => {
-    test("captures clicks", () => {
+    test("should fire click", () => {
       const onClick = jest.fn();
 
       const { ButtonWithIconContainer } = setup({
@@ -44,8 +44,6 @@ describe("molecules / ButtonWithIcon", () => {
       expect(onClick).toHaveBeenCalledTimes(1);
     });
 
-    afterEach(cleanup);
-    
     describe("Styles", () => {
       let ButtonWithIconContainer: Element;
 

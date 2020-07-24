@@ -17,9 +17,10 @@ const HeaderTablet = ({
     device="tablet"
   >
     <FlexContainer
+      dataTestId="HeaderTabletFlexContainer"
       flexFlow="row nowrap"
-      height="spacing48"
       gap="spacing48"
+      height="spacing48"
       justifyContent="flex-start"
     >
       <Nav />

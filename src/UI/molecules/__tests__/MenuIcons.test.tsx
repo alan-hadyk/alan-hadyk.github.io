@@ -10,10 +10,10 @@ describe("molecules / MenuIcons", () => {
     const {
       IconContainers,
       Icons,
-      LinkWithIcons
+      MenuIconsContainer
     } = setup();
 
-    LinkWithIcons.forEach((LinkWithIcon, index) => {
+    MenuIconsContainer.forEach((MenuIcon, index) => {
       expect(IconContainers[index].children[0]).toEqual(Icons[index]);
     });
   });
@@ -23,19 +23,19 @@ describe("molecules / MenuIcons", () => {
       describe("Props", () => {
         describe("href", () => { 
           test("should have correct href", () => {
-            const { LinkWithIcons } = setup();
+            const { MenuIconsContainer } = setup();
   
-            expect(LinkWithIcons[0].getAttribute("href")).toEqual("https://github.com/alan-hadyk");
-            expect(LinkWithIcons[1].getAttribute("href")).toEqual("https://codesandbox.io/u/alan-hadyk");
-            expect(LinkWithIcons[2].getAttribute("href")).toEqual("https://www.linkedin.com/in/alan-hadyk-78738099/");
+            expect(MenuIconsContainer[0].getAttribute("href")).toEqual("https://github.com/alan-hadyk");
+            expect(MenuIconsContainer[1].getAttribute("href")).toEqual("https://codesandbox.io/u/alan-hadyk");
+            expect(MenuIconsContainer[2].getAttribute("href")).toEqual("https://www.linkedin.com/in/alan-hadyk-78738099/");
           });
         });
 
         describe("isExternal", () => { 
           test("should have isExternal set to true", () => {
-            const { LinkWithIcons } = setup();
+            const { MenuIconsContainer } = setup();
 
-            LinkWithIcons.forEach(LinkWithIcon => {
+            MenuIconsContainer.forEach(LinkWithIcon => {
               expect(LinkWithIcon.getAttribute("target")).toEqual("_blank");
             });
           });
@@ -76,7 +76,7 @@ describe("molecules / MenuIcons", () => {
 interface Setup extends RenderResult {
   IconContainers: Element[];
   Icons: NodeListOf<SVGSVGElement>;
-  LinkWithIcons: Element[];
+  MenuIconsContainer: Element[];
 }
 
 function setup(): Setup {
@@ -90,12 +90,12 @@ function setup(): Setup {
 
   const IconContainers: Element[] = queryAllByTestId("IconContainer");
   const Icons: NodeListOf<SVGSVGElement> = document.querySelectorAll("svg");
-  const LinkWithIcons = queryAllByTestId("LinkWithIcon");
+  const MenuIconsContainer = queryAllByTestId("MenuIcons");
 
   return {
     ...utils,
     IconContainers,
     Icons,
-    LinkWithIcons
+    MenuIconsContainer
   };
 }
