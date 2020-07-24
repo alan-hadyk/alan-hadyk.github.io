@@ -9,7 +9,7 @@ import HeaderTablet from "<organisms>/Header/HeaderTablet";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import { HeaderMobileProps }  from "<organisms>/__typings__/HeaderMobile.d.ts";
+import { HeaderMobileProps }  from "<organisms>/__typings__/Header/HeaderMobile.d.ts";
 
 jest.mock("<hooks>/useIntersectionObserver");
 
