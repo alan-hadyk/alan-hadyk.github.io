@@ -17,6 +17,7 @@ function DashboardElement({
   alignSelf = "auto",
   children,
   description,
+  device,
   dataTestId,
   flex,
   overflow = "hidden",
@@ -30,7 +31,7 @@ function DashboardElement({
   const [childrenHeight, setChildrenHeight] = useState<string>(null);
 
   const calcChildrenHeight = useCallback((): string => {
-    if (descriptionRef.current) {
+    if (descriptionRef.current && device === "desktop") {
       const { height }: DOMRect = descriptionRef.current.getBoundingClientRect();
       return `calc(100% - ${spacing.spacing36} - ${spacing.spacing28} - ${height}px)`;
     } else {

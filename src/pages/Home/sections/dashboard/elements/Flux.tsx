@@ -3,15 +3,25 @@ import React from "react";
 import DashboardElement from "<molecules>/DashboardElement";
 import FlowChart from "<molecules>/FlowChart";
 
-const Flux = (): JSX.Element => (
-  <DashboardElement
-    dataTestId="Flux"
-    flex="0 1 30%"
-    shouldDisplayCorners
-    title="Flux" 
-  >
-    <FlowChart />
-  </DashboardElement>
-);
+import {
+  DashboardSectionProps
+} from "<pages>/Home/sections/dashboard/__typings__/DashboardSection/DashboardSection.d.ts";
+
+const Flux = ({
+  device
+}: DashboardSectionProps): JSX.Element => {
+  const flex = device === "desktop" ? "0 1 30%" : "0 1 50%";
+
+  return (
+    <DashboardElement
+      dataTestId="Flux"
+      flex={flex}
+      shouldDisplayCorners
+      title="Flux" 
+    >
+      <FlowChart />
+    </DashboardElement>
+  );
+};
   
 export default Flux;

@@ -9,15 +9,19 @@ import {
   ListOfCommitsProps
 } from "<molecules>/__typings__/ListOfCommits.d.ts";
 
-export const Commits = ({ commitsList, hasError }: ListOfCommitsProps): JSX.Element => (
-  <DashboardElement
-    dataTestId="Commits"
-    flex="0 1 15.73%"
-    shouldDisplayCorners={hasError}
-    title="Commits"
-  >
-    <ListOfCommits commitsList={commitsList} hasError={hasError} />
-  </DashboardElement>
-);
+export const Commits = ({ commitsList, device, hasError }: ListOfCommitsProps): JSX.Element => {
+  const flex = device === "desktop" ? "0 1 15.73%" : "0 1 25%";
+
+  return (
+    <DashboardElement
+      dataTestId="Commits"
+      flex={flex}
+      shouldDisplayCorners={hasError}
+      title="Commits"
+    >
+      <ListOfCommits commitsList={commitsList} hasError={hasError} />
+    </DashboardElement>
+  );
+};
 
 export default withCommitsState(memo(Commits));

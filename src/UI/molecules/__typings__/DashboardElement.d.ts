@@ -5,6 +5,7 @@ import {
 export interface DashboardElementProps extends FlexItemProps {
   dataTestId?: string;
   description?: string;
+  device?: "desktop" | "tablet"; 
   overflow?: "visible" | "hidden";
   shouldDisplayBorder?: boolean;
   shouldDisplayCorners?: boolean;

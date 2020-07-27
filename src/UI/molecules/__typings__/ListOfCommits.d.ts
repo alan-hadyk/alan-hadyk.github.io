@@ -1,6 +1,7 @@
 
 export interface ListOfCommitsProps {
   commitsList: CommitProps[];
+  device?: "desktop" | "tablet";
   hasError: boolean;
 }
 
