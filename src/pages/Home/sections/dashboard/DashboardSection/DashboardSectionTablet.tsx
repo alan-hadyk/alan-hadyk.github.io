@@ -1,6 +1,7 @@
 import React, { memo } from "react";
 
 import DashboardSectionInnerContainer from "<pages>/Home/sections/dashboard/DashboardSection/DashboardSectionInnerContainer";
+import DashboardSectionOuterContainer from "<pages>/Home/sections/dashboard/DashboardSection/DashboardSectionOuterContainer";
 
 import TechStack from "<pages>/Home/sections/dashboard/elements/TechStack";
 import Flux from "<pages>/Home/sections/dashboard/elements/Flux";
@@ -11,35 +12,20 @@ import PoweredBy from "<pages>/Home/sections/dashboard/elements/PoweredBy";
 
 import Console from "<molecules>/Console";
 
-import FlexContainer from "<layout>/FlexContainer";
 import Responsive from "<layout>/Responsive";
-import PositionContainer from "<layout>/PositionContainer";
 
 import spacing from "<styles>/variables/spacing";
 
 function DashboardSectionTablet(): JSX.Element {
   return (
     <Responsive device="tablet">
-      <PositionContainer
-        dataTestId="DashboardSectionPositionContainer"
-        height="100%"
-        position="relative"
-      >
-        <FlexContainer
-          alignItems="center"
-          dataTestId="DashboardSectionFlexContainer"
-          flexFlow="column nowrap"
-          height="100%"
-          justifyContent="space-between"
-        >
+      <DashboardSectionOuterContainer>
+        {renderTopTabletRow()}
 
-          {renderTopTabletRow()}
+        <Console />
 
-          <Console />
-
-          {renderBottomTabletRow()}
-        </FlexContainer>
-      </PositionContainer>
+        {renderBottomTabletRow()}
+      </DashboardSectionOuterContainer>
     </Responsive>
   );
 

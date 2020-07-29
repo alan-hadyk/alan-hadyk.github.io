@@ -7,24 +7,21 @@ import Section from "<molecules>/Section";
 
 import SpacingContainer from "<layout>/SpacingContainer";
 
-function DashboardSection(): JSX.Element {
-  return (
-    <Section
-      id="dashboard"
-      minHeight="100vh"
+const DashboardSection = (): JSX.Element => (
+  <Section
+    id="dashboard"
+    minHeight="100vh"
+  >
+    <SpacingContainer
+      dataTestId="DashboardSectionSpacingContainer"
+      height="100vh"
+      paddingTop="spacing96"
     >
-      <SpacingContainer
-        dataTestId="DashboardSectionSpacingContainer"
-        height="100vh"
-        paddingTop="spacing96"
-      >
+      <DashboardSectionDesktop />
 
-        <DashboardSectionDesktop />
-
-        <DashboardSectionTablet />
-      </SpacingContainer>
-    </Section>
-  );
-}
+      <DashboardSectionTablet />
+    </SpacingContainer>
+  </Section>
+);
 
 export default memo(DashboardSection);

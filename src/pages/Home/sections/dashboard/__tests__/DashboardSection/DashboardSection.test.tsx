@@ -1,7 +1,7 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import DashboardSection from "<pages>/Home/sections/dashboard/DashboardSection";
+import DashboardSection from "<pages>/Home/sections/dashboard/DashboardSection/DashboardSection";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
@@ -49,7 +49,7 @@ jest.mock("detect-browser", () => ({
 }));
 
 
-describe("pages / Home / sections / dashboard / DashboardSection", () => {
+describe("pages / Home / sections / dashboard / DashboardSection / DashboardSection", () => {
   test("should have correct structure", () => {
     const {
       Code,

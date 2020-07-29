@@ -37,7 +37,7 @@ function DashboardElement({
     } else {
       return `calc(100% - ${spacing.spacing36})`;
     }
-  }, []);
+  }, [device]);
 
   useLayoutEffect(() => {
     const height: string = calcChildrenHeight();
