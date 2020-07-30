@@ -15,6 +15,7 @@ const HeaderMobile = ({
     device="mobile"
   >
     <ButtonWithIcon
+      isOpen={isMenuVisible}
       onClick={onClick}
     />
 

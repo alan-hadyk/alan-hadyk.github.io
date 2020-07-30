@@ -11,12 +11,19 @@ import HeaderMobile from "<organisms>/Header/HeaderMobile";
 import PositionContainer from "<layout>/PositionContainer";
 import FlexContainer from "<layout>/FlexContainer";
 
+import useResize from "<hooks>/useResize";
+
 import { HeaderProps } from "<organisms>/__typings__/Header/Header.d.ts";
 
 function Header({
   zIndex = "layer1"
 }: HeaderProps): JSX.Element {
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false);
+
+  useResize({
+    breakpoint: "1680px",
+    callback: () => setIsMenuVisible(false)
+  })
 
   return (
     <PositionContainer

@@ -30,7 +30,7 @@ const SideMenu = ({
           dataTestId="SideMenuMobileFlexContainer"
           flexFlow="row wrap"
           height="100%"
-          justifyContent="center"
+          justifyContent="flex-end"
         >
           <SpacingContainer
             dataTestId="SideMenuMobileSpacingContainer"
@@ -50,6 +50,7 @@ const SideMenu = ({
           buttonText="resume"
           iconName="btnDownload"
           size="medium"
+          width="100%"
         />
 
         <SpacingContainer
@@ -80,6 +81,7 @@ SideMenu.Container = styled.div<SideMenuContainerProps>`
         easeInOut
       },
       spacing: {
+        spacing48,
         spacing288
       },
       transitionTimes: {
@@ -93,12 +95,13 @@ SideMenu.Container = styled.div<SideMenuContainerProps>`
     background-color: rgba(30, 34, 36, .8);
     border-left: 1px solid ${blue300};
     height: 100%;
+    padding: 0 ${spacing48};
     position: fixed;
     right: 0;
     top: 0;
     transform: ${isExpanded ? "translateX(0)" : "translateX(100%)"};
     transition: all ${fast} ${easeInOut};
-    width: ${spacing288};
+    // width: ${spacing288};
     z-index: ${layer10};
 
     * {

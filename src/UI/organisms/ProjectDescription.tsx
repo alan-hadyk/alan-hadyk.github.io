@@ -50,6 +50,7 @@ function ProjectDescription({
         buttonText="Launch project"
         iconName="btnExternalLink"
         size="large"
+        width="100%"
       />
       <SpacingContainer
         dataTestId="ButtonsSpacingContainer"
@@ -60,6 +61,7 @@ function ProjectDescription({
           iconName="btnCodeSandbox"
           size="large"
           type="secondary"
+          width="100%"
         />
       </SpacingContainer>
     </Fragment>

@@ -38,16 +38,13 @@ const mapTypeToButtonContainerProps: MapTypeToButtonContainerProps = {
 
 const mapSizeToButtonContainerProps: MapSizeToButtonContainerProps = {
   large: {
-    height: "spacing56",
-    width: "100%"
+    height: "spacing56"
   },
   medium: {
-    height: "spacing48",
-    width: "auto"
+    height: "spacing48"
   },
   small: {
-    height: "spacing40",
-    width: "auto"
+    height: "spacing40"
   }
 };
 
@@ -61,7 +58,8 @@ function Button({
   buttonText,
   iconName,
   size = "medium",
-  type = "primary"
+  type = "primary",
+  width = "auto"
 }: ButtonProps): JSX.Element {
   const [isActive, setIsActive] = useState<boolean>(false);
   const buttonInnerContainerRef = useRef<HTMLDivElement>(null);
@@ -77,6 +75,7 @@ function Button({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseUp={handleButtonClick}
+      width={width}
     >
       <Corners isActive={isActive} />
       <Button.InnerContainer ref={buttonInnerContainerRef} data-testid="ButtonInnerContainer">

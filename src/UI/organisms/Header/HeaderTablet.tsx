@@ -8,6 +8,7 @@ import Responsive from "<layout>/Responsive";
 import FlexContainer from "<layout>/FlexContainer";
 
 import { HeaderMobileProps } from "<organisms>/__typings__/Header/HeaderMobile.d.ts";
+import Backdrop from "<src>/UI/atoms/Backdrop";
 
 const HeaderTablet = ({
   isMenuVisible,
@@ -26,8 +27,15 @@ const HeaderTablet = ({
       <Nav />
 
       <ButtonWithIcon
+        isOpen={isMenuVisible}
         onClick={onClick}
       />
+
+      {
+        isMenuVisible && (
+          <Backdrop onClick={onClick} />
+        )
+      }
 
       <SideMenu
         device="tablet"

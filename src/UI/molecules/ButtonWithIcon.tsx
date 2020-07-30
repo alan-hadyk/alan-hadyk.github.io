@@ -7,15 +7,15 @@ import {
 } from "<molecules>/__typings__/ButtonWithIcon.d.ts";
 
 const ButtonWithIcon = ({
+  isOpen = false,
   onClick
 }: ButtonWithIconProps): JSX.Element => {
   const buttonWithIconContainerRef = useRef<HTMLButtonElement>(null);
-  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
     <ButtonWithIcon.Container
       data-testid="ButtonWithIconContainer"
-      onClick={handleButtonClick}
+      onClick={onClick}
       ref={buttonWithIconContainerRef}
     >
       <ButtonWithIcon.Line data-testid="ButtonWithIconLine" isOpen={isOpen} />
@@ -24,12 +24,6 @@ const ButtonWithIcon = ({
       <ButtonWithIcon.Line data-testid="ButtonWithIconLine" isOpen={isOpen} />
     </ButtonWithIcon.Container>
   );
-
-  function handleButtonClick(): void {
-    onClick && onClick();
-
-    setIsOpen(_isOpen => !_isOpen);
-  }
 };
 
 ButtonWithIcon.Container = styled.button`
