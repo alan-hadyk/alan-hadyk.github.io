@@ -107,7 +107,7 @@ describe("molecules / ReactLogo", () => {
     });
 
     describe("Props", () => {
-      describe("animationTime", () => {      
+      describe.skip("animationTime", () => {      
         test("should have 3600ms", () => {
           const { IconContainer } = setup();
 
@@ -145,7 +145,7 @@ describe("molecules / ReactLogo", () => {
         });
       });
 
-      describe("shouldDisplayGlowAnimation", () => {
+      describe.skip("shouldDisplayGlowAnimation", () => {
         describe("animation-delay", () => {
           test("should have 3600ms", () => {
             const { IconContainer } = setup();
@@ -187,7 +187,7 @@ describe("molecules / ReactLogo", () => {
         });
       });
 
-      describe("shouldRotate", () => {
+      describe.skip("shouldRotate", () => {
         describe("animation-duration", () => {
           test("should have 3600ms", () => {
             const { IconContainer } = setup();
