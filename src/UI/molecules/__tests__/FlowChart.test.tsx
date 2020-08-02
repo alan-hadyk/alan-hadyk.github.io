@@ -23,24 +23,24 @@ describe("molecules / FlowChart", () => {
     expect(SpacingContainer.children[0]).toEqual(FlowChartIcon);
   });
 
-  test.skip("should fire Vivus during initial render", () => {
-    const spyVivus = jest.fn();
-    const mockVivus: jest.Mock<unknown, unknown[]> = Vivus as unknown as jest.Mock;
+  // test.skip("should fire Vivus during initial render", () => {
+  //   const spyVivus = jest.fn();
+  //   const mockVivus: jest.Mock<unknown, unknown[]> = Vivus as unknown as jest.Mock;
 
-    mockVivus.mockImplementation(spyVivus);
+  //   mockVivus.mockImplementation(spyVivus);
 
-    setup();
+  //   setup();
 
-    const mockCall = spyVivus.mock.calls[0];
+  //   const mockCall = spyVivus.mock.calls[0];
 
-    expect(mockCall[0]).toEqual("flow-chart");
-    expect(mockCall[1]).toEqual({
-      delay: 150,
-      duration: 300, 
-      type: "delayed"
-    });
-    expect(typeof mockCall[2]).toEqual("function");
-  });
+  //   expect(mockCall[0]).toEqual("flow-chart");
+  //   expect(mockCall[1]).toEqual({
+  //     delay: 150,
+  //     duration: 300, 
+  //     type: "delayed"
+  //   });
+  //   expect(typeof mockCall[2]).toEqual("function");
+  // });
 
   // test.skip("should fire vivusInstance.finish() and vivusInstance.stop() if performance is low", () => {
   //   jest.useFakeTimers();
