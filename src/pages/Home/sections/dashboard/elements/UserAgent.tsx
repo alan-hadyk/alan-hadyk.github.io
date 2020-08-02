@@ -7,7 +7,7 @@ export const UserAgent = (): JSX.Element => (
   <DashboardElement
     dataTestId="UserAgent"
     description={window && window.navigator && window.navigator.userAgent}
-    flex="0 1 13.6%"
+    flex="0 1 20%"
     shouldDisplayCorners
     title="User Agent" 
   >

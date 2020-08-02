@@ -1,42 +1,43 @@
-import React, { memo, useLayoutEffect, useState, useMemo } from "react";
-import Vivus from "vivus";
+// import React, { memo, useLayoutEffect, useState, useMemo } from "react";
+import React, { memo } from "react";
+// import Vivus from "vivus";
 import styled from "styled-components";
 
 import FlexContainer from "<layout>/FlexContainer";
 import SpacingContainer from "<layout>/SpacingContainer";
 
-import useFpsCounter from "<hooks>/useFpsCounter";
+// import useFpsCounter from "<hooks>/useFpsCounter";
 
-import transitionTimes from "<styles>/variables/transitionTimes";
+// import transitionTimes from "<styles>/variables/transitionTimes";
 
 import { ReactComponent as FluxFlowChart } from "<assets>/svg/Flux-FlowChart.svg";
 
 function FlowChart(): JSX.Element {
-  const { isPerformanceLow } = useFpsCounter({}) || {};
-  const [vivusInstance, setVivusInstance] = useState<Vivus>(null);
+  // const { isPerformanceLow } = useFpsCounter({}) || {};
+  // const [vivusInstance, setVivusInstance] = useState<Vivus>(null);
 
-  useLayoutEffect((): void => {
-    const _vivusInstance: Vivus = new Vivus("flow-chart", {
-      delay: parseInt(transitionTimes.fast),
-      duration: parseInt(transitionTimes.default), 
-      type: "delayed"
-    }, (vivusCb: Vivus): Vivus => vivusCb.play(vivusCb.getStatus() === "end" ? -1 : 1));
+  // useLayoutEffect((): void => {
+  //   const _vivusInstance: Vivus = new Vivus("flow-chart", {
+  //     delay: parseInt(transitionTimes.fast),
+  //     duration: parseInt(transitionTimes.default), 
+  //     type: "delayed"
+  //   }, (vivusCb: Vivus): Vivus => vivusCb.play(vivusCb.getStatus() === "end" ? -1 : 1));
 
-    setVivusInstance(_vivusInstance);
-  }, []);
+  //   setVivusInstance(_vivusInstance);
+  // }, []);
 
-  useMemo((): void => {
-    if (!vivusInstance) {
-      return;
-    }
+  // useMemo((): void => {
+  //   if (!vivusInstance) {
+  //     return;
+  //   }
 
-    if (isPerformanceLow) {
-      vivusInstance.finish();
-      vivusInstance.stop();
-    } else {
-      vivusInstance.play(vivusInstance.getStatus() === "end" ? -1 : 1);
-    }
-  }, [isPerformanceLow, vivusInstance]);
+  //   if (isPerformanceLow) {
+  //     vivusInstance.finish();
+  //     vivusInstance.stop();
+  //   } else {
+  //     vivusInstance.play(vivusInstance.getStatus() === "end" ? -1 : 1);
+  //   }
+  // }, [isPerformanceLow, vivusInstance]);
 
   return (
     <FlexContainer 
