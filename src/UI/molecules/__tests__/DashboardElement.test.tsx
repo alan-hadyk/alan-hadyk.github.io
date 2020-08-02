@@ -194,13 +194,13 @@ describe("molecules / DashboardElement", () => {
 
     describe("Props", () => {
       describe("height", () => {
-        test("should have calc(100% - 3.6rem) if there is no description", () => {
+        test("should have 100% if there is no description", () => {
           const { PositionContainer } = setup();
   
-          expect(PositionContainer).toHaveStyleRule("height", "calc(100% - 3.6rem)");
+          expect(PositionContainer).toHaveStyleRule("height", "100%");
         });
 
-        test("should have calc(100% - 3.6rem - 2.8rem -  ${height}px) if there is description", () => {
+        test("should have 100% if there is description", () => {
           Element.prototype.getBoundingClientRect = jest.fn(() => {
             return {
               bottom: 0,
@@ -219,7 +219,7 @@ describe("molecules / DashboardElement", () => {
             description: "Lorem ipsum dolor sit amet"
           });
   
-          expect(PositionContainer).toHaveStyleRule("height", "calc(100% - 3.6rem - 2.8rem - 120px)");
+          expect(PositionContainer).toHaveStyleRule("height", "100%");
         });
       });
 

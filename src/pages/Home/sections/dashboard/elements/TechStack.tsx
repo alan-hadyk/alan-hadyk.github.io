@@ -6,7 +6,7 @@ import AnimatedIcons from "<molecules>/AnimatedIcons";
 const TechStack = (): JSX.Element => (
   <DashboardElement
     dataTestId="TechStack"
-    flex="0 1 30%"
+    flex="0 1 40%"
     shouldDisplayCorners
     title="Tech Stack" 
   >

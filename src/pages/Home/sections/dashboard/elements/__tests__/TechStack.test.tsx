@@ -26,10 +26,10 @@ describe("pages / Home / sections / dashboard / elements / TechStack", () => {
       });
 
       describe("flex", () => {
-        test("should have 0 1 30%", () => {
+        test("should have 0 1 40%", () => {
           const { DashboardElement } = setup();
       
-          expect(DashboardElement).toHaveStyleRule("flex", "0 1 30%");
+          expect(DashboardElement).toHaveStyleRule("flex", "0 1 40%");
         });
       });
 
