@@ -6,9 +6,9 @@ import DashboardSectionOuterContainer from "<pages>/Home/sections/dashboard/Dash
 import TechStack from "<pages>/Home/sections/dashboard/elements/TechStack";
 import Flux from "<pages>/Home/sections/dashboard/elements/Flux";
 import Commits from "<pages>/Home/sections/dashboard/elements/Commits";
-import Navigator from "<pages>/Home/sections/dashboard/elements/Navigator";
 import UserAgent from "<pages>/Home/sections/dashboard/elements/UserAgent";
 import PoweredBy from "<pages>/Home/sections/dashboard/elements/PoweredBy";
+import Ip from "<pages>/Home/sections/dashboard/elements/Ip";
 
 import Console from "<molecules>/Console";
 
@@ -47,8 +47,9 @@ function DashboardSectionTablet(): JSX.Element {
       >
         <Commits />
         <PoweredBy />
-        <Navigator />
+        {/* <Navigator /> */}
         <UserAgent device="tablet" />
+        <Ip />
       </DashboardSectionInnerContainer>
     );
   }

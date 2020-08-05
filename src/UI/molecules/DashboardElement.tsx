@@ -91,7 +91,7 @@ function DashboardElement({
         marginTop={titleFontSize === "font28" ? "spacing8" : "spacing0"}
       >
         <PositionContainer
-          height={childrenHeight}
+          height="100%"
           position="relative"
         >
           {shouldDisplayCorners && <Corners />}

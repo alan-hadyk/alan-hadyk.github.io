@@ -9,21 +9,17 @@ import {
 
 export const UserAgent = ({
   device
-}: DashboardSectionProps): JSX.Element => {
-  const flex = device === "desktop" ? "0 1 13.6%" : "0 1 25%";
-
-  return (
-    <DashboardElement
-      dataTestId="UserAgent"
-      description={device === "desktop" && window && window.navigator && window.navigator.userAgent}
-      device={device}
-      flex={flex}
-      shouldDisplayCorners
-      title="User Agent" 
-    >
-      <BrowserInfo />
-    </DashboardElement>
-  );
-};
+}: DashboardSectionProps): JSX.Element => (
+  <DashboardElement
+    dataTestId="UserAgent"
+    description={device === "desktop" && window && window.navigator && window.navigator.userAgent}
+    device={device}
+    flex="0 1 20%"
+    shouldDisplayCorners
+    title="User Agent" 
+  >
+    <BrowserInfo />
+  </DashboardElement>
+);
   
 export default UserAgent;

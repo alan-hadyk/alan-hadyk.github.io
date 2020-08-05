@@ -39,10 +39,10 @@ describe("pages / Home / sections / dashboard / elements / UserAgent", () => {
       });
 
       describe("flex", () => {
-        test("should have 0 1 13.6%", () => {
+        test("should have 0 1 20%", () => {
           const { DashboardElement } = setup();
       
-          expect(DashboardElement).toHaveStyleRule("flex", "0 1 13.6%");
+          expect(DashboardElement).toHaveStyleRule("flex", "0 1 20%");
         });
       });
 

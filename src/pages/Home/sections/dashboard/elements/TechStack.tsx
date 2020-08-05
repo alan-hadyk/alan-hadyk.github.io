@@ -10,7 +10,7 @@ import {
 const TechStack = ({
   device
 }: DashboardSectionProps): JSX.Element => {
-  const flex = device === "desktop" ? "0 1 30%" : "0 1 50%";
+  const flex = device === "desktop" ? "0 1 40%" : "0 1 50%";
 
   return (
     <DashboardElement

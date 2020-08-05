@@ -55,12 +55,9 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
       Code,
       Commits,
       Console,
-      Coords,
       FlexContainers,
       Flux,
-      Fps,
       Ip,
-      Navigator,
       PositionContainers,
       PoweredBy,
       Section,
@@ -77,9 +74,8 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
     expect(FlexContainers[0].children[0]).toEqual(SpacingContainers[1]);
     expect(SpacingContainers[1].children[0]).toEqual(FlexContainers[1]);
     expect(FlexContainers[1].children[0]).toEqual(TechStack);
-    expect(FlexContainers[1].children[1]).toEqual(Coords);
-    expect(FlexContainers[1].children[2]).toEqual(Flux);
-    expect(FlexContainers[1].children[3]).toEqual(Code);
+    expect(FlexContainers[1].children[1]).toEqual(Flux);
+    expect(FlexContainers[1].children[2]).toEqual(Code);
 
     // Console
     expect(FlexContainers[0].children[1]).toEqual(Console);
@@ -87,12 +83,10 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
     // Bottom row
     expect(FlexContainers[0].children[2]).toEqual(SpacingContainers[2]);
     expect(SpacingContainers[2].children[0]).toEqual(FlexContainers[2]);
-    expect(FlexContainers[2].children[0]).toEqual(Fps);
-    expect(FlexContainers[2].children[1]).toEqual(Commits);
-    expect(FlexContainers[2].children[2]).toEqual(PoweredBy);
-    expect(FlexContainers[2].children[3]).toEqual(Navigator);
-    expect(FlexContainers[2].children[4]).toEqual(UserAgent);
-    expect(FlexContainers[2].children[5]).toEqual(Ip);
+    expect(FlexContainers[2].children[0]).toEqual(Commits);
+    expect(FlexContainers[2].children[1]).toEqual(PoweredBy);
+    expect(FlexContainers[2].children[2]).toEqual(UserAgent);
+    expect(FlexContainers[2].children[3]).toEqual(Ip);
   });
 
   describe("Section", () => {
@@ -272,10 +266,10 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
     describe("TechStack", () => {
       describe("Props", () => {
         describe("flex", () => {
-          test("should have 0 1 30%", () => {
+          test("should have 0 1 40%", () => {
             const { TechStack } = setup();
 
-            expect(TechStack).toHaveStyleRule("flex", "0 1 30%");
+            expect(TechStack).toHaveStyleRule("flex", "0 1 40%");
           });
         });
 
@@ -289,7 +283,7 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
       });
     });
 
-    describe("Coords", () => {
+    describe.skip("Coords", () => {
       describe("Props", () => {
         describe("flex", () => {
           test("should have 0 1 15%", () => {
@@ -473,7 +467,7 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
       });
     });
 
-    describe("Fps", () => {
+    describe.skip("Fps", () => {
       describe("Props", () => {
         describe("flex", () => {
           test("should have 0 1 20%", () => {
@@ -496,10 +490,10 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
     describe("Commits", () => {
       describe("Props", () => {
         describe("flex", () => {
-          test("should have 0 1 15.73%", () => {
+          test("should have 0 1 20%", () => {
             const { Commits } = setup();
 
-            expect(Commits).toHaveStyleRule("flex", "0 1 15.73%");
+            expect(Commits).toHaveStyleRule("flex", "0 1 20%");
           });
         });
 
@@ -516,10 +510,10 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
     describe("UserAgent", () => {
       describe("Props", () => {
         describe("flex", () => {
-          test("should have 0 1 13.6%", () => {
+          test("should have 0 1 20%", () => {
             const { UserAgent } = setup();
 
-            expect(UserAgent).toHaveStyleRule("flex", "0 1 13.6%");
+            expect(UserAgent).toHaveStyleRule("flex", "0 1 20%");
           });
         });
 
@@ -536,10 +530,10 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
     describe("PoweredBy", () => {
       describe("Props", () => {
         describe("flex", () => {
-          test("should have 0 1 20%", () => {
+          test("should have 0 1 30%", () => {
             const { PoweredBy } = setup();
 
-            expect(PoweredBy).toHaveStyleRule("flex", "0 1 20%");
+            expect(PoweredBy).toHaveStyleRule("flex", "0 1 30%");
           });
         });
 
@@ -553,7 +547,7 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
       });
     });
 
-    describe("Navigator", () => {
+    describe.skip("Navigator", () => {
       describe("Props", () => {
         describe("flex", () => {
           test("should have 0 1 13.6%", () => {
@@ -576,10 +570,10 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
     describe("Ip", () => {
       describe("Props", () => {
         describe("flex", () => {
-          test("should have 0 1 20%", () => {
+          test("should have 0 1 30%", () => {
             const { Ip } = setup();
 
-            expect(Ip).toHaveStyleRule("flex", "0 1 20%");
+            expect(Ip).toHaveStyleRule("flex", "0 1 30%");
           });
         });
 

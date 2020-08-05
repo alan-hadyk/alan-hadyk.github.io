@@ -4,12 +4,12 @@ import DashboardSectionInnerContainer from "<pages>/Home/sections/dashboard/Dash
 import DashboardSectionOuterContainer from "<pages>/Home/sections/dashboard/DashboardSection/DashboardSectionOuterContainer";
 
 import TechStack from "<pages>/Home/sections/dashboard/elements/TechStack";
-import Coords from "<pages>/Home/sections/dashboard/elements/Coords";
+// import Coords from "<pages>/Home/sections/dashboard/elements/Coords";
 import Flux from "<pages>/Home/sections/dashboard/elements/Flux";
 import Code from "<pages>/Home/sections/dashboard/elements/Code";
-import Fps from "<pages>/Home/sections/dashboard/elements/Fps";
+// import Fps from "<pages>/Home/sections/dashboard/elements/Fps";
 import Commits from "<pages>/Home/sections/dashboard/elements/Commits";
-import Navigator from "<pages>/Home/sections/dashboard/elements/Navigator";
+// import Navigator from "<pages>/Home/sections/dashboard/elements/Navigator";
 import Ip from "<pages>/Home/sections/dashboard/elements/Ip";
 import UserAgent from "<pages>/Home/sections/dashboard/elements/UserAgent";
 import PoweredBy from "<pages>/Home/sections/dashboard/elements/PoweredBy";
@@ -39,7 +39,7 @@ function DashboardSectionDesktop(): JSX.Element {
         height={`calc(17vh + ${spacing.spacing36})`}
       >
         <TechStack />
-        <Coords />
+        {/* <Coords /> */}
         <Flux />
         <Code />
       </DashboardSectionInnerContainer>
@@ -51,10 +51,10 @@ function DashboardSectionDesktop(): JSX.Element {
       <DashboardSectionInnerContainer
         height={`calc(22.6vh + ${spacing.spacing36})`}
       >
-        <Fps />
+        {/* <Fps /> */}
         <Commits />
         <PoweredBy />
-        <Navigator />
+        {/* <Navigator /> */}
         <UserAgent device="desktop" />
         <Ip />
       </DashboardSectionInnerContainer>
