@@ -1,23 +1,24 @@
-import React, { useRef } from "react";
+// import React, { useRef } from "react";
+import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize } from "polished";
 
 import PositionContainer from "<layout>/PositionContainer";
 import Text from "<atoms>/Text";
 
-import useInterval from "<hooks>/useInterval";
+// import useInterval from "<hooks>/useInterval";
 
-import transitionTimes from "<styles>/variables/transitionTimes";
+// import transitionTimes from "<styles>/variables/transitionTimes";
 
 export const hero = "Vision driven change agent with career-long record of front-end user strategy and UI development";
 
 function Console(): JSX.Element {
-  const heroContainerRef = useRef<HTMLDivElement>(null);
-  const currentChar = useRef<number>(0);
+  // const heroContainerRef = useRef<HTMLDivElement>(null);
+  // const currentChar = useRef<number>(0);
 
-  useInterval(() => {
-    updateText();
-  }, 75);
+  // useInterval(() => {
+  //   updateText();
+  // }, 75);
 
   return (
     <PositionContainer
@@ -39,9 +40,9 @@ function Console(): JSX.Element {
           <Text
             fontSize="font12"
             lineHeight="spacing28"
-            shouldShuffle
-            shuffleDelay={2400}
-            shuffleInterval={parseInt(transitionTimes.superSlow)}
+            // shouldShuffle
+            // shuffleDelay={2400}
+            // shuffleInterval={parseInt(transitionTimes.superSlow)}
             textTransform="uppercase"
           >
           GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin19)
@@ -50,19 +51,21 @@ function Console(): JSX.Element {
 
         <Console.Text 
           data-testid="ConsoleText"
-          ref={heroContainerRef} 
-        />
+          // ref={heroContainerRef} 
+        >
+          {hero}
+        </Console.Text>
       </Console.Container>
     </PositionContainer>
   );
 
-  function updateText(): void {
-    if (currentChar.current <= hero.length) {
-      heroContainerRef.current.innerHTML += hero.charAt(currentChar.current);
+  // function updateText(): void {
+  //   if (currentChar.current <= hero.length) {
+  //     heroContainerRef.current.innerHTML += hero.charAt(currentChar.current);
 
-      currentChar.current++;
-    }
-  }
+  //     currentChar.current++;
+  //   }
+  // }
 }
 
 Console.Container = styled.div`

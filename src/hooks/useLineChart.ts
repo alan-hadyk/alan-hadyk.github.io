@@ -75,8 +75,7 @@ export default function useLineChart({
   }, [drawChart]);
 }
 
-// TODO: Write unit tests - getLineCoordinates, clearCanvas
-function getLineCoordinates({
+export function getLineCoordinates({
   height,
   maxTime,
   nextItem,
@@ -102,7 +101,7 @@ function getLineCoordinates({
   };
 }
 
-function clearCanvas({
+export function clearCanvas({
   canvas,
   context,
   height,

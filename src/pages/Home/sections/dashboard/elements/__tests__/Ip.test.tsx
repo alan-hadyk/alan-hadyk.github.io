@@ -22,10 +22,10 @@ describe("pages / Home / sections / dashboard / elements / Ip", () => {
   describe("DashboardElement", () => {
     describe("Props", () => {
       describe("flex", () => {
-        test("should have 0 1 20%", () => {
+        test("should have 0 1 30%", () => {
           const { DashboardElement } = setup();
 
-          expect(DashboardElement).toHaveStyleRule("flex", "0 1 20%");
+          expect(DashboardElement).toHaveStyleRule("flex", "0 1 30%");
         });
       });
 

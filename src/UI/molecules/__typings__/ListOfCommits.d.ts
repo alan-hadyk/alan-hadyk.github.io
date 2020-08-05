@@ -10,7 +10,6 @@ export interface CommitProps {
       date: string;
     };
   };
-  // eslint-disable-next-line @typescript-eslint/camelcase
   html_url: string;
   sha: string;
 }
