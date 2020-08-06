@@ -16,17 +16,41 @@ jest.mock("<hooks>/useIntersectionObserver");
 describe("organisms / HeaderTablet", () => {
   test("should have correct structure", () => {
     const {
-      ButtonWithIcon,
+      HeaderTabletContainer,
       HeaderTabletFlexContainer,
+      MenuButton,
       Nav,
-      ResponsiveTablet,
       SideMenu
     } = setup();
 
-    expect(ResponsiveTablet.children[0]).toEqual(HeaderTabletFlexContainer);
+    expect(HeaderTabletContainer.children[0]).toEqual(HeaderTabletFlexContainer);
     expect(HeaderTabletFlexContainer.children[0]).toEqual(Nav);
-    expect(HeaderTabletFlexContainer.children[1]).toEqual(ButtonWithIcon);
+    expect(HeaderTabletFlexContainer.children[1]).toEqual(MenuButton);
     expect(HeaderTabletFlexContainer.children[2]).toEqual(SideMenu);
+  });
+  
+  describe("HeaderTabletContainer", () => {
+    describe("Props", () => {
+      describe("devices", () => {      
+        describe("should have mobile", () => {
+          test("should have display none when min-width is equal 1680px", () => {
+            const { HeaderTabletContainer } = setup();
+      
+            expect(HeaderTabletContainer).toHaveStyleRule("display", "none", {
+              media: "(min-width:1680px)"
+            });
+          });
+
+          test("should have display none when max-width is equal 1280px", () => {
+            const { HeaderTabletContainer } = setup();
+      
+            expect(HeaderTabletContainer).toHaveStyleRule("display", "none", {
+              media: "(max-width:1280px)"
+            });
+          });
+        });
+      });
+    });
   });
 
   describe("FlexContainer", () => {
@@ -78,11 +102,11 @@ describe("organisms / HeaderTablet", () => {
     });
   });
 
-  describe("ButtonWithIcon", () => {
+  describe("MenuButton", () => {
     test("should render", () => {
-      const { ButtonWithIcon } = setup();
+      const { MenuButton } = setup();
 
-      expect(ButtonWithIcon).toBeTruthy();
+      expect(MenuButton).toBeTruthy();
     });
 
     describe("Props", () => {
@@ -90,14 +114,14 @@ describe("organisms / HeaderTablet", () => {
         test("should fire click", () => {
           const onClick = jest.fn();
     
-          const { ButtonWithIcon } = setup({
+          const { MenuButton } = setup({
             onClick
           });
     
           expect(onClick).toHaveBeenCalledTimes(0);
     
           act(() => {
-            fireEvent.click(ButtonWithIcon);
+            fireEvent.click(MenuButton);
           });
     
           expect(onClick).toHaveBeenCalledTimes(1);
@@ -108,34 +132,35 @@ describe("organisms / HeaderTablet", () => {
 
   describe("SideMenu", () => {
     describe("Props", () => {
-      describe("transform", () => {
-        test("should have translateX(0) if isMenuVisible props is true", () => {
-          const { SideMenu } = setup({
-            isMenuVisible: true
+      describe("isExpanded", () => {
+        describe("transform", () => {
+          test("should have translateX(0) if isMenuVisible props is true", () => {
+            const { SideMenu } = setup({
+              isMenuVisible: true
+            });
+      
+            expect(SideMenu).toHaveStyleRule("transform", "translateX(0)");
           });
-    
-          expect(SideMenu).toHaveStyleRule("transform", "translateX(0)");
-        });
-
-
-        test("should have translateX(100%) if isMenuVisible props is false", () => {
-          const { SideMenu } = setup({
-            isMenuVisible: false
+  
+  
+          test("should have translateX(100%) if isMenuVisible props is false", () => {
+            const { SideMenu } = setup({
+              isMenuVisible: false
+            });
+      
+            expect(SideMenu).toHaveStyleRule("transform", "translateX(100%)");
           });
-    
-          expect(SideMenu).toHaveStyleRule("transform", "translateX(100%)");
         });
       });
     });
-
   });
 });
 
 interface Setup extends RenderResult {
-  ButtonWithIcon: Element;
+  HeaderTabletContainer: Element;
   HeaderTabletFlexContainer: Element;
+  MenuButton: Element;
   Nav: Element;
-  ResponsiveTablet: Element;
   SideMenu: Element;
 }
 
@@ -152,20 +177,20 @@ function setup(additionalProps?: HeaderTabletTestProps): Setup {
     <HeaderTablet {...props} />
   );
 
-  const { queryByTestId } = utils || {};
+  const { queryByTestId, queryAllByTestId } = utils || {};
 
-  const ButtonWithIcon: Element = queryByTestId("ButtonWithIconContainer");
+  const HeaderTabletContainer: Element = queryByTestId("HeaderTablet");
   const HeaderTabletFlexContainer: Element = queryByTestId("HeaderTabletFlexContainer");
-  const Nav: Element = queryByTestId("Nav");
-  const ResponsiveTablet: Element = queryByTestId("ResponsiveTablet");
+  const MenuButton: Element = queryByTestId("MenuButtonContainer");
+  const Nav: Element = queryAllByTestId("Nav")[0];
   const SideMenu: Element = queryByTestId("SideMenu");
 
   return {
     ...utils,
-    ButtonWithIcon,
+    HeaderTabletContainer,
     HeaderTabletFlexContainer,
+    MenuButton,
     Nav,
-    ResponsiveTablet,
     SideMenu
   };
 }

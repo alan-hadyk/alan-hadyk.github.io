@@ -1,7 +1,9 @@
 import React from "react";
 
-import ButtonWithIcon from "<molecules>/ButtonWithIcon";
-import SideMenu from "<molecules>/SideMenu";
+import MenuButton from "<atoms>/MenuButton";
+import Backdrop from "<atoms>/Backdrop";
+
+import SideMenu from "<organisms>/SideMenu";
 
 import Responsive from "<layout>/Responsive";
 
@@ -12,15 +14,21 @@ const HeaderMobile = ({
   onClick
 }: HeaderMobileProps): JSX.Element => (
   <Responsive
-    device="mobile"
+    dataTestMobileId="HeaderMobile"
+    devices={["mobile"]}
   >
-    <ButtonWithIcon
+    <MenuButton
       isOpen={isMenuVisible}
       onClick={onClick}
     />
 
+    {
+      isMenuVisible && (
+        <Backdrop onClick={onClick} />
+      )
+    }
+
     <SideMenu
-      device="mobile"
       isExpanded={isMenuVisible}
     />
   </Responsive>

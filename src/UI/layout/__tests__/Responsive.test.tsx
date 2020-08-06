@@ -40,7 +40,7 @@ describe("layout / Responsive", () => {
   });
 
   describe("ResponsiveDesktop", () => {
-    test("should render be rendered if device is equal desktop", () => {
+    test("should render if device is equal desktop", () => {
       const { ResponsiveDesktop } = setup({
         children: <div>Custom children</div>,
         device: "desktop"
@@ -65,7 +65,7 @@ describe("layout / Responsive", () => {
   });
 
   describe("ResponsiveTablet", () => {
-    test("should be rendered if device is equal tablet", () => {
+    test("should render if device is equal tablet", () => {
       const { ResponsiveTablet } = setup({
         children: <div>Custom children</div>,
         device: "tablet"
@@ -94,7 +94,7 @@ describe("layout / Responsive", () => {
   });
 
   describe("ResponsiveMobile", () => {
-    test("should be rendered if device is equal mobile", () => {
+    test("should render if device is equal mobile", () => {
       const { ResponsiveMobile } = setup({
         children: <div>Custom children</div>,
         device: "mobile"

@@ -1,38 +1,39 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import {
-  ButtonWithIconLineProps,
-  ButtonWithIconProps
-} from "<molecules>/__typings__/ButtonWithIcon.d.ts";
+import { transparentize } from "polished";
 
-const ButtonWithIcon = ({
+import {
+  MenuButtonLineProps,
+  MenuButtonProps
+} from "<atoms>/__typings__/MenuButton.d.ts";
+
+const MenuButton = ({
   isOpen = false,
   onClick
-}: ButtonWithIconProps): JSX.Element => {
-  const buttonWithIconContainerRef = useRef<HTMLButtonElement>(null);
+}: MenuButtonProps): JSX.Element => (
+  <MenuButton.Container
+    data-testid="MenuButtonContainer"
+    onClick={onClick}
+  >
+    <MenuButton.Line data-testid="MenuButtonLine" isOpen={isOpen} />
+    <MenuButton.Line data-testid="MenuButtonLine" isOpen={isOpen} />
+    <MenuButton.Line data-testid="MenuButtonLine" isOpen={isOpen} />
+    <MenuButton.Line data-testid="MenuButtonLine" isOpen={isOpen} />
+  </MenuButton.Container>
+);
 
-  return (
-    <ButtonWithIcon.Container
-      data-testid="ButtonWithIconContainer"
-      onClick={onClick}
-      ref={buttonWithIconContainerRef}
-    >
-      <ButtonWithIcon.Line data-testid="ButtonWithIconLine" isOpen={isOpen} />
-      <ButtonWithIcon.Line data-testid="ButtonWithIconLine" isOpen={isOpen} />
-      <ButtonWithIcon.Line data-testid="ButtonWithIconLine" isOpen={isOpen} />
-      <ButtonWithIcon.Line data-testid="ButtonWithIconLine" isOpen={isOpen} />
-    </ButtonWithIcon.Container>
-  );
-};
-
-ButtonWithIcon.Container = styled.button`
+MenuButton.Container = styled.button`
   ${({
     theme: {
+      colorPalette: {
+        white
+      },
       easing: {
         easeInOut
       },
       spacing: {
+        spacing2,
         spacing30,
         spacing48
       },
@@ -48,14 +49,17 @@ ButtonWithIcon.Container = styled.button`
     cursor: pointer;
     height: ${spacing30};
     position: relative;
-    transform: rotate(0deg);
     transition: all ${fast} ${easeInOut};
     width: ${spacing48};
     z-index: ${layer11};
+
+    &:hover {
+      filter: drop-shadow(0px 0px ${spacing2} ${transparentize(0.1, white)});
+    }
   `}
 `;
 
-ButtonWithIcon.Line = styled.span<ButtonWithIconLineProps>`
+MenuButton.Line = styled.span<MenuButtonLineProps>`
   ${({
     isOpen,
     theme: {
@@ -119,4 +123,4 @@ ButtonWithIcon.Line = styled.span<ButtonWithIconLineProps>`
   `}
 `;
 
-export default ButtonWithIcon;
+export default MenuButton;

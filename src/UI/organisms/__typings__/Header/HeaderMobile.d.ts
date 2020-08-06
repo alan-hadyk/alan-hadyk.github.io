@@ -1,4 +1,4 @@
 export interface HeaderMobileProps {
-  isMenuVisible?: boolean;
+  isMenuVisible: boolean;
   onClick: MouseEvent<HTMLDivElement, MouseEvent>;
 }

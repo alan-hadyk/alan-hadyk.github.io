@@ -1,5 +1,4 @@
 export interface SideMenuProps {
-  device: "tablet" | "mobile";
   isExpanded: boolean;
 }
 

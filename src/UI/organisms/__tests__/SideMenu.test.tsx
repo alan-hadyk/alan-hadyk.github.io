@@ -1,17 +1,17 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import SideMenu from "<molecules>/SideMenu";
+import SideMenu from "<organisms>/SideMenu";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
   SideMenuProps
-} from "<molecules>/__typings__/SideMenu.d.ts";
+} from "<organisms>/__typings__/SideMenu.d.ts";
 
 jest.mock("<hooks>/useIntersectionObserver");
 
-describe("molecules / SideMenu", () => {
+describe("organisms / SideMenu", () => {
   test("should have correct structure for tablet view", () => {
     const {
       Button,
@@ -21,9 +21,7 @@ describe("molecules / SideMenu", () => {
       SideMenuInnerSpacingContainer,
       SideMenuOuterFlexContainer,
       SideMenuOuterSpacingContainer
-    } = setup({
-      device: "tablet"
-    });
+    } = setup();
 
     expect(SideMenuContainer.children[0]).toEqual(SideMenuOuterSpacingContainer);
     expect(SideMenuOuterSpacingContainer.children[0]).toEqual(SideMenuOuterFlexContainer);
@@ -45,14 +43,13 @@ describe("molecules / SideMenu", () => {
       SideMenuMobileSpacingContainer,
       SideMenuOuterFlexContainer,
       SideMenuOuterSpacingContainer
-    } = setup({
-      device: "mobile"
-    });
+    } = setup();
 
     expect(SideMenuContainer.children[0]).toEqual(SideMenuOuterSpacingContainer);
     expect(SideMenuOuterSpacingContainer.children[0]).toEqual(SideMenuMobileFlexContainer);
     expect(SideMenuMobileFlexContainer.children[0]).toEqual(SideMenuMobileSpacingContainer);
     expect(SideMenuMobileSpacingContainer.children[0]).toEqual(Nav);
+    expect(SideMenuOuterSpacingContainer.children[1]).toEqual(SideMenuOuterFlexContainer);
 
     expect(SideMenuOuterFlexContainer.children[0]).toEqual(Button);
     expect(SideMenuOuterFlexContainer.children[1]).toEqual(SideMenuInnerSpacingContainer);
@@ -181,9 +178,7 @@ describe("molecules / SideMenu", () => {
       describe("Props", () => {
         describe("marginBottom", () => { 
           test("should have 2.4rem", () => {
-            const { SideMenuMobileSpacingContainer } = setup({
-              device: "mobile"
-            });
+            const { SideMenuMobileSpacingContainer } = setup();
   
             expect(SideMenuMobileSpacingContainer).toHaveStyleRule("margin-bottom", "2.4rem");
           });
@@ -207,35 +202,27 @@ describe("molecules / SideMenu", () => {
   describe("FlexContainers", () => {
     describe("SideMenuMobileFlexContainer", () => {
       describe("Props", () => {
-        describe("Props", () => {
-          describe("flexFlow", () => {
-            test("should have row wrap", () => {
-              const { SideMenuMobileFlexContainer } = setup({
-                device: "mobile"
-              });
-      
-              expect(SideMenuMobileFlexContainer).toHaveStyleRule("flex-flow", "row wrap");
-            });
+        describe("flexFlow", () => {
+          test("should have row wrap", () => {
+            const { SideMenuMobileFlexContainer } = setup();
+    
+            expect(SideMenuMobileFlexContainer).toHaveStyleRule("flex-flow", "row wrap");
           });
+        });
 
-          describe("height", () => {
-            test("should have 100%", () => {
-              const { SideMenuMobileFlexContainer } = setup({
-                device: "mobile"
-              });
-      
-              expect(SideMenuMobileFlexContainer).toHaveStyleRule("height", "100%");
-            });
+        describe("height", () => {
+          test("should have 100%", () => {
+            const { SideMenuMobileFlexContainer } = setup();
+    
+            expect(SideMenuMobileFlexContainer).toHaveStyleRule("height", "100%");
           });
+        });
 
-          describe("justifyContent", () => {
-            test("should have center", () => {
-              const { SideMenuMobileFlexContainer } = setup({
-                device: "mobile"
-              });
-      
-              expect(SideMenuMobileFlexContainer).toHaveStyleRule("justify-content", "center");
-            });
+        describe("justifyContent", () => {
+          test("should have center", () => {
+            const { SideMenuMobileFlexContainer } = setup();
+    
+            expect(SideMenuMobileFlexContainer).toHaveStyleRule("justify-content", "center");
           });
         });
       });
@@ -324,6 +311,26 @@ describe("molecules / SideMenu", () => {
           expect(buttonIcon.textContent).toEqual("Btn-Download.svg");
         });
       });
+
+      describe("size", () => {
+        describe("should have medium", () => {     
+          describe("height", () => {      
+            test("should have 4.8rem", () => {
+              const { Button } = setup();
+        
+              expect(Button).toHaveStyleRule("height", "4.8rem");
+            });
+          });
+        });
+      });
+
+      describe("width", () => {
+        describe("should have 100%", () => {     
+          const { Button } = setup();
+    
+          expect(Button).toHaveStyleRule("width", "100%");
+        });
+      });
     });
   });
 
@@ -363,7 +370,6 @@ type SideMenuTestProps = Partial<SideMenuProps>;
 
 function setup(additionalProps?: SideMenuTestProps): Setup {
   const props: SideMenuProps = {
-    device: "mobile",
     isExpanded: false,
     ...additionalProps
   };

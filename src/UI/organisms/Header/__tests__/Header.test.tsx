@@ -1,7 +1,11 @@
 import React from "react";
-import { RenderResult } from "@testing-library/react";
+import {
+  act,
+  fireEvent, 
+  RenderResult
+} from "@testing-library/react";
 
-import Header from "<organisms>/Header/Header";
+import Header from "<organisms>/Header";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
@@ -211,16 +215,62 @@ describe("organisms / Header", () => {
           expect(LinkWithIcon.textContent).toEqual("Icon-Logo.svg");
         });
       });
+
+      describe("width", () => {
+        test("should have 248px", () => {
+          const { LinkWithIcon } = setup();
+    
+          expect(LinkWithIcon).toHaveStyleRule("width", "248px");
+        });
+      });
+    });
+  });
+
+  describe("HeaderTablet", () => {
+    describe("Props", () => {
+      describe("isMenuVisible", () => {
+        describe("should have false by default", () => {
+          test("transform - should have translateX(100%)", () => {
+            const { ResponsiveTablet } = setup();
+      
+            expect(ResponsiveTablet.children[0].children[2]).toHaveStyleRule("transform", "translateX(100%)");
+          });
+        });
+
+        describe("should have true if menu button is clicked", () => {
+          test("transform - should have translateX(0)", () => {
+            const { ResponsiveTablet } = setup();
+
+            const onClick = jest.fn();
+  
+            const { MenuButton } = setup({
+              onClick
+            });
+      
+            expect(onClick).toHaveBeenCalledTimes(0);
+      
+            act(() => {
+              fireEvent.click(MenuButton);
+            });
+      
+            expect(ResponsiveTablet.children[0].children[3]).toHaveStyleRule("transform", "translateX(0)");
+          });
+        });
+      });
     });
   });
 });
 
 interface Setup extends RenderResult {
   HeaderContainer: Element;
+  HeaderDesktop: Element;
   HeaderInnerContainer: Element;
   HeaderInnerFlexContainer: Element;
+  HeaderMobile: Element;
   HeaderOuterFlexContainer: Element;
+  HeaderTablet: Element;
   LinkWithIcon: Element;
+  MenuButton: Element;
   PositionContainer: Element;
   ResponsiveDesktop: Element;
   ResponsiveMobile: Element;
@@ -240,28 +290,35 @@ function setup(additionalProps?: HeaderTestProps): Setup {
   );
 
   const {
-    queryAllByTestId,
-    queryByTestId
+    queryAllByTestId
   } = utils || {};
 
   
-  const HeaderContainer: Element = queryByTestId("HeaderContainer");
-  const HeaderInnerContainer: Element = queryByTestId("HeaderInnerContainer");
-  const HeaderInnerFlexContainer: Element = queryByTestId("HeaderInnerFlexContainer");
-  const HeaderOuterFlexContainer: Element = queryByTestId("HeaderOuterFlexContainer");
-  const LinkWithIcon: Element = queryByTestId("LinkWithIcon");
+  const HeaderContainer: Element = queryAllByTestId("HeaderContainer")[0];
+  const HeaderInnerContainer: Element = queryAllByTestId("HeaderInnerContainer")[0];
+  const HeaderInnerFlexContainer: Element = queryAllByTestId("HeaderInnerFlexContainer")[0];
+  const HeaderDesktop: Element = queryAllByTestId("HeaderDesktop")[0];
+  const HeaderOuterFlexContainer: Element = queryAllByTestId("HeaderOuterFlexContainer")[0];
+  const HeaderMobile: Element = queryAllByTestId("HeaderMobile")[0];
+  const HeaderTablet: Element = queryAllByTestId("HeaderTablet")[0];
+  const LinkWithIcon: Element = queryAllByTestId("LinkWithIcon")[0];
+  const MenuButton: Element = queryAllByTestId("MenuButtonContainer")[0];
   const PositionContainer: Element = queryAllByTestId("PositionContainer")[0];
-  const ResponsiveDesktop: Element = queryByTestId("ResponsiveDesktop");
-  const ResponsiveMobile: Element = queryByTestId("ResponsiveMobile");
-  const ResponsiveTablet: Element = queryByTestId("ResponsiveTablet");
+  const ResponsiveDesktop: Element = queryAllByTestId("ResponsiveDesktop")[0];
+  const ResponsiveMobile: Element = queryAllByTestId("ResponsiveMobile")[0];
+  const ResponsiveTablet: Element = queryAllByTestId("ResponsiveTablet")[0];
 
   return {
     ...utils,
     HeaderContainer,
+    HeaderDesktop,
     HeaderInnerContainer,
     HeaderInnerFlexContainer,
+    HeaderMobile,
     HeaderOuterFlexContainer,
+    HeaderTablet,
     LinkWithIcon,
+    MenuButton,
     PositionContainer,
     ResponsiveDesktop,
     ResponsiveMobile,

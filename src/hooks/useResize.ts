@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 
 import {
   UseResizeArgs
@@ -22,5 +22,6 @@ export default function useResize({
 
     window.addEventListener('resize', executeCallback);
     return () => window.removeEventListener('resize', executeCallback);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 }

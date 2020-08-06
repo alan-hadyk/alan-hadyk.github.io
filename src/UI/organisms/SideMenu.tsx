@@ -7,14 +7,16 @@ import Nav from "<molecules>/Nav";
 
 import SpacingContainer from "<layout>/SpacingContainer";
 import FlexContainer from "<layout>/FlexContainer";
+import Responsive from "<layout>/Responsive";
+
+import { transparentize } from "polished";
 
 import {
   SideMenuContainerProps,
   SideMenuProps
-} from "<molecules>/__typings__/SideMenu.d.ts";
+} from "<organisms>/__typings__/SideMenu.d.ts";
 
 const SideMenu = ({
-  device,
   isExpanded = false
 }: SideMenuProps): JSX.Element => (
   <SideMenu.Container
@@ -23,13 +25,15 @@ const SideMenu = ({
   >
     <SpacingContainer
       dataTestId="SideMenuOuterSpacingContainer"
-      paddingTop="spacing96"
-    >
-      {device === "mobile" && (
+      height="100%"
+      overflow="auto"
+      paddingLeft="spacing48"
+      paddingRight="spacing48"
+    > 
+      <Responsive devices={["mobile"]}>
         <FlexContainer
           dataTestId="SideMenuMobileFlexContainer"
           flexFlow="row wrap"
-          height="100%"
           justifyContent="flex-end"
         >
           <SpacingContainer
@@ -39,7 +43,8 @@ const SideMenu = ({
             <Nav position="vertical" />
           </SpacingContainer>
         </FlexContainer>
-      )}
+      </Responsive>
+
 
       <FlexContainer
         dataTestId="SideMenuOuterFlexContainer"
@@ -55,6 +60,7 @@ const SideMenu = ({
 
         <SpacingContainer
           dataTestId="SideMenuInnerSpacingContainer"
+          paddingBottom="spacing24"
           paddingTop="spacing24"
         >
           <FlexContainer
@@ -75,14 +81,14 @@ SideMenu.Container = styled.div<SideMenuContainerProps>`
     isExpanded,
     theme: {
       colorPalette: {
-        blue300
+        blue300,
+        blue600
       },
       easing: {
         easeInOut
       },
       spacing: {
-        spacing48,
-        spacing288
+        spacing96
       },
       transitionTimes: {
         fast
@@ -92,21 +98,16 @@ SideMenu.Container = styled.div<SideMenuContainerProps>`
       }
     }
   }): FlattenSimpleInterpolation => css`
-    background-color: rgba(30, 34, 36, .8);
-    border-left: 1px solid ${blue300};
+    background: ${transparentize(0.125, blue600)};
+    border-left: 1px solid ${transparentize(0.75, blue300)};
     height: 100%;
-    padding: 0 ${spacing48};
+    padding-top: ${spacing96};
     position: fixed;
     right: 0;
     top: 0;
     transform: ${isExpanded ? "translateX(0)" : "translateX(100%)"};
     transition: all ${fast} ${easeInOut};
-    // width: ${spacing288};
     z-index: ${layer10};
-
-    * {
-      opacity: 1;
-    }
   `}
 `;
 

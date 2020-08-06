@@ -1,8 +1,8 @@
-export interface ButtonWithIconProps {
+export interface MenuButtonProps {
   isOpen?: boolean;
   onClick: MouseEvent<HTMLDivElement, MouseEvent>;
 }
 
-export interface ButtonWithIconLineProps {
+export interface MenuButtonLineProps {
   isOpen: boolean;
 }

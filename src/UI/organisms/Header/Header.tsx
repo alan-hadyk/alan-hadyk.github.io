@@ -10,6 +10,7 @@ import HeaderMobile from "<organisms>/Header/HeaderMobile";
 
 import PositionContainer from "<layout>/PositionContainer";
 import FlexContainer from "<layout>/FlexContainer";
+import Responsive from "<layout>/Responsive";
 
 import useResize from "<hooks>/useResize";
 
@@ -23,7 +24,7 @@ function Header({
   useResize({
     breakpoint: "1680px",
     callback: () => setIsMenuVisible(false)
-  })
+  });
 
   return (
     <PositionContainer
@@ -53,12 +54,26 @@ function Header({
           height="spacing48"
           justifyContent="space-between"
         >
-          <LinkWithIcon
-            href={window.location.href}
-            height="spacing48"
-            iconName="logo"
-            width="spacing248"
-          />
+          <Responsive
+            devices={["tablet", "desktop"]}
+          >
+            <LinkWithIcon
+              href={window.location.href}
+              height="spacing48"
+              iconName="logo"
+              width="spacing248"
+            />
+          </Responsive>
+
+          <Responsive
+            devices={["mobile"]}
+          >
+            <LinkWithIcon
+              href={window.location.href}
+              iconName="logoShortcut"
+              width="spacing64"
+            />
+          </Responsive>
 
           <HeaderDesktop />
 

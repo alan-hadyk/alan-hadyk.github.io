@@ -36,7 +36,7 @@ const mapTypeToButtonContainerProps: MapTypeToButtonContainerProps = {
   }
 };
 
-const mapSizeToButtonContainerProps: MapSizeToButtonContainerProps = {
+const mapSizeToButtonContainerHeight: MapSizeToButtonContainerProps = {
   large: {
     height: "spacing56"
   },
@@ -69,7 +69,7 @@ function Button({
 
   return (
     <Button.Container
-      {...mapSizeToButtonContainerProps[size]}
+      {...mapSizeToButtonContainerHeight[size]}
       {...mapTypeToButtonContainerProps[type]}
       data-testid="Button"
       onMouseEnter={handleMouseEnter}

@@ -7,7 +7,7 @@ import SkillsSection from "<pages>/Home/sections/skills/SkillsSection";
 import AboutMeSection from "<pages>/Home/sections/about/AboutMeSection";
 import ContactSection from "<pages>/Home/sections/contact/ContactSection";
 
-import Header from "<organisms>/Header/Header";
+import Header from "<organisms>/Header";
 import PageTemplate from "<templates>/PageTemplate";
 
 // TODO: Add tests when the component will be ready

@@ -5,7 +5,7 @@ import {
 
 export interface LinkWithIconProps {
   dataTestId?: string;
-  height: Spacing;
+  height?: Spacing;
   href: string;
   iconName: IconProps["iconName"];
   isExternal?: boolean;

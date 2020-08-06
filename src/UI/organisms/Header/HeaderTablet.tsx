@@ -1,21 +1,22 @@
 import React from "react";
 
-import ButtonWithIcon from "<molecules>/ButtonWithIcon";
+import MenuButton from "<atoms>/MenuButton";
 import Nav from "<molecules>/Nav";
-import SideMenu from "<molecules>/SideMenu";
+import SideMenu from "<organisms>/SideMenu";
 
 import Responsive from "<layout>/Responsive";
 import FlexContainer from "<layout>/FlexContainer";
 
+import Backdrop from "<atoms>/Backdrop";
 import { HeaderMobileProps } from "<organisms>/__typings__/Header/HeaderMobile.d.ts";
-import Backdrop from "<src>/UI/atoms/Backdrop";
 
 const HeaderTablet = ({
   isMenuVisible,
   onClick
 }: HeaderMobileProps): JSX.Element => (
   <Responsive
-    device="tablet"
+    dataTestTabletId="HeaderTablet"
+    devices={["tablet"]}
   >
     <FlexContainer
       dataTestId="HeaderTabletFlexContainer"
@@ -26,7 +27,7 @@ const HeaderTablet = ({
     >
       <Nav />
 
-      <ButtonWithIcon
+      <MenuButton
         isOpen={isMenuVisible}
         onClick={onClick}
       />
@@ -38,7 +39,6 @@ const HeaderTablet = ({
       }
 
       <SideMenu
-        device="tablet"
         isExpanded={isMenuVisible}
       />
     </FlexContainer>

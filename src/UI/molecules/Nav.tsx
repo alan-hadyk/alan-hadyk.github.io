@@ -3,10 +3,6 @@ import React, { memo, useState } from "react";
 import NavItem from "<molecules>/NavItem";
 import FlexContainer from "<layout>/FlexContainer";
 
-import {	
-  FlexContainerProps	
-} from "<layout>/__typings__/FlexContainer.d.ts";
-
 import useIntersectionObserver from "<hooks>/useIntersectionObserver";
 
 import {
@@ -39,8 +35,6 @@ function Nav({
 }: NavProps): JSX.Element {
   const [activeNavItem, setActiveNavItem] = useState<NavItemProps["href"]>();
 
-  const flexFlow: FlexContainerProps["flexFlow"] = position === "horizontal" ? "row nowrap" : "column nowrap";
-
   useIntersectionObserver({
     onElementVisible: (element: string): void => setActiveNavItem(element),
     selectors: navItems.map(({ href }: NavItemProps): string => href)
@@ -50,7 +44,7 @@ function Nav({
     <FlexContainer
       alignItems={position === "horizontal" ? "center" : "flex-end"}
       dataTestId="Nav"
-      flexFlow={flexFlow}
+      flexFlow={position === "horizontal" ? "row nowrap" : "column nowrap"}
       gap={position === "horizontal" ? "spacing24" : "spacing12"}
       justifyContent="center"
     >

@@ -18,7 +18,7 @@ describe("molecules / MenuIcons", () => {
     });
   });
 
-  describe("LinkWithIcons", () => {
+  describe("LinkWithIcon", () => {
     describe("Link", () => {
       describe("Props", () => {
         describe("href", () => { 

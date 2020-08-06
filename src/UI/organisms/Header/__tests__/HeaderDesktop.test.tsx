@@ -11,13 +11,13 @@ describe("organisms / HeaderDesktop", () => {
   test("should have correct structure", () => {
     const {
       Button,
+      HeaderDesktopContainer,
       HeaderDesktopFlexContainer,
       MenuIcons,
-      Nav,
-      ResponsiveDesktop
+      Nav
     } = setup();
 
-    expect(ResponsiveDesktop.children[0]).toEqual(HeaderDesktopFlexContainer);
+    expect(HeaderDesktopContainer.children[0]).toEqual(HeaderDesktopFlexContainer);
     expect(HeaderDesktopFlexContainer.children[0]).toEqual(Nav);
     expect(HeaderDesktopFlexContainer.children[1]).toEqual(Button);
     expect(HeaderDesktopFlexContainer.children[2]).toEqual(MenuIcons[0]);
@@ -32,6 +32,20 @@ describe("organisms / HeaderDesktop", () => {
           expect(HeaderDesktopFlexContainer).toHaveStyleRule("flex-flow", "row nowrap");
         });
       });
+
+      describe("gap", () => {
+        test("should have margin-left: 4.8rem for all children (except first)", () => {
+          const { HeaderDesktopFlexContainer } = setup();
+
+          expect(HeaderDesktopFlexContainer).toHaveStyleRule("margin-left", "4.8rem", {
+            modifier: "& > *"
+          });
+          expect(HeaderDesktopFlexContainer).toHaveStyleRule("margin-left", "0", {
+            modifier: "& > *:first-child"
+          });
+        });
+      });
+
 
       describe("height", () => {      
         test("should have 4.8rem", () => {
@@ -71,11 +85,29 @@ describe("organisms / HeaderDesktop", () => {
     });
 
     describe("Props", () => {
-      describe("height", () => {      
-        test("should have 4.8rem", () => {
+      describe("size", () => {      
+        test("height - should have 4.8rem", () => {
           const { Button } = setup();
     
           expect(Button).toHaveStyleRule("height", "4.8rem");
+        });
+
+        describe("width - should have auto", () => {      
+          const { Button } = setup();
+
+          expect(Button).toHaveStyleRule("width", "auto");
+        });
+  
+        describe("padding - should have 2.4rem", () => {      
+          const { Button } = setup();
+
+          expect(Button.children[4].children[0]).toHaveStyleRule("padding-right", "2.4rem");
+        });
+
+        describe("icon height - should have 2.4rem", () => {      
+          const { Button } = setup();
+
+          expect(Button.children[4].children[0].children[0].children[1]).toHaveStyleRule("height", "2.4rem");
         });
       });
     });
@@ -92,10 +124,10 @@ describe("organisms / HeaderDesktop", () => {
 
 interface Setup extends RenderResult {
   Button: Element;
+  HeaderDesktopContainer: Element;
   HeaderDesktopFlexContainer: Element;
   MenuIcons: Element[];
   Nav: Element;
-  ResponsiveDesktop: Element;
 }
 
 function setup(): Setup {
@@ -104,22 +136,21 @@ function setup(): Setup {
   );
 
   const {
-    queryAllByTestId,
-    queryByTestId
+    queryAllByTestId
   } = utils || {};
 
   const Button: Element = queryAllByTestId("Button")[0];
-  const HeaderDesktopFlexContainer: Element = queryByTestId("HeaderDesktopFlexContainer");
+  const HeaderDesktopFlexContainer: Element = queryAllByTestId("HeaderDesktopFlexContainer")[0];
   const MenuIcons: Element[] = queryAllByTestId("MenuIcons");
-  const Nav: Element = queryByTestId("Nav");
-  const ResponsiveDesktop: Element = queryByTestId("ResponsiveDesktop");
+  const Nav: Element = queryAllByTestId("Nav")[0];
+  const HeaderDesktopContainer: Element = queryAllByTestId("HeaderDesktop")[0];
 
   return {
     ...utils,
     Button,
+    HeaderDesktopContainer,
     HeaderDesktopFlexContainer,
     MenuIcons,
-    Nav,
-    ResponsiveDesktop
+    Nav
   };
 }

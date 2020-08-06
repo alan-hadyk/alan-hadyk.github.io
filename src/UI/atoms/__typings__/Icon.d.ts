@@ -80,6 +80,7 @@ export interface IconProps {
     "javascript" |
     "linkedIn" |
     "logo" |
+    "logoShortcut" |
     "node" |
     "opera" |
     "react" |
@@ -172,6 +173,7 @@ export interface IconComponents {
   javascript: SVGIcon;
   linkedIn: SVGIcon;
   logo: SVGIcon;
+  logoShortcut: SVGIcon;
   node: SVGIcon;
   opera: SVGIcon;
   react: SVGIcon;
