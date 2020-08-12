@@ -93,7 +93,7 @@ function Header({
   }
 
   function handleMenuButtonClick(): void {
-    setIsMenuVisible(!isMenuVisible);
+    setIsMenuVisible(_isMenuVisible => !_isMenuVisible);
   }
 }
 

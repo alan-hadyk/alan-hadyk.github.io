@@ -56,6 +56,7 @@ const mapSizeToIconHeight: MapSizeToIconHeight = {
 
 function Button({
   buttonText,
+  dataTestId,
   iconName,
   size = "medium",
   type = "primary",
@@ -71,7 +72,7 @@ function Button({
     <Button.Container
       {...mapSizeToButtonContainerHeight[size]}
       {...mapTypeToButtonContainerProps[type]}
-      data-testid="Button"
+      data-testid={dataTestId || "Button"}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseUp={handleButtonClick}

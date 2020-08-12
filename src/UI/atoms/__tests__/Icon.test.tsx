@@ -1025,6 +1025,14 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Logo.svg");
       });
 
+      test("should render correct icon for logoShortcut", () => {
+        const { IconComponent } = setup({
+          iconName: "logoShortcut"
+        });
+
+        expect(IconComponent.textContent).toEqual("Icon-Logo-Shortcut.svg");
+      });
+
       test("should render correct icon for node", () => {
         const { IconComponent } = setup({
           iconName: "node"

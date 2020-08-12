@@ -140,10 +140,10 @@ function setup(): Setup {
   } = utils || {};
 
   const Button: Element = queryAllByTestId("Button")[0];
+  const HeaderDesktopContainer: Element = queryAllByTestId("HeaderDesktop")[0];
   const HeaderDesktopFlexContainer: Element = queryAllByTestId("HeaderDesktopFlexContainer")[0];
   const MenuIcons: Element[] = queryAllByTestId("MenuIcons");
   const Nav: Element = queryAllByTestId("Nav")[0];
-  const HeaderDesktopContainer: Element = queryAllByTestId("HeaderDesktop")[0];
 
   return {
     ...utils,

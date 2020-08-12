@@ -13,15 +13,14 @@ export default function useResize({
   useLayoutEffect(() => {
     function executeCallback() {
       if (window.innerWidth >= parseInt(breakpoint) && !called) {
-        callback()
-        setCalled(true)
+        callback();
+        setCalled(true);
       } else {
-        setCalled(false)
+        setCalled(false);
       }
     }
 
-    window.addEventListener('resize', executeCallback);
-    return () => window.removeEventListener('resize', executeCallback);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    window.addEventListener("resize", executeCallback);
+    return () => window.removeEventListener("resize", executeCallback);
+  }, [breakpoint, callback, called]);
 }

@@ -189,6 +189,22 @@ describe("layout / SpacingContainer", () => {
       });
     });
 
+    describe("overflow-y", () => {      
+      test("should have initial by default", () => {
+        const { SpacingContainer } = setup();
+  
+        expect(SpacingContainer).toHaveStyleRule("overflow-y", "initial");
+      });
+  
+      test("should have correct value when passed via overflow prop", () => {
+        const { SpacingContainer } = setup({
+          overflow: "hidden"
+        });
+  
+        expect(SpacingContainer).toHaveStyleRule("overflow-y", "hidden");
+      });
+    });
+
     describe("padding-bottom", () => {      
       test("should have 0 by default", () => {
         const { SpacingContainer } = setup();

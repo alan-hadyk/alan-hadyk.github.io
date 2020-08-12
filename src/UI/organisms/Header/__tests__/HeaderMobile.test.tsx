@@ -14,12 +14,29 @@ import { HeaderMobileProps }  from "<organisms>/__typings__/Header/HeaderMobile.
 jest.mock("<hooks>/useIntersectionObserver");
 
 describe("organisms / HeaderMobile", () => {
-  test("should have correct structure", () => {
+  test("should have correct structure when is true", () => {
+    const {
+      Backdrop,
+      MenuButton,
+      HeaderMobileContainer,
+      SideMenu
+    } = setup({
+      isMenuVisible: true
+    });
+
+    expect(HeaderMobileContainer.children[0]).toEqual(MenuButton);
+    expect(HeaderMobileContainer.children[1]).toEqual(Backdrop);
+    expect(HeaderMobileContainer.children[2]).toEqual(SideMenu);
+  });
+
+  test("should have correct structure when is false", () => {
     const {
       MenuButton,
       HeaderMobileContainer,
       SideMenu
-    } = setup();
+    } = setup({
+      isMenuVisible: false
+    });
 
     expect(HeaderMobileContainer.children[0]).toEqual(MenuButton);
     expect(HeaderMobileContainer.children[1]).toEqual(SideMenu);
@@ -69,6 +86,24 @@ describe("organisms / HeaderMobile", () => {
     });
   });
 
+  describe("Backdrop", () => {
+    test("should render if isMenuVisible is true", () => {
+      const { Backdrop } = setup({
+        isMenuVisible: true
+      });
+
+      expect(Backdrop).toBeTruthy();
+    });
+
+    test("should not render if isMenuVisible is false", () => {
+      const { Backdrop } = setup({
+        isMenuVisible: false
+      });
+
+      expect(Backdrop).toBeFalsy();
+    });
+  });
+
   describe("SideMenu", () => {
     describe("Props", () => {
       describe("isExpanded", () => {
@@ -96,6 +131,7 @@ describe("organisms / HeaderMobile", () => {
 });
 
 interface Setup extends RenderResult {
+  Backdrop: Element;
   HeaderMobileContainer: Element;
   MenuButton: Element;
   SideMenu: Element;
@@ -116,12 +152,14 @@ function setup(additionalProps?: HeaderMobileTestProps): Setup {
 
   const { queryByTestId } = utils || {};
 
+  const Backdrop: Element = queryByTestId("Backdrop");
   const HeaderMobileContainer: Element = queryByTestId("HeaderMobile");
   const MenuButton: Element = queryByTestId("MenuButtonContainer");
   const SideMenu: Element = queryByTestId("SideMenu");
 
   return {
     ...utils,
+    Backdrop,
     HeaderMobileContainer,
     MenuButton,
     SideMenu

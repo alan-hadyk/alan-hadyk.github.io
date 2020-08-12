@@ -14,14 +14,35 @@ import { HeaderMobileProps }  from "<organisms>/__typings__/Header/HeaderMobile.
 jest.mock("<hooks>/useIntersectionObserver");
 
 describe("organisms / HeaderTablet", () => {
-  test("should have correct structure", () => {
+  test("should have correct structure when isMenuVisibleis true", () => {
+    const {
+      Backdrop,
+      HeaderTabletContainer,
+      HeaderTabletFlexContainer,
+      MenuButton,
+      Nav,
+      SideMenu
+    } = setup({
+      isMenuVisible: true
+    });
+
+    expect(HeaderTabletContainer.children[0]).toEqual(HeaderTabletFlexContainer);
+    expect(HeaderTabletFlexContainer.children[0]).toEqual(Nav);
+    expect(HeaderTabletFlexContainer.children[1]).toEqual(MenuButton);
+    expect(HeaderTabletFlexContainer.children[2]).toEqual(Backdrop);
+    expect(HeaderTabletFlexContainer.children[3]).toEqual(SideMenu);
+  });
+
+  test("should have correct structure when isMenuVisible is false", () => {
     const {
       HeaderTabletContainer,
       HeaderTabletFlexContainer,
       MenuButton,
       Nav,
       SideMenu
-    } = setup();
+    } = setup({
+      isMenuVisible: false
+    });
 
     expect(HeaderTabletContainer.children[0]).toEqual(HeaderTabletFlexContainer);
     expect(HeaderTabletFlexContainer.children[0]).toEqual(Nav);
@@ -130,6 +151,24 @@ describe("organisms / HeaderTablet", () => {
     });
   });
 
+  describe("Backdrop", () => {
+    test("should render if isMenuVisible is true", () => {
+      const { Backdrop } = setup({
+        isMenuVisible: true
+      });
+
+      expect(Backdrop).toBeTruthy();
+    });
+
+    test("should not render if isMenuVisible is false", () => {
+      const { Backdrop } = setup({
+        isMenuVisible: false
+      });
+
+      expect(Backdrop).toBeFalsy();
+    });
+  });
+
   describe("SideMenu", () => {
     describe("Props", () => {
       describe("isExpanded", () => {
@@ -157,6 +196,7 @@ describe("organisms / HeaderTablet", () => {
 });
 
 interface Setup extends RenderResult {
+  Backdrop: Element;
   HeaderTabletContainer: Element;
   HeaderTabletFlexContainer: Element;
   MenuButton: Element;
@@ -179,6 +219,7 @@ function setup(additionalProps?: HeaderTabletTestProps): Setup {
 
   const { queryByTestId, queryAllByTestId } = utils || {};
 
+  const Backdrop: Element = queryByTestId("Backdrop");
   const HeaderTabletContainer: Element = queryByTestId("HeaderTablet");
   const HeaderTabletFlexContainer: Element = queryByTestId("HeaderTabletFlexContainer");
   const MenuButton: Element = queryByTestId("MenuButtonContainer");
@@ -187,6 +228,7 @@ function setup(additionalProps?: HeaderTabletTestProps): Setup {
 
   return {
     ...utils,
+    Backdrop,
     HeaderTabletContainer,
     HeaderTabletFlexContainer,
     MenuButton,

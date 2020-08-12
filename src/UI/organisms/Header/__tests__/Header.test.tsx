@@ -17,10 +17,13 @@ describe("organisms / Header", () => {
   test("should have correct structure", () => {
     const {
       HeaderContainer,
+      HeaderDesktop,
       HeaderInnerContainer,
       HeaderInnerFlexContainer,
+      HeaderMobile,
       HeaderOuterFlexContainer,
-      LinkWithIcon,
+      HeaderTablet,
+      LinksWithIcons,
       PositionContainer,
       ResponsiveDesktop,
       ResponsiveMobile,
@@ -34,10 +37,19 @@ describe("organisms / Header", () => {
     expect(HeaderOuterFlexContainer.children[0]).toEqual(HeaderInnerContainer);
 
     expect(HeaderInnerContainer.children[0]).toEqual(HeaderInnerFlexContainer);
-    expect(HeaderInnerFlexContainer.children[0]).toEqual(LinkWithIcon);
-    expect(HeaderInnerFlexContainer.children[1]).toEqual(ResponsiveDesktop);
-    expect(HeaderInnerFlexContainer.children[2]).toEqual(ResponsiveTablet);
-    expect(HeaderInnerFlexContainer.children[3]).toEqual(ResponsiveMobile);
+
+    expect(HeaderInnerFlexContainer.children[0]).toEqual(ResponsiveDesktop);
+    expect(ResponsiveDesktop.children[0]).toEqual(LinksWithIcons[0]);
+
+    expect(HeaderInnerFlexContainer.children[1]).toEqual(ResponsiveTablet);
+    expect(ResponsiveTablet.children[0]).toEqual(LinksWithIcons[1]);
+
+    expect(HeaderInnerFlexContainer.children[2]).toEqual(ResponsiveMobile);
+    expect(ResponsiveMobile.children[0]).toEqual(LinksWithIcons[2]);
+
+    expect(HeaderInnerFlexContainer.children[3]).toEqual(HeaderDesktop);
+    expect(HeaderInnerFlexContainer.children[4]).toEqual(HeaderTablet);
+    expect(HeaderInnerFlexContainer.children[5]).toEqual(HeaderMobile);
   });
 
   describe("PositionContainer", () => {
@@ -190,37 +202,103 @@ describe("organisms / Header", () => {
     });
   });
 
-  describe("LinkWithIcon", () => {    
-    describe("Props", () => {
-      describe("href", () => {
-        test("should have correct href", () => {
-          const { LinkWithIcon } = setup();
-    
-          expect(LinkWithIcon.getAttribute("href")).toEqual("http://localhost/");
+  describe("LinksWithIcons", () => {
+    describe("LinksWithIcons[0]", () => {
+      describe("Props", () => {
+        describe("href", () => {
+          test("should have correct href", () => {
+            const { LinksWithIcons } = setup();
+      
+            expect(LinksWithIcons[0].getAttribute("href")).toEqual("http://localhost/");
+          });
+        });
+  
+        describe("height", () => {
+          test("should have 4.8rem", () => {
+            const { LinksWithIcons } = setup();
+      
+            expect(LinksWithIcons[0]).toHaveStyleRule("height", "4.8rem");
+          });
+        });
+  
+        describe("iconName", () => {
+          test("should have logo", () => {
+            const { LinksWithIcons } = setup();
+      
+            expect(LinksWithIcons[0].textContent).toEqual("Icon-Logo.svg");
+          });
+        });
+  
+        describe("width", () => {
+          test("should have 24.8rem", () => {
+            const { LinksWithIcons } = setup();
+      
+            expect(LinksWithIcons[0].children[0]).toHaveStyleRule("width", "24.8rem");
+          });
         });
       });
+    });
 
-      describe("height", () => {
-        test("should have 4.8rem", () => {
-          const { LinkWithIcon } = setup();
-    
-          expect(LinkWithIcon).toHaveStyleRule("height", "4.8rem");
+    describe("LinksWithIcons[1]", () => {
+      describe("Props", () => {
+        describe("href", () => {
+          test("should have correct href", () => {
+            const { LinksWithIcons } = setup();
+      
+            expect(LinksWithIcons[1].getAttribute("href")).toEqual("http://localhost/");
+          });
+        });
+  
+        describe("height", () => {
+          test("should have 4.8rem", () => {
+            const { LinksWithIcons } = setup();
+      
+            expect(LinksWithIcons[1]).toHaveStyleRule("height", "4.8rem");
+          });
+        });
+  
+        describe("iconName", () => {
+          test("should have logo", () => {
+            const { LinksWithIcons } = setup();
+      
+            expect(LinksWithIcons[1].textContent).toEqual("Icon-Logo.svg");
+          });
+        });
+  
+        describe("width", () => {
+          test("should have 24.8rem", () => {
+            const { LinksWithIcons } = setup();
+      
+            expect(LinksWithIcons[1].children[0]).toHaveStyleRule("width", "24.8rem");
+          });
         });
       });
+    });
 
-      describe("iconName", () => {
-        test("should have logo", () => {
-          const { LinkWithIcon } = setup();
-    
-          expect(LinkWithIcon.textContent).toEqual("Icon-Logo.svg");
+    describe("LinksWithIcons[2]", () => {
+      describe("Props", () => {
+        describe("href", () => {
+          test("should have correct href", () => {
+            const { LinksWithIcons } = setup();
+      
+            expect(LinksWithIcons[2].getAttribute("href")).toEqual("http://localhost/");
+          });
         });
-      });
-
-      describe("width", () => {
-        test("should have 248px", () => {
-          const { LinkWithIcon } = setup();
-    
-          expect(LinkWithIcon).toHaveStyleRule("width", "248px");
+  
+        describe("iconName", () => {
+          test("should have logo shortcut", () => {
+            const { LinksWithIcons } = setup();
+      
+            expect(LinksWithIcons[2].textContent).toEqual("Icon-Logo-Shortcut.svg");
+          });
+        });
+  
+        describe("width", () => {
+          test("should have 6.4rem", () => {
+            const { LinksWithIcons } = setup();
+      
+            expect(LinksWithIcons[2].children[0]).toHaveStyleRule("width", "6.4rem");
+          });
         });
       });
     });
@@ -231,29 +309,53 @@ describe("organisms / Header", () => {
       describe("isMenuVisible", () => {
         describe("should have false by default", () => {
           test("transform - should have translateX(100%)", () => {
-            const { ResponsiveTablet } = setup();
+            const { SideMenus } = setup();
       
-            expect(ResponsiveTablet.children[0].children[2]).toHaveStyleRule("transform", "translateX(100%)");
+            expect(SideMenus[0]).toHaveStyleRule("transform", "translateX(100%)");
           });
         });
 
         describe("should have true if menu button is clicked", () => {
           test("transform - should have translateX(0)", () => {
-            const { ResponsiveTablet } = setup();
+            const { MenuButtons, SideMenus } = setup();
 
-            const onClick = jest.fn();
-  
-            const { MenuButton } = setup({
-              onClick
-            });
-      
-            expect(onClick).toHaveBeenCalledTimes(0);
+            expect(SideMenus[0]).toHaveStyleRule("transform", "translateX(100%)");
+
       
             act(() => {
-              fireEvent.click(MenuButton);
+              fireEvent.click(MenuButtons[0]);
             });
       
-            expect(ResponsiveTablet.children[0].children[3]).toHaveStyleRule("transform", "translateX(0)");
+            expect(SideMenus[0]).toHaveStyleRule("transform", "translateX(0)");
+          });
+        });
+      });
+    });
+  });
+
+  describe("HeaderMobile", () => {
+    describe("Props", () => {
+      describe("isMenuVisible", () => {
+        describe("should have false by default", () => {
+          test("transform - should have translateX(100%)", () => {
+            const { SideMenus } = setup();
+      
+            expect(SideMenus[1]).toHaveStyleRule("transform", "translateX(100%)");
+          });
+        });
+
+        describe("should have true if menu button is clicked", () => {
+          test("transform - should have translateX(0)", () => {
+            const { MenuButtons, SideMenus } = setup();
+
+            expect(SideMenus[1]).toHaveStyleRule("transform", "translateX(100%)");
+
+      
+            act(() => {
+              fireEvent.click(MenuButtons[1]);
+            });
+      
+            expect(SideMenus[1]).toHaveStyleRule("transform", "translateX(0)");
           });
         });
       });
@@ -269,12 +371,13 @@ interface Setup extends RenderResult {
   HeaderMobile: Element;
   HeaderOuterFlexContainer: Element;
   HeaderTablet: Element;
-  LinkWithIcon: Element;
-  MenuButton: Element;
+  LinksWithIcons: Element[];
+  MenuButtons: Element[];
   PositionContainer: Element;
   ResponsiveDesktop: Element;
   ResponsiveMobile: Element;
   ResponsiveTablet: Element;
+  SideMenus: Element[];
 }
 
 type HeaderTestProps = Partial<HeaderProps>;
@@ -301,13 +404,14 @@ function setup(additionalProps?: HeaderTestProps): Setup {
   const HeaderOuterFlexContainer: Element = queryAllByTestId("HeaderOuterFlexContainer")[0];
   const HeaderMobile: Element = queryAllByTestId("HeaderMobile")[0];
   const HeaderTablet: Element = queryAllByTestId("HeaderTablet")[0];
-  const LinkWithIcon: Element = queryAllByTestId("LinkWithIcon")[0];
-  const MenuButton: Element = queryAllByTestId("MenuButtonContainer")[0];
+  const LinksWithIcons: Element[] = queryAllByTestId("LinkWithIcon");
+  const MenuButtons: Element[] = queryAllByTestId("MenuButtonContainer");
   const PositionContainer: Element = queryAllByTestId("PositionContainer")[0];
   const ResponsiveDesktop: Element = queryAllByTestId("ResponsiveDesktop")[0];
   const ResponsiveMobile: Element = queryAllByTestId("ResponsiveMobile")[0];
   const ResponsiveTablet: Element = queryAllByTestId("ResponsiveTablet")[0];
-
+  const SideMenus: Element[] = queryAllByTestId("SideMenu");
+  
   return {
     ...utils,
     HeaderContainer,
@@ -317,11 +421,12 @@ function setup(additionalProps?: HeaderTestProps): Setup {
     HeaderMobile,
     HeaderOuterFlexContainer,
     HeaderTablet,
-    LinkWithIcon,
-    MenuButton,
+    LinksWithIcons,
+    MenuButtons,
     PositionContainer,
     ResponsiveDesktop,
     ResponsiveMobile,
-    ResponsiveTablet
+    ResponsiveTablet,
+    SideMenus
   };
 }

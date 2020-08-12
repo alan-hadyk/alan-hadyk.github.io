@@ -18,6 +18,7 @@ export interface ButtonInnnerContainerPositions {
 
 export interface ButtonProps {
   buttonText: string;
+  dataTestId?: string;
   iconName: "btnCodeSandbox" | "btnDownload" | "btnExternalLink" | "btnSend";
   size: "small" | "medium" | "large";
   type?: "primary" | "secondary";

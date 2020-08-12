@@ -32,11 +32,13 @@ describe("molecules / MenuIcons", () => {
         });
 
         describe("isExternal", () => { 
-          test("should have isExternal set to true", () => {
-            const { MenuIconsContainer } = setup();
-
-            MenuIconsContainer.forEach(LinkWithIcon => {
-              expect(LinkWithIcon.getAttribute("target")).toEqual("_blank");
+          describe("should have isExternal set to true", () => {
+            test("target - should be _blank", () => {
+              const { MenuIconsContainer } = setup();
+  
+              MenuIconsContainer.forEach(LinkWithIcon => {
+                expect(LinkWithIcon.getAttribute("target")).toEqual("_blank");
+              });
             });
           });
         });

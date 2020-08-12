@@ -12,30 +12,12 @@ import {
 jest.mock("<hooks>/useIntersectionObserver");
 
 describe("organisms / SideMenu", () => {
-  test("should have correct structure for tablet view", () => {
-    const {
-      Button,
-      MenuIcons,
-      SideMenuContainer,
-      SideMenuInnerFlexContainer,
-      SideMenuInnerSpacingContainer,
-      SideMenuOuterFlexContainer,
-      SideMenuOuterSpacingContainer
-    } = setup();
-
-    expect(SideMenuContainer.children[0]).toEqual(SideMenuOuterSpacingContainer);
-    expect(SideMenuOuterSpacingContainer.children[0]).toEqual(SideMenuOuterFlexContainer);
-    expect(SideMenuOuterFlexContainer.children[0]).toEqual(Button);
-    expect(SideMenuOuterFlexContainer.children[1]).toEqual(SideMenuInnerSpacingContainer);
-    expect(SideMenuInnerSpacingContainer.children[0]).toEqual(SideMenuInnerFlexContainer);
-    expect(SideMenuInnerFlexContainer.children[0]).toEqual(MenuIcons[0]);
-  });
-
-  test("should have correct structure for mobile view", () => {
+  test("should have correct structure", () => {
     const {
       Button,
       MenuIcons,
       Nav,
+      ResponsiveMobile,
       SideMenuContainer,
       SideMenuInnerFlexContainer,
       SideMenuInnerSpacingContainer,
@@ -46,11 +28,12 @@ describe("organisms / SideMenu", () => {
     } = setup();
 
     expect(SideMenuContainer.children[0]).toEqual(SideMenuOuterSpacingContainer);
-    expect(SideMenuOuterSpacingContainer.children[0]).toEqual(SideMenuMobileFlexContainer);
+    expect(SideMenuOuterSpacingContainer.children[0]).toEqual(ResponsiveMobile);
+    expect(ResponsiveMobile.children[0]).toEqual(SideMenuMobileFlexContainer);
     expect(SideMenuMobileFlexContainer.children[0]).toEqual(SideMenuMobileSpacingContainer);
     expect(SideMenuMobileSpacingContainer.children[0]).toEqual(Nav);
-    expect(SideMenuOuterSpacingContainer.children[1]).toEqual(SideMenuOuterFlexContainer);
 
+    expect(SideMenuOuterSpacingContainer.children[1]).toEqual(SideMenuOuterFlexContainer);
     expect(SideMenuOuterFlexContainer.children[0]).toEqual(Button);
     expect(SideMenuOuterFlexContainer.children[1]).toEqual(SideMenuInnerSpacingContainer);
     expect(SideMenuInnerSpacingContainer.children[0]).toEqual(SideMenuInnerFlexContainer);
@@ -59,19 +42,19 @@ describe("organisms / SideMenu", () => {
 
   describe("SideMenu", () => {
     describe("Styles", () => {
-      describe("background-color", () => { 
-        test("should have rgba(30, 34, 36, .8)", () => {
+      describe("background", () => { 
+        test("should have rgba(34,39,42,0.875)", () => {
           const { SideMenuContainer } = setup();
 
-          expect(SideMenuContainer).toHaveStyleRule("background-color", "rgba(30,34,36,.8)");
+          expect(SideMenuContainer).toHaveStyleRule("background", "rgba(34,39,42,0.875)");
         });
       });
 
       describe("border-left", () => { 
-        test("should have 1px solid #78b0b5", () => {
+        test("should have 1px solid rgba(120,176,181,0.25)", () => {
           const { SideMenuContainer } = setup();
 
-          expect(SideMenuContainer).toHaveStyleRule("border-left", "1px solid #78b0b5");
+          expect(SideMenuContainer).toHaveStyleRule("border-left", "1px solid rgba(120,176,181,0.25)");
         });
       });
 
@@ -80,6 +63,14 @@ describe("organisms / SideMenu", () => {
           const { SideMenuContainer } = setup();
 
           expect(SideMenuContainer).toHaveStyleRule("height", "100%");
+        });
+      });
+
+      describe("padding-top", () => { 
+        test("should have 9.6rem", () => {
+          const { SideMenuContainer } = setup();
+
+          expect(SideMenuContainer).toHaveStyleRule("padding-top", "9.6rem");
         });
       });
 
@@ -133,29 +124,11 @@ describe("organisms / SideMenu", () => {
         });
       });
 
-      describe("width", () => {
-        test("should have 28rem", () => {
-          const { SideMenuContainer } = setup();
-
-          expect(SideMenuContainer).toHaveStyleRule("width", "28rem");
-        });
-      });
-
       describe("z-index", () => {
         test("should have 1000", () => {
           const { SideMenuContainer } = setup();
 
           expect(SideMenuContainer).toHaveStyleRule("z-index", "1000");
-        });
-      });
-
-      describe("opacity", () => {
-        test("should have 1", () => {
-          const { SideMenuContainer } = setup();
-
-          expect(SideMenuContainer).toHaveStyleRule("opacity", "1", {
-            modifier: "*"
-          });
         });
       });
     });
@@ -164,11 +137,35 @@ describe("organisms / SideMenu", () => {
   describe("SpacingContainers", () => {
     describe("SideMenuOuterSpacingContainer", () => {
       describe("Props", () => {
-        describe("paddingTop", () => { 
-          test("should have 9.6rem", () => {
+        describe("height", () => { 
+          test("should have 100%", () => {
             const { SideMenuOuterSpacingContainer } = setup();
   
-            expect(SideMenuOuterSpacingContainer).toHaveStyleRule("padding-top", "9.6rem");
+            expect(SideMenuOuterSpacingContainer).toHaveStyleRule("height", "100%");
+          });
+        });
+
+        describe("overflow", () => { 
+          test("should have auto", () => {
+            const { SideMenuOuterSpacingContainer } = setup();
+  
+            expect(SideMenuOuterSpacingContainer).toHaveStyleRule("overflow-y", "auto");
+          });
+        });
+
+        describe("paddingLeft", () => { 
+          test("should have 4.8rem", () => {
+            const { SideMenuOuterSpacingContainer } = setup();
+  
+            expect(SideMenuOuterSpacingContainer).toHaveStyleRule("padding-left", "4.8rem");
+          });
+        });
+
+        describe("paddingRight", () => { 
+          test("should have 4.8rem", () => {
+            const { SideMenuOuterSpacingContainer } = setup();
+  
+            expect(SideMenuOuterSpacingContainer).toHaveStyleRule("padding-right", "4.8rem");
           });
         });
       });
@@ -188,6 +185,14 @@ describe("organisms / SideMenu", () => {
 
     describe("SideMenuInnerSpacingContainer", () => {
       describe("Props", () => {
+        describe("paddingBottom", () => { 
+          test("should have 2.4rem", () => {
+            const { SideMenuInnerSpacingContainer } = setup();
+  
+            expect(SideMenuInnerSpacingContainer).toHaveStyleRule("padding-bottom", "2.4rem");
+          });
+        });
+
         describe("paddingTop", () => { 
           test("should have 2.4rem", () => {
             const { SideMenuInnerSpacingContainer } = setup();
@@ -210,19 +215,11 @@ describe("organisms / SideMenu", () => {
           });
         });
 
-        describe("height", () => {
-          test("should have 100%", () => {
-            const { SideMenuMobileFlexContainer } = setup();
-    
-            expect(SideMenuMobileFlexContainer).toHaveStyleRule("height", "100%");
-          });
-        });
-
         describe("justifyContent", () => {
-          test("should have center", () => {
+          test("should have flex-end", () => {
             const { SideMenuMobileFlexContainer } = setup();
     
-            expect(SideMenuMobileFlexContainer).toHaveStyleRule("justify-content", "center");
+            expect(SideMenuMobileFlexContainer).toHaveStyleRule("justify-content", "flex-end");
           });
         });
       });
@@ -357,6 +354,7 @@ interface Setup extends RenderResult {
   Button: Element;
   MenuIcons: Element[];
   Nav: Element;
+  ResponsiveMobile: Element;
   SideMenuContainer: Element;
   SideMenuInnerFlexContainer: Element;
   SideMenuInnerSpacingContainer: Element;
@@ -378,24 +376,26 @@ function setup(additionalProps?: SideMenuTestProps): Setup {
     <SideMenu {...props} />
   );
 
-  const { queryAllByTestId, queryByTestId }: RenderResult = utils;
+  const { queryAllByTestId }: RenderResult = utils;
 
-  const Button: Element = queryByTestId("Button");
+  const Button: Element = queryAllByTestId("Button")[0];
   const MenuIcons: Element[] = queryAllByTestId("MenuIcons");
-  const Nav: Element = queryByTestId("Nav");
-  const SideMenuContainer: Element = queryByTestId("SideMenu");
-  const SideMenuMobileFlexContainer: Element = queryByTestId("SideMenuMobileFlexContainer");
-  const SideMenuOuterFlexContainer: Element = queryByTestId("SideMenuOuterFlexContainer");
-  const SideMenuInnerFlexContainer: Element = queryByTestId("SideMenuInnerFlexContainer");
-  const SideMenuInnerSpacingContainer: Element = queryByTestId("SideMenuInnerSpacingContainer");
-  const SideMenuMobileSpacingContainer: Element = queryByTestId("SideMenuMobileSpacingContainer");
-  const SideMenuOuterSpacingContainer: Element = queryByTestId("SideMenuOuterSpacingContainer");
+  const Nav: Element = queryAllByTestId("Nav")[0];
+  const ResponsiveMobile: Element = queryAllByTestId("ResponsiveMobile")[0];
+  const SideMenuContainer: Element = queryAllByTestId("SideMenu")[0];
+  const SideMenuMobileFlexContainer: Element = queryAllByTestId("SideMenuMobileFlexContainer")[0];
+  const SideMenuOuterFlexContainer: Element = queryAllByTestId("SideMenuOuterFlexContainer")[0];
+  const SideMenuInnerFlexContainer: Element = queryAllByTestId("SideMenuInnerFlexContainer")[0];
+  const SideMenuInnerSpacingContainer: Element = queryAllByTestId("SideMenuInnerSpacingContainer")[0];
+  const SideMenuMobileSpacingContainer: Element = queryAllByTestId("SideMenuMobileSpacingContainer")[0];
+  const SideMenuOuterSpacingContainer: Element = queryAllByTestId("SideMenuOuterSpacingContainer")[0];
 
   return {
     ...utils,
     Button,
     MenuIcons,
     Nav,
+    ResponsiveMobile,
     SideMenuContainer,
     SideMenuInnerFlexContainer,
     SideMenuInnerSpacingContainer,

@@ -78,12 +78,6 @@ describe("atoms / MenuButton", () => {
         });
       });
 
-      describe("transform", () => {      
-        test("should have rotate(0deg)", () => {
-          expect(MenuButtonContainer).toHaveStyleRule("transform", "rotate(0deg)");
-        });
-      });
-
       describe("transition", () => {      
         test("should have all 150ms ease-in-out", () => {
           expect(MenuButtonContainer).toHaveStyleRule("transition", "all 150ms ease-in-out");
@@ -99,6 +93,16 @@ describe("atoms / MenuButton", () => {
       describe("z-index", () => {      
         test("should have 1100", () => {
           expect(MenuButtonContainer).toHaveStyleRule("z-index", "1100");
+        });
+      });
+
+      describe("filter", () => {
+        test("should have drop-shadow(0px 0px .2rem rgba(255,255,255,0.9)) on hover", () => {
+          const { MenuButtonContainer } = setup();
+
+          expect(MenuButtonContainer).toHaveStyleRule("filter", "drop-shadow(0px 0px .2rem rgba(255,255,255,0.9))", {
+            modifier: ":hover"
+          });
         });
       });
     });
@@ -198,9 +202,15 @@ describe("atoms / MenuButton", () => {
         let _MenuButtonLines: Element[];
   
         beforeEach(() => {
-          const { MenuButtonContainer, MenuButtonLines } = setup();
+          const onClick = jest.fn();
+
+          const { MenuButtonContainer, MenuButtonLines } = setup({
+            isOpen: true,
+            onClick
+          });
 
           _MenuButtonLines = MenuButtonLines;
+
           act(() => {
             fireEvent.click(MenuButtonContainer);
           });
@@ -299,9 +309,9 @@ function setup(additionalProps?: MenuButtonTestProps): Setup {
     <MenuButton {...props} />
   );
 
-  const { queryAllByTestId, queryByTestId }: RenderResult = utils;
+  const { queryAllByTestId }: RenderResult = utils;
 
-  const MenuButtonContainer: Element = queryByTestId("MenuButtonContainer");
+  const MenuButtonContainer: Element = queryAllByTestId("MenuButtonContainer")[0];
   const MenuButtonLines: Element[] = queryAllByTestId("MenuButtonLine");
 
   return {
