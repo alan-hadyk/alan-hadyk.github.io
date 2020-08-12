@@ -164,25 +164,15 @@ describe("molecules / Button", () => {
       });
 
       describe("width", () => {      
-        test("should have auto for size: small", () => {
-          const { ButtonContainer } = setup({
-            size: "small"
-          });
+        test("should have auto by default", () => {
+          const { ButtonContainer } = setup();
 
           expect(ButtonContainer).toHaveStyleRule("width", "auto");
         });
 
-        test("should have auto for size: medium", () => {
+        test("should have correct value passed via width props", () => {
           const { ButtonContainer } = setup({
-            size: "medium"
-          });
-
-          expect(ButtonContainer).toHaveStyleRule("width", "auto");
-        });
-
-        test("should have 100% for size: large", () => {
-          const { ButtonContainer } = setup({
-            size: "large"
+            width: "100%"
           });
 
           expect(ButtonContainer).toHaveStyleRule("width", "100%");
