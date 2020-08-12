@@ -14,7 +14,7 @@ import { HeaderMobileProps }  from "<organisms>/__typings__/Header/HeaderMobile.
 jest.mock("<hooks>/useIntersectionObserver");
 
 describe("organisms / HeaderMobile", () => {
-  test("should have correct structure when is true", () => {
+  test("should have correct structure if isMenuVisible is true", () => {
     const {
       Backdrop,
       MenuButton,
@@ -29,7 +29,7 @@ describe("organisms / HeaderMobile", () => {
     expect(HeaderMobileContainer.children[2]).toEqual(SideMenu);
   });
 
-  test("should have correct structure when is false", () => {
+  test("should have correct structure if isMenuVisible is false", () => {
     const {
       MenuButton,
       HeaderMobileContainer,
@@ -108,7 +108,7 @@ describe("organisms / HeaderMobile", () => {
     describe("Props", () => {
       describe("isExpanded", () => {
         describe("transform", () => {
-          test("should have translateX(0) if isMenuVisible props is true", () => {
+          test("should have translateX(0) if isMenuVisible is true", () => {
             const { SideMenu } = setup({
               isMenuVisible: true
             });
@@ -117,7 +117,7 @@ describe("organisms / HeaderMobile", () => {
           });
   
   
-          test("should have translateX(100%) if isMenuVisible props is false", () => {
+          test("should have translateX(100%) if isMenuVisible is false", () => {
             const { SideMenu } = setup({
               isMenuVisible: false
             });

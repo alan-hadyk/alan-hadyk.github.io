@@ -253,17 +253,17 @@ describe("atoms / MenuButton", () => {
         });
 
         describe("width", () => {      
-          test("should have 0% for the first child", () => {
+          test("should have 0 for the first child", () => {
             _MenuButtonLines.forEach((MenuButtonLine: Element) => {
-              expect(MenuButtonLine).toHaveStyleRule("width", "0%", {
+              expect(MenuButtonLine).toHaveStyleRule("width", "0", {
                 modifier: ":nth-child(1)"
               });
             });
           });
   
-          test("should have 0% for the fourth child", () => {
+          test("should have 0 for the fourth child", () => {
             _MenuButtonLines.forEach((MenuButtonLine: Element) => {
-              expect(MenuButtonLine).toHaveStyleRule("width", "0%", {
+              expect(MenuButtonLine).toHaveStyleRule("width", "0", {
                 modifier: ":nth-child(4)"
               });
             });

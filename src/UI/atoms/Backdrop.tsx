@@ -5,13 +5,11 @@ import {
   BackdropProps
 } from "<atoms>/__typings__/Backdrop.d.ts";
 
-function Backdrop({
+const Backdrop = ({
   onClick = () => false
-}: BackdropProps): JSX.Element {
-  return (
-    <Backdrop.Container data-testid="Backdrop" onClick={onClick} />
-  );
-}
+}: BackdropProps): JSX.Element => (
+  <Backdrop.Container data-testid="Backdrop" onClick={onClick} />
+);
 
 Backdrop.Container = styled.div`
   ${({

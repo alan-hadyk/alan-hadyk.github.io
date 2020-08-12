@@ -103,7 +103,7 @@ MenuButton.Line = styled.span<MenuButtonLineProps>`
       &:nth-child(1) {
         left: 50%;
         top: ${spacing14};
-        width: 0%;
+        width: 0;
       }
 
       &:nth-child(2) {
@@ -117,7 +117,7 @@ MenuButton.Line = styled.span<MenuButtonLineProps>`
       &:nth-child(4) {
         left: 50%;
         top: ${spacing14};
-        width: 0%;
+        width: 0;
       }
     `}
   `}

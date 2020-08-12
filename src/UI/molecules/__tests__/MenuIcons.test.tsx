@@ -33,7 +33,7 @@ describe("molecules / MenuIcons", () => {
 
         describe("isExternal", () => { 
           describe("should have isExternal set to true", () => {
-            test("target - should be _blank", () => {
+            test("target - should have _blank", () => {
               const { MenuIconsContainer } = setup();
   
               MenuIconsContainer.forEach(LinkWithIcon => {

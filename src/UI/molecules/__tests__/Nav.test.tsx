@@ -163,7 +163,6 @@ function setup(additionalProps?: NavTestProps): Setup {
   const { queryAllByTestId }: RenderResult = utils;
 
   const FlexContainer: Element = queryAllByTestId("Nav")[0];
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const NavItems: NodeListOf<HTMLAnchorElement> = document.querySelectorAll("a");
 
   return {

@@ -92,19 +92,19 @@ describe("organisms / HeaderDesktop", () => {
           expect(Button).toHaveStyleRule("height", "4.8rem");
         });
 
-        describe("width - should have auto", () => {      
+        test("width - should have auto", () => {      
           const { Button } = setup();
 
           expect(Button).toHaveStyleRule("width", "auto");
         });
   
-        describe("padding - should have 2.4rem", () => {      
+        test("padding - should have 2.4rem", () => {      
           const { Button } = setup();
 
           expect(Button.children[4].children[0]).toHaveStyleRule("padding-right", "2.4rem");
         });
 
-        describe("icon height - should have 2.4rem", () => {      
+        test("icon height - should have 2.4rem", () => {      
           const { Button } = setup();
 
           expect(Button.children[4].children[0].children[0].children[1]).toHaveStyleRule("height", "2.4rem");
