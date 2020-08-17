@@ -2,7 +2,7 @@ import { renderHook, RenderHookResult } from "@testing-library/react-hooks";
 
 import useInterval from "<hooks>/useInterval";
 
-describe("hooks / useShuffleText", () => {
+describe("hooks / useInterval", () => {
   describe("setText", () => {    
     test("should fire callback in intervals, and stop when hook gets unomounted", () => {
       const callback = jest.fn();
