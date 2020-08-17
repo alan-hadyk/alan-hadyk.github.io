@@ -7,29 +7,33 @@ import {
 } from "<molecules>/__typings__/Commit.d.ts";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const withCommitsState = (WrappedComponent: React.FunctionComponent<any>) => (props: unknown): JSX.Element => {
-  const [commitsList, setCommitsList] = useState<[] | CommitProps[]>([]);
-  const [hasError, setError] = useState<boolean>(false);
+const withCommitsState = (WrappedComponent: React.FunctionComponent<any>): unknown => {
+  const ComponentWithCommits = (props: unknown): JSX.Element => {
+    const [commitsList, setCommitsList] = useState<[] | CommitProps[]>([]);
+    const [hasError, setError] = useState<boolean>(false);
 
-  useEffect(() => {
-    fetchCommits();
-  }, [hasError]);
+    useEffect(() => {
+      fetchCommits();
+    }, [hasError]);
 
-  return (
-    <WrappedComponent commitsList={commitsList} hasError={hasError} {...props} />
-  );
+    return (
+      <WrappedComponent commitsList={commitsList} hasError={hasError} {...props} />
+    );
 
-  async function fetchCommits(): Promise<void> {
-    try {
-      const data: Response = await fetch("https://api.github.com/repos/alan-hadyk/portfolio/commits");
-      const json: CommitProps[] = await data.json();
+    async function fetchCommits(): Promise<void> {
+      try {
+        const data: Response = await fetch("https://api.github.com/repos/alan-hadyk/portfolio/commits");
+        const json: CommitProps[] = await data.json();
 
-      setCommitsList(json);
-      setError(false);
-    } catch(err) {
-      setError(true);
+        setCommitsList(json);
+        setError(false);
+      } catch(err) {
+        setError(true);
+      }
     }
-  }
+  };
+
+  return ComponentWithCommits;
 };
 
 export default withCommitsState;
