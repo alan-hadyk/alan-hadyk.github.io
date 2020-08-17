@@ -5,6 +5,10 @@ import Flux from "<pages>/Home/sections/dashboard/elements/Flux";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
+import {
+  DashboardSectionProps
+} from "<pages>/Home/sections/dashboard/DashboardSection/__typings__/DashboardSection.d.ts";
+
 jest.mock("vivus");
 
 jest.mock("<hooks>/useFpsCounter");
@@ -22,10 +26,20 @@ describe("pages / Home / sections / dashboard / elements / Flux", () => {
   describe("DashboardElement", () => {
     describe("Props", () => {
       describe("flex", () => {
-        test("should have 0 1 30%", () => {
-          const { DashboardElement } = setup();
+        test("should have 0 1 30% if device is desktop", () => {
+          const { DashboardElement } = setup({
+            device: "desktop"
+          });
       
           expect(DashboardElement).toHaveStyleRule("flex", "0 1 30%");
+        });
+
+        test("should have 0 1 50% if device is not desktop", () => {
+          const { DashboardElement } = setup({
+            device: "tablet"
+          });
+      
+          expect(DashboardElement).toHaveStyleRule("flex", "0 1 50%");
         });
       });
 
@@ -73,13 +87,21 @@ interface Setup extends RenderResult {
   FlowChart: Element;
 }
 
-function setup(): Setup {
+type FluxTestProps = Partial<DashboardSectionProps>;
+
+function setup(additionalProps?: FluxTestProps): Setup {
+  const props: DashboardSectionProps = {
+    device: "desktop",
+    ...additionalProps
+  };
+
   const utils: RenderResult = renderWithTheme(
-    <Flux />
+    <Flux {...props} />
   );
 
-  const { container, queryByTestId, queryAllByTestId } = utils || {};
-  const DashboardElement: Element = container.children[0];
+  const { queryByTestId, queryAllByTestId } = utils || {};
+  
+  const DashboardElement: Element = queryByTestId("Flux");
   const FlowChart: Element = queryByTestId("FlowChart");
   const Corners: Element[] = queryAllByTestId("Corner");
 

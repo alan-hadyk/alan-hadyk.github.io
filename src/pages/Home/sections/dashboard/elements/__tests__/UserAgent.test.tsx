@@ -5,6 +5,10 @@ import UserAgent from "<pages>/Home/sections/dashboard/elements/UserAgent";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
+import {
+  DashboardSectionProps
+} from "<pages>/Home/sections/dashboard/DashboardSection/__typings__/DashboardSection.d.ts";
+
 jest.mock("detect-browser", () => ({
   detect: (): { name: string } => ({ name: "chrome" })
 }));
@@ -30,11 +34,22 @@ describe("pages / Home / sections / dashboard / elements / UserAgent", () => {
       });
 
       describe("description", () => {
-        test("should have Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/11.12.0", () => {
+        test("should have Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/11.12.0 if device is desktop", () => {
           Object.defineProperty(window.navigator, "userAgent", {value: "Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/11.12.0"});
-          const { DashboardElement } = setup();
+          const { DashboardElementDescriptionText } = setup({
+            device: "desktop"
+          });
       
-          expect(DashboardElement.children[1].textContent).toEqual("Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/11.12.0");
+          expect(DashboardElementDescriptionText.textContent).toEqual("Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/11.12.0");
+        });
+
+        test("should not appear if device is not desktop", () => {
+          Object.defineProperty(window.navigator, "userAgent", {value: "Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/11.12.0"});
+          const { DashboardElementDescriptionText } = setup({
+            device: "tablet"
+          });
+      
+          expect(DashboardElementDescriptionText).toBeFalsy();
         });
       });
 
@@ -99,11 +114,19 @@ interface Setup extends RenderResult {
   BrowserInfo: Element;
   Corners: Element[];
   DashboardElement: Element;
+  DashboardElementDescriptionText: Element;
 }
 
-function setup(): Setup {
+type UserAgentTestProps = Partial<DashboardSectionProps>;
+
+function setup(additionalProps?: UserAgentTestProps): Setup {
+  const props: DashboardSectionProps = {
+    device: "desktop",
+    ...additionalProps
+  };
+
   const utils: RenderResult = renderWithTheme(
-    <UserAgent />
+    <UserAgent {...props} />
   );
 
   const { queryByTestId, queryAllByTestId } = utils || {};
@@ -111,11 +134,13 @@ function setup(): Setup {
   const BrowserInfo: Element = queryByTestId("BrowserInfo");
   const Corners: Element[] = queryAllByTestId("Corner");
   const DashboardElement: Element = queryByTestId("UserAgent");
+  const DashboardElementDescriptionText: Element = queryByTestId("DashboardElementDescriptionText");
 
   return {
     ...utils,
     BrowserInfo,
     Corners,
-    DashboardElement
+    DashboardElement,
+    DashboardElementDescriptionText
   };
 }

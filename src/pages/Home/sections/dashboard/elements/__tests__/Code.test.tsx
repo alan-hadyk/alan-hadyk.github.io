@@ -77,11 +77,14 @@ function setup(): Setup {
     <Code />
   );
 
-  const { container, queryByTestId } = utils || {};
+  const { queryByTestId } = utils || {};
+
+  const DashboardElement: Element = queryByTestId("Code");
+  const TypingAnimation: Element = queryByTestId("TypingAnimation");
 
   return {
     ...utils,
-    DashboardElement: container.children[0],
-    TypingAnimation: queryByTestId("TypingAnimation")
+    DashboardElement,
+    TypingAnimation
   };
 }

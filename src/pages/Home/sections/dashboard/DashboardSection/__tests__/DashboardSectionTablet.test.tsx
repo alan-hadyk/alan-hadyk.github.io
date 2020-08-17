@@ -51,7 +51,6 @@ jest.mock("detect-browser", () => ({
 describe("pages / Home / sections / dashboard / DashboardSection / DashboardSectionTablet", () => {
   test("should have correct structure", () => {
     const {
-      Code,
       Commits,
       Console,
       DashboardSectionInnerContainer,

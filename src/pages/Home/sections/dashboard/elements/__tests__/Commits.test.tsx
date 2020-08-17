@@ -307,11 +307,16 @@ function setup(additionalProps?: ListOfCommitsTestProps): Setup {
 
   const { queryByTestId, queryAllByTestId } = utils || {};
 
+  const Corners: Element[] = queryAllByTestId("Corner");
+  const DashboardElement: Element = queryByTestId("Commits");
+  const Error: Element = queryByTestId("Error");
+  const ListOfCommits: Element = queryByTestId("ListOfCommits");
+
   return {
     ...utils,
-    Corners: queryAllByTestId("Corner"),
-    DashboardElement: queryByTestId("Commits"),
-    Error: queryByTestId("Error"),
-    ListOfCommits: queryByTestId("ListOfCommits")
+    Corners,
+    DashboardElement,
+    Error,
+    ListOfCommits
   };
 }

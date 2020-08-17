@@ -75,6 +75,7 @@ function setup(): Setup {
   );
 
   const { queryByTestId, queryAllByTestId } = utils || {};
+  
   const DashboardElement: Element = queryByTestId("PoweredBy");
   const ReactLogo: Element = queryByTestId("ReactLogo");
   const Corners: Element[] = queryAllByTestId("Corner");
