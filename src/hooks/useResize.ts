@@ -1,26 +1,28 @@
-import { useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useRef } from "react";
 
 import {
   UseResizeArgs
 } from "<hooks>/__typings__/useResize.d.ts";
 
+// TODO: Add tests for this hook
 export default function useResize({
   breakpoint,
   callback
 }: UseResizeArgs): void {
-  const [called, setCalled] = useState(false);
+  const called = useRef<boolean>(false);
 
   useLayoutEffect(() => {
     function executeCallback() {
-      if (window.innerWidth >= parseInt(breakpoint) && !called) {
+      if (window.innerWidth >= parseInt(breakpoint) && !called.current) {
         callback();
-        setCalled(true);
+        called.current = true;
       } else {
-        setCalled(false);
+        called.current = false;
       }
     }
 
     window.addEventListener("resize", executeCallback);
+
     return () => window.removeEventListener("resize", executeCallback);
   }, [breakpoint, callback, called]);
 }
