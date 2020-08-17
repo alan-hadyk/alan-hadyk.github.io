@@ -11,7 +11,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 jest.mock("<hooks>/useIntersectionObserver");
 
-import { HeaderProps }  from "<organisms>/__typings__/Header/Header.d.ts";
+import { HeaderProps }  from "<organisms>/Header/__typings__/Header.d.ts";
 
 describe("organisms / Header", () => {
   test("should have correct structure", () => {

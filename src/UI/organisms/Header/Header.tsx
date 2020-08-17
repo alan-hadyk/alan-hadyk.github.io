@@ -14,7 +14,7 @@ import Responsive from "<layout>/Responsive";
 
 import useResize from "<hooks>/useResize";
 
-import { HeaderProps } from "<organisms>/__typings__/Header/Header.d.ts";
+import { HeaderProps } from "<organisms>/Header/__typings__/Header.d.ts";
 
 function Header({
   zIndex = "layer1"

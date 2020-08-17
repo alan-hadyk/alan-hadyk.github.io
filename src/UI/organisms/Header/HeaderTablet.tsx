@@ -8,7 +8,7 @@ import Responsive from "<layout>/Responsive";
 import FlexContainer from "<layout>/FlexContainer";
 
 import Backdrop from "<atoms>/Backdrop";
-import { HeaderMobileProps } from "<organisms>/__typings__/Header/HeaderMobile.d.ts";
+import { HeaderMobileProps } from "<organisms>/Header/__typings__/HeaderMobile.d.ts";
 
 const HeaderTablet = ({
   isMenuVisible,
