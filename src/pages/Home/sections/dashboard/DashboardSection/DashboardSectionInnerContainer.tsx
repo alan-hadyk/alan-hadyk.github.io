@@ -5,21 +5,21 @@ import SpacingContainer from "<layout>/SpacingContainer";
 
 import {
   DashboardSectionInnerContainerProps
-} from "<pages>/Home/sections/dashboard/__typings__/DashboardSection/DashboardSectionInnerContainer.d.ts";
+} from "<pages>/Home/sections/dashboard/DashboardSection/__typings__/DashboardSectionInnerContainer.d.ts";
 
 const DashboardSectionInnerContainer = ({
   children,
   height
 }: DashboardSectionInnerContainerProps): JSX.Element => (
   <SpacingContainer
-    dataTestId="DashboardSectionSpacingContainer"
+    dataTestId="DashboardSectionInnerContainer"
     height={height}
     marginTop="2.22vh"
     width="100%"
   >
     <FlexContainer
       alignItems="stretch"
-      dataTestId="DashboardSectionFlexContainer"
+      dataTestId="DashboardSectionInnerFlexContainer"
       flexFlow="row nowrap"
       gap="spacing48"
       height="100%"

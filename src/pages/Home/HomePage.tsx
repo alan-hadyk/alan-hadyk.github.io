@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 
-import DashboardSection from "<pages>/Home/sections/dashboard/DashboardSection/DashboardSection";
+import DashboardSection from "<pages>/Home/sections/dashboard/DashboardSection";
 import PortfolioSection from "<pages>/Home/sections/portfolio/PortfolioSection";
 import ExperienceSection from "<pages>/Home/sections/experience/ExperienceSection";
 import SkillsSection from "<pages>/Home/sections/skills/SkillsSection";

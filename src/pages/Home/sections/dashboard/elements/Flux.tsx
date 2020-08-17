@@ -5,7 +5,7 @@ import FlowChart from "<molecules>/FlowChart";
 
 import {
   DashboardSectionProps
-} from "<pages>/Home/sections/dashboard/__typings__/DashboardSection/DashboardSection.d.ts";
+} from "<pages>/Home/sections/dashboard/DashboardSection/__typings__/DashboardSection.d.ts";
 
 const Flux = ({
   device

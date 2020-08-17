@@ -18,7 +18,7 @@ import spacing from "<styles>/variables/spacing";
 
 function DashboardSectionTablet(): JSX.Element {
   return (
-    <Responsive device="tablet">
+    <Responsive devices={["tablet"]}>
       <DashboardSectionOuterContainer>
         {renderTopTabletRow()}
 
@@ -34,8 +34,8 @@ function DashboardSectionTablet(): JSX.Element {
       <DashboardSectionInnerContainer
         height={`calc(22.5vh + ${spacing.spacing36})`}
       >
-        <TechStack />
-        <Flux />
+        <TechStack device="tablet" />
+        <Flux device="tablet" />
       </DashboardSectionInnerContainer>
     );
   }

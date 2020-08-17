@@ -5,19 +5,19 @@ import PositionContainer from "<layout>/PositionContainer";
 
 import {
   DashboardSectionOuterContainerProps
-} from "<pages>/Home/sections/dashboard/__typings__/DashboardSection/DashboardSectionOuterContainer.d.ts";
+} from "<pages>/Home/sections/dashboard/DashboardSection/__typings__/DashboardSectionOuterContainer.d.ts";
 
 const DashboardSectionOuterContainer = ({
   children
 }: DashboardSectionOuterContainerProps): JSX.Element => (
   <PositionContainer
-    dataTestId="DashboardSectionPositionContainer"
+    dataTestId="DashboardSectionOuterContainer"
     height="100%"
     position="relative"
   >
     <FlexContainer
       alignItems="center"
-      dataTestId="DashboardSectionFlexContainer"
+      dataTestId="DashboardSectionOuterFlexContainer"
       flexFlow="column nowrap"
       height="100%"
       justifyContent="space-between"

@@ -7,7 +7,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
   DashboardSectionInnerContainerProps
-} from "<pages>/Home/sections/dashboard/__typings__/DashboardSection/DashboardSectionInnerContainer.d.ts";
+} from "<pages>/Home/sections/dashboard/DashboardSection/__typings__/DashboardSectionInnerContainer.d.ts";
 
 describe("pages / Home / sections / dashboard / DashboardSection / DashboardSectionInnerContainer", () => {
   test("should have correct structure", () => {
@@ -120,8 +120,8 @@ function setup(additionalProps?: DashboardSectionInnerContainerTestProps): Setup
 
   const { queryByTestId }: RenderResult = utils;
 
-  const FlexContainer: Element = queryByTestId("DashboardSectionFlexContainer");
-  const SpacingContainer: Element = queryByTestId("DashboardSectionSpacingContainer");
+  const FlexContainer: Element = queryByTestId("DashboardSectionInnerFlexContainer");
+  const SpacingContainer: Element = queryByTestId("DashboardSectionInnerContainer");
 
   return {
     ...utils,

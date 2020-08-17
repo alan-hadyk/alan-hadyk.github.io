@@ -1,4 +1,5 @@
-import React from "react";
+
+import React, { Fragment } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import {
@@ -7,39 +8,38 @@ import {
 
 const Responsive = ({
   children,
-  device
-}: ResponsiveProps): JSX.Element => {
-  return renderContent();
+  dataTestDesktopId,
+  dataTestMobileId,
+  dataTestTabletId,
+  devices
+}: ResponsiveProps): JSX.Element => (
+  <Fragment>
+    {devices.includes("desktop") && (
+      <Responsive.Desktop
+        data-testid={dataTestDesktopId || "ResponsiveDesktop"}
+      >
+        {children}
+      </Responsive.Desktop>
+    )}
 
-  function renderContent(): JSX.Element {
-    switch (device) {
-    case "desktop":
-      return (
-        <Responsive.Desktop
-          data-testid="ResponsiveDesktop"
-        >
-          {children}
-        </Responsive.Desktop>
-      );
-    case "tablet":
-      return (
-        <Responsive.Tablet
-          data-testid="ResponsiveTablet"
-        >
-          {children}
-        </Responsive.Tablet>
-      );
-    case "mobile":
-      return (
-        <Responsive.Mobile
-          data-testid="ResponsiveMobile"
-        >
-          {children}
-        </Responsive.Mobile>
-      );
-    }
-  }
-};
+    {devices.includes("tablet") && (
+      <Responsive.Tablet
+        data-testid={dataTestTabletId || "ResponsiveTablet"}
+      >
+        {children}
+      </Responsive.Tablet>
+    )}
+
+    {devices.includes("mobile") && (
+      <Responsive.Mobile
+        data-testid={dataTestMobileId || "ResponsiveMobile"}
+      >
+        {children}
+      </Responsive.Mobile>
+    )}
+
+  </Fragment>
+);
 
 Responsive.Desktop = styled.div`
   ${({

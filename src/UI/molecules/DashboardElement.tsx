@@ -67,7 +67,7 @@ function DashboardElement({
 
       {description && (
         <SpacingContainer
-          dataTestId="DashboardElementDescription"
+          dataTestId="DashboardElementDescriptionSpacingContainer"
           marginBottom="spacing28"
         >
           <Text
@@ -86,7 +86,7 @@ function DashboardElement({
       )}
       
       <SpacingContainer
-        dataTestId="DashboardElementContentSpacingContainer"
+        dataTestId="DashboardElementOuterSpacingContainer"
         height={childrenHeight}
         marginTop={titleFontSize === "font28" ? "spacing8" : "spacing0"}
       >
@@ -112,7 +112,7 @@ function DashboardElement({
         {
           shouldDisplayCorners ? (
             <SpacingContainer 
-              dataTestId="DashboardElementChildrenSpacingContainer"
+              dataTestId="DashboardElementInnerSpacingContainer"
               height="100%"
               paddingRight="spacing8" 
               paddingLeft="spacing8" 
