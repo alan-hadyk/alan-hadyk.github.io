@@ -7,7 +7,7 @@ import {
 } from "<molecules>/__typings__/Commit.d.ts";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const withCommitsState = (WrappedComponent: React.FunctionComponent<any>): unknown => {
+const withCommitsState = (WrappedComponent: React.FunctionComponent<any>): any => {
   const ComponentWithCommits = (props: unknown): JSX.Element => {
     const [commitsList, setCommitsList] = useState<[] | CommitProps[]>([]);
     const [hasError, setError] = useState<boolean>(false);
