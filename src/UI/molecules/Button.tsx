@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize, radialGradient } from "polished";
+import { isMobile } from "react-device-detect";
 
 import SpacingContainer from "<layout>/SpacingContainer";
 import FlexContainer from "<layout>/FlexContainer";
@@ -76,6 +77,8 @@ function Button({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseUp={handleButtonClick}
+      onTouchMove={handleMouseLeave}
+      onTouchStart={handleMouseEnter}
       width={width}
     >
       <Corners isActive={isActive} />
@@ -96,17 +99,21 @@ function Button({
   );
 
   function handleMouseEnter(): void {
-    setIsActive(true);
-    isElementFocused.current = true;
+    if (!isElementFocused.current) {
+      !isMobile && setIsActive(true);
+      isElementFocused.current = true;
+    }
   }
 
   function handleMouseLeave(): void {
-    setIsActive(false);
-    isElementFocused.current = false;
+    if (isElementFocused.current) {
+      !isMobile && setIsActive(false);
+      isElementFocused.current = false;
+    }
   }
 
   function handleButtonClick(event: React.MouseEvent<HTMLButtonElement>): void {
-    setIsActive(false);
+    !isMobile && setIsActive(false);
     event.preventDefault();
 
     if (buttonInnerContainerRef.current) {
@@ -121,7 +128,7 @@ function Button({
       buttonInnerContainerRef.current.appendChild(span);
 
       setTimeout(() => {
-        if (isElementFocused.current) {
+        if (isElementFocused.current && !isMobile) {
           buttonInnerContainerRef.current && setIsActive(true);
         }
       }, parseInt(transitionTimes.fast));
@@ -177,6 +184,7 @@ Button.Container = styled.button<ButtonContainerProps>`
     position: relative;
     text-transform: lowercase;
     transition: all ${fast} ${easeInOut};
+    user-select: none;
     width: ${width};
 
     &:hover {
