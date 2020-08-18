@@ -131,6 +131,182 @@ describe("organisms / HeaderTablet", () => {
     });
 
     describe("Props", () => {
+      describe("isOpen", () => {  
+        describe("when isMenuVisible is true", () => {
+          let _MenuButtonLines: Element[];
+    
+          beforeEach(() => {
+            const onClick = jest.fn();
+  
+            const { MenuButtonLines } = setup({
+              isMenuVisible: true,
+              onClick
+            });
+  
+            _MenuButtonLines = MenuButtonLines;
+          });
+  
+          describe("left", () => {      
+            test("should have 50% for the first child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).toHaveStyleRule("left", "50%", {
+                  modifier: ":nth-child(1)"
+                });
+              });
+            });
+    
+            test("should have 50% for the fourth child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).toHaveStyleRule("left", "50%", {
+                  modifier: ":nth-child(4)"
+                });
+              });
+            });
+          });
+  
+          describe("top", () => {      
+            test("should have 1.4rem for the first child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).toHaveStyleRule("top", "1.4rem", {
+                  modifier: ":nth-child(1)"
+                });
+              });
+            });
+    
+            test("should have 1.4rem for the fourth child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).toHaveStyleRule("top", "1.4rem", {
+                  modifier: ":nth-child(4)"
+                });
+              });
+            });
+          });
+  
+          describe("width", () => {      
+            test("should have 0 for the first child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).toHaveStyleRule("width", "0", {
+                  modifier: ":nth-child(1)"
+                });
+              });
+            });
+    
+            test("should have 0 for the fourth child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).toHaveStyleRule("width", "0", {
+                  modifier: ":nth-child(4)"
+                });
+              });
+            });
+          });
+  
+          describe("transform", () => {      
+            test("should have rotate(40deg) for the second child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).toHaveStyleRule("transform", "rotate(40deg)", {
+                  modifier: ":nth-child(2)"
+                });
+              });
+            });
+    
+            test("should have rotate(-40deg) for the third child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).toHaveStyleRule("transform", "rotate(-40deg)", {
+                  modifier: ":nth-child(3)"
+                });
+              });
+            });
+          });
+        });
+
+        describe("when isMenuVisible is false", () => {
+          let _MenuButtonLines: Element[];
+    
+          beforeEach(() => {
+            const onClick = jest.fn();
+  
+            const { MenuButtonLines } = setup({
+              isMenuVisible: false,
+              onClick
+            });
+  
+            _MenuButtonLines = MenuButtonLines;
+          });
+  
+          describe("left", () => {      
+            test("should not have 50% for the first child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).not.toHaveStyleRule("left", "50%", {
+                  modifier: ":nth-child(1)"
+                });
+              });
+            });
+    
+            test("should not have 50% for the fourth child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).not.toHaveStyleRule("left", "50%", {
+                  modifier: ":nth-child(4)"
+                });
+              });
+            });
+          });
+  
+          describe("top", () => {      
+            test("should not have 1.4rem for the first child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).not.toHaveStyleRule("top", "1.4rem", {
+                  modifier: ":nth-child(1)"
+                });
+              });
+            });
+    
+            test("should not have 1.4rem for the fourth child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).not.toHaveStyleRule("top", "1.4rem", {
+                  modifier: ":nth-child(4)"
+                });
+              });
+            });
+          });
+  
+          describe("width", () => {      
+            test("should not have 0 for the first child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).not.toHaveStyleRule("width", "0", {
+                  modifier: ":nth-child(1)"
+                });
+              });
+            });
+    
+            test("should not have 0 for the fourth child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).not.toHaveStyleRule("width", "0", {
+                  modifier: ":nth-child(4)"
+                });
+              });
+            });
+          });
+  
+          describe("transform", () => {      
+            test("should not have rotate(40deg) for the second child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).not.toHaveStyleRule("transform", "rotate(40deg)", {
+                  modifier: ":nth-child(2)"
+                });
+              });
+            });
+    
+            test("should not have rotate(-40deg) for the third child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).not.toHaveStyleRule("transform", "rotate(-40deg)", {
+                  modifier: ":nth-child(3)"
+                });
+              });
+            });
+          });
+        });
+      });
+
       describe("onClick", () => {      
         test("should fire click", () => {
           const onClick = jest.fn();
@@ -167,6 +343,27 @@ describe("organisms / HeaderTablet", () => {
 
       expect(Backdrop).toBeFalsy();
     });
+
+    describe("Props", () => {
+      describe("onClick", () => {      
+        test("should fire onClick prop", () => {
+          const onClick = jest.fn();
+    
+          const { Backdrop } = setup({
+            isMenuVisible: true,
+            onClick
+          });
+    
+          expect(onClick).toHaveBeenCalledTimes(0);
+    
+          act(() => {
+            fireEvent.click(Backdrop);
+          });
+    
+          expect(onClick).toHaveBeenCalledTimes(1);
+        });
+      });
+    });
   });
 
   describe("SideMenu", () => {
@@ -200,6 +397,7 @@ interface Setup extends RenderResult {
   HeaderTabletContainer: Element;
   HeaderTabletFlexContainer: Element;
   MenuButton: Element;
+  MenuButtonLines: Element[];
   Nav: Element;
   SideMenu: Element;
 }
@@ -223,6 +421,7 @@ function setup(additionalProps?: HeaderTabletTestProps): Setup {
   const HeaderTabletContainer: Element = queryByTestId("HeaderTablet");
   const HeaderTabletFlexContainer: Element = queryByTestId("HeaderTabletFlexContainer");
   const MenuButton: Element = queryByTestId("MenuButtonContainer");
+  const MenuButtonLines: Element[] = queryAllByTestId("MenuButtonLine");
   const Nav: Element = queryAllByTestId("Nav")[0];
   const SideMenu: Element = queryByTestId("SideMenu");
 
@@ -232,6 +431,7 @@ function setup(additionalProps?: HeaderTabletTestProps): Setup {
     HeaderTabletContainer,
     HeaderTabletFlexContainer,
     MenuButton,
+    MenuButtonLines,
     Nav,
     SideMenu
   };

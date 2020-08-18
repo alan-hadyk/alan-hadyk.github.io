@@ -51,10 +51,10 @@ describe("organisms / SideMenu", () => {
       });
 
       describe("border-left", () => { 
-        test("should have 1px solid rgba(120,176,181,0.25)", () => {
+        test("should have 1px solid rgba(120,176,181,0.75)", () => {
           const { SideMenuContainer } = setup();
 
-          expect(SideMenuContainer).toHaveStyleRule("border-left", "1px solid rgba(120,176,181,0.25)");
+          expect(SideMenuContainer).toHaveStyleRule("border-left", "1px solid rgba(120,176,181,0.75)");
         });
       });
 
@@ -67,10 +67,10 @@ describe("organisms / SideMenu", () => {
       });
 
       describe("padding-top", () => { 
-        test("should have 9.6rem", () => {
+        test("should have 8.8rem", () => {
           const { SideMenuContainer } = setup();
 
-          expect(SideMenuContainer).toHaveStyleRule("padding-top", "9.6rem");
+          expect(SideMenuContainer).toHaveStyleRule("padding-top", "8.8rem");
         });
       });
 
@@ -145,7 +145,7 @@ describe("organisms / SideMenu", () => {
           });
         });
 
-        describe("overflow", () => { 
+        describe("overflowY", () => { 
           test("should have auto", () => {
             const { SideMenuOuterSpacingContainer } = setup();
   
@@ -166,6 +166,14 @@ describe("organisms / SideMenu", () => {
             const { SideMenuOuterSpacingContainer } = setup();
   
             expect(SideMenuOuterSpacingContainer).toHaveStyleRule("padding-right", "4.8rem");
+          });
+        });
+
+        describe("paddingTop", () => { 
+          test("should have .8rem", () => {
+            const { SideMenuOuterSpacingContainer } = setup();
+  
+            expect(SideMenuOuterSpacingContainer).toHaveStyleRule("padding-top", ".8rem");
           });
         });
       });
@@ -227,21 +235,19 @@ describe("organisms / SideMenu", () => {
 
     describe("SideMenuOuterFlexContainer", () => {
       describe("Props", () => {
-        describe("Props", () => {
-          describe("flexFlow", () => {
-            test("should have column nowrap", () => {
-              const { SideMenuOuterFlexContainer } = setup();
-      
-              expect(SideMenuOuterFlexContainer).toHaveStyleRule("flex-flow", "column nowrap");
-            });
+        describe("flexFlow", () => {
+          test("should have column nowrap", () => {
+            const { SideMenuOuterFlexContainer } = setup();
+    
+            expect(SideMenuOuterFlexContainer).toHaveStyleRule("flex-flow", "column nowrap");
           });
+        });
 
-          describe("justifyContent", () => {
-            test("should have center", () => {
-              const { SideMenuOuterFlexContainer } = setup();
-      
-              expect(SideMenuOuterFlexContainer).toHaveStyleRule("justify-content", "center");
-            });
+        describe("justifyContent", () => {
+          test("should have center", () => {
+            const { SideMenuOuterFlexContainer } = setup();
+    
+            expect(SideMenuOuterFlexContainer).toHaveStyleRule("justify-content", "center");
           });
         });
       });
@@ -249,25 +255,23 @@ describe("organisms / SideMenu", () => {
 
     describe("SideMenuInnerFlexContainer", () => {
       describe("Props", () => {
-        describe("Props", () => {
-          describe("flexFlow", () => {
-            test("should have row nowrap", () => {
-              const { SideMenuInnerFlexContainer } = setup();
-      
-              expect(SideMenuInnerFlexContainer).toHaveStyleRule("flex-flow", "row nowrap");
-            });
+        describe("flexFlow", () => {
+          test("should have row nowrap", () => {
+            const { SideMenuInnerFlexContainer } = setup();
+    
+            expect(SideMenuInnerFlexContainer).toHaveStyleRule("flex-flow", "row nowrap");
           });
+        });
 
-          describe("gap", () => {
-            test("should have margin-left: 2.4rem for all children (except first)", () => {
-              const { SideMenuInnerFlexContainer } = setup();
-  
-              expect(SideMenuInnerFlexContainer).toHaveStyleRule("margin-left", "2.4rem", {
-                modifier: "& > *"
-              });
-              expect(SideMenuInnerFlexContainer).toHaveStyleRule("margin-left", "0", {
-                modifier: "& > *:first-child"
-              });
+        describe("gap", () => {
+          test("should have margin-left: 2.4rem for all children (except first)", () => {
+            const { SideMenuInnerFlexContainer } = setup();
+
+            expect(SideMenuInnerFlexContainer).toHaveStyleRule("margin-left", "2.4rem", {
+              modifier: "& > *"
+            });
+            expect(SideMenuInnerFlexContainer).toHaveStyleRule("margin-left", "0", {
+              modifier: "& > *:first-child"
             });
           });
         });
@@ -332,20 +336,18 @@ describe("organisms / SideMenu", () => {
   });
 
   describe("MenuIcons", () => {
-    describe("Props", () => {
-      test("there should be 3 icons", () => {
-        const { MenuIcons } = setup();
-  
-        expect(MenuIcons.length).toEqual(3);
-      });
-  
-      test("MenuIcons should render correct SVGs", () => {
-        const { MenuIcons } = setup();
-  
-        expect(MenuIcons[0].children[0].textContent).toEqual("Icon-GitHub.svg");
-        expect(MenuIcons[1].children[0].textContent).toEqual("Icon-CodeSandbox.svg");
-        expect(MenuIcons[2].children[0].textContent).toEqual("Icon-LinkedIn.svg");
-      });
+    test("there should be 3 icons", () => {
+      const { MenuIcons } = setup();
+
+      expect(MenuIcons.length).toEqual(3);
+    });
+
+    test("MenuIcons should render correct SVGs", () => {
+      const { MenuIcons } = setup();
+
+      expect(MenuIcons[0].children[0].textContent).toEqual("Icon-GitHub.svg");
+      expect(MenuIcons[1].children[0].textContent).toEqual("Icon-CodeSandbox.svg");
+      expect(MenuIcons[2].children[0].textContent).toEqual("Icon-LinkedIn.svg");
     });
   });
 });

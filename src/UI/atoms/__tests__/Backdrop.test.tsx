@@ -1,5 +1,9 @@
 import React from "react";
-import { RenderResult } from "@testing-library/react";
+import {
+  act,
+  fireEvent, 
+  RenderResult
+} from "@testing-library/react";
 
 import Backdrop from "<atoms>/Backdrop";
 
@@ -62,6 +66,26 @@ describe("atoms / Backdrop", () => {
         const { BackdropContainer } = setup();
   
         expect(BackdropContainer).toHaveStyleRule("z-index", "900");
+      });
+    });
+  });
+
+  describe("Props", () => {
+    describe("onClick", () => {  
+      test("should fire onClick prop", () => {
+        const onClick = jest.fn();
+  
+        const { BackdropContainer } = setup({
+          onClick
+        });
+  
+        expect(onClick).toHaveBeenCalledTimes(0);
+  
+        act(() => {
+          fireEvent.click(BackdropContainer);
+        });
+  
+        expect(onClick).toHaveBeenCalledTimes(1);
       });
     });
   });

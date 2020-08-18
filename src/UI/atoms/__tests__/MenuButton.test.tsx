@@ -204,16 +204,12 @@ describe("atoms / MenuButton", () => {
         beforeEach(() => {
           const onClick = jest.fn();
 
-          const { MenuButtonContainer, MenuButtonLines } = setup({
+          const { MenuButtonLines } = setup({
             isOpen: true,
             onClick
           });
 
           _MenuButtonLines = MenuButtonLines;
-
-          act(() => {
-            fireEvent.click(MenuButtonContainer);
-          });
         });
 
         describe("left", () => {      

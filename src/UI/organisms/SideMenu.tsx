@@ -26,9 +26,10 @@ const SideMenu = ({
     <SpacingContainer
       dataTestId="SideMenuOuterSpacingContainer"
       height="100%"
-      overflow="auto"
+      overflowY="auto"
       paddingLeft="spacing48"
       paddingRight="spacing48"
+      paddingTop="spacing8"
     > 
       <Responsive devices={["mobile"]}>
         <FlexContainer
@@ -88,7 +89,7 @@ SideMenu.Container = styled.div<SideMenuContainerProps>`
         easeInOut
       },
       spacing: {
-        spacing96
+        spacing88
       },
       transitionTimes: {
         fast
@@ -99,9 +100,9 @@ SideMenu.Container = styled.div<SideMenuContainerProps>`
     }
   }): FlattenSimpleInterpolation => css`
     background: ${transparentize(0.125, blue600)};
-    border-left: 1px solid ${transparentize(0.75, blue300)};
+    border-left: 1px solid ${transparentize(0.25, blue300)};
     height: 100%;
-    padding-top: ${spacing96};
+    padding-top: ${spacing88};
     position: fixed;
     right: 0;
     top: 0;

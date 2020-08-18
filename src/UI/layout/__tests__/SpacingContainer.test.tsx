@@ -198,7 +198,7 @@ describe("layout / SpacingContainer", () => {
   
       test("should have correct value when passed via overflow prop", () => {
         const { SpacingContainer } = setup({
-          overflow: "hidden"
+          overflowY: "hidden"
         });
   
         expect(SpacingContainer).toHaveStyleRule("overflow-y", "hidden");

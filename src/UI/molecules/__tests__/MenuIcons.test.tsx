@@ -19,26 +19,24 @@ describe("molecules / MenuIcons", () => {
   });
 
   describe("LinkWithIcon", () => {
-    describe("Link", () => {
-      describe("Props", () => {
-        describe("href", () => { 
-          test("should have correct href", () => {
-            const { MenuIconsContainer } = setup();
-  
-            expect(MenuIconsContainer[0].getAttribute("href")).toEqual("https://github.com/alan-hadyk");
-            expect(MenuIconsContainer[1].getAttribute("href")).toEqual("https://codesandbox.io/u/alan-hadyk");
-            expect(MenuIconsContainer[2].getAttribute("href")).toEqual("https://www.linkedin.com/in/alan-hadyk-78738099/");
-          });
-        });
+    describe("Props", () => {
+      describe("href", () => { 
+        test("should have correct href", () => {
+          const { MenuIconsContainer } = setup();
 
-        describe("isExternal", () => { 
-          describe("should have isExternal set to true", () => {
-            test("target - should have _blank", () => {
-              const { MenuIconsContainer } = setup();
-  
-              MenuIconsContainer.forEach(LinkWithIcon => {
-                expect(LinkWithIcon.getAttribute("target")).toEqual("_blank");
-              });
+          expect(MenuIconsContainer[0].getAttribute("href")).toEqual("https://github.com/alan-hadyk");
+          expect(MenuIconsContainer[1].getAttribute("href")).toEqual("https://codesandbox.io/u/alan-hadyk");
+          expect(MenuIconsContainer[2].getAttribute("href")).toEqual("https://www.linkedin.com/in/alan-hadyk-78738099/");
+        });
+      });
+
+      describe("isExternal", () => { 
+        describe("should have isExternal set to true", () => {
+          test("target - should have _blank", () => {
+            const { MenuIconsContainer } = setup();
+
+            MenuIconsContainer.forEach(LinkWithIcon => {
+              expect(LinkWithIcon.getAttribute("target")).toEqual("_blank");
             });
           });
         });
