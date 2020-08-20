@@ -89,7 +89,7 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
 
     expect(DashboardSectionInnerContainer.children[0].children[0]).toEqual(Commits);	
     expect(DashboardSectionInnerContainer.children[0].children[1]).toEqual(PoweredBy);	
-    expect(DashboardSectionInnerContainer.children[0].children[3]).toEqual(Ip);	
+    expect(DashboardSectionInnerContainer.children[0].children[2]).toEqual(Ip);	
   });	
 
   test("should have correct structure for mobile", () => {	

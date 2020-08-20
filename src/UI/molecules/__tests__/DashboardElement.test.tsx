@@ -173,7 +173,9 @@ describe("molecules / DashboardElement", () => {
         });
 
         test("should have hidden if title is equal Commits", () => {
-          const { DashboardElementContainer } = setup();
+          const { DashboardElementContainer } = setup({
+            title: "Commits"
+          });
     
           expect(DashboardElementContainer).toHaveStyleRule("overflow", "hidden");
         });
