@@ -3,6 +3,7 @@ import React, { Fragment } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import {
+  ResponsiveContainerProps,
   ResponsiveProps
 } from "<layout>/__typings__/Responsive.d.ts";
 
@@ -11,12 +12,16 @@ const Responsive = ({
   dataTestDesktopId,
   dataTestMobileId,
   dataTestTabletId,
-  devices
+  devices,
+  height = "auto",
+  width = "auto"
 }: ResponsiveProps): JSX.Element => (
   <Fragment>
     {devices.includes("desktop") && (
       <Responsive.Desktop
         data-testid={dataTestDesktopId || "ResponsiveDesktop"}
+        height={height}
+        width={width}
       >
         {children}
       </Responsive.Desktop>
@@ -25,6 +30,8 @@ const Responsive = ({
     {devices.includes("tablet") && (
       <Responsive.Tablet
         data-testid={dataTestTabletId || "ResponsiveTablet"}
+        height={height}
+        width={width}
       >
         {children}
       </Responsive.Tablet>
@@ -33,6 +40,8 @@ const Responsive = ({
     {devices.includes("mobile") && (
       <Responsive.Mobile
         data-testid={dataTestMobileId || "ResponsiveMobile"}
+        height={height}
+        width={width}
       >
         {children}
       </Responsive.Mobile>
@@ -41,14 +50,16 @@ const Responsive = ({
   </Fragment>
 );
 
-Responsive.Desktop = styled.div`
+Responsive.Desktop = styled.div<ResponsiveContainerProps>`
   ${({
+    height,
     theme: {
       breakpoints: { breakpoint1680 }
-    }
+    },
+    width
   }): FlattenSimpleInterpolation => css`
-    height: 100%;
-    width: 100%;
+    height: ${height};
+    width: ${width};
 
     @media (max-width: ${breakpoint1680}) {
       display: none;
@@ -56,35 +67,43 @@ Responsive.Desktop = styled.div`
   `}
 `;
 
-Responsive.Tablet = styled.div`
+Responsive.Tablet = styled.div<ResponsiveContainerProps>`
   ${({
+    height,
     theme: {
       breakpoints: {
         breakpoint1280,
         breakpoint1680
       }
-    }
+    },
+    width
   }): FlattenSimpleInterpolation => css`
-    height: 100%;
-    width: 100%;
+    height: ${height};
+    width: ${width};
 
     @media (max-width: ${breakpoint1280}) {
       display: none;
     }
+
     @media (min-width: ${breakpoint1680}) {
       display: none;
     }
   `}
 `;
 
-Responsive.Mobile = styled.div`
+Responsive.Mobile = styled.div<ResponsiveContainerProps>`
   ${({
+    height,
     theme: {
       breakpoints: {
         breakpoint1280
       }
-    }
+    },
+    width
   }): FlattenSimpleInterpolation => css`
+    height: ${height};
+    width: ${width};
+
     @media (min-width: ${breakpoint1280}) {
       display: none;
     }

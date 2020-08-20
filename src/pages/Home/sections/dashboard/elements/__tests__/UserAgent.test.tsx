@@ -5,10 +5,6 @@ import UserAgent from "<pages>/Home/sections/dashboard/elements/UserAgent";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  DashboardSectionProps
-} from "<pages>/Home/sections/dashboard/DashboardSection/__typings__/DashboardSection.d.ts";
-
 jest.mock("detect-browser", () => ({
   detect: (): { name: string } => ({ name: "chrome" })
 }));
@@ -34,30 +30,19 @@ describe("pages / Home / sections / dashboard / elements / UserAgent", () => {
       });
 
       describe("description", () => {
-        test("should have Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/11.12.0 if device is desktop", () => {
+        test("should have Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/11.12.0", () => {
           Object.defineProperty(window.navigator, "userAgent", {value: "Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/11.12.0"});
-          const { DashboardElementDescriptionText } = setup({
-            device: "desktop"
-          });
+          const { DashboardElementDescriptionText } = setup();
       
           expect(DashboardElementDescriptionText.textContent).toEqual("Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/11.12.0");
-        });
-
-        test("should not appear if device is not desktop", () => {
-          Object.defineProperty(window.navigator, "userAgent", {value: "Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/11.12.0"});
-          const { DashboardElementDescriptionText } = setup({
-            device: "tablet"
-          });
-      
-          expect(DashboardElementDescriptionText).toBeFalsy();
         });
       });
 
       describe("flex", () => {
-        test("should have 0 1 20%", () => {
+        test("should have 1 0 20%", () => {
           const { DashboardElement } = setup();
       
-          expect(DashboardElement).toHaveStyleRule("flex", "0 1 20%");
+          expect(DashboardElement).toHaveStyleRule("flex", "1 0 20%");
         });
       });
 
@@ -117,16 +102,9 @@ interface Setup extends RenderResult {
   DashboardElementDescriptionText: Element;
 }
 
-type UserAgentTestProps = Partial<DashboardSectionProps>;
-
-function setup(additionalProps?: UserAgentTestProps): Setup {
-  const props: DashboardSectionProps = {
-    device: "desktop",
-    ...additionalProps
-  };
-
+function setup(): Setup {
   const utils: RenderResult = renderWithTheme(
-    <UserAgent {...props} />
+    <UserAgent />
   );
 
   const { queryByTestId, queryAllByTestId } = utils || {};

@@ -15,13 +15,15 @@ const Link = ({
   height = "unset",
   href,
   isExternal = false,
-  isHoverable = false
+  isHoverable = false,
+  overflow
 }: LinkProps): JSX.Element => (
   <Link.Container
     data-testid="Link"
     display={display}
     height={height}
     href={href}
+    overflow={overflow}
     target={isExternal ? "_blank" : "_self"}
   >
     <Fragment>
@@ -49,11 +51,13 @@ Link.Container = styled.a<LinkProps>`
     height,
     theme: {
       spacing
-    }
+    },
+    overflow
   }): FlattenSimpleInterpolation => css`
     display: ${display};
     height: ${(height in spacing && spacing[height]) || height};
     line-height: 1;
+    overflow: ${overflow};
 
     &:hover .line {
       opacity: 1;

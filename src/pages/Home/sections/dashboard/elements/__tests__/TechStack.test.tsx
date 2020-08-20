@@ -5,10 +5,6 @@ import TechStack from "<pages>/Home/sections/dashboard/elements/TechStack";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  DashboardSectionProps
-} from "<pages>/Home/sections/dashboard/DashboardSection/__typings__/DashboardSection.d.ts";
-
 describe("pages / Home / sections / dashboard / elements / TechStack", () => {
   test("should have correct structure", () => {
     const {
@@ -30,20 +26,10 @@ describe("pages / Home / sections / dashboard / elements / TechStack", () => {
       });
 
       describe("flex", () => {
-        test("should have 0 1 40% if device is desktop", () => {
-          const { DashboardElement } = setup({
-            device: "desktop"
-          });
+        test("should have 1 0 40%", () => {
+          const { DashboardElement } = setup();
       
-          expect(DashboardElement).toHaveStyleRule("flex", "0 1 40%");
-        });
-
-        test("should have 0 1 50% if device is not desktop", () => {
-          const { DashboardElement } = setup({
-            device: "tablet"
-          });
-      
-          expect(DashboardElement).toHaveStyleRule("flex", "0 1 50%");
+          expect(DashboardElement).toHaveStyleRule("flex", "1 0 40%");
         });
       });
 
@@ -97,16 +83,9 @@ interface Setup extends RenderResult {
   DashboardElement: Element;
 }
 
-type TechStackTestProps = Partial<DashboardSectionProps>;
-
-function setup(additionalProps?: TechStackTestProps): Setup {
-  const props: DashboardSectionProps = {
-    device: "desktop",
-    ...additionalProps
-  };
-
+function setup(): Setup {
   const utils: RenderResult = renderWithTheme(
-    <TechStack {...props} />
+    <TechStack />
   );
 
   const { queryByTestId, queryAllByTestId } = utils || {};

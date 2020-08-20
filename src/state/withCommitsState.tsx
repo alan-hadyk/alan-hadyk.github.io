@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React, { useState, useEffect } from "react";
 
 import fetch, { Response } from "node-fetch";
@@ -7,7 +8,7 @@ import {
 } from "<molecules>/__typings__/Commit.d.ts";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const withCommitsState = (WrappedComponent: React.FunctionComponent<any>) => (props: unknown): JSX.Element => {
+const withCommitsState = (WrappedComponent: React.FunctionComponent<any>) => (props: any): JSX.Element => {
   const [commitsList, setCommitsList] = useState<[] | CommitProps[]>([]);
   const [hasError, setError] = useState<boolean>(false);
 

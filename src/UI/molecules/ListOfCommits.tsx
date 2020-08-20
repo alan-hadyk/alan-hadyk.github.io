@@ -25,34 +25,27 @@ function ListOfCommits({ commitsList, hasError }: ListOfCommitsProps): JSX.Eleme
 
   function renderCommits(): JSX.Element {
     return (
-      <FlexContainer
-        alignItems="flex-start"
-        dataTestId="ListOfCommits"
-        flexFlow="column nowrap"
-        justifyContent="flex-start"
-      >
-        <Fragment>
-          {!isEmpty(commitsList) && commitsList.map(({
-            commit,
-            html_url,
-            sha
-          }: CommitProps, index: number): JSX.Element => {
-            const { author } = commit || {};
-            const { date } = author || {};
-            const delay = index * parseInt(transitionTimes.default);
-      
-            return (
-              <Commit
-                date={date}
-                delay={delay}
-                htmlUrl={html_url}
-                key={sha}
-                sha={sha}
-              />
-            );
-          })}
-        </Fragment>
-      </FlexContainer>
+      <Fragment>
+        {!isEmpty(commitsList) && commitsList.map(({
+          commit,
+          html_url,
+          sha
+        }: CommitProps, index: number): JSX.Element => {
+          const { author } = commit || {};
+          const { date } = author || {};
+          const delay = index * parseInt(transitionTimes.default);
+    
+          return (
+            <Commit
+              date={date}
+              delay={delay}
+              htmlUrl={html_url}
+              key={sha}
+              sha={sha}
+            />
+          );
+        })}
+      </Fragment>
     );
   }
 }

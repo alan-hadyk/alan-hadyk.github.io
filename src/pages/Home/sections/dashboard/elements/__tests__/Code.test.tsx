@@ -20,10 +20,10 @@ describe("pages / Home / sections / dashboard / elements / Code", () => {
   describe("DashboardElement", () => {
     describe("Props", () => {
       describe("flex", () => {
-        test("should have 0 1 25%", () => {
+        test("should have 0 1 30%", () => {
           const { DashboardElement } = setup();
       
-          expect(DashboardElement).toHaveStyleRule("flex", "0 1 25%");
+          expect(DashboardElement).toHaveStyleRule("flex", "0 1 30%");
         });
       });
 

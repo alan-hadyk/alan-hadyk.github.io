@@ -3,8 +3,10 @@ import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize } from "polished";
 
-import PositionContainer from "<layout>/PositionContainer";
 import Text from "<atoms>/Text";
+
+import PositionContainer from "<layout>/PositionContainer";
+import Responsive from "<layout>/Responsive";
 
 // import useInterval from "<hooks>/useInterval";
 
@@ -28,6 +30,7 @@ function Console(): JSX.Element {
       right="spacing0"
       top="50%"
       transform="translateY(-50%)"
+      zIndex="layer3"
     >
       <Console.Container data-testid="ConsoleContainer">
         <PositionContainer
@@ -37,16 +40,20 @@ function Console(): JSX.Element {
           top="spacing0"
           transform="translateY(-100%)"
         >
-          <Text
-            fontSize="font12"
-            lineHeight="spacing28"
-            // shouldShuffle
-            // shuffleDelay={2400}
-            // shuffleInterval={parseInt(transitionTimes.superSlow)}
-            textTransform="uppercase"
+          <Responsive
+            devices={["tablet", "desktop"]}
           >
-          GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin19)
-          </Text>
+            <Text
+              fontSize="font12"
+              lineHeight="spacing28"
+              // shouldShuffle
+              // shuffleDelay={2400}
+              // shuffleInterval={parseInt(transitionTimes.superSlow)}
+              textTransform="uppercase"
+            >
+            GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin19)
+            </Text>
+          </Responsive>
         </PositionContainer>
 
         <Console.Text 

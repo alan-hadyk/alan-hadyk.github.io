@@ -1,27 +1,55 @@
 import React, { memo } from "react";
 
-import DashboardSectionDesktop from "<pages>/Home/sections/dashboard/DashboardSection/DashboardSectionDesktop";
-import DashboardSectionTablet from "<pages>/Home/sections/dashboard/DashboardSection/DashboardSectionTablet";
+import DashboardSectionTop from "<pages>/Home/sections/dashboard/DashboardSection/DashboardSectionTop";
+import DashboardSectionBottom from "<pages>/Home/sections/dashboard/DashboardSection/DashboardSectionBottom";
 
+import Console from "<molecules>/Console";
 import Section from "<molecules>/Section";
 
+import FlexContainer from "<layout>/FlexContainer";
+import PositionContainer from "<layout>/PositionContainer";
 import SpacingContainer from "<layout>/SpacingContainer";
 
-const DashboardSection = (): JSX.Element => (
-  <Section
-    id="dashboard"
-    minHeight="100vh"
-  >
-    <SpacingContainer
-      dataTestId="DashboardSectionSpacingContainer"
-      height="100vh"
-      paddingTop="spacing96"
+const DashboardSection = (): JSX.Element => {
+  return (
+    <Section
+      id="dashboard"
+      minHeight="100vh"
     >
-      <DashboardSectionDesktop />
+      <SpacingContainer
+        dataTestId="DashboardSectionSpacingContainer"
+        height="100vh"
+        paddingTop="spacing96"
+      >
+        <PositionContainer
+          dataTestId="DashboardSectionPositionContainer"
+          height="100%"
+          position="relative"
+        >
+          <FlexContainer
+            alignItems="center"
+            dataTestId="DashboardSectionOuterFlexContainer"
+            flexFlow="column nowrap"
+            height="100%"
+            justifyContent="space-between"
+          >
+            <DashboardSectionTop devices={["desktop"]} />
+            <DashboardSectionTop devices={["tablet"]} />
+            <DashboardSectionTop devices={["mobile"]} />
 
-      <DashboardSectionTablet />
-    </SpacingContainer>
-  </Section>
-);
+            <Console />
+
+            <DashboardSectionBottom devices={["desktop"]} />
+            <DashboardSectionBottom devices={["tablet"]} />
+            <DashboardSectionBottom devices={["mobile"]} />
+            
+          </FlexContainer>
+        </PositionContainer>
+
+      </SpacingContainer>
+    </Section>
+  );
+};
+
 
 export default memo(DashboardSection);
