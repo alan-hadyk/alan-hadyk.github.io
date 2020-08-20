@@ -166,10 +166,16 @@ describe("molecules / DashboardElement", () => {
       });
 
       describe("overflow", () => {
-        test("should have visible", () => {
+        test("should have visible if title is not equal Commits", () => {
           const { DashboardElementContainer } = setup();
     
           expect(DashboardElementContainer).toHaveStyleRule("overflow", "visible");
+        });
+
+        test("should have hidden if title is equal Commits", () => {
+          const { DashboardElementContainer } = setup();
+    
+          expect(DashboardElementContainer).toHaveStyleRule("overflow", "hidden");
         });
       });
     });

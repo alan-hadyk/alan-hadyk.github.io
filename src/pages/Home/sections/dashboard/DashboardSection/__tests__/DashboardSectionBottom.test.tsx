@@ -81,7 +81,9 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
       DashboardSectionInnerContainer,
       Ip,	
       PoweredBy	
-    } = setup();	
+    } = setup({
+      devices: ["tablet"]
+    });	
 
     expect(DashboardSectionBottomContainer.children[0]).toEqual(DashboardSectionInnerContainer);	
 
@@ -96,7 +98,9 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
       DashboardSectionBottomContainer,	
       DashboardSectionInnerContainer,
       PoweredBy
-    } = setup();	
+    } = setup({
+      devices: ["mobile"]
+    });	
 
     expect(DashboardSectionBottomContainer.children[0]).toEqual(DashboardSectionInnerContainer);	
 

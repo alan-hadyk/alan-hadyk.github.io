@@ -1,8 +1,5 @@
-import { DeviceProps } from "<layout>/__typings__/Responsive";
-
 export interface ListOfCommitsProps {
   commitsList: CommitProps[];
-  device?: DeviceProps["device"];
   hasError: boolean;
 }
 

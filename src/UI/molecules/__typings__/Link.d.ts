@@ -7,6 +7,5 @@ export interface LinkProps {
   href: string;
   isExternal?: boolean;
   isHoverable?: boolean;
-  overflow?: "auto" | "hidden";
 }
 

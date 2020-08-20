@@ -1,4 +1,4 @@
-import React, { memo, Fragment } from "react";
+import React, { memo } from "react";
 import PropTypes from "prop-types";
 import isEmpty from "lodash/isEmpty";
 import isEqual from "lodash/isEqual";
@@ -8,11 +8,12 @@ import Error from "<molecules>/Error";
 
 import transitionTimes from "<styles>/variables/transitionTimes";
 
+import FlexContainer from "<layout>/FlexContainer";
+
 import {
   ListOfCommitsProps,
   CommitProps
 } from "<molecules>/__typings__/ListOfCommits.d.ts";
-import FlexContainer from "../layout/FlexContainer";
 
 function ListOfCommits({ commitsList, hasError }: ListOfCommitsProps): JSX.Element {
   return hasError ? (
