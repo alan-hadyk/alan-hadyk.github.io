@@ -531,7 +531,7 @@ describe("molecules / DashboardElement", () => {
           expect(DashboardElementOuterSpacingContainer).toHaveStyleRule("height", "calc(100% - 3.6rem)");
         });
 
-        test("should have calc(100% - 3.6rem - 2.8rem -  ${height}px) if there is description and device is equal desktop", () => {
+        test("should have calc(100% - 3.6rem - 2.8rem -  ${height}px) if there is description", () => {
           Element.prototype.getBoundingClientRect = jest.fn(() => {
             return {
               bottom: 0,
@@ -547,8 +547,7 @@ describe("molecules / DashboardElement", () => {
           });
 
           const { DashboardElementOuterSpacingContainer } = setup({
-            description: "Lorem ipsum dolor sit amet",
-            device: "desktop"
+            description: "Lorem ipsum dolor sit amet"
           });
   
           expect(DashboardElementOuterSpacingContainer).toHaveStyleRule("height", "calc(100% - 3.6rem - 2.8rem - 120px)");

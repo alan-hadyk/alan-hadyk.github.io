@@ -157,11 +157,11 @@ describe("molecules / AnimatedIcons", () => {
 
     describe("Props", () => {
       describe("height", () => { 
-        test("should have auto", () => {
+        test("should have 100%", () => {
           const { IconContainers } = setup();
 
           IconContainers.forEach(IconContainer => {
-            expect(IconContainer).toHaveStyleRule("height", "auto");
+            expect(IconContainer).toHaveStyleRule("height", "100%");
           });
         });
       });

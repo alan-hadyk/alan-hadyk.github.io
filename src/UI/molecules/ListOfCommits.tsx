@@ -12,6 +12,7 @@ import {
   ListOfCommitsProps,
   CommitProps
 } from "<molecules>/__typings__/ListOfCommits.d.ts";
+import FlexContainer from "../layout/FlexContainer";
 
 function ListOfCommits({ commitsList, hasError }: ListOfCommitsProps): JSX.Element {
   return hasError ? (
@@ -23,7 +24,12 @@ function ListOfCommits({ commitsList, hasError }: ListOfCommitsProps): JSX.Eleme
 
   function renderCommits(): JSX.Element {
     return (
-      <Fragment>
+      <FlexContainer
+        alignItems="flex-start"
+        dataTestId="ListOfCommits"
+        flexFlow="column nowrap"
+        justifyContent="flex-start"
+      >
         {!isEmpty(commitsList) && commitsList.map(({
           commit,
           html_url,
@@ -43,7 +49,7 @@ function ListOfCommits({ commitsList, hasError }: ListOfCommitsProps): JSX.Eleme
             />
           );
         })}
-      </Fragment>
+      </FlexContainer>
     );
   }
 }

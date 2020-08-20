@@ -41,6 +41,7 @@ function Console(): JSX.Element {
           transform="translateY(-100%)"
         >
           <Responsive
+            dataTestId="ConsoleResponsive"
             devices={["tablet", "desktop"]}
           >
             <Text

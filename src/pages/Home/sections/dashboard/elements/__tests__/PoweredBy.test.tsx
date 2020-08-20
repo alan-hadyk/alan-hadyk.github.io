@@ -34,10 +34,10 @@ describe("pages / Home / sections / dashboard / elements / PoweredBy", () => {
       });
 
       describe("title", () => {
-        test("should render Powered by react", () => {
+        test("should render Powered by", () => {
           const { DashboardElement } = setup();
 
-          expect(DashboardElement.children[0].textContent).toEqual("Powered by react");
+          expect(DashboardElement.children[0].textContent).toEqual("Powered by");
         });
       });
 

@@ -10,6 +10,7 @@ describe("molecules / Console", () => {
   test("should have correct structure", () => {
     const { 
       ConsoleContainer,
+      ConsoleResponsive,
       ConsoleText,
       InnerPositionContainer,
       OuterPositionContainer,
@@ -18,7 +19,8 @@ describe("molecules / Console", () => {
 
     expect(OuterPositionContainer.children[0]).toEqual(ConsoleContainer);
     expect(ConsoleContainer.children[0]).toEqual(InnerPositionContainer);
-    expect(InnerPositionContainer.children[0]).toEqual(Text);
+    expect(InnerPositionContainer.children[0]).toEqual(ConsoleResponsive);
+    expect(ConsoleResponsive.children[0]).toEqual(Text);
     expect(ConsoleContainer.children[1]).toEqual(ConsoleText);
   });
 
@@ -485,6 +487,7 @@ describe("molecules / Console", () => {
 
 interface Setup extends RenderResult {
   ConsoleContainer: Element;
+  ConsoleResponsive: Element;
   ConsoleText: Element;
   InnerPositionContainer: Element;
   OuterPositionContainer: Element;
@@ -496,16 +499,18 @@ function setup(): Setup {
     <Console />
   );
 
-  const { queryByTestId }: RenderResult = utils;
-  const OuterPositionContainer: Element = queryByTestId("Console");
+  const { queryAllByTestId, queryByTestId }: RenderResult = utils;
   const ConsoleContainer: Element = queryByTestId("ConsoleContainer");
-  const InnerPositionContainer: Element = queryByTestId("InnerPositionContainer");
-  const Text: Element = queryByTestId("Text");
+  const ConsoleResponsive: Element = queryAllByTestId("ConsoleResponsive")[0];
   const ConsoleText: Element = queryByTestId("ConsoleText");
+  const OuterPositionContainer: Element = queryByTestId("Console");
+  const InnerPositionContainer: Element = queryByTestId("InnerPositionContainer");
+  const Text: Element = queryAllByTestId("Text")[0];
  
   return {
     ...utils,
     ConsoleContainer,
+    ConsoleResponsive,
     ConsoleText,
     InnerPositionContainer,
     OuterPositionContainer,

@@ -51,9 +51,18 @@ describe("layout / Responsive", () => {
 
     describe("Styles", () => {
       describe("height", () => {      
-        test("should have 100%", () => {
+        test("should have auto by default", () => {
           const { ResponsiveDesktop } = setup({
             devices: ["desktop"]
+          });
+
+          expect(ResponsiveDesktop).toHaveStyleRule("height", "auto");
+        });
+
+        test("should have 100% when is passed via height prop", () => {
+          const { ResponsiveDesktop } = setup({
+            devices: ["desktop"],
+            height: "100%"
           });
 
           expect(ResponsiveDesktop).toHaveStyleRule("height", "100%");
@@ -61,9 +70,18 @@ describe("layout / Responsive", () => {
       });
 
       describe("width", () => {      
-        test("should have 100%", () => {
+        test("should have auto by default", () => {
           const { ResponsiveDesktop } = setup({
             devices: ["desktop"]
+          });
+
+          expect(ResponsiveDesktop).toHaveStyleRule("width", "auto");
+        });
+
+        test("should have 100% when is passed via width prop", () => {
+          const { ResponsiveDesktop } = setup({
+            devices: ["desktop"],
+            width: "100%"
           });
 
           expect(ResponsiveDesktop).toHaveStyleRule("width", "100%");
@@ -96,9 +114,18 @@ describe("layout / Responsive", () => {
 
     describe("Styles", () => {
       describe("height", () => {      
-        test("should have 100%", () => {
+        test("should have auto by default", () => {
           const { ResponsiveTablet } = setup({
             devices: ["tablet"]
+          });
+
+          expect(ResponsiveTablet).toHaveStyleRule("height", "auto");
+        });
+
+        test("should have 100% when is passed via height prop", () => {
+          const { ResponsiveTablet } = setup({
+            devices: ["tablet"],
+            height: "100%"
           });
 
           expect(ResponsiveTablet).toHaveStyleRule("height", "100%");
@@ -106,9 +133,18 @@ describe("layout / Responsive", () => {
       });
 
       describe("width", () => {      
-        test("should have 100%", () => {
+        test("should have auto by default", () => {
           const { ResponsiveTablet } = setup({
             devices: ["tablet"]
+          });
+
+          expect(ResponsiveTablet).toHaveStyleRule("width", "auto");
+        });
+
+        test("should have 100% when is passed via width prop", () => {
+          const { ResponsiveTablet } = setup({
+            devices: ["tablet"],
+            width: "100%"
           });
 
           expect(ResponsiveTablet).toHaveStyleRule("width", "100%");
@@ -144,6 +180,44 @@ describe("layout / Responsive", () => {
     });
 
     describe("Styles", () => {
+      describe("height", () => {      
+        test("should have auto by default", () => {
+          const { ResponsiveMobile } = setup({
+            devices: ["mobile"]
+          });
+
+          expect(ResponsiveMobile).toHaveStyleRule("height", "auto");
+        });
+
+        test("should have 100% when is passed via height prop", () => {
+          const { ResponsiveMobile } = setup({
+            devices: ["mobile"],
+            height: "100%"
+          });
+
+          expect(ResponsiveMobile).toHaveStyleRule("height", "100%");
+        });
+      });
+
+      describe("width", () => {      
+        test("should have auto by default", () => {
+          const { ResponsiveMobile } = setup({
+            devices: ["mobile"]
+          });
+
+          expect(ResponsiveMobile).toHaveStyleRule("width", "auto");
+        });
+
+        test("should have 100% when is passed via width prop", () => {
+          const { ResponsiveMobile } = setup({
+            devices: ["mobile"],
+            width: "100%"
+          });
+
+          expect(ResponsiveMobile).toHaveStyleRule("width", "100%");
+        });
+      });
+
       describe("display", () => {      
         test("should have none for min-width: 1680px", () => {
           const { ResponsiveMobile } = setup({
