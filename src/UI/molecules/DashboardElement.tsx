@@ -50,7 +50,7 @@ function DashboardElement({
       dataTestId={dataTestId || "DashboardElement"}
       flex={flex}
       order={order}
-      overflow="visible"
+      overflow={title === "Commits" ? "hidden" : "visible"}
     >
       <Text 
         color={titleFontSize === "font28" ? "blue100" : "blue300"}

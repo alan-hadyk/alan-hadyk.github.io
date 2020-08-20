@@ -10,11 +10,17 @@ import Responsive from "<layout>/Responsive";
 import spacing from "<styles>/variables/spacing";
 
 import {
-  DeviceProps
+  DevicesProps
 } from "<layout>/__typings__/Responsive.d.ts";
 
-const DashboardSectionTop = (devices: DeviceProps["device"][]): JSX.Element => (
-  <Responsive devices={devices} width="100%">
+const DashboardSectionTop = ({
+  devices
+}: DevicesProps): JSX.Element => (
+  <Responsive
+    dataTestId="DashboardSectionTop"
+    devices={devices}
+    width="100%"
+  >
     <DashboardSectionInnerContainer
       height={`calc(17vh + ${spacing.spacing36})`}
     >
@@ -34,6 +40,6 @@ const DashboardSectionTop = (devices: DeviceProps["device"][]): JSX.Element => (
       )}
     </DashboardSectionInnerContainer>
   </Responsive>
-)
+);
 
 export default memo(DashboardSectionTop);

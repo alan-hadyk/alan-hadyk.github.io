@@ -12,11 +12,17 @@ import Responsive from "<layout>/Responsive";
 import spacing from "<styles>/variables/spacing";
 
 import {
-  DeviceProps
+  DevicesProps
 } from "<layout>/__typings__/Responsive.d.ts";
 
-const DashboardSectionBottom = (devices: DeviceProps["device"][]): JSX.Element => (
-  <Responsive devices={devices} width="100%">
+const DashboardSectionBottom = ({
+  devices
+}: DevicesProps): JSX.Element => (
+  <Responsive
+    dataTestId="DashboardSectionBottom"
+    devices={devices}
+    width="100%"
+  >
     <DashboardSectionInnerContainer
       height={`calc(22.6vh + ${spacing.spacing36})`}
     >

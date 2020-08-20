@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import isEmpty from "lodash/isEmpty";
 import isEqual from "lodash/isEqual";
 
-import FlexContainer from "<layout>/FlexContainer";
-
 import Commit from "<molecules>/Commit";
 import Error from "<molecules>/Error";
 

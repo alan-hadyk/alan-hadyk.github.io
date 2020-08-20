@@ -50,22 +50,15 @@ jest.mock("detect-browser", () => ({
 
 
 describe("pages / Home / sections / dashboard / DashboardSection", () => {	
-  test("should have correct structure for desktop", () => {	
+  test("should have correct structure", () => {	
     const {	
-      Code,	
-      Commits,	
-      Console,	
-      DashboardSectionInnerContainers,
-      DashboardSectionInnerFlexContainer,
+      Console,
+      DashboardSectionBottom,	
       DashboardSectionOuterFlexContainer,
       DashboardSectionSpacingContainer,
-      Flux,	
-      Ip,	
+      DashboardSectionTop,	
       PositionContainer,	
-      PoweredBy,	
-      Section,
-      TechStack,	
-      UserAgent
+      Section	
     } = setup();	
 
     expect(Section.children[0]).toEqual(DashboardSectionSpacingContainer);	
@@ -73,22 +66,17 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
     expect(PositionContainer.children[0]).toEqual(DashboardSectionOuterFlexContainer);	
 
     // Top row	
-    expect(DashboardSectionOuterFlexContainer.children[0]).toEqual(DashboardSectionInnerContainers[0]);	
-    expect(DashboardSectionInnerContainers[0].children[0]).toEqual(DashboardSectionInnerFlexContainer[0]);	
-    expect(DashboardSectionInnerFlexContainer[0].children[0]).toEqual(TechStack);	
-    expect(DashboardSectionInnerFlexContainer[0].children[1]).toEqual(Flux);	
-    expect(DashboardSectionInnerFlexContainer[0].children[2]).toEqual(Code);	
+    expect(DashboardSectionOuterFlexContainer.children[0]).toEqual(DashboardSectionTop[0]);	
+    expect(DashboardSectionOuterFlexContainer.children[1]).toEqual(DashboardSectionTop[1]);	
+    expect(DashboardSectionOuterFlexContainer.children[2]).toEqual(DashboardSectionTop[2]);		
 
     // Console	
-    expect(DashboardSectionOuterFlexContainer.children[1]).toEqual(Console);	
+    expect(DashboardSectionOuterFlexContainer.children[3]).toEqual(Console);	
 
     // Bottom row	
-    expect(DashboardSectionOuterFlexContainer.children[2]).toEqual(DashboardSectionInnerContainers[1]);	
-    expect(DashboardSectionInnerContainers[1].children[0]).toEqual(DashboardSectionInnerFlexContainer[1]);	
-    expect(DashboardSectionInnerFlexContainer[1].children[0]).toEqual(Commits);	
-    expect(DashboardSectionInnerFlexContainer[1].children[1]).toEqual(PoweredBy);	
-    expect(DashboardSectionInnerFlexContainer[1].children[2]).toEqual(UserAgent);	
-    expect(DashboardSectionInnerFlexContainer[1].children[3]).toEqual(Ip);	
+    expect(DashboardSectionOuterFlexContainer.children[4]).toEqual(DashboardSectionBottom[0]);	
+    expect(DashboardSectionOuterFlexContainer.children[5]).toEqual(DashboardSectionBottom[1]);	
+    expect(DashboardSectionOuterFlexContainer.children[6]).toEqual(DashboardSectionBottom[2]);	
   });	
 
   describe("Section", () => {	
@@ -131,7 +119,7 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
     });	
   });	
 
-  describe("PositionContainer[0]", () => {	
+  describe("PositionContainer", () => {	
     describe("Props", () => {	
       describe("height", () => {	
         test("should have 100%", () => {	
@@ -185,442 +173,17 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
         });	
       });	
     });	
-  });	
-
-  describe("Top row", () => {	
-    describe("SpacingContainers[1]", () => {	
-      describe("Props", () => {	
-        describe("height", () => {	
-          test("should have calc(17vh + 3.6rem)", () => {	
-            const { SpacingContainers } = setup();	
-
-            expect(SpacingContainers[1]).toHaveStyleRule("height", "calc(17vh + 3.6rem)");	
-          });	
-        });	
-
-        describe("marginTop", () => {	
-          test("should have 2.22vh", () => {	
-            const { SpacingContainers } = setup();	
-
-            expect(SpacingContainers[1]).toHaveStyleRule("margin-top", "2.22vh");	
-          });	
-        });	
-
-        describe("width", () => {	
-          test("should have 100%", () => {	
-            const { SpacingContainers } = setup();	
-
-            expect(SpacingContainers[1]).toHaveStyleRule("width", "100%");	
-          });	
-        });	
-      });	
-    });	
-
-    describe("FlexContainers[1]", () => {	
-      describe("Props", () => {	
-        describe("alignItems", () => {	
-          test("should have stretch", () => {	
-            const { FlexContainers } = setup();	
-
-            expect(FlexContainers[1]).toHaveStyleRule("align-items", "stretch");	
-          });	
-        });	
-
-        describe("flexFlow", () => {	
-          test("should have row nowrap", () => {	
-            const { FlexContainers } = setup();	
-
-            expect(FlexContainers[1]).toHaveStyleRule("flex-flow", "row nowrap");	
-          });	
-        });	
-
-        describe("gap", () => {	
-          test("should have margin-left: 4.8rem for all children (except first)", () => {	
-            const { FlexContainers } = setup();	
-
-            expect(FlexContainers[1]).toHaveStyleRule("margin-left", "4.8rem", {	
-              modifier: "& > *"	
-            });	
-            expect(FlexContainers[1]).toHaveStyleRule("margin-left", "0", {	
-              modifier: "& > *:first-child"	
-            });	
-          });	
-        });	
-
-        describe("height", () => {	
-          test("should have 100%", () => {	
-            const { FlexContainers } = setup();	
-
-            expect(FlexContainers[1]).toHaveStyleRule("height", "100%");	
-          });	
-        });	
-
-        describe("justifyContent", () => {	
-          test("should have center", () => {	
-            const { FlexContainers } = setup();	
-
-            expect(FlexContainers[1]).toHaveStyleRule("justify-content", "center");	
-          });	
-        });	
-      });	
-    });	
-
-    describe("TechStack", () => {	
-      describe("Props", () => {	
-        describe("flex", () => {	
-          test("should have 0 1 40%", () => {	
-            const { TechStack } = setup();	
-
-            TechStack.forEach((_TechStack: Element) => {
-              expect(_TechStack).toHaveStyleRule("flex", "1 0 40%");	
-            });
-          });	
-        });	
-
-        describe("title", () => {	
-          test("should render TechStack", () => {	
-            const { TechStack } = setup();	
-
-            TechStack.forEach((_TechStack: Element) => {
-              expect(_TechStack.children[0].textContent).toEqual("Tech Stack");		
-            });
-          });	
-        });	
-      });	
-    });	
-
-    // describe.skip("Coords", () => {	
-    //   describe("Props", () => {	
-    //     describe("flex", () => {	
-    //       test("should have 0 1 15%", () => {	
-    //         const { Coords } = setup();	
-
-    //         expect(Coords).toHaveStyleRule("flex", "0 1 15%");	
-    //       });	
-    //     });	
-
-    //     describe("title", () => {	
-    //       test("should render Coords", () => {	
-    //         const { Coords } = setup();	
-
-    //         expect(Coords.children[0].textContent).toEqual("Coords");	
-    //       });	
-    //     });	
-    //   });	
-    // });	
-
-    describe("Flux", () => {	
-      describe("Props", () => {	
-        describe("flex", () => {	
-          test("should have 0 1 30%", () => {	
-            const { Flux } = setup();	
-
-            Flux.forEach((_Flux: Element) => {
-              expect(_Flux).toHaveStyleRule("flex", "1 0 30%");	
-            });
-          });	
-        });	
-
-        describe("title", () => {	
-          test("should render Flux", () => {	
-            const { Flux } = setup();	
-
-            Flux.forEach((_Flux: Element) => {
-              expect(_Flux.children[0].textContent).toEqual("Flux");
-            });
-          });	
-        });	
-      });	
-    });	
-
-    describe("Code", () => {	
-      describe("Props", () => {	
-        describe("flex", () => {	
-          test("should have 0 1 30%", () => {	
-            const { Code } = setup();	
-
-            expect(Code).toHaveStyleRule("flex", "0 1 30%");	
-          });	
-        });	
-
-        describe("title", () => {	
-          test("should render Code", () => {	
-            const { Code } = setup();	
-
-            expect(Code.children[0].textContent).toEqual("Code");	
-          });	
-        });	
-      });	
-    });	
-
-  });	
-
-  describe("Console", () => {	
-    describe("Props", () => {	
-      describe("left", () => {	
-        test("should have 0", () => {	
-          const { Console } = setup();	
-
-          expect(Console).toHaveStyleRule("left", "0");	
-        });	
-      });	
-
-      describe("position", () => {	
-        test("should have absolute", () => {	
-          const { Console } = setup();	
-
-          expect(Console).toHaveStyleRule("position", "absolute");	
-        });	
-      });	
-
-      describe("right", () => {	
-        test("should have 0", () => {	
-          const { Console } = setup();	
-
-          expect(Console).toHaveStyleRule("right", "0");	
-        });	
-      });	
-
-      describe("top", () => {	
-        test("should have 50%", () => {	
-          const { Console } = setup();	
-
-          expect(Console).toHaveStyleRule("top", "50%");	
-        });	
-      });	
-
-      describe("transform", () => {	
-        test("should have translateY(-50%)", () => {	
-          const { Console } = setup();	
-
-          expect(Console).toHaveStyleRule("transform", "translateY(-50%)");	
-        });	
-      });	
-    });	
-  });	
-
-  describe("Bottom row", () => {	
-    describe("SpacingContainers[2]", () => {	
-      describe("Props", () => {	
-        describe("height", () => {	
-          test("should have calc(22.6vh + 3.6rem)", () => {	
-            const { SpacingContainers } = setup();	
-
-            expect(SpacingContainers[2]).toHaveStyleRule("height", "calc(22.6vh + 3.6rem)");	
-          });	
-        });	
-
-        describe("marginBottom", () => {	
-          test("should have 2.22vh", () => {	
-            const { SpacingContainers } = setup();	
-
-            expect(SpacingContainers[2]).toHaveStyleRule("margin-bottom", "2.22vh");	
-          });	
-        });	
-
-        describe("width", () => {	
-          test("should have 100%", () => {	
-            const { SpacingContainers } = setup();	
-
-            expect(SpacingContainers[2]).toHaveStyleRule("width", "100%");	
-          });	
-        });	
-      });	
-    });	
-
-    describe("FlexContainers[2]", () => {	
-      describe("Props", () => {	
-        describe("alignItems", () => {	
-          test("should have stretch", () => {	
-            const { FlexContainers } = setup();	
-
-            expect(FlexContainers[2]).toHaveStyleRule("align-items", "stretch");	
-          });	
-        });	
-
-        describe("flexFlow", () => {	
-          test("should have row nowrap", () => {	
-            const { FlexContainers } = setup();	
-
-            expect(FlexContainers[2]).toHaveStyleRule("flex-flow", "row nowrap");	
-          });	
-        });	
-
-        describe("gap", () => {	
-          test("should have margin-left: 4.8rem for all children (except first)", () => {	
-            const { FlexContainers } = setup();	
-
-            expect(FlexContainers[2]).toHaveStyleRule("margin-left", "4.8rem", {	
-              modifier: "& > *"	
-            });	
-            expect(FlexContainers[2]).toHaveStyleRule("margin-left", "0", {	
-              modifier: "& > *:first-child"	
-            });	
-          });	
-        });	
-
-        describe("height", () => {	
-          test("should have 100%", () => {	
-            const { FlexContainers } = setup();	
-
-            expect(FlexContainers[2]).toHaveStyleRule("height", "100%");	
-          });	
-        });	
-
-        describe("justifyContent", () => {	
-          test("should have center", () => {	
-            const { FlexContainers } = setup();	
-
-            expect(FlexContainers[2]).toHaveStyleRule("justify-content", "center");	
-          });	
-        });	
-      });	
-    });	
-
-    // describe.skip("Fps", () => {	
-    //   describe("Props", () => {	
-    //     describe("flex", () => {	
-    //       test("should have 0 1 20%", () => {	
-    //         const { Fps } = setup();	
-
-    //         expect(Fps).toHaveStyleRule("flex", "0 1 20%");	
-    //       });	
-    //     });	
-
-    //     describe("title", () => {	
-    //       test("should render Fps", () => {	
-    //         const { Fps } = setup();	
-
-    //         expect(Fps.children[0].textContent).toEqual("Fps");	
-    //       });	
-    //     });	
-    //   });	
-    // });	
-
-    describe("Commits", () => {	
-      describe("Props", () => {	
-        describe("flex", () => {	
-          test("should have 1 0 20%", () => {	
-            const { Commits } = setup();	
-
-            expect(Commits).toHaveStyleRule("flex", "1 0 20%");	
-          });	
-        });	
-
-        describe("title", () => {	
-          test("should render Commits", () => {	
-            const { Commits } = setup();	
-
-            expect(Commits.children[0].textContent).toEqual("Commits");	
-          });	
-        });	
-      });	
-    });	
-
-    describe("UserAgent", () => {	
-      describe("Props", () => {	
-        describe("flex", () => {	
-          test("should have 1 0 20%", () => {	
-            const { UserAgent } = setup();	
-
-            expect(UserAgent).toHaveStyleRule("flex", "1 0 20%");	
-          });	
-        });	
-
-        describe("title", () => {	
-          test("should render User Agent", () => {	
-            const { UserAgent } = setup();	
-
-            expect(UserAgent.children[0].textContent).toEqual("User Agent");	
-          });	
-        });	
-      });	
-    });	
-
-    describe("PoweredBy", () => {	
-      describe("Props", () => {	
-        describe("flex", () => {	
-          test("should have 1 0 30%", () => {
-            const { PoweredBy } = setup();	
-
-            PoweredBy.forEach((_PoweredBy: Element) => {
-              expect(_PoweredBy).toHaveStyleRule("flex", "1 0 30%");	
-            });
-          });	
-        });	
-
-        describe("title", () => {	
-          test("should render Powered by", () => {	
-            const { PoweredBy } = setup();	
-
-            PoweredBy.forEach((_PoweredBy: Element) => {
-              expect(_PoweredBy.children[0].textContent).toEqual("Powered by");	
-            });
-          });	
-        });	
-      });	
-    });	
-
-    // describe.skip("Navigator", () => {	
-    //   describe("Props", () => {	
-    //     describe("flex", () => {	
-    //       test("should have 0 1 13.6%", () => {	
-
-    //         expect(Navigator).toHaveStyleRule("flex", "0 1 13.6%");	
-    //       });	
-    //     });	
-
-    //     describe("title", () => {	
-    //       test("should render Navigator", () => {	
-    //         const { Navigator } = setup();	
-
-    //         expect(Navigator.children[0].textContent).toEqual("Navigator");	
-    //       });	
-    //     });	
-    //   });	
-    // });	
-
-    describe("Ip", () => {	
-      describe("Props", () => {	
-        describe("flex", () => {	
-          test("should have 0 1 30%", () => {	
-            const { Ip } = setup();	
-
-            Ip.forEach((_Ip: Element) => {
-              expect(_Ip).toHaveStyleRule("flex", "0 1 30%");	
-            });
-          });	
-        });	
-
-        describe("title", () => {
-          test("should render IP: ${ip.address}", () => {	
-            const { Ip } = setup();
-
-            Ip.forEach((_Ip: Element) => {
-              expect(_Ip.children[0].textContent).toEqual("IP: 127.0.0.1");
-            });
-          });	
-        });	
-      });	
-    });	
-  });	
+  });
 });	
 
 interface Setup extends RenderResult {	
-  Code: Element;	
-  Commits: Element;	
-  Console: Element;	
-  DashboardSectionInnerContainers: Element[];
-  DashboardSectionInnerFlexContainer: Element[];
+  Console: Element;
+  DashboardSectionBottom: Element[];	
   DashboardSectionOuterFlexContainer: Element;
   DashboardSectionSpacingContainer: Element;
-  Flux: Element[];	
-  Ip: Element[];	
+  DashboardSectionTop: Element[];	
   PositionContainer: Element;	
-  PoweredBy: Element[];	
   Section: Element;	
-  TechStack: Element[];	
-  UserAgent: Element;	
 }	
 
 function setup(): Setup {	
@@ -630,41 +193,22 @@ function setup(): Setup {
 
   const { queryByTestId, queryAllByTestId }: RenderResult = utils;	
 
-  const Code: Element = queryByTestId("Code");	
-  const Commits: Element = queryAllByTestId("Commits")[0];	
-  const Console: Element = queryByTestId("Console");	
-  const DashboardSectionInnerContainers: Element[] = queryAllByTestId("DashboardSectionInnerContainer");
-  // const Coords: Element = queryByTestId("Coords");	
-  const DashboardSectionInnerFlexContainer: Element[] = queryAllByTestId("DashboardSectionInnerFlexContainer");
+  const Console: Element = queryByTestId("Console");
+  const DashboardSectionBottom: Element[] = queryAllByTestId("DashboardSectionBottom");
   const DashboardSectionOuterFlexContainer: Element = queryByTestId("DashboardSectionOuterFlexContainer");
   const DashboardSectionSpacingContainer: Element = queryByTestId("DashboardSectionSpacingContainer");
-  const Flux: Element[] = queryAllByTestId("Flux");	
-  // const FlexContainers: Element[] = queryAllByTestId("DashboardSectionFlexContainer");	
-  // const Fps: Element = queryByTestId("Fps");	
-  const Ip: Element[] = queryAllByTestId("IP");	
-  // const Navigator: Element = queryByTestId("Navigator");	
-  const Section: Element = queryByTestId("Section");	
+  const DashboardSectionTop: Element[] = queryAllByTestId("DashboardSectionTop");
+  const Section: Element = queryByTestId("DashboardSection");	
   const PositionContainer: Element = queryByTestId("DashboardSectionPositionContainer");	
-  const PoweredBy: Element[] = queryAllByTestId("PoweredBy");	
-  // const SpacingContainers: Element[] = queryAllByTestId("DashboardSectionSpacingContainer");	
-  const TechStack: Element[] = queryAllByTestId("TechStack");	
-  const UserAgent: Element = queryByTestId("UserAgent");	
 
   return {	
     ...utils,	
-    Code,	
-    Commits,	
-    Console,	
-    DashboardSectionInnerContainers,
-    DashboardSectionInnerFlexContainer,
+    Console,
+    DashboardSectionBottom,	
     DashboardSectionOuterFlexContainer,
     DashboardSectionSpacingContainer,
-    Flux,	
-    Ip,	
+    DashboardSectionTop,	
     PositionContainer,	
-    PoweredBy,	
-    Section,	
-    TechStack,	
-    UserAgent	
+    Section	
   };	
 }

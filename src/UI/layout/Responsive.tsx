@@ -10,6 +10,7 @@ import {
 const Responsive = ({
   children,
   dataTestDesktopId,
+  dataTestId,
   dataTestMobileId,
   dataTestTabletId,
   devices,
@@ -19,7 +20,7 @@ const Responsive = ({
   <Fragment>
     {devices.includes("desktop") && (
       <Responsive.Desktop
-        data-testid={dataTestDesktopId || "ResponsiveDesktop"}
+        data-testid={dataTestDesktopId || dataTestId || "ResponsiveDesktop"}
         height={height}
         width={width}
       >
@@ -29,7 +30,7 @@ const Responsive = ({
 
     {devices.includes("tablet") && (
       <Responsive.Tablet
-        data-testid={dataTestTabletId || "ResponsiveTablet"}
+        data-testid={dataTestTabletId || dataTestId || "ResponsiveTablet"}
         height={height}
         width={width}
       >
@@ -39,7 +40,7 @@ const Responsive = ({
 
     {devices.includes("mobile") && (
       <Responsive.Mobile
-        data-testid={dataTestMobileId || "ResponsiveMobile"}
+        data-testid={dataTestMobileId || dataTestId || "ResponsiveMobile"}
         height={height}
         width={width}
       >

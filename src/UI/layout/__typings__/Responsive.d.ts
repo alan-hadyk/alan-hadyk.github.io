@@ -2,9 +2,14 @@ export interface DeviceProps {
   device?: "desktop" | "tablet" | "mobile";
 }
 
+export interface DevicesProps {
+  devices?: DeviceProps["device"][];
+}
+
 export interface ResponsiveProps {
   children: JSX.Element | JSX.Element[];
   dataTestDesktopId?: string;
+  dataTestId?: string;
   dataTestMobileId?: string;
   dataTestTabletId?: string;
   devices: DeviceProps["device"][];
