@@ -15,6 +15,7 @@ export const Commits = ({ commitsList, hasError }: ListOfCommitsProps): JSX.Elem
     flex="1 0 20%"
     shouldDisplayCorners={hasError}
     title="Commits"
+    titleOverflow="hidden"
   >
     <ListOfCommits commitsList={commitsList} hasError={hasError} />
   </DashboardElement>

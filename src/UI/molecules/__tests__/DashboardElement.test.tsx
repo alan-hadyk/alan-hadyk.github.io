@@ -166,15 +166,15 @@ describe("molecules / DashboardElement", () => {
       });
 
       describe("overflow", () => {
-        test("should have visible if title is not equal Commits", () => {
+        test("should have visible by default", () => {
           const { DashboardElementContainer } = setup();
     
           expect(DashboardElementContainer).toHaveStyleRule("overflow", "visible");
         });
 
-        test("should have hidden if title is equal Commits", () => {
+        test("should have hidden if is passed via titleOverflow prop", () => {
           const { DashboardElementContainer } = setup({
-            title: "Commits"
+            titleOverflow: "hidden"
           });
     
           expect(DashboardElementContainer).toHaveStyleRule("overflow", "hidden");

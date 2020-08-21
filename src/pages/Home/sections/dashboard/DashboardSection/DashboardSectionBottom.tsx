@@ -1,4 +1,4 @@
-import React, { memo, Fragment } from "react";
+import React, { Fragment } from "react";
 
 import DashboardSectionInnerContainer from "<pages>/Home/sections/dashboard/DashboardSection/DashboardSectionInnerContainer";
 
@@ -38,12 +38,10 @@ const DashboardSectionBottom = ({
 
       
       {devices.includes("tablet") && (
-        <Fragment>
-          <Ip />
-        </Fragment>
+        <Ip />
       )}
     </DashboardSectionInnerContainer>
   </Responsive>
 );
 
-export default memo(DashboardSectionBottom);
+export default DashboardSectionBottom;

@@ -24,7 +24,8 @@ function DashboardElement({
   shouldDisplayCorners = false,
   order = 0,
   title,
-  titleFontSize = "font16"
+  titleFontSize = "font16",
+  titleOverflow = "visible"
 }: DashboardElementProps): JSX.Element {
   const descriptionRef = useRef<HTMLDivElement>(null);
   const [childrenHeight, setChildrenHeight] = useState<string>(null);
@@ -50,7 +51,7 @@ function DashboardElement({
       dataTestId={dataTestId || "DashboardElement"}
       flex={flex}
       order={order}
-      overflow={title === "Commits" ? "hidden" : "visible"}
+      overflow={titleOverflow}
     >
       <Text 
         color={titleFontSize === "font28" ? "blue100" : "blue300"}

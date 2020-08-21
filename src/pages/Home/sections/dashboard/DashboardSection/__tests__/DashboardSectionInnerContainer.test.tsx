@@ -9,7 +9,7 @@ import {
   DashboardSectionInnerContainerProps
 } from "<pages>/Home/sections/dashboard/DashboardSection/__typings__/DashboardSectionInnerContainer.d.ts";
 
-describe("pages / Home / sections / dashboard / DashboardSection / DashboardSectionInnerContainer", () => {
+describe("pages / Home / sections / dashboard / DashboardSection / DashboardSectionInnerContainer", () => {  
   test("should have correct structure", () => {
     const {
       FlexContainer,
@@ -17,6 +17,14 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
     } = setup();
 
     expect(SpacingContainer.children[0]).toEqual(FlexContainer);
+  });
+
+  test("should render children", () => {
+    const { SpacingContainer } = setup({
+      children: <div>Custom children</div>
+    });
+
+    expect(SpacingContainer.children[0].textContent).toEqual("Custom children");
   });
 
   describe("SpacingContainer", () => {

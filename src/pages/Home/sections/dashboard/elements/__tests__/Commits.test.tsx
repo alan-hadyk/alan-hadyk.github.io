@@ -77,6 +77,14 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
           expect(DashboardElement.children[0].textContent).toEqual("Commits");
         });
       });
+
+      describe("titleOverflow", () => {
+        test("should have hidden", () => {
+          const { DashboardElement } = setup();
+
+          expect(DashboardElement).toHaveStyleRule("overflow", "hidden");
+        });
+      });
     });
   });
 

@@ -40,13 +40,19 @@ describe("layout / Responsive", () => {
   });
 
   describe("ResponsiveDesktop", () => {
-    test("should render if device is equal desktop", () => {
-      const { ResponsiveDesktop } = setup({
+    test("should render if device is desktop", () => {
+      const {
+        ResponsiveDesktop,
+        ResponsiveTablet,
+        ResponsiveMobile
+      } = setup({
         children: <div>Custom children</div>,
         devices: ["desktop"]
       });
 
       expect(ResponsiveDesktop).toBeTruthy();
+      expect(ResponsiveMobile).toBeFalsy();
+      expect(ResponsiveTablet).toBeFalsy();
     });
 
     describe("Styles", () => {
@@ -103,13 +109,19 @@ describe("layout / Responsive", () => {
   });
 
   describe("ResponsiveTablet", () => {
-    test("should render if device is equal tablet", () => {
-      const { ResponsiveTablet } = setup({
+    test("should render if device is tablet", () => {
+      const {
+        ResponsiveTablet,
+        ResponsiveDesktop,
+        ResponsiveMobile
+      } = setup({
         children: <div>Custom children</div>,
         devices: ["tablet"]
       });
 
       expect(ResponsiveTablet).toBeTruthy();
+      expect(ResponsiveDesktop).toBeFalsy();
+      expect(ResponsiveMobile).toBeFalsy();
     });
 
     describe("Styles", () => {
@@ -170,13 +182,19 @@ describe("layout / Responsive", () => {
   });
 
   describe("ResponsiveMobile", () => {
-    test("should render if device is equal mobile", () => {
-      const { ResponsiveMobile } = setup({
+    test("should render if device is mobile", () => {
+      const {
+        ResponsiveMobile,
+        ResponsiveTablet,
+        ResponsiveDesktop
+      } = setup({
         children: <div>Custom children</div>,
         devices: ["mobile"]
       });
 
       expect(ResponsiveMobile).toBeTruthy();
+      expect(ResponsiveTablet).toBeFalsy();
+      expect(ResponsiveDesktop).toBeFalsy();
     });
 
     describe("Styles", () => {

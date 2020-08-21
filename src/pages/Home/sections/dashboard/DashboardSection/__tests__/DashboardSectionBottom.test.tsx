@@ -117,6 +117,48 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
           expect(DashboardSectionBottomContainer).toHaveStyleRule("width", "100%");	
         });	
       });		
+
+      describe("devices", () => {	
+        describe("display", () => {      
+          test("should have none for max-width: 1680px", () => {
+            const { DashboardSectionBottomContainer } = setup({
+              devices: ["desktop"]
+            });
+  
+            expect(DashboardSectionBottomContainer).toHaveStyleRule("display", "none", {
+              media: "(max-width:1680px)"
+            });
+          });
+        });
+
+        describe("display", () => {      
+          test("should have none for max-width: 1280px and min-width: 1680px", () => {
+            const { DashboardSectionBottomContainer } = setup({
+              devices: ["tablet"]
+            });
+  
+            expect(DashboardSectionBottomContainer).toHaveStyleRule("display", "none", {
+              media: "(max-width:1280px)"
+            });
+  
+            expect(DashboardSectionBottomContainer).toHaveStyleRule("display", "none", {
+              media: "(min-width:1680px)"
+            });
+          });
+        });
+
+        describe("display", () => {      
+          test("should have none for min-width: 1680px", () => {
+            const { DashboardSectionBottomContainer } = setup({
+              devices: ["mobile"]
+            });
+  
+            expect(DashboardSectionBottomContainer).toHaveStyleRule("display", "none", {
+              media: "(min-width:1280px)"
+            });
+          });
+        });
+      });	
     });	
   });	
 

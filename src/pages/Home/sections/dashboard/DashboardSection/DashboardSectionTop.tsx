@@ -1,4 +1,4 @@
-import React, { memo, Fragment } from "react";
+import React, { Fragment } from "react";
 
 import DashboardSectionInnerContainer from "<pages>/Home/sections/dashboard/DashboardSection/DashboardSectionInnerContainer";
 
@@ -34,12 +34,10 @@ const DashboardSectionTop = ({
       )}
 
       {devices.includes("tablet") && (
-        <Fragment>
-          <Flux />
-        </Fragment>
+        <Flux />
       )}
     </DashboardSectionInnerContainer>
   </Responsive>
 );
 
-export default memo(DashboardSectionTop);
+export default DashboardSectionTop;

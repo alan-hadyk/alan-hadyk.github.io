@@ -65,10 +65,18 @@ describe("molecules / Console", () => {
           expect(OuterPositionContainer).toHaveStyleRule("transform", "translateY(-50%)");
         });
       });
+
+      describe("z-index", () => {
+        test("should have 300", () => {
+          const { OuterPositionContainer } = setup();
+
+          expect(OuterPositionContainer).toHaveStyleRule("z-index", "300");
+        });
+      });
     });
   });
 
-  describe("Console.Container", () => {
+  describe("ConsoleContainer", () => {
     describe("Styles", () => {
       describe("align-items", () => {
         test("should have center", () => {
@@ -191,6 +199,30 @@ describe("molecules / Console", () => {
           const { InnerPositionContainer } = setup();
 
           expect(InnerPositionContainer).toHaveStyleRule("transform", "translateY(-100%)");
+        });
+      });
+    });
+  });
+
+  describe("ConsoleResponsive", () => {
+    describe("display", () => {      
+      test("should have none for max-width: 1280px and min-width: 1680px", () => {
+        const { ConsoleResponsive } = setup();
+
+        expect(ConsoleResponsive).toHaveStyleRule("display", "none", {
+          media: "(max-width:1280px)"
+        });
+
+        expect(ConsoleResponsive).toHaveStyleRule("display", "none", {
+          media: "(min-width:1680px)"
+        });
+      });
+
+      test("should have none for max-width: 1680px", () => {
+        const { ConsoleResponsive } = setup();
+
+        expect(ConsoleResponsive).toHaveStyleRule("display", "none", {
+          media: "(max-width:1680px)"
         });
       });
     });
@@ -482,7 +514,6 @@ describe("molecules / Console", () => {
       });
     });
   });
-
 });
 
 interface Setup extends RenderResult {

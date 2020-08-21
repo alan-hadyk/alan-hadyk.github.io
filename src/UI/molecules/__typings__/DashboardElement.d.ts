@@ -10,4 +10,5 @@ export interface DashboardElementProps extends FlexItemProps {
   shouldDisplayCorners?: boolean;
   title: string;
   titleFontSize?: "font16" | "font28";
+  titleOverflow?: "visible" | "hidden";
 }

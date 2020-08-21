@@ -10,47 +10,44 @@ import FlexContainer from "<layout>/FlexContainer";
 import PositionContainer from "<layout>/PositionContainer";
 import SpacingContainer from "<layout>/SpacingContainer";
 
-const DashboardSection = (): JSX.Element => {
-  return (
-    <Section
-      dataTestId="DashboardSection"
-      id="dashboard"
-      minHeight="100vh"
+const DashboardSection = (): JSX.Element => (
+  <Section
+    dataTestId="DashboardSection"
+    id="dashboard"
+    minHeight="100vh"
+  >
+    <SpacingContainer
+      dataTestId="DashboardSectionSpacingContainer"
+      height="100vh"
+      paddingTop="spacing96"
     >
-      <SpacingContainer
-        dataTestId="DashboardSectionSpacingContainer"
-        height="100vh"
-        paddingTop="spacing96"
+      <PositionContainer
+        dataTestId="DashboardSectionPositionContainer"
+        height="100%"
+        position="relative"
       >
-        <PositionContainer
-          dataTestId="DashboardSectionPositionContainer"
+        <FlexContainer
+          alignItems="center"
+          dataTestId="DashboardSectionOuterFlexContainer"
+          flexFlow="column nowrap"
           height="100%"
-          position="relative"
+          justifyContent="space-between"
         >
-          <FlexContainer
-            alignItems="center"
-            dataTestId="DashboardSectionOuterFlexContainer"
-            flexFlow="column nowrap"
-            height="100%"
-            justifyContent="space-between"
-          >
-            <DashboardSectionTop devices={["desktop"]} />
-            <DashboardSectionTop devices={["tablet"]} />
-            <DashboardSectionTop devices={["mobile"]} />
+          <DashboardSectionTop devices={["desktop"]} />
+          <DashboardSectionTop devices={["tablet"]} />
+          <DashboardSectionTop devices={["mobile"]} />
 
-            <Console />
+          <Console />
 
-            <DashboardSectionBottom devices={["desktop"]} />
-            <DashboardSectionBottom devices={["tablet"]} />
-            <DashboardSectionBottom devices={["mobile"]} />
-            
-          </FlexContainer>
-        </PositionContainer>
+          <DashboardSectionBottom devices={["desktop"]} />
+          <DashboardSectionBottom devices={["tablet"]} />
+          <DashboardSectionBottom devices={["mobile"]} />
+          
+        </FlexContainer>
+      </PositionContainer>
 
-      </SpacingContainer>
-    </Section>
-  );
-};
-
+    </SpacingContainer>
+  </Section>
+);
 
 export default memo(DashboardSection);
