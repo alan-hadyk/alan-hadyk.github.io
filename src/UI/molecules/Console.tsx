@@ -42,7 +42,7 @@ function Console(): JSX.Element {
         >
           <Responsive
             dataTestId="ConsoleResponsive"
-            devices={["tablet", "desktop"]}
+            devices={["desktop", "tablet"]}
           >
             <Text
               fontSize="font12"

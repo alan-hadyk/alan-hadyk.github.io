@@ -237,7 +237,7 @@ describe("layout / Responsive", () => {
       });
 
       describe("display", () => {      
-        test("should have none for min-width: 1680px", () => {
+        test("should have none for min-width: 1280px", () => {
           const { ResponsiveMobile } = setup({
             devices: ["mobile"]
           });

@@ -124,9 +124,7 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
               media: "(max-width:1680px)"
             });
           });
-        });
-
-        describe("display", () => {      
+          
           test("should have none for max-width: 1280px and min-width: 1680px", () => {
             const { DashboardSectionTopContainer } = setup({
               devices: ["tablet"]
@@ -140,10 +138,8 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
               media: "(min-width:1680px)"
             });
           });
-        });
 
-        describe("display", () => {      
-          test("should have none for min-width: 1680px", () => {
+          test("should have none for min-width: 1280px", () => {
             const { DashboardSectionTopContainer } = setup({
               devices: ["mobile"]
             });

@@ -19,8 +19,10 @@ describe("molecules / Console", () => {
 
     expect(OuterPositionContainer.children[0]).toEqual(ConsoleContainer);
     expect(ConsoleContainer.children[0]).toEqual(InnerPositionContainer);
-    expect(InnerPositionContainer.children[0]).toEqual(ConsoleResponsive);
-    expect(ConsoleResponsive.children[0]).toEqual(Text);
+    expect(InnerPositionContainer.children[0]).toEqual(ConsoleResponsive[0]);
+    expect(InnerPositionContainer.children[1]).toEqual(ConsoleResponsive[1]);
+    expect(ConsoleResponsive[0].children[0]).toEqual(Text);
+    expect(ConsoleResponsive[1].children[0]).toEqual(Text);
     expect(ConsoleContainer.children[1]).toEqual(ConsoleText);
   });
 
@@ -205,24 +207,28 @@ describe("molecules / Console", () => {
   });
 
   describe("ConsoleResponsive", () => {
-    describe("display", () => {      
-      test("should have none for max-width: 1280px and min-width: 1680px", () => {
-        const { ConsoleResponsive } = setup();
-
-        expect(ConsoleResponsive).toHaveStyleRule("display", "none", {
-          media: "(max-width:1280px)"
-        });
-
-        expect(ConsoleResponsive).toHaveStyleRule("display", "none", {
-          media: "(min-width:1680px)"
-        });
-      });
-
-      test("should have none for max-width: 1680px", () => {
-        const { ConsoleResponsive } = setup();
-
-        expect(ConsoleResponsive).toHaveStyleRule("display", "none", {
-          media: "(max-width:1680px)"
+    describe("Props", () => {
+      describe("devices", () => {
+        describe("display", () => {      
+          test("should have none for max-width: 1680px", () => {
+            const { ConsoleResponsive } = setup();
+  
+            expect(ConsoleResponsive[0]).toHaveStyleRule("display", "none", {
+              media: "(max-width:1680px)"
+            });
+          });
+          
+          test("should have none for max-width: 1280px and min-width: 1680px", () => {
+            const { ConsoleResponsive } = setup();
+  
+            expect(ConsoleResponsive[1]).toHaveStyleRule("display", "none", {
+              media: "(max-width:1280px)"
+            });
+  
+            expect(ConsoleResponsive[1]).toHaveStyleRule("display", "none", {
+              media: "(min-width:1680px)"
+            });
+          });
         });
       });
     });
@@ -518,7 +524,7 @@ describe("molecules / Console", () => {
 
 interface Setup extends RenderResult {
   ConsoleContainer: Element;
-  ConsoleResponsive: Element;
+  ConsoleResponsive: Element[];
   ConsoleText: Element;
   InnerPositionContainer: Element;
   OuterPositionContainer: Element;
@@ -528,14 +534,15 @@ interface Setup extends RenderResult {
 function setup(): Setup {
   const utils: RenderResult = renderWithTheme(
     <Console />
-  );
+  ); 
 
-  const { queryAllByTestId, queryByTestId }: RenderResult = utils;
-  const ConsoleContainer: Element = queryByTestId("ConsoleContainer");
-  const ConsoleResponsive: Element = queryAllByTestId("ConsoleResponsive")[0];
-  const ConsoleText: Element = queryByTestId("ConsoleText");
-  const OuterPositionContainer: Element = queryByTestId("Console");
-  const InnerPositionContainer: Element = queryByTestId("InnerPositionContainer");
+  const { queryAllByTestId }: RenderResult = utils;
+
+  const ConsoleContainer: Element = queryAllByTestId("ConsoleContainer")[0];
+  const ConsoleResponsive: Element[] = queryAllByTestId("ConsoleResponsive");
+  const ConsoleText: Element = queryAllByTestId("ConsoleText")[0];
+  const OuterPositionContainer: Element = queryAllByTestId("Console")[0];
+  const InnerPositionContainer: Element = queryAllByTestId("InnerPositionContainer")[0];
   const Text: Element = queryAllByTestId("Text")[0];
  
   return {
