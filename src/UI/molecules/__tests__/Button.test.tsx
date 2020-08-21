@@ -1,10 +1,17 @@
 import React from "react";
-import { fireEvent, RenderResult, waitForElementToBeRemoved } from "@testing-library/react";
+import { act, fireEvent, RenderResult, waitForElementToBeRemoved } from "@testing-library/react";
 import { css } from "styled-components";
 
 import Button from "<molecules>/Button";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
+
+jest.mock("react-device-detect", () => ({
+  __esModule: true,
+  isMobile: false
+}));
+
+import * as reactDeviceDetect from "react-device-detect";
 
 import {
   ButtonProps
@@ -194,6 +201,10 @@ describe("molecules / Button", () => {
 
     describe("Event handlers", () => {
       test("should activate button onMouseEnter, and deactivate onMouseLeave", () => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const mockReactDeviceDetect: any = reactDeviceDetect as unknown as jest.Mock;
+        mockReactDeviceDetect.isMobile = false;
+    
         const {
           ButtonContainer,
           Corners
@@ -211,7 +222,9 @@ describe("molecules / Button", () => {
         expect(Corners[3]).toHaveStyleRule("left", "calc(100% - 8px)");
         expect(Corners[3]).toHaveStyleRule("top", "calc(100% - 8px)");
 
-        fireEvent.mouseEnter(ButtonContainer);
+        act(() => { 
+          fireEvent.mouseEnter(ButtonContainer);
+        });
 
         for (const Corner of Corners) {
           expect(Corner.getAttribute("opacity")).toEqual("1");
@@ -240,7 +253,11 @@ describe("molecules / Button", () => {
         expect(Corners[3]).toHaveStyleRule("top", "calc(100% - 8px)");
       });
 
-      test("should append ripple onClick", async () => {
+      test("should not activate button onMouseEnter when isMobile is true", () => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const mockReactDeviceDetect: any = reactDeviceDetect as unknown as jest.Mock;
+        mockReactDeviceDetect.isMobile = true;
+    
         const {
           ButtonContainer,
           Corners
@@ -258,7 +275,49 @@ describe("molecules / Button", () => {
         expect(Corners[3]).toHaveStyleRule("left", "calc(100% - 8px)");
         expect(Corners[3]).toHaveStyleRule("top", "calc(100% - 8px)");
 
-        fireEvent.mouseEnter(ButtonContainer);
+        act(() => {
+          fireEvent.mouseEnter(ButtonContainer);
+        });
+        
+
+        for (const Corner of Corners) {
+          expect(Corner.getAttribute("opacity")).toEqual("0.5");
+        }
+        expect(Corners[0]).toHaveStyleRule("left", "0");
+        expect(Corners[0]).toHaveStyleRule("top", "0");
+        expect(Corners[1]).toHaveStyleRule("left", "calc(100% - 8px)");
+        expect(Corners[1]).toHaveStyleRule("top", "0");
+        expect(Corners[2]).toHaveStyleRule("left", "0");
+        expect(Corners[2]).toHaveStyleRule("top", "calc(100% - 8px)");
+        expect(Corners[3]).toHaveStyleRule("left", "calc(100% - 8px)");
+        expect(Corners[3]).toHaveStyleRule("top", "calc(100% - 8px)");
+      });
+
+      test("should append ripple onClick", async () => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const mockReactDeviceDetect: any = reactDeviceDetect as unknown as jest.Mock;
+        mockReactDeviceDetect.isMobile = false;
+        
+        const {
+          ButtonContainer,
+          Corners
+        } = setup();
+
+        for (const Corner of Corners) {
+          expect(Corner.getAttribute("opacity")).toEqual("0.5");
+        }
+        expect(Corners[0]).toHaveStyleRule("left", "0");
+        expect(Corners[0]).toHaveStyleRule("top", "0");
+        expect(Corners[1]).toHaveStyleRule("left", "calc(100% - 8px)");
+        expect(Corners[1]).toHaveStyleRule("top", "0");
+        expect(Corners[2]).toHaveStyleRule("left", "0");
+        expect(Corners[2]).toHaveStyleRule("top", "calc(100% - 8px)");
+        expect(Corners[3]).toHaveStyleRule("left", "calc(100% - 8px)");
+        expect(Corners[3]).toHaveStyleRule("top", "calc(100% - 8px)");
+
+        act(() => {
+          fireEvent.mouseEnter(ButtonContainer);
+        });
 
         for (const Corner of Corners) {
           expect(Corner.getAttribute("opacity")).toEqual("1");
@@ -272,9 +331,77 @@ describe("molecules / Button", () => {
         expect(Corners[3]).toHaveStyleRule("left", "100%");
         expect(Corners[3]).toHaveStyleRule("top", "100%");
 
-        fireEvent.mouseUp(ButtonContainer, {
-          clienX: 123,
-          clientY: 456
+        act(() => {
+          fireEvent.mouseUp(ButtonContainer, {
+            clienX: 123,
+            clientY: 456
+          });
+        });
+
+        for (const Corner of Corners) {
+          expect(Corner.getAttribute("opacity")).toEqual("0.5");
+        }
+        expect(Corners[0]).toHaveStyleRule("left", "0");
+        expect(Corners[0]).toHaveStyleRule("top", "0");
+        expect(Corners[1]).toHaveStyleRule("left", "calc(100% - 8px)");
+        expect(Corners[1]).toHaveStyleRule("top", "0");
+        expect(Corners[2]).toHaveStyleRule("left", "0");
+        expect(Corners[2]).toHaveStyleRule("top", "calc(100% - 8px)");
+        expect(Corners[3]).toHaveStyleRule("left", "calc(100% - 8px)");
+        expect(Corners[3]).toHaveStyleRule("top", "calc(100% - 8px)");
+
+        const ripple: HTMLElement = document.querySelector(".ripple");
+
+        expect(ripple).toBeTruthy();
+
+        await waitForElementToBeRemoved(() => document.querySelector(".ripple"));
+
+        expect(document.querySelector(".ripple")).toBeFalsy();
+      });
+
+      test("should append ripple onClick - isMobile: true", async () => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const mockReactDeviceDetect: any = reactDeviceDetect as unknown as jest.Mock;
+        mockReactDeviceDetect.isMobile = true;
+        
+        const {
+          ButtonContainer,
+          Corners
+        } = setup();
+
+        for (const Corner of Corners) {
+          expect(Corner.getAttribute("opacity")).toEqual("0.5");
+        }
+        expect(Corners[0]).toHaveStyleRule("left", "0");
+        expect(Corners[0]).toHaveStyleRule("top", "0");
+        expect(Corners[1]).toHaveStyleRule("left", "calc(100% - 8px)");
+        expect(Corners[1]).toHaveStyleRule("top", "0");
+        expect(Corners[2]).toHaveStyleRule("left", "0");
+        expect(Corners[2]).toHaveStyleRule("top", "calc(100% - 8px)");
+        expect(Corners[3]).toHaveStyleRule("left", "calc(100% - 8px)");
+        expect(Corners[3]).toHaveStyleRule("top", "calc(100% - 8px)");
+
+        act(() => {
+          fireEvent.mouseEnter(ButtonContainer);
+        });
+
+        for (const Corner of Corners) {
+          expect(Corner.getAttribute("opacity")).toEqual("0.5");
+        }
+        expect(Corners[0]).toHaveStyleRule("left", "0");
+        expect(Corners[0]).toHaveStyleRule("top", "0");
+        expect(Corners[1]).toHaveStyleRule("left", "calc(100% - 8px)");
+        expect(Corners[1]).toHaveStyleRule("top", "0");
+        expect(Corners[2]).toHaveStyleRule("left", "0");
+        expect(Corners[2]).toHaveStyleRule("top", "calc(100% - 8px)");
+        expect(Corners[3]).toHaveStyleRule("left", "calc(100% - 8px)");
+        expect(Corners[3]).toHaveStyleRule("top", "calc(100% - 8px)");
+
+        act(() => {
+          fireEvent.mouseUp(ButtonContainer, {
+            clienX: 123,
+            clientY: 456
+          });
         });
 
         for (const Corner of Corners) {
