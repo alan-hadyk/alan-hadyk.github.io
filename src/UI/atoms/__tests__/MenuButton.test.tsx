@@ -116,7 +116,7 @@ describe("atoms / MenuButton", () => {
     });
 
     describe("Styles", () => {
-      describe("if button is not clicked", () => {
+      describe("if isOpen: false", () => {
         let _MenuButtonLines: Element[];
   
         beforeEach(() => {
@@ -198,15 +198,12 @@ describe("atoms / MenuButton", () => {
         });
       });
 
-      describe("if button is clicked", () => {
+      describe("if isOpen: false", () => {
         let _MenuButtonLines: Element[];
   
         beforeEach(() => {
-          const onClick = jest.fn();
-
           const { MenuButtonLines } = setup({
-            isOpen: true,
-            onClick
+            isOpen: true
           });
 
           _MenuButtonLines = MenuButtonLines;

@@ -71,11 +71,8 @@ describe("organisms / HeaderMobile", () => {
           let _MenuButtonLines: Element[];
     
           beforeEach(() => {
-            const onClick = jest.fn();
-  
             const { MenuButtonLines } = setup({
-              isMenuVisible: true,
-              onClick
+              isMenuVisible: true
             });
   
             _MenuButtonLines = MenuButtonLines;
@@ -158,11 +155,8 @@ describe("organisms / HeaderMobile", () => {
           let _MenuButtonLines: Element[];
     
           beforeEach(() => {
-            const onClick = jest.fn();
-  
             const { MenuButtonLines } = setup({
-              isMenuVisible: false,
-              onClick
+              isMenuVisible: false
             });
   
             _MenuButtonLines = MenuButtonLines;
