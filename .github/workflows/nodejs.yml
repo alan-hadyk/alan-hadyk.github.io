@@ -23,7 +23,7 @@ jobs:
         yarn install
         yarn lint
         yarn test
-        yarn start & wait-on http://localhost:3000/portfolio
+        yarn start & wait-on http://10.1.0.4/
         yarn cypress:run
       env:
         CI: true
