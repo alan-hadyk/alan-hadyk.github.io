@@ -4,6 +4,7 @@ import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import capitalize from "<helpers>/strings/capitalize";
 
 import {
+  Device,
   ResponsiveContainerProps,
   ResponsiveProps
 } from "<layout>/__typings__/Responsive.d.ts";
@@ -18,7 +19,7 @@ function Responsive(props: ResponsiveProps): JSX.Element {
 
   return (
     <Fragment>
-      {devices.map(device => (
+      {devices.map((device: Device): JSX.Element => (
         <Responsive.Container
           data-testid={props[`dataTest${capitalize(device)}Id`] || `Responsive${capitalize(device)}`}
           device={device}
