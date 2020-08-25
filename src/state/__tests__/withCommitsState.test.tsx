@@ -72,10 +72,33 @@ describe("state / withCommitsState", () => {
           expect(WrappedComponent.getAttribute("data-haserror")).toEqual("false");
         });
 
-        test("should have an error if status is 400", async () => {
+        test("should have an error if network request fails", async () => {
           const mockFetch = fetch as unknown as jest.Mock;
           mockFetch.mockImplementation(() => {
             return new Error();
+          });
+
+          let WrappedComponent: Element;
+
+          await act(async () => {
+            const setupFn = await setup();
+
+            WrappedComponent = setupFn.WrappedComponent;
+          });
+
+          expect(JSON.parse(WrappedComponent.getAttribute("data-commitslist"))).toEqual([]);
+          expect(WrappedComponent.getAttribute("data-haserror")).toEqual("true");
+        });
+
+        test("should have an error if network request returns status 404", async () => {
+          const mockFetch = fetch as unknown as jest.Mock;
+          mockFetch.mockImplementation(() => {
+            return new Response(JSON.stringify({
+              documentation_url: "https://docs.github.com/rest/reference/repos#list-commits",
+              message: "Not Found"
+            }), {
+              status: 404
+            });
           });
 
           let WrappedComponent: Element;
