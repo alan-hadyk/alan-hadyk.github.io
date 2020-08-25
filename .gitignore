@@ -5,6 +5,7 @@
 
 # testing
 /coverage
+/cypress/artifacts
 
 # production
 /build

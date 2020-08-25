@@ -4,6 +4,7 @@ import {
 } from "<styles>/variables/__typings__/variables.d.ts";
 
 export interface LinkWithIconProps {
+  dataCy?: string;
   height: Spacing;
   href: string;
   iconName: IconProps["iconName"];

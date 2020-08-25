@@ -23,7 +23,7 @@ function Header({
       top="spacing0"
       zIndex={zIndex}
     >
-      <Header.Container>
+      <Header.Container data-cy="Header">
         <FlexContainer
           flexFlow="row nowrap"
         >
@@ -42,6 +42,7 @@ function Header({
           justifyContent="space-between"
         >
           <LinkWithIcon
+            dataCy="siteLogo"
             href={window.location.href}
             iconName="logo"
             height="spacing48"
