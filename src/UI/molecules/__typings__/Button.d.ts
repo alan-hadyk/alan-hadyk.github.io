@@ -1,7 +1,4 @@
-import {
-  ColorPalette,
-  Spacing
-} from "<styles>/variables/__typings__/variables.d.ts";
+import { ColorPalette } from "<styles>/variables/__typings__/variables.d.ts";
 
 export interface ButtonContainerProps {
   backgroundColor?: ColorPalette | "transparent";
@@ -26,22 +23,13 @@ export interface ButtonProps {
 export interface MapSizeToButtonContainerProps {
   large: {
     height: ButtonContainerProps["height"];
-    width: ButtonContainerProps["width"];
   };
   medium: {
     height: ButtonContainerProps["height"];
-    width: ButtonContainerProps["width"];
   };
   small: {
     height: ButtonContainerProps["height"];
-    width: ButtonContainerProps["width"];
   };
-}
-
-export interface MapSizeToIconHeight {
-  large: Spacing;
-  medium: Spacing;
-  small: Spacing;
 }
 
 export interface MapTypeToButtonContainerProps {

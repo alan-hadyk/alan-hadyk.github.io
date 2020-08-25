@@ -1,7 +1,9 @@
 import React, { Fragment } from "react";
 
-import SpacingContainer from "<layout>/SpacingContainer";
 import Text from "<atoms>/Text";
+
+import SpacingContainer from "<layout>/SpacingContainer";
+import Responsive from "<layout>/Responsive";
 
 import {
   SectionProps
@@ -21,7 +23,13 @@ function Section({
       minHeight={minHeight}
       paddingBottom={title ? "spacing96" : "spacing0"}
     >
-      {renderTitle()}
+      <Responsive devices={["tv", "desktop", "tablet"]}>
+        {renderTitleContainer()}
+      </Responsive>
+
+      <Responsive devices={["mobile"]}>
+        {renderTitleMobileContainer()}
+      </Responsive>
       
       <Fragment>
         {children}
@@ -29,11 +37,7 @@ function Section({
     </SpacingContainer>
   );
 
-  function renderTitle(): JSX.Element {
-    if (!title) {
-      return;
-    }
-
+  function renderTitleContainer(): JSX.Element {
     return (
       <SpacingContainer
         dataTestId="TitleSpacingContainer"
@@ -44,6 +48,27 @@ function Section({
           color="blue100"
           fontFamily="Exan"
           fontSize="font72"
+          lineHeight="spacing80"
+          textAlign="center"
+          textTransform="lowercase"
+        >
+          {title}
+        </Text>
+      </SpacingContainer>
+    );
+  }
+
+  function renderTitleMobileContainer(): JSX.Element {
+    return (
+      <SpacingContainer
+        dataTestId="TitleSpacingContainer"
+        marginBottom="spacing48"
+        paddingTop="spacing108"
+      >
+        <Text
+          color="blue100"
+          fontFamily="Exan"
+          fontSize="font48"
           lineHeight="spacing80"
           textAlign="center"
           textTransform="lowercase"

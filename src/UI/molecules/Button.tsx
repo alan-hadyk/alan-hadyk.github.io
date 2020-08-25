@@ -11,6 +11,8 @@ import Corners from "<molecules>/Corners";
 import colorPalette from "<styles>/variables/colorPalette";
 import transitionTimes from "<styles>/variables/transitionTimes";
 
+import spacing from "<styles>/variables/spacing";
+
 import {
   Spacing
 } from "<styles>/variables/__typings__/variables.d.ts";
@@ -20,7 +22,6 @@ import {
   ButtonInnnerContainerPositions,
   ButtonProps,
   MapSizeToButtonContainerProps,
-  MapSizeToIconHeight,
   MapTypeToButtonContainerProps
 } from "<molecules>/__typings__/Button.d.ts";
 
@@ -38,23 +39,14 @@ const mapTypeToButtonContainerProps: MapTypeToButtonContainerProps = {
 
 const mapSizeToButtonContainerProps: MapSizeToButtonContainerProps = {
   large: {
-    height: "spacing56",
-    width: "100%"
+    height: "spacing56"
   },
   medium: {
-    height: "spacing48",
-    width: "auto"
+    height: "spacing48"
   },
   small: {
-    height: "spacing40",
-    width: "auto"
+    height: "spacing40"
   }
-};
-
-const mapSizeToIconHeight: MapSizeToIconHeight = {
-  large: "spacing24",
-  medium: "spacing24",
-  small: "spacing12"
 };
 
 function Button({
@@ -86,7 +78,7 @@ function Button({
             <ButtonText buttonText={buttonText} size={size} />
             <Icon
               iconName={iconName}
-              height={mapSizeToIconHeight[size]}
+              height={spacing.spacing24}
             />
           </FlexContainer>
         </SpacingContainer>
@@ -163,8 +155,7 @@ Button.Container = styled.button<ButtonContainerProps>`
         fast,
         slow
       }
-    },
-    width
+    }
   }): FlattenSimpleInterpolation => css`
     background-color: ${(backgroundColor in colorPalette && colorPalette[backgroundColor]) || backgroundColor};
     border: ${border};
@@ -176,7 +167,7 @@ Button.Container = styled.button<ButtonContainerProps>`
     position: relative;
     text-transform: lowercase;
     transition: all ${fast} ${easeInOut};
-    width: ${width};
+    width: 100%;
 
     &:hover {
       box-shadow: inset 0px 0px ${spacing.spacing16} 0px ${transparentize(0.5, blue200)};

@@ -14,7 +14,9 @@ const Hexagon = ({
   dataTestId,
   fill = "none"
 }: HexagonProps): JSX.Element => (
-  <Hexagon.Container data-testid={dataTestId || "Hexagon"}>
+  <Hexagon.Container
+    data-testid={dataTestId || "Hexagon"}
+  >
     {fill === "pattern" ?
       <Icon 
         iconName="hexagonWithPattern"
