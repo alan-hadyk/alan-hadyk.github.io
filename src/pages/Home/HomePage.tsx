@@ -13,16 +13,16 @@ import PageTemplate from "<templates>/PageTemplate";
 // TODO: Add tests when the component will be ready
 const HomePage = (): JSX.Element => (
   <PageTemplate>
-    {/* <Header 
+    <Header 
       zIndex="layer2"
     />
 
-    <DashboardSection /> */}
+    <DashboardSection />
     <PortfolioSection />
-    {/* <ExperienceSection />
+    <ExperienceSection />
     <SkillsSection />
     <AboutMeSection />
-    <ContactSection /> */}
+    <ContactSection />
   </PageTemplate>
 );
   
