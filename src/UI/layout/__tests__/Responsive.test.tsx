@@ -48,7 +48,7 @@ describe("layout / Responsive", () => {
     });
   });
 
-  describe("ResponsiveTV", () => {
+  describe("ResponsiveTv", () => {
     test("should render if device is tv", () => {
       const {
         ResponsiveDesktop,
@@ -96,7 +96,7 @@ describe("layout / Responsive", () => {
           expect(ResponsiveTV).toHaveStyleRule("height", "auto");
         });
 
-        test("should have 100% when is passed via height prop", () => {
+        test("should have 100% when it's passed via height prop", () => {
           const { ResponsiveTV } = setup({
             devices: ["tv"],
             height: "100%"
@@ -115,7 +115,7 @@ describe("layout / Responsive", () => {
           expect(ResponsiveTV).toHaveStyleRule("width", "auto");
         });
 
-        test("should have 100% when is passed via width prop", () => {
+        test("should have 100% when it's passed via width prop", () => {
           const { ResponsiveTV } = setup({
             devices: ["tv"],
             width: "100%"
@@ -175,7 +175,7 @@ describe("layout / Responsive", () => {
           expect(ResponsiveDesktop).toHaveStyleRule("height", "auto");
         });
 
-        test("should have 100% when is passed via height prop", () => {
+        test("should have 100% when it's passed via height prop", () => {
           const { ResponsiveDesktop } = setup({
             devices: ["desktop"],
             height: "100%"
@@ -194,7 +194,7 @@ describe("layout / Responsive", () => {
           expect(ResponsiveDesktop).toHaveStyleRule("width", "auto");
         });
 
-        test("should have 100% when is passed via width prop", () => {
+        test("should have 100% when it's passed via width prop", () => {
           const { ResponsiveDesktop } = setup({
             devices: ["desktop"],
             width: "100%"
@@ -254,7 +254,7 @@ describe("layout / Responsive", () => {
           expect(ResponsiveTablet).toHaveStyleRule("height", "auto");
         });
 
-        test("should have 100% when is passed via height prop", () => {
+        test("should have 100% when it's passed via height prop", () => {
           const { ResponsiveTablet } = setup({
             devices: ["tablet"],
             height: "100%"
@@ -273,7 +273,7 @@ describe("layout / Responsive", () => {
           expect(ResponsiveTablet).toHaveStyleRule("width", "auto");
         });
 
-        test("should have 100% when is passed via width prop", () => {
+        test("should have 100% when it's passed via width prop", () => {
           const { ResponsiveTablet } = setup({
             devices: ["tablet"],
             width: "100%"
@@ -333,7 +333,7 @@ describe("layout / Responsive", () => {
           expect(ResponsiveMobile).toHaveStyleRule("height", "auto");
         });
 
-        test("should have 100% when is passed via height prop", () => {
+        test("should have 100% when it's passed via height prop", () => {
           const { ResponsiveMobile } = setup({
             devices: ["mobile"],
             height: "100%"
@@ -352,7 +352,7 @@ describe("layout / Responsive", () => {
           expect(ResponsiveMobile).toHaveStyleRule("width", "auto");
         });
 
-        test("should have 100% when is passed via width prop", () => {
+        test("should have 100% when it's passed via width prop", () => {
           const { ResponsiveMobile } = setup({
             devices: ["mobile"],
             width: "100%"
@@ -391,7 +391,7 @@ function setup(additionalProps?: ResponsiveTestProps): Setup {
 
   const ResponsiveDesktop: Element = queryByTestId("ResponsiveDesktop");
   const ResponsiveMobile: Element = queryByTestId("ResponsiveMobile");
-  const ResponsiveTV: Element = queryByTestId("ResponsiveTV");
+  const ResponsiveTV: Element = queryByTestId("ResponsiveTv");
   const ResponsiveTablet: Element = queryByTestId("ResponsiveTablet");
 
   return {

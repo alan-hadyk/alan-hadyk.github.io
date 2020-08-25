@@ -1,111 +1,50 @@
 import React, { Fragment } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
+import capitalize from "<helpers>/strings/capitalize";
+
 import {
   ResponsiveContainerProps,
   ResponsiveProps
 } from "<layout>/__typings__/Responsive.d.ts";
 
-const Responsive = ({
-  children,
-  dataTestDesktopId,
-  dataTestMobileId,
-  dataTestTVId,
-  dataTestTabletId,
-  devices,
-  height = "auto",
-  width = "auto"
-}: ResponsiveProps): JSX.Element => (
-  <Fragment>
-    {devices.includes("tv") && (
-      <Responsive.TV
-        data-testid={dataTestTVId || "ResponsiveTV"}
-        height={height}
-        width={width}
-      >
-        {children}
-      </Responsive.TV>
-    )}
+function Responsive(props: ResponsiveProps): JSX.Element {
+  const {
+    children,
+    devices,
+    height = "auto",
+    width = "auto"
+  }: ResponsiveProps = props;
 
-    {devices.includes("desktop") && (
-      <Responsive.Desktop
-        data-testid={dataTestDesktopId || "ResponsiveDesktop"}
-        height={height}
-        width={width}
-      >
-        {children}
-      </Responsive.Desktop>
-    )}
+  return (
+    <Fragment>
+      {devices.map(device => (
+        <Responsive.Container
+          data-testid={props[`dataTest${capitalize(device)}Id`] || `Responsive${capitalize(device)}`}
+          device={device}
+          height={height}
+          key={device}
+          width={width}
+        >
+          {children}
+        </Responsive.Container>
+      ))}
+    </Fragment>
+  );
+}
 
-    {devices.includes("tablet") && (
-      <Responsive.Tablet
-        data-testid={dataTestTabletId || "ResponsiveTablet"}
-        height={height}
-        width={width}
-      >
-        {children}
-      </Responsive.Tablet>
-    )}
-
-    {devices.includes("mobile") && (
-      <Responsive.Mobile
-        data-testid={dataTestMobileId || "ResponsiveMobile"}
-        height={height}
-        width={width}
-      >
-        {children}
-      </Responsive.Mobile>
-    )}
-
-  </Fragment>
-);
-
-Responsive.TV = styled.div<ResponsiveContainerProps>`
+Responsive.Container = styled.div<ResponsiveContainerProps>`
   ${({
     height,
-    theme: {
-      breakpoints: { breakpoint1681 }
-    },
-    width
-  }): FlattenSimpleInterpolation => css`
-    display: none;
-    height: ${height};
-    width: ${width};
-
-    @media (min-width: ${breakpoint1681}) {
-      display: block;
-    }
-  `}
-`;
-
-Responsive.Desktop = styled.div<ResponsiveContainerProps>`
-  ${({
-    height,
+    device,
     theme: {
       breakpoints: {
-        breakpoint1281,
-        breakpoint1680
-      }
-    },
-    width
-  }): FlattenSimpleInterpolation => css`
-    display: none;
-    height: ${height};
-    width: ${width};
-
-    @media (min-width: ${breakpoint1281}) and (max-width: ${breakpoint1680})  {
-      display: block;
-    }
-  `}
-`;
-
-Responsive.Tablet = styled.div<ResponsiveContainerProps>`
-  ${({
-    height,
-    theme: {
-      breakpoints: {
+        breakpoint640,
         breakpoint641,
-        breakpoint1280
+        breakpoint1280,
+        breakpoint1281,
+        breakpoint1680,
+        breakpoint1681
       }
     },
     width
@@ -114,29 +53,29 @@ Responsive.Tablet = styled.div<ResponsiveContainerProps>`
     height: ${height};
     width: ${width};
 
-    @media (min-width: ${breakpoint641}) and (max-width: ${breakpoint1280}) {
-      display: block;
-    }
-  `}
-`;
-
-Responsive.Mobile = styled.div<ResponsiveContainerProps>`
-  ${({
-    height,
-    theme: {
-      breakpoints: {
-        breakpoint640
+    ${device === "tv" && css`
+      @media (min-width: ${breakpoint1681}) {
+        display: block;
       }
-    },
-    width
-  }): FlattenSimpleInterpolation => css`
-    display: none;
-    height: ${height};
-    width: ${width};
+    `}
 
-    @media (max-width: ${breakpoint640}) {
-      display: block;
-    }
+    ${device === "desktop" && css`
+      @media (min-width: ${breakpoint1281}) and (max-width: ${breakpoint1680})  {
+        display: block;
+      }
+    `}
+
+    ${device === "tablet" && css`
+      @media (min-width: ${breakpoint641}) and (max-width: ${breakpoint1280}) {
+        display: block;
+      }
+    `}
+
+    ${device === "mobile" && css`
+      @media (max-width: ${breakpoint640}) {
+        display: block;
+      }
+    `}
   `}
 `;
 
