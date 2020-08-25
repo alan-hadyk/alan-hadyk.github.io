@@ -23,7 +23,5 @@ jobs:
         yarn install
         yarn lint
         yarn test
-        yarn start
-        yarn cypress:run:ci
       env:
         CI: true
