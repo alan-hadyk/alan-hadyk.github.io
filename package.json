@@ -10,6 +10,7 @@
     "test": "craco test --passWithNoTests --env=jest-environment-jsdom-sixteen",
     "test:coverage": "craco test --coverage --env=jest-environment-jsdom-sixteen",
     "cypress:open": "TZ=UTC cypress open",
+    "cypress:run": "TZ=UTC cypress run",
     "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}'",
     "lint:fix": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "eject": "react-scripts eject",
@@ -100,6 +101,7 @@
     "gh-pages": "^3.1.0",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "jsdom": "^16.3.0",
-    "react-test-renderer": "^16.13.1"
+    "react-test-renderer": "^16.13.1",
+    "wait-on": "^5.2.0"
   }
 }
