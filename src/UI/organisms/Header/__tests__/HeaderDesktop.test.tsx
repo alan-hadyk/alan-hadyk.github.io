@@ -23,6 +23,32 @@ describe("organisms / HeaderDesktop", () => {
     expect(HeaderDesktopFlexContainer.children[2]).toEqual(MenuIcons[0]);
   });
 
+  describe("HeaderDesktop", () => {
+    describe("Props", () => {
+      describe("devices", () => {      
+        describe("should have tv", () => {
+          test("should have display block when min-width is 1681px", () => {
+            const { HeaderTv } = setup();
+      
+            expect(HeaderTv).toHaveStyleRule("display", "block", {
+              media: "(min-width:1681px)"
+            });
+          });
+        });
+
+        describe("should have desktop", () => {
+          test("should have display block when min-width is 1281px and max-width is 1680px", () => {
+            const { HeaderDesktopContainer } = setup();
+      
+            expect(HeaderDesktopContainer).toHaveStyleRule("display", "block", {
+              media: "(min-width:1281px) and (max-width:1680px)"
+            });
+          });
+        });
+      });
+    });
+  });
+
   describe("FlexContainer", () => {
     describe("Props", () => {
       describe("flex-flow", () => {      
@@ -126,6 +152,7 @@ interface Setup extends RenderResult {
   Button: Element;
   HeaderDesktopContainer: Element;
   HeaderDesktopFlexContainer: Element;
+  HeaderTv: Element;
   MenuIcons: Element[];
   Nav: Element;
 }
@@ -142,6 +169,7 @@ function setup(): Setup {
   const Button: Element = queryAllByTestId("Button")[0];
   const HeaderDesktopContainer: Element = queryAllByTestId("HeaderDesktop")[0];
   const HeaderDesktopFlexContainer: Element = queryAllByTestId("HeaderDesktopFlexContainer")[0];
+  const HeaderTv: Element = queryAllByTestId("HeaderTv")[0];
   const MenuIcons: Element[] = queryAllByTestId("MenuIcons");
   const Nav: Element = queryAllByTestId("Nav")[0];
 
@@ -150,6 +178,7 @@ function setup(): Setup {
     Button,
     HeaderDesktopContainer,
     HeaderDesktopFlexContainer,
+    HeaderTv,
     MenuIcons,
     Nav
   };

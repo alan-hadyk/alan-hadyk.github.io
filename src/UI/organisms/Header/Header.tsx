@@ -55,7 +55,7 @@ function Header({
           justifyContent="space-between"
         >
           <Responsive
-            devices={["tablet", "desktop"]}
+            devices={["tv", "desktop", "tablet"]}
           >
             <LinkWithIcon
               href={window.location.href}

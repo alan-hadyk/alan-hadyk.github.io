@@ -42,15 +42,15 @@ describe("organisms / HeaderMobile", () => {
     expect(HeaderMobileContainer.children[1]).toEqual(SideMenu);
   });
 
-  describe("HeaderMobileContainer", () => {
+  describe("HeaderMobile", () => {
     describe("Props", () => {
       describe("devices", () => {      
         describe("should have mobile", () => {
-          test("should have display none when min-width is equal 1280px", () => {
+          test("should have display block when max-width is 640px", () => {
             const { HeaderMobileContainer } = setup();
       
-            expect(HeaderMobileContainer).toHaveStyleRule("display", "none", {
-              media: "(min-width:1280px)"
+            expect(HeaderMobileContainer).toHaveStyleRule("display", "block", {
+              media: "(max-width:640px)"
             });
           });
         });

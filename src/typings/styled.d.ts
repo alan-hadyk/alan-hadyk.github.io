@@ -4,8 +4,11 @@ declare module "styled-components" {
   export interface DefaultTheme {
     breakpoints: {
       breakpoint640: string;
+      breakpoint641: string;
       breakpoint1280: string;
+      breakpoint1281: string;
       breakpoint1680: string;
+      breakpoint1681: string;
       breakpoint1920: string;
     };
 

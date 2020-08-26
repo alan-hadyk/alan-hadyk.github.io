@@ -10,7 +10,8 @@ import FlexContainer from "<layout>/FlexContainer";
 const HeaderDesktop = (): JSX.Element => (
   <Responsive
     dataTestDesktopId="HeaderDesktop"
-    devices={["desktop"]}
+    dataTestTvId="HeaderTv"
+    devices={["tv", "desktop"]}
   >
     <FlexContainer
       dataTestId="HeaderDesktopFlexContainer"

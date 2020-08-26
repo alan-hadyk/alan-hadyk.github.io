@@ -23,11 +23,13 @@ describe("organisms / Header", () => {
       HeaderMobile,
       HeaderOuterFlexContainer,
       HeaderTablet,
+      HeaderTv,
       LinksWithIcons,
       PositionContainer,
       ResponsiveDesktop,
       ResponsiveMobile,
-      ResponsiveTablet
+      ResponsiveTablet,
+      ResponsiveTv
     } = setup();
 
     expect(PositionContainer.children[0]).toEqual(HeaderContainer);
@@ -38,18 +40,22 @@ describe("organisms / Header", () => {
 
     expect(HeaderInnerContainer.children[0]).toEqual(HeaderInnerFlexContainer);
 
-    expect(HeaderInnerFlexContainer.children[0]).toEqual(ResponsiveDesktop);
-    expect(ResponsiveDesktop.children[0]).toEqual(LinksWithIcons[0]);
+    expect(HeaderInnerFlexContainer.children[0]).toEqual(ResponsiveTv);
+    expect(ResponsiveTv.children[0]).toEqual(LinksWithIcons[0]);
 
-    expect(HeaderInnerFlexContainer.children[1]).toEqual(ResponsiveTablet);
-    expect(ResponsiveTablet.children[0]).toEqual(LinksWithIcons[1]);
+    expect(HeaderInnerFlexContainer.children[1]).toEqual(ResponsiveDesktop);
+    expect(ResponsiveDesktop.children[0]).toEqual(LinksWithIcons[1]);
 
-    expect(HeaderInnerFlexContainer.children[2]).toEqual(ResponsiveMobile);
-    expect(ResponsiveMobile.children[0]).toEqual(LinksWithIcons[2]);
+    expect(HeaderInnerFlexContainer.children[2]).toEqual(ResponsiveTablet);
+    expect(ResponsiveTablet.children[0]).toEqual(LinksWithIcons[2]);
 
-    expect(HeaderInnerFlexContainer.children[3]).toEqual(HeaderDesktop);
-    expect(HeaderInnerFlexContainer.children[4]).toEqual(HeaderTablet);
-    expect(HeaderInnerFlexContainer.children[5]).toEqual(HeaderMobile);
+    expect(HeaderInnerFlexContainer.children[3]).toEqual(ResponsiveMobile);
+    expect(ResponsiveMobile.children[0]).toEqual(LinksWithIcons[3]);
+
+    expect(HeaderInnerFlexContainer.children[4]).toEqual(HeaderTv);
+    expect(HeaderInnerFlexContainer.children[5]).toEqual(HeaderDesktop);
+    expect(HeaderInnerFlexContainer.children[6]).toEqual(HeaderTablet);
+    expect(HeaderInnerFlexContainer.children[7]).toEqual(HeaderMobile);
   });
 
   describe("PositionContainer", () => {
@@ -285,11 +291,47 @@ describe("organisms / Header", () => {
           });
         });
   
+        describe("height", () => {
+          test("should have 4.8rem", () => {
+            const { LinksWithIcons } = setup();
+      
+            expect(LinksWithIcons[2]).toHaveStyleRule("height", "4.8rem");
+          });
+        });
+  
+        describe("iconName", () => {
+          test("should have logo", () => {
+            const { LinksWithIcons } = setup();
+      
+            expect(LinksWithIcons[2].textContent).toEqual("Icon-Logo.svg");
+          });
+        });
+  
+        describe("width", () => {
+          test("should have 24.8rem", () => {
+            const { LinksWithIcons } = setup();
+      
+            expect(LinksWithIcons[2].children[0]).toHaveStyleRule("width", "24.8rem");
+          });
+        });
+      });
+    });
+
+    describe("LinksWithIcons[3]", () => {
+      describe("Props", () => {
+        describe("href", () => {
+          test("should have correct href", () => {
+            const { LinksWithIcons } = setup();
+      
+            expect(LinksWithIcons[3].getAttribute("href")).toEqual("http://localhost/");
+          });
+        });
+  
         describe("iconName", () => {
           test("should have logo shortcut", () => {
             const { LinksWithIcons } = setup();
       
-            expect(LinksWithIcons[2].textContent).toEqual("Icon-Logo-Shortcut.svg");
+            expect(LinksWithIcons[3].textContent).toEqual("Icon-Logo-Shortcut.svg");
           });
         });
   
@@ -297,7 +339,7 @@ describe("organisms / Header", () => {
           test("should have 6.4rem", () => {
             const { LinksWithIcons } = setup();
       
-            expect(LinksWithIcons[2].children[0]).toHaveStyleRule("width", "6.4rem");
+            expect(LinksWithIcons[3].children[0]).toHaveStyleRule("width", "6.4rem");
           });
         });
       });
@@ -371,12 +413,14 @@ interface Setup extends RenderResult {
   HeaderMobile: Element;
   HeaderOuterFlexContainer: Element;
   HeaderTablet: Element;
+  HeaderTv: Element;
   LinksWithIcons: Element[];
   MenuButtons: Element[];
   PositionContainer: Element;
   ResponsiveDesktop: Element;
   ResponsiveMobile: Element;
   ResponsiveTablet: Element;
+  ResponsiveTv: Element;
   SideMenus: Element[];
 }
 
@@ -404,12 +448,14 @@ function setup(additionalProps?: HeaderTestProps): Setup {
   const HeaderOuterFlexContainer: Element = queryAllByTestId("HeaderOuterFlexContainer")[0];
   const HeaderMobile: Element = queryAllByTestId("HeaderMobile")[0];
   const HeaderTablet: Element = queryAllByTestId("HeaderTablet")[0];
+  const HeaderTv: Element = queryAllByTestId("HeaderTv")[0];
   const LinksWithIcons: Element[] = queryAllByTestId("LinkWithIcon");
   const MenuButtons: Element[] = queryAllByTestId("MenuButtonContainer");
   const PositionContainer: Element = queryAllByTestId("PositionContainer")[0];
   const ResponsiveDesktop: Element = queryAllByTestId("ResponsiveDesktop")[0];
   const ResponsiveMobile: Element = queryAllByTestId("ResponsiveMobile")[0];
   const ResponsiveTablet: Element = queryAllByTestId("ResponsiveTablet")[0];
+  const ResponsiveTv: Element = queryAllByTestId("ResponsiveTv")[0];
   const SideMenus: Element[] = queryAllByTestId("SideMenu");
   
   return {
@@ -421,12 +467,14 @@ function setup(additionalProps?: HeaderTestProps): Setup {
     HeaderMobile,
     HeaderOuterFlexContainer,
     HeaderTablet,
+    HeaderTv,
     LinksWithIcons,
     MenuButtons,
     PositionContainer,
     ResponsiveDesktop,
     ResponsiveMobile,
     ResponsiveTablet,
+    ResponsiveTv,
     SideMenus
   };
 }

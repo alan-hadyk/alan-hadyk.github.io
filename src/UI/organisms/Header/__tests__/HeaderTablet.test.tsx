@@ -53,20 +53,12 @@ describe("organisms / HeaderTablet", () => {
   describe("HeaderTabletContainer", () => {
     describe("Props", () => {
       describe("devices", () => {      
-        describe("should have mobile", () => {
-          test("should have display none when min-width is equal 1680px", () => {
+        describe("should have tablet", () => {
+          test("should have display block when min-width is 641px and max-width is 1280px", () => {
             const { HeaderTabletContainer } = setup();
       
-            expect(HeaderTabletContainer).toHaveStyleRule("display", "none", {
-              media: "(min-width:1680px)"
-            });
-          });
-
-          test("should have display none when max-width is equal 1280px", () => {
-            const { HeaderTabletContainer } = setup();
-      
-            expect(HeaderTabletContainer).toHaveStyleRule("display", "none", {
-              media: "(max-width:1280px)"
+            expect(HeaderTabletContainer).toHaveStyleRule("display", "block", {
+              media: "(min-width:641px) and (max-width:1280px)"
             });
           });
         });
