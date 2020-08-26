@@ -29,16 +29,11 @@ const DashboardSectionBottom = ({
       <Commits />
       <PoweredBy />
 
-      {devices.includes("desktop") && (
+      {(devices.includes("desktop") || devices.includes("tv")) && (
         <Fragment>
           <UserAgent />
           <Ip />
         </Fragment>
-      )}
-
-      
-      {devices.includes("tablet") && (
-        <Ip />
       )}
     </DashboardSectionInnerContainer>
   </Responsive>

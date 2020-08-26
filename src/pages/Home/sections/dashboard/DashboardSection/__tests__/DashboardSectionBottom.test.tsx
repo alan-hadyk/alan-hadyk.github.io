@@ -54,7 +54,7 @@ jest.mock("detect-browser", () => ({
 
 
 describe("pages / Home / sections / dashboard / DashboardSection / DashboardSectionBottom", () => {	
-  test("should have correct structure for desktop", () => {	
+  test("should have correct structure for tv and desktop", () => {	
     const {	
       Commits,	
       DashboardSectionBottomContainer,	
@@ -63,7 +63,7 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
       PoweredBy,	
       UserAgent	
     } = setup({
-      devices: ["desktop"]
+      devices: ["tv", "desktop"]
     });	
 
     expect(DashboardSectionBottomContainer.children[0]).toEqual(DashboardSectionInnerContainer);	
@@ -74,25 +74,7 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
     expect(DashboardSectionInnerContainer.children[0].children[3]).toEqual(Ip);	
   });	
 
-  test("should have correct structure for tablet", () => {	
-    const {	
-      Commits,	
-      DashboardSectionBottomContainer,	
-      DashboardSectionInnerContainer,
-      Ip,	
-      PoweredBy	
-    } = setup({
-      devices: ["tablet"]
-    });	
-
-    expect(DashboardSectionBottomContainer.children[0]).toEqual(DashboardSectionInnerContainer);	
-
-    expect(DashboardSectionInnerContainer.children[0].children[0]).toEqual(Commits);	
-    expect(DashboardSectionInnerContainer.children[0].children[1]).toEqual(PoweredBy);	
-    expect(DashboardSectionInnerContainer.children[0].children[2]).toEqual(Ip);	
-  });	
-
-  test("should have correct structure for mobile", () => {	
+  test("should have correct structure for tablet and mobile", () => {	
     const {	
       Commits,	
       DashboardSectionBottomContainer,	
@@ -119,38 +101,50 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
       });		
 
       describe("devices", () => {	
-        describe("display", () => {      
-          test("should have none for max-width: 1680px", () => {
+        describe("display", () => {
+          test("should have none by default", () => {
+            const { DashboardSectionBottomContainer } = setup();
+  
+            expect(DashboardSectionBottomContainer).toHaveStyleRule("display", "none");
+          });
+
+          test("should have block for min-width: 1681px", () => {
+            const { DashboardSectionBottomContainer } = setup({
+              devices: ["tv"]
+            });
+
+            expect(DashboardSectionBottomContainer).toHaveStyleRule("display", "block", {
+              media: "(min-width:1681px)"
+            });
+          });
+
+          test("should have block for min-width: 1281px and max-width: 1680px", () => {
             const { DashboardSectionBottomContainer } = setup({
               devices: ["desktop"]
             });
   
-            expect(DashboardSectionBottomContainer).toHaveStyleRule("display", "none", {
-              media: "(max-width:1680px)"
+            expect(DashboardSectionBottomContainer).toHaveStyleRule("display", "block", {
+              media: "(min-width:1281px) and (max-width:1680px)"
             });
           });
 
-          test("should have none for max-width: 1280px and min-width: 1680px", () => {
+          test("should have block for min-width: 641px and min-width: 1280px", () => {
             const { DashboardSectionBottomContainer } = setup({
               devices: ["tablet"]
             });
   
-            expect(DashboardSectionBottomContainer).toHaveStyleRule("display", "none", {
-              media: "(max-width:1280px)"
-            });
-  
-            expect(DashboardSectionBottomContainer).toHaveStyleRule("display", "none", {
-              media: "(min-width:1680px)"
+            expect(DashboardSectionBottomContainer).toHaveStyleRule("display", "block", {
+              media: "(min-width:641px) and (max-width:1280px)"
             });
           });
 
-          test("should have none for min-width: 1280px", () => {
+          test("should have block for max-width: 640px", () => {
             const { DashboardSectionBottomContainer } = setup({
               devices: ["mobile"]
             });
   
-            expect(DashboardSectionBottomContainer).toHaveStyleRule("display", "none", {
-              media: "(min-width:1280px)"
+            expect(DashboardSectionBottomContainer).toHaveStyleRule("display", "block", {
+              media: "(max-width:640px)"
             });
           });
         });
@@ -272,14 +266,14 @@ function setup(additionalProps?: DevicesTestProps): Setup {
     <DashboardSectionBottom {...props} />	
   );	
 
-  const { queryByTestId, queryAllByTestId }: RenderResult = utils;	
+  const { queryAllByTestId }: RenderResult = utils;	
 
   const Commits: Element = queryAllByTestId("Commits")[0];	
-  const DashboardSectionBottomContainer: Element = queryByTestId("DashboardSectionBottom");
-  const DashboardSectionInnerContainer: Element = queryByTestId("DashboardSectionInnerContainer");
-  const Ip: Element = queryByTestId("IP");	
-  const PoweredBy: Element = queryByTestId("PoweredBy");	
-  const UserAgent: Element = queryByTestId("UserAgent");	
+  const DashboardSectionBottomContainer: Element = queryAllByTestId("DashboardSectionBottom")[0];
+  const DashboardSectionInnerContainer: Element = queryAllByTestId("DashboardSectionInnerContainer")[0];
+  const Ip: Element = queryAllByTestId("IP")[0];	
+  const PoweredBy: Element = queryAllByTestId("PoweredBy")[0];	
+  const UserAgent: Element = queryAllByTestId("UserAgent")[0];	
 
   return {	
     ...utils,	
