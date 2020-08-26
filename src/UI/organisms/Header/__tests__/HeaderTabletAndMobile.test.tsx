@@ -5,7 +5,7 @@ import {
   fireEvent
 } from "@testing-library/react";
 
-import HeaderTablet from "<organisms>/Header/HeaderTablet";
+import HeaderTabletAndMobile from "<organisms>/Header/HeaderTabletAndMobile";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
@@ -13,44 +13,61 @@ import { HeaderMobileProps }  from "<organisms>/Header/__typings__/HeaderMobile.
 
 jest.mock("<hooks>/useIntersectionObserver");
 
-describe("organisms / HeaderTablet", () => {
+describe("organisms / HeaderTabletAndMobileProps", () => {
   test("should have correct structure if isMenuVisible is true", () => {
     const {
       Backdrop,
+      MenuButtons,
+      HeaderMobileContainer,
       HeaderTabletContainer,
-      HeaderTabletFlexContainer,
-      MenuButton,
-      Nav,
-      SideMenu
+      SideMenus
     } = setup({
       isMenuVisible: true
     });
 
-    expect(HeaderTabletContainer.children[0]).toEqual(HeaderTabletFlexContainer);
-    expect(HeaderTabletFlexContainer.children[0]).toEqual(Nav);
-    expect(HeaderTabletFlexContainer.children[1]).toEqual(MenuButton);
-    expect(HeaderTabletFlexContainer.children[2]).toEqual(Backdrop);
-    expect(HeaderTabletFlexContainer.children[3]).toEqual(SideMenu);
+    expect(HeaderMobileContainer.children[0]).toEqual(MenuButtons[0]);
+    expect(HeaderMobileContainer.children[1]).toEqual(Backdrop[0]);
+    expect(HeaderMobileContainer.children[2]).toEqual(SideMenus[0]);
+
+    expect(HeaderTabletContainer.children[0]).toEqual(MenuButtons[1]);
+    expect(HeaderTabletContainer.children[1]).toEqual(Backdrop[1]);
+    expect(HeaderTabletContainer.children[2]).toEqual(SideMenus[1]);
   });
 
   test("should have correct structure if isMenuVisible is false", () => {
     const {
+      MenuButtons,
+      HeaderMobileContainer,
       HeaderTabletContainer,
-      HeaderTabletFlexContainer,
-      MenuButton,
-      Nav,
-      SideMenu
+      SideMenus
     } = setup({
       isMenuVisible: false
     });
 
-    expect(HeaderTabletContainer.children[0]).toEqual(HeaderTabletFlexContainer);
-    expect(HeaderTabletFlexContainer.children[0]).toEqual(Nav);
-    expect(HeaderTabletFlexContainer.children[1]).toEqual(MenuButton);
-    expect(HeaderTabletFlexContainer.children[2]).toEqual(SideMenu);
+    expect(HeaderMobileContainer.children[0]).toEqual(MenuButtons[0]);
+    expect(HeaderMobileContainer.children[1]).toEqual(SideMenus[0]);
+
+    expect(HeaderTabletContainer.children[0]).toEqual(MenuButtons[1]);
+    expect(HeaderTabletContainer.children[1]).toEqual(SideMenus[1]);
   });
-  
-  describe("HeaderTabletContainer", () => {
+
+  describe("HeaderMobile", () => {
+    describe("Props", () => {
+      describe("devices", () => {      
+        describe("should have mobile", () => {
+          test("should have display block when max-width is 640px", () => {
+            const { HeaderMobileContainer } = setup();
+      
+            expect(HeaderMobileContainer).toHaveStyleRule("display", "block", {
+              media: "(max-width:640px)"
+            });
+          });
+        });
+      });
+    });
+  });
+
+  describe("HeaderTablet", () => {
     describe("Props", () => {
       describe("devices", () => {      
         describe("should have tablet", () => {
@@ -66,60 +83,13 @@ describe("organisms / HeaderTablet", () => {
     });
   });
 
-  describe("FlexContainer", () => {
-    describe("Props", () => {
-      describe("flex-flow", () => {      
-        test("should have row nowrap", () => {
-          const { HeaderTabletFlexContainer } = setup();
-    
-          expect(HeaderTabletFlexContainer).toHaveStyleRule("flex-flow", "row nowrap");
-        });
-      });
-
-      describe("gap", () => {
-        test("should have margin-left: 4.8rem for all children (except first)", () => {
-          const { HeaderTabletFlexContainer } = setup();
-
-          expect(HeaderTabletFlexContainer).toHaveStyleRule("margin-left", "4.8rem", {
-            modifier: "& > *"
-          });
-          expect(HeaderTabletFlexContainer).toHaveStyleRule("margin-left", "0", {
-            modifier: "& > *:first-child"
-          });
-        });
-      });
-
-      describe("height", () => {      
-        test("should have 4.8rem", () => {
-          const { HeaderTabletFlexContainer } = setup();
-    
-          expect(HeaderTabletFlexContainer).toHaveStyleRule("height", "4.8rem");
-        });
-      });
-
-      describe("justify-content", () => {      
-        test("should have flex-start", () => {
-          const { HeaderTabletFlexContainer } = setup();
-    
-          expect(HeaderTabletFlexContainer).toHaveStyleRule("justify-content", "flex-start");
-        });
-      });
-    });
-  });
-
-  describe("Nav", () => {
+  describe("MenuButtons", () => {
     test("should render", () => {
-      const { Nav } = setup();
+      const { MenuButtons } = setup();
 
-      expect(Nav).toBeTruthy();
-    });
-  });
-
-  describe("MenuButton", () => {
-    test("should render", () => {
-      const { MenuButton } = setup();
-
-      expect(MenuButton).toBeTruthy();
+      MenuButtons.forEach((_MenuButtons: Element) => {
+        expect(_MenuButtons).toBeTruthy();
+      });
     });
 
     describe("Props", () => {
@@ -297,17 +267,19 @@ describe("organisms / HeaderTablet", () => {
         test("should fire click", () => {
           const onClick = jest.fn();
     
-          const { MenuButton } = setup({
+          const { MenuButtons } = setup({
             onClick
           });
-    
+
           expect(onClick).toHaveBeenCalledTimes(0);
-    
-          act(() => {
-            fireEvent.click(MenuButton);
+
+          MenuButtons.forEach((_MenuButton: Element) => {
+            act(() => {
+              fireEvent.click(_MenuButton);
+            });
           });
-    
-          expect(onClick).toHaveBeenCalledTimes(1);
+
+          expect(onClick).toHaveBeenCalledTimes(2);
         });
       });
     });
@@ -319,7 +291,9 @@ describe("organisms / HeaderTablet", () => {
         isMenuVisible: true
       });
 
-      expect(Backdrop).toBeTruthy();
+      Backdrop.forEach((_Backdrop: Element) => {
+        expect(_Backdrop).toBeTruthy();
+      });
     });
 
     test("should not render if isMenuVisible is false", () => {
@@ -327,7 +301,9 @@ describe("organisms / HeaderTablet", () => {
         isMenuVisible: false
       });
 
-      expect(Backdrop).toBeFalsy();
+      Backdrop.forEach((_Backdrop: Element) => {
+        expect(_Backdrop).toBeFalsy();
+      });
     });
 
     describe("Props", () => {
@@ -339,38 +315,44 @@ describe("organisms / HeaderTablet", () => {
             isMenuVisible: true,
             onClick
           });
-    
+
           expect(onClick).toHaveBeenCalledTimes(0);
-    
-          act(() => {
-            fireEvent.click(Backdrop);
+
+          Backdrop.forEach((_Backdrop: Element) => {
+            act(() => {
+              fireEvent.click(_Backdrop);
+            });
           });
-    
-          expect(onClick).toHaveBeenCalledTimes(1);
+
+          expect(onClick).toHaveBeenCalledTimes(2);
         });
       });
     });
   });
 
-  describe("SideMenu", () => {
+  describe("SideMenus", () => {
     describe("Props", () => {
       describe("isExpanded", () => {
         describe("transform", () => {
           test("should have translateX(0) if isMenuVisible is true", () => {
-            const { SideMenu } = setup({
+            const { SideMenus } = setup({
               isMenuVisible: true
             });
-      
-            expect(SideMenu).toHaveStyleRule("transform", "translateX(0)");
+            
+            SideMenus.forEach((_SideMenu: Element) => {
+              expect(_SideMenu).toHaveStyleRule("transform", "translateX(0)");
+            });
           });
   
   
           test("should have translateX(100%) if isMenuVisible is false", () => {
-            const { SideMenu } = setup({
+            const { SideMenus } = setup({
               isMenuVisible: false
             });
       
-            expect(SideMenu).toHaveStyleRule("transform", "translateX(100%)");
+            SideMenus.forEach((_SideMenu: Element) => {
+              expect(_SideMenu).toHaveStyleRule("transform", "translateX(100%)");
+            });
           });
         });
       });
@@ -379,18 +361,17 @@ describe("organisms / HeaderTablet", () => {
 });
 
 interface Setup extends RenderResult {
-  Backdrop: Element;
+  Backdrop: Element[];
+  HeaderMobileContainer: Element;
   HeaderTabletContainer: Element;
-  HeaderTabletFlexContainer: Element;
-  MenuButton: Element;
   MenuButtonLines: Element[];
-  Nav: Element;
-  SideMenu: Element;
+  MenuButtons: Element[];
+  SideMenus: Element[];
 }
 
-type HeaderTabletTestProps = Partial<HeaderMobileProps>;
+type HeaderMobileTestProps = Partial<HeaderMobileProps>;
 
-function setup(additionalProps?: HeaderTabletTestProps): Setup {
+function setup(additionalProps?: HeaderMobileTestProps): Setup {
   const props: HeaderMobileProps = {
     isMenuVisible: false,
     onClick: jest.fn(),
@@ -398,27 +379,25 @@ function setup(additionalProps?: HeaderTabletTestProps): Setup {
   };
 
   const utils: RenderResult = renderWithTheme(
-    <HeaderTablet {...props} />
+    <HeaderTabletAndMobile {...props} />
   );
 
-  const { queryByTestId, queryAllByTestId } = utils || {};
+  const { queryAllByTestId, queryByTestId } = utils || {};
 
-  const Backdrop: Element = queryByTestId("Backdrop");
+  const Backdrop: Element[] = queryAllByTestId("Backdrop");
+  const HeaderMobileContainer: Element = queryByTestId("HeaderMobile");
   const HeaderTabletContainer: Element = queryByTestId("HeaderTablet");
-  const HeaderTabletFlexContainer: Element = queryByTestId("HeaderTabletFlexContainer");
-  const MenuButton: Element = queryByTestId("MenuButtonContainer");
   const MenuButtonLines: Element[] = queryAllByTestId("MenuButtonLine");
-  const Nav: Element = queryAllByTestId("Nav")[0];
-  const SideMenu: Element = queryByTestId("SideMenu");
+  const MenuButtons: Element[] = queryAllByTestId("MenuButtonContainer");
+  const SideMenus: Element[] = queryAllByTestId("SideMenu");
 
   return {
     ...utils,
     Backdrop,
+    HeaderMobileContainer,
     HeaderTabletContainer,
-    HeaderTabletFlexContainer,
-    MenuButton,
     MenuButtonLines,
-    Nav,
-    SideMenu
+    MenuButtons,
+    SideMenus
   };
 }

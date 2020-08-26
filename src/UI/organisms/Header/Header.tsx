@@ -4,9 +4,9 @@ import { transparentize } from "polished";
 
 import LinkWithIcon from "<molecules>/LinkWithIcon";
 
+import HeaderTv from "<organisms>/Header/HeaderTv";
 import HeaderDesktop from "<organisms>/Header/HeaderDesktop";
-import HeaderTablet from "<organisms>/Header/HeaderTablet";
-import HeaderMobile from "<organisms>/Header/HeaderMobile";
+import HeaderTabletAndMobile from "<organisms>/Header/HeaderTabletAndMobile";
 
 import PositionContainer from "<layout>/PositionContainer";
 import FlexContainer from "<layout>/FlexContainer";
@@ -75,14 +75,14 @@ function Header({
             />
           </Responsive>
 
-          <HeaderDesktop />
+          <HeaderTv />
 
-          <HeaderTablet
+          <HeaderDesktop
             isMenuVisible={isMenuVisible}
             onClick={handleMenuButtonClick}
           />
 
-          <HeaderMobile
+          <HeaderTabletAndMobile
             isMenuVisible={isMenuVisible}
             onClick={handleMenuButtonClick}
           />

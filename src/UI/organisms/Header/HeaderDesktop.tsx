@@ -1,34 +1,46 @@
 import React from "react";
 
-import Button from "<molecules>/Button";
-import MenuIcons from "<molecules>/MenuIcons";
+import MenuButton from "<atoms>/MenuButton";
 import Nav from "<molecules>/Nav";
+import SideMenu from "<organisms>/SideMenu";
 
 import Responsive from "<layout>/Responsive";
 import FlexContainer from "<layout>/FlexContainer";
 
-const HeaderDesktop = (): JSX.Element => (
+import Backdrop from "<atoms>/Backdrop";
+import { HeaderMobileProps } from "<organisms>/Header/__typings__/HeaderMobile.d.ts";
+
+const HeaderDesktop = ({
+  isMenuVisible,
+  onClick
+}: HeaderMobileProps): JSX.Element => (
   <Responsive
     dataTestDesktopId="HeaderDesktop"
-    dataTestTvId="HeaderTv"
-    devices={["tv", "desktop"]}
+    devices={["desktop"]}
   >
     <FlexContainer
       dataTestId="HeaderDesktopFlexContainer"
       flexFlow="row nowrap"
-      height="spacing48"
       gap="spacing48"
+      height="spacing48"
       justifyContent="flex-start"
     >
       <Nav />
 
-      <Button
-        buttonText="resume"
-        iconName="btnDownload"
-        size="medium"
+      <MenuButton
+        isOpen={isMenuVisible}
+        onClick={onClick}
       />
 
-      <MenuIcons />
+      {
+        isMenuVisible && (
+          <Backdrop onClick={onClick} />
+        )
+      }
+
+      <SideMenu
+        isExpanded={isMenuVisible}
+      />
     </FlexContainer>
   </Responsive>
 );

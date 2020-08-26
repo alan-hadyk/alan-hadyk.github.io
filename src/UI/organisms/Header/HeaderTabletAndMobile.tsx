@@ -9,13 +9,14 @@ import Responsive from "<layout>/Responsive";
 
 import { HeaderMobileProps } from "<organisms>/Header/__typings__/HeaderMobile.d.ts";
 
-const HeaderMobile = ({
+const HeaderTabletAndMobile = ({
   isMenuVisible,
   onClick
 }: HeaderMobileProps): JSX.Element => (
   <Responsive
     dataTestMobileId="HeaderMobile"
-    devices={["mobile"]}
+    dataTestTabletId="HeaderTablet"
+    devices={["tablet", "mobile"]}
   >
     <MenuButton
       isOpen={isMenuVisible}
@@ -34,4 +35,4 @@ const HeaderMobile = ({
   </Responsive>
 );
 
-export default HeaderMobile;
+export default HeaderTabletAndMobile;

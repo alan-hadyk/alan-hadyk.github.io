@@ -346,7 +346,7 @@ describe("organisms / Header", () => {
     });
   });
 
-  describe("HeaderTablet", () => {
+  describe("HeaderDesktop", () => {
     describe("Props", () => {
       describe("isMenuVisible", () => {
         describe("should have false by default", () => {
@@ -375,7 +375,7 @@ describe("organisms / Header", () => {
     });
   });
 
-  describe("HeaderMobile", () => {
+  describe("HeaderTablet", () => {
     describe("Props", () => {
       describe("isMenuVisible", () => {
         describe("should have false by default", () => {
@@ -398,6 +398,35 @@ describe("organisms / Header", () => {
             });
       
             expect(SideMenus[1]).toHaveStyleRule("transform", "translateX(0)");
+          });
+        });
+      });
+    });
+  });
+
+  describe("HeaderMobile", () => {
+    describe("Props", () => {
+      describe("isMenuVisible", () => {
+        describe("should have false by default", () => {
+          test("transform - should have translateX(100%)", () => {
+            const { SideMenus } = setup();
+      
+            expect(SideMenus[2]).toHaveStyleRule("transform", "translateX(100%)");
+          });
+        });
+
+        describe("should have true if menu button is clicked", () => {
+          test("transform - should have translateX(0)", () => {
+            const { MenuButtons, SideMenus } = setup();
+
+            expect(SideMenus[2]).toHaveStyleRule("transform", "translateX(100%)");
+
+      
+            act(() => {
+              fireEvent.click(MenuButtons[2]);
+            });
+      
+            expect(SideMenus[2]).toHaveStyleRule("transform", "translateX(0)");
           });
         });
       });

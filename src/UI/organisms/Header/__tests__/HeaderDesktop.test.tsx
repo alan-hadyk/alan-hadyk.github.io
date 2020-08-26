@@ -1,41 +1,60 @@
 import React from "react";
-import { RenderResult } from "@testing-library/react";
+import {
+  RenderResult,
+  act,
+  fireEvent
+} from "@testing-library/react";
 
 import HeaderDesktop from "<organisms>/Header/HeaderDesktop";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
+import { HeaderMobileProps }  from "<organisms>/Header/__typings__/HeaderMobile.d.ts";
+
 jest.mock("<hooks>/useIntersectionObserver");
 
 describe("organisms / HeaderDesktop", () => {
-  test("should have correct structure", () => {
+  test("should have correct structure if isMenuVisible is true", () => {
     const {
-      Button,
+      Backdrop,
       HeaderDesktopContainer,
       HeaderDesktopFlexContainer,
-      MenuIcons,
-      Nav
-    } = setup();
+      MenuButton,
+      Nav,
+      SideMenu
+    } = setup({
+      isMenuVisible: true
+    });
 
     expect(HeaderDesktopContainer.children[0]).toEqual(HeaderDesktopFlexContainer);
+
     expect(HeaderDesktopFlexContainer.children[0]).toEqual(Nav);
-    expect(HeaderDesktopFlexContainer.children[1]).toEqual(Button);
-    expect(HeaderDesktopFlexContainer.children[2]).toEqual(MenuIcons[0]);
+    expect(HeaderDesktopFlexContainer.children[1]).toEqual(MenuButton);
+    expect(HeaderDesktopFlexContainer.children[2]).toEqual(Backdrop);
+    expect(HeaderDesktopFlexContainer.children[3]).toEqual(SideMenu);
   });
 
+  test("should have correct structure if isMenuVisible is false", () => {
+    const {
+      HeaderDesktopContainer,
+      HeaderDesktopFlexContainer,
+      MenuButton,
+      Nav,
+      SideMenu
+    } = setup({
+      isMenuVisible: false
+    });
+
+    expect(HeaderDesktopContainer.children[0]).toEqual(HeaderDesktopFlexContainer);
+
+    expect(HeaderDesktopFlexContainer.children[0]).toEqual(Nav);
+    expect(HeaderDesktopFlexContainer.children[1]).toEqual(MenuButton);
+    expect(HeaderDesktopFlexContainer.children[2]).toEqual(SideMenu);
+  });
+  
   describe("HeaderDesktop", () => {
     describe("Props", () => {
       describe("devices", () => {      
-        describe("should have tv", () => {
-          test("should have display block when min-width is 1681px", () => {
-            const { HeaderTv } = setup();
-      
-            expect(HeaderTv).toHaveStyleRule("display", "block", {
-              media: "(min-width:1681px)"
-            });
-          });
-        });
-
         describe("should have desktop", () => {
           test("should have display block when min-width is 1281px and max-width is 1680px", () => {
             const { HeaderDesktopContainer } = setup();
@@ -54,7 +73,7 @@ describe("organisms / HeaderDesktop", () => {
       describe("flex-flow", () => {      
         test("should have row nowrap", () => {
           const { HeaderDesktopFlexContainer } = setup();
-    
+
           expect(HeaderDesktopFlexContainer).toHaveStyleRule("flex-flow", "row nowrap");
         });
       });
@@ -66,17 +85,17 @@ describe("organisms / HeaderDesktop", () => {
           expect(HeaderDesktopFlexContainer).toHaveStyleRule("margin-left", "4.8rem", {
             modifier: "& > *"
           });
+
           expect(HeaderDesktopFlexContainer).toHaveStyleRule("margin-left", "0", {
             modifier: "& > *:first-child"
           });
         });
       });
 
-
       describe("height", () => {      
         test("should have 4.8rem", () => {
           const { HeaderDesktopFlexContainer } = setup();
-    
+
           expect(HeaderDesktopFlexContainer).toHaveStyleRule("height", "4.8rem");
         });
       });
@@ -84,7 +103,7 @@ describe("organisms / HeaderDesktop", () => {
       describe("justify-content", () => {      
         test("should have flex-start", () => {
           const { HeaderDesktopFlexContainer } = setup();
-    
+
           expect(HeaderDesktopFlexContainer).toHaveStyleRule("justify-content", "flex-start");
         });
       });
@@ -99,87 +118,310 @@ describe("organisms / HeaderDesktop", () => {
     });
   });
 
-  describe("Button", () => {
-    test("should have correct icon and text", () => {
-      const { Button } = setup();
+  describe("MenuButton", () => {
+    test("should render", () => {
+      const { MenuButton } = setup();
 
-      const buttonText = Button.querySelector("[font-family=\"Exan\"]");
-      const buttonIcon = Button.querySelector("svg");
-
-      expect(buttonText.textContent).toEqual("resume");
-      expect(buttonIcon.textContent).toEqual("Btn-Download.svg");
+      expect(MenuButton).toBeTruthy();
     });
 
     describe("Props", () => {
-      describe("size", () => {      
-        test("height - should have 4.8rem", () => {
-          const { Button } = setup();
+      describe("isOpen", () => {  
+        describe("when isMenuVisible is true", () => {
+          let _MenuButtonLines: Element[];
     
-          expect(Button).toHaveStyleRule("height", "4.8rem");
-        });
-
-        test("width - should have auto", () => {      
-          const { Button } = setup();
-
-          expect(Button).toHaveStyleRule("width", "auto");
-        });
+          beforeEach(() => {
+            const { MenuButtonLines } = setup({
+              isMenuVisible: true
+            });
   
-        test("padding - should have 2.4rem", () => {      
-          const { Button } = setup();
-
-          expect(Button.children[4].children[0]).toHaveStyleRule("padding-right", "2.4rem");
+            _MenuButtonLines = MenuButtonLines;
+          });
+  
+          describe("left", () => {      
+            test("should have 50% for the first child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).toHaveStyleRule("left", "50%", {
+                  modifier: ":nth-child(1)"
+                });
+              });
+            });
+    
+            test("should have 50% for the fourth child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).toHaveStyleRule("left", "50%", {
+                  modifier: ":nth-child(4)"
+                });
+              });
+            });
+          });
+  
+          describe("top", () => {      
+            test("should have 1.4rem for the first child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).toHaveStyleRule("top", "1.4rem", {
+                  modifier: ":nth-child(1)"
+                });
+              });
+            });
+    
+            test("should have 1.4rem for the fourth child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).toHaveStyleRule("top", "1.4rem", {
+                  modifier: ":nth-child(4)"
+                });
+              });
+            });
+          });
+  
+          describe("width", () => {      
+            test("should have 0 for the first child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).toHaveStyleRule("width", "0", {
+                  modifier: ":nth-child(1)"
+                });
+              });
+            });
+    
+            test("should have 0 for the fourth child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).toHaveStyleRule("width", "0", {
+                  modifier: ":nth-child(4)"
+                });
+              });
+            });
+          });
+  
+          describe("transform", () => {      
+            test("should have rotate(40deg) for the second child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).toHaveStyleRule("transform", "rotate(40deg)", {
+                  modifier: ":nth-child(2)"
+                });
+              });
+            });
+    
+            test("should have rotate(-40deg) for the third child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).toHaveStyleRule("transform", "rotate(-40deg)", {
+                  modifier: ":nth-child(3)"
+                });
+              });
+            });
+          });
         });
 
-        test("icon height - should have 2.4rem", () => {      
-          const { Button } = setup();
+        describe("when isMenuVisible is false", () => {
+          let _MenuButtonLines: Element[];
+    
+          beforeEach(() => {
+            const { MenuButtonLines } = setup({
+              isMenuVisible: false
+            });
+  
+            _MenuButtonLines = MenuButtonLines;
+          });
+  
+          describe("left", () => {      
+            test("should not have 50% for the first child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).not.toHaveStyleRule("left", "50%", {
+                  modifier: ":nth-child(1)"
+                });
+              });
+            });
+    
+            test("should not have 50% for the fourth child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).not.toHaveStyleRule("left", "50%", {
+                  modifier: ":nth-child(4)"
+                });
+              });
+            });
+          });
+  
+          describe("top", () => {      
+            test("should not have 1.4rem for the first child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).not.toHaveStyleRule("top", "1.4rem", {
+                  modifier: ":nth-child(1)"
+                });
+              });
+            });
+    
+            test("should not have 1.4rem for the fourth child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).not.toHaveStyleRule("top", "1.4rem", {
+                  modifier: ":nth-child(4)"
+                });
+              });
+            });
+          });
+  
+          describe("width", () => {      
+            test("should not have 0 for the first child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).not.toHaveStyleRule("width", "0", {
+                  modifier: ":nth-child(1)"
+                });
+              });
+            });
+    
+            test("should not have 0 for the fourth child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).not.toHaveStyleRule("width", "0", {
+                  modifier: ":nth-child(4)"
+                });
+              });
+            });
+          });
+  
+          describe("transform", () => {      
+            test("should not have rotate(40deg) for the second child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).not.toHaveStyleRule("transform", "rotate(40deg)", {
+                  modifier: ":nth-child(2)"
+                });
+              });
+            });
+    
+            test("should not have rotate(-40deg) for the third child", () => {
+              _MenuButtonLines.forEach((MenuButtonLine: Element) => {
+                expect(MenuButtonLine).not.toHaveStyleRule("transform", "rotate(-40deg)", {
+                  modifier: ":nth-child(3)"
+                });
+              });
+            });
+          });
+        });
+      });
 
-          expect(Button.children[4].children[0].children[0].children[1]).toHaveStyleRule("height", "2.4rem");
+      describe("onClick", () => {      
+        test("should fire click", () => {
+          const onClick = jest.fn();
+    
+          const { MenuButton } = setup({
+            onClick
+          });
+    
+          expect(onClick).toHaveBeenCalledTimes(0);
+    
+          act(() => {
+            fireEvent.click(MenuButton);
+          });
+    
+          expect(onClick).toHaveBeenCalledTimes(1);
         });
       });
     });
   });
 
-  describe("MenuIcons", () => {
-    test("should render", () => {
-      const { MenuIcons } = setup();
+  describe("Backdrop", () => {
+    test("should render if isMenuVisible is true", () => {
+      const { Backdrop } = setup({
+        isMenuVisible: true
+      });
 
-      expect(MenuIcons).toBeTruthy();
+      expect(Backdrop).toBeTruthy();
+    });
+
+    test("should not render if isMenuVisible is false", () => {
+      const { Backdrop } = setup({
+        isMenuVisible: false
+      });
+
+      expect(Backdrop).toBeFalsy();
+    });
+
+    describe("Props", () => {
+      describe("onClick", () => {      
+        test("should fire onClick prop", () => {
+          const onClick = jest.fn();
+    
+          const { Backdrop } = setup({
+            isMenuVisible: true,
+            onClick
+          });
+    
+          expect(onClick).toHaveBeenCalledTimes(0);
+    
+          act(() => {
+            fireEvent.click(Backdrop);
+          });
+    
+          expect(onClick).toHaveBeenCalledTimes(1);
+        });
+      });
+    });
+  });
+
+  describe("SideMenu", () => {
+    describe("Props", () => {
+      describe("isExpanded", () => {
+        describe("transform", () => {
+          test("should have translateX(0) if isMenuVisible is true", () => {
+            const { SideMenu } = setup({
+              isMenuVisible: true
+            });
+            
+            expect(SideMenu).toHaveStyleRule("transform", "translateX(0)");
+          });
+  
+  
+          test("should have translateX(100%) if isMenuVisible is false", () => {
+            const { SideMenu } = setup({
+              isMenuVisible: false
+            });
+      
+            expect(SideMenu).toHaveStyleRule("transform", "translateX(100%)");
+          });
+        });
+      });
     });
   });
 });
 
 interface Setup extends RenderResult {
-  Button: Element;
+  Backdrop: Element;
   HeaderDesktopContainer: Element;
   HeaderDesktopFlexContainer: Element;
-  HeaderTv: Element;
-  MenuIcons: Element[];
+  MenuButton: Element;
+  MenuButtonLines: Element[];
   Nav: Element;
+  SideMenu: Element;
 }
 
-function setup(): Setup {
+type HeaderTabletTestProps = Partial<HeaderMobileProps>;
+
+function setup(additionalProps?: HeaderTabletTestProps): Setup {
+  const props: HeaderMobileProps = {
+    isMenuVisible: false,
+    onClick: jest.fn(),
+    ...additionalProps
+  };
+
   const utils: RenderResult = renderWithTheme(
-    <HeaderDesktop />
+    <HeaderDesktop {...props} />
   );
 
-  const {
-    queryAllByTestId
-  } = utils || {};
+  const { queryByTestId, queryAllByTestId } = utils || {};
 
-  const Button: Element = queryAllByTestId("Button")[0];
-  const HeaderDesktopContainer: Element = queryAllByTestId("HeaderDesktop")[0];
-  const HeaderDesktopFlexContainer: Element = queryAllByTestId("HeaderDesktopFlexContainer")[0];
-  const HeaderTv: Element = queryAllByTestId("HeaderTv")[0];
-  const MenuIcons: Element[] = queryAllByTestId("MenuIcons");
+  const Backdrop: Element = queryByTestId("Backdrop");
+  const HeaderDesktopContainer: Element = queryByTestId("HeaderDesktop");
+  const HeaderDesktopFlexContainer: Element = queryByTestId("HeaderDesktopFlexContainer");
+  const MenuButton: Element = queryByTestId("MenuButtonContainer");
+  const MenuButtonLines: Element[] = queryAllByTestId("MenuButtonLine");
   const Nav: Element = queryAllByTestId("Nav")[0];
+  const SideMenu: Element = queryByTestId("SideMenu");
 
   return {
     ...utils,
-    Button,
+    Backdrop,
     HeaderDesktopContainer,
     HeaderDesktopFlexContainer,
-    HeaderTv,
-    MenuIcons,
-    Nav
+    MenuButton,
+    MenuButtonLines,
+    Nav,
+    SideMenu
   };
 }
