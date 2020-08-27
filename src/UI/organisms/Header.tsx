@@ -42,7 +42,7 @@ function Header({
           justifyContent="space-between"
         >
           <LinkWithIcon
-            dataCy="siteLogo"
+            dataCy="SiteLogo"
             href={window.location.href}
             iconName="logo"
             height="spacing48"
@@ -96,6 +96,7 @@ function Header({
       <Fragment>
         {icons.map(({ height, href, iconName }: LinkWithIconProps) => (
           <LinkWithIcon
+            dataCy={iconName}
             key={iconName}
             height={height}
             href={href}
