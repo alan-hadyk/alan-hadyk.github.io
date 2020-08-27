@@ -23,6 +23,6 @@ describe("Header", () => {
         cy.get("a[href=\"https://www.linkedin.com/in/alan-hadyk-78738099/\"]").should("be.visible").should("not.be.disabled");
       });
 
-    // expect(true).to.equal(false);
+    expect(true).to.equal(false);
   });
 });

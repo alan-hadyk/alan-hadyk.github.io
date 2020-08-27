@@ -1,0 +1,20 @@
+name: Cypress
+
+on: [push]
+
+jobs:
+  single:
+    # the example has Yarn workspace in its "root" folder
+    # examples/start-and-yarn-workspaces
+    # and tests in a subfolder like "workspace-1"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+      - uses: actions/checkout@v1
+
+      - name: E2E tests
+      - uses: cypress-io/github-action@v2
+        with:
+          build: yarn run build
+          start: yarn start
+          wait-on: 'http://localhost:5000'
