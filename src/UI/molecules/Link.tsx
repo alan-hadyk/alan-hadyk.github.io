@@ -11,6 +11,7 @@ import {
 
 const Link = ({
   children,
+  dataCy,
   display = "inline",
   height = "unset",
   href,
@@ -18,6 +19,7 @@ const Link = ({
   isHoverable = false
 }: LinkProps): JSX.Element => (
   <Link.Container
+    data-cy={dataCy}
     data-testid="Link"
     display={display}
     height={height}

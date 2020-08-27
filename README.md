@@ -25,6 +25,14 @@ The build is minified and the filenames include the hashes.
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### `yarn cypress:open`
+
+Launches E2E tests in `open` mode via Cypress (See [https://docs.cypress.io/](https://docs.cypress.io/) for more information
+
+### `yarn cypress:run`
+
+Launches E2E tests in `run` mode (headless) via Cypress (See [https://docs.cypress.io/](https://docs.cypress.io/) for more information
+
 ### `yarn lint`
 
 Launches the ESLint.
