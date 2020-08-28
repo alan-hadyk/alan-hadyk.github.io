@@ -12,15 +12,20 @@ import {
   ProjectProps
 } from "<organisms>/Project/__typings__/Project.d.ts";
 
-const ProjectDesktop = ({
+const ProjectTvAndDesktop = ({
   description,
   iconsWithLabels,
   projectIcon,
   title
 }: ProjectProps): JSX.Element => (
-  <Responsive devices={["tv", "desktop"]}>
+  <Responsive
+    dataTestDesktopId="ProjectTv"
+    dataTestTvId="ProjectDesktop"
+    devices={["tv", "desktop"]}
+  >
     <FlexContainer
       alignItems="flex-start"
+      dataTestId="ProjectTvAndDesktopFlexContainer"
       flexFlow="row nowrap"
     >
       <FlexItem
@@ -31,7 +36,6 @@ const ProjectDesktop = ({
 
       <FlexItem
         flex="0 1 50%"
-        overflow="unset"
       >
         <SpacingContainer
           dataTestId="ProjectDescriptionSpacingContainer"
@@ -48,4 +52,4 @@ const ProjectDesktop = ({
   </Responsive>
 );
 
-export default ProjectDesktop;
+export default ProjectTvAndDesktop;

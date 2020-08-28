@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import ProjectDescriptionDesktop from "<organisms>/ProjectDescription/ProjectDescriptionDesktop";
+import ProjectDescriptionTvDesktopAndTablet from "<organisms>/ProjectDescription/ProjectDescriptionTvDesktopAndTablet";
 import ProjectDescriptionMobile from "<organisms>/ProjectDescription/ProjectDescriptionMobile";
 
 import { ProjectDescriptionProps } from "<organisms>/ProjectDescription/__typings__/ProjectDescription.d.ts";
@@ -16,7 +16,7 @@ const ProjectDescription = ({
   <ProjectDescription.Container
     data-testid="ProjectDescription"
   >
-    <ProjectDescriptionDesktop
+    <ProjectDescriptionTvDesktopAndTablet
       description={description}
       iconsWithLabels={iconsWithLabels}
       title={title}

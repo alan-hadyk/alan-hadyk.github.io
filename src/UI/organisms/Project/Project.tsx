@@ -6,7 +6,7 @@ import {
   ProjectProps
 } from "<organisms>/Project/__typings__/Project.d.ts";
 
-import ProjectDesktop from "<organisms>/Project/ProjectDesktop";
+import ProjectTvAndDesktop from "<organisms>/Project/ProjectTvAndDesktop";
 import ProjectTablet from "<organisms>/Project/ProjectTablet";
 import ProjectMobile from "<organisms>/Project/ProjectMobile";
 
@@ -22,7 +22,7 @@ const Project = ({
     marginRight="auto"
     maxWidth="spacing1056"
   >
-    <ProjectDesktop
+    <ProjectTvAndDesktop
       description={description}
       iconsWithLabels={iconsWithLabels}
       projectIcon={projectIcon}

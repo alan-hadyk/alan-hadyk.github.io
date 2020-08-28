@@ -11,7 +11,7 @@ import {
   ProjectProps
 } from "<organisms>/Project/__typings__/Project.d.ts";
 
-const Project = ({
+const ProjectTablet = ({
   description,
   iconsWithLabels,
   projectIcon,
@@ -19,6 +19,7 @@ const Project = ({
 }: ProjectProps): JSX.Element => (
   <Responsive devices={["tablet"]}>
     <FlexContainer
+      dataTestId="ProjectTabletFlexContainer"
       alignItems="center"
       flexFlow="column nowrap"
     >
@@ -38,4 +39,4 @@ const Project = ({
   </Responsive>
 );
 
-export default Project;
+export default ProjectTablet;

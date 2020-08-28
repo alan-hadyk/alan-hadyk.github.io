@@ -9,6 +9,8 @@ import {
   SectionProps
 } from "<molecules>/__typings__/Section.d.ts";
 
+import { FontSizes } from "<styles>/variables/__typings__/variables.d.ts";
+
 function Section({
   children,
   id,
@@ -24,11 +26,11 @@ function Section({
       paddingBottom={title ? "spacing96" : "spacing0"}
     >
       <Responsive devices={["tv", "desktop", "tablet"]}>
-        {renderTitleContainer()}
+        {renderTitleContainer("spacing96", "font72")}
       </Responsive>
 
       <Responsive devices={["mobile"]}>
-        {renderTitleMobileContainer()}
+        {renderTitleContainer("spacing48", "font48")}
       </Responsive>
       
       <Fragment>
@@ -37,38 +39,21 @@ function Section({
     </SpacingContainer>
   );
 
-  function renderTitleContainer(): JSX.Element {
-    return (
-      <SpacingContainer
-        dataTestId="TitleSpacingContainer"
-        marginBottom="spacing96"
-        paddingTop="spacing108"
-      >
-        <Text
-          color="blue100"
-          fontFamily="Exan"
-          fontSize="font72"
-          lineHeight="spacing80"
-          textAlign="center"
-          textTransform="lowercase"
-        >
-          {title}
-        </Text>
-      </SpacingContainer>
-    );
-  }
+  function renderTitleContainer(marginBottom: string, fontSize: FontSizes): JSX.Element {
+    if (!title) {	
+      return;	
+    }
 
-  function renderTitleMobileContainer(): JSX.Element {
     return (
       <SpacingContainer
         dataTestId="TitleSpacingContainer"
-        marginBottom="spacing48"
+        marginBottom={marginBottom}
         paddingTop="spacing108"
       >
         <Text
           color="blue100"
           fontFamily="Exan"
-          fontSize="font48"
+          fontSize={fontSize}
           lineHeight="spacing80"
           textAlign="center"
           textTransform="lowercase"

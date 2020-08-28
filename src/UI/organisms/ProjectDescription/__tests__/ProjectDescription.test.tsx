@@ -7,7 +7,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
   ProjectDescriptionProps
-} from "<organisms>/__typings__/ProjectDescription.d.ts";
+} from "<organisms>/ProjectDescription/__typings__/ProjectDescription.d.ts";
 
 import {
   IconWithLabelProps

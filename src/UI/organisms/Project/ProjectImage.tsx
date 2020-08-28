@@ -1,8 +1,8 @@
 import React from "react";
 
-import Hexagon from "<molecules>//Hexagon";
-
 import Icon from "<atoms>/Icon";
+
+import Hexagon from "<molecules>//Hexagon";
 
 import {
   ProjectImageProps
@@ -12,7 +12,7 @@ const ProjectImage = ({
   projectIcon
 }: ProjectImageProps): JSX.Element => (
   <Hexagon
-    contentWidth="100%"
+    dataTestId="ProjectImage"
     fill="pattern"
   >
     <Icon 

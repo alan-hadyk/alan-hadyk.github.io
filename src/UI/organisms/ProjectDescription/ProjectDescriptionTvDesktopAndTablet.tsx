@@ -8,7 +8,7 @@ import ProjectDescriptionButtons from "<organisms>/ProjectDescription/ProjectDes
 
 import { ProjectDescriptionProps } from "<organisms>/ProjectDescription/__typings__/ProjectDescription.d.ts";
 
-const ProjectDescriptionDesktop = ({
+const ProjectDescriptionTvDesktopAndTablet = ({
   // codeSandboxLink = "https://codesandbox.io/u/alan-hadyk",
   description,
   iconsWithLabels,
@@ -28,4 +28,4 @@ const ProjectDescriptionDesktop = ({
   </Responsive>
 );
 
-export default ProjectDescriptionDesktop;
+export default ProjectDescriptionTvDesktopAndTablet;
