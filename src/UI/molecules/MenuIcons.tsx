@@ -19,6 +19,7 @@ const MenuIcons = (): JSX.Element => (
   <Fragment>
     {icons.map(({ href, iconName }: LinkWithIconProps) => (
       <LinkWithIcon
+        dataCy={iconName}
         dataTestId="MenuIcons"
         height="spacing48"
         key={iconName}

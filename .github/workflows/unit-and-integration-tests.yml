@@ -1,9 +1,9 @@
-name: Node CI
+name: Unit tests, integration tests and lint
 
 on: [push]
 
 jobs:
-  build:
+  unit-integration-and-lint:
 
     runs-on: ubuntu-latest
 

@@ -34,7 +34,10 @@ function Header({
       top="spacing0"
       zIndex={zIndex}
     >
-      <Header.Container data-testid="HeaderContainer">
+      <Header.Container 
+        data-cy="Header"
+        data-testid="HeaderContainer"
+      >
         <FlexContainer
           dataTestId="HeaderOuterFlexContainer"
           flexFlow="row nowrap"
@@ -58,6 +61,7 @@ function Header({
             devices={["tv", "desktop", "tablet"]}
           >
             <LinkWithIcon
+              dataCy="SiteLogo"
               href={window.location.href}
               height="spacing48"
               iconName="logo"
