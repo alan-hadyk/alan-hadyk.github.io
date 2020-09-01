@@ -73,6 +73,7 @@ function Header({
             devices={["mobile"]}
           >
             <LinkWithIcon
+              dataCy="SiteLogoMobile"
               href={window.location.href}
               iconName="logoShortcut"
               width="spacing64"
