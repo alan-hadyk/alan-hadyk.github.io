@@ -13,6 +13,7 @@ export interface SpacingContainerProps {
   marginTop?: Spacing | string;
   maxWidth?: Spacing | string;
   minHeight?: Spacing | "100vh";
+  overflowY?: string;
   paddingBottom?: Spacing | string;
   paddingLeft?: Spacing | string;
   paddingRight?: Spacing | string;

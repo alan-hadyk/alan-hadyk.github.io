@@ -74,6 +74,7 @@ import { ReactComponent as IconIE } from "<assets>/svg/Icon-IE.svg";
 import { ReactComponent as IconJavascript } from "<assets>/svg/Icon-Javascript.svg";
 import { ReactComponent as IconLinkedIn } from "<assets>/svg/Icon-LinkedIn.svg";
 import { ReactComponent as IconLogo } from "<assets>/svg/Icon-Logo.svg";
+import { ReactComponent as IconLogoShortcut } from "<assets>/svg/Icon-Logo-Shortcut.svg";
 import { ReactComponent as IconNode } from "<assets>/svg/Icon-Node.svg";
 import { ReactComponent as IconReact } from "<assets>/svg/Icon-React.svg";
 import { ReactComponent as IconReactLogo } from "<assets>/svg/Icon-ReactLogo.svg";
@@ -179,6 +180,7 @@ function Icon({
     javascript: IconJavascript,
     linkedIn: IconLinkedIn,
     logo: IconLogo,
+    logoShortcut: IconLogoShortcut,
     node: IconNode,
     opera: IconOpera,
     react: IconReact,

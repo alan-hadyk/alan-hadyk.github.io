@@ -9,8 +9,8 @@ export interface ResponsiveProps {
   dataTestDesktopId?: string;
   dataTestId?: string;
   dataTestMobileId?: string;
-  dataTestTVId?: string;
   dataTestTabletId?: string;
+  dataTestTvId?: string;
   devices: Device[];
   height?: "auto" | "100%";
   width?: "auto" | "100%";

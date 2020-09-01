@@ -12,7 +12,8 @@ describe("styles / variables / zIndex", () => {
       layer7: "700",
       layer8: "800",
       layer9: "900",
-      layer10: "1000"
+      layer10: "1000",
+      layer11: "1100"
     });
   });
 });

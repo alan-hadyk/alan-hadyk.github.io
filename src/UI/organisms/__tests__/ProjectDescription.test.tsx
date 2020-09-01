@@ -316,6 +316,14 @@ describe("organisms / ProjectDescription", () => {
             });
           });
         });
+
+        describe("width", () => {
+          test("should have 100%", () => {       
+            const { Buttons } = setup();
+      
+            expect(Buttons[0]).toHaveStyleRule("width", "100%");
+          });
+        });
       });
     });
 
@@ -352,6 +360,14 @@ describe("organisms / ProjectDescription", () => {
                 expect(Buttons[1]).toHaveStyleRule("background-color", "transparent");
               });
             });
+          });
+        });
+
+        describe("width", () => {
+          test("should have 100%", () => {       
+            const { Buttons } = setup();
+      
+            expect(Buttons[1]).toHaveStyleRule("width", "100%");
           });
         });
       });
