@@ -26,11 +26,11 @@ function Section({
       paddingBottom={title ? "spacing96" : "spacing0"}
     >
       <Responsive devices={["tv", "desktop", "tablet"]}>
-        {renderTitleContainer("spacing96", "font72")}
+        {renderTitle("spacing96", "font72")}
       </Responsive>
 
       <Responsive devices={["mobile"]}>
-        {renderTitleContainer("spacing48", "font48")}
+        {renderTitle("spacing48", "font48")}
       </Responsive>
       
       <Fragment>
@@ -39,7 +39,7 @@ function Section({
     </SpacingContainer>
   );
 
-  function renderTitleContainer(marginBottom: string, fontSize: FontSizes): JSX.Element {
+  function renderTitle(marginBottom: string, fontSize: FontSizes): JSX.Element {
     if (!title) {	
       return;	
     }

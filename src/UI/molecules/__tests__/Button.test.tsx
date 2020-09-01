@@ -164,12 +164,12 @@ describe("molecules / Button", () => {
       });
 
       describe("width", () => {      
-        test("should have auto for size: small", () => {
+        test("should have 100% for size: small", () => {
           const { ButtonContainer } = setup({
             size: "small"
           });
 
-          expect(ButtonContainer).toHaveStyleRule("width", "auto");
+          expect(ButtonContainer).toHaveStyleRule("width", "100%");
         });
 
         test("should have auto for size: medium", () => {
@@ -508,26 +508,8 @@ describe("molecules / Button", () => {
     describe("IconContainer", () => {
       describe("Props", () => {
         describe("height", () => {
-          test("should have 1.2rem for small size", () => {
-            const { IconContainer } = setup({
-              size: "small"
-            });
-    
-            expect(IconContainer).toHaveStyleRule("height", "1.2rem");
-          });
-  
-          test("should have 2.4rem for medium size", () => {
-            const { IconContainer } = setup({
-              size: "medium"
-            });
-    
-            expect(IconContainer).toHaveStyleRule("height", "2.4rem");
-          });
-  
-          test("should have 2.4rem for large size", () => {
-            const { IconContainer } = setup({
-              size: "large"
-            });
+          test("should have 2.4rem", () => {
+            const { IconContainer } = setup();
     
             expect(IconContainer).toHaveStyleRule("height", "2.4rem");
           });

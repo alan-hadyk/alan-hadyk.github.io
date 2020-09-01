@@ -14,17 +14,31 @@ import {
 describe("molecules / Section", () => {
   test("should have correct structure", () => {
     const { 
-      container,
-      queryByTestId,
+      ResponsiveDesktop,
+      ResponsiveMobile,
+      ResponsiveTablet,
+      ResponsiveTv,
       SectionContainer,
-      TitleSpacingContainer,
-      Text
+      Text,
+      TitleSpacingContainer
     } = setup();
 
-    expect(container.children[0]).toEqual(SectionContainer);
-    expect(SectionContainer.children[0]).toEqual(TitleSpacingContainer);
-    expect(TitleSpacingContainer.children[0]).toEqual(Text);
-    expect(SectionContainer.children[1]).toEqual(queryByTestId("children"));
+    expect(SectionContainer.children[0]).toEqual(ResponsiveTv);
+    expect(SectionContainer.children[1]).toEqual(ResponsiveDesktop);
+    expect(SectionContainer.children[2]).toEqual(ResponsiveTablet);
+    expect(SectionContainer.children[3]).toEqual(ResponsiveMobile);
+
+    expect(ResponsiveTv.children[0]).toEqual(TitleSpacingContainer[0]);
+    expect(TitleSpacingContainer[0].children[0]).toEqual(Text[0]);
+
+    expect(ResponsiveDesktop.children[0]).toEqual(TitleSpacingContainer[1]);
+    expect(TitleSpacingContainer[1].children[0]).toEqual(Text[1]);
+
+    expect(ResponsiveTablet.children[0]).toEqual(TitleSpacingContainer[2]);
+    expect(TitleSpacingContainer[2].children[0]).toEqual(Text[2]);
+
+    expect(ResponsiveMobile.children[0]).toEqual(TitleSpacingContainer[3]);
+    expect(TitleSpacingContainer[3].children[0]).toEqual(Text[3]);
   });
 
   test("should render children", () => {
@@ -45,8 +59,13 @@ describe("molecules / Section", () => {
       title: undefined
     });
 
-    expect(TitleSpacingContainer).toBeFalsy();
-    expect(Text).toBeFalsy();
+    TitleSpacingContainer.forEach((_TitleSpacingContainer) => {
+      expect(_TitleSpacingContainer).toBeFalsy();
+    });
+
+    Text.forEach((_Text) => {
+      expect(_Text).toBeFalsy();
+    });
   });
 
   describe("SpacingContainers", () => { 
@@ -119,10 +138,18 @@ describe("molecules / Section", () => {
     describe("TitleSpacingContainer", () => { 
       describe("Props", () => {
         describe("marginBottom", () => {      
-          test("should have 9.6rem", () => {
+          test("should have 9.6rem for tv, desktop and tablet", () => {
             const { TitleSpacingContainer } = setup();
 
-            expect(TitleSpacingContainer).toHaveStyleRule("margin-bottom", "9.6rem");
+            expect(TitleSpacingContainer[0]).toHaveStyleRule("margin-bottom", "9.6rem");
+            expect(TitleSpacingContainer[1]).toHaveStyleRule("margin-bottom", "9.6rem");
+            expect(TitleSpacingContainer[2]).toHaveStyleRule("margin-bottom", "9.6rem");
+          });
+
+          test("should have 4.8rem for tv, desktop and tablet", () => {
+            const { TitleSpacingContainer } = setup();
+
+            expect(TitleSpacingContainer[3]).toHaveStyleRule("margin-bottom", "4.8rem");
           });
         });
 
@@ -130,7 +157,10 @@ describe("molecules / Section", () => {
           test("should have 10.8rem", () => {
             const { TitleSpacingContainer } = setup();
 
-            expect(TitleSpacingContainer).toHaveStyleRule("padding-top", "10.8rem");
+            
+            TitleSpacingContainer.forEach((_TitleSpacingContainer: Element) => {
+              expect(_TitleSpacingContainer).toHaveStyleRule("padding-top", "10.8rem");
+            });
           });
         });
       });
@@ -143,7 +173,9 @@ describe("molecules / Section", () => {
         test("should have #bcd8db", () => {
           const { Text } = setup();
 
-          expect(Text).toHaveStyleRule("color", "#bcd8db");
+          Text.forEach((_Text: Element) => {
+            expect(_Text).toHaveStyleRule("color", "#bcd8db");
+          });
         });
       });
 
@@ -151,15 +183,25 @@ describe("molecules / Section", () => {
         test("should have ExanModifiedRegular,monospace", () => {
           const { Text } = setup();
 
-          expect(Text).toHaveStyleRule("font-family", "ExanModifiedRegular,monospace");
+          Text.forEach((_Text: Element) => {
+            expect(_Text).toHaveStyleRule("font-family", "ExanModifiedRegular,monospace");
+          });
         });
       });
 
       describe("fontSize", () => {      
-        test("should have 72px", () => {
+        test("should have 72px for tv, desktop and tablet", () => {
           const { Text } = setup();
 
-          expect(Text).toHaveStyleRule("font-size", "72px");
+          expect(Text[0]).toHaveStyleRule("font-size", "72px");
+          expect(Text[1]).toHaveStyleRule("font-size", "72px");
+          expect(Text[2]).toHaveStyleRule("font-size", "72px");
+        });
+
+        test("should have 48px for mobile", () => {
+          const { Text } = setup();
+
+          expect(Text[3]).toHaveStyleRule("font-size", "48px");
         });
       });
 
@@ -167,7 +209,9 @@ describe("molecules / Section", () => {
         test("should have 8rem", () => {
           const { Text } = setup();
 
-          expect(Text).toHaveStyleRule("line-height", "8rem");
+          Text.forEach((_Text: Element) => {
+            expect(_Text).toHaveStyleRule("line-height", "8rem");
+          });
         });
       });
 
@@ -175,7 +219,9 @@ describe("molecules / Section", () => {
         test("should have center", () => {
           const { Text } = setup();
 
-          expect(Text).toHaveStyleRule("text-align", "center");
+          Text.forEach((_Text: Element) => {
+            expect(_Text).toHaveStyleRule("text-align", "center");
+          });
         });
       });
 
@@ -183,7 +229,9 @@ describe("molecules / Section", () => {
         test("should have lowercase", () => {
           const { Text } = setup();
 
-          expect(Text).toHaveStyleRule("text-transform", "lowercase");
+          Text.forEach((_Text: Element) => {
+            expect(_Text).toHaveStyleRule("text-transform", "lowercase");
+          });
         });
       });
     });
@@ -191,9 +239,13 @@ describe("molecules / Section", () => {
 });
 
 interface Setup extends RenderResult {
+  ResponsiveDesktop: Element;
+  ResponsiveMobile: Element;
+  ResponsiveTablet: Element;
+  ResponsiveTv: Element;
   SectionContainer: Element;
-  Text: Element;
-  TitleSpacingContainer: Element;
+  Text: Element[];
+  TitleSpacingContainer: Element[];
 }
 
 type SectionTestProps = Partial<SectionProps>;
@@ -211,13 +263,22 @@ function setup(additionalProps?: SectionTestProps): Setup {
     <Section {...props} />
   );
 
-  const { queryByTestId }: RenderResult = utils;
+  const { queryByTestId, queryAllByTestId }: RenderResult = utils;
+
+  const ResponsiveDesktop: Element = queryByTestId("ResponsiveDesktop");
+  const ResponsiveMobile: Element = queryByTestId("ResponsiveMobile");
+  const ResponsiveTablet: Element = queryByTestId("ResponsiveTablet");
+  const ResponsiveTv: Element = queryByTestId("ResponsiveTv");
   const SectionContainer: Element = queryByTestId("Section");
-  const TitleSpacingContainer: Element = queryByTestId("TitleSpacingContainer");
-  const Text: Element = queryByTestId("Text");
+  const TitleSpacingContainer: Element[] = queryAllByTestId("TitleSpacingContainer");
+  const Text: Element[] = queryAllByTestId("Text");
 
   return {
     ...utils,
+    ResponsiveDesktop,
+    ResponsiveMobile,
+    ResponsiveTablet,
+    ResponsiveTv,
     SectionContainer,
     Text,
     TitleSpacingContainer

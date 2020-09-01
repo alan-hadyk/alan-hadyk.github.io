@@ -1,10 +1,9 @@
 import React from "react";
+import styled from "styled-components";
 
 import ProjectDescriptionContent from "<organisms>/ProjectDescription/ProjectDescriptionContent";
 import ProjectDescriptionButtons from "<organisms>/ProjectDescription/ProjectDescriptionButtons";
 import ProjectDescriptionTechnologies from "<organisms>/ProjectDescription/ProjectDescriptionTechnologies";
-
-import Responsive from "<layout>/Responsive";
 
 import { ProjectDescriptionProps } from "<organisms>/ProjectDescription/__typings__/ProjectDescription.d.ts";
 
@@ -17,12 +16,8 @@ const ProjectDescription = ({
   title
 }: ProjectDescriptionProps): JSX.Element => {
   return (
-    <Responsive
-      dataTestDesktopId="ProjectDescriptionDesktop"
-      dataTestMobileId="ProjectDescriptionMobile"
-      dataTestTabletId="ProjectDescriptionTablet"
-      dataTestTvId="ProjectDescriptionTv"
-      devices={["desktop", "tv", "tablet", "mobile"]}
+    <ProjectDescription.Container	
+      data-testid="ProjectDescription"	
     >
       <ProjectDescriptionContent
         description={description}
@@ -33,8 +28,10 @@ const ProjectDescription = ({
       <ProjectDescriptionTechnologies iconsWithLabels={iconsWithLabels} />
 
       <ProjectDescriptionButtons size={size} />
-    </Responsive>
+    </ProjectDescription.Container>
   );
 };
+
+ProjectDescription.Container = styled.div``;
 
 export default ProjectDescription;

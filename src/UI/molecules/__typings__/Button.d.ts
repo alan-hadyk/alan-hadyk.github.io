@@ -23,12 +23,15 @@ export interface ButtonProps {
 export interface MapSizeToButtonContainerProps {
   large: {
     height: ButtonContainerProps["height"];
+    width: ButtonContainerProps["width"];
   };
   medium: {
     height: ButtonContainerProps["height"];
+    width: ButtonContainerProps["width"];
   };
   small: {
     height: ButtonContainerProps["height"];
+    width: ButtonContainerProps["width"];
   };
 }
 

@@ -13,7 +13,7 @@ describe("pages / Home / sections / about / AboutMeSection", () => {
       IconContainer
     } = setup();
 
-    expect(AboutMeSectionContainer.children[1]).toEqual(HexagonWithDescription);
+    expect(AboutMeSectionContainer.children[4]).toEqual(HexagonWithDescription);
     expect(HexagonWithDescription.children[0].children[0].children[0].children[0]).toEqual(IconContainer);
   });
 

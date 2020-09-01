@@ -17,93 +17,14 @@ describe("organisms / ProjectDescription", () => {
   test("should have correct structure", () => {
     const {
       ProjectDescriptionButtons,
+      ProjectDescriptionContainer,
       ProjectDescriptionContent,
-      ProjectDescriptionDesktop,
-      ProjectDescriptionMobile,
-      ProjectDescriptionTablet,
-      ProjectDescriptionTechnologies,
-      ProjectDescriptionTv
+      ProjectDescriptionTechnologies
     } = setup();
 
-    expect(ProjectDescriptionTv.children[0]).toEqual(ProjectDescriptionContent[0]);
-    expect(ProjectDescriptionTv.children[1]).toEqual(ProjectDescriptionTechnologies[0]);
-    expect(ProjectDescriptionTv.children[2]).toEqual(ProjectDescriptionButtons[0]);
-
-    expect(ProjectDescriptionDesktop.children[0]).toEqual(ProjectDescriptionContent[1]);
-    expect(ProjectDescriptionDesktop.children[1]).toEqual(ProjectDescriptionTechnologies[1]);
-    expect(ProjectDescriptionDesktop.children[2]).toEqual(ProjectDescriptionButtons[1]);
-
-    expect(ProjectDescriptionTablet.children[0]).toEqual(ProjectDescriptionContent[2]);
-    expect(ProjectDescriptionTablet.children[1]).toEqual(ProjectDescriptionTechnologies[2]);
-    expect(ProjectDescriptionTablet.children[2]).toEqual(ProjectDescriptionButtons[2]);
-
-    expect(ProjectDescriptionMobile.children[0]).toEqual(ProjectDescriptionContent[3]);
-    expect(ProjectDescriptionMobile.children[1]).toEqual(ProjectDescriptionTechnologies[3]);
-    expect(ProjectDescriptionMobile.children[2]).toEqual(ProjectDescriptionButtons[3]);
-  });
-
-  describe("ProjectDescriptionMobile", () => {
-    describe("Props", () => {
-      describe("devices", () => {      
-        describe("should have mobile", () => {
-          test("should have display block when max-width is 640px", () => {
-            const { ProjectDescriptionMobile } = setup();
-
-            expect(ProjectDescriptionMobile).toHaveStyleRule("display", "block", {
-              media: "(max-width:640px)"
-            });
-          });
-        });
-      });
-    });
-  });
-
-  describe("ProjectDescriptionTablet", () => {
-    describe("Props", () => {
-      describe("devices", () => {      
-        describe("should have tablet", () => {
-          test("should have display block when min-width is 641px and max-width is 1280px", () => {
-            const { ProjectDescriptionTablet } = setup();
-
-            expect(ProjectDescriptionTablet).toHaveStyleRule("display", "block", {
-              media: "(min-width:641px) and (max-width:1280px)"
-            });
-          });
-        });
-      });
-    });
-  });
-
-  describe("ProjectDescriptionDesktop", () => {
-    describe("Props", () => {
-      describe("devices", () => {      
-        describe("should have desktop", () => {
-          test("should have display block when min-width is 1281px and max-width is 1680px", () => {
-            const { ProjectDescriptionDesktop } = setup();
-
-            expect(ProjectDescriptionDesktop).toHaveStyleRule("display", "block", {
-              media: "(min-width:1281px) and (max-width:1680px)"
-            });
-          });
-        });
-      });
-    });
-  });
-
-  describe("ProjectDescriptionTv", () => {
-    describe("Props", () => {
-      describe("devices", () => {      
-        describe("should have tv", () => {
-          test("should have display block when min-width is 1681px", () => {
-            const { ProjectDescriptionTv } = setup();
-
-            expect(ProjectDescriptionTv).toHaveStyleRule("display", "block", {
-              media: "(min-width:1681px)"
-            });
-          });
-        });
-      });
-    });
+    expect(ProjectDescriptionContainer.children[0]).toEqual(ProjectDescriptionContent);
+    expect(ProjectDescriptionContainer.children[1]).toEqual(ProjectDescriptionTechnologies);
+    expect(ProjectDescriptionContainer.children[2]).toEqual(ProjectDescriptionButtons);
   });
 
   describe("ProjectDescriptionContent", () => {   
@@ -114,9 +35,7 @@ describe("organisms / ProjectDescription", () => {
             title: "Roland"
           });
 
-          ProjectDescriptionContent.forEach((_ProjectDescriptionContent: Element) => {
-            expect(_ProjectDescriptionContent).toHaveTextContent("Roland");
-          });
+          expect(ProjectDescriptionContent).toHaveTextContent("Roland");
         });
       });
 
@@ -126,9 +45,7 @@ describe("organisms / ProjectDescription", () => {
             description: "Lorem ipsum dolor sit amet."
           });
 
-          ProjectDescriptionContent.forEach((_ProjectDescriptionContent: Element) => {
-            expect(_ProjectDescriptionContent).toHaveTextContent("Lorem ipsum dolor sit amet.");
-          });
+          expect(ProjectDescriptionContent).toHaveTextContent("Lorem ipsum dolor sit amet.");
         });
       });
     });
@@ -151,7 +68,7 @@ describe("organisms / ProjectDescription", () => {
         iconsWithLabels
       });
 
-      expect(IconsWithLabels.length).toEqual(4);
+      expect(IconsWithLabels.children.length).toEqual(2);
     });
 
     test("icons should render correct SVGs", () => {
@@ -159,10 +76,8 @@ describe("organisms / ProjectDescription", () => {
         iconsWithLabels
       });
 
-      IconsWithLabels.forEach((_IconsWithLabels: Element) => {
-        expect(_IconsWithLabels.children[0].children[0].children[0].children[0].textContent).toEqual("Brand-JS.svg");
-        expect(_IconsWithLabels.children[1].children[0].children[0].children[0].textContent).toEqual("Brand-React.svg");
-      });
+      expect(IconsWithLabels.children[0].children[0].children[0].children[0].textContent).toEqual("Brand-JS.svg");
+      expect(IconsWithLabels.children[1].children[0].children[0].children[0].textContent).toEqual("Brand-React.svg");
     });
 
     test("should have correct content passed via label props", () => {
@@ -170,10 +85,8 @@ describe("organisms / ProjectDescription", () => {
         iconsWithLabels
       });
 
-      IconsWithLabels.forEach((_IconsWithLabels: Element) => {
-        expect(_IconsWithLabels.children[0].children[1].textContent).toEqual("Javascript");
-        expect(_IconsWithLabels.children[1].children[1].textContent).toEqual("React");
-      });
+      expect(IconsWithLabels.children[0].children[1].textContent).toEqual("Javascript");
+      expect(IconsWithLabels.children[1].children[1].textContent).toEqual("React");
     });
   });
 
@@ -185,9 +98,7 @@ describe("organisms / ProjectDescription", () => {
             size: "large"
           });
 
-          ProjectDescriptionButtons.forEach((_ProjectDescriptionButtons: Element) => {
-            expect(_ProjectDescriptionButtons.children[0]).toHaveStyleRule("height", "5.6rem");
-          });
+          expect(ProjectDescriptionButtons.children[0]).toHaveStyleRule("height", "5.6rem");
         });
 
         test("should have 4.8rem if size is medium", () => {     
@@ -195,9 +106,7 @@ describe("organisms / ProjectDescription", () => {
             size: "medium"
           });
 
-          ProjectDescriptionButtons.forEach((_ProjectDescriptionButtons: Element) => {
-            expect(_ProjectDescriptionButtons.children[0]).toHaveStyleRule("height", "4.8rem");
-          });
+          expect(ProjectDescriptionButtons.children[0]).toHaveStyleRule("height", "4.8rem");
         });
       });
     });
@@ -205,14 +114,11 @@ describe("organisms / ProjectDescription", () => {
 });
 
 interface Setup extends RenderResult {
-  IconsWithLabels: Element[];
-  ProjectDescriptionButtons: Element[];
-  ProjectDescriptionContent: Element[];
-  ProjectDescriptionDesktop: Element;
-  ProjectDescriptionMobile: Element;
-  ProjectDescriptionTablet: Element;
-  ProjectDescriptionTechnologies: Element[];
-  ProjectDescriptionTv: Element;
+  IconsWithLabels: Element;
+  ProjectDescriptionButtons: Element;
+  ProjectDescriptionContainer: Element;
+  ProjectDescriptionContent: Element;
+  ProjectDescriptionTechnologies: Element;
 }
 
 type ProjectDescriptionTestProps = Partial<ProjectDescriptionProps>;
@@ -243,25 +149,19 @@ function setup(additionalProps?: ProjectDescriptionTestProps): Setup {
 
   const { queryAllByTestId } = utils || {};
   
-  const IconsWithLabels: Element[] = queryAllByTestId("IconsWithLabels");
-  const ProjectDescriptionButtons: Element[] = queryAllByTestId("ProjectDescriptionButtons");
-  const ProjectDescriptionContent: Element[] = queryAllByTestId("ProjectDescriptionContent");
-  const ProjectDescriptionDesktop: Element = queryAllByTestId("ProjectDescriptionDesktop")[0];
-  const ProjectDescriptionMobile: Element = queryAllByTestId("ProjectDescriptionMobile")[0];
-  const ProjectDescriptionTablet: Element = queryAllByTestId("ProjectDescriptionTablet")[0];
-  const ProjectDescriptionTechnologies: Element[] = queryAllByTestId("ProjectDescriptionTechnologies");
-  const ProjectDescriptionTv: Element = queryAllByTestId("ProjectDescriptionTv")[0];
+  const IconsWithLabels: Element = queryAllByTestId("IconsWithLabels")[0];
+  const ProjectDescriptionButtons: Element = queryAllByTestId("ProjectDescriptionButtons")[0];
+  const ProjectDescriptionContainer: Element = queryAllByTestId("ProjectDescription")[0];
+  const ProjectDescriptionContent: Element = queryAllByTestId("ProjectDescriptionContent")[0];
+  const ProjectDescriptionTechnologies: Element = queryAllByTestId("ProjectDescriptionTechnologies")[0];
 
   return {
     ...utils,
     IconsWithLabels,
     ProjectDescriptionButtons,
+    ProjectDescriptionContainer,
     ProjectDescriptionContent,
-    ProjectDescriptionDesktop,
-    ProjectDescriptionMobile,
-    ProjectDescriptionTablet,
-    ProjectDescriptionTechnologies,
-    ProjectDescriptionTv
+    ProjectDescriptionTechnologies
   };
 }
  

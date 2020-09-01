@@ -18,13 +18,11 @@ describe("organisms / ProjectTvAndDesktop", () => {
     const {
       FlexContainers,
       FlexItems,
-      ProjectDescriptionDesktop,
-      ProjectDescriptionTv,
+      ProjectDescription,
       ProjectDesktop,
       ProjectImage,
       ProjectTv,
-      SpacingContainers,
-      debug
+      SpacingContainers
     } = setup();
 
     expect(ProjectTv.children[0]).toEqual(FlexContainers[0]);
@@ -32,14 +30,14 @@ describe("organisms / ProjectTvAndDesktop", () => {
     expect(FlexItems[0].children[0]).toEqual(ProjectImage[0]);
     expect(FlexContainers[0].children[1]).toEqual(FlexItems[1]);
     expect(FlexItems[1].children[0]).toEqual(SpacingContainers[0]);
-    expect(SpacingContainers[0].children[0]).toEqual(ProjectDescriptionTv);
+    expect(SpacingContainers[0].children[0]).toEqual(ProjectDescription[0]);
 
     expect(ProjectDesktop.children[0]).toEqual(FlexContainers[1]);
     expect(FlexContainers[1].children[0]).toEqual(FlexItems[2]);
     expect(FlexItems[2].children[0]).toEqual(ProjectImage[1]);
     expect(FlexContainers[1].children[1]).toEqual(FlexItems[3]);
     expect(FlexItems[3].children[0]).toEqual(SpacingContainers[1]);
-    expect(SpacingContainers[2].children[0]).toEqual(ProjectDescriptionTv);
+    expect(SpacingContainers[1].children[0]).toEqual(ProjectDescription[1]);
   });
 
   describe("FlexContainers", () => { 
@@ -112,33 +110,33 @@ describe("organisms / ProjectTvAndDesktop", () => {
     });
   });
 
-  describe("ProjectDescriptionDesktop and ProjectDescriptionTv", () => {   
+  describe("ProjectDescription", () => {   
     describe("Props", () => {
       describe("title", () => {
         test("should have correct value passed via title props", () => {
           const { 
-            ProjectDescriptionDesktop,
-            ProjectDescriptionTv
+            ProjectDescription
           } = setup({
             title: "Roland"
           });
 
-          expect(ProjectDescriptionDesktop).toHaveTextContent("Roland");
-          expect(ProjectDescriptionTv).toHaveTextContent("Roland");
+          ProjectDescription.forEach((_ProjectDescription) => {
+            expect(_ProjectDescription).toHaveTextContent("Roland");
+          });
         });
       });
 
       describe("description", () => {
         test("should have correct value passed via description props", () => {
           const {             
-            ProjectDescriptionDesktop,
-            ProjectDescriptionTv 
+            ProjectDescription
           } = setup({
             description: "Lorem ipsum dolor sit amet."
           });
 
-          expect(ProjectDescriptionDesktop).toHaveTextContent("Lorem ipsum dolor sit amet.");
-          expect(ProjectDescriptionTv).toHaveTextContent("Lorem ipsum dolor sit amet.");
+          ProjectDescription.forEach((_ProjectDescription) => {
+            expect(_ProjectDescription).toHaveTextContent("Lorem ipsum dolor sit amet.");
+          });
         });
       });
 
@@ -195,8 +193,7 @@ interface Setup extends RenderResult {
   FlexItems: Element[];
   HexagonInnerContainer: Element[];
   IconsWithLabels: Element[];
-  ProjectDescriptionDesktop: Element;
-  ProjectDescriptionTv: Element;
+  ProjectDescription: Element[];
   ProjectDesktop: Element;
   ProjectImage: Element[];
   ProjectTv: Element;
@@ -235,8 +232,7 @@ function setup(additionalProps?: ProjectTestProps): Setup {
   const FlexItems: Element[] = queryAllByTestId("FlexItem");
   const HexagonInnerContainer: Element[] = queryAllByTestId("HexagonInnerContainer");
   const IconsWithLabels: Element[] = queryAllByTestId("IconsWithLabels");
-  const ProjectDescriptionDesktop: Element = queryAllByTestId("ProjectDescriptionDesktop")[0];
-  const ProjectDescriptionTv: Element = queryAllByTestId("ProjectDescriptionTv")[0];
+  const ProjectDescription: Element[] = queryAllByTestId("ProjectDescription");
   const ProjectDesktop: Element = queryAllByTestId("ProjectDesktop")[0];
   const ProjectImage: Element[] = queryAllByTestId("ProjectImage");
   const ProjectTv: Element = queryAllByTestId("ProjectTv")[0];
@@ -248,8 +244,7 @@ function setup(additionalProps?: ProjectTestProps): Setup {
     FlexItems,
     HexagonInnerContainer,
     IconsWithLabels,
-    ProjectDescriptionDesktop,
-    ProjectDescriptionTv,
+    ProjectDescription,
     ProjectDesktop,
     ProjectImage,
     ProjectTv,

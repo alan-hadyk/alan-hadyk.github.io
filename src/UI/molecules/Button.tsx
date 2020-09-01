@@ -13,9 +13,7 @@ import transitionTimes from "<styles>/variables/transitionTimes";
 
 import spacing from "<styles>/variables/spacing";
 
-import {
-  Spacing
-} from "<styles>/variables/__typings__/variables.d.ts";
+import { Spacing } from "<styles>/variables/__typings__/variables.d.ts";
 
 import {
   ButtonContainerProps,
@@ -39,13 +37,16 @@ const mapTypeToButtonContainerProps: MapTypeToButtonContainerProps = {
 
 const mapSizeToButtonContainerProps: MapSizeToButtonContainerProps = {
   large: {
-    height: "spacing56"
+    height: "spacing56",
+    width: "100%"
   },
   medium: {
-    height: "spacing48"
+    height: "spacing48",
+    width: "auto"
   },
   small: {
-    height: "spacing40"
+    height: "spacing40",
+    width: "100%"
   }
 };
 
@@ -156,7 +157,8 @@ Button.Container = styled.button<ButtonContainerProps>`
         fast,
         slow
       }
-    }
+    },
+    width
   }): FlattenSimpleInterpolation => css`
     background-color: ${(backgroundColor in colorPalette && colorPalette[backgroundColor]) || backgroundColor};
     border: ${border};
@@ -168,7 +170,7 @@ Button.Container = styled.button<ButtonContainerProps>`
     position: relative;
     text-transform: lowercase;
     transition: all ${fast} ${easeInOut};
-    width: 100%;
+    width: ${width};
 
     &:hover {
       box-shadow: inset 0px 0px ${spacing.spacing16} 0px ${transparentize(0.5, blue200)};

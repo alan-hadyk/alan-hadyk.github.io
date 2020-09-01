@@ -16,7 +16,7 @@ import {
 describe("organisms / ProjectTablet", () => {
   test("should have correct structure", () => {
     const {
-      ProjectDescriptionTablet,
+      ProjectDescription,
       ProjectImage,
       FlexContainer,
       ProjectTabletContainer,
@@ -26,7 +26,7 @@ describe("organisms / ProjectTablet", () => {
     expect(ProjectTabletContainer.children[0]).toEqual(FlexContainer);
     expect(FlexContainer.children[0]).toEqual(SpacingContainer);
     expect(SpacingContainer.children[0]).toEqual(ProjectImage);
-    expect(FlexContainer.children[1]).toEqual(ProjectDescriptionTablet);
+    expect(FlexContainer.children[1]).toEqual(ProjectDescription);
   });
 
   describe("FlexContainer", () => { 
@@ -85,25 +85,25 @@ describe("organisms / ProjectTablet", () => {
     });
   });
 
-  describe("ProjectDescriptionTablet", () => {   
+  describe("ProjectDescription", () => {   
     describe("Props", () => {
       describe("title", () => {
         test("should have correct value passed via title props", () => {
-          const { ProjectDescriptionTablet } = setup({
+          const { ProjectDescription } = setup({
             title: "Roland"
           });
 
-          expect(ProjectDescriptionTablet).toHaveTextContent("Roland");
+          expect(ProjectDescription).toHaveTextContent("Roland");
         });
       });
 
       describe("description", () => {
         test("should have correct value passed via description props", () => {
-          const { ProjectDescriptionTablet } = setup({
+          const { ProjectDescription } = setup({
             description: "Lorem ipsum dolor sit amet."
           });
 
-          expect(ProjectDescriptionTablet).toHaveTextContent("Lorem ipsum dolor sit amet.");
+          expect(ProjectDescription).toHaveTextContent("Lorem ipsum dolor sit amet.");
         });
       });
 
@@ -153,7 +153,7 @@ interface Setup extends RenderResult {
   FlexContainer: Element;
   HexagonInnerContainer: Element;
   IconsWithLabels: Element;
-  ProjectDescriptionTablet: Element;
+  ProjectDescription: Element;
   ProjectImage: Element;
   ProjectTabletContainer: Element;
   SpacingContainer: Element;
@@ -190,7 +190,7 @@ function setup(additionalProps?: ProjectTestProps): Setup {
   const FlexContainer: Element = queryAllByTestId("ProjectTabletFlexContainer")[0];
   const HexagonInnerContainer: Element = queryAllByTestId("HexagonInnerContainer")[0];
   const IconsWithLabels: Element = queryAllByTestId("IconsWithLabels")[0];
-  const ProjectDescriptionTablet: Element = queryAllByTestId("ProjectDescriptionTablet")[0];
+  const ProjectDescription: Element = queryAllByTestId("ProjectDescription")[0];
   const ProjectImage: Element = queryAllByTestId("ProjectImage")[0];
   const ProjectTabletContainer: Element = queryAllByTestId("ProjectTablet")[0];
   const SpacingContainer: Element = queryAllByTestId("SpacingContainer")[0];
@@ -200,7 +200,7 @@ function setup(additionalProps?: ProjectTestProps): Setup {
     FlexContainer,
     HexagonInnerContainer,
     IconsWithLabels,
-    ProjectDescriptionTablet,
+    ProjectDescription,
     ProjectImage,
     ProjectTabletContainer,
     SpacingContainer
