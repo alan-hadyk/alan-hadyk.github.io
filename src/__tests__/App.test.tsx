@@ -5,9 +5,12 @@ import App from "<src>/App";
 
 jest.mock("<hooks>/useIntersectionObserver");
 
-jest.mock("<pages>/Home/HomePage", () => (): JSX.Element => (
-  <div data-testid="Home" />
-));
+function mockHomePage(): JSX.Element {
+  return (
+    <div data-testid="Home" />
+  );
+}
+jest.mock("<pages>/Home/HomePage", () => mockHomePage);
 
 describe("App", () => {
   test("should render <pages>/Home/HomePage", () => {

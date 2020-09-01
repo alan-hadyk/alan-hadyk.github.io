@@ -9,6 +9,10 @@ import {
   NavItemProps
 } from "<molecules>/__typings__/NavItem.d.ts";
 
+import {
+  NavProps
+} from "<molecules>/__typings__/Nav.d.ts";
+
 const navItems: NavItemProps[] = [{
   href: "#portfolio",
   title: "Portfolio"
@@ -26,7 +30,9 @@ const navItems: NavItemProps[] = [{
   title: "Contact"
 }];
 
-function Nav(): JSX.Element {
+function Nav({
+  position = "horizontal"
+}: NavProps): JSX.Element {
   const [activeNavItem, setActiveNavItem] = useState<NavItemProps["href"]>();
 
   useIntersectionObserver({
@@ -36,9 +42,10 @@ function Nav(): JSX.Element {
 
   return (
     <FlexContainer
+      alignItems={position === "horizontal" ? "center" : "flex-end"}
       dataTestId="Nav"
-      flexFlow="row nowrap"
-      gap="spacing24"
+      flexFlow={position === "horizontal" ? "row nowrap" : "column nowrap"}
+      gap={position === "horizontal" ? "spacing24" : "spacing12"}
       justifyContent="center"
     >
       {renderNavItems()}

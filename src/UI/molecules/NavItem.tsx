@@ -38,7 +38,9 @@ function NavItem({
       position="relative"
     >
       <NavItem.Link
+        data-cy="NavItemLink"
         data-testid="NavItemLink"
+        data-isactive={isActive}
         isActive={isActive}
         onMouseUp={handleClick}
         onMouseOver={handleMouseOver}

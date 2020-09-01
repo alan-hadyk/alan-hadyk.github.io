@@ -16,6 +16,7 @@ const SpacingContainer = ({
   marginTop = "spacing0",
   maxWidth,
   minHeight = "spacing0",
+  overflowY = "initial",
   paddingBottom = "spacing0",
   paddingLeft = "spacing0",
   paddingRight = "spacing0",
@@ -32,6 +33,7 @@ const SpacingContainer = ({
     marginTop={marginTop}
     maxWidth={maxWidth}
     minHeight={minHeight}
+    overflowY={overflowY}
     paddingBottom={paddingBottom}
     paddingLeft={paddingLeft}
     paddingRight={paddingRight}
@@ -51,6 +53,7 @@ SpacingContainer.Container = styled.div<SpacingContainerProps>`
     marginTop,
     maxWidth,
     minHeight,
+    overflowY,
     paddingBottom,
     paddingLeft,
     paddingRight,
@@ -67,6 +70,7 @@ SpacingContainer.Container = styled.div<SpacingContainerProps>`
     margin-top: ${(marginTop in spacing && spacing[marginTop]) || marginTop};
     max-width: ${(maxWidth in spacing && spacing[maxWidth]) || maxWidth};
     min-height: ${(minHeight in spacing && spacing[minHeight]) || minHeight};
+    overflow-y: ${overflowY};
     padding-bottom: ${(paddingBottom in spacing && spacing[paddingBottom]) || paddingBottom};
     padding-left: ${(paddingLeft in spacing && spacing[paddingLeft]) || paddingLeft};
     padding-right: ${(paddingRight in spacing && spacing[paddingRight]) || paddingRight};

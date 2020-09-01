@@ -31,6 +31,10 @@ export default `
     font-size: 62.5%;
   }
 
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
   *, 
   *:after, 
   *:before, 
