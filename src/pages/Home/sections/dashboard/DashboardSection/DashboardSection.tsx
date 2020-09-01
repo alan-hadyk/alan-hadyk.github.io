@@ -33,12 +33,14 @@ const DashboardSection = (): JSX.Element => (
           height="100%"
           justifyContent="space-between"
         >
+          <DashboardSectionTop devices={["tv"]} />
           <DashboardSectionTop devices={["desktop"]} />
           <DashboardSectionTop devices={["tablet"]} />
           <DashboardSectionTop devices={["mobile"]} />
 
           <Console />
 
+          <DashboardSectionBottom devices={["tv"]} />
           <DashboardSectionBottom devices={["desktop"]} />
           <DashboardSectionBottom devices={["tablet"]} />
           <DashboardSectionBottom devices={["mobile"]} />

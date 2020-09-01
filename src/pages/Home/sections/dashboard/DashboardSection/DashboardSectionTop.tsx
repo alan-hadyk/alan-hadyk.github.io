@@ -26,15 +26,11 @@ const DashboardSectionTop = ({
     >
       <TechStack />
 
-      {devices.includes("desktop") && (
+      {(devices.includes("desktop") || devices.includes("tv")) && (
         <Fragment>
           <Flux />
           <Code />
         </Fragment>
-      )}
-
-      {devices.includes("tablet") && (
-        <Flux />
       )}
     </DashboardSectionInnerContainer>
   </Responsive>

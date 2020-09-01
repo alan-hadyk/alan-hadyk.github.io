@@ -210,23 +210,19 @@ describe("molecules / Console", () => {
     describe("Props", () => {
       describe("devices", () => {
         describe("display", () => {      
-          test("should have none for max-width: 1680px", () => {
+          test("should have block for min-width: 1681px", () => {
             const { ConsoleResponsive } = setup();
   
-            expect(ConsoleResponsive[0]).toHaveStyleRule("display", "none", {
-              media: "(max-width:1680px)"
+            expect(ConsoleResponsive[0]).toHaveStyleRule("display", "block", {
+              media: "(min-width:1681px)"
             });
           });
           
-          test("should have none for max-width: 1280px and min-width: 1680px", () => {
+          test("should have block for min-width: 1281px and max-width: 1680px", () => {
             const { ConsoleResponsive } = setup();
   
-            expect(ConsoleResponsive[1]).toHaveStyleRule("display", "none", {
-              media: "(max-width:1280px)"
-            });
-  
-            expect(ConsoleResponsive[1]).toHaveStyleRule("display", "none", {
-              media: "(min-width:1680px)"
+            expect(ConsoleResponsive[1]).toHaveStyleRule("display", "block", {
+              media: "(min-width:1281px) and (max-width:1680px)"
             });
           });
         });

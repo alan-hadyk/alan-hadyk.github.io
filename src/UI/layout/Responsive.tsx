@@ -12,6 +12,7 @@ import {
 function Responsive(props: ResponsiveProps): JSX.Element {
   const {
     children,
+    dataTestId,
     devices,
     height = "auto",
     width = "auto"
@@ -21,7 +22,7 @@ function Responsive(props: ResponsiveProps): JSX.Element {
     <Fragment>
       {devices.map((device: Device): JSX.Element => (
         <Responsive.Container
-          data-testid={props[`dataTest${capitalize(device)}Id`] || `Responsive${capitalize(device)}`}
+          data-testid={props[`dataTest${capitalize(device)}Id`] || dataTestId || `Responsive${capitalize(device)}`}
           device={device}
           height={height}
           key={device}
