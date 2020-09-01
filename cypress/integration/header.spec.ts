@@ -2,7 +2,7 @@
 /// <reference path="../support/index.d.ts" />
 
 describe("Header", () => {
-  it("each nav link should become active when given section is scrolled into view", () => {
+  beforeEach(() => {
     cy.visit("/", {
       onBeforeLoad: (win) => {
         cy.stub(win, "fetch").withArgs("https://api.github.com/repos/alan-hadyk/portfolio/commits")
@@ -12,7 +12,9 @@ describe("Header", () => {
           });
       }
     });
+  });
 
+  it("each nav link should become active when given section is scrolled into view", () => {
     cy.dataCy("NavItemLink")
       .each((link) => {
         cy.wrap(link).should("have.attr", "data-isactive", "false");
@@ -66,16 +68,6 @@ describe("Header", () => {
     });
 
     it("should contain logo, nav links, resume button and social links", () => {
-      cy.visit("/", {
-        onBeforeLoad: (win) => {
-          cy.stub(win, "fetch").withArgs("https://api.github.com/repos/alan-hadyk/portfolio/commits")
-            .resolves({
-              json: () => [],
-              ok: true
-            });
-        }
-      });
-  
       cy.dataCy("Header")
         .should("be.visible")
         .within(() => {
@@ -136,16 +128,6 @@ describe("Header", () => {
     });
 
     it("should contain logo, nav links and menu button; should contain resume button and social links inside side menu", () => {
-      cy.visit("/", {
-        onBeforeLoad: (win) => {
-          cy.stub(win, "fetch").withArgs("https://api.github.com/repos/alan-hadyk/portfolio/commits")
-            .resolves({
-              json: () => [],
-              ok: true
-            });
-        }
-      });
-  
       cy.dataCy("Header")
         .should("be.visible")
         .within(() => {
@@ -233,16 +215,6 @@ describe("Header", () => {
     });
 
     it("should contain logo and menu button; should contain nav links, resume button and social links inside side menu", () => {
-      cy.visit("/", {
-        onBeforeLoad: (win) => {
-          cy.stub(win, "fetch").withArgs("https://api.github.com/repos/alan-hadyk/portfolio/commits")
-            .resolves({
-              json: () => [],
-              ok: true
-            });
-        }
-      });
-  
       cy.dataCy("Header")
         .should("be.visible")
         .within(() => {
@@ -332,16 +304,6 @@ describe("Header", () => {
     });
 
     it("should contain mobile logo and menu button; should contain nav links, resume button and social links inside side menu", () => {
-      cy.visit("/", {
-        onBeforeLoad: (win) => {
-          cy.stub(win, "fetch").withArgs("https://api.github.com/repos/alan-hadyk/portfolio/commits")
-            .resolves({
-              json: () => [],
-              ok: true
-            });
-        }
-      });
-  
       cy.dataCy("Header")
         .should("be.visible")
         .within(() => {
