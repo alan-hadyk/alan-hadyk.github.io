@@ -1,0 +1,27 @@
+{
+  "baseUrl": "http://localhost:3000/portfolio",
+  "animationDistanceThreshold": 5,
+  "chromeWebSecurity": false,
+  "defaultCommandTimeout": 20000,
+  "fixturesFolder": "cypress/fixtures",
+  "integrationFolder": "cypress/integration",
+  "maxFailedTests": 1,
+  "modifyObstructiveCode": false,
+  "nodeVersion": "system",
+  "numTestsKeptInMemory": 2,
+  "pluginsFile": "cypress/plugins/index.ts",
+  "screenshotsFolder": "cypress/artifacts",
+  "supportFile": "cypress/support/index.ts",
+  "videosFolder": "cypress/artifacts",
+  "viewportWidth": 1681,
+  "viewportHeight": 900,
+  "videoUploadOnPasses": false,
+  "projectId": "vmrh43",
+  "testFiles": "**/*.spec.ts",
+  "trashAssetsBeforeRuns": true,
+  "waitForAnimations": true,
+  "retries": {
+    "runMode": 2,
+    "openMode": 0
+  }
+}

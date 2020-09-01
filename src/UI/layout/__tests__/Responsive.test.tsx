@@ -43,7 +43,7 @@ describe("layout / Responsive", () => {
         children: <div>Custom children</div>,
         devices: ["mobile"]
       });
-
+      
       expect(ResponsiveMobile.textContent).toEqual("Custom children");
     });
   });

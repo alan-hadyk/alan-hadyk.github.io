@@ -7,6 +7,10 @@ import Nav from "<molecules>/Nav";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
+import {
+  NavProps
+} from "<molecules>/__typings__/Nav.d.ts";
+
 jest.mock("<hooks>/useIntersectionObserver");
 
 import useIntersectionObserver from "<hooks>/useIntersectionObserver";
@@ -47,17 +51,45 @@ describe("molecules / Nav", () => {
   });
 
   describe("FlexContainer", () => {    
-    describe("Styles", () => {
-      describe("flex-flow", () => {      
-        test("should have row nowrap", () => {
-          const { FlexContainer } = setup();
+    describe("Props", () => {
+      describe("alignItems", () => {      
+        test("should have center if position is horizontal", () => {
+          const { FlexContainer } = setup({
+            position: "horizontal"
+          });
+    
+          expect(FlexContainer).toHaveStyleRule("align-items", "center");
+        });
+
+        test("should have flex-end if position is vertical", () => {
+          const { FlexContainer } = setup({
+            position: "vertical"
+          });
+    
+          expect(FlexContainer).toHaveStyleRule("align-items", "flex-end");
+        });
+      });
+
+      describe("flexFlow", () => {      
+        test("should have row nowrap if position is horizontal", () => {
+          const { FlexContainer } = setup({
+            position: "horizontal"
+          });
     
           expect(FlexContainer).toHaveStyleRule("flex-flow", "row nowrap");
+        });
+
+        test("should have column nowrap if position is vertical", () => {
+          const { FlexContainer } = setup({
+            position: "vertical"
+          });
+    
+          expect(FlexContainer).toHaveStyleRule("flex-flow", "column nowrap");
         });
       });
 
       describe("gap", () => {      
-        test("each child of FlexContainer should have margin-left: 2.4rem, except first item", () => {
+        test("each child of FlexContainer should have margin-left: 2.4rem, except first item if position is horizontal", () => {
           const { FlexContainer } = setup();
 
           expect(FlexContainer).toHaveStyleRule("margin-left", "2.4rem", {
@@ -67,9 +99,22 @@ describe("molecules / Nav", () => {
             modifier: "& > *:first-child"
           });
         });
+
+        test("each child of FlexContainer should have margin-top: 1.2rem, except first item if position is vertical", () => {
+          const { FlexContainer } = setup({
+            position: "vertical"
+          });
+
+          expect(FlexContainer).toHaveStyleRule("margin-top", "1.2rem", {
+            modifier: "& > *"
+          });
+          expect(FlexContainer).toHaveStyleRule("margin-top", "0", {
+            modifier: "& > *:first-child"
+          });
+        });
       });
 
-      describe("justify-content", () => {      
+      describe("justifyContent", () => {      
         test("should have center", () => {
           const { FlexContainer } = setup();
     
@@ -103,14 +148,21 @@ interface Setup extends RenderResult {
   NavItems: NodeListOf<HTMLAnchorElement>;
 }
 
-function setup(): Setup {
+type NavTestProps = Partial<NavProps>;
+
+function setup(additionalProps?: NavTestProps): Setup {
+  const props: NavProps = {
+    position: "horizontal",
+    ...additionalProps
+  };
+
   const utils: RenderResult = renderWithTheme(
-    <Nav />
+    <Nav {...props} />
   );
 
-  const { container }: RenderResult = utils;
-  const FlexContainer: Element = container.children[0];
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const { queryAllByTestId }: RenderResult = utils;
+
+  const FlexContainer: Element = queryAllByTestId("Nav")[0];
   const NavItems: NodeListOf<HTMLAnchorElement> = document.querySelectorAll("a");
 
   return {

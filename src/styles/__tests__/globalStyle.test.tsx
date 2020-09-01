@@ -51,6 +51,15 @@ describe("styles / globalStyle", () => {
       expect(styles["outline"]).toEqual("0");
     });
 
+    test("*", () => {
+      const styles: CSSStyleDeclaration = findCSSStyles({
+        cssRules,
+        selectorText: "*"
+      });
+
+      expect(styles["-webkit-tap-highlight-color"]).toEqual("transparent");
+    });
+
     test("body", () => {
       const styles: CSSStyleDeclaration = findCSSStyles({
         cssRules,

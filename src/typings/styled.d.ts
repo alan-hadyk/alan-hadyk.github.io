@@ -73,9 +73,11 @@ declare module "styled-components" {
       spacing8: string;
       spacing10: string;
       spacing12: string;
+      spacing14: string;
       spacing16: string;
       spacing24: string;
       spacing28: string;
+      spacing30: string;
       spacing32: string;
       spacing36: string;
       spacing40: string;
@@ -119,6 +121,7 @@ declare module "styled-components" {
       layer8: string;
       layer9: string;
       layer10: string;
+      layer11: string;
     };
   }
 }

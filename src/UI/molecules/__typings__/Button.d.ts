@@ -15,23 +15,22 @@ export interface ButtonInnnerContainerPositions {
 
 export interface ButtonProps {
   buttonText: string;
+  dataTestId?: string;
   iconName: "btnCodeSandbox" | "btnDownload" | "btnExternalLink" | "btnSend";
   size: "small" | "medium" | "large";
   type?: "primary" | "secondary";
+  width?: "100%" | "auto";
 }
 
 export interface MapSizeToButtonContainerProps {
   large: {
     height: ButtonContainerProps["height"];
-    width: ButtonContainerProps["width"];
   };
   medium: {
     height: ButtonContainerProps["height"];
-    width: ButtonContainerProps["width"];
   };
   small: {
     height: ButtonContainerProps["height"];
-    width: ButtonContainerProps["width"];
   };
 }
 
