@@ -16,7 +16,10 @@ const ProjectMobile = ({
   projectIcon,
   title
 }: ProjectProps): JSX.Element => (
-  <Responsive devices={["mobile"]}>
+  <Responsive
+    dataTestMobileId="ProjectMobile"
+    devices={["mobile"]}
+  >
     <SpacingContainer
       marginBottom="4rem"
       width="100%"
@@ -28,6 +31,7 @@ const ProjectMobile = ({
       title={title}
       iconsWithLabels={iconsWithLabels}
       description={description}
+      size="small"
     />
   </Responsive>
 );

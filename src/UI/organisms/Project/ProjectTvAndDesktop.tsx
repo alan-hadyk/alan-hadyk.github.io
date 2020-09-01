@@ -45,6 +45,7 @@ const ProjectTvAndDesktop = ({
             title={title}
             iconsWithLabels={iconsWithLabels}
             description={description}
+            size="large"
           />
         </SpacingContainer>
       </FlexItem>

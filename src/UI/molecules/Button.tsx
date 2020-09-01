@@ -63,6 +63,7 @@ function Button({
 
   return (
     <Button.Container
+      data-testid="Button"
       {...mapSizeToButtonContainerProps[size]}
       {...mapTypeToButtonContainerProps[type]}
       onMouseEnter={handleMouseEnter}

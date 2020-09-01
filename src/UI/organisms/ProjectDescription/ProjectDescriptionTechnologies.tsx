@@ -24,7 +24,7 @@ const ProjectDescriptionTechnologies = ({
     Made with:
     </Text>
     <SpacingContainer
-      dataTestId="IconsWithLabelsSpacingContainer"
+      dataTestId="ProjectDescriptionTechnologiesSpacingContainer"
       marginTop="spacing8"
     >
       <IconsWithLabels

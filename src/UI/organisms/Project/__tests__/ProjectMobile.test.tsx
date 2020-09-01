@@ -16,15 +16,15 @@ import {
 describe("organisms / ProjectMobile", () => {
   test("should have correct structure", () => {
     const {
-      ProjectDescription,
+      ProjectDescriptionMobile,
       ProjectImage,
-      ResponsiveMobile,
+      ProjectMobileContainer,
       SpacingContainer
     } = setup();
 
-    expect(ResponsiveMobile.children[0]).toEqual(SpacingContainer);
+    expect(ProjectMobileContainer.children[0]).toEqual(SpacingContainer);
     expect(SpacingContainer.children[0]).toEqual(ProjectImage);
-    expect(ResponsiveMobile.children[1]).toEqual(ProjectDescription);
+    expect(ProjectMobileContainer.children[1]).toEqual(ProjectDescriptionMobile);
   });
 
   describe("SpacingContainer", () => { 
@@ -63,25 +63,25 @@ describe("organisms / ProjectMobile", () => {
     });
   });
 
-  describe("ProjectDescription", () => {   
+  describe("ProjectDescriptionMobile", () => {   
     describe("Props", () => {
       describe("title", () => {
         test("should have correct value passed via title props", () => {
-          const { ProjectDescription } = setup({
+          const { ProjectDescriptionMobile } = setup({
             title: "Roland"
           });
 
-          expect(ProjectDescription).toHaveTextContent("Roland");
+          expect(ProjectDescriptionMobile).toHaveTextContent("Roland");
         });
       });
 
       describe("description", () => {
         test("should have correct value passed via description props", () => {
-          const { ProjectDescription } = setup({
+          const { ProjectDescriptionMobile } = setup({
             description: "Lorem ipsum dolor sit amet."
           });
 
-          expect(ProjectDescription).toHaveTextContent("Lorem ipsum dolor sit amet.");
+          expect(ProjectDescriptionMobile).toHaveTextContent("Lorem ipsum dolor sit amet.");
         });
       });
 
@@ -130,9 +130,9 @@ describe("organisms / ProjectMobile", () => {
 interface Setup extends RenderResult {
   HexagonInnerContainer: Element;
   IconsWithLabels: Element;
-  ProjectDescription: Element;
+  ProjectDescriptionMobile: Element;
   ProjectImage: Element;
-  ResponsiveMobile: Element;
+  ProjectMobileContainer: Element;
   SpacingContainer: Element;
 }
 
@@ -166,18 +166,18 @@ function setup(additionalProps?: ProjectTestProps): Setup {
 
   const HexagonInnerContainer: Element = queryAllByTestId("HexagonInnerContainer")[0];
   const IconsWithLabels: Element = queryAllByTestId("IconsWithLabels")[0];
-  const ProjectDescription: Element = queryAllByTestId("ProjectDescription")[0];
+  const ProjectDescriptionMobile: Element = queryAllByTestId("ProjectDescriptionMobile")[0];
   const ProjectImage: Element = queryAllByTestId("ProjectImage")[0];
-  const ResponsiveMobile: Element = queryAllByTestId("ResponsiveMobile")[0];
+  const ProjectMobileContainer: Element = queryAllByTestId("ProjectMobile")[0];
   const SpacingContainer: Element = queryAllByTestId("SpacingContainer")[0];
 
   return {
     ...utils,
     HexagonInnerContainer,
     IconsWithLabels,
-    ProjectDescription,
+    ProjectDescriptionMobile,
     ProjectImage,
-    ResponsiveMobile,
+    ProjectMobileContainer,
     SpacingContainer
   };
 }

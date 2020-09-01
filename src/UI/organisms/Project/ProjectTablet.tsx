@@ -17,7 +17,10 @@ const ProjectTablet = ({
   projectIcon,
   title
 }: ProjectProps): JSX.Element => (
-  <Responsive devices={["tablet"]}>
+  <Responsive
+    dataTestTabletId="ProjectTablet"
+    devices={["tablet"]}
+  >
     <FlexContainer
       dataTestId="ProjectTabletFlexContainer"
       alignItems="center"
@@ -34,6 +37,7 @@ const ProjectTablet = ({
         title={title}
         iconsWithLabels={iconsWithLabels}
         description={description}
+        size="large"
       />
     </FlexContainer>
   </Responsive>

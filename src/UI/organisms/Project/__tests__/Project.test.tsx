@@ -16,181 +16,58 @@ import {
 describe("organisms / Project", () => {
   test("should have correct structure", () => {
     const {
-      FlexContainer,
-      FlexItems,
-      Hexagon,
-      Icon,
-      IconContainer,
-      ProjectDescription,
-      ProjectDescriptionSpacingContainer,
-      ProjectSpacingContainer
+      ProjectContainer,
+      ProjectDesktop,
+      ProjectMobile,
+      ProjectTablet,
+      ProjectTv
     } = setup();
 
-    expect(ProjectSpacingContainer.children[0]).toEqual(FlexContainer);
-    expect(FlexContainer.children[0]).toEqual(FlexItems[0]);
-    expect(FlexContainer.children[1]).toEqual(FlexItems[1]);
-
-    expect(FlexItems[0].children[0]).toEqual(Hexagon);
-    expect(Hexagon.children[0]).toEqual(IconContainer);
-    expect(IconContainer.children[0]).toEqual(Icon);
-
-    expect(FlexItems[1].children[0]).toEqual(ProjectDescriptionSpacingContainer);
-    expect(ProjectDescriptionSpacingContainer.children[0]).toEqual(ProjectDescription);
+    expect(ProjectContainer.children[0]).toEqual(ProjectDesktop);
+    expect(ProjectContainer.children[1]).toEqual(ProjectTv);
+    expect(ProjectContainer.children[2]).toEqual(ProjectTablet);
+    expect(ProjectContainer.children[3]).toEqual(ProjectMobile);
   });
 
-  describe("SpacingContainers", () => { 
-    describe("ProjectSpacingContainer", () => { 
-      describe("Props", () => {
-        describe("marginLeft", () => {      
-          test("should have auto", () => {
-            const { ProjectSpacingContainer } = setup();
-
-            expect(ProjectSpacingContainer).toHaveStyleRule("margin-left", "auto");
-          });
-        });
-
-        describe("marginRight", () => {      
-          test("should have auto", () => {
-            const { ProjectSpacingContainer } = setup();
-
-            expect(ProjectSpacingContainer).toHaveStyleRule("margin-right", "auto");
-          });
-        });
-
-        describe("maxWidth", () => {      
-          test("should have 105.6rem", () => {
-            const { ProjectSpacingContainer } = setup();
-
-            expect(ProjectSpacingContainer).toHaveStyleRule("max-width", "105.6rem");
-          });
-        });
-      });
-    });
-
-    describe("ProjectDescriptionSpacingContainer", () => { 
-      describe("Props", () => {
-        describe("marginLeft", () => {      
-          test("should have 4.8rem", () => {
-            const { ProjectDescriptionSpacingContainer } = setup();
-
-            expect(ProjectDescriptionSpacingContainer).toHaveStyleRule("margin-left", "4.8rem");
-          });
-        });
-      });
-    });
-  });
-
-  describe("FlexContainer", () => {    
+  describe("SpacingContainer", () => { 
     describe("Props", () => {
-      describe("alignItems", () => { 
-        test("should have flex-start", () => {
-          const { FlexContainer } = setup();
-
-          expect(FlexContainer).toHaveStyleRule("align-items", "flex-start");
-        });
-      });
-
-      describe("flexFlow", () => { 
-        test("should have row nowrap", () => {
-          const { FlexContainer } = setup();
-
-          expect(FlexContainer).toHaveStyleRule("flex-flow", "row nowrap");
-        });
-      });
-    });
-  });
-
-  describe("FlexItems", () => { 
-    describe("FlexItems[0]", () => {
-      describe("Props", () => {
-        describe("flex", () => {
-          test("should have 0 1 50%", () => {
-            const { FlexItems } = setup();
-      
-            expect(FlexItems[0]).toHaveStyleRule("flex", "0 1 50%");
-          });
-        });
-      });
-    });
-
-    describe("FlexItems[1]", () => {
-      describe("Props", () => {
-        describe("flex", () => {
-          test("should have 0 1 50%", () => {
-            const { FlexItems } = setup();
-      
-            expect(FlexItems[1]).toHaveStyleRule("flex", "0 1 50%");
-          });
-        });
-
-        describe("overflow", () => {
-          test("should have unset", () => {
-            const { FlexItems } = setup();
-      
-            expect(FlexItems[1]).toHaveStyleRule("overflow", "unset");
-          });
-        });
-      });
-    });
-  });
-
-  describe("Hexagon", () => {   
-    test("should have fill pattern", () => {
-      const { Hexagon } = setup();
-
-      expect(Hexagon.children[0].textContent).toEqual("Hexagon-With-Pattern.svg");
-    });
-  });
-
-  describe("Icon", () => {         
-    describe("Props", () => {
-      describe("height", () => {
+      describe("marginLeft", () => {      
         test("should have auto", () => {
-          const { HexagonInnerContainer } = setup();
+          const { ProjectContainer } = setup();
 
-          expect(HexagonInnerContainer.children[0]).toHaveStyleRule("height", "auto");
+          expect(ProjectContainer).toHaveStyleRule("margin-left", "auto");
         });
       });
 
-      describe("projectIcon", () => {
-        test("should have correct icon passed via iconName props", () => {
-          const { HexagonInnerContainer } = setup({
-            projectIcon: "react"
-          });
+      describe("marginRight", () => {      
+        test("should have auto", () => {
+          const { ProjectContainer } = setup();
 
-          expect(HexagonInnerContainer.children[0].textContent).toEqual("Icon-React.svg");
+          expect(ProjectContainer).toHaveStyleRule("margin-right", "auto");
         });
       });
 
-      describe("width", () => {
-        test("should have 100%", () => {
-          const { HexagonInnerContainer } = setup();
+      describe("maxWidth", () => {      
+        test("should have 105.6rem", () => {
+          const { ProjectContainer } = setup();
 
-          expect(HexagonInnerContainer.children[0]).toHaveStyleRule("width", "100%");
+          expect(ProjectContainer).toHaveStyleRule("max-width", "105.6rem");
         });
       });
     });
   });
 
-  describe("ProjectDescription", () => {   
+  describe("ProjectTvAndDesktop, ProjectTablet, ProjectMobile", () => {
     describe("Props", () => {
-      describe("title", () => {
-        test("should have correct value passed via title props", () => {
-          const { ProjectDescription } = setup({
-            title: "Roland"
-          });
-
-          expect(ProjectDescription).toHaveTextContent("Roland");
-        });
-      });
-
       describe("description", () => {
         test("should have correct value passed via description props", () => {
           const { ProjectDescription } = setup({
             description: "Lorem ipsum dolor sit amet."
           });
 
-          expect(ProjectDescription).toHaveTextContent("Lorem ipsum dolor sit amet.");
+          ProjectDescription.forEach((_ProjectDescription: Element) => {
+            expect(_ProjectDescription).toHaveTextContent("Lorem ipsum dolor sit amet.");
+          });
         });
       });
 
@@ -210,26 +87,56 @@ describe("organisms / Project", () => {
           const { IconsWithLabels } = setup({
             iconsWithLabels
           });
-    
-          expect(IconsWithLabels.children.length).toEqual(2);
+
+          IconsWithLabels.forEach((_IconsWithLabels: Element) => {
+            expect(_IconsWithLabels.children.length).toEqual(2);
+          });
         });
     
         test("icons should render correct SVGs", () => {
           const { IconsWithLabels } = setup({
             iconsWithLabels
           });
-  
-          expect(IconsWithLabels.children[0].children[0].children[0].children[0].textContent).toEqual("Brand-JS.svg");
-          expect(IconsWithLabels.children[1].children[0].children[0].children[0].textContent).toEqual("Brand-React.svg");
+
+          IconsWithLabels.forEach((_IconsWithLabels: Element) => {
+            expect(_IconsWithLabels.children[0].children[0].children[0].children[0].textContent).toEqual("Brand-JS.svg");
+            expect(_IconsWithLabels.children[1].children[0].children[0].children[0].textContent).toEqual("Brand-React.svg");
+          });
         });
     
         test("should have correct content passed via label props", () => {
           const { IconsWithLabels } = setup({
             iconsWithLabels
           });
-    
-          expect(IconsWithLabels.children[0].children[1].textContent).toEqual("Javascript");
-          expect(IconsWithLabels.children[1].children[1].textContent).toEqual("React");
+
+          IconsWithLabels.forEach((_IconsWithLabels: Element) => {
+            expect(_IconsWithLabels.children[0].children[1].textContent).toEqual("Javascript");
+            expect(_IconsWithLabels.children[1].children[1].textContent).toEqual("React");
+          });
+        });
+      });
+
+      describe("projectIcon", () => {
+        test("should have correct icon passed via iconName props", () => {
+          const { HexagonInnerContainer } = setup({
+            projectIcon: "react"
+          });
+
+          HexagonInnerContainer.forEach((_HexagonInnerContainer: Element) => {
+            expect(_HexagonInnerContainer.children[0].textContent).toEqual("Icon-React.svg");
+          });
+        });
+      });
+
+      describe("title", () => {
+        test("should have correct value passed via title props", () => {
+          const { ProjectDescription } = setup({
+            title: "Roland"
+          });
+
+          ProjectDescription.forEach((_ProjectDescription: Element) => {
+            expect(_ProjectDescription).toHaveTextContent("Roland");
+          });
         });
       });
     });
@@ -237,16 +144,14 @@ describe("organisms / Project", () => {
 });
 
 interface Setup extends RenderResult {
-  FlexContainer: Element;
-  FlexItems: Element[];
-  Hexagon: Element;
-  HexagonInnerContainer: Element;
-  Icon: SVGSVGElement;
-  IconContainer: Element;
-  IconsWithLabels: Element;
-  ProjectDescription: Element;
-  ProjectDescriptionSpacingContainer: Element;
-  ProjectSpacingContainer: Element;
+  HexagonInnerContainer: Element[];
+  IconsWithLabels: Element[];
+  ProjectContainer: Element;
+  ProjectDescription: Element[];
+  ProjectDesktop: Element;
+  ProjectMobile: Element;
+  ProjectTablet: Element;
+  ProjectTv: Element;
 }
 
 type ProjectTestProps = Partial<ProjectProps>;
@@ -277,29 +182,25 @@ function setup(additionalProps?: ProjectTestProps): Setup {
 
   const { queryAllByTestId } = utils || {};
 
-  const FlexContainer: Element = queryAllByTestId("FlexContainer")[0];
-  const FlexItems: Element[] = queryAllByTestId("FlexItem");
-  const Hexagon: Element = queryAllByTestId("Hexagon")[0];
-  const HexagonInnerContainer: Element = queryAllByTestId("HexagonInnerContainer")[0];
-  const Icon: SVGSVGElement = document.querySelectorAll("svg")[0];
-  const IconContainer: Element = queryAllByTestId("IconContainer")[0];
-  const IconsWithLabels: Element = queryAllByTestId("IconsWithLabels")[0];
-  const ProjectDescription: Element = queryAllByTestId("ProjectDescription")[0];
-  const ProjectDescriptionSpacingContainer: Element = queryAllByTestId("ProjectDescriptionSpacingContainer")[0];
-  const ProjectSpacingContainer: Element = queryAllByTestId("Project")[0];
+  const HexagonInnerContainer: Element []= queryAllByTestId("HexagonInnerContainer");
+  const IconsWithLabels: Element[] = queryAllByTestId("IconsWithLabels");
+  const ProjectContainer: Element = queryAllByTestId("Project")[0];
+  const ProjectDescription: Element[] = queryAllByTestId("ProjectDescription");
+  const ProjectDesktop: Element = queryAllByTestId("ProjectDesktop")[0];
+  const ProjectTv: Element = queryAllByTestId("ProjectTv")[0];
+  const ProjectTablet: Element = queryAllByTestId("ProjectTablet")[0];
+  const ProjectMobile: Element = queryAllByTestId("ProjectMobile")[0];
 
   return {
     ...utils,
-    FlexContainer,
-    FlexItems,
-    Hexagon,
     HexagonInnerContainer,
-    Icon,
-    IconContainer,
     IconsWithLabels,
+    ProjectContainer,
     ProjectDescription,
-    ProjectDescriptionSpacingContainer,
-    ProjectSpacingContainer
+    ProjectDesktop,
+    ProjectMobile,
+    ProjectTablet,
+    ProjectTv
   };
 }
  

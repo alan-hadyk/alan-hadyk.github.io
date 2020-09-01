@@ -18,11 +18,13 @@ describe("organisms / ProjectTvAndDesktop", () => {
     const {
       FlexContainers,
       FlexItems,
-      ProjectDescription,
+      ProjectDescriptionDesktop,
+      ProjectDescriptionTv,
       ProjectDesktop,
       ProjectImage,
       ProjectTv,
-      SpacingContainers
+      SpacingContainers,
+      debug
     } = setup();
 
     expect(ProjectTv.children[0]).toEqual(FlexContainers[0]);
@@ -30,14 +32,14 @@ describe("organisms / ProjectTvAndDesktop", () => {
     expect(FlexItems[0].children[0]).toEqual(ProjectImage[0]);
     expect(FlexContainers[0].children[1]).toEqual(FlexItems[1]);
     expect(FlexItems[1].children[0]).toEqual(SpacingContainers[0]);
-    expect(SpacingContainers[0].children[1]).toEqual(ProjectDescription[0]);
+    expect(SpacingContainers[0].children[0]).toEqual(ProjectDescriptionTv);
 
     expect(ProjectDesktop.children[0]).toEqual(FlexContainers[1]);
     expect(FlexContainers[1].children[0]).toEqual(FlexItems[2]);
     expect(FlexItems[2].children[0]).toEqual(ProjectImage[1]);
     expect(FlexContainers[1].children[1]).toEqual(FlexItems[3]);
     expect(FlexItems[3].children[0]).toEqual(SpacingContainers[1]);
-    expect(SpacingContainers[1].children[0]).toEqual(ProjectDescription[1]);
+    expect(SpacingContainers[2].children[0]).toEqual(ProjectDescriptionTv);
   });
 
   describe("FlexContainers", () => { 
@@ -110,29 +112,33 @@ describe("organisms / ProjectTvAndDesktop", () => {
     });
   });
 
-  describe("ProjectDescription", () => {   
+  describe("ProjectDescriptionDesktop and ProjectDescriptionTv", () => {   
     describe("Props", () => {
       describe("title", () => {
         test("should have correct value passed via title props", () => {
-          const { ProjectDescription } = setup({
+          const { 
+            ProjectDescriptionDesktop,
+            ProjectDescriptionTv
+          } = setup({
             title: "Roland"
           });
 
-          ProjectDescription.forEach((_ProjectDescription: Element) => {
-            expect(_ProjectDescription).toHaveTextContent("Roland");
-          });
+          expect(ProjectDescriptionDesktop).toHaveTextContent("Roland");
+          expect(ProjectDescriptionTv).toHaveTextContent("Roland");
         });
       });
 
       describe("description", () => {
         test("should have correct value passed via description props", () => {
-          const { ProjectDescription } = setup({
+          const {             
+            ProjectDescriptionDesktop,
+            ProjectDescriptionTv 
+          } = setup({
             description: "Lorem ipsum dolor sit amet."
           });
 
-          ProjectDescription.forEach((_ProjectDescription: Element) => {
-            expect(_ProjectDescription).toHaveTextContent("Lorem ipsum dolor sit amet.");
-          });
+          expect(ProjectDescriptionDesktop).toHaveTextContent("Lorem ipsum dolor sit amet.");
+          expect(ProjectDescriptionTv).toHaveTextContent("Lorem ipsum dolor sit amet.");
         });
       });
 
@@ -163,12 +169,9 @@ describe("organisms / ProjectTvAndDesktop", () => {
             iconsWithLabels
           });
 
-          IconsWithLabels.forEach((_IconsWithLabel: Element, index: number) => {
-            if(index % 2 === 0) {
-              expect(_IconsWithLabel.children[0].children[0].children[0].children[0].textContent).toEqual("Brand-JS.svg");
-            } else {
-              expect(_IconsWithLabel.children[1].children[0].children[0].children[0].textContent).toEqual("Brand-React.svg");
-            }
+          IconsWithLabels.forEach((_IconsWithLabel: Element) => {
+            expect(_IconsWithLabel.children[0].children[0].children[0].children[0].textContent).toEqual("Brand-JS.svg");
+            expect(_IconsWithLabel.children[1].children[0].children[0].children[0].textContent).toEqual("Brand-React.svg");
           });
         });
     
@@ -177,12 +180,9 @@ describe("organisms / ProjectTvAndDesktop", () => {
             iconsWithLabels
           });
 
-          IconsWithLabels.forEach((_IconsWithLabel: Element, index: number) => {
-            if(index % 2 === 0) {
-              expect(_IconsWithLabel.children[0].children[1].textContent).toEqual("Javascript");
-            } else {
-              expect(_IconsWithLabel.children[1].children[1].textContent).toEqual("React");
-            }
+          IconsWithLabels.forEach((_IconsWithLabel: Element) => {
+            expect(_IconsWithLabel.children[0].children[1].textContent).toEqual("Javascript");
+            expect(_IconsWithLabel.children[1].children[1].textContent).toEqual("React");
           });
         });
       });
@@ -195,7 +195,8 @@ interface Setup extends RenderResult {
   FlexItems: Element[];
   HexagonInnerContainer: Element[];
   IconsWithLabels: Element[];
-  ProjectDescription: Element[];
+  ProjectDescriptionDesktop: Element;
+  ProjectDescriptionTv: Element;
   ProjectDesktop: Element;
   ProjectImage: Element[];
   ProjectTv: Element;
@@ -234,9 +235,10 @@ function setup(additionalProps?: ProjectTestProps): Setup {
   const FlexItems: Element[] = queryAllByTestId("FlexItem");
   const HexagonInnerContainer: Element[] = queryAllByTestId("HexagonInnerContainer");
   const IconsWithLabels: Element[] = queryAllByTestId("IconsWithLabels");
-  const ProjectDescription: Element[] = queryAllByTestId("ProjectDescription");
-  const ProjectImage: Element[] = queryAllByTestId("ProjectImage");
+  const ProjectDescriptionDesktop: Element = queryAllByTestId("ProjectDescriptionDesktop")[0];
+  const ProjectDescriptionTv: Element = queryAllByTestId("ProjectDescriptionTv")[0];
   const ProjectDesktop: Element = queryAllByTestId("ProjectDesktop")[0];
+  const ProjectImage: Element[] = queryAllByTestId("ProjectImage");
   const ProjectTv: Element = queryAllByTestId("ProjectTv")[0];
   const SpacingContainers: Element[] = queryAllByTestId("ProjectDescriptionSpacingContainer");
 
@@ -246,7 +248,8 @@ function setup(additionalProps?: ProjectTestProps): Setup {
     FlexItems,
     HexagonInnerContainer,
     IconsWithLabels,
-    ProjectDescription,
+    ProjectDescriptionDesktop,
+    ProjectDescriptionTv,
     ProjectDesktop,
     ProjectImage,
     ProjectTv,

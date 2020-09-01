@@ -37,7 +37,9 @@ const ProjectDescriptionContent = ({
   size = "large",
   title
 }: ProjectDescriptionContentProps): JSX.Element => (
-  <ProjectDescriptionContent.Container>
+  <ProjectDescriptionContent.Container
+    data-testid="ProjectDescriptionContent"
+  >
     <Text
       {...mapSizeToProjectDescriptionTitleProps[size]}
       color="white"

@@ -8,7 +8,7 @@ import Button from "<molecules>/Button";
 import { ProjectDescriptionButtonsProps } from "<organisms>/ProjectDescription/__typings__/ProjectDescriptionButtons.d.ts";
 
 const ProjectDescriptionButtons = ({
-  size
+  size = "medium"
 }: ProjectDescriptionButtonsProps): JSX.Element => (
   <ProjectDescriptionButtons.Container
     data-testid="ProjectDescriptionButtons"
