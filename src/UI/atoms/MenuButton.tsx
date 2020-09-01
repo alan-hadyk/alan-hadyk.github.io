@@ -13,6 +13,7 @@ const MenuButton = ({
   onClick
 }: MenuButtonProps): JSX.Element => (
   <MenuButton.Container
+    data-cy="MenuButton"
     data-testid="MenuButtonContainer"
     onClick={onClick}
   >

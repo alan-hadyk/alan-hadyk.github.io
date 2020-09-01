@@ -20,6 +20,7 @@ const SideMenu = ({
   isExpanded = false
 }: SideMenuProps): JSX.Element => (
   <SideMenu.Container
+    data-cy="SideMenu"
     data-testid="SideMenu"
     isExpanded={isExpanded}
   >
@@ -31,7 +32,7 @@ const SideMenu = ({
       paddingRight="spacing48"
       paddingTop="spacing8"
     > 
-      <Responsive devices={["mobile"]}>
+      <Responsive devices={["mobile", "tablet"]}>
         <FlexContainer
           dataTestId="SideMenuMobileFlexContainer"
           flexFlow="row wrap"

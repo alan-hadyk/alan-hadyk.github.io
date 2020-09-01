@@ -13,7 +13,7 @@
   "screenshotsFolder": "cypress/artifacts",
   "supportFile": "cypress/support/index.ts",
   "videosFolder": "cypress/artifacts",
-  "viewportWidth": 1600,
+  "viewportWidth": 1681,
   "viewportHeight": 900,
   "videoUploadOnPasses": false,
   "projectId": "vmrh43",
