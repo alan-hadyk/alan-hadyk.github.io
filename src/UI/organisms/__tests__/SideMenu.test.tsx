@@ -16,24 +16,33 @@ describe("organisms / SideMenu", () => {
     const {
       Button,
       MenuIcons,
-      Nav,
+      Navs,
       ResponsiveMobile,
+      ResponsiveTablet,
       SideMenuContainer,
       SideMenuInnerFlexContainer,
       SideMenuInnerSpacingContainer,
-      SideMenuMobileFlexContainer,
-      SideMenuMobileSpacingContainer,
+      SideMenuMobileFlexContainers,
+      SideMenuMobileSpacingContainers,
       SideMenuOuterFlexContainer,
       SideMenuOuterSpacingContainer
     } = setup();
 
     expect(SideMenuContainer.children[0]).toEqual(SideMenuOuterSpacingContainer);
+    
+    // Mobile
     expect(SideMenuOuterSpacingContainer.children[0]).toEqual(ResponsiveMobile);
-    expect(ResponsiveMobile.children[0]).toEqual(SideMenuMobileFlexContainer);
-    expect(SideMenuMobileFlexContainer.children[0]).toEqual(SideMenuMobileSpacingContainer);
-    expect(SideMenuMobileSpacingContainer.children[0]).toEqual(Nav);
+    expect(ResponsiveMobile.children[0]).toEqual(SideMenuMobileFlexContainers[0]);
+    expect(SideMenuMobileFlexContainers[0].children[0]).toEqual(SideMenuMobileSpacingContainers[0]);
+    expect(SideMenuMobileSpacingContainers[0].children[0]).toEqual(Navs[0]);
+    
+    // Tablet
+    expect(SideMenuOuterSpacingContainer.children[1]).toEqual(ResponsiveTablet);
+    expect(ResponsiveTablet.children[0]).toEqual(SideMenuMobileFlexContainers[1]);
+    expect(SideMenuMobileFlexContainers[1].children[0]).toEqual(SideMenuMobileSpacingContainers[1]);
+    expect(SideMenuMobileSpacingContainers[1].children[0]).toEqual(Navs[1]);
 
-    expect(SideMenuOuterSpacingContainer.children[1]).toEqual(SideMenuOuterFlexContainer);
+    expect(SideMenuOuterSpacingContainer.children[2]).toEqual(SideMenuOuterFlexContainer);
     expect(SideMenuOuterFlexContainer.children[0]).toEqual(Button);
     expect(SideMenuOuterFlexContainer.children[1]).toEqual(SideMenuInnerSpacingContainer);
     expect(SideMenuInnerSpacingContainer.children[0]).toEqual(SideMenuInnerFlexContainer);
@@ -179,13 +188,15 @@ describe("organisms / SideMenu", () => {
       });
     });
 
-    describe("SideMenuMobileSpacingContainer", () => {
+    describe("SideMenuMobileSpacingContainers", () => {
       describe("Props", () => {
         describe("marginBottom", () => { 
           test("should have 2.4rem", () => {
-            const { SideMenuMobileSpacingContainer } = setup();
+            const { SideMenuMobileSpacingContainers } = setup();
   
-            expect(SideMenuMobileSpacingContainer).toHaveStyleRule("margin-bottom", "2.4rem");
+            SideMenuMobileSpacingContainers.forEach(SideMenuMobileSpacingContainer => {
+              expect(SideMenuMobileSpacingContainer).toHaveStyleRule("margin-bottom", "2.4rem");
+            });
           });
         });
       });
@@ -213,21 +224,25 @@ describe("organisms / SideMenu", () => {
   });
 
   describe("FlexContainers", () => {
-    describe("SideMenuMobileFlexContainer", () => {
+    describe("SideMenuMobileFlexContainers", () => {
       describe("Props", () => {
         describe("flexFlow", () => {
           test("should have row wrap", () => {
-            const { SideMenuMobileFlexContainer } = setup();
+            const { SideMenuMobileFlexContainers } = setup();
     
-            expect(SideMenuMobileFlexContainer).toHaveStyleRule("flex-flow", "row wrap");
+            SideMenuMobileFlexContainers.forEach(SideMenuMobileFlexContainer => {
+              expect(SideMenuMobileFlexContainer).toHaveStyleRule("flex-flow", "row wrap");
+            });
           });
         });
 
         describe("justifyContent", () => {
           test("should have flex-end", () => {
-            const { SideMenuMobileFlexContainer } = setup();
+            const { SideMenuMobileFlexContainers } = setup();
     
-            expect(SideMenuMobileFlexContainer).toHaveStyleRule("justify-content", "flex-end");
+            SideMenuMobileFlexContainers.forEach(SideMenuMobileFlexContainer => {
+              expect(SideMenuMobileFlexContainer).toHaveStyleRule("justify-content", "flex-end");
+            });
           });
         });
       });
@@ -279,13 +294,15 @@ describe("organisms / SideMenu", () => {
     });
   });
 
-  describe("Nav", () => {
+  describe("Navs", () => {
     describe("Props", () => {
       describe("position", () => {      
         test("should have vertical", () => {
-          const { Nav } = setup();
+          const { Navs } = setup();
     
-          expect(Nav).toHaveStyleRule("align-items", "flex-end");
+          Navs.forEach(Nav => {
+            expect(Nav).toHaveStyleRule("align-items", "flex-end");
+          });
         });
       });
     });
@@ -355,13 +372,14 @@ describe("organisms / SideMenu", () => {
 interface Setup extends RenderResult {
   Button: Element;
   MenuIcons: Element[];
-  Nav: Element;
+  Navs: Element[];
   ResponsiveMobile: Element;
+  ResponsiveTablet: Element;
   SideMenuContainer: Element;
   SideMenuInnerFlexContainer: Element;
   SideMenuInnerSpacingContainer: Element;
-  SideMenuMobileFlexContainer: Element;
-  SideMenuMobileSpacingContainer: Element;
+  SideMenuMobileFlexContainers: Element[];
+  SideMenuMobileSpacingContainers: Element[];
   SideMenuOuterFlexContainer: Element;
   SideMenuOuterSpacingContainer: Element;
 }
@@ -382,27 +400,29 @@ function setup(additionalProps?: SideMenuTestProps): Setup {
 
   const Button: Element = queryAllByTestId("Button")[0];
   const MenuIcons: Element[] = queryAllByTestId("MenuIcons");
-  const Nav: Element = queryAllByTestId("Nav")[0];
+  const Navs: Element[] = queryAllByTestId("Nav");
   const ResponsiveMobile: Element = queryAllByTestId("ResponsiveMobile")[0];
+  const ResponsiveTablet: Element = queryAllByTestId("ResponsiveTablet")[0];
   const SideMenuContainer: Element = queryAllByTestId("SideMenu")[0];
-  const SideMenuMobileFlexContainer: Element = queryAllByTestId("SideMenuMobileFlexContainer")[0];
-  const SideMenuOuterFlexContainer: Element = queryAllByTestId("SideMenuOuterFlexContainer")[0];
   const SideMenuInnerFlexContainer: Element = queryAllByTestId("SideMenuInnerFlexContainer")[0];
   const SideMenuInnerSpacingContainer: Element = queryAllByTestId("SideMenuInnerSpacingContainer")[0];
-  const SideMenuMobileSpacingContainer: Element = queryAllByTestId("SideMenuMobileSpacingContainer")[0];
+  const SideMenuMobileFlexContainers: Element[] = queryAllByTestId("SideMenuMobileFlexContainer");
+  const SideMenuMobileSpacingContainers: Element[] = queryAllByTestId("SideMenuMobileSpacingContainer");
+  const SideMenuOuterFlexContainer: Element = queryAllByTestId("SideMenuOuterFlexContainer")[0];
   const SideMenuOuterSpacingContainer: Element = queryAllByTestId("SideMenuOuterSpacingContainer")[0];
 
   return {
     ...utils,
     Button,
     MenuIcons,
-    Nav,
+    Navs,
     ResponsiveMobile,
+    ResponsiveTablet,
     SideMenuContainer,
     SideMenuInnerFlexContainer,
     SideMenuInnerSpacingContainer,
-    SideMenuMobileFlexContainer,
-    SideMenuMobileSpacingContainer,
+    SideMenuMobileFlexContainers,
+    SideMenuMobileSpacingContainers,
     SideMenuOuterFlexContainer,
     SideMenuOuterSpacingContainer
   };
