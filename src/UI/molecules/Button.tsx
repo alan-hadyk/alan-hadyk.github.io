@@ -64,10 +64,9 @@ function Button({
 
   return (
     <Button.Container
-      data-testid="Button"
+      data-testid={dataTestId || "Button"}
       {...mapSizeToButtonContainerProps[size]}
       {...mapTypeToButtonContainerProps[type]}
-      data-testid={dataTestId || "Button"}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseUp={handleButtonClick}
