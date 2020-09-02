@@ -16,8 +16,9 @@ import { DashboardElementProps } from "<molecules>/__typings__/DashboardElement.
 function DashboardElement({
   alignSelf = "auto",
   children,
-  description,
+  dataCy,
   dataTestId,
+  description,
   flex,
   overflow = "hidden",
   shouldDisplayBorder = false,
@@ -48,6 +49,7 @@ function DashboardElement({
   return (
     <FlexItem
       alignSelf={alignSelf}
+      dataCy={dataCy}
       dataTestId={dataTestId || "DashboardElement"}
       flex={flex}
       order={order}

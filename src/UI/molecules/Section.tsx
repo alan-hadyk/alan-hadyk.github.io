@@ -9,13 +9,15 @@ import {
 
 function Section({
   children,
+  dataCy,
   dataTestId,
   id,
   minHeight,
   title
 }: SectionProps): JSX.Element {
   return (
-    <SpacingContainer 
+    <SpacingContainer
+      dataCy={dataCy}
       dataTestId={dataTestId || "Section"}
       id={id}
       marginBottom="spacing16"

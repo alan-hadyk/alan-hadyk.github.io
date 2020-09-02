@@ -3,6 +3,7 @@ import {
 } from "<layout>/__typings__/FlexItem.d.ts";
 
 export interface DashboardElementProps extends FlexItemProps {
+  dataCy?: string;
   dataTestId?: string;
   description?: string;
   overflow?: "visible" | "hidden";

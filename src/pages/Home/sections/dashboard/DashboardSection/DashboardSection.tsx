@@ -12,6 +12,7 @@ import SpacingContainer from "<layout>/SpacingContainer";
 
 const DashboardSection = (): JSX.Element => (
   <Section
+    dataCy="Dashboard"
     dataTestId="DashboardSection"
     id="dashboard"
     minHeight="100vh"

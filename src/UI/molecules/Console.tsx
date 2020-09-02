@@ -24,6 +24,7 @@ function Console(): JSX.Element {
 
   return (
     <PositionContainer
+      dataCy="Console"
       dataTestId="Console"
       left="spacing0"
       position="absolute"
