@@ -40,6 +40,38 @@ describe("organisms / ProjectTvAndDesktop", () => {
     expect(SpacingContainers[1].children[0]).toEqual(ProjectDescription[1]);
   });
 
+  describe("ProjectTv", () => {
+    describe("Props", () => {
+      describe("devices", () => {      
+        describe("should have tv", () => {
+          test("should have display block when min-width is 1681px", () => {
+            const { ProjectTv } = setup();
+      
+            expect(ProjectTv).toHaveStyleRule("display", "block", {
+              media: "(min-width:1681px)"
+            });
+          });
+        });
+      });
+    });
+  });
+
+  describe("ProjectDesktop", () => {
+    describe("Props", () => {
+      describe("devices", () => {      
+        describe("should have tv", () => {
+          test("should have display block when min-width is 1681px", () => {
+            const { ProjectDesktop } = setup();
+      
+            expect(ProjectDesktop).toHaveStyleRule("display", "block", {
+              media: "(min-width:1281px) and (max-width:1680px)"
+            });
+          });
+        });
+      });
+    });
+  });
+
   describe("FlexContainers", () => { 
     describe("Props", () => {
       describe("alignItems", () => {      

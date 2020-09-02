@@ -29,6 +29,22 @@ describe("organisms / ProjectTablet", () => {
     expect(FlexContainer.children[1]).toEqual(ProjectDescription);
   });
 
+  describe("ProjectTablet", () => {
+    describe("Props", () => {
+      describe("devices", () => {      
+        describe("should have tablet", () => {
+          test("should have display block when min-width is 641px and max-width is 1280px", () => {
+            const { ProjectTabletContainer } = setup();
+      
+            expect(ProjectTabletContainer).toHaveStyleRule("display", "block", {
+              media: "(min-width:641px) and (max-width:1280px)"
+            });
+          });
+        });
+      });
+    });
+  });
+
   describe("FlexContainer", () => { 
     describe("Props", () => {
       describe("alignItems", () => {      

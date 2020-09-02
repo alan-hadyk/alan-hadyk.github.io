@@ -27,6 +27,22 @@ describe("organisms / ProjectMobile", () => {
     expect(ProjectMobileContainer.children[1]).toEqual(ProjectDescription);
   });
 
+  describe("ProjectMobile", () => {
+    describe("Props", () => {
+      describe("devices", () => {      
+        describe("should have mobile", () => {
+          test("should have display block when max-width is 640px", () => {
+            const { ProjectMobileContainer } = setup();
+      
+            expect(ProjectMobileContainer).toHaveStyleRule("display", "block", {
+              media: "(max-width:640px)"
+            });
+          });
+        });
+      });
+    });
+  });
+
   describe("SpacingContainer", () => { 
     describe("Props", () => {
       describe("marginBottom", () => {      
