@@ -12,6 +12,7 @@ const ProjectImage = ({
   projectIcon
 }: ProjectImageProps): JSX.Element => (
   <Hexagon
+    dataCy="ProjectImage"
     dataTestId="ProjectImage"
     fill="pattern"
   >

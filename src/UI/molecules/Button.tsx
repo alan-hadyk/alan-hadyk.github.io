@@ -64,6 +64,7 @@ function Button({
 
   return (
     <Button.Container
+      data-cy="Button"
       data-testid={dataTestId || "Button"}
       {...mapSizeToButtonContainerProps[size]}
       {...mapTypeToButtonContainerProps[type]}

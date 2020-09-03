@@ -195,6 +195,7 @@ function Icon({
 
   return (
     <Icon.Container
+      data-cy={iconName}
       data-testid={dataTestId || "IconContainer"}
       animationDelay={animationDelay}
       animationTime={animationTime}

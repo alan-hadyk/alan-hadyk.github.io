@@ -11,12 +11,14 @@ const ProjectDescriptionButtons = ({
   size = "medium"
 }: ProjectDescriptionButtonsProps): JSX.Element => (
   <ProjectDescriptionButtons.Container
+    data-cy="ProjectDescriptionButtons"
     data-testid="ProjectDescriptionButtons"
   >
     <Button
       buttonText={size === "large" ? "Launch project" : "Launch"}
       iconName="btnExternalLink"
       size={size}
+      width="100%"
     />
     <SpacingContainer
       dataTestId="ButtonsSpacingContainer"
@@ -27,6 +29,7 @@ const ProjectDescriptionButtons = ({
         iconName="btnCodeSandbox"
         size={size}
         type="secondary"
+        width="100%"
       />
     </SpacingContainer>
   </ProjectDescriptionButtons.Container>

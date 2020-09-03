@@ -12,6 +12,7 @@ const ProjectDescriptionTechnologies = ({
   iconsWithLabels
 }: ProjectDescriptionTechnologiesProps): JSX.Element => (
   <SpacingContainer
+    dataCy="ProjectDescriptionTechnologies"
     dataTestId="ProjectDescriptionTechnologies"
     marginBottom="spacing40"
   >

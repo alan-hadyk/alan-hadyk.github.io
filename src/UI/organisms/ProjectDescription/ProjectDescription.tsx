@@ -16,7 +16,7 @@ const ProjectDescription = ({
   title
 }: ProjectDescriptionProps): JSX.Element => {
   return (
-    <ProjectDescription.Container	
+    <ProjectDescription.Container
       data-testid="ProjectDescription"	
     >
       <ProjectDescriptionContent

@@ -43,6 +43,7 @@ const ProjectDescriptionContent = ({
     <Text
       {...mapSizeToProjectDescriptionTitleProps[size]}
       color="white"
+      dataTestId="ProjectDescriptionTitle"
       fontFamily="Exan"
       textTransform="lowercase"
     >
@@ -56,6 +57,7 @@ const ProjectDescriptionContent = ({
       <Text
         {...mapSizeToProjectDescriptionContentProps[size]}
         color="blue300"
+        dataTestId="ProjectDescriptionContent"
       >
         {description}
       </Text>

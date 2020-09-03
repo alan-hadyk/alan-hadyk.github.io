@@ -17,6 +17,7 @@ const Project = ({
   title
 }: ProjectProps): JSX.Element => (
   <SpacingContainer
+    dataCy="Project"
     dataTestId="Project"
     marginLeft="auto"
     marginRight="auto"
