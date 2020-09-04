@@ -23,8 +23,8 @@ describe("organisms / Project", () => {
       ProjectTv
     } = setup();
 
-    expect(ProjectContainer.children[0]).toEqual(ProjectDesktop);
-    expect(ProjectContainer.children[1]).toEqual(ProjectTv);
+    expect(ProjectContainer.children[0]).toEqual(ProjectTv);
+    expect(ProjectContainer.children[1]).toEqual(ProjectDesktop);
     expect(ProjectContainer.children[2]).toEqual(ProjectTablet);
     expect(ProjectContainer.children[3]).toEqual(ProjectMobile);
   });

@@ -57,7 +57,7 @@ const ProjectDescriptionContent = ({
       <Text
         {...mapSizeToProjectDescriptionContentProps[size]}
         color="blue300"
-        dataTestId="ProjectDescriptionContent"
+        dataTestId="ProjectDescriptionText"
       >
         {description}
       </Text>

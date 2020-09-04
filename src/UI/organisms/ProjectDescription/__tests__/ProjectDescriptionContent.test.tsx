@@ -13,147 +13,149 @@ describe("organisms / ProjectDescriptionContent", () => {
   test("should have correct structure", () => {
     const {
       ProjectDescriptionContentContainer,
-      SpacingContainer,
-      Texts
+      ProjectDescriptionText,
+      ProjectDescriptionTitle,
+      SpacingContainer
+
     } = setup();
 
-    expect(ProjectDescriptionContentContainer.children[0]).toEqual(Texts[0]);
+    expect(ProjectDescriptionContentContainer.children[0]).toEqual(ProjectDescriptionTitle);
     expect(ProjectDescriptionContentContainer.children[1]).toEqual(SpacingContainer);
-    expect(SpacingContainer.children[0]).toEqual(Texts[1]);
+    expect(SpacingContainer.children[0]).toEqual(ProjectDescriptionText);
   });
 
   describe("Texts", () => { 
-    describe("Text[0]", () => {
+    describe("TProjectDescriptionTitle", () => {
       test("should render textContent equal to title prop", () => {
-        const { Texts } = setup({
+        const { ProjectDescriptionTitle } = setup({
           title: "New project"
         });
   
-        expect(Texts[0].textContent).toEqual("New project");
+        expect(ProjectDescriptionTitle.textContent).toEqual("New project");
       });
 
       describe("Props", () => {
         describe("color", () => {
           test("should have #fff", () => {
-            const { Texts } = setup();
+            const { ProjectDescriptionTitle } = setup();
       
-            expect(Texts[0]).toHaveStyleRule("color", "#fff");
+            expect(ProjectDescriptionTitle).toHaveStyleRule("color", "#fff");
           });
         });
   
         describe("fontFamily", () => {
           test("should have ExanModifiedRegular, monospace", () => {
-            const { Texts } = setup();
+            const { ProjectDescriptionTitle } = setup();
 
-            expect(Texts[0]).toHaveStyleRule("font-family", "ExanModifiedRegular,monospace");
+            expect(ProjectDescriptionTitle).toHaveStyleRule("font-family", "ExanModifiedRegular,monospace");
           });
         });
   
         describe("fontSize", () => {
           test("should have 48px if size is large", () => {
-            const { Texts } = setup({
+            const { ProjectDescriptionTitle } = setup({
               size: "large"
             });
       
-            expect(Texts[0]).toHaveStyleRule("font-size", "48px");
+            expect(ProjectDescriptionTitle).toHaveStyleRule("font-size", "48px");
           });
 
           test("should have 28px if size is small", () => {
-            const { Texts } = setup({
+            const { ProjectDescriptionTitle } = setup({
               size: "small"
             });
       
-            expect(Texts[0]).toHaveStyleRule("font-size", "28px");
+            expect(ProjectDescriptionTitle).toHaveStyleRule("font-size", "28px");
           });
         });
 
         describe("lineHeight", () => {
           test("should have 4.8rem if size is large", () => {
-            const { Texts } = setup({
+            const { ProjectDescriptionTitle } = setup({
               size: "large"
             });
       
-            expect(Texts[0]).toHaveStyleRule("line-height", "4.8rem");
+            expect(ProjectDescriptionTitle).toHaveStyleRule("line-height", "4.8rem");
           });
 
           test("should have 2.4rem if size is small", () => {
-            const { Texts } = setup({
+            const { ProjectDescriptionTitle } = setup({
               size: "small"
             });
       
-            expect(Texts[0]).toHaveStyleRule("line-height", "2.4rem");
+            expect(ProjectDescriptionTitle).toHaveStyleRule("line-height", "2.4rem");
           });
         });
 
         describe("textTransform", () => {
           test("should have lowercase", () => {
-            const { Texts } = setup();
+            const { ProjectDescriptionTitle } = setup();
       
-            expect(Texts[0]).toHaveStyleRule("text-transform", "lowercase");
+            expect(ProjectDescriptionTitle).toHaveStyleRule("text-transform", "lowercase");
           });
         });
       });
     });
 
-    describe("Text[1]", () => {
+    describe("ProjectDescriptionText", () => {
       test("should render textContent equal to description prop", () => {
-        const { Texts } = setup({
+        const { ProjectDescriptionText } = setup({
           description: "Project description"
         });
   
-        expect(Texts[1].textContent).toEqual("Project description");
+        expect(ProjectDescriptionText.textContent).toEqual("Project description");
       });
 
       describe("Props", () => {
         describe("color", () => {
           test("should have #78b0b5", () => {
-            const { Texts } = setup();
+            const { ProjectDescriptionText } = setup();
       
-            expect(Texts[1]).toHaveStyleRule("color", "#78b0b5");
+            expect(ProjectDescriptionText).toHaveStyleRule("color", "#78b0b5");
           });
         });
   
         describe("font-family", () => {
           test("should have 'Anonymous Pro',monospace", () => {
-            const { Texts } = setup();
+            const { ProjectDescriptionText } = setup();
 
-            expect(Texts[1]).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
+            expect(ProjectDescriptionText).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
           });
         });
 
         describe("fontSize", () => {
           test("should have 24px", () => {
-            const { Texts } = setup({
+            const { ProjectDescriptionText } = setup({
               size: "large"
             });
       
-            expect(Texts[1]).toHaveStyleRule("font-size", "24px");
+            expect(ProjectDescriptionText).toHaveStyleRule("font-size", "24px");
           });
 
           test("should have 20px", () => {
-            const { Texts } = setup({
+            const { ProjectDescriptionText } = setup({
               size: "small"
             });
       
-            expect(Texts[1]).toHaveStyleRule("font-size", "20px");
+            expect(ProjectDescriptionText).toHaveStyleRule("font-size", "20px");
           });
         });
 
         describe("lineHeight", () => {
           test("should have 3.2rem", () => {
-            const { Texts } = setup({
+            const { ProjectDescriptionText } = setup({
               size: "large"
             });
       
-            expect(Texts[1]).toHaveStyleRule("line-height", "3.2rem");
+            expect(ProjectDescriptionText).toHaveStyleRule("line-height", "3.2rem");
           });
 
           test("should have 2.4rem", () => {
-            const { Texts } = setup({
+            const { ProjectDescriptionText } = setup({
               size: "small"
             });
       
-            expect(Texts[1]).toHaveStyleRule("line-height", "2.4rem");
+            expect(ProjectDescriptionText).toHaveStyleRule("line-height", "2.4rem");
           });
         });
       });
@@ -183,8 +185,9 @@ describe("organisms / ProjectDescriptionContent", () => {
 
 interface Setup extends RenderResult {
   ProjectDescriptionContentContainer: Element;
+  ProjectDescriptionText: Element;
+  ProjectDescriptionTitle: Element;
   SpacingContainer: Element;
-  Texts: Element[];
 }
 
 type ProjectDescriptionContentTestProps = Partial<ProjectDescriptionContentProps>;
@@ -201,17 +204,19 @@ function setup(additionalProps?: ProjectDescriptionContentTestProps): Setup {
     <ProjectDescriptionContent {...props} />
   );
 
-  const { queryAllByTestId, queryByTestId } = utils || {};
+  const { queryAllByTestId } = utils || {};
 
-  const SpacingContainer: Element = queryByTestId("TitleWithDescriptionSpacingContainer");
-  const ProjectDescriptionContentContainer: Element = queryByTestId("ProjectDescriptionContent");
-  const Texts: Element[] = queryAllByTestId("Text");
+  const ProjectDescriptionContentContainer: Element = queryAllByTestId("ProjectDescriptionContent")[0];
+  const ProjectDescriptionTitle: Element = queryAllByTestId("ProjectDescriptionTitle")[0];
+  const ProjectDescriptionText: Element = queryAllByTestId("ProjectDescriptionText")[0];
+  const SpacingContainer: Element = queryAllByTestId("TitleWithDescriptionSpacingContainer")[0];
 
   return {
     ...utils,
     ProjectDescriptionContentContainer,
-    SpacingContainer,
-    Texts
+    ProjectDescriptionText,
+    ProjectDescriptionTitle,
+    SpacingContainer
   };
 }
  

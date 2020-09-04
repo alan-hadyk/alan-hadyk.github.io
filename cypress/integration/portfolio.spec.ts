@@ -41,7 +41,7 @@ describe("Portfolio", () => {
               .should("be.visible")
               .should("contain", "Roland tb 303");
 
-            cy.get("[data-testid='ProjectDescriptionContent']")
+            cy.get("[data-testid='ProjectDescriptionText']")
               .should("be.visible")
               .should("contain", "A tribute to an iconic bass synthesizer released by Roland Corporation in 1981.");
 
@@ -173,7 +173,7 @@ describe("Portfolio", () => {
               .should("be.visible")
               .should("contain", "Roland tb 303");
 
-            cy.get("[data-testid='ProjectDescriptionContent']")
+            cy.get("[data-testid='ProjectDescriptionText']")
               .should("be.visible")
               .should("contain", "A tribute to an iconic bass synthesizer released by Roland Corporation in 1981.");
 
