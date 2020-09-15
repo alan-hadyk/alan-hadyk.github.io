@@ -87,6 +87,20 @@ describe("organisms / CompanyDescription", () => {
           });
         });
 
+        describe("textAlign", () => {
+          test("should have left by default", () => {
+            expect(MainTitle).toHaveStyleRule("text-align", "left");
+          });
+
+          test("should have proper value passed via textAlign props", () => {
+            const { MainTitle } = setup({
+              textAlign: "center"
+            });
+
+            expect(MainTitle).toHaveStyleRule("text-align", "center");
+          });
+        });
+
         describe("textTransform", () => {
           test("should have uppercase", () => {
             expect(MainTitle).toHaveStyleRule("text-transform", "uppercase");

@@ -13,6 +13,7 @@ function CompanyDescription({
   date,
   iconsWithLabels,
   responsibilities,
+  textAlign = "left",
   title
 }: CompanyDescriptionProps): JSX.Element {
   const renderTitleAndDate = useCallback((): JSX.Element => (
@@ -23,6 +24,7 @@ function CompanyDescription({
         fontFamily="Exan"
         fontSize="font36"
         lineHeight="spacing48"
+        textAlign={textAlign}
         textTransform="uppercase"
       >
         {title}
@@ -40,7 +42,7 @@ function CompanyDescription({
         />
       </SpacingContainer>
     </Fragment>
-  ), [date, title]);
+  ), [date, textAlign, title]);
 
   return (
     <CompanyDescription.Container
@@ -113,8 +115,6 @@ function CompanyDescription({
       </SpacingContainer>
     );
   }
-
-
 }
 
 CompanyDescription.Container = styled.div``;

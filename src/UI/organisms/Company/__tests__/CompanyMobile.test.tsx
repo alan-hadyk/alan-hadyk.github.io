@@ -1,240 +1,121 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import Company from "<organisms>/Company";
+import CompanyMobile from "<organisms>/Company/CompanyMobile";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
   CompanyProps
-} from "<organisms>/__typings__/Company.d.ts";
+} from "<organisms>/Company/__typings__/Company.d.ts";
 
-describe("organisms / Company", () => {
+jest.mock("<hooks>/useIntersectionObserver");
+
+describe("organisms / CompanyMobile", () => {
   test("should have correct structure", () => {
     const {
-      CompanyContainer,
       CompanyDescription,
-      CompanyInnerFlexContainer,
-      CompanyPositionContainer,
-      FlexItem,
-      Logo,
-      LogoFlexContainer,
-      Timeline,
-      TimelinePositionContainer
+      CompanyLogo,
+      FlexContainer,
+      ResponsiveMobile
     } = setup();
 
-    expect(CompanyContainer.children[0]).toEqual(CompanyPositionContainer);
-
-    expect(CompanyPositionContainer.children[0]).toEqual(TimelinePositionContainer);
-    expect(CompanyPositionContainer.children[1]).toEqual(CompanyInnerFlexContainer);
-
-    expect(TimelinePositionContainer.children[0]).toEqual(Timeline);
-
-    expect(CompanyInnerFlexContainer.children[0]).toEqual(FlexItem[0]);
-    expect(CompanyInnerFlexContainer.children[1]).toEqual(FlexItem[1]);
-
-    expect(FlexItem[0].children[0]).toEqual(LogoFlexContainer);
-    expect(LogoFlexContainer.children[0]).toEqual(Logo);
-
-    expect(FlexItem[1].children[0]).toEqual(CompanyDescription);
+    expect(ResponsiveMobile.children[0]).toEqual(FlexContainer);
+    expect(FlexContainer.children[0]).toEqual(CompanyLogo);
+    expect(FlexContainer.children[1]).toEqual(CompanyDescription);
   });
 
-  describe("CompanyPositionContainer", () => {
+  describe("ResponsiveMobile", () => {
     describe("Props", () => {
-      let CompanyPositionContainer: Element;
-
-      beforeEach(() => {
-        CompanyPositionContainer = setup().CompanyPositionContainer;
-      });
-
-      describe("position", () => {
-        test("should have relative", () => {
-          expect(CompanyPositionContainer).toHaveStyleRule("position", "relative");
+      describe("devices", () => {      
+        describe("should have mobile", () => {
+          test("should have display block when max-width is 640px", () => {
+            const { ResponsiveMobile } = setup();
+      
+            expect(ResponsiveMobile).toHaveStyleRule("display", "block", {
+              media: "(max-width:640px)"
+            });
+          });
         });
       });
     });
   });
-  
-  describe("TimelinePositionContainer", () => {
+
+  describe("FlexContainer", () => {
     describe("Props", () => {
-      let TimelinePositionContainer: Element;
+      describe("alignItems", () => {  
+        test("should have center", () => {
+          const { FlexContainer } = setup();
 
-      beforeEach(() => {
-        TimelinePositionContainer = setup().TimelinePositionContainer;
-      });
-
-      describe("bottom", () => {
-        test("should have -1.6rem", () => {
-          expect(TimelinePositionContainer).toHaveStyleRule("bottom", "-1.6rem");
+          expect(FlexContainer).toHaveStyleRule("align-items", "center");
         });
       });
 
-      describe("left", () => {
-        test("should have 50%", () => {
-          expect(TimelinePositionContainer).toHaveStyleRule("left", "50%");
-        });
-      });
+      describe("flexFlow", () => {  
+        test("should have column nowrap", () => {
+          const { FlexContainer } = setup();
 
-      describe("position", () => {
-        test("should have absolute", () => {
-          expect(TimelinePositionContainer).toHaveStyleRule("position", "absolute");
-        });
-      });
-
-      describe("top", () => {
-        test("should have 1.6rem", () => {
-          expect(TimelinePositionContainer).toHaveStyleRule("top", "1.6rem");
-        });
-      });
-
-      describe("transform", () => {
-        test("should have translateX(-50%)", () => {
-          expect(TimelinePositionContainer).toHaveStyleRule("transform", "translateX(-50%)");
-        });
-      });
-
-    });
-  });
-  
-  describe("Timeline", () => {
-    test("should render", () => {
-      const { Timeline } = setup();
-
-      expect(Timeline).toHaveStyleRule("height", "100%");
-      expect(Timeline).toHaveStyleRule("position", "relative");
-      expect(Timeline).toHaveStyleRule("width", "1.6rem");
-      expect(Timeline.children[1]).toHaveStyleRule("background-color", "#78b0b5");
-      expect(Timeline.children[1]).toHaveStyleRule("bottom", "0");
-      expect(Timeline.children[1]).toHaveStyleRule("left", "50%");
-      expect(Timeline.children[1]).toHaveStyleRule("position", "absolute");
-      expect(Timeline.children[1]).toHaveStyleRule("top", "0");
-      expect(Timeline.children[1]).toHaveStyleRule("transform", "translateX(-50%)");
-      expect(Timeline.children[1]).toHaveStyleRule("width", ".2rem");
-    });
-  });
-
-  describe("CompanyInnerFlexContainer", () => {
-    describe("Props", () => {
-      let CompanyInnerFlexContainer: Element;
-
-      beforeEach(() => {
-        CompanyInnerFlexContainer = setup().CompanyInnerFlexContainer;
-      });
-
-      describe("alignItems", () => {
-        test("should have flex-start", () => {
-          expect(CompanyInnerFlexContainer).toHaveStyleRule("align-items", "flex-start");
-        });
-      });
-
-      describe("flexFlow", () => {
-        test("should have row nowrap", () => {
-          expect(CompanyInnerFlexContainer).toHaveStyleRule("flex-flow", "row nowrap");
+          expect(FlexContainer).toHaveStyleRule("flex-flow", "column nowrap");
         });
       });
 
       describe("gap", () => {
-        test("should apply margin-left equal to 8.8rem to all children except the first one", () => {
-          expect(CompanyInnerFlexContainer).toHaveStyleRule("margin-left", "8.8rem", {
+        test("should have margin-top: 4.8rem for all children (except first)", () => {
+          const { FlexContainer } = setup();
+
+          expect(FlexContainer).toHaveStyleRule("margin-top", "4.8rem", {
             modifier: "& > *"
           });
-          expect(CompanyInnerFlexContainer).toHaveStyleRule("margin-left", "0", {
+
+          expect(FlexContainer).toHaveStyleRule("margin-top", "0", {
             modifier: "& > *:first-child"
           });
         });
       });
 
-      describe("maxWidth", () => {
+      describe("maxWidth", () => {  
         test("should have 105.6rem", () => {
-          expect(CompanyInnerFlexContainer).toHaveStyleRule("max-width", "105.6rem");
+          const { FlexContainer } = setup();
+
+          expect(FlexContainer).toHaveStyleRule("max-width", "105.6rem");
         });
       });
     });
   });
 
-  describe("FlexItem", () => {
-    let FlexItem: Element[];
-
-    beforeEach(() => {
-      FlexItem = setup().FlexItem;
-    });
-
-    describe("FlexItem[0]", () => {
-      describe("Props", () => {
-        describe("flex", () => {
-          test("should have 0 0 50%", () => {
-            expect(FlexItem[0]).toHaveStyleRule("flex", "0 0 50%");
-          });
-        });
-      });
-    });
-
-    describe("FlexItem[1]", () => {
-      describe("Props", () => {
-        describe("flex", () => {
-          test("should have 0 0 50%", () => {
-            expect(FlexItem[1]).toHaveStyleRule("flex", "0 0 50%");
-          });
-        });
-      });
-    });
-  });
-
-  describe("LogoFlexContainer", () => {
-    describe("Props", () => {
-      let LogoFlexContainer: Element;
-
-      beforeEach(() => {
-        LogoFlexContainer = setup().LogoFlexContainer;
-      });
-
-      describe("alignItems", () => {
-        test("should have flex-start", () => {
-          expect(LogoFlexContainer).toHaveStyleRule("align-items", "flex-start");
-        });
-      });
-
-      describe("justifyContent", () => {
-        test("should have flex-end", () => {
-          expect(LogoFlexContainer).toHaveStyleRule("justify-content", "flex-end");
-        });
-      });
-    });
-  });
-
-  describe("Logo", () => {
+  describe("CompanyLogo", () => {
     describe("Props", () => {
       describe("height", () => {
         test("should have 4.8rem", () => {
-          const { Logo } = setup();
+          const { CompanyLogo } = setup();
 
-          expect(Logo).toHaveStyleRule("height", "4.8rem");
+          expect(CompanyLogo.children[0]).toHaveStyleRule("height", "4.8rem");
         });
       });
 
       describe("iconName", () => {
         test("should have Icon-Apollo.svg when prop logo: apollo", () => {
-          const { Logo } = setup({
+          const { CompanyLogo } = setup({
             logo: "apollo"
           });
 
-          expect(Logo.textContent).toEqual("Icon-Apollo.svg");
+          expect(CompanyLogo.children[0].textContent).toEqual("Icon-Apollo.svg");
         });
 
         test("should have Company-Omise.svg when prop logo: companyOmise", () => {
-          const { Logo } = setup({
+          const { CompanyLogo } = setup({
             logo: "companyOmise"
           });
 
-          expect(Logo.textContent).toEqual("Company-Omise.svg");
+          expect(CompanyLogo.children[0].textContent).toEqual("Company-Omise.svg");
         });
 
         test("should have Brand-JS.svg when prop logo: brandJS", () => {
-          const { Logo } = setup({
+          const { CompanyLogo } = setup({
             logo: "brandJS"
           });
 
-          expect(Logo.textContent).toEqual("Brand-JS.svg");
+          expect(CompanyLogo.children[0].textContent).toEqual("Brand-JS.svg");
         });
       });
 
@@ -242,9 +123,9 @@ describe("organisms / Company", () => {
         describe("svg", () => {
           describe("height", () => {
             test("should have 100%", () => {
-              const { Logo } = setup();
+              const { CompanyLogo } = setup();
 
-              expect(Logo).toHaveStyleRule("height", "100%", {
+              expect(CompanyLogo.children[0]).toHaveStyleRule("height", "100%", {
                 modifier: "svg"
               });
             });
@@ -252,9 +133,9 @@ describe("organisms / Company", () => {
 
           describe("width", () => {
             test("should have auto", () => {
-              const { Logo } = setup();
+              const { CompanyLogo } = setup();
 
-              expect(Logo).toHaveStyleRule("width", "auto", {
+              expect(CompanyLogo.children[0]).toHaveStyleRule("width", "auto", {
                 modifier: "svg"
               });
             });
@@ -390,15 +271,10 @@ describe("organisms / Company", () => {
 });
 
 interface Setup extends RenderResult {
-  CompanyContainer: Element;
   CompanyDescription: Element;
-  CompanyInnerFlexContainer: Element;
-  CompanyPositionContainer: Element;
-  FlexItem: Element[];
-  Logo: Element;
-  LogoFlexContainer: Element;
-  Timeline: Element;
-  TimelinePositionContainer: Element;
+  CompanyLogo: Element;
+  FlexContainer: Element;
+  ResponsiveMobile: Element;
 }
 
 type CompanyTestProps = Partial<CompanyProps>;
@@ -430,32 +306,21 @@ function setup(additionalProps?: CompanyTestProps): Setup {
   };
 
   const utils: RenderResult = renderWithTheme(
-    <Company {...props} />
+    <CompanyMobile {...props} />
   );
 
-  const { queryAllByTestId } = utils || {};
-  
-  const CompanyContainer: Element = queryAllByTestId("Company")[0];
-  const CompanyDescription: Element = queryAllByTestId("CompanyDescription")[0];
-  const CompanyInnerFlexContainer: Element = queryAllByTestId("CompanyInnerFlexContainer")[0];
-  const CompanyPositionContainer: Element = queryAllByTestId("CompanyPositionContainer")[0];
-  const FlexItem: Element[] = queryAllByTestId("FlexItem");
-  const Logo: Element = queryAllByTestId("Logo")[0];
-  const LogoFlexContainer: Element = queryAllByTestId("LogoFlexContainer")[0];
-  const TimelinePositionContainer: Element = queryAllByTestId("TimelinePositionContainer")[0];
-  const Timeline: Element = queryAllByTestId("Timeline")[0];
+  const { queryByTestId } = utils || {};
+
+  const CompanyDescription: Element = queryByTestId("CompanyDescription");
+  const CompanyLogo: Element = queryByTestId("CompanyLogoFlexContainer");
+  const FlexContainer: Element = queryByTestId("CompanyMobileFlexContainer");
+  const ResponsiveMobile: Element = queryByTestId("ResponsiveMobile");
 
   return {
     ...utils,
-    CompanyContainer,
     CompanyDescription,
-    CompanyInnerFlexContainer,
-    CompanyPositionContainer,
-    FlexItem,
-    Logo,
-    LogoFlexContainer,
-    Timeline,
-    TimelinePositionContainer
+    CompanyLogo,
+    FlexContainer,
+    ResponsiveMobile
   };
 }
- 
