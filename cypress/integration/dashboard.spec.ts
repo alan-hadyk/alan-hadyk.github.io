@@ -1,19 +1,23 @@
 // eslint-disable-next-line @typescript-eslint/triple-slash-reference
 /// <reference path="../support/index.d.ts" />
 
+import commits from "../fixtures/commits";
+
 describe("Dashboard", () => {
+  beforeEach(() => {
+    cy.visit("/", {
+      onBeforeLoad: (win) => {
+        cy.stub(win, "fetch").withArgs("https://api.github.com/repos/alan-hadyk/portfolio/commits")
+          .resolves({
+            json: () => commits,
+            ok: true
+          });
+      }
+    });
+  });
+
   describe("TV", () => {    
     beforeEach(() => {
-      cy.visit("/", {
-        onBeforeLoad: (win) => {
-          cy.stub(win, "fetch").withArgs("https://api.github.com/repos/alan-hadyk/portfolio/commits")
-            .resolves({
-              json: () => [],
-              ok: true
-            });
-        }
-      });
-
       cy.viewport(1681, 900);
     });
 
@@ -25,11 +29,26 @@ describe("Dashboard", () => {
             .should("be.visible")
             .find("[data-testid='DashboardElementTitleText']")
             .should("contain", "Tech Stack");
-  
+
+          cy.dataCy("TechStack")
+            .within(() => {
+              cy.dataCy("react").should("be.visible");
+              cy.dataCy("javascript").should("be.visible");
+              cy.dataCy("typescript").should("be.visible");
+              cy.dataCy("webpack").should("be.visible");
+              cy.dataCy("node").should("be.visible");
+              cy.dataCy("apollo").should("be.visible");
+            });
+
           cy.dataCy("Flux")
             .should("be.visible")
             .find("[data-testid='DashboardElementTitleText']")
             .should("contain", "Flux");
+
+          cy.dataCy("Flux")
+            .within(() => {
+              cy.get("svg[id='flow-chart']").should("be.visible");
+            });
 
           cy.dataCy("Code")
             .should("be.visible")
@@ -55,31 +74,41 @@ describe("Dashboard", () => {
             .find("[data-testid='DashboardElementTitleText']")
             .should("contain", "Powered by");
 
+          cy.dataCy("PoweredBy")
+            .within(() => {
+              cy.dataCy("reactLogo").should("be.visible");
+            });
+
           cy.dataCy("UserAgent")
             .should("be.visible")
             .find("[data-testid='DashboardElementTitleText']")
             .should("contain", "User Agent");
 
+          cy.dataCy("UserAgent")
+            .within(() => {
+              cy.dataCy("chrome").should("be.visible");
+              cy.dataCy("firefox").should("be.visible");
+              cy.dataCy("ie").should("be.visible");
+              cy.dataCy("opera").should("be.visible");
+              cy.dataCy("safari").should("be.visible");
+              cy.dataCy("unknown").should("be.visible");
+            });
+
           cy.dataCy("Ip")
             .should("be.visible")
             .find("[data-testid='DashboardElementTitleText']")
             .should("contain", "IP: 127.0.0.1");
+
+          cy.dataCy("Ip")
+            .within(() => {
+              cy.dataCy("earth").should("be.visible");
+            });
         });
     });
   });
 
   describe("Desktop", () => {    
     beforeEach(() => {
-      cy.visit("/", {
-        onBeforeLoad: (win) => {
-          cy.stub(win, "fetch").withArgs("https://api.github.com/repos/alan-hadyk/portfolio/commits")
-            .resolves({
-              json: () => [],
-              ok: true
-            });
-        }
-      });
-      
       cy.viewport(1281, 900);
     });
 
@@ -92,10 +121,25 @@ describe("Dashboard", () => {
             .find("[data-testid='DashboardElementTitleText']")
             .should("contain", "Tech Stack");
   
+          cy.dataCy("TechStack")
+            .within(() => {
+              cy.dataCy("react").should("be.visible");
+              cy.dataCy("javascript").should("be.visible");
+              cy.dataCy("typescript").should("be.visible");
+              cy.dataCy("webpack").should("be.visible");
+              cy.dataCy("node").should("be.visible");
+              cy.dataCy("apollo").should("be.visible");
+            });
+
           cy.dataCy("Flux")
             .should("be.visible")
             .find("[data-testid='DashboardElementTitleText']")
             .should("contain", "Flux");
+
+          cy.dataCy("Flux")
+            .within(() => {
+              cy.get("svg[id='flow-chart']").should("be.visible");
+            });
 
           cy.dataCy("Code")
             .should("be.visible")
@@ -121,31 +165,41 @@ describe("Dashboard", () => {
             .find("[data-testid='DashboardElementTitleText']")
             .should("contain", "Powered by");
 
+          cy.dataCy("PoweredBy")
+            .within(() => {
+              cy.dataCy("reactLogo").should("be.visible");
+            });
+
           cy.dataCy("UserAgent")
             .should("be.visible")
             .find("[data-testid='DashboardElementTitleText']")
             .should("contain", "User Agent");
 
+          cy.dataCy("UserAgent")
+            .within(() => {
+              cy.dataCy("chrome").should("be.visible");
+              cy.dataCy("firefox").should("be.visible");
+              cy.dataCy("ie").should("be.visible");
+              cy.dataCy("opera").should("be.visible");
+              cy.dataCy("safari").should("be.visible");
+              cy.dataCy("unknown").should("be.visible");
+            });
+
           cy.dataCy("Ip")
             .should("be.visible")
             .find("[data-testid='DashboardElementTitleText']")
             .should("contain", "IP: 127.0.0.1");
+
+          cy.dataCy("Ip")
+            .within(() => {
+              cy.dataCy("earth").should("be.visible");
+            });
         });
     });
   });
 
   describe("Tablet", () => {    
     beforeEach(() => {
-      cy.visit("/", {
-        onBeforeLoad: (win) => {
-          cy.stub(win, "fetch").withArgs("https://api.github.com/repos/alan-hadyk/portfolio/commits")
-            .resolves({
-              json: () => [],
-              ok: true
-            });
-        }
-      });
-
       cy.viewport(641, 900);
     });
 
@@ -158,6 +212,16 @@ describe("Dashboard", () => {
             .find("[data-testid='DashboardElementTitleText']")
             .should("contain", "Tech Stack");
   
+          cy.dataCy("TechStack")
+            .within(() => {
+              cy.dataCy("react").should("be.visible");
+              cy.dataCy("javascript").should("be.visible");
+              cy.dataCy("typescript").should("be.visible");
+              cy.dataCy("webpack").should("be.visible");
+              cy.dataCy("node").should("be.visible");
+              cy.dataCy("apollo").should("be.visible");
+            });
+
           cy.dataCy("Flux")
             .should("not.be.visible");
 
@@ -182,6 +246,11 @@ describe("Dashboard", () => {
             .should("be.visible")
             .find("[data-testid='DashboardElementTitleText']")
             .should("contain", "Powered by");
+
+          cy.dataCy("PoweredBy")
+            .within(() => {
+              cy.dataCy("reactLogo").should("be.visible");
+            });
 
           cy.dataCy("UserAgent")
             .should("not.be.visible");
@@ -216,6 +285,16 @@ describe("Dashboard", () => {
             .find("[data-testid='DashboardElementTitleText']")
             .should("contain", "Tech Stack");
   
+          cy.dataCy("TechStack")
+            .within(() => {
+              cy.dataCy("react").should("be.visible");
+              cy.dataCy("javascript").should("be.visible");
+              cy.dataCy("typescript").should("be.visible");
+              cy.dataCy("webpack").should("be.visible");
+              cy.dataCy("node").should("be.visible");
+              cy.dataCy("apollo").should("be.visible");
+            });
+
           cy.dataCy("Flux")
             .should("not.be.visible");
 
@@ -240,6 +319,11 @@ describe("Dashboard", () => {
             .should("be.visible")
             .find("[data-testid='DashboardElementTitleText']")
             .should("contain", "Powered by");
+
+          cy.dataCy("PoweredBy")
+            .within(() => {
+              cy.dataCy("reactLogo").should("be.visible");
+            });
 
           cy.dataCy("UserAgent")
             .should("not.be.visible");
