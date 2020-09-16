@@ -12,6 +12,7 @@ import { ShuffleState } from "<hooks>/__typings__/useShuffleText.d.ts";
 function Text({
   children,
   color = "blue300",
+  dataCy,
   dataTestId,
   ellipsis = false,
   fontFamily = "AnonymousPro",
@@ -54,6 +55,7 @@ function Text({
   return (
     <Text.Container
       color={color}
+      data-cy={dataCy}
       data-testid={dataTestId || "Text"}
       ellipsis={ellipsis}
       fontFamily={fontFamily}

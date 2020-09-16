@@ -5,6 +5,7 @@ import {
 } from "<atoms>/__typings__/Icon.d.ts";
 
 export interface CompanyProps extends CompanyDescriptionProps {
+  dataCy?: string;
   dataTestId?: string;
   logo: IconProps["iconName"];
 }

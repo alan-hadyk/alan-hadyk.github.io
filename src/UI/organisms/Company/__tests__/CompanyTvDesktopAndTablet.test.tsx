@@ -5,9 +5,7 @@ import CompanyTvDesktopAndTablet from "<organisms>/Company/CompanyTvDesktopAndTa
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  CompanyProps
-} from "<organisms>/Company/__typings__/Company.d.ts";
+import { CompanyProps } from "<organisms>/Company/__typings__/Company.d.ts";
 
 jest.mock("<hooks>/useIntersectionObserver");
 

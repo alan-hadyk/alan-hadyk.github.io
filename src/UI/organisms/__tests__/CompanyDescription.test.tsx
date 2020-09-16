@@ -57,44 +57,49 @@ describe("organisms / CompanyDescription", () => {
       });
 
       describe("Props", () => {
-        let MainTitle: Element;
-
-        beforeEach(() => {
-          MainTitle = setup().MainTitle;
-        });
-
         describe("color", () => {
           test("should have #fff", () => {
+            const { MainTitle } = setup();
+
             expect(MainTitle).toHaveStyleRule("color", "#fff");
           });
         });
   
         describe("fontFamily", () => {
           test("should have ExanModifiedRegular, monospace", () => {
+            const { MainTitle } = setup();
+
             expect(MainTitle).toHaveStyleRule("font-family", "ExanModifiedRegular,monospace");
           });
         });
   
         describe("fontSize", () => {
           test("should have 36px", () => {
+            const { MainTitle } = setup();
+
             expect(MainTitle).toHaveStyleRule("font-size", "36px");
           });
         });
 
         describe("lineHeight", () => {
           test("should have 4.8rem", () => {
+            const { MainTitle } = setup();
+
             expect(MainTitle).toHaveStyleRule("line-height", "4.8rem");
           });
         });
 
         describe("textAlign", () => {
           test("should have left by default", () => {
+            const { MainTitle } = setup();
+
             expect(MainTitle).toHaveStyleRule("text-align", "left");
           });
 
           test("should have proper value passed via textAlign props", () => {
             const { MainTitle } = setup({
-              textAlign: "center"
+              textAlign: "center",
+              title: "Self employed"
             });
 
             expect(MainTitle).toHaveStyleRule("text-align", "center");
@@ -103,6 +108,8 @@ describe("organisms / CompanyDescription", () => {
 
         describe("textTransform", () => {
           test("should have uppercase", () => {
+            const { MainTitle } = setup();
+
             expect(MainTitle).toHaveStyleRule("text-transform", "uppercase");
           });
         });

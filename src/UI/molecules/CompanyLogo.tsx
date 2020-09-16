@@ -10,10 +10,12 @@ const CompanyLogo = ({
 }: CompanyLogoProps): JSX.Element => (
   <FlexContainer
     alignItems="flex-start"
+    dataCy="CompanyLogo"
     dataTestId="CompanyLogoFlexContainer"
     justifyContent="flex-end"
   >
     <Icon
+      dataTestId="Logo"
       height="spacing48"
       iconName={logo}
       isHeightResponsive

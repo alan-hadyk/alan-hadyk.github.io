@@ -9,6 +9,7 @@ import PositionContainer from "<layout>/PositionContainer";
 import { CompanyProps } from "<organisms>/Company/__typings__/Company.d.ts";
 
 const Company = ({
+  dataCy,
   dataTestId,
   date,
   iconsWithLabels,
@@ -16,7 +17,10 @@ const Company = ({
   responsibilities,
   title
 }: CompanyProps): JSX.Element => (
-  <FlexContainer dataTestId={dataTestId || "Company"}>
+  <FlexContainer
+    dataCy={dataCy}
+    dataTestId={dataTestId || "Company"}
+  >
     <PositionContainer
       dataTestId="CompanyPositionContainer"
       position="relative"

@@ -12,11 +12,11 @@ describe("molecules / CompanyLogo", () => {
     const { 
       CompanyLogoFlexContainer,
       Icon,
-      IconContainer
+      Logo
     } = setup();
 
-    expect(CompanyLogoFlexContainer.children[0]).toEqual(IconContainer);
-    expect(IconContainer.children[0]).toEqual(Icon);
+    expect(CompanyLogoFlexContainer.children[0]).toEqual(Logo);
+    expect(Logo.children[0]).toEqual(Icon);
   });
 
   describe("FlexContainer", () => {
@@ -51,18 +51,18 @@ describe("molecules / CompanyLogo", () => {
     describe("Props", () => {
       describe("height", () => { 
         test("should have 4.8rem", () => {
-          const { IconContainer } = setup();
+          const { Logo } = setup();
 
-          expect(IconContainer).toHaveStyleRule("height", "4.8rem");
+          expect(Logo).toHaveStyleRule("height", "4.8rem");
         });
       });
 
       describe("isHeightResponsive", () => {
         describe("height", () => {
           test("should have 100%", () => {
-            const { IconContainer } = setup();
+            const { Logo } = setup();
       
-            expect(IconContainer).toHaveStyleRule("height", "100%", {
+            expect(Logo).toHaveStyleRule("height", "100%", {
               modifier: "svg"
             });
           });
@@ -70,9 +70,9 @@ describe("molecules / CompanyLogo", () => {
 
         describe("width", () => {
           test("should have auto", () => {
-            const { IconContainer } = setup();
+            const { Logo } = setup();
       
-            expect(IconContainer).toHaveStyleRule("width", "auto", {
+            expect(Logo).toHaveStyleRule("width", "auto", {
               modifier: "svg"
             });
           });
@@ -84,8 +84,8 @@ describe("molecules / CompanyLogo", () => {
 
 interface Setup extends RenderResult {
   CompanyLogoFlexContainer: Element;
-  Icon: Element;
-  IconContainer: Element;
+  Icon: SVGSVGElement;
+  Logo: Element;
 }
 
 type CompanyLogoTestProps = Partial<CompanyLogoProps>;
@@ -104,12 +104,12 @@ function setup(additionalProps?: CompanyLogoTestProps): Setup {
 
   const CompanyLogoFlexContainer: Element  = queryAllByTestId("CompanyLogoFlexContainer")[0];
   const Icon: SVGSVGElement = document.querySelector("svg");
-  const IconContainer: Element = queryAllByTestId("IconContainer")[0];
+  const Logo: Element = queryAllByTestId("Logo")[0];
 
   return {
     ...utils,
     CompanyLogoFlexContainer,
     Icon,
-    IconContainer
+    Logo
   };
 }

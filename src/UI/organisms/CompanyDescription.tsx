@@ -20,6 +20,7 @@ function CompanyDescription({
     <Fragment>
       <Text
         color="white"
+        dataCy="CompanyDescriptionMainTitle"
         dataTestId="MainTitle"
         fontFamily="Exan"
         fontSize="font36"
@@ -59,6 +60,7 @@ function CompanyDescription({
   function renderTechStack(): JSX.Element {
     return (
       <SpacingContainer
+        dataCy="CompanyTechStack"
         dataTestId="TechStackSpacingContainer"
         marginBottom="spacing16"
       >
@@ -90,6 +92,7 @@ function CompanyDescription({
   function renderResponsibilities(): JSX.Element {
     return (
       <SpacingContainer
+        dataCy="CompanyResponsibilities"
         dataTestId="ResponsibilitiesSpacingContainer"
         paddingBottom="spacing68"
       >
@@ -101,7 +104,7 @@ function CompanyDescription({
           fontWeight="bold"
           lineHeight="spacing32"
         >
-        Responsibilities
+          Responsibilities
         </Text>
         <SpacingContainer
           dataTestId="ResponsibilitiesListSpacingContainer"
