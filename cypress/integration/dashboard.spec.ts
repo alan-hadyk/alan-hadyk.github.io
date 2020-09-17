@@ -263,16 +263,6 @@ describe("Dashboard", () => {
 
   describe("Mobile", () => {    
     beforeEach(() => {
-      cy.visit("/", {
-        onBeforeLoad: (win) => {
-          cy.stub(win, "fetch").withArgs("https://api.github.com/repos/alan-hadyk/portfolio/commits")
-            .resolves({
-              json: () => [],
-              ok: true
-            });
-        }
-      });
-
       cy.viewport(640, 900);
     });
 
