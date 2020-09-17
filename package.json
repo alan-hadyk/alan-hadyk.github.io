@@ -65,7 +65,7 @@
     "jest-styled-components": "^7.0.2",
     "lodash": "^4.17.20",
     "masonic": "^3.3.3",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "polished": "^3.6.5",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
