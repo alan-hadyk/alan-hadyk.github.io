@@ -16,11 +16,11 @@ describe("pages / Home / sections / experience / ExperienceSection", () => {
       ExperienceSectionContainer
     } = setup();
 
-    expect(ExperienceSectionContainer.children[1]).toEqual(CompanyOmise);
-    expect(ExperienceSectionContainer.children[2]).toEqual(CompanyShiji);
-    expect(ExperienceSectionContainer.children[3]).toEqual(CompanySAP);
-    expect(ExperienceSectionContainer.children[4]).toEqual(CompanyDiH);
-    expect(ExperienceSectionContainer.children[5]).toEqual(CompanyPersonallyEmployed);
+    expect(ExperienceSectionContainer.children[4]).toEqual(CompanyOmise);
+    expect(ExperienceSectionContainer.children[5]).toEqual(CompanyShiji);
+    expect(ExperienceSectionContainer.children[6]).toEqual(CompanySAP);
+    expect(ExperienceSectionContainer.children[7]).toEqual(CompanyDiH);
+    expect(ExperienceSectionContainer.children[8]).toEqual(CompanyPersonallyEmployed);
   });
 
   describe("ExperienceSectionContainer", () => {

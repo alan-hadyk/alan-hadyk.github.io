@@ -16,7 +16,7 @@ describe("Experience", () => {
 
   describe("TV, Desktop, Tablet and Mobile", () => {
     beforeEach(() => {
-      cy.viewport(1681, 900);
+      cy.viewport(1681, 640);
     });
 
     it("should contain title, company Omise, company Shiji, company Sap, Company DiH and personally employment", () => {

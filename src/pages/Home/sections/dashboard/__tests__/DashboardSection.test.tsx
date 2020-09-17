@@ -66,7 +66,7 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
       UserAgent
     } = setup();
 
-    expect(Section.children[0]).toEqual(SpacingContainers[0]);
+    expect(Section.children[4]).toEqual(SpacingContainers[0]);
     expect(SpacingContainers[0].children[0]).toEqual(PositionContainers[0]);
     expect(PositionContainers[0].children[0]).toEqual(FlexContainers[0]);
 

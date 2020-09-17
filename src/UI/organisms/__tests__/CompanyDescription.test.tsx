@@ -98,8 +98,7 @@ describe("organisms / CompanyDescription", () => {
 
           test("should have proper value passed via textAlign props", () => {
             const { MainTitle } = setup({
-              textAlign: "center",
-              title: "Self employed"
+              textAlign: "center"
             });
 
             expect(MainTitle).toHaveStyleRule("text-align", "center");
