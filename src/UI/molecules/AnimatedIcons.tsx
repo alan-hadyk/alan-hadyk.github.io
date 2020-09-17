@@ -34,14 +34,16 @@ function AnimatedIcons(): JSX.Element {
 
   function renderIcons(): JSX.Element[] {
     return animatedIcons.map((icon: IconProps["iconName"]): JSX.Element => (
-      <PositionContainer 
+      <PositionContainer
+        height="100%"
         key={icon}
         position="relative"
         width={`${100 / animatedIcons.length}%`}
       >
         <Icon 
-          height="auto"
-          iconName={icon} 
+          height="100%"
+          iconName={icon}
+          isResponsive
           width="100%"
         />
       </PositionContainer>

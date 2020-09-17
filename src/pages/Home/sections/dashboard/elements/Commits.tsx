@@ -11,10 +11,12 @@ import {
 
 export const Commits = ({ commitsList, hasError }: ListOfCommitsProps): JSX.Element => (
   <DashboardElement
+    dataCy="Commits"
     dataTestId="Commits"
-    flex="0 1 20%"
+    flex="1 0 20%"
     shouldDisplayCorners={hasError}
     title="Commits"
+    titleOverflow="hidden"
   >
     <ListOfCommits commitsList={commitsList} hasError={hasError} />
   </DashboardElement>

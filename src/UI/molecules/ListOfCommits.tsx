@@ -1,14 +1,14 @@
-import React, { memo, Fragment } from "react";
+import React, { memo } from "react";
 import PropTypes from "prop-types";
 import isEmpty from "lodash/isEmpty";
 import isEqual from "lodash/isEqual";
-
-import FlexContainer from "<layout>/FlexContainer";
 
 import Commit from "<molecules>/Commit";
 import Error from "<molecules>/Error";
 
 import transitionTimes from "<styles>/variables/transitionTimes";
+
+import FlexContainer from "<layout>/FlexContainer";
 
 import {
   ListOfCommitsProps,
@@ -31,27 +31,25 @@ function ListOfCommits({ commitsList, hasError }: ListOfCommitsProps): JSX.Eleme
         flexFlow="column nowrap"
         justifyContent="flex-start"
       >
-        <Fragment>
-          {!isEmpty(commitsList) && commitsList.map(({
-            commit,
-            html_url,
-            sha
-          }: CommitProps, index: number): JSX.Element => {
-            const { author } = commit || {};
-            const { date } = author || {};
-            const delay = index * parseInt(transitionTimes.default);
-      
-            return (
-              <Commit
-                date={date}
-                delay={delay}
-                htmlUrl={html_url}
-                key={sha}
-                sha={sha}
-              />
-            );
-          })}
-        </Fragment>
+        {!isEmpty(commitsList) && commitsList.map(({
+          commit,
+          html_url,
+          sha
+        }: CommitProps, index: number): JSX.Element => {
+          const { author } = commit || {};
+          const { date } = author || {};
+          const delay = index * parseInt(transitionTimes.default);
+    
+          return (
+            <Commit
+              date={date}
+              delay={delay}
+              htmlUrl={html_url}
+              key={sha}
+              sha={sha}
+            />
+          );
+        })}
       </FlexContainer>
     );
   }

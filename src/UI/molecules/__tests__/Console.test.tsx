@@ -10,6 +10,7 @@ describe("molecules / Console", () => {
   test("should have correct structure", () => {
     const { 
       ConsoleContainer,
+      ConsoleResponsive,
       ConsoleText,
       InnerPositionContainer,
       OuterPositionContainer,
@@ -18,7 +19,10 @@ describe("molecules / Console", () => {
 
     expect(OuterPositionContainer.children[0]).toEqual(ConsoleContainer);
     expect(ConsoleContainer.children[0]).toEqual(InnerPositionContainer);
-    expect(InnerPositionContainer.children[0]).toEqual(Text);
+    expect(InnerPositionContainer.children[0]).toEqual(ConsoleResponsive[0]);
+    expect(InnerPositionContainer.children[1]).toEqual(ConsoleResponsive[1]);
+    expect(ConsoleResponsive[0].children[0]).toEqual(Text);
+    expect(ConsoleResponsive[1].children[0]).toEqual(Text);
     expect(ConsoleContainer.children[1]).toEqual(ConsoleText);
   });
 
@@ -63,10 +67,18 @@ describe("molecules / Console", () => {
           expect(OuterPositionContainer).toHaveStyleRule("transform", "translateY(-50%)");
         });
       });
+
+      describe("z-index", () => {
+        test("should have 300", () => {
+          const { OuterPositionContainer } = setup();
+
+          expect(OuterPositionContainer).toHaveStyleRule("z-index", "300");
+        });
+      });
     });
   });
 
-  describe("Console.Container", () => {
+  describe("ConsoleContainer", () => {
     describe("Styles", () => {
       describe("align-items", () => {
         test("should have center", () => {
@@ -189,6 +201,30 @@ describe("molecules / Console", () => {
           const { InnerPositionContainer } = setup();
 
           expect(InnerPositionContainer).toHaveStyleRule("transform", "translateY(-100%)");
+        });
+      });
+    });
+  });
+
+  describe("ConsoleResponsive", () => {
+    describe("Props", () => {
+      describe("devices", () => {
+        describe("display", () => {      
+          test("should have block for min-width: 1681px", () => {
+            const { ConsoleResponsive } = setup();
+  
+            expect(ConsoleResponsive[0]).toHaveStyleRule("display", "block", {
+              media: "(min-width:1681px)"
+            });
+          });
+          
+          test("should have block for min-width: 1281px and max-width: 1680px", () => {
+            const { ConsoleResponsive } = setup();
+  
+            expect(ConsoleResponsive[1]).toHaveStyleRule("display", "block", {
+              media: "(min-width:1281px) and (max-width:1680px)"
+            });
+          });
         });
       });
     });
@@ -480,11 +516,11 @@ describe("molecules / Console", () => {
       });
     });
   });
-
 });
 
 interface Setup extends RenderResult {
   ConsoleContainer: Element;
+  ConsoleResponsive: Element[];
   ConsoleText: Element;
   InnerPositionContainer: Element;
   OuterPositionContainer: Element;
@@ -494,18 +530,21 @@ interface Setup extends RenderResult {
 function setup(): Setup {
   const utils: RenderResult = renderWithTheme(
     <Console />
-  );
+  ); 
 
-  const { queryByTestId }: RenderResult = utils;
-  const OuterPositionContainer: Element = queryByTestId("Console");
-  const ConsoleContainer: Element = queryByTestId("ConsoleContainer");
-  const InnerPositionContainer: Element = queryByTestId("InnerPositionContainer");
-  const Text: Element = queryByTestId("Text");
-  const ConsoleText: Element = queryByTestId("ConsoleText");
+  const { queryAllByTestId }: RenderResult = utils;
+
+  const ConsoleContainer: Element = queryAllByTestId("ConsoleContainer")[0];
+  const ConsoleResponsive: Element[] = queryAllByTestId("ConsoleResponsive");
+  const ConsoleText: Element = queryAllByTestId("ConsoleText")[0];
+  const OuterPositionContainer: Element = queryAllByTestId("Console")[0];
+  const InnerPositionContainer: Element = queryAllByTestId("InnerPositionContainer")[0];
+  const Text: Element = queryAllByTestId("Text")[0];
  
   return {
     ...utils,
     ConsoleContainer,
+    ConsoleResponsive,
     ConsoleText,
     InnerPositionContainer,
     OuterPositionContainer,

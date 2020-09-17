@@ -74,6 +74,7 @@ function setup(): Setup {
   );
 
   const { queryByTestId } = utils || {};
+  
   const DashboardElement: Element = queryByTestId("Fps");
   const FpsChart: Element = queryByTestId("FpsChart");
 

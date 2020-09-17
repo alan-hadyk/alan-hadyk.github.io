@@ -26,10 +26,10 @@ describe("pages / Home / sections / dashboard / elements / TechStack", () => {
       });
 
       describe("flex", () => {
-        test("should have 0 1 40%", () => {
+        test("should have 1 0 40%", () => {
           const { DashboardElement } = setup();
       
-          expect(DashboardElement).toHaveStyleRule("flex", "0 1 40%");
+          expect(DashboardElement).toHaveStyleRule("flex", "1 0 40%");
         });
       });
 
@@ -88,8 +88,9 @@ function setup(): Setup {
     <TechStack />
   );
 
-  const { container, queryByTestId, queryAllByTestId } = utils || {};
-  const DashboardElement: Element = container.children[0];
+  const { queryByTestId, queryAllByTestId } = utils || {};
+
+  const DashboardElement: Element = queryByTestId("TechStack");
   const AnimatedIcons: Element = queryByTestId("AnimatedIcons");
   const Corners: Element[] = queryAllByTestId("Corner");
 

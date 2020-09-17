@@ -5,10 +5,11 @@ import ReactLogo from "<molecules>/ReactLogo";
 
 const PoweredBy = (): JSX.Element => (
   <DashboardElement
+    dataCy="PoweredBy"
     dataTestId="PoweredBy"
-    flex="0 1 30%"
+    flex="1 0 30%"
     shouldDisplayCorners
-    title="Powered by react"
+    title="Powered by"
   >
     <ReactLogo />
   </DashboardElement>
