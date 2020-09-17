@@ -23,6 +23,7 @@ const DashboardSectionTop = ({
   >
     <DashboardSectionInnerContainer
       height={`calc(17vh + ${spacing.spacing36})`}
+      marginTop="2.22vh"
     >
       <TechStack />
 

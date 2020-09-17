@@ -48,7 +48,6 @@ const DashboardSection = (): JSX.Element => (
           
         </FlexContainer>
       </PositionContainer>
-
     </SpacingContainer>
   </Section>
 );

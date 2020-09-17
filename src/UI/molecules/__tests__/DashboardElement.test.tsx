@@ -53,7 +53,7 @@ describe("molecules / DashboardElement", () => {
     expect(DashboardElementContainer.children[1]).toEqual(DashboardElementDescription);
     expect(DashboardElementContainer.children[2]).toEqual(DashboardElementOuterSpacingContainer);
 
-    expect(DashboardElementDescription.children[0]).toEqual(DashboardElementDescriptionText);
+    expect(DashboardElementDescription.children[0].children[0]).toEqual(DashboardElementDescriptionText);
 
     expect(DashboardElementOuterSpacingContainer.children[0]).toEqual(PositionContainer);
 

@@ -39,9 +39,33 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
         });
       });
 
-      describe("marginTop", () => {
-        test("should have 2.22vh", () => {
+      describe("marginBottom", () => {
+        test("should have 0 by default", () => {
           const { SpacingContainer } = setup();
+
+          expect(SpacingContainer).toHaveStyleRule("margin-bottom", "0");
+        });
+
+        test("should have 2.22vh when passed via marginBottom prop", () => {
+          const { SpacingContainer } = setup({
+            marginBottom: "2.22vh"
+          });
+
+          expect(SpacingContainer).toHaveStyleRule("margin-bottom", "2.22vh");
+        });
+      });
+
+      describe("marginTop", () => {
+        test("should have 0 by default", () => {
+          const { SpacingContainer } = setup();
+
+          expect(SpacingContainer).toHaveStyleRule("margin-top", "0");
+        });
+
+        test("should have 2.22vh when passed via marginTop prop", () => {
+          const { SpacingContainer } = setup({
+            marginTop: "2.22vh"
+          });
 
           expect(SpacingContainer).toHaveStyleRule("margin-top", "2.22vh");
         });

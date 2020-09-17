@@ -9,12 +9,15 @@ import {
 
 const DashboardSectionInnerContainer = ({
   children,
-  height
+  height,
+  marginBottom = "0",
+  marginTop = "0"
 }: DashboardSectionInnerContainerProps): JSX.Element => (
   <SpacingContainer
     dataTestId="DashboardSectionInnerContainer"
     height={height}
-    marginTop="2.22vh"
+    marginBottom={marginBottom}
+    marginTop={marginTop}
     width="100%"
   >
     <FlexContainer
