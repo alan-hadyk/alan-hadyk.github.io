@@ -61,12 +61,12 @@ describe("organisms / Project", () => {
     describe("Props", () => {
       describe("description", () => {
         test("should have correct value passed via description props", () => {
-          const { ProjectDescription } = setup({
+          const { ProjectDescriptions } = setup({
             description: "Lorem ipsum dolor sit amet."
           });
 
-          ProjectDescription.forEach((_ProjectDescription: Element) => {
-            expect(_ProjectDescription).toHaveTextContent("Lorem ipsum dolor sit amet.");
+          ProjectDescriptions.forEach((ProjectDescription: Element) => {
+            expect(ProjectDescription).toHaveTextContent("Lorem ipsum dolor sit amet.");
           });
         });
       });
@@ -88,8 +88,8 @@ describe("organisms / Project", () => {
             iconsWithLabels
           });
 
-          IconsWithLabels.forEach((_IconsWithLabels: Element) => {
-            expect(_IconsWithLabels.children.length).toEqual(2);
+          IconsWithLabels.forEach((IconWithLabel: Element) => {
+            expect(IconWithLabel.children.length).toEqual(2);
           });
         });
     
@@ -98,9 +98,9 @@ describe("organisms / Project", () => {
             iconsWithLabels
           });
 
-          IconsWithLabels.forEach((_IconsWithLabels: Element) => {
-            expect(_IconsWithLabels.children[0].children[0].children[0].children[0].textContent).toEqual("Brand-JS.svg");
-            expect(_IconsWithLabels.children[1].children[0].children[0].children[0].textContent).toEqual("Brand-React.svg");
+          IconsWithLabels.forEach((IconWithLabel: Element) => {
+            expect(IconWithLabel.children[0].children[0].children[0].children[0].textContent).toEqual("Brand-JS.svg");
+            expect(IconWithLabel.children[1].children[0].children[0].children[0].textContent).toEqual("Brand-React.svg");
           });
         });
     
@@ -109,33 +109,33 @@ describe("organisms / Project", () => {
             iconsWithLabels
           });
 
-          IconsWithLabels.forEach((_IconsWithLabels: Element) => {
-            expect(_IconsWithLabels.children[0].children[1].textContent).toEqual("Javascript");
-            expect(_IconsWithLabels.children[1].children[1].textContent).toEqual("React");
+          IconsWithLabels.forEach((IconWithLabel: Element) => {
+            expect(IconWithLabel.children[0].children[1].textContent).toEqual("Javascript");
+            expect(IconWithLabel.children[1].children[1].textContent).toEqual("React");
           });
         });
       });
 
       describe("projectIcon", () => {
         test("should have correct icon passed via iconName props", () => {
-          const { HexagonInnerContainer } = setup({
+          const { HexagonInnerContainers } = setup({
             projectIcon: "react"
           });
 
-          HexagonInnerContainer.forEach((_HexagonInnerContainer: Element) => {
-            expect(_HexagonInnerContainer.children[0].textContent).toEqual("Icon-React.svg");
+          HexagonInnerContainers.forEach((HexagonInnerContainer: Element) => {
+            expect(HexagonInnerContainer.children[0].textContent).toEqual("Icon-React.svg");
           });
         });
       });
 
       describe("title", () => {
         test("should have correct value passed via title props", () => {
-          const { ProjectDescription } = setup({
+          const { ProjectDescriptions } = setup({
             title: "Roland"
           });
 
-          ProjectDescription.forEach((_ProjectDescription: Element) => {
-            expect(_ProjectDescription).toHaveTextContent("Roland");
+          ProjectDescriptions.forEach((ProjectDescription: Element) => {
+            expect(ProjectDescription).toHaveTextContent("Roland");
           });
         });
       });
@@ -144,10 +144,10 @@ describe("organisms / Project", () => {
 });
 
 interface Setup extends RenderResult {
-  HexagonInnerContainer: Element[];
+  HexagonInnerContainers: Element[];
   IconsWithLabels: Element[];
   ProjectContainer: Element;
-  ProjectDescription: Element[];
+  ProjectDescriptions: Element[];
   ProjectDesktop: Element;
   ProjectMobile: Element;
   ProjectTablet: Element;
@@ -182,10 +182,10 @@ function setup(additionalProps?: ProjectTestProps): Setup {
 
   const { queryAllByTestId } = utils || {};
 
-  const HexagonInnerContainer: Element []= queryAllByTestId("HexagonInnerContainer");
+  const HexagonInnerContainers: Element []= queryAllByTestId("HexagonInnerContainer");
   const IconsWithLabels: Element[] = queryAllByTestId("IconsWithLabels");
   const ProjectContainer: Element = queryAllByTestId("Project")[0];
-  const ProjectDescription: Element[] = queryAllByTestId("ProjectDescription");
+  const ProjectDescriptions: Element[] = queryAllByTestId("ProjectDescription");
   const ProjectDesktop: Element = queryAllByTestId("ProjectDesktop")[0];
   const ProjectTv: Element = queryAllByTestId("ProjectTv")[0];
   const ProjectTablet: Element = queryAllByTestId("ProjectTablet")[0];
@@ -193,10 +193,10 @@ function setup(additionalProps?: ProjectTestProps): Setup {
 
   return {
     ...utils,
-    HexagonInnerContainer,
+    HexagonInnerContainers,
     IconsWithLabels,
     ProjectContainer,
-    ProjectDescription,
+    ProjectDescriptions,
     ProjectDesktop,
     ProjectMobile,
     ProjectTablet,

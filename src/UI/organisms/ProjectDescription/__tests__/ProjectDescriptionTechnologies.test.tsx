@@ -146,8 +146,8 @@ describe("organisms / ProjectDescriptionTechnologies", () => {
           test("should have 4rem", () => {
             const { IconContainers } = setup();
 
-            IconContainers.forEach((_IconContainers: Element) => {
-              expect(_IconContainers).toHaveStyleRule("height", "4rem");
+            IconContainers.forEach((IconContainer: Element) => {
+              expect(IconContainer).toHaveStyleRule("height", "4rem");
             });
           });
         });
@@ -156,8 +156,8 @@ describe("organisms / ProjectDescriptionTechnologies", () => {
           test("should have 1.2rem", () => {
             const { IconWithLabelSpacingContainers } = setup();
 
-            IconWithLabelSpacingContainers.forEach((_IconWithLabelSpacingContainers: Element) => {
-              expect(_IconWithLabelSpacingContainers).toHaveStyleRule("padding-right", "1.2rem");
+            IconWithLabelSpacingContainers.forEach((IconWithLabelSpacingContainer: Element) => {
+              expect(IconWithLabelSpacingContainer).toHaveStyleRule("padding-right", "1.2rem");
             });    
           });
         });
@@ -166,8 +166,8 @@ describe("organisms / ProjectDescriptionTechnologies", () => {
           test("should have 24px", () => {
             const { LabelTexts } = setup();
 
-            LabelTexts.forEach((_LabelTexts: Element) => {
-              expect(_LabelTexts).toHaveStyleRule("font-size", "24px");
+            LabelTexts.forEach((LabelText: Element) => {
+              expect(LabelText).toHaveStyleRule("font-size", "24px");
             });  
           });
         });
