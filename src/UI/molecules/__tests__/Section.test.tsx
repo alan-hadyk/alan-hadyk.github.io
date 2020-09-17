@@ -40,7 +40,7 @@ describe("molecules / Section", () => {
     expect(ResponsiveMobile.children[0]).toEqual(TitleSpacingContainers[3]);
     expect(TitleSpacingContainers[3].children[0]).toEqual(Texts[3]);
   });
-
+ 
   test("should render children", () => {
     const { 
       queryByTestId
@@ -139,27 +139,27 @@ describe("molecules / Section", () => {
       describe("Props", () => {
         describe("marginBottom", () => {      
           test("should have 9.6rem for tv, desktop and tablet", () => {
-            const { TitleSpacingContainer } = setup();
+            const { TitleSpacingContainers } = setup();
 
-            expect(TitleSpacingContainer[0]).toHaveStyleRule("margin-bottom", "9.6rem");
-            expect(TitleSpacingContainer[1]).toHaveStyleRule("margin-bottom", "9.6rem");
-            expect(TitleSpacingContainer[2]).toHaveStyleRule("margin-bottom", "9.6rem");
+            expect(TitleSpacingContainers[0]).toHaveStyleRule("margin-bottom", "9.6rem");
+            expect(TitleSpacingContainers[1]).toHaveStyleRule("margin-bottom", "9.6rem");
+            expect(TitleSpacingContainers[2]).toHaveStyleRule("margin-bottom", "9.6rem");
           });
 
           test("should have 4.8rem for tv, desktop and tablet", () => {
-            const { TitleSpacingContainer } = setup();
+            const { TitleSpacingContainers } = setup();
 
-            expect(TitleSpacingContainer[3]).toHaveStyleRule("margin-bottom", "4.8rem");
+            expect(TitleSpacingContainers[3]).toHaveStyleRule("margin-bottom", "4.8rem");
           });
         });
 
         describe("paddingTop", () => {      
           test("should have 10.8rem", () => {
-            const { TitleSpacingContainer } = setup();
+            const { TitleSpacingContainers } = setup();
 
             
-            TitleSpacingContainer.forEach((_TitleSpacingContainer: Element) => {
-              expect(_TitleSpacingContainer).toHaveStyleRule("padding-top", "10.8rem");
+            TitleSpacingContainers.forEach((TitleSpacingContainer: Element) => {
+              expect(TitleSpacingContainer).toHaveStyleRule("padding-top", "10.8rem");
             });
           });
         });
