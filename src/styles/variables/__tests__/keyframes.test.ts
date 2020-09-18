@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { css } from "styled-components";
 import keyframes from "<styles>/variables/keyframes";
 
 interface KeyframesVariables {
@@ -22,6 +23,8 @@ const {
   rippleAlternative,
   rotate
 }: KeyframesVariables = keyframes;
+
+console.log("barChartWidth.toString()", String(barChartWidth.toString()));
 
 describe("styles / variables / keyframes", () => {
   test("should have correct keyframe - barChartWidth", () => {
