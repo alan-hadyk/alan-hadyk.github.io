@@ -23,5 +23,5 @@ const iconsWithLabels: IconWithLabelProps[] = [
 
 export default {
   iconsWithLabels,
-  title: "CSS tools"
+  title: "CSS Tools"
 };
