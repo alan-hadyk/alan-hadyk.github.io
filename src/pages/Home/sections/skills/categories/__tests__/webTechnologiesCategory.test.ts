@@ -13,7 +13,7 @@ describe("pages / Home / sections / skills / categories/ webTechnologiesCategory
           label: "CSS"
         }
       ],
-      title: "Web technologies"
+      title: "Web Technologies"
     });
   });
 });
