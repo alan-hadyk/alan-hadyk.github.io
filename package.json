@@ -81,7 +81,7 @@
     "@testing-library/react-hooks": "^3.4.1",
     "@types/detect-browser": "^4.0.0",
     "@types/ip": "^1.1.0",
-    "@types/jest": "^26.0.10",
+    "@types/jest": "^26.0.14",
     "@types/lodash": "^4.14.159",
     "@types/node": "^14.11.1",
     "@types/node-fetch": "^2.5.7",
