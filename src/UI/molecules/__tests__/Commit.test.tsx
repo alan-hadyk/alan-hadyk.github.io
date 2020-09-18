@@ -214,14 +214,6 @@ describe("molecules / Commit", () => {
             expect(FlexItems[1]).toHaveStyleRule("flex", "0 0 30.66%");
           });
         });
-        
-        describe("overflow", () => {
-          test("should have hidden", () => {
-            const { FlexItems } = setup();
-      
-            expect(FlexItems[1]).toHaveStyleRule("overflow", "hidden");
-          });
-        });
       });
     });
   });

@@ -14,14 +14,15 @@ import { FontSizes } from "<styles>/variables/__typings__/variables.d.ts";
 function Section({
   children,
   dataCy,
+  dataTestId,
   id,
   minHeight,
   title
 }: SectionProps): JSX.Element {
   return (
-    <SpacingContainer 
+    <SpacingContainer
       dataCy={dataCy}
-      dataTestId="Section"
+      dataTestId={dataTestId || "Section"}
       id={id}
       marginBottom="spacing16"
       minHeight={minHeight}

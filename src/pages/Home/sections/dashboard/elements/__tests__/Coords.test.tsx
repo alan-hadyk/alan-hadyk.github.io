@@ -81,11 +81,14 @@ function setup(): Setup {
     <Coords />
   );
 
-  const { container, queryByTestId } = utils || {};
+  const { queryByTestId } = utils || {};
+
+  const DashboardElement: Element = queryByTestId("Coords");
+  const Sonar: Element = queryByTestId("Sonar");
 
   return {
     ...utils,
-    DashboardElement: container.children[0],
-    Sonar: queryByTestId("Sonar")
+    DashboardElement,
+    Sonar
   };
 }

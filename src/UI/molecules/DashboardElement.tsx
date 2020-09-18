@@ -16,41 +16,51 @@ import { DashboardElementProps } from "<molecules>/__typings__/DashboardElement.
 function DashboardElement({
   alignSelf = "auto",
   children,
-  description,
+  dataCy,
   dataTestId,
+  description,
   flex,
   overflow = "hidden",
   shouldDisplayBorder = false,
   shouldDisplayCorners = false,
   order = 0,
   title,
-  titleFontSize = "font16"
+  titleFontSize = "font16",
+  titleOverflow = "visible"
 }: DashboardElementProps): JSX.Element {
   const descriptionRef = useRef<HTMLDivElement>(null);
   const [childrenHeight, setChildrenHeight] = useState<string>(null);
 
-  const calcChildrenHeight = useCallback((): string => {
+  const calcChildrenHeight = useCallback((): void => {
+    let _height: string;
+
     if (descriptionRef.current) {
       const { height }: DOMRect = descriptionRef.current.getBoundingClientRect();
-      return `calc(100% - ${spacing.spacing36} - ${spacing.spacing28} - ${height}px)`;
+
+      _height = `calc(100% - ${spacing.spacing36} - ${spacing.spacing28} - ${height}px)`;
     } else {
-      return `calc(100% - ${spacing.spacing36})`;
+      _height = `calc(100% - ${spacing.spacing36})`;
     }
+
+    setChildrenHeight(_height);
   }, []);
 
   useLayoutEffect(() => {
-    const height: string = calcChildrenHeight();
-    
-    setChildrenHeight(height);
+    calcChildrenHeight();
+
+    window.addEventListener("resize", calcChildrenHeight);
+
+    return () => window.removeEventListener("resize", calcChildrenHeight);
   }, [calcChildrenHeight]);
 
   return (
     <FlexItem
       alignSelf={alignSelf}
+      dataCy={dataCy}
       dataTestId={dataTestId || "DashboardElement"}
       flex={flex}
       order={order}
-      overflow="visible"
+      overflow={titleOverflow}
     >
       <Text 
         color={titleFontSize === "font28" ? "blue100" : "blue300"}
@@ -66,26 +76,27 @@ function DashboardElement({
 
       {description && (
         <SpacingContainer
-          dataTestId="DashboardElementDescription"
+          dataTestId="DashboardElementDescriptionSpacingContainer"
           marginBottom="spacing28"
         >
-          <Text
-            color="blue300"
-            dataTestId="DashboardElementDescriptionText"
-            fontSize="font8"
-            lineHeight="spacing12"
-            maxHeight="spacing36"
-            overflow="hidden"
-            textTransform="uppercase"
-            ref={descriptionRef}
-          >
-            {description}
-          </Text>
+          <div ref={descriptionRef}>
+            <Text
+              color="blue300"
+              dataTestId="DashboardElementDescriptionText"
+              fontSize="font8"
+              lineHeight="spacing12"
+              maxHeight="spacing36"
+              overflow="hidden"
+              textTransform="uppercase" 
+            >
+              {description}
+            </Text>
+          </div>
         </SpacingContainer>
       )}
       
       <SpacingContainer
-        dataTestId="DashboardElementContentSpacingContainer"
+        dataTestId="DashboardElementOuterSpacingContainer"
         height={childrenHeight}
         marginTop={titleFontSize === "font28" ? "spacing8" : "spacing0"}
       >
@@ -111,7 +122,7 @@ function DashboardElement({
         {
           shouldDisplayCorners ? (
             <SpacingContainer 
-              dataTestId="DashboardElementChildrenSpacingContainer"
+              dataTestId="DashboardElementInnerSpacingContainer"
               height="100%"
               paddingRight="spacing8" 
               paddingLeft="spacing8" 
