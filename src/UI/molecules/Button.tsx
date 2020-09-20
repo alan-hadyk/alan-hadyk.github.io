@@ -83,8 +83,9 @@ function Button({
           >
             <ButtonText buttonText={buttonText} size={size} />
             <Icon
+              height={size === "small" ? spacing.spacing12 : spacing.spacing24}
               iconName={iconName}
-              height={spacing.spacing24}
+              isHeightResponsive
             />
           </FlexContainer>
         </SpacingContainer>

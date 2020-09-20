@@ -55,7 +55,6 @@ import { ReactComponent as BrandZeplin } from "<assets>/svg/Brand-Zeplin.svg";
 import { ReactComponent as BtnCodeSandbox } from "<assets>/svg/Btn-CodeSandbox.svg";
 import { ReactComponent as BtnDownload } from "<assets>/svg/Btn-Download.svg";
 import { ReactComponent as BtnExternalLink } from "<assets>/svg/Btn-ExternalLink.svg";
-import { ReactComponent as BtnSend } from "<assets>/svg/Btn-Send.svg";
 import { ReactComponent as CompanyDIH } from "<assets>/svg/Company-DiH.svg";
 import { ReactComponent as CompanyOmise } from "<assets>/svg/Company-Omise.svg";
 import { ReactComponent as CompanySAP } from "<assets>/svg/Company-SAP.svg";
@@ -162,7 +161,6 @@ function Icon({
     btnCodeSandbox: BtnCodeSandbox,
     btnDownload: BtnDownload,
     btnExternalLink: BtnExternalLink,
-    btnSend: BtnSend,
     calendar: IconCalendar,
     chrome: IconChrome,
     codeSandbox: IconCodeSandbox,

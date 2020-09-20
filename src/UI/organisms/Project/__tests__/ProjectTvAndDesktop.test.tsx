@@ -107,6 +107,14 @@ describe("organisms / ProjectTvAndDesktop", () => {
           });
         });
       });
+
+      describe("overflow", () => {      
+        test("second item should have visible", () => {
+          const { FlexItems } = setup();
+
+          expect(FlexItems[1]).toHaveStyleRule("overflow", "visible");
+        });
+      });
     });
   });
 

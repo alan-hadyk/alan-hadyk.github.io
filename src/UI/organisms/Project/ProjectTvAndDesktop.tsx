@@ -36,6 +36,7 @@ const ProjectTvAndDesktop = ({
 
       <FlexItem
         flex="0 1 50%"
+        overflow="visible"
       >
         <SpacingContainer
           dataTestId="ProjectDescriptionSpacingContainer"
