@@ -28,10 +28,10 @@ const ProjectMobile = ({
     </SpacingContainer>
 
     <ProjectDescription
-      title={title}
-      iconsWithLabels={iconsWithLabels}
       description={description}
+      iconsWithLabels={iconsWithLabels}
       size="small"
+      title={title}
     />
   </Responsive>
 );
