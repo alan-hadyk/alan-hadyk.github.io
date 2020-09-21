@@ -34,10 +34,10 @@ const ProjectTablet = ({
       </SpacingContainer>
 
       <ProjectDescription
-        title={title}
         iconsWithLabels={iconsWithLabels}
         description={description}
         size="large"
+        title={title}
       />
     </FlexContainer>
   </Responsive>

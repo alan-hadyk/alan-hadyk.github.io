@@ -161,6 +161,18 @@ describe("organisms / ProjectTablet", () => {
           expect(IconsWithLabels.children[1].children[1].textContent).toEqual("React");
         });
       });
+    
+      describe("size", () => {
+        test("should have small", () => {
+          const { ProjectDescription } = setup();
+
+          expect(ProjectDescription.children[0].children[0]).toHaveStyleRule("font-size", "28px");
+          expect(ProjectDescription.children[0].children[0]).toHaveStyleRule("line-height", "2.4rem");
+
+          expect(ProjectDescription.children[0].children[1].children[0]).toHaveStyleRule("font-size", "20px");
+          expect(ProjectDescription.children[0].children[1].children[0]).toHaveStyleRule("line-height", "2.4rem");
+        });
+      });
     });
   });
 });
