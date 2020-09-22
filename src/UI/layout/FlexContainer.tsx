@@ -10,6 +10,7 @@ import {
 
 const FlexContainer = ({
   alignItems = "center",
+  dataCy,
   dataTestId,
   children,
   flexFlow = "row wrap",
@@ -20,6 +21,7 @@ const FlexContainer = ({
 }: FlexContainerProps): JSX.Element => (
   <FlexContainer.Container
     alignItems={alignItems}
+    data-cy={dataCy}
     data-testid={dataTestId || "FlexContainer"}
     flexFlow={flexFlow}
     gap={gap}

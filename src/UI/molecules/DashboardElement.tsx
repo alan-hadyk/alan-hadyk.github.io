@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useLayoutEffect, useState } from "react";
+import React, { useCallback } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import Text from "<atoms>/Text";
@@ -28,30 +28,11 @@ function DashboardElement({
   titleFontSize = "font16",
   titleOverflow = "visible"
 }: DashboardElementProps): JSX.Element {
-  const descriptionRef = useRef<HTMLDivElement>(null);
-  const [childrenHeight, setChildrenHeight] = useState<string>(null);
-
-  const calcChildrenHeight = useCallback((): void => {
-    let _height: string;
-
-    if (descriptionRef.current) {
-      const { height }: DOMRect = descriptionRef.current.getBoundingClientRect();
-
-      _height = `calc(100% - ${spacing.spacing36} - ${spacing.spacing28} - ${height}px)`;
-    } else {
-      _height = `calc(100% - ${spacing.spacing36})`;
-    }
-
-    setChildrenHeight(_height);
-  }, []);
-
-  useLayoutEffect(() => {
-    calcChildrenHeight();
-
-    window.addEventListener("resize", calcChildrenHeight);
-
-    return () => window.removeEventListener("resize", calcChildrenHeight);
-  }, [calcChildrenHeight]);
+  const calcChildrenHeight = useCallback((): string => {
+    return description ?
+      `calc(100% - ${spacing.spacing36} - ${spacing.spacing24} - ${spacing.spacing28})` :
+      `calc(100% - ${spacing.spacing36})`;
+  }, [description]);
 
   return (
     <FlexItem
@@ -77,27 +58,26 @@ function DashboardElement({
       {description && (
         <SpacingContainer
           dataTestId="DashboardElementDescriptionSpacingContainer"
+          height="spacing24"
           marginBottom="spacing28"
         >
-          <div ref={descriptionRef}>
-            <Text
-              color="blue300"
-              dataTestId="DashboardElementDescriptionText"
-              fontSize="font8"
-              lineHeight="spacing12"
-              maxHeight="spacing36"
-              overflow="hidden"
-              textTransform="uppercase" 
-            >
-              {description}
-            </Text>
-          </div>
+          <Text
+            color="blue300"
+            dataTestId="DashboardElementDescriptionText"
+            fontSize="font8"
+            lineHeight="spacing12"
+            maxHeight="spacing36"
+            overflow="hidden"
+            textTransform="uppercase" 
+          >
+            {description}
+          </Text>
         </SpacingContainer>
       )}
       
       <SpacingContainer
         dataTestId="DashboardElementOuterSpacingContainer"
-        height={childrenHeight}
+        height={calcChildrenHeight()}
         marginTop={titleFontSize === "font28" ? "spacing8" : "spacing0"}
       >
         <PositionContainer

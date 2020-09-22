@@ -38,7 +38,8 @@ function IconWithLabel({
 
   return (
     <FlexContainer
-      alignItems="center" 
+      alignItems="center"
+      dataCy="IconWithLabel"
       dataTestId="IconWithLabel"
       flexFlow="row nowrap"
       height="100%"

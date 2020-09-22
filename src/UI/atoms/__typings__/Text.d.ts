@@ -9,6 +9,7 @@ import {
 export interface TextProps {
   children: string | number | JSX.Element;
   color?: ColorPalette;
+  dataCy?: string;
   dataTestId?: string;
   ellipsis?: boolean;
   fontFamily?: FontFamilies;

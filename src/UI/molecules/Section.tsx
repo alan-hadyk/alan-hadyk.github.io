@@ -1,9 +1,12 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useCallback } from "react";
 
-import SpacingContainer from "<layout>/SpacingContainer";
 import Text from "<atoms>/Text";
 
+import SpacingContainer from "<layout>/SpacingContainer";
+import Responsive from "<layout>/Responsive";
+
 import {
+  RenderTitle,
   SectionProps
 } from "<molecules>/__typings__/Section.d.ts";
 
@@ -15,6 +18,31 @@ function Section({
   minHeight,
   title
 }: SectionProps): JSX.Element {
+  const renderTitle = useCallback(({ fontSize, marginBottom }: RenderTitle): JSX.Element => {
+    if (!title) {	
+      return;	
+    }
+
+    return (
+      <SpacingContainer
+        dataTestId="TitleSpacingContainer"
+        marginBottom={marginBottom}
+        paddingTop="spacing108"
+      >
+        <Text
+          color="blue100"
+          fontFamily="Exan"
+          fontSize={fontSize}
+          lineHeight="spacing80"
+          textAlign="center"
+          textTransform="lowercase"
+        >
+          {title}
+        </Text>
+      </SpacingContainer>
+    );
+  }, [title]);
+
   return (
     <SpacingContainer
       dataCy={dataCy}
@@ -24,38 +52,25 @@ function Section({
       minHeight={minHeight}
       paddingBottom={title ? "spacing96" : "spacing0"}
     >
-      {renderTitle()}
+      <Responsive devices={["tv", "desktop", "tablet"]}>
+        {renderTitle({
+          fontSize: "font72",
+          marginBottom: "spacing96"
+        })}
+      </Responsive>
+
+      <Responsive devices={["mobile"]}>
+        {renderTitle({
+          fontSize: "font48",
+          marginBottom: "spacing48"
+        })}
+      </Responsive>
       
       <Fragment>
         {children}
       </Fragment>
     </SpacingContainer>
   );
-
-  function renderTitle(): JSX.Element {
-    if (!title) {
-      return;
-    }
-
-    return (
-      <SpacingContainer
-        dataTestId="TitleSpacingContainer"
-        marginBottom="spacing96"
-        paddingTop="spacing108"
-      >
-        <Text
-          color="blue100"
-          fontFamily="Exan"
-          fontSize="font72"
-          lineHeight="spacing80"
-          textAlign="center"
-          textTransform="lowercase"
-        >
-          {title}
-        </Text>
-      </SpacingContainer>
-    );
-  }
 }
 
 export default Section;

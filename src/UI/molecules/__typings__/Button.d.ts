@@ -1,7 +1,4 @@
-import {
-  ColorPalette,
-  Spacing
-} from "<styles>/variables/__typings__/variables.d.ts";
+import { ColorPalette } from "<styles>/variables/__typings__/variables.d.ts";
 
 export interface ButtonContainerProps {
   backgroundColor?: ColorPalette | "transparent";
@@ -19,7 +16,7 @@ export interface ButtonInnnerContainerPositions {
 export interface ButtonProps {
   buttonText: string;
   dataTestId?: string;
-  iconName: "btnCodeSandbox" | "btnDownload" | "btnExternalLink" | "btnSend";
+  iconName: "btnCodeSandbox" | "btnDownload" | "btnExternalLink";
   size: "small" | "medium" | "large";
   type?: "primary" | "secondary";
   width?: "100%" | "auto";
@@ -35,12 +32,6 @@ export interface MapSizeToButtonContainerProps {
   small: {
     height: ButtonContainerProps["height"];
   };
-}
-
-export interface MapSizeToIconHeight {
-  large: Spacing;
-  medium: Spacing;
-  small: Spacing;
 }
 
 export interface MapTypeToButtonContainerProps {

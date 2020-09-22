@@ -1,4 +1,5 @@
 import {
+  FontSizes,
   Spacing
 } from "<styles>/variables/__typings__/variables.d.ts";
 
@@ -9,4 +10,9 @@ export interface SectionProps {
   id: string;
   minHeight?: Spacing | "100vh";
   title?: string;
+}
+
+export interface RenderTitle {
+  fontSize: FontSizes;
+  marginBottom: string;
 }
