@@ -1,9 +1,9 @@
 import React from "react";
 
-import HexagonWithDescriptionTvAndDesktop from "<molecules>/HexagonWithDescription/HexagonWithDescriptionTvAndDesktop";
-import HexagonWithDescriptionTabletAndMobile from "<molecules>/HexagonWithDescription/HexagonWithDescriptionTabletAndMobile";
-
 import SpacingContainer from "<layout>/SpacingContainer";
+import Responsive from "<layout>/Responsive";
+
+import HexagonWithDescriptionContent from "<molecules>/HexagonWithDescription/HexagonWithDescriptionContent";
 
 import {
   HexagonWithDescriptionProps
@@ -19,16 +19,38 @@ const HexagonWithDescription = ({
     marginRight="auto"
     maxWidth="spacing1056"
   >
-    <HexagonWithDescriptionTvAndDesktop
-      description={description}
-    >
-      {children}
-    </HexagonWithDescriptionTvAndDesktop>
-    <HexagonWithDescriptionTabletAndMobile
-      description={description}
-    >
-      {children}
-    </HexagonWithDescriptionTabletAndMobile>
+    <Responsive devices={["tv", "desktop"]}>
+      <HexagonWithDescriptionContent
+        description={description}
+        flexFlow="row nowrap"
+        marginRight="spacing48"
+        width="50%"
+      >
+        {children}
+      </HexagonWithDescriptionContent>
+    </Responsive>
+
+    <Responsive devices={["tablet"]}>
+      <HexagonWithDescriptionContent
+        description={description}
+        flexFlow="column nowrap"
+        marginBottom="spacing48"
+        width="60%"
+      >
+        {children}
+      </HexagonWithDescriptionContent>
+    </Responsive>
+
+    <Responsive devices={["mobile"]}>
+      <HexagonWithDescriptionContent
+        description={description}
+        flexFlow="column nowrap"
+        marginBottom="spacing48"
+        width="100%"
+      >
+        {children}
+      </HexagonWithDescriptionContent>
+    </Responsive>
   </SpacingContainer>
 );
 
