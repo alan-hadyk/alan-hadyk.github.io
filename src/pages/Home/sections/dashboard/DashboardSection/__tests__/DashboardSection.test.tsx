@@ -61,7 +61,7 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
       Section
     } = setup();	
 
-    expect(Section.children[0]).toEqual(DashboardSectionSpacingContainer);	
+    expect(Section.children[4]).toEqual(DashboardSectionSpacingContainer);	
     expect(DashboardSectionSpacingContainer.children[0]).toEqual(PositionContainer);	
     expect(PositionContainer.children[0]).toEqual(DashboardSectionOuterFlexContainer);	
 

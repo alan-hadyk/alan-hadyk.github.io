@@ -12,7 +12,7 @@ describe("pages / Home / sections / skills / SkillsSection", () => {
       SkillsSectionContainer
     } = setup();
 
-    expect(SkillsSectionContainer.children[1]).toEqual(Masonry);
+    expect(SkillsSectionContainer.children[4]).toEqual(Masonry);
   });
 
   describe("SkillsSectionContainer", () => {

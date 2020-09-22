@@ -7,7 +7,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import {
   HexagonWithDescriptionProps
-} from "<molecules>/__typings__/HexagonWithDescription.d.ts";
+} from "<molecules>/HexagonWithDescription/__typings__/HexagonWithDescription.d.ts";
 
 describe("molecules / HexagonWithDescription", () => {
   test("should have correct structure", () => {
