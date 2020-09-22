@@ -29,16 +29,6 @@ describe("organisms / ProjectDescription", () => {
 
   describe("ProjectDescriptionContent", () => {   
     describe("Props", () => {
-      describe("title", () => {
-        test("should have correct value passed via title props", () => {
-          const { ProjectDescriptionContent } = setup({
-            title: "Roland"
-          });
-
-          expect(ProjectDescriptionContent).toHaveTextContent("Roland");
-        });
-      });
-
       describe("description", () => {
         test("should have correct value passed via description props", () => {
           const { ProjectDescriptionContent } = setup({
@@ -48,45 +38,97 @@ describe("organisms / ProjectDescription", () => {
           expect(ProjectDescriptionContent).toHaveTextContent("Lorem ipsum dolor sit amet.");
         });
       });
+
+      describe("size", () => {
+        test("should have small when size prop is small", () => {
+          const { ProjectDescriptionContent } = setup({
+            size: "small"
+          });
+
+          expect(ProjectDescriptionContent.children[0]).toHaveStyleRule("font-size", "28px");
+          expect(ProjectDescriptionContent.children[0]).toHaveStyleRule("line-height", "3.2rem");
+
+          expect(ProjectDescriptionContent.children[1].children[0]).toHaveStyleRule("font-size", "20px");
+          expect(ProjectDescriptionContent.children[1].children[0]).toHaveStyleRule("line-height", "2.4rem");
+        });
+        
+        test("should have large when size prop is medium", () => {
+          const { ProjectDescriptionContent } = setup({
+            size: "medium"
+          });
+
+          expect(ProjectDescriptionContent.children[0]).toHaveStyleRule("font-size", "48px");
+          expect(ProjectDescriptionContent.children[0]).toHaveStyleRule("line-height", "5.2rem");
+
+          expect(ProjectDescriptionContent.children[1].children[0]).toHaveStyleRule("font-size", "24px");
+          expect(ProjectDescriptionContent.children[1].children[0]).toHaveStyleRule("line-height", "3.2rem");
+        });
+        
+        test("should have large when size prop is large", () => {
+          const { ProjectDescriptionContent } = setup({
+            size: "large"
+          });
+
+          expect(ProjectDescriptionContent.children[0]).toHaveStyleRule("font-size", "48px");
+          expect(ProjectDescriptionContent.children[0]).toHaveStyleRule("line-height", "5.2rem");
+
+          expect(ProjectDescriptionContent.children[1].children[0]).toHaveStyleRule("font-size", "24px");
+          expect(ProjectDescriptionContent.children[1].children[0]).toHaveStyleRule("line-height", "3.2rem");
+        });
+      });
+
+      describe("title", () => {
+        test("should have correct value passed via title props", () => {
+          const { ProjectDescriptionContent } = setup({
+            title: "Roland"
+          });
+
+          expect(ProjectDescriptionContent).toHaveTextContent("Roland");
+        });
+      });
     });
   });
   
   describe("ProjectDescriptionTechnologies", () => {
-    const iconsWithLabels: IconWithLabelProps[] = [
-      {
-        iconName: "brandJS",
-        label: "Javascript"
-      },
-      {
-        iconName: "brandReact",
-        label: "React"
-      }
-    ];
-
-    test("there should be correct number of icons", () => {
-      const { IconsWithLabels } = setup({
-        iconsWithLabels
+    describe("Props", () => {
+      describe("iconsWithLabels", () => {        
+        const iconsWithLabels: IconWithLabelProps[] = [
+          {
+            iconName: "brandJS",
+            label: "Javascript"
+          },
+          {
+            iconName: "brandReact",
+            label: "React"
+          }
+        ];
+    
+        test("there should be correct number of icons", () => {
+          const { IconsWithLabels } = setup({
+            iconsWithLabels
+          });
+    
+          expect(IconsWithLabels.children.length).toEqual(2);
+        });
+    
+        test("icons should render correct SVGs", () => {
+          const { IconsWithLabels } = setup({
+            iconsWithLabels
+          });
+    
+          expect(IconsWithLabels.children[0].children[0].children[0].children[0].textContent).toEqual("Brand-JS.svg");
+          expect(IconsWithLabels.children[1].children[0].children[0].children[0].textContent).toEqual("Brand-React.svg");
+        });
+    
+        test("should have correct content passed via label props", () => {
+          const { IconsWithLabels } = setup({
+            iconsWithLabels
+          });
+    
+          expect(IconsWithLabels.children[0].children[1].textContent).toEqual("Javascript");
+          expect(IconsWithLabels.children[1].children[1].textContent).toEqual("React");
+        });
       });
-
-      expect(IconsWithLabels.children.length).toEqual(2);
-    });
-
-    test("icons should render correct SVGs", () => {
-      const { IconsWithLabels } = setup({
-        iconsWithLabels
-      });
-
-      expect(IconsWithLabels.children[0].children[0].children[0].children[0].textContent).toEqual("Brand-JS.svg");
-      expect(IconsWithLabels.children[1].children[0].children[0].children[0].textContent).toEqual("Brand-React.svg");
-    });
-
-    test("should have correct content passed via label props", () => {
-      const { IconsWithLabels } = setup({
-        iconsWithLabels
-      });
-
-      expect(IconsWithLabels.children[0].children[1].textContent).toEqual("Javascript");
-      expect(IconsWithLabels.children[1].children[1].textContent).toEqual("React");
     });
   });
 
@@ -101,12 +143,20 @@ describe("organisms / ProjectDescription", () => {
           expect(ProjectDescriptionButtons.children[0]).toHaveStyleRule("height", "5.6rem");
         });
 
-        test("should have 4.8rem if size is medium", () => {     
+        test("should have height 4.8rem if size is medium", () => {     
           const { ProjectDescriptionButtons } = setup({
             size: "medium"
           });
 
           expect(ProjectDescriptionButtons.children[0]).toHaveStyleRule("height", "4.8rem");
+        });
+
+        test("should have height 4rem if size is small", () => {     
+          const { ProjectDescriptionButtons } = setup({
+            size: "small"
+          });
+
+          expect(ProjectDescriptionButtons.children[0]).toHaveStyleRule("height", "4rem");
         });
       });
     });

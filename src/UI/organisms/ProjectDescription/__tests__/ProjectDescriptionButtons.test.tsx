@@ -67,6 +67,14 @@ describe("organisms / ProjectDescriptionButtons", () => {
           });
         });
 
+        describe("width", () => {
+          test("should have 100%", () => {
+            const { Buttons } = setup();
+      
+            expect(Buttons[0]).toHaveStyleRule("width", "100%");
+          });
+        });
+
         describe("type", () => {
           describe("should have primary", () => {       
             describe("background-color", () => {      
@@ -113,7 +121,7 @@ describe("organisms / ProjectDescriptionButtons", () => {
               size: "large"
             });
       
-            expect(Buttons[0]).toHaveStyleRule("height", "5.6rem");
+            expect(Buttons[1]).toHaveStyleRule("height", "5.6rem");
           });
 
           test("should have 4.8rem if size is medium", () => {     
@@ -121,7 +129,7 @@ describe("organisms / ProjectDescriptionButtons", () => {
               size: "medium"
             });
       
-            expect(Buttons[0]).toHaveStyleRule("height", "4.8rem");
+            expect(Buttons[1]).toHaveStyleRule("height", "4.8rem");
           });
         });
 
@@ -134,6 +142,14 @@ describe("organisms / ProjectDescriptionButtons", () => {
                 expect(Buttons[1]).toHaveStyleRule("background-color", "transparent");
               });
             });
+          });
+        });
+
+        describe("width", () => {
+          test("should have 100%", () => {
+            const { Buttons } = setup();
+      
+            expect(Buttons[1]).toHaveStyleRule("width", "100%");
           });
         });
       });

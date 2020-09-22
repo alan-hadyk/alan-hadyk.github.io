@@ -1,16 +1,18 @@
+import { TextProps } from "<atoms>/__typings__/Text.d.ts";
+
 export interface ProjectDescriptionContentProps {
   description: string;
-  size?: "large" | "medium" | "small";
+  size?: "large" | "small";
   title: string;
 }
 
 export interface MapSizeToProjectDescriptionContentProps {
   large: {
-    fontSize: string;
-    lineHeight: string;
+    fontSize: TextProps["fontSize"];
+    lineHeight: TextProps["lineHeight"];
   };
   small: {
-    fontSize: string;
-    lineHeight: string;
+    fontSize: TextProps["fontSize"];
+    lineHeight: TextProps["lineHeight"];
   };
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styled from "styled-components";
 
 import SpacingContainer from "<layout>/SpacingContainer";
@@ -13,11 +13,11 @@ import {
 const mapSizeToProjectDescriptionTitleProps: MapSizeToProjectDescriptionContentProps = {
   large: {
     fontSize: "font48",
-    lineHeight: "spacing48"
+    lineHeight: "spacing52"
   },
   small: {
     fontSize: "font28",
-    lineHeight: "spacing24"
+    lineHeight: "spacing32"
   }
 };
 
@@ -32,14 +32,12 @@ const mapSizeToProjectDescriptionContentProps: MapSizeToProjectDescriptionConten
   }
 };
 
-const ProjectDescriptionContent = ({
+function ProjectDescriptionContent({
   description,
   size = "large",
   title
-}: ProjectDescriptionContentProps): JSX.Element => (
-  <ProjectDescriptionContent.Container
-    data-testid="ProjectDescriptionContent"
-  >
+}: ProjectDescriptionContentProps): JSX.Element {
+  const renderTitle = useCallback(() => (
     <Text
       {...mapSizeToProjectDescriptionTitleProps[size]}
       color="white"
@@ -49,6 +47,9 @@ const ProjectDescriptionContent = ({
     >
       {title}
     </Text>
+  ), [size, title]);
+  
+  const renderDescription = useCallback(() => (
     <SpacingContainer
       dataTestId="TitleWithDescriptionSpacingContainer"
       marginBottom="spacing40"
@@ -62,8 +63,16 @@ const ProjectDescriptionContent = ({
         {description}
       </Text>
     </SpacingContainer>
-  </ProjectDescriptionContent.Container>
-);
+  ), [description, size]);
+  
+  return (
+    <ProjectDescriptionContent.Container data-testid="ProjectDescriptionContent">
+      {renderTitle()}
+
+      {renderDescription()}
+    </ProjectDescriptionContent.Container>
+  );
+}
 
 ProjectDescriptionContent.Container = styled.div``;
 

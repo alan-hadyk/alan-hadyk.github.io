@@ -167,7 +167,7 @@ describe("organisms / ProjectTablet", () => {
           const { ProjectDescription } = setup();
 
           expect(ProjectDescription.children[0].children[0]).toHaveStyleRule("font-size", "48px");
-          expect(ProjectDescription.children[0].children[0]).toHaveStyleRule("line-height", "4.8rem");
+          expect(ProjectDescription.children[0].children[0]).toHaveStyleRule("line-height", "5.2rem");
 
           expect(ProjectDescription.children[0].children[1].children[0]).toHaveStyleRule("font-size", "24px");
           expect(ProjectDescription.children[0].children[1].children[0]).toHaveStyleRule("line-height", "3.2rem");

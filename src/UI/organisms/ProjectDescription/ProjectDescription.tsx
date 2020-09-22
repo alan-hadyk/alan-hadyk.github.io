@@ -16,12 +16,10 @@ const ProjectDescription = ({
   title
 }: ProjectDescriptionProps): JSX.Element => {
   return (
-    <ProjectDescription.Container
-      data-testid="ProjectDescription"	
-    >
+    <ProjectDescription.Container data-testid="ProjectDescription">
       <ProjectDescriptionContent
         description={description}
-        size={size}
+        size={size === "small" ? size : "large"}
         title={title}
       />
 

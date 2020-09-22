@@ -77,13 +77,27 @@ describe("organisms / ProjectDescriptionTechnologies", () => {
     });
   });
 
-  describe("SpacingContainer", () => {
-    describe("Props", () => {
-      describe("marginTop", () => {
-        test("should have .8rem", () => {
-          const { ProjectDescriptionTechnologiesSpacingContainer } = setup();
+  describe("SpacingContainers", () => {
+    describe("ProjectDescriptionTechnologiesContainer", () => {
+      describe("Props", () => {
+        describe("marginBottom", () => {
+          test("should have 4rem", () => {
+            const { ProjectDescriptionTechnologiesContainer } = setup();
     
-          expect(ProjectDescriptionTechnologiesSpacingContainer).toHaveStyleRule("margin-top", ".8rem");
+            expect(ProjectDescriptionTechnologiesContainer).toHaveStyleRule("margin-bottom", "4rem");
+          });
+        });
+      });
+    });
+
+    describe("ProjectDescriptionTechnologiesSpacingContainer", () => {
+      describe("Props", () => {
+        describe("marginTop", () => {
+          test("should have .8rem", () => {
+            const { ProjectDescriptionTechnologiesSpacingContainer } = setup();
+    
+            expect(ProjectDescriptionTechnologiesSpacingContainer).toHaveStyleRule("margin-top", ".8rem");
+          });
         });
       });
     });
