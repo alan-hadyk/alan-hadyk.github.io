@@ -25,7 +25,7 @@ const {
 
 describe("styles / variables / keyframes", () => {
   test("should have correct keyframe - barChartWidth", () => {
-    expect(barChartWidth.rules).toEqual(`
+    expect(barChartWidth.stringifyArgs[0]).toEqual(`
     0% {
       opacity: 0.99;
       width: 100%;
@@ -41,7 +41,7 @@ describe("styles / variables / keyframes", () => {
   });
 
   test("should have correct keyframe - blink", () => {
-    expect(blink.rules).toEqual(`
+    expect(blink.stringifyArgs[0]).toEqual(`
     0% {
       opacity: 1;
     }
@@ -55,7 +55,7 @@ describe("styles / variables / keyframes", () => {
   });
 
   test("should have correct keyframe - borderDanceHorizontal", () => {
-    expect(borderDanceHorizontal.rules).toEqual(`
+    expect(borderDanceHorizontal.stringifyArgs[0]).toEqual(`
     from {
       background-position: left top;
       opacity: 0.99;
@@ -68,7 +68,7 @@ describe("styles / variables / keyframes", () => {
   });
 
   test("should have correct keyframe - borderDanceVertical", () => {
-    expect(borderDanceVertical.rules).toEqual(`
+    expect(borderDanceVertical.stringifyArgs[0]).toEqual(`
     from {
       background-position: left top;
       opacity: 0.99;
@@ -81,7 +81,7 @@ describe("styles / variables / keyframes", () => {
   });
 
   test("should have correct keyframe - glow", () => {
-    expect(glow.rules).toEqual(`
+    expect(glow.stringifyArgs[0]).toEqual(`
     0% {
       filter: drop-shadow(0px 0px 0px #bcd8db);
       opacity: 0.99;
@@ -103,7 +103,7 @@ describe("styles / variables / keyframes", () => {
   });
 
   test("should have correct keyframe - ripple", () => {
-    expect(ripple.rules).toEqual(`
+    expect(ripple.stringifyArgs[0]).toEqual(`
     from {
       opacity: 1;
       transform: scale(0);
@@ -116,7 +116,7 @@ describe("styles / variables / keyframes", () => {
   });
 
   test("should have correct keyframe - rippleAlternative", () => {
-    expect(rippleAlternative.rules).toEqual(`
+    expect(rippleAlternative.stringifyArgs[0]).toEqual(`
     from {
       height: 2.4rem;
       opacity: 1;
@@ -131,7 +131,7 @@ describe("styles / variables / keyframes", () => {
   });
 
   test("should have correct keyframe - rotate", () => {
-    expect(rotate.rules).toEqual(`
+    expect(rotate.stringifyArgs[0]).toEqual(`
     from {
       transform: rotateY(0deg);
       opacity: 0.99;

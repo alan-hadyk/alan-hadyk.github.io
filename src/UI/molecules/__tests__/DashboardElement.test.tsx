@@ -520,6 +520,16 @@ describe("molecules / DashboardElement", () => {
     });
 
     describe("DashboardElementDescription", () => {
+      describe("height", () => {
+        test("should have 2.4rem", () => {
+          const { DashboardElementDescription } = setup({
+            description: "Lorem ipsum"
+          });
+  
+          expect(DashboardElementDescription).toHaveStyleRule("height", "2.4rem");
+        });
+      });
+
       describe("marginBottom", () => {
         test("should have 2.8rem", () => {
           const { DashboardElementDescription } = setup({
