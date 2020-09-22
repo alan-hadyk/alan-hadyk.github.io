@@ -15,11 +15,18 @@ const mapSizeToButtonTextProps: MapSizeToButtonTextProps = {
   small: { fontSize: "font20" }
 };
 
-function ButtonText({ buttonText, size }: ButtonTextProps): JSX.Element {
+function ButtonText({
+  buttonText,
+  dataTestId,
+  size
+}: ButtonTextProps): JSX.Element {
   const buttonTextProps: TextProps = mapSizeToButtonTextProps[size];
 
   return (
-    <SpacingContainer marginRight={size === "small" ? "spacing8" : "spacing16"}>
+    <SpacingContainer
+      dataTestId={dataTestId || "ButtonText"}
+      marginRight={size === "small" ? "spacing8" : "spacing16"}
+    >
       <Text 
         {...buttonTextProps} 
         fontFamily="Exan"

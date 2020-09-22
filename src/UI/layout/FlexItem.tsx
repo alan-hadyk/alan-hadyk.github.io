@@ -9,6 +9,7 @@ const FlexItem = ({
   alignSelf = "auto",
   children,
   className,
+  dataCy,
   dataTestId,
   flex,
   height = "unset",
@@ -20,6 +21,7 @@ const FlexItem = ({
   <FlexItem.Container
     alignSelf={alignSelf}
     className={className}
+    data-cy={dataCy}
     data-testid={dataTestId || "FlexItem"}
     flex={flex}
     height={height}

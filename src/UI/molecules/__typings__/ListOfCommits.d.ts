@@ -1,4 +1,3 @@
-
 export interface ListOfCommitsProps {
   commitsList: CommitProps[];
   hasError: boolean;

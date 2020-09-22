@@ -18,10 +18,10 @@ describe("pages / Home / sections / dashboard / elements / PoweredBy", () => {
   describe("DashboardElement", () => {
     describe("Props", () => {
       describe("flex", () => {
-        test("should have 0 1 30%", () => {
+        test("should have 1 0 30%", () => {
           const { DashboardElement } = setup();
 
-          expect(DashboardElement).toHaveStyleRule("flex", "0 1 30%");
+          expect(DashboardElement).toHaveStyleRule("flex", "1 0 30%");
         });
       });
 
@@ -34,10 +34,10 @@ describe("pages / Home / sections / dashboard / elements / PoweredBy", () => {
       });
 
       describe("title", () => {
-        test("should render Powered by react", () => {
+        test("should render Powered by", () => {
           const { DashboardElement } = setup();
 
-          expect(DashboardElement.children[0].textContent).toEqual("Powered by react");
+          expect(DashboardElement.children[0].textContent).toEqual("Powered by");
         });
       });
 
@@ -75,6 +75,7 @@ function setup(): Setup {
   );
 
   const { queryByTestId, queryAllByTestId } = utils || {};
+  
   const DashboardElement: Element = queryByTestId("PoweredBy");
   const ReactLogo: Element = queryByTestId("ReactLogo");
   const Corners: Element[] = queryAllByTestId("Corner");

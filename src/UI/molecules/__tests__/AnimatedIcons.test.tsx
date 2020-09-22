@@ -114,6 +114,16 @@ describe("molecules / AnimatedIcons", () => {
 
   describe("PositionContainer", () => {
     describe("Props", () => {
+      describe("height", () => { 
+        test("should be 100%", () => {
+          const { PositionContainers } = setup();
+  
+          PositionContainers.forEach((PositionContainer) => {
+            expect(PositionContainer).toHaveStyleRule("height", "100%");
+          });
+        });
+      });   
+
       describe("position", () => { 
         test("should be relative", () => {
           const { PositionContainers } = setup();
@@ -157,11 +167,37 @@ describe("molecules / AnimatedIcons", () => {
 
     describe("Props", () => {
       describe("height", () => { 
-        test("should have auto", () => {
+        test("should have 100%", () => {
           const { IconContainers } = setup();
 
           IconContainers.forEach(IconContainer => {
-            expect(IconContainer).toHaveStyleRule("height", "auto");
+            expect(IconContainer).toHaveStyleRule("height", "100%");
+          });
+        });
+      });
+
+      describe("isResponsive", () => {
+        describe("height", () => {
+          test("should have 100%", () => {
+            const { IconContainers } = setup();
+      
+            IconContainers.forEach((IconContainer) => {
+              expect(IconContainer).toHaveStyleRule("height", "100%", {
+                modifier: "svg"
+              });
+            });
+          });
+        });
+
+        describe("width", () => {
+          test("should have 100%", () => {
+            const { IconContainers } = setup();
+      
+            IconContainers.forEach((IconContainer) => {
+              expect(IconContainer).toHaveStyleRule("width", "100%", {
+                modifier: "svg"
+              });
+            });
           });
         });
       });

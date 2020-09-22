@@ -8,6 +8,7 @@ import {
 const PositionContainer = ({
   bottom = "unset",
   children,
+  dataCy,
   dataTestId,
   height = "unset",
   left = "unset",
@@ -20,6 +21,7 @@ const PositionContainer = ({
 }: PositionContainerProps, ref: Ref<HTMLDivElement>): JSX.Element => (
   <PositionContainer.Container
     bottom={bottom}
+    data-cy={dataCy}
     data-testid={dataTestId || "PositionContainer"}
     height={height}
     left={left}

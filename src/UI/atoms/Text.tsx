@@ -70,7 +70,7 @@ function Text({
       paddingLeft={paddingLeft}
       paddingRight={paddingRight}
       paddingTop={paddingTop}  
-      ref={ref ? ref : textElementRef}
+      ref={ref || textElementRef}
       textAlign={textAlign}
       textTransform={textTransform}
     >

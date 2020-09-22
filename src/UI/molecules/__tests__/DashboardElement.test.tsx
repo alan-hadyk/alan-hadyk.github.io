@@ -10,8 +10,8 @@ describe("molecules / DashboardElement", () => {
   test("should have correct structure if there's no description", () => {
     const {       
       Corners,
-      DashboardElementChildrenSpacingContainer,
-      DashboardElementContentSpacingContainer,
+      DashboardElementInnerSpacingContainer,
+      DashboardElementOuterSpacingContainer,
       DashboardElementContainer,
       DashboardElementInnerContainer,
       DashboardElementTitleText,
@@ -21,8 +21,8 @@ describe("molecules / DashboardElement", () => {
     });
 
     expect(DashboardElementContainer.children[0]).toEqual(DashboardElementTitleText);
-    expect(DashboardElementContainer.children[1]).toEqual(DashboardElementContentSpacingContainer);
-    expect(DashboardElementContentSpacingContainer.children[0]).toEqual(PositionContainer);
+    expect(DashboardElementContainer.children[1]).toEqual(DashboardElementOuterSpacingContainer);
+    expect(DashboardElementOuterSpacingContainer.children[0]).toEqual(PositionContainer);
 
     expect(PositionContainer.children[0]).toEqual(Corners[0]);
     expect(PositionContainer.children[1]).toEqual(Corners[1]);
@@ -30,14 +30,14 @@ describe("molecules / DashboardElement", () => {
     expect(PositionContainer.children[3]).toEqual(Corners[3]);
 
     expect(PositionContainer.children[4]).toEqual(DashboardElementInnerContainer);
-    expect(DashboardElementInnerContainer.children[0]).toEqual(DashboardElementChildrenSpacingContainer);
+    expect(DashboardElementInnerContainer.children[0]).toEqual(DashboardElementInnerSpacingContainer);
   });
 
   test("should have correct structure if there's description", () => {
     const { 
       Corners,
-      DashboardElementChildrenSpacingContainer,
-      DashboardElementContentSpacingContainer,
+      DashboardElementInnerSpacingContainer,
+      DashboardElementOuterSpacingContainer,
       DashboardElementContainer,
       DashboardElementDescription,
       DashboardElementDescriptionText,
@@ -51,18 +51,18 @@ describe("molecules / DashboardElement", () => {
 
     expect(DashboardElementContainer.children[0]).toEqual(DashboardElementTitleText);
     expect(DashboardElementContainer.children[1]).toEqual(DashboardElementDescription);
-    expect(DashboardElementContainer.children[2]).toEqual(DashboardElementContentSpacingContainer);
+    expect(DashboardElementContainer.children[2]).toEqual(DashboardElementOuterSpacingContainer);
 
     expect(DashboardElementDescription.children[0]).toEqual(DashboardElementDescriptionText);
 
-    expect(DashboardElementContentSpacingContainer.children[0]).toEqual(PositionContainer);
+    expect(DashboardElementOuterSpacingContainer.children[0]).toEqual(PositionContainer);
 
     expect(PositionContainer.children[0]).toEqual(Corners[0]);
     expect(PositionContainer.children[1]).toEqual(Corners[1]);
     expect(PositionContainer.children[2]).toEqual(Corners[2]);
     expect(PositionContainer.children[3]).toEqual(Corners[3]); 
     expect(PositionContainer.children[4]).toEqual(DashboardElementInnerContainer);
-    expect(DashboardElementInnerContainer.children[0]).toEqual(DashboardElementChildrenSpacingContainer);
+    expect(DashboardElementInnerContainer.children[0]).toEqual(DashboardElementInnerSpacingContainer);
   });
 
   describe("DashboardElementContainer", () => {
@@ -166,10 +166,18 @@ describe("molecules / DashboardElement", () => {
       });
 
       describe("overflow", () => {
-        test("should have visible", () => {
+        test("should have visible by default", () => {
           const { DashboardElementContainer } = setup();
     
           expect(DashboardElementContainer).toHaveStyleRule("overflow", "visible");
+        });
+
+        test("should have hidden if is passed via titleOverflow prop", () => {
+          const { DashboardElementContainer } = setup({
+            titleOverflow: "hidden"
+          });
+    
+          expect(DashboardElementContainer).toHaveStyleRule("overflow", "hidden");
         });
       });
     });
@@ -452,66 +460,76 @@ describe("molecules / DashboardElement", () => {
   });
 
   describe("SpacingContainers", () => {
-    describe("DashboardElementChildrenSpacingContainer", () => {
+    describe("DashboardElementInnerSpacingContainer", () => {
       test("should render children", () => {
-        const { DashboardElementChildrenSpacingContainer } = setup({
+        const { DashboardElementInnerSpacingContainer } = setup({
           children: <div>Custom children</div>,
           shouldDisplayCorners: true
         });
     
-        expect(DashboardElementChildrenSpacingContainer.textContent).toEqual("Custom children");
+        expect(DashboardElementInnerSpacingContainer.textContent).toEqual("Custom children");
       });
   
       test("should not render if shouldDisplayCorners is false", () => {
-        const { DashboardElementChildrenSpacingContainer } = setup({
+        const { DashboardElementInnerSpacingContainer } = setup({
           shouldDisplayCorners: false
         });
     
-        expect(DashboardElementChildrenSpacingContainer).toBeFalsy();
+        expect(DashboardElementInnerSpacingContainer).toBeFalsy();
       });
   
       describe("Props", () => {
-        let DashboardElementChildrenSpacingContainer: Element;
+        let DashboardElementInnerSpacingContainer: Element;
   
         beforeEach(() => {
-          DashboardElementChildrenSpacingContainer = setup({
+          DashboardElementInnerSpacingContainer = setup({
             shouldDisplayCorners: true
-          }).DashboardElementChildrenSpacingContainer;
+          }).DashboardElementInnerSpacingContainer;
         });
   
         describe("height", () => {
           test("should have 100%", () => {
-            expect(DashboardElementChildrenSpacingContainer).toHaveStyleRule("height", "100%");
+            expect(DashboardElementInnerSpacingContainer).toHaveStyleRule("height", "100%");
           });
         });
   
         describe("paddingRight", () => {
           test("should have .8rem", () => {
-            expect(DashboardElementChildrenSpacingContainer).toHaveStyleRule("padding-right", ".8rem");
+            expect(DashboardElementInnerSpacingContainer).toHaveStyleRule("padding-right", ".8rem");
           });
         });
   
         describe("paddingLeft", () => {
           test("should have .8rem", () => {
-            expect(DashboardElementChildrenSpacingContainer).toHaveStyleRule("padding-left", ".8rem");
+            expect(DashboardElementInnerSpacingContainer).toHaveStyleRule("padding-left", ".8rem");
           });
         });
   
         describe("paddingTop", () => {
           test("should have .8rem", () => {
-            expect(DashboardElementChildrenSpacingContainer).toHaveStyleRule("padding-top", ".8rem");
+            expect(DashboardElementInnerSpacingContainer).toHaveStyleRule("padding-top", ".8rem");
           });
         });
   
         describe("paddingBottom", () => {
           test("should have .8rem", () => {
-            expect(DashboardElementChildrenSpacingContainer).toHaveStyleRule("padding-bottom", ".8rem");
+            expect(DashboardElementInnerSpacingContainer).toHaveStyleRule("padding-bottom", ".8rem");
           });
         });
       });
     });
 
     describe("DashboardElementDescription", () => {
+      describe("height", () => {
+        test("should have 2.4rem", () => {
+          const { DashboardElementDescription } = setup({
+            description: "Lorem ipsum"
+          });
+  
+          expect(DashboardElementDescription).toHaveStyleRule("height", "2.4rem");
+        });
+      });
+
       describe("marginBottom", () => {
         test("should have 2.8rem", () => {
           const { DashboardElementDescription } = setup({
@@ -526,49 +544,35 @@ describe("molecules / DashboardElement", () => {
     describe("DashboardElementContentSpacingContainer", () => {
       describe("height", () => {
         test("should have calc(100% - 3.6rem) if there is no description", () => {
-          const { DashboardElementContentSpacingContainer } = setup();
+          const { DashboardElementOuterSpacingContainer } = setup();
   
-          expect(DashboardElementContentSpacingContainer).toHaveStyleRule("height", "calc(100% - 3.6rem)");
+          expect(DashboardElementOuterSpacingContainer).toHaveStyleRule("height", "calc(100% - 3.6rem)");
         });
 
-        test("should have calc(100% - 3.6rem - 2.8rem -  ${height}px) if there is description", () => {
-          Element.prototype.getBoundingClientRect = jest.fn(() => {
-            return {
-              bottom: 0,
-              height: 120,
-              left: 0,
-              right: 0,
-              toJSON: jest.fn(),
-              top: 0,
-              width: 120,
-              x: 0,
-              y: 0
-            };
-          });
-
-          const { DashboardElementContentSpacingContainer } = setup({
+        test("should have calc(100% - 3.6rem - 2.4rem - 2.8rem) if there is description", () => {
+          const { DashboardElementOuterSpacingContainer } = setup({
             description: "Lorem ipsum dolor sit amet"
           });
   
-          expect(DashboardElementContentSpacingContainer).toHaveStyleRule("height", "calc(100% - 3.6rem - 2.8rem - 120px)");
+          expect(DashboardElementOuterSpacingContainer).toHaveStyleRule("height", "calc(100% - 3.6rem - 2.4rem - 2.8rem)");
         });
       });
 
       describe("marginTop", () => {
         test("should have .8rem when title font size is equal 28px", () => {
-          const { DashboardElementContentSpacingContainer } = setup({
+          const { DashboardElementOuterSpacingContainer } = setup({
             titleFontSize: "font28"
           });
   
-          expect(DashboardElementContentSpacingContainer).toHaveStyleRule("margin-top", ".8rem");
+          expect(DashboardElementOuterSpacingContainer).toHaveStyleRule("margin-top", ".8rem");
         });
 
         test("should have 0 when title font size is not equal 28px", () => {
-          const { DashboardElementContentSpacingContainer } = setup({
+          const { DashboardElementOuterSpacingContainer } = setup({
             titleFontSize: "font16"
           });
   
-          expect(DashboardElementContentSpacingContainer).toHaveStyleRule("margin-top", "0");
+          expect(DashboardElementOuterSpacingContainer).toHaveStyleRule("margin-top", "0");
         });
       });
     });
@@ -723,12 +727,12 @@ describe("molecules / DashboardElement", () => {
 
 interface Setup extends RenderResult {
   Corners: HTMLElement[];
-  DashboardElementChildrenSpacingContainer: Element;
   DashboardElementContainer: Element;
-  DashboardElementContentSpacingContainer: Element;
   DashboardElementDescription: Element;
   DashboardElementDescriptionText: Element;
   DashboardElementInnerContainer: Element;
+  DashboardElementInnerSpacingContainer: Element;
+  DashboardElementOuterSpacingContainer: Element;
   DashboardElementTitleText: Element;
   PositionContainer: Element;
 }
@@ -749,24 +753,24 @@ function setup(additionalProps?: DashboardElementTestProps): Setup {
 
   const { queryAllByTestId }: RenderResult = utils;
   const Corners: HTMLElement[] = queryAllByTestId("Corner");
-  const DashboardElementChildrenSpacingContainer: Element = queryAllByTestId("DashboardElementChildrenSpacingContainer")[0];
   const DashboardElementContainer: Element = queryAllByTestId("DashboardElement")[0];
-  const DashboardElementContentSpacingContainer: Element = queryAllByTestId("DashboardElementContentSpacingContainer")[0];
-  const DashboardElementDescription = queryAllByTestId("DashboardElementDescription")[0];
+  const DashboardElementDescription = queryAllByTestId("DashboardElementDescriptionSpacingContainer")[0];
   const DashboardElementDescriptionText = queryAllByTestId("DashboardElementDescriptionText")[0];
   const DashboardElementInnerContainer: Element = queryAllByTestId("DashboardElementInnerContainer")[0];
+  const DashboardElementInnerSpacingContainer: Element = queryAllByTestId("DashboardElementInnerSpacingContainer")[0];
+  const DashboardElementOuterSpacingContainer: Element = queryAllByTestId("DashboardElementOuterSpacingContainer")[0];
   const DashboardElementTitleText: Element = queryAllByTestId("DashboardElementTitleText")[0];
   const PositionContainer: Element = queryAllByTestId("PositionContainer")[0];
  
   return {
     ...utils,
     Corners,
-    DashboardElementChildrenSpacingContainer,
     DashboardElementContainer,
-    DashboardElementContentSpacingContainer,
     DashboardElementDescription,
     DashboardElementDescriptionText,
     DashboardElementInnerContainer,
+    DashboardElementInnerSpacingContainer,
+    DashboardElementOuterSpacingContainer,
     DashboardElementTitleText,
     PositionContainer
   };

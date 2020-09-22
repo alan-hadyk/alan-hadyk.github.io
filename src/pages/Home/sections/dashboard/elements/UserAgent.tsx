@@ -5,9 +5,10 @@ import BrowserInfo from "<molecules>/BrowserInfo";
 
 export const UserAgent = (): JSX.Element => (
   <DashboardElement
+    dataCy="UserAgent"
     dataTestId="UserAgent"
     description={window && window.navigator && window.navigator.userAgent}
-    flex="0 1 20%"
+    flex="1 0 20%"
     shouldDisplayCorners
     title="User Agent" 
   >
