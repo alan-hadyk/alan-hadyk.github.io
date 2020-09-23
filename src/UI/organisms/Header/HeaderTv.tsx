@@ -6,6 +6,7 @@ import Nav from "<molecules>/Nav";
 
 import Responsive from "<layout>/Responsive";
 import FlexContainer from "<layout>/FlexContainer";
+import SpacingContainer from "<layout>/SpacingContainer";
 
 const HeaderTv = (): JSX.Element => (
   <Responsive
@@ -16,10 +17,15 @@ const HeaderTv = (): JSX.Element => (
       dataTestId="HeaderTvFlexContainer"
       flexFlow="row nowrap"
       height="spacing48"
-      gap="spacing48"
+      gap="spacing24"
       justifyContent="flex-start"
     >
-      <Nav />
+      <SpacingContainer 
+        dataTestId="HeaderTvSpacingContainer"
+        paddingRight="spacing24"
+      >
+        <Nav />
+      </SpacingContainer>
 
       <Button
         buttonText="resume"

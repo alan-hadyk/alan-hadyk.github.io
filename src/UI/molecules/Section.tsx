@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useCallback } from "react";
 
 import Text from "<atoms>/Text";
 
@@ -6,10 +6,9 @@ import SpacingContainer from "<layout>/SpacingContainer";
 import Responsive from "<layout>/Responsive";
 
 import {
+  RenderTitle,
   SectionProps
 } from "<molecules>/__typings__/Section.d.ts";
-
-import { FontSizes } from "<styles>/variables/__typings__/variables.d.ts";
 
 function Section({
   children,
@@ -19,30 +18,7 @@ function Section({
   minHeight,
   title
 }: SectionProps): JSX.Element {
-  return (
-    <SpacingContainer 
-      dataCy={dataCy}
-      dataTestId={dataTestId || "Section"}
-      id={id}
-      marginBottom="spacing16"
-      minHeight={minHeight}
-      paddingBottom={title ? "spacing96" : "spacing0"}
-    >
-      <Responsive devices={["tv", "desktop", "tablet"]}>
-        {renderTitle("spacing96", "font72")}
-      </Responsive>
-
-      <Responsive devices={["mobile"]}>
-        {renderTitle("spacing48", "font48")}
-      </Responsive>
-      
-      <Fragment>
-        {children}
-      </Fragment>
-    </SpacingContainer>
-  );
-
-  function renderTitle(marginBottom: string, fontSize: FontSizes): JSX.Element {
+  const renderTitle = useCallback(({ fontSize, marginBottom }: RenderTitle): JSX.Element => {
     if (!title) {	
       return;	
     }
@@ -65,7 +41,36 @@ function Section({
         </Text>
       </SpacingContainer>
     );
-  }
+  }, [title]);
+
+  return (
+    <SpacingContainer
+      dataCy={dataCy}
+      dataTestId={dataTestId || "Section"}
+      id={id}
+      marginBottom="spacing16"
+      minHeight={minHeight}
+      paddingBottom={title ? "spacing96" : "spacing0"}
+    >
+      <Responsive devices={["tv", "desktop", "tablet"]}>
+        {renderTitle({
+          fontSize: "font72",
+          marginBottom: "spacing96"
+        })}
+      </Responsive>
+
+      <Responsive devices={["mobile"]}>
+        {renderTitle({
+          fontSize: "font48",
+          marginBottom: "spacing48"
+        })}
+      </Responsive>
+      
+      <Fragment>
+        {children}
+      </Fragment>
+    </SpacingContainer>
+  );
 }
 
 export default Section;

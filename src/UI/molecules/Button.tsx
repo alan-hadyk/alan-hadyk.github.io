@@ -12,16 +12,15 @@ import Corners from "<molecules>/Corners";
 import colorPalette from "<styles>/variables/colorPalette";
 import transitionTimes from "<styles>/variables/transitionTimes";
 
-import {
-  Spacing
-} from "<styles>/variables/__typings__/variables.d.ts";
+import spacing from "<styles>/variables/spacing";
+
+import { Spacing } from "<styles>/variables/__typings__/variables.d.ts";
 
 import {
   ButtonContainerProps,
   ButtonInnnerContainerPositions,
   ButtonProps,
   MapSizeToButtonContainerProps,
-  MapSizeToIconHeight,
   MapTypeToButtonContainerProps
 } from "<molecules>/__typings__/Button.d.ts";
 
@@ -49,12 +48,6 @@ const mapSizeToButtonContainerProps: MapSizeToButtonContainerProps = {
   }
 };
 
-const mapSizeToIconHeight: MapSizeToIconHeight = {
-  large: "spacing24",
-  medium: "spacing24",
-  small: "spacing12"
-};
-
 function Button({
   buttonText,
   dataTestId,
@@ -71,9 +64,10 @@ function Button({
 
   return (
     <Button.Container
+      data-cy="Button"
+      data-testid={dataTestId || "Button"}
       {...mapSizeToButtonContainerProps[size]}
       {...mapTypeToButtonContainerProps[type]}
-      data-testid={dataTestId || "Button"}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseUp={handleButtonClick}
@@ -89,8 +83,9 @@ function Button({
           >
             <ButtonText buttonText={buttonText} size={size} />
             <Icon
+              height={size === "small" ? spacing.spacing12 : spacing.spacing24}
               iconName={iconName}
-              height={mapSizeToIconHeight[size]}
+              isHeightResponsive
             />
           </FlexContainer>
         </SpacingContainer>
