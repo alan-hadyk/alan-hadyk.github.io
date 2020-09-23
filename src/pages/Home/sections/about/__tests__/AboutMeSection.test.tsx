@@ -10,20 +10,22 @@ describe("pages / Home / sections / about / AboutMeSection", () => {
     const {
       AboutMeSectionContainer,
       HexagonWithDescription,
+      HexagonWithDescriptionContents,
       IconContainer
     } = setup();
 
     expect(AboutMeSectionContainer.children[4]).toEqual(HexagonWithDescription);
-    expect(HexagonWithDescription.children[0].children[0].children[0].children[0]).toEqual(IconContainer);
+
+    HexagonWithDescriptionContents.forEach((HexagonWithDescriptionContent: Element) => {
+      expect(HexagonWithDescriptionContent.children[0].children[0].children[0].children[0]).toEqual(IconContainer);
+    });
   });
 
   describe("AboutMeSectionContainer", () => {
     describe("Props", () => {
       describe("title", () => {
         test("should have About me", () => {
-          const {
-            AboutMeSectionContainer
-          } = setup();
+          const { AboutMeSectionContainer } = setup();
   
           expect(AboutMeSectionContainer.children[0].children[0].textContent).toEqual("About me");
         });
@@ -33,13 +35,24 @@ describe("pages / Home / sections / about / AboutMeSection", () => {
 
   describe("HexagonWithDescription", () => {
     describe("Props", () => {
+      describe("children", () => {
+        test("should render correct image", () => {
+          const { HexagonWithDescriptionContents } = setup();
+
+          HexagonWithDescriptionContents.forEach((HexagonWithDescriptionContent: Element) => {
+            expect(HexagonWithDescriptionContent.children[0].children[0].children[0].children[1].textContent).toEqual("Company-SAP.svg");
+          });
+  
+        });
+      });
+
       describe("description", () => {
         test("should have correct description", () => {
-          const {
-            HexagonWithDescription
-          } = setup();
-  
-          expect(HexagonWithDescription.children[0].children[1].children[0].children[0].textContent).toEqual("Proven talent for aligning software development strategy and objectives with established user interface implementation and technology management paradigms to achieve maximum operational impacts with minimum resource expenditures. Growth-focused thought leader with expertise spanning application layering, polygot language coding expertise, best practice compliance, agile methodology, cross-functional team leadership, REST & GraphQL architectural styles, comprehensive components, and project management. Exceptionally dedicated technical professional with keen organizational skills.");
+          const { HexagonWithDescriptionContents } = setup();
+
+          HexagonWithDescriptionContents.forEach((HexagonWithDescriptionContent: Element) => {
+            expect(HexagonWithDescriptionContent.children[1].children[0].children[0].textContent).toEqual("Proven talent for aligning software development strategy and objectives with established user interface implementation and technology management paradigms to achieve maximum operational impacts with minimum resource expenditures. Growth-focused thought leader with expertise spanning application layering, polygot language coding expertise, best practice compliance, agile methodology, cross-functional team leadership, REST & GraphQL architectural styles, comprehensive components, and project management. Exceptionally dedicated technical professional with keen organizational skills.");
+          });
         });
       });
     });
@@ -49,6 +62,7 @@ describe("pages / Home / sections / about / AboutMeSection", () => {
 interface Setup extends RenderResult {
   AboutMeSectionContainer: Element;
   HexagonWithDescription: Element;
+  HexagonWithDescriptionContents: Element[];
   IconContainer: Element;
 }
 
@@ -61,12 +75,14 @@ function setup(): Setup {
   
   const AboutMeSectionContainer: Element = document.querySelectorAll("#about-me")[0];
   const HexagonWithDescription: Element = queryAllByTestId("HexagonWithDescription")[0];
+  const HexagonWithDescriptionContents: Element[] = queryAllByTestId("HexagonWithDescriptionContent");
   const IconContainer: Element = queryAllByTestId("IconContainer")[0];
 
   return {
     ...utils,
     AboutMeSectionContainer,
     HexagonWithDescription,
+    HexagonWithDescriptionContents,
     IconContainer
   };
 }

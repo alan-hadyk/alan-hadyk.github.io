@@ -14,6 +14,7 @@ const HexagonWithDescription = ({
   description
 }: HexagonWithDescriptionProps): JSX.Element => (
   <SpacingContainer
+    dataCy="HexagonWithDescription"
     dataTestId="HexagonWithDescription"
     marginLeft="auto"
     marginRight="auto"

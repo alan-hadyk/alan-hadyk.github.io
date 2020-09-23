@@ -43,6 +43,7 @@ const HexagonWithDescriptionContent = ({
       flex="0 1 50%"
     >
       <Text
+        dataCy="AboutMeDescription"
         color="blue300"
         fontFamily="AnonymousPro"
         fontSize="font20"
