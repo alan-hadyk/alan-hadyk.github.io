@@ -31,10 +31,10 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
   describe("DashboardElement", () => {
     describe("Props", () => {
       describe("flex", () => {
-        test("should have 0 1 20%", () => {
+        test("should have 1 0 20%", () => {
           const { DashboardElement } = setup();
 
-          expect(DashboardElement).toHaveStyleRule("flex", "0 1 20%");
+          expect(DashboardElement).toHaveStyleRule("flex", "1 0 20%");
         });
       });
 
@@ -75,6 +75,14 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
           const { DashboardElement } = setup();
 
           expect(DashboardElement.children[0].textContent).toEqual("Commits");
+        });
+      });
+
+      describe("titleOverflow", () => {
+        test("should have hidden", () => {
+          const { DashboardElement } = setup();
+
+          expect(DashboardElement).toHaveStyleRule("overflow", "hidden");
         });
       });
     });
@@ -307,11 +315,16 @@ function setup(additionalProps?: ListOfCommitsTestProps): Setup {
 
   const { queryByTestId, queryAllByTestId } = utils || {};
 
+  const Corners: Element[] = queryAllByTestId("Corner");
+  const DashboardElement: Element = queryByTestId("Commits");
+  const Error: Element = queryByTestId("Error");
+  const ListOfCommits: Element = queryByTestId("ListOfCommits");
+
   return {
     ...utils,
-    Corners: queryAllByTestId("Corner"),
-    DashboardElement: queryByTestId("Commits"),
-    Error: queryByTestId("Error"),
-    ListOfCommits: queryByTestId("ListOfCommits")
+    Corners,
+    DashboardElement,
+    Error,
+    ListOfCommits
   };
 }

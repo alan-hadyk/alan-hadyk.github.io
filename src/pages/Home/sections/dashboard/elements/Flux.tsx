@@ -5,8 +5,9 @@ import FlowChart from "<molecules>/FlowChart";
 
 const Flux = (): JSX.Element => (
   <DashboardElement
+    dataCy="Flux"
     dataTestId="Flux"
-    flex="0 1 30%"
+    flex="1 0 30%" 
     shouldDisplayCorners
     title="Flux" 
   >

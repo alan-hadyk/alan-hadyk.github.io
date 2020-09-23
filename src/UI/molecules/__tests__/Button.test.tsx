@@ -584,69 +584,69 @@ describe("molecules / Button", () => {
   });
 
   describe("Icon", () => {    
-    describe("SVG", () => { 
-      describe("Props", () => {
-        describe("iconName", () => {
-          test("should render corect icon for codesandbox", () => {
-            const { Icon } = setup({
-              iconName: "btnCodeSandbox"
-            });
-      
-            expect(Icon.textContent).toEqual("Btn-CodeSandbox.svg");
+    describe("Props", () => {
+      describe("iconName", () => {
+        test("should render corect icon for codesandbox", () => {
+          const { Icon } = setup({
+            iconName: "btnCodeSandbox"
           });
+      
+          expect(Icon.textContent).toEqual("Btn-CodeSandbox.svg");
+        });
     
-          test("should render corect icon for download", () => {
-            const { Icon } = setup({
-              iconName: "btnDownload"
-            });
-      
-            expect(Icon.textContent).toEqual("Btn-Download.svg");
+        test("should render corect icon for download", () => {
+          const { Icon } = setup({
+            iconName: "btnDownload"
           });
+      
+          expect(Icon.textContent).toEqual("Btn-Download.svg");
+        });
     
-          test("should render corect icon for externalLink", () => {
-            const { Icon } = setup({
-              iconName: "btnExternalLink"
-            });
-      
-            expect(Icon.textContent).toEqual("Btn-ExternalLink.svg");
+        test("should render corect icon for externalLink", () => {
+          const { Icon } = setup({
+            iconName: "btnExternalLink"
           });
-    
-          test("should render corect icon for send", () => {
-            const { Icon } = setup({
-              iconName: "btnSend"
-            });
       
-            expect(Icon.textContent).toEqual("Btn-Send.svg");
-          });
+          expect(Icon.textContent).toEqual("Btn-ExternalLink.svg");
         });
       });
-    });
-  
-    describe("IconContainer", () => {
-      describe("Props", () => {
-        describe("height", () => {
-          test("should have 1.2rem for small size", () => {
-            const { IconContainer } = setup({
-              size: "small"
-            });
     
-            expect(IconContainer).toHaveStyleRule("height", "1.2rem");
+      describe("height", () => {
+        test("should have 2.4rem (size - large)", () => {
+          const { IconContainer } = setup({
+            size: "large"
           });
   
-          test("should have 2.4rem for medium size", () => {
-            const { IconContainer } = setup({
-              size: "medium"
-            });
-    
-            expect(IconContainer).toHaveStyleRule("height", "2.4rem");
+          expect(IconContainer).toHaveStyleRule("height", "2.4rem");
+        });
+
+        test("should have 2.4rem (size - medium)", () => {
+          const { IconContainer } = setup({
+            size: "medium"
           });
   
-          test("should have 2.4rem for large size", () => {
-            const { IconContainer } = setup({
-              size: "large"
+          expect(IconContainer).toHaveStyleRule("height", "2.4rem");
+        });
+
+        test("should have 1.2rem (size - small)", () => {
+          const { IconContainer } = setup({
+            size: "small"
+          });
+  
+          expect(IconContainer).toHaveStyleRule("height", "1.2rem");
+        });
+      });
+
+      describe("isHeightResponsive", () => {
+        describe("svg", () => {
+          describe("height", () => {
+            test("should have 100%", () => {
+              const { IconContainer } = setup();
+  
+              expect(IconContainer).toHaveStyleRule("height", "100%", {
+                modifier: "svg"
+              });
             });
-    
-            expect(IconContainer).toHaveStyleRule("height", "2.4rem");
           });
         });
       });

@@ -6,6 +6,7 @@ import {
 export interface PositionContainerProps {
   bottom?: Spacing | string;
   children: JSX.Element | JSX.Element[];
+  dataCy?: string;
   dataTestId?: string;
   height?: Spacing | string;
   left?: Spacing | string;

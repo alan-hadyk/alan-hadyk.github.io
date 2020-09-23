@@ -20,7 +20,7 @@ const ReactLogo = (): JSX.Element => (
       dataTestId="ReactLogoFlexContainer"
       height="100%"
       justifyContent="center"
-    > 
+    >
       <Icon
         // animationTime="verySlow"
         height="100%"

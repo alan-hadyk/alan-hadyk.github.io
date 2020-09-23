@@ -22,27 +22,27 @@ describe("pages / Home / sections / dashboard / elements / UserAgent", () => {
   describe("DashboardElement", () => {
     describe("Props", () => {
       describe("childrenHeight", () => {
-        test("should have auto", () => {
+        test("should have 2.4rem", () => {
           const { DashboardElement } = setup();
       
-          expect(DashboardElement.children[1]).toHaveStyleRule("height", "auto");
+          expect(DashboardElement.children[1]).toHaveStyleRule("height", "2.4rem");
         });
       });
 
       describe("description", () => {
         test("should have Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/11.12.0", () => {
           Object.defineProperty(window.navigator, "userAgent", {value: "Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/11.12.0"});
-          const { DashboardElement } = setup();
+          const { DashboardElementDescriptionText } = setup();
       
-          expect(DashboardElement.children[1].textContent).toEqual("Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/11.12.0");
+          expect(DashboardElementDescriptionText.textContent).toEqual("Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/11.12.0");
         });
       });
 
       describe("flex", () => {
-        test("should have 0 1 20%", () => {
+        test("should have 1 0 20%", () => {
           const { DashboardElement } = setup();
       
-          expect(DashboardElement).toHaveStyleRule("flex", "0 1 20%");
+          expect(DashboardElement).toHaveStyleRule("flex", "1 0 20%");
         });
       });
 
@@ -99,6 +99,7 @@ interface Setup extends RenderResult {
   BrowserInfo: Element;
   Corners: Element[];
   DashboardElement: Element;
+  DashboardElementDescriptionText: Element;
 }
 
 function setup(): Setup {
@@ -111,11 +112,13 @@ function setup(): Setup {
   const BrowserInfo: Element = queryByTestId("BrowserInfo");
   const Corners: Element[] = queryAllByTestId("Corner");
   const DashboardElement: Element = queryByTestId("UserAgent");
+  const DashboardElementDescriptionText: Element = queryByTestId("DashboardElementDescriptionText");
 
   return {
     ...utils,
     BrowserInfo,
     Corners,
-    DashboardElement
+    DashboardElement,
+    DashboardElementDescriptionText
   };
 }

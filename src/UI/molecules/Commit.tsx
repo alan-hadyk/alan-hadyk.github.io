@@ -54,7 +54,6 @@ const Commit = ({
         </FlexItem>
         <FlexItem
           flex="0 0 30.66%"
-          overflow="hidden"
         >
           <Text
             fontSize="font8"

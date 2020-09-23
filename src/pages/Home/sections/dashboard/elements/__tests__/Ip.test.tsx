@@ -79,6 +79,7 @@ function setup(): Setup {
   );
 
   const { queryByTestId, queryAllByTestId } = utils || {};
+  
   const DashboardElement: Element = queryByTestId("IP");
   const Earth: Element = queryByTestId("Earth");
   const Corners: Element[] = queryAllByTestId("Corner");
