@@ -16,8 +16,7 @@ const FlexItem = ({
   order = 0,
   overflow = "auto",
   paddingBottom = "spacing0",
-  paddingTop = "spacing0",
-  width
+  paddingTop = "spacing0"
 }: FlexItemProps): JSX.Element => (
   <FlexItem.Container
     alignSelf={alignSelf}
@@ -30,7 +29,6 @@ const FlexItem = ({
     overflow={overflow}
     paddingBottom={paddingBottom}
     paddingTop={paddingTop}
-    width={width}
   >
     {children}
   </FlexItem.Container>
@@ -47,8 +45,7 @@ FlexItem.Container = styled.div<FlexItemProps>`
     paddingTop,
     theme: {
       spacing
-    },
-    width
+    }
   }): FlattenSimpleInterpolation => css`
     align-self: ${alignSelf};
     flex: ${flex};
@@ -57,7 +54,6 @@ FlexItem.Container = styled.div<FlexItemProps>`
     overflow: ${overflow};
     padding-bottom: ${(paddingBottom in spacing && spacing[paddingBottom]) || paddingBottom};
     padding-top: ${(paddingTop in spacing && spacing[paddingTop]) || paddingTop};
-    width: ${width}
   `}
 `;
   
