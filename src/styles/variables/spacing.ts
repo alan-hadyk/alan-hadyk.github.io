@@ -16,6 +16,7 @@ export default {
   spacing36: "3.6rem",
   spacing40: "4rem",
   spacing48: "4.8rem",
+  spacing52: "5.2rem",
   spacing56: "5.6rem",
   spacing60: "6rem",
   spacing64: "6.4rem",

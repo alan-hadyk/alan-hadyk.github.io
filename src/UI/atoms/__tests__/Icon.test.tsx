@@ -881,14 +881,6 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Btn-ExternalLink.svg");
       });
 
-      test("should render correct icon for btnSend", () => {
-        const { IconComponent } = setup({
-          iconName: "btnSend"
-        });
-
-        expect(IconComponent.textContent).toEqual("Btn-Send.svg");
-      });
-
       test("should render corect icon for calendar", () => {
         const { IconComponent } = setup({
           iconName: "calendar"

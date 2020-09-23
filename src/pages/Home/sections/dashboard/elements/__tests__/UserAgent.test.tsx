@@ -22,10 +22,10 @@ describe("pages / Home / sections / dashboard / elements / UserAgent", () => {
   describe("DashboardElement", () => {
     describe("Props", () => {
       describe("childrenHeight", () => {
-        test("should have auto", () => {
+        test("should have 2.4rem", () => {
           const { DashboardElement } = setup();
       
-          expect(DashboardElement.children[1]).toHaveStyleRule("height", "auto");
+          expect(DashboardElement.children[1]).toHaveStyleRule("height", "2.4rem");
         });
       });
 

@@ -53,7 +53,7 @@ describe("molecules / DashboardElement", () => {
     expect(DashboardElementContainer.children[1]).toEqual(DashboardElementDescription);
     expect(DashboardElementContainer.children[2]).toEqual(DashboardElementOuterSpacingContainer);
 
-    expect(DashboardElementDescription.children[0].children[0]).toEqual(DashboardElementDescriptionText);
+    expect(DashboardElementDescription.children[0]).toEqual(DashboardElementDescriptionText);
 
     expect(DashboardElementOuterSpacingContainer.children[0]).toEqual(PositionContainer);
 
@@ -520,6 +520,16 @@ describe("molecules / DashboardElement", () => {
     });
 
     describe("DashboardElementDescription", () => {
+      describe("height", () => {
+        test("should have 2.4rem", () => {
+          const { DashboardElementDescription } = setup({
+            description: "Lorem ipsum"
+          });
+  
+          expect(DashboardElementDescription).toHaveStyleRule("height", "2.4rem");
+        });
+      });
+
       describe("marginBottom", () => {
         test("should have 2.8rem", () => {
           const { DashboardElementDescription } = setup({
@@ -539,26 +549,12 @@ describe("molecules / DashboardElement", () => {
           expect(DashboardElementOuterSpacingContainer).toHaveStyleRule("height", "calc(100% - 3.6rem)");
         });
 
-        test("should have calc(100% - 3.6rem - 2.8rem -  ${height}px) if there is description", () => {
-          Element.prototype.getBoundingClientRect = jest.fn(() => {
-            return {
-              bottom: 0,
-              height: 120,
-              left: 0,
-              right: 0,
-              toJSON: jest.fn(),
-              top: 0,
-              width: 120,
-              x: 0,
-              y: 0
-            };
-          });
-
+        test("should have calc(100% - 3.6rem - 2.4rem - 2.8rem) if there is description", () => {
           const { DashboardElementOuterSpacingContainer } = setup({
             description: "Lorem ipsum dolor sit amet"
           });
   
-          expect(DashboardElementOuterSpacingContainer).toHaveStyleRule("height", "calc(100% - 3.6rem - 2.8rem - 120px)");
+          expect(DashboardElementOuterSpacingContainer).toHaveStyleRule("height", "calc(100% - 3.6rem - 2.4rem - 2.8rem)");
         });
       });
 

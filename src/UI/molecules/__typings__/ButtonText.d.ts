@@ -4,6 +4,7 @@ import {
 
 export interface ButtonTextProps {
   buttonText: string;
+  dataTestId?: string;
   size: "small" | "medium" | "large";
 }
 
