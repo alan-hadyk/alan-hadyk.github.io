@@ -7,6 +7,7 @@ import FlexContainer from "<layout>/FlexContainer";
 
 const ContactSection = (): JSX.Element => (
   <Section
+    dataCy="Contact"
     id="contact"
     title="Contact"
   >
@@ -14,6 +15,7 @@ const ContactSection = (): JSX.Element => (
       justifyContent="center"
     >
       <Link
+        dataCy="EmailLink"
         href="mailto:alan.hadyk@gmail.com"
         isHoverable
       >
