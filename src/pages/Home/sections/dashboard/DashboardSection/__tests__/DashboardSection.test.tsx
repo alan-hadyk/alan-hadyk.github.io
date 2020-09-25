@@ -69,16 +69,14 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
     expect(DashboardSectionOuterFlexContainer.children[0]).toEqual(DashboardSectionTop[0]);	
     expect(DashboardSectionOuterFlexContainer.children[1]).toEqual(DashboardSectionTop[1]);	
     expect(DashboardSectionOuterFlexContainer.children[2]).toEqual(DashboardSectionTop[2]);		
-    expect(DashboardSectionOuterFlexContainer.children[3]).toEqual(DashboardSectionTop[3]);		
 
     // Console	
-    expect(DashboardSectionOuterFlexContainer.children[4]).toEqual(Console);	
+    expect(DashboardSectionOuterFlexContainer.children[3]).toEqual(Console);	
 
     // Bottom row	
-    expect(DashboardSectionOuterFlexContainer.children[5]).toEqual(DashboardSectionBottom[0]);	
-    expect(DashboardSectionOuterFlexContainer.children[6]).toEqual(DashboardSectionBottom[1]);	
-    expect(DashboardSectionOuterFlexContainer.children[7]).toEqual(DashboardSectionBottom[2]);	
-    expect(DashboardSectionOuterFlexContainer.children[8]).toEqual(DashboardSectionBottom[3]);	
+    expect(DashboardSectionOuterFlexContainer.children[4]).toEqual(DashboardSectionBottom[0]);	
+    expect(DashboardSectionOuterFlexContainer.children[5]).toEqual(DashboardSectionBottom[1]);	
+    expect(DashboardSectionOuterFlexContainer.children[6]).toEqual(DashboardSectionBottom[2]);	
   });	
 
   describe("Section", () => {	

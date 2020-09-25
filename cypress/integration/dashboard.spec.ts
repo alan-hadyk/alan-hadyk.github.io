@@ -21,7 +21,7 @@ describe("Dashboard", () => {
       cy.viewport(1681, 900);
     });
 
-    it("should contain Tech Stack, Flux, Code, Commits, Powered by, User Agent and Ip", () => {
+    it("should contain Tech Stack, Flux, Code, Console, Commits, Powered by, User Agent and Ip", () => {
       cy.dataCy("Dashboard")
         .should("be.visible")
         .within(() => {
@@ -112,7 +112,7 @@ describe("Dashboard", () => {
       cy.viewport(1281, 900);
     });
 
-    it("should contain Tech Stack, Flux, Code, Commits, Powered by, User Agent and Ip", () => {
+    it("should contain Tech Stack, Flux, Code, Console, Commits, Powered by, User Agent and Ip", () => {
       cy.dataCy("Dashboard")
         .should("be.visible")
         .within(() => {
@@ -203,7 +203,7 @@ describe("Dashboard", () => {
       cy.viewport(641, 900);
     });
 
-    it("should contain Tech Stack, Flux, Code, Commits, Powered by, User Agent and Ip", () => {
+    it("should contain Tech Stack, Console, Commits, Powered by", () => {
       cy.dataCy("Dashboard")
         .should("be.visible")
         .within(() => {
@@ -266,24 +266,12 @@ describe("Dashboard", () => {
       cy.viewport(640, 900);
     });
 
-    it("should contain Tech Stack, Flux, Code, Commits, Powered by, User Agent and Ip", () => {
+    it("should contain Console", () => {
       cy.dataCy("Dashboard")
         .should("be.visible")
         .within(() => {
           cy.dataCy("TechStack")
-            .should("be.visible")
-            .find("[data-testid='DashboardElementTitleText']")
-            .should("contain", "Tech Stack");
-  
-          cy.dataCy("TechStack")
-            .within(() => {
-              cy.dataCy("react").should("be.visible");
-              cy.dataCy("javascript").should("be.visible");
-              cy.dataCy("typescript").should("be.visible");
-              cy.dataCy("webpack").should("be.visible");
-              cy.dataCy("node").should("be.visible");
-              cy.dataCy("apollo").should("be.visible");
-            });
+            .should("not.be.visible");
 
           cy.dataCy("Flux")
             .should("not.be.visible");
@@ -301,19 +289,13 @@ describe("Dashboard", () => {
             .should("contain", "Vision driven change agent with career-long record of front-end user strategy and UI development");
   
           cy.dataCy("Commits")
-            .should("be.visible")
-            .find("[data-testid='DashboardElementTitleText']")
-            .should("contain", "Commits");
+            .should("not.be.visible");
 
           cy.dataCy("PoweredBy")
-            .should("be.visible")
-            .find("[data-testid='DashboardElementTitleText']")
-            .should("contain", "Powered by");
+            .should("not.be.visible");
 
           cy.dataCy("PoweredBy")
-            .within(() => {
-              cy.dataCy("reactLogo").should("be.visible");
-            });
+            .should("not.be.visible");
 
           cy.dataCy("UserAgent")
             .should("not.be.visible");

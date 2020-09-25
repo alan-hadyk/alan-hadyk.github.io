@@ -74,14 +74,14 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
     expect(DashboardSectionInnerContainer.children[0].children[3]).toEqual(Ip);	
   });	
 
-  test("should have correct structure for tablet and mobile", () => {	
+  test("should have correct structure for tablet", () => {	
     const {	
       Commits,	
       DashboardSectionBottomContainer,	
       DashboardSectionInnerContainer,
       PoweredBy
     } = setup({
-      devices: ["tablet", "mobile"]
+      devices: ["tablet"]
     });	
 
     expect(DashboardSectionBottomContainer.children[0]).toEqual(DashboardSectionInnerContainer);	
@@ -135,16 +135,6 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
   
             expect(DashboardSectionBottomContainer).toHaveStyleRule("display", "block", {
               media: "(min-width:641px) and (max-width:1280px)"
-            });
-          });
-
-          test("should have block for max-width: 640px", () => {
-            const { DashboardSectionBottomContainer } = setup({
-              devices: ["mobile"]
-            });
-  
-            expect(DashboardSectionBottomContainer).toHaveStyleRule("display", "block", {
-              media: "(max-width:640px)"
             });
           });
         });

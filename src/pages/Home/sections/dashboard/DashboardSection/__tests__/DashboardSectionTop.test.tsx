@@ -71,17 +71,16 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
     expect(DashboardSectionInnerContainer.children[0].children[2]).toEqual(Code);	
   });	
 
-  test("should have correct structure for tablet and mobile", () => {	
+  test("should have correct structure for tablet", () => {	
     const {	
       DashboardSectionInnerContainer,
       DashboardSectionTopContainer,	
       TechStack	
     } = setup({
-      devices: ["tablet", "mobile"]
+      devices: ["tablet"]
     });	
 
     expect(DashboardSectionTopContainer.children[0]).toEqual(DashboardSectionInnerContainer);	
-
 
     expect(DashboardSectionInnerContainer.children[0].children[0]).toEqual(TechStack);	
   });
@@ -131,16 +130,6 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
   
             expect(DashboardSectionTopContainer).toHaveStyleRule("display", "block", {
               media: "(min-width:641px) and (max-width:1280px)"
-            });
-          });
-
-          test("should have block for max-width: 640px", () => {
-            const { DashboardSectionTopContainer } = setup({
-              devices: ["mobile"]
-            });
-  
-            expect(DashboardSectionTopContainer).toHaveStyleRule("display", "block", {
-              media: "(max-width:640px)"
             });
           });
         });
