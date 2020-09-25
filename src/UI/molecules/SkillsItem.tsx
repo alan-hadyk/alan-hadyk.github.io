@@ -9,12 +9,12 @@ import {
   SkillsItemProps
 } from "<molecules>/__typings__/SkillsItem.d.ts";
 
-const SkillsItem = ({ 
+function SkillsItem({ 
   data: {
     iconsWithLabels,
     title
   }
-}: SkillsItemProps): JSX.Element => {
+}: SkillsItemProps): JSX.Element {
   const dataCyTitle = title.replace(/\s/g, "").replace("/","");
 
   return (
@@ -41,6 +41,6 @@ const SkillsItem = ({
       </SpacingContainer>
     </DashboardElement>
   );
-};
+}
 
 export default SkillsItem;
