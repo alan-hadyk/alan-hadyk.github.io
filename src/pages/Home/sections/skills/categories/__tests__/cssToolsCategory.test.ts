@@ -21,7 +21,7 @@ describe("pages / Home / sections / skills / categories/ cssToolsCategory", () =
           label: "LESS"
         }
       ],
-      title: "CSS tools"
+      title: "CSS Tools"
     });
   });
 });

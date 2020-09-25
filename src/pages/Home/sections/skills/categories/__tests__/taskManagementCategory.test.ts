@@ -33,7 +33,7 @@ describe("pages / Home / sections / skills / categories/ taskManagementCategory"
           label: "Basecamp"
         }
       ],
-      title: "Task management"
+      title: "Task Management"
     });
   });
 });
