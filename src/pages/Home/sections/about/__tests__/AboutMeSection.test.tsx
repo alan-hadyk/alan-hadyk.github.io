@@ -17,7 +17,7 @@ describe("pages / Home / sections / about / AboutMeSection", () => {
     expect(AboutMeSectionContainer.children[4]).toEqual(HexagonWithDescription);
 
     HexagonWithDescriptionContents.forEach((HexagonWithDescriptionContent: Element) => {
-      expect(HexagonWithDescriptionContent.children[0].children[0].children[0].children[0]).toEqual(IconContainer);
+      expect(HexagonWithDescriptionContent.children[0].children[0].children[0]).toEqual(IconContainer);
     });
   });
 
@@ -40,7 +40,7 @@ describe("pages / Home / sections / about / AboutMeSection", () => {
           const { HexagonWithDescriptionContents } = setup();
 
           HexagonWithDescriptionContents.forEach((HexagonWithDescriptionContent: Element) => {
-            expect(HexagonWithDescriptionContent.children[0].children[0].children[0].children[1].textContent).toEqual("Company-SAP.svg");
+            expect(HexagonWithDescriptionContent.children[0].children[0].children[1].textContent).toEqual("Company-SAP.svg");
           });
   
         });

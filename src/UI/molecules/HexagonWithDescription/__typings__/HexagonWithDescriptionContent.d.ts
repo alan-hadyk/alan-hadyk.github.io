@@ -4,6 +4,7 @@ export interface HexagonWithDescriptionContentProps {
   children: JSX.Element;
   description: JSX.Element;
   flexFlow?: FlexContainerProps["flexFlow"];
+  lineHeight?: Spacing;
   marginBottom?: Spacing;
   marginRight?: Spacing;
   width?: string;

@@ -46,6 +46,7 @@ const HexagonWithDescription = ({
       <HexagonWithDescriptionContent
         description={description}
         flexFlow="column nowrap"
+        lineHeight="spacing28"
         marginBottom="spacing48"
         width="100%"
       >

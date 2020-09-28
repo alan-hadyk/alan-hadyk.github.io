@@ -131,11 +131,11 @@ describe("molecules / HexagonWithDescription", () => {
       });
 
       HexagonWithDescriptionContents.forEach((HexagonWithDescriptionContent: Element) => {
-        expect(HexagonWithDescriptionContent.children[0].children[0].children[0].children[1].textContent).toEqual("Custom image");
+        expect(HexagonWithDescriptionContent.children[0].children[0].children[1].textContent).toEqual("Custom image");
       });
     });
 
-    describe("HexagonWithDescriptionContent[0], HexagonWithDescriptionContent[0]", () => {
+    describe("HexagonWithDescriptionContents", () => {
       describe("Props", () => {
         describe("description", () => { 
           test("should render correct content passed via description prop", () => {
@@ -162,6 +162,22 @@ describe("molecules / HexagonWithDescription", () => {
 
             expect(HexagonWithDescriptionContents[2]).toHaveStyleRule("flex-flow", "column nowrap");
             expect(HexagonWithDescriptionContents[3]).toHaveStyleRule("flex-flow", "column nowrap");
+          });
+        });
+
+        describe("lineHeight", () => { 
+          test("should have 3.6rem for first and second and third element", () => {
+            const { HexagonWithDescriptionContents } = setup();
+
+            expect(HexagonWithDescriptionContents[0].children[1].children[0]).toHaveStyleRule("line-height", "3.6rem");
+            expect(HexagonWithDescriptionContents[1].children[1].children[0]).toHaveStyleRule("line-height", "3.6rem");
+            expect(HexagonWithDescriptionContents[2].children[1].children[0]).toHaveStyleRule("line-height", "3.6rem");
+          });
+
+          test("should have 2.8rem for fourth element", () => {
+            const { HexagonWithDescriptionContents } = setup();
+
+            expect(HexagonWithDescriptionContents[3].children[1].children[0]).toHaveStyleRule("line-height", "2.8rem");
           });
         });
 
@@ -205,13 +221,13 @@ describe("molecules / HexagonWithDescription", () => {
             expect(HexagonWithDescriptionContents[1].children[0]).toHaveStyleRule("width", "50%");
           });
 
-          test("should have 60% for third and fourth element", () => {
+          test("should have 60% for third element", () => {
             const { HexagonWithDescriptionContents } = setup();
 
             expect(HexagonWithDescriptionContents[2].children[0]).toHaveStyleRule("width", "60%");
           });
 
-          test("should have 100% for third and fourth element", () => {
+          test("should have 100% for fourth element", () => {
             const { HexagonWithDescriptionContents } = setup();
 
             expect(HexagonWithDescriptionContents[3].children[0]).toHaveStyleRule("width", "100%");

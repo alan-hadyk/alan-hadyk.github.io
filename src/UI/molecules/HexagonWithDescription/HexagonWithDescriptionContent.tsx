@@ -15,6 +15,7 @@ const HexagonWithDescriptionContent = ({
   children,
   description,
   flexFlow = "row nowrap",
+  lineHeight = "spacing36",
   marginBottom = "spacing0",
   marginRight = "spacing0",
   width
@@ -30,24 +31,19 @@ const HexagonWithDescriptionContent = ({
       marginRight={marginRight}
       width={width}
     >
-      <FlexItem
-        flex="0 1 50%"
-      >
-        <Hexagon contentWidth="75%">
-          {children}
-        </Hexagon>
-      </FlexItem>
+      <Hexagon contentWidth="75%">
+        {children}
+      </Hexagon>
     </SpacingContainer>
 
     <FlexItem
       flex="0 1 50%"
     >
       <Text
-        dataCy="AboutMeDescription"
         color="blue300"
         fontFamily="AnonymousPro"
         fontSize="font20"
-        lineHeight="spacing36"
+        lineHeight={lineHeight}
       >
         {description}
       </Text>

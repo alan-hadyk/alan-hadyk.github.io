@@ -12,18 +12,16 @@ describe("molecules / HexagonWithDescription", () => {
     const {
       DescriptionSpacingContainer,
       FlexContainer,
-      FlexItems,
+      FlexItem,
       Hexagon,
       Text
     } = setup();
 
     expect(FlexContainer.children[0]).toEqual(DescriptionSpacingContainer);
-    expect(FlexContainer.children[1]).toEqual(FlexItems[1]);
-    expect(DescriptionSpacingContainer.children[0]).toEqual(FlexItems[0]);
+    expect(FlexContainer.children[1]).toEqual(FlexItem);
+    expect(DescriptionSpacingContainer.children[0]).toEqual(Hexagon);
 
-    expect(FlexItems[0].children[0]).toEqual(Hexagon);
-
-    expect(FlexItems[1].children[0]).toEqual(Text);
+    expect(FlexItem.children[0]).toEqual(Text);
   });
 
   describe("FlexContainer", () => {    
@@ -100,27 +98,13 @@ describe("molecules / HexagonWithDescription", () => {
     });
   });
 
-  describe("FlexItems", () => { 
-    describe("FlexItems[0]", () => {
-      describe("Props", () => {
-        describe("flex", () => {
-          test("should have 0 1 50%", () => {
-            const { FlexItems } = setup();
-      
-            expect(FlexItems[0]).toHaveStyleRule("flex", "0 1 50%");
-          });
-        });
-      });
-    });
-
-    describe("FlexItems[1]", () => {
-      describe("Props", () => {
-        describe("flex", () => {
-          test("should have 0 1 50%", () => {
-            const { FlexItems } = setup();
-      
-            expect(FlexItems[1]).toHaveStyleRule("flex", "0 1 50%");
-          });
+  describe("FlexItem", () => {
+    describe("Props", () => {
+      describe("flex", () => {
+        test("should have 0 1 50%", () => {
+          const { FlexItem } = setup();
+    
+          expect(FlexItem).toHaveStyleRule("flex", "0 1 50%");
         });
       });
     });
@@ -183,10 +167,18 @@ describe("molecules / HexagonWithDescription", () => {
       });
 
       describe("lineHeight", () => {
-        test("should have 3.6rem", () => {
+        test("should have 3.6rem by default", () => {
           const { Text } = setup();
     
           expect(Text).toHaveStyleRule("line-height", "3.6rem");
+        });
+
+        test("should have correct value passed via lineHeight props", () => {
+          const { Text } = setup({
+            lineHeight: "spacing40"
+          });
+    
+          expect(Text).toHaveStyleRule("line-height", "4rem");
         });
       });
     });
@@ -196,7 +188,7 @@ describe("molecules / HexagonWithDescription", () => {
 interface Setup extends RenderResult {
   DescriptionSpacingContainer: Element;
   FlexContainer: Element;
-  FlexItems: Element[];
+  FlexItem: Element;
   Hexagon: Element;
   Text: Element;
 }
@@ -219,7 +211,7 @@ function setup(additionalProps?: HexagonWithDescriptionTestProps): Setup {
 
   const DescriptionSpacingContainer: Element = queryAllByTestId("DescriptionSpacingContainer")[0];
   const FlexContainer: Element = queryAllByTestId("HexagonWithDescriptionContent")[0];
-  const FlexItems: Element[] = queryAllByTestId("FlexItem");
+  const FlexItem: Element = queryAllByTestId("FlexItem")[0];
   const Hexagon: Element = queryAllByTestId("Hexagon")[0];
   const Text: Element = queryAllByTestId("Text")[0];
 
@@ -227,7 +219,7 @@ function setup(additionalProps?: HexagonWithDescriptionTestProps): Setup {
     ...utils,
     DescriptionSpacingContainer,
     FlexContainer,
-    FlexItems,
+    FlexItem,
     Hexagon,
     Text
   };
