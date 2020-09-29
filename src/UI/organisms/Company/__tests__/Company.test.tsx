@@ -71,13 +71,31 @@ describe("organisms / Company", () => {
 
           CompanyDescriptions.forEach((CompanyDescriptions: Element) => {
             IconsWithLabels = CompanyDescriptions.children[2].children[1].children[0];
+
+            expect(IconsWithLabels.children.length).toEqual(2);
+            expect(IconsWithLabels.children[0].children[0].children[0].textContent).toEqual("Brand-Webpack.svg");
+            expect(IconsWithLabels.children[0].children[1].textContent).toEqual("Webpack");
+            expect(IconsWithLabels.children[1].children[0].children[0].textContent).toEqual("Icon-Node.svg");
+            expect(IconsWithLabels.children[1].children[1].textContent).toEqual("Node");
+          });
+        });
+      });
+
+      describe("logo", () => {
+        test("should have Company-Omise.svg when prop logo: companyOmise", () => {
+          const { CompanyLogo } = setup({
+            logo: "companyOmise"
           });
 
-          expect(IconsWithLabels.children.length).toEqual(2);
-          expect(IconsWithLabels.children[0].children[0].children[0].textContent).toEqual("Brand-Webpack.svg");
-          expect(IconsWithLabels.children[0].children[1].textContent).toEqual("Webpack");
-          expect(IconsWithLabels.children[1].children[0].children[0].textContent).toEqual("Icon-Node.svg");
-          expect(IconsWithLabels.children[1].children[1].textContent).toEqual("Node");
+          expect(CompanyLogo.children[0].textContent).toEqual("Company-Omise.svg");
+        });
+
+        test("should have Company-SAP.svg when prop logo: companySAP", () => {
+          const { CompanyLogo } = setup({
+            logo: "companySAP"
+          });
+
+          expect(CompanyLogo.children[0].textContent).toEqual("Company-SAP.svg");
         });
       });
 
@@ -96,11 +114,11 @@ describe("organisms / Company", () => {
 
           CompanyDescriptions.forEach((CompanyDescription: Element) => {
             UnorderedList = CompanyDescription.children[3].children[1].children[0];
-          });
 
-          expect(UnorderedList.children.length).toEqual(2);
-          responsibilities.forEach((responsibility: string, index: number) => {
-            expect(UnorderedList.children[index].textContent).toEqual(responsibility);
+            expect(UnorderedList.children.length).toEqual(2);
+            responsibilities.forEach((responsibility: string, index: number) => {
+              expect(UnorderedList.children[index].textContent).toEqual(responsibility);
+            });
           });
         });
       });
@@ -117,9 +135,112 @@ describe("organisms / Company", () => {
 
           CompanyDescriptions.forEach((CompanyDescription: Element) => {
             Title = CompanyDescription.children[0].textContent;
+
+            expect(Title).toEqual(title);
+          });
+        });
+      });
+    });
+  });
+
+  describe("CompanyMobile", () => {
+    describe("Props", () => {
+      describe("responsibilitiesPaddingBottom", () => {
+        test("should have correct value passed via companyMobilePaddingBottom props", () => {
+          const { CompanyDescriptions } = setup({
+            companyMobilePaddingBottom: "spacing0"
           });
 
-          expect(Title).toEqual(title);
+          expect(CompanyDescriptions[3].children[3]).toHaveStyleRule("padding-bottom", "0");
+        });
+      });
+
+      describe("iconsWithLabels", () => {
+        test("should render correct icon and label passed via iconsWithLabels props", () => {
+          const { CompanyDescriptions } = setup({
+            iconsWithLabels: [
+              {
+                iconName: "brandWebpack",
+                label: "Webpack"
+              },
+              {
+                iconName: "node",
+                label: "Node"
+              }
+            ]
+          });
+
+          let IconsWithLabels: Element;
+
+          CompanyDescriptions.forEach((CompanyDescriptions: Element) => {
+            IconsWithLabels = CompanyDescriptions.children[2].children[1].children[0];
+
+            expect(IconsWithLabels.children.length).toEqual(2);
+            expect(IconsWithLabels.children[0].children[0].children[0].textContent).toEqual("Brand-Webpack.svg");
+            expect(IconsWithLabels.children[0].children[1].textContent).toEqual("Webpack");
+            expect(IconsWithLabels.children[1].children[0].children[0].textContent).toEqual("Icon-Node.svg");
+            expect(IconsWithLabels.children[1].children[1].textContent).toEqual("Node");
+          });
+        });
+      });
+
+      describe("logo", () => {
+        test("should have Company-Omise.svg when prop logo: companyOmise", () => {
+          const { CompanyLogo } = setup({
+            logo: "companyOmise"
+          });
+
+          expect(CompanyLogo.children[0].textContent).toEqual("Company-Omise.svg");
+        });
+
+        test("should have Company-SAP.svg when prop logo: companySAP", () => {
+          const { CompanyLogo } = setup({
+            logo: "companySAP"
+          });
+
+          expect(CompanyLogo.children[0].textContent).toEqual("Company-SAP.svg");
+        });
+      });
+
+      describe("responsibilities", () => {
+        test("should render correct value passed via responsibilities props", () => {
+          const responsibilities: CompanyProps["responsibilities"] = [
+            "Create scalable and sane front-end architecture", 
+            "Orchestrate and direct collaborative team operational objectives for front-end layer of an application designed to manage payment systems"    
+          ];
+
+          const { CompanyDescriptions } = setup({
+            responsibilities
+          });
+
+          let UnorderedList: Element;
+
+          CompanyDescriptions.forEach((CompanyDescription: Element) => {
+            UnorderedList = CompanyDescription.children[3].children[1].children[0];
+
+            expect(UnorderedList.children.length).toEqual(2);
+            responsibilities.forEach((responsibility: string, index: number) => {
+              expect(UnorderedList.children[index].textContent).toEqual(responsibility);
+            });
+          });
+        });
+      });
+
+      describe("title", () => {
+        test("should render correct value passed via title props", () => {
+          const title: CompanyProps["title"] = "Front-end developer";
+
+          const { CompanyDescriptions } = setup({
+            title
+          });
+
+          let Title: string;
+
+          CompanyDescriptions.forEach((CompanyDescription: Element) => {
+            Title = CompanyDescription.children[0].textContent;
+
+            expect(Title).toEqual(title);
+          });
         });
       });
     });
@@ -130,7 +251,7 @@ interface Setup extends RenderResult {
   CompanyContainer: Element;
   CompanyDescriptions: Element[];
   CompanyDesktop: Element;
-  CompanyLogos: Element[];
+  CompanyLogo: Element;
   CompanyMobile: Element;
   CompanyPositionContainer: Element;
   CompanyTablet: Element;
@@ -174,7 +295,7 @@ function setup(additionalProps?: CompanyTestProps): Setup {
   const CompanyContainer: Element = queryAllByTestId("Company")[0];
   const CompanyDescriptions: Element[] = queryAllByTestId("CompanyDescription");
   const CompanyDesktop: Element = queryAllByTestId("ResponsiveDesktop")[0];
-  const CompanyLogos: Element[] = queryAllByTestId("CompanyLogoFlexContainer");
+  const CompanyLogo: Element = queryAllByTestId("CompanyLogoFlexContainer")[0];
   const CompanyMobile: Element = queryAllByTestId("ResponsiveMobile")[0];
   const CompanyPositionContainer: Element = queryAllByTestId("CompanyPositionContainer")[0];
   const CompanyTablet: Element = queryAllByTestId("ResponsiveTablet")[0];
@@ -185,7 +306,7 @@ function setup(additionalProps?: CompanyTestProps): Setup {
     CompanyContainer,
     CompanyDescriptions,
     CompanyDesktop,
-    CompanyLogos,
+    CompanyLogo,
     CompanyMobile,
     CompanyPositionContainer,
     CompanyTablet,

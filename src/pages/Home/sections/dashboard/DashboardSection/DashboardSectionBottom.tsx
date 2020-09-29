@@ -25,7 +25,6 @@ const DashboardSectionBottom = ({
   >
     <DashboardSectionInnerContainer
       height={`calc(22.6vh + ${spacing.spacing36})`}
-      marginBottom="2.22vh"
     >
       <Commits />
       <PoweredBy />

@@ -145,6 +145,20 @@ describe("organisms / CompanyTvDesktopAndTablet", () => {
     });
   });
 
+  describe("FlexItems", () => {
+    describe("Props", () => {
+      describe("flex", () => {  
+        test("should have 0 0 50%", () => {
+          const { FlexItems } = setup();
+
+          FlexItems.forEach((FlexItem: Element) => {
+            expect(FlexItem).toHaveStyleRule("flex", "0 0 50%");
+          });
+        });
+      });
+    });
+  });
+
   describe("CompanyLogos", () => {
     describe("Props", () => {
       describe("height", () => {
@@ -157,14 +171,14 @@ describe("organisms / CompanyTvDesktopAndTablet", () => {
         });
       });
 
-      describe("iconName", () => {
-        test("should have Icon-Apollo.svg when prop logo: apollo", () => {
+      describe("logo", () => {
+        test("should have Company-SAP.svg when prop logo: companySAP", () => {
           const { CompanyLogos } = setup({
-            logo: "apollo"
+            logo: "companySAP"
           });
 
           CompanyLogos.forEach((CompanyLogo: Element) => {
-            expect(CompanyLogo.children[0].textContent).toEqual("Icon-Apollo.svg");
+            expect(CompanyLogo.children[0].textContent).toEqual("Company-SAP.svg");
           });
         });
 
@@ -178,41 +192,13 @@ describe("organisms / CompanyTvDesktopAndTablet", () => {
           });
         });
 
-        test("should have Brand-JS.svg when prop logo: brandJS", () => {
+        test("should have Company-Shiji.svg when prop logo: brandJS", () => {
           const { CompanyLogos } = setup({
-            logo: "brandJS"
+            logo: "companyShiji"
           });
 
           CompanyLogos.forEach((CompanyLogo: Element) => {
-            expect(CompanyLogo.children[0].textContent).toEqual("Brand-JS.svg");
-          });
-        });
-      });
-
-      describe("isHeightResponsive", () => {
-        describe("svg", () => {
-          describe("height", () => {
-            test("should have 100%", () => {
-              const { CompanyLogos } = setup();
-
-              CompanyLogos.forEach((CompanyLogo: Element) => {
-                expect(CompanyLogo.children[0]).toHaveStyleRule("height", "100%", {
-                  modifier: "svg"
-                });
-              });
-            });
-          });
-
-          describe("width", () => {
-            test("should have auto", () => {
-              const { CompanyLogos } = setup();
-
-              CompanyLogos.forEach((CompanyLogo: Element) => {
-                expect(CompanyLogo.children[0]).toHaveStyleRule("width", "auto", {
-                  modifier: "svg"
-                });
-              });
-            });
+            expect(CompanyLogo.children[0].textContent).toEqual("Company-Shiji.svg");
           });
         });
       });
@@ -262,13 +248,13 @@ describe("organisms / CompanyTvDesktopAndTablet", () => {
 
           CompanyDescriptions.forEach((CompanyDescriptions: Element) => {
             IconsWithLabels = CompanyDescriptions.children[2].children[1].children[0];
-          });
 
-          expect(IconsWithLabels.children.length).toEqual(2);
-          expect(IconsWithLabels.children[0].children[0].children[0].textContent).toEqual("Brand-Webpack.svg");
-          expect(IconsWithLabels.children[0].children[1].textContent).toEqual("Webpack");
-          expect(IconsWithLabels.children[1].children[0].children[0].textContent).toEqual("Icon-Node.svg");
-          expect(IconsWithLabels.children[1].children[1].textContent).toEqual("Node");
+            expect(IconsWithLabels.children.length).toEqual(2);
+            expect(IconsWithLabels.children[0].children[0].children[0].textContent).toEqual("Brand-Webpack.svg");
+            expect(IconsWithLabels.children[0].children[1].textContent).toEqual("Webpack");
+            expect(IconsWithLabels.children[1].children[0].children[0].textContent).toEqual("Icon-Node.svg");
+            expect(IconsWithLabels.children[1].children[1].textContent).toEqual("Node");
+          });
         });
 
         test("should render correct icons - React, Apollo", () => {
@@ -289,13 +275,13 @@ describe("organisms / CompanyTvDesktopAndTablet", () => {
 
           CompanyDescriptions.forEach((CompanyDescription: Element) => {
             IconsWithLabels = CompanyDescription.children[2].children[1].children[0];
-          });
 
-          expect(IconsWithLabels.children.length).toEqual(2);
-          expect(IconsWithLabels.children[0].children[0].children[0].textContent).toEqual("Brand-React.svg");
-          expect(IconsWithLabels.children[0].children[1].textContent).toEqual("React");
-          expect(IconsWithLabels.children[1].children[0].children[0].textContent).toEqual("Icon-Apollo.svg");
-          expect(IconsWithLabels.children[1].children[1].textContent).toEqual("Apollo");
+            expect(IconsWithLabels.children.length).toEqual(2);
+            expect(IconsWithLabels.children[0].children[0].children[0].textContent).toEqual("Brand-React.svg");
+            expect(IconsWithLabels.children[0].children[1].textContent).toEqual("React");
+            expect(IconsWithLabels.children[1].children[0].children[0].textContent).toEqual("Icon-Apollo.svg");
+            expect(IconsWithLabels.children[1].children[1].textContent).toEqual("Apollo");
+          });
         });
       });
 
@@ -313,11 +299,11 @@ describe("organisms / CompanyTvDesktopAndTablet", () => {
 
           CompanyDescriptions.forEach((CompanyDescription: Element) => {
             UnorderedList = CompanyDescription.children[3].children[1].children[0];
-          });
-
-          expect(UnorderedList.children.length).toEqual(2);
-          responsibilities.forEach((responsibility: string, index: number) => {
-            expect(UnorderedList.children[index].textContent).toEqual(responsibility);
+  
+            expect(UnorderedList.children.length).toEqual(2);
+            responsibilities.forEach((responsibility: string, index: number) => {
+              expect(UnorderedList.children[index].textContent).toEqual(responsibility);
+            });
           });
         });
 
@@ -334,11 +320,11 @@ describe("organisms / CompanyTvDesktopAndTablet", () => {
 
           CompanyDescriptions.forEach((CompanyDescription: Element) => {
             UnorderedList = CompanyDescription.children[3].children[1].children[0];
-          });
 
-          expect(UnorderedList.children.length).toEqual(2);
-          responsibilities.forEach((responsibility: string, index: number) => {
-            expect(UnorderedList.children[index].textContent).toEqual(responsibility);
+            expect(UnorderedList.children.length).toEqual(2);
+            responsibilities.forEach((responsibility: string, index: number) => {
+              expect(UnorderedList.children[index].textContent).toEqual(responsibility);
+            });
           });
         });
       });
@@ -354,9 +340,9 @@ describe("organisms / CompanyTvDesktopAndTablet", () => {
 
           CompanyDescriptions.forEach((CompanyDescription: Element) => {
             Title = CompanyDescription.children[0].textContent;
-          });
 
-          expect(Title).toEqual(title);
+            expect(Title).toEqual(title);
+          });
         });
 
         test("should render correct title - test 2", () => {
@@ -369,8 +355,9 @@ describe("organisms / CompanyTvDesktopAndTablet", () => {
 
           CompanyDescriptions.forEach((CompanyDescription: Element) => {
             Title = CompanyDescription.children[0].textContent;
+
+            expect(Title).toEqual(title);
           });
-          expect(Title).toEqual(title);
         });
       });
     });
@@ -420,16 +407,16 @@ function setup(additionalProps?: CompanyTestProps): Setup {
     <CompanyTvDesktopAndTablet {...props} />
   );
 
-  const { queryAllByTestId, queryByTestId } = utils || {};
+  const { queryAllByTestId } = utils || {};
 
   const CompanyDescriptions: Element[] = queryAllByTestId("CompanyDescription");
   const CompanyLogos: Element[] = queryAllByTestId("CompanyLogoFlexContainer");
   const CompanyTimelines: Element[] = queryAllByTestId("CompanyTimeline");
   const FlexContainers: Element[] = queryAllByTestId("CompanyTvDesktopAndTabletFlexContainer");
   const FlexItems: Element[] = queryAllByTestId("FlexItem");
-  const ResponsiveDesktop: Element = queryByTestId("ResponsiveDesktop");
-  const ResponsiveTablet: Element = queryByTestId("ResponsiveTablet");
-  const ResponsiveTv: Element = queryByTestId("ResponsiveTv");
+  const ResponsiveDesktop: Element = queryAllByTestId("ResponsiveDesktop")[0];
+  const ResponsiveTablet: Element = queryAllByTestId("ResponsiveTablet")[0];
+  const ResponsiveTv: Element = queryAllByTestId("ResponsiveTv")[0];
 
   return {
     ...utils,

@@ -6,69 +6,98 @@ import CompanyDiH from "<pages>/Home/sections/experience/companies/CompanyDiH";
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 describe("pages / Home / sections / experience / companies / CompanyDiH", () => {
-  test("should render correct date - October 2010 to October 2015", () => {
-    const {
-      CompanyDescription
-    } = setup();
+  describe("Props", () => {
+    describe("date", () => {
+      test("should render October 2010 to October 2015", () => {
+        const {
+          CompanyDescriptions
+        } = setup();
 
-    expect(CompanyDescription.children[1].children[0].children[1].textContent).toEqual("October 2010 to October 2015");
-  });
+        CompanyDescriptions.forEach((CompanyDescription: Element) => {
+          expect(CompanyDescription.children[1].children[0].children[1].textContent).toEqual("October 2010 to October 2015");
+        });
+      });
+    });
 
-  test("should render correct icons with labels", () => {
-    const {
-      CompanyDescription
-    } = setup();
-    const IconsWithLabels: Element = CompanyDescription.children[2].children[1].children[0];
+    describe("iconsWithLabels", () => {
+      test("should render correct icons with labels", () => {
+        const {
+          CompanyDescriptions
+        } = setup();
+        
+        let IconsWithLabels: Element;
 
-    expect(IconsWithLabels.children[0].children[0].children[0].textContent).toEqual("Brand-JS.svg");
-    expect(IconsWithLabels.children[0].children[1].textContent).toEqual("Javascript");
+        CompanyDescriptions.forEach((CompanyDescriptions: Element) => {
+          IconsWithLabels = CompanyDescriptions.children[2].children[1].children[0];
 
-    expect(IconsWithLabels.children[1].children[0].children[0].textContent).toEqual("Brand-Sass.svg");
-    expect(IconsWithLabels.children[1].children[1].textContent).toEqual("Sass");
+          expect(IconsWithLabels.children[0].children[0].children[0].textContent).toEqual("Brand-JS.svg");
+          expect(IconsWithLabels.children[0].children[1].textContent).toEqual("Javascript");
+      
+          expect(IconsWithLabels.children[1].children[0].children[0].textContent).toEqual("Brand-Sass.svg");
+          expect(IconsWithLabels.children[1].children[1].textContent).toEqual("Sass");
+      
+          expect(IconsWithLabels.children[2].children[0].children[0].textContent).toEqual("Brand-LESS.svg");
+          expect(IconsWithLabels.children[2].children[1].textContent).toEqual("LESS");
+      
+          expect(IconsWithLabels.children[3].children[0].children[0].textContent).toEqual("Brand-jQuery.svg");
+          expect(IconsWithLabels.children[3].children[1].textContent).toEqual("jQuery");
+      
+          expect(IconsWithLabels.children[4].children[0].children[0].textContent).toEqual("Brand-PrestaShop.svg");
+          expect(IconsWithLabels.children[4].children[1].textContent).toEqual("PrestaShop");
+      
+          expect(IconsWithLabels.children[5].children[0].children[0].textContent).toEqual("Brand-Redmine.svg");
+          expect(IconsWithLabels.children[5].children[1].textContent).toEqual("Redmine");
+        });
+      });
+    });
 
-    expect(IconsWithLabels.children[2].children[0].children[0].textContent).toEqual("Brand-LESS.svg");
-    expect(IconsWithLabels.children[2].children[1].textContent).toEqual("LESS");
+    describe("logo", () => {
+      test("should render Company-DiH.svg", () => {
+        const {
+          Logos
+        } = setup();
 
-    expect(IconsWithLabels.children[3].children[0].children[0].textContent).toEqual("Brand-jQuery.svg");
-    expect(IconsWithLabels.children[3].children[1].textContent).toEqual("jQuery");
+        Logos.forEach((Logo: Element) => {
+          expect(Logo.textContent).toEqual("Company-DiH.svg");
+        });    
+      });
+    });
 
-    expect(IconsWithLabels.children[4].children[0].children[0].textContent).toEqual("Brand-PrestaShop.svg");
-    expect(IconsWithLabels.children[4].children[1].textContent).toEqual("PrestaShop");
+    describe("responsibilities", () => {
+      test("should render correct responsibilities", () => {
+        const {
+          CompanyDescriptions
+        } = setup();
+        let UnorderedList: Element;
 
-    expect(IconsWithLabels.children[5].children[0].children[0].textContent).toEqual("Brand-Redmine.svg");
-    expect(IconsWithLabels.children[5].children[1].textContent).toEqual("Redmine");
-  });
+        CompanyDescriptions.forEach((CompanyDescription: Element) => {
+          UnorderedList = CompanyDescription.children[3].children[1].children[0];
 
-  test("should render correct logo - companyDIH", () => {
-    const {
-      Logo
-    } = setup();
+          expect(UnorderedList.textContent).toEqual("Optimized and systematized UI development (and sometimes design) of various e-commerce projectsBolstered continued professional development with concepts and technologies, such as: CSS preprocessors, UI pattern libraries and JavaScript task runnersPresented innovative approaches in the form of brown bags to all engineers to help shape our technical market presenceFostered cross-functional communication with information technology, end users, and other stakeholders to translate needs into system requirements, solid solutions, and reliable resultsInformed decisions to incorporate the use of defect and enhancement tracking software and processes");
+        });
+      });
+    });
 
-    expect(Logo.textContent).toEqual("Company-DiH.svg");
-  });
+    describe("title", () => {
+      test("should render Front end developer", () => {
+        const {
+          CompanyDescriptions
+        } = setup();
+        let Title: string;
 
-  test("should render correct responsibilities", () => {
-    const {
-      CompanyDescription
-    } = setup();
-    const UnorderedList: Element = CompanyDescription.children[3].children[1].children[0];
+        CompanyDescriptions.forEach((CompanyDescription: Element) => {
+          Title = CompanyDescription.children[0].textContent;
 
-    expect(UnorderedList.textContent).toEqual("Optimized and systematized UI development (and sometimes design) of various e-commerce projectsBolstered continued professional development with concepts and technologies, such as: CSS preprocessors, UI pattern libraries and JavaScript task runnersPresented innovative approaches in the form of brown bags to all engineers to help shape our technical market presenceFostered cross-functional communication with information technology, end users, and other stakeholders to translate needs into system requirements, solid solutions, and reliable resultsInformed decisions to incorporate the use of defect and enhancement tracking software and processes");
-  });
-
-  test("should render correct title - Front end developer", () => {
-    const {
-      CompanyDescription
-    } = setup();
-    const Title: string = CompanyDescription.children[0].textContent;
-
-    expect(Title).toEqual("Front end developer");
+          expect(Title).toEqual("Front end developer");
+        });
+      });
+    });
   });
 });
 
 interface Setup extends RenderResult {
-  CompanyDescription: Element;
-  Logo: Element;
+  CompanyDescriptions: Element[];
+  Logos: Element[];
 }
 
 function setup(): Setup {
@@ -78,13 +107,13 @@ function setup(): Setup {
 
   const { queryAllByTestId } = utils || {};
   
-  const CompanyDescription: Element = queryAllByTestId("CompanyDescription")[0];
-  const Logo: Element = queryAllByTestId("Logo")[0];
+  const CompanyDescriptions: Element[] = queryAllByTestId("CompanyDescription");
+  const Logos: Element[] = queryAllByTestId("Logo");
 
   return {
     ...utils,
-    CompanyDescription,
-    Logo
+    CompanyDescriptions,
+    Logos
   };
 }
  

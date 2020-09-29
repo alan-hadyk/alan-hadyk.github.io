@@ -13,6 +13,7 @@ function CompanyDescription({
   date,
   iconsWithLabels,
   responsibilities,
+  responsibilitiesPaddingBottom = "spacing68",
   textAlign = "left",
   title
 }: CompanyDescriptionProps): JSX.Element {
@@ -94,7 +95,7 @@ function CompanyDescription({
       <SpacingContainer
         dataCy="CompanyResponsibilities"
         dataTestId="ResponsibilitiesSpacingContainer"
-        paddingBottom="spacing68"
+        paddingBottom={responsibilitiesPaddingBottom}
       >
         <Text
           color="blue100"

@@ -91,15 +91,7 @@ describe("organisms / CompanyMobile", () => {
         });
       });
 
-      describe("iconName", () => {
-        test("should have Icon-Apollo.svg when prop logo: apollo", () => {
-          const { CompanyLogo } = setup({
-            logo: "apollo"
-          });
-
-          expect(CompanyLogo.children[0].textContent).toEqual("Icon-Apollo.svg");
-        });
-
+      describe("logo", () => {
         test("should have Company-Omise.svg when prop logo: companyOmise", () => {
           const { CompanyLogo } = setup({
             logo: "companyOmise"
@@ -108,36 +100,12 @@ describe("organisms / CompanyMobile", () => {
           expect(CompanyLogo.children[0].textContent).toEqual("Company-Omise.svg");
         });
 
-        test("should have Brand-JS.svg when prop logo: brandJS", () => {
+        test("should have Company-SAP.svg when prop logo: companySAP", () => {
           const { CompanyLogo } = setup({
-            logo: "brandJS"
+            logo: "companySAP"
           });
 
-          expect(CompanyLogo.children[0].textContent).toEqual("Brand-JS.svg");
-        });
-      });
-
-      describe("isHeightResponsive", () => {
-        describe("svg", () => {
-          describe("height", () => {
-            test("should have 100%", () => {
-              const { CompanyLogo } = setup();
-
-              expect(CompanyLogo.children[0]).toHaveStyleRule("height", "100%", {
-                modifier: "svg"
-              });
-            });
-          });
-
-          describe("width", () => {
-            test("should have auto", () => {
-              const { CompanyLogo } = setup();
-
-              expect(CompanyLogo.children[0]).toHaveStyleRule("width", "auto", {
-                modifier: "svg"
-              });
-            });
-          });
+          expect(CompanyLogo.children[0].textContent).toEqual("Company-SAP.svg");
         });
       });
     });
@@ -243,6 +211,24 @@ describe("organisms / CompanyMobile", () => {
         });
       });
 
+      describe("responsibilitiesPaddingBottom", () => {
+        test("should have correct value passed by responsibilitiesPaddingBottom", () => {
+          const { CompanyDescription } = setup({
+            responsibilitiesPaddingBottom: "spacing52"
+          });
+          
+          expect(CompanyDescription.children[3]).toHaveStyleRule("padding-bottom", "5.2rem");
+        });
+      });
+
+      describe("textAlign", () => {
+        test("should have center", () => {
+          const { CompanyDescription } = setup();
+
+          expect(CompanyDescription.children[0]).toHaveStyleRule("text-align", "center");
+        });
+      });
+
       describe("title", () => {
         test("should render correct title - test 1", () => {
           const title: CompanyProps["title"] = "Front-end developer";
@@ -307,12 +293,12 @@ function setup(additionalProps?: CompanyTestProps): Setup {
     <CompanyMobile {...props} />
   );
 
-  const { queryByTestId } = utils || {};
+  const { queryAllByTestId } = utils || {};
 
-  const CompanyDescription: Element = queryByTestId("CompanyDescription");
-  const CompanyLogo: Element = queryByTestId("CompanyLogoFlexContainer");
-  const FlexContainer: Element = queryByTestId("CompanyMobileFlexContainer");
-  const ResponsiveMobile: Element = queryByTestId("ResponsiveMobile");
+  const CompanyDescription: Element = queryAllByTestId("CompanyDescription")[0];
+  const CompanyLogo: Element = queryAllByTestId("CompanyLogoFlexContainer")[0];
+  const FlexContainer: Element = queryAllByTestId("CompanyMobileFlexContainer")[0];
+  const ResponsiveMobile: Element = queryAllByTestId("ResponsiveMobile")[0];
 
   return {
     ...utils,

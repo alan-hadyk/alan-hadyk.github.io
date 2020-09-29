@@ -56,28 +56,15 @@ function IconWithLabel({
           isHeightResponsive
         />
       </SpacingContainer>
-      <Responsive devices={["tv", "desktop", "tablet"]}>
-        {labelText(true)}
-      </Responsive>
-
-      <Responsive devices={["mobile"]}>
-        {labelText(false)}
-      </Responsive>
-    </FlexContainer>
-  );
-
-  function labelText(ellipsis: boolean): JSX.Element {
-    return (
       <Text
         dataTestId="LabelText"
         color={labelColor}
-        ellipsis={ellipsis}
         fontSize={mapSizeToTextFontSize[size]}
       >
         {label}
       </Text>
-    );
-  }
+    </FlexContainer>
+  );
 }
   
 export default IconWithLabel;

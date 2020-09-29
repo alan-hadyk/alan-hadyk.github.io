@@ -96,7 +96,7 @@ describe("organisms / CompanyDescription", () => {
             expect(MainTitle).toHaveStyleRule("text-align", "left");
           });
 
-          test("should have proper value passed via textAlign props", () => {
+          test("center when textAlign prop is center", () => {
             const { MainTitle } = setup({
               textAlign: "center"
             });
@@ -413,10 +413,18 @@ describe("organisms / CompanyDescription", () => {
     describe("ResponsibilitiesSpacingContainer", () => { 
       describe("Props", () => {
         describe("paddingBottom", () => {      
-          test("should have 6.8rem", () => {
+          test("should have 6.8rem by default", () => {
             const { ResponsibilitiesSpacingContainer } = setup();
 
             expect(ResponsibilitiesSpacingContainer).toHaveStyleRule("padding-bottom", "6.8rem");
+          });
+
+          test("should have correct value passed via responsibilitiesPaddingBottom props", () => {
+            const { ResponsibilitiesSpacingContainer } = setup({
+              responsibilitiesPaddingBottom: "spacing64"
+            });
+
+            expect(ResponsibilitiesSpacingContainer).toHaveStyleRule("padding-bottom", "6.4rem");
           });
         });
       });

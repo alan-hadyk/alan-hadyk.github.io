@@ -71,14 +71,6 @@ describe("molecules / Section", () => {
   describe("SpacingContainers", () => { 
     describe("SectionContainer", () => { 
       describe("Props", () => {
-        describe("marginBottom", () => {      
-          test("should have 1.6rem", () => {
-            const { SectionContainer } = setup();
-
-            expect(SectionContainer).toHaveStyleRule("margin-bottom", "1.6rem");
-          });
-        });
-
         describe("minHeight", () => {      
           test("should not have min-height by default", () => {
             const { SectionContainer } = setup();
@@ -100,24 +92,6 @@ describe("molecules / Section", () => {
             });
 
             expect(SectionContainer).toHaveStyleRule("min-height", "100vh");
-          });
-        });
-
-        describe("paddingBottom", () => {      
-          test("should have 0 if there is no title", () => {
-            const { SectionContainer } = setup({
-              title: undefined
-            });
-
-            expect(SectionContainer).toHaveStyleRule("padding-bottom", "0");
-          });
-
-          test("should have 9.6rem if there is title", () => {
-            const { SectionContainer } = setup({
-              title: "Custom title"
-            });
-
-            expect(SectionContainer).toHaveStyleRule("padding-bottom", "9.6rem");
           });
         });
       });
@@ -146,7 +120,7 @@ describe("molecules / Section", () => {
             expect(TitleSpacingContainers[2]).toHaveStyleRule("margin-bottom", "9.6rem");
           });
 
-          test("should have 4.8rem for tv, desktop and tablet", () => {
+          test("should have 4.8rem for mobile", () => {
             const { TitleSpacingContainers } = setup();
 
             expect(TitleSpacingContainers[3]).toHaveStyleRule("margin-bottom", "4.8rem");
@@ -154,13 +128,18 @@ describe("molecules / Section", () => {
         });
 
         describe("paddingTop", () => {      
-          test("should have 10.8rem", () => {
+          test("should have 12rem for tv, desktop and tablet", () => {
             const { TitleSpacingContainers } = setup();
 
-            
-            TitleSpacingContainers.forEach((TitleSpacingContainer: Element) => {
-              expect(TitleSpacingContainer).toHaveStyleRule("padding-top", "10.8rem");
-            });
+            expect(TitleSpacingContainers[0]).toHaveStyleRule("padding-top", "12rem");
+            expect(TitleSpacingContainers[1]).toHaveStyleRule("padding-top", "12rem");
+            expect(TitleSpacingContainers[2]).toHaveStyleRule("padding-top", "12rem");
+          });
+
+          test("should have 9.6rem for mobile", () => {
+            const { TitleSpacingContainers } = setup();
+
+            expect(TitleSpacingContainers[3]).toHaveStyleRule("padding-top", "9.6rem");
           });
         });
       });

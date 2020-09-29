@@ -6,7 +6,7 @@ import PositionContainer from "<layout>/PositionContainer";
 
 const CompanyTimeline = (): JSX.Element => (
   <PositionContainer
-    bottom="spacing0"
+    bottom="negativeSpacing16"
     dataTestId="CompanyTimeline"
     left="50%"
     position="absolute"

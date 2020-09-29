@@ -160,15 +160,7 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
 
           expect(DashboardSectionInnerContainer).toHaveStyleRule("height", "calc(22.6vh + 3.6rem)");	
         });	
-      });		
-
-      describe("marginBottom", () => {	
-        test("should have 2.22vh", () => {	
-          const { DashboardSectionInnerContainer } = setup();	
-
-          expect(DashboardSectionInnerContainer).toHaveStyleRule("margin-bottom", "2.22vh");	
-        });	
-      });		
+      });			
     });	
   });	
 

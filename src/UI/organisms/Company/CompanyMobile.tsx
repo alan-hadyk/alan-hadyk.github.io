@@ -13,6 +13,7 @@ const CompanyMobile = ({
   iconsWithLabels,
   logo,
   responsibilities,
+  responsibilitiesPaddingBottom,
   title
 }: CompanyProps): JSX.Element => (
   <Responsive devices={["mobile"]}>
@@ -29,6 +30,7 @@ const CompanyMobile = ({
         date={date}
         iconsWithLabels={iconsWithLabels}
         responsibilities={responsibilities}
+        responsibilitiesPaddingBottom={responsibilitiesPaddingBottom}
         textAlign="center"
         title={title}
       />

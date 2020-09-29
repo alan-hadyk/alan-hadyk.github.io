@@ -18,10 +18,18 @@ describe("templates / PageTemplate", () => {
   
   describe("Styles", () => {
     describe("padding", () => {      
-      test("should have '0 4.8rem 9.6rem'", () => {
+      test("should have '0 4.8rem 9.6rem' by default", () => {
         const { PageTemplate } = setup();
   
         expect(PageTemplate).toHaveStyleRule("padding", "0 4.8rem 9.6rem");
+      });
+
+      test("should have correct value passed via padding props", () => {
+        const { PageTemplate } = setup({
+          padding: "0 4.8rem 4rem"
+        });
+  
+        expect(PageTemplate).toHaveStyleRule("padding", "0 4.8rem 4rem");
       });
     });
 

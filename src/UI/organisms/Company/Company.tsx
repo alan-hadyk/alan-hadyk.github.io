@@ -9,6 +9,7 @@ import PositionContainer from "<layout>/PositionContainer";
 import { CompanyProps } from "<organisms>/Company/__typings__/Company.d.ts";
 
 const Company = ({
+  companyMobilePaddingBottom,
   dataCy,
   dataTestId,
   date,
@@ -38,6 +39,7 @@ const Company = ({
         iconsWithLabels={iconsWithLabels}
         logo={logo}
         responsibilities={responsibilities}
+        responsibilitiesPaddingBottom={companyMobilePaddingBottom}
         title={title}
       />
     </PositionContainer>
