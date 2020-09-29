@@ -5,6 +5,7 @@ import Text from "<atoms>/Text";
 
 import FlexContainer from "<layout>/FlexContainer";
 import SpacingContainer from "<layout>/SpacingContainer";
+import Responsive from "<layout>/Responsive";
 
 import {
   IconWithLabelProps,
@@ -55,16 +56,28 @@ function IconWithLabel({
           isHeightResponsive
         />
       </SpacingContainer>
+      <Responsive devices={["tv", "desktop", "tablet"]}>
+        {labelText(true)}
+      </Responsive>
+
+      <Responsive devices={["mobile"]}>
+        {labelText(false)}
+      </Responsive>
+    </FlexContainer>
+  );
+
+  function labelText(ellipsis: boolean): JSX.Element {
+    return (
       <Text
         dataTestId="LabelText"
         color={labelColor}
-        ellipsis
+        ellipsis={ellipsis}
         fontSize={mapSizeToTextFontSize[size]}
       >
         {label}
       </Text>
-    </FlexContainer>
-  );
+    );
+  }
 }
   
 export default IconWithLabel;

@@ -45,7 +45,7 @@ function HexagonWithDescription({
     );
   }
 
-  function renderDescription(): JSX.Element  {
+  function renderDescription(): JSX.Element {
     return (
       <FlexItem
         flex="0 1 50%"

@@ -18,7 +18,7 @@ function Section({
   minHeight,
   title
 }: SectionProps): JSX.Element {
-  const renderTitle = useCallback(({ fontSize, marginBottom }: RenderTitle): JSX.Element => {
+  const renderTitle = useCallback(({ fontSize, marginBottom, paddingTop }: RenderTitle): JSX.Element => {
     if (!title) {	
       return;	
     }
@@ -27,7 +27,7 @@ function Section({
       <SpacingContainer
         dataTestId="TitleSpacingContainer"
         marginBottom={marginBottom}
-        paddingTop="spacing108"
+        paddingTop={paddingTop}
       >
         <Text
           color="blue100"
@@ -48,21 +48,21 @@ function Section({
       dataCy={dataCy}
       dataTestId={dataTestId || "Section"}
       id={id}
-      marginBottom="spacing16"
       minHeight={minHeight}
-      paddingBottom={title ? "spacing96" : "spacing0"}
     >
       <Responsive devices={["tv", "desktop", "tablet"]}>
         {renderTitle({
           fontSize: "font72",
-          marginBottom: "spacing96"
+          marginBottom: "spacing96",
+          paddingTop: "spacing120"
         })}
       </Responsive>
 
       <Responsive devices={["mobile"]}>
         {renderTitle({
           fontSize: "font48",
-          marginBottom: "spacing48"
+          marginBottom: "spacing48",
+          paddingTop: "spacing96"
         })}
       </Responsive>
       

@@ -15,4 +15,5 @@ export interface SectionProps {
 export interface RenderTitle {
   fontSize: FontSizes;
   marginBottom: string;
+  paddingTop: Spacing;
 }
