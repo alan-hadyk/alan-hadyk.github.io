@@ -27,7 +27,6 @@ function Section({
       <SpacingContainer
         dataTestId="TitleSpacingContainer"
         marginBottom={marginBottom}
-        paddingTop="spacing108"
       >
         <Text
           color="blue100"
@@ -48,9 +47,8 @@ function Section({
       dataCy={dataCy}
       dataTestId={dataTestId || "Section"}
       id={id}
-      marginBottom="spacing16"
       minHeight={minHeight}
-      paddingBottom={title ? "spacing96" : "spacing0"}
+      paddingTop={title ? "spacing96" : "spacing0"}
     >
       <Responsive devices={["tv", "desktop", "tablet"]}>
         {renderTitle({

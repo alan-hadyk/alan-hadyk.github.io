@@ -15,11 +15,12 @@ function Company({
   iconsWithLabels,
   logo,
   responsibilities,
+  timelineBottom = "negativeSpacing16",
   title
 }: CompanyProps): JSX.Element {
   const renderTimeline = useCallback((): JSX.Element => (
     <PositionContainer
-      bottom="negativeSpacing16"
+      bottom={timelineBottom}
       dataTestId="TimelinePositionContainer"
       left="50%"
       position="absolute"
@@ -28,7 +29,7 @@ function Company({
     >
       <Timeline />
     </PositionContainer>
-  ), []);
+  ), [timelineBottom]);
 
   const renderLogo = useCallback((): JSX.Element => (
     <FlexContainer

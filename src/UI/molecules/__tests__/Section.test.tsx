@@ -71,14 +71,6 @@ describe("molecules / Section", () => {
   describe("SpacingContainers", () => { 
     describe("SectionContainer", () => { 
       describe("Props", () => {
-        describe("marginBottom", () => {      
-          test("should have 1.6rem", () => {
-            const { SectionContainer } = setup();
-
-            expect(SectionContainer).toHaveStyleRule("margin-bottom", "1.6rem");
-          });
-        });
-
         describe("minHeight", () => {      
           test("should not have min-height by default", () => {
             const { SectionContainer } = setup();
@@ -103,13 +95,13 @@ describe("molecules / Section", () => {
           });
         });
 
-        describe("paddingBottom", () => {      
+        describe("paddingTop", () => {      
           test("should have 0 if there is no title", () => {
             const { SectionContainer } = setup({
               title: undefined
             });
 
-            expect(SectionContainer).toHaveStyleRule("padding-bottom", "0");
+            expect(SectionContainer).toHaveStyleRule("padding-top", "0");
           });
 
           test("should have 9.6rem if there is title", () => {
@@ -117,7 +109,7 @@ describe("molecules / Section", () => {
               title: "Custom title"
             });
 
-            expect(SectionContainer).toHaveStyleRule("padding-bottom", "9.6rem");
+            expect(SectionContainer).toHaveStyleRule("padding-top", "9.6rem");
           });
         });
       });
@@ -150,17 +142,6 @@ describe("molecules / Section", () => {
             const { TitleSpacingContainers } = setup();
 
             expect(TitleSpacingContainers[3]).toHaveStyleRule("margin-bottom", "4.8rem");
-          });
-        });
-
-        describe("paddingTop", () => {      
-          test("should have 10.8rem", () => {
-            const { TitleSpacingContainers } = setup();
-
-            
-            TitleSpacingContainers.forEach((TitleSpacingContainer: Element) => {
-              expect(TitleSpacingContainer).toHaveStyleRule("padding-top", "10.8rem");
-            });
           });
         });
       });
