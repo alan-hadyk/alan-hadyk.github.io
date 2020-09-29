@@ -39,6 +39,7 @@ const VerticalIconsWithLabels = ({
     >
       {iconsWithLabels.map(({ iconName }: IconWithLabelProps, index: number): JSX.Element => (
         <SpacingContainer
+          dataCy="VerticalIcon"
           dataTestId="IconSpacingContainer"
           key={iconName + index}
           marginBottom="spacing12"
@@ -56,6 +57,7 @@ const VerticalIconsWithLabels = ({
     >
       {iconsWithLabels.map(({ label }: IconWithLabelProps): JSX.Element => (
         <SpacingContainer
+          dataCy="VerticalLabel"
           dataTestId="LabelSpacingContainer"
           height="spacing32"
           key={label}

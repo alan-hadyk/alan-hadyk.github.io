@@ -35,5 +35,5 @@ const iconsWithLabels: IconWithLabelProps[] = [
 
 export default {
   iconsWithLabels,
-  title: "Design tools"
+  title: "Design Tools"
 };
