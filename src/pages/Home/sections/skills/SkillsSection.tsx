@@ -18,6 +18,7 @@ import designToolsCategory from "<pages>/Home/sections/skills/categories/designT
 
 const SkillsSection = (): JSX.Element => (
   <Section
+    dataCy="Skills"
     id="skills"
     title="Skills, Technology & Tools"
   >
