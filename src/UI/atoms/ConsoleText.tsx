@@ -45,7 +45,7 @@ ConsoleText.Container = styled.div<ConsoleTextProps>`
   }): FlattenSimpleInterpolation => css`
     color: ${white};
     font-family: ${Exan};
-    font-size: ${fontSize in fontSizes && fontSizes[fontSize]};
+    font-size: ${(fontSize in fontSizes && fontSizes[fontSize]) || fontSize};
     line-height: ${(lineHeight in spacing && spacing[lineHeight]) || lineHeight};
     text-align: center;
     text-transform: lowercase;

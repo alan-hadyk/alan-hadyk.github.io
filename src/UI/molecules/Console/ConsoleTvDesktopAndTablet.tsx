@@ -10,12 +10,12 @@ import Responsive from "<layout>/Responsive";
 
 const ConsoleTvDesktopAndTablet = (): JSX.Element => (
   <Responsive
-    dataTestId="ConsoleResponsive"
+    dataTestId="ConsoleTvDesktopAndTablet"
     devices={["tv", "desktop", "tablet"]}
   >
     <PositionContainer
       dataCy="Console"
-      dataTestId="Console"
+      dataTestId="OuterPositionContainer"
       left="spacing0"
       position="absolute"
       right="spacing0"
@@ -23,7 +23,7 @@ const ConsoleTvDesktopAndTablet = (): JSX.Element => (
       transform="translateY(-50%)"
       zIndex="layer3"
     >
-      <ConsoleTvDesktopAndTablet.Container data-testid="ConsoleContainer">
+      <ConsoleTvDesktopAndTablet.Container data-testid="ConsoleTvDesktopAndTabletContainer">
         <PositionContainer
           dataTestId="InnerPositionContainer"
           left="spacing0"
