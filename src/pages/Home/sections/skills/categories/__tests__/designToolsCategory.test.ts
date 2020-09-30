@@ -33,7 +33,7 @@ describe("pages / Home / sections / skills / categories/ designToolsCategory", (
           label: "Gallery"
         }
       ],
-      title: "Design tools"
+      title: "Design Tools"
     });
   });
 });

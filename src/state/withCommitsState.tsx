@@ -13,7 +13,7 @@ import {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const withCommitsState = (WrappedComponent: React.FunctionComponent<any>): ComponentWithCommitsType => {
   const ComponentWithCommits = (props: unknown): JSX.Element => {
-    const [commitsList, setCommitsList] = useState<[] | CommitProps[]>([]);
+    const [commitsList, setCommitsList] = useState<CommitProps[]>([]);
     const [hasError, setError] = useState<boolean>(false);
 
     useEffect(() => {

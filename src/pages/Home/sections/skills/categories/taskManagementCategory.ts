@@ -35,5 +35,5 @@ const iconsWithLabels: IconWithLabelProps[] = [
 
 export default {
   iconsWithLabels,
-  title: "Task management"
+  title: "Task Management"
 };

@@ -13,7 +13,7 @@ describe("pages / Home / sections / skills / categories/ languagesCategory", () 
           label: "Redux"
         }
       ],
-      title: "State management"
+      title: "State Management"
     });
   });
 });
