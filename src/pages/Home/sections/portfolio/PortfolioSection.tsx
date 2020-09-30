@@ -27,6 +27,7 @@ const PortfolioSection = (): JSX.Element => (
   <Section
     dataCy="Portfolio"
     id="portfolio"
+    marginBottom="spacing12"
     title="Portfolio"
   >
     <Project

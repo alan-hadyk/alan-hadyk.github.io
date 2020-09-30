@@ -91,6 +91,14 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
         });	
       });	
 
+      describe("marginBottom", () => {	
+        test("should have 1.2rem", () => {	
+          const { Section } = setup();	
+
+          expect(Section).toHaveStyleRule("margin-bottom", "1.2rem");	
+        });	
+      });	
+
       describe("minHeight", () => {	
         test("should have 100vh", () => {	
           const { Section } = setup();	

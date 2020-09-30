@@ -71,11 +71,29 @@ describe("molecules / Section", () => {
   describe("SpacingContainers", () => { 
     describe("SectionContainer", () => { 
       describe("Props", () => {
+        describe("id", () => {      
+          test("should have id equal to id prop", () => {
+            const { SectionContainer } = setup({
+              id: "SectionID"
+            });
+
+            expect(SectionContainer.getAttribute("id")).toEqual("SectionID");
+          });
+        });
+
         describe("marginBottom", () => {      
-          test("should have 1.6rem", () => {
+          test("should have 0 by default", () => {
             const { SectionContainer } = setup();
 
-            expect(SectionContainer).toHaveStyleRule("margin-bottom", "1.6rem");
+            expect(SectionContainer).toHaveStyleRule("margin-bottom", "0");
+          });
+
+          test("should have value equal to marginBottom prop", () => {
+            const { SectionContainer } = setup({
+              marginBottom: "spacing24"
+            });
+
+            expect(SectionContainer).toHaveStyleRule("margin-bottom", "2.4rem");
           });
         });
 
@@ -103,13 +121,13 @@ describe("molecules / Section", () => {
           });
         });
 
-        describe("paddingBottom", () => {      
+        describe("paddingTop", () => {      
           test("should have 0 if there is no title", () => {
             const { SectionContainer } = setup({
               title: undefined
             });
 
-            expect(SectionContainer).toHaveStyleRule("padding-bottom", "0");
+            expect(SectionContainer).toHaveStyleRule("padding-top", "0");
           });
 
           test("should have 9.6rem if there is title", () => {
@@ -117,19 +135,7 @@ describe("molecules / Section", () => {
               title: "Custom title"
             });
 
-            expect(SectionContainer).toHaveStyleRule("padding-bottom", "9.6rem");
-          });
-        });
-      });
-
-      describe("Props", () => {
-        describe("id", () => {      
-          test("should have id equal to id prop", () => {
-            const { SectionContainer } = setup({
-              id: "SectionID"
-            });
-
-            expect(SectionContainer.getAttribute("id")).toEqual("SectionID");
+            expect(SectionContainer).toHaveStyleRule("padding-top", "9.6rem");
           });
         });
       });
@@ -150,17 +156,6 @@ describe("molecules / Section", () => {
             const { TitleSpacingContainers } = setup();
 
             expect(TitleSpacingContainers[3]).toHaveStyleRule("margin-bottom", "4.8rem");
-          });
-        });
-
-        describe("paddingTop", () => {      
-          test("should have 10.8rem", () => {
-            const { TitleSpacingContainers } = setup();
-
-            
-            TitleSpacingContainers.forEach((TitleSpacingContainer: Element) => {
-              expect(TitleSpacingContainer).toHaveStyleRule("padding-top", "10.8rem");
-            });
           });
         });
       });

@@ -57,38 +57,50 @@ describe("organisms / Company", () => {
   
   describe("TimelinePositionContainer", () => {
     describe("Props", () => {
-      let TimelinePositionContainer: Element;
-
-      beforeEach(() => {
-        TimelinePositionContainer = setup().TimelinePositionContainer;
-      });
-
       describe("bottom", () => {
-        test("should have -1.6rem", () => {
+        test("should have -1.6rem by default", () => {
+          const { TimelinePositionContainer } = setup();
+
           expect(TimelinePositionContainer).toHaveStyleRule("bottom", "-1.6rem");
+        });
+
+        test("should have value equal to timelineBottom prop", () => {
+          const { TimelinePositionContainer } = setup({
+            timelineBottom: "spacing108"
+          });
+
+          expect(TimelinePositionContainer).toHaveStyleRule("bottom", "10.8rem");
         });
       });
 
       describe("left", () => {
         test("should have 50%", () => {
+          const { TimelinePositionContainer } = setup();
+
           expect(TimelinePositionContainer).toHaveStyleRule("left", "50%");
         });
       });
 
       describe("position", () => {
         test("should have absolute", () => {
+          const { TimelinePositionContainer } = setup();
+
           expect(TimelinePositionContainer).toHaveStyleRule("position", "absolute");
         });
       });
 
       describe("top", () => {
         test("should have 1.6rem", () => {
+          const { TimelinePositionContainer } = setup();
+
           expect(TimelinePositionContainer).toHaveStyleRule("top", "1.6rem");
         });
       });
 
       describe("transform", () => {
         test("should have translateX(-50%)", () => {
+          const { TimelinePositionContainer } = setup();
+
           expect(TimelinePositionContainer).toHaveStyleRule("transform", "translateX(-50%)");
         });
       });

@@ -15,6 +15,7 @@ const DashboardSection = (): JSX.Element => (
     dataCy="Dashboard"
     dataTestId="DashboardSection"
     id="dashboard"
+    marginBottom="spacing12"
     minHeight="100vh"
   >
     <SpacingContainer
