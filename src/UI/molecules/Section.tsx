@@ -15,6 +15,7 @@ function Section({
   dataCy,
   dataTestId,
   id,
+  marginBottom = "spacing0",
   minHeight,
   title
 }: SectionProps): JSX.Element {
@@ -47,6 +48,7 @@ function Section({
       dataCy={dataCy}
       dataTestId={dataTestId || "Section"}
       id={id}
+      marginBottom={marginBottom}
       minHeight={minHeight}
       paddingTop={title ? "spacing96" : "spacing0"}
     >

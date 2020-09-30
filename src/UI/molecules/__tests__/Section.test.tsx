@@ -71,6 +71,32 @@ describe("molecules / Section", () => {
   describe("SpacingContainers", () => { 
     describe("SectionContainer", () => { 
       describe("Props", () => {
+        describe("id", () => {      
+          test("should have id equal to id prop", () => {
+            const { SectionContainer } = setup({
+              id: "SectionID"
+            });
+
+            expect(SectionContainer.getAttribute("id")).toEqual("SectionID");
+          });
+        });
+
+        describe("marginBottom", () => {      
+          test("should have 0 by default", () => {
+            const { SectionContainer } = setup();
+
+            expect(SectionContainer).toHaveStyleRule("margin-bottom", "0");
+          });
+
+          test("should have value equal to marginBottom prop", () => {
+            const { SectionContainer } = setup({
+              marginBottom: "spacing24"
+            });
+
+            expect(SectionContainer).toHaveStyleRule("margin-bottom", "2.4rem");
+          });
+        });
+
         describe("minHeight", () => {      
           test("should not have min-height by default", () => {
             const { SectionContainer } = setup();
@@ -110,18 +136,6 @@ describe("molecules / Section", () => {
             });
 
             expect(SectionContainer).toHaveStyleRule("padding-top", "9.6rem");
-          });
-        });
-      });
-
-      describe("Props", () => {
-        describe("id", () => {      
-          test("should have id equal to id prop", () => {
-            const { SectionContainer } = setup({
-              id: "SectionID"
-            });
-
-            expect(SectionContainer.getAttribute("id")).toEqual("SectionID");
           });
         });
       });
