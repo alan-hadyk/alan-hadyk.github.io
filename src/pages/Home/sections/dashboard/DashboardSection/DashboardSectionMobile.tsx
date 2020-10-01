@@ -7,7 +7,7 @@ import SpacingContainer from "<layout>/SpacingContainer";
 
 const DashboardSectionMobile = (): JSX.Element => (
   <Responsive
-    dataTestId="DashboardSectionMobile"
+    dataTestMobileId="DashboardSectionMobile"
     devices={["mobile"]}
   >
     <SpacingContainer

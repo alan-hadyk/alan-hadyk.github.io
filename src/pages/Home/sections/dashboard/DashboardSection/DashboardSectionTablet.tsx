@@ -13,7 +13,10 @@ import Responsive from "<layout>/Responsive";
 import spacing from "<styles>/variables/spacing";
 
 const DashboardSectionTablet= (): JSX.Element => (
-  <Responsive devices={["tablet"]}>
+  <Responsive
+    dataTestTabletId="DashboardSectionTablet"
+    devices={["tablet"]}
+  >
     <DashboardSectionOuterContainer>
       <DashboardSectionInnerContainer
         height={`calc(17vh + ${spacing.spacing36})`}

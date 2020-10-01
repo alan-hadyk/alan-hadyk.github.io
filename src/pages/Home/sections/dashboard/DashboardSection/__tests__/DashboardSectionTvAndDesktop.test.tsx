@@ -71,8 +71,6 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
     DashboardSectionOuterContainers.forEach((DashboardSectionOuterContainer: Element) => {
       expect(DashboardSectionOuterContainer.children[0].children[0].children[0]).toEqual(DashboardSectionInnerContainers[0]);
       expect(DashboardSectionOuterContainer.children[0].children[0].children[1]).toEqual(ConsolesTvDesktopAndTablet[0]);
-      expect(DashboardSectionOuterContainer.children[0].children[0].children[2]).toEqual(ConsolesTvDesktopAndTablet[1]);
-      expect(DashboardSectionOuterContainer.children[0].children[0].children[3]).toEqual(ConsolesTvDesktopAndTablet[2]);
       expect(DashboardSectionOuterContainer.children[0].children[0].children[4]).toEqual(DashboardSectionInnerContainers[1]);
     });
 

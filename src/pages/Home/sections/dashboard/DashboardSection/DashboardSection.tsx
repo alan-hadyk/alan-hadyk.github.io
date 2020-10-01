@@ -1,6 +1,7 @@
 import React, { memo } from "react";
 
-import DashboardSectionTvDesktopAndTablet from "<pages>/Home/sections/dashboard/DashboardSection/DashboardSectionTvDesktopAndTablet";
+import DashboardSectionTvAndDesktop from "<pages>/Home/sections/dashboard/DashboardSection/DashboardSectionTvAndDesktop";
+import DashboardSectionTablet from "<pages>/Home/sections/dashboard/DashboardSection/DashboardSectionTablet";
 import DashboardSectionMobile from "<pages>/Home/sections/dashboard/DashboardSection/DashboardSectionMobile";
 
 import Section from "<molecules>/Section";
@@ -11,7 +12,8 @@ const DashboardSection = (): JSX.Element => (
     dataTestId="DashboardSection"
     id="dashboard"
   >
-    <DashboardSectionTvDesktopAndTablet />
+    <DashboardSectionTvAndDesktop />
+    <DashboardSectionTablet />
     <DashboardSectionMobile />
   </Section>
 );

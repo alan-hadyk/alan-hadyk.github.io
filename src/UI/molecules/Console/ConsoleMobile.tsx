@@ -11,7 +11,7 @@ export const hero = "Vision driven change agent with career-long record of front
 
 const ConsoleMobile = (): JSX.Element => (
   <Responsive
-    dataTestId="ConsoleResponsive"
+    dataTestId="ConsoleMobile"
     devices={["mobile"]}
   >
     <SpacingContainer
