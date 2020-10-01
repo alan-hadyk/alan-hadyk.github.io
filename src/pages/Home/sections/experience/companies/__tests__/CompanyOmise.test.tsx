@@ -112,7 +112,7 @@ describe("pages / Home / sections / experience / companies / CompanyOmise", () =
     });
 
     describe("title", () => {
-      test("should render Front end developer", () => {
+      test("should render Software engineer", () => {
         const {
           CompanyDescriptions
         } = setup();
@@ -121,7 +121,7 @@ describe("pages / Home / sections / experience / companies / CompanyOmise", () =
         CompanyDescriptions.forEach((CompanyDescription: Element) => {
           Title = CompanyDescription.children[0].textContent;
 
-          expect(Title).toEqual("Front end developer");
+          expect(Title).toEqual("Software engineer");
         });
       });
     });

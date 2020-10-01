@@ -95,7 +95,7 @@ const CompanyOmise = (): JSX.Element => (
     iconsWithLabels={iconsWithLabels}
     logo="companyOmise"
     responsibilities={responsibilities}
-    title="Front end developer"
+    title="Software engineer"
   />
 );
 

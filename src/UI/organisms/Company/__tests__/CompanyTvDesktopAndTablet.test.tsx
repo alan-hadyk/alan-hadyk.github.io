@@ -159,6 +159,32 @@ describe("organisms / CompanyTvDesktopAndTablet", () => {
     });
   });
 
+  describe("CompanyTimelines", () => {
+    describe("Props", () => {
+      describe("timelineBottom", () => {
+        test("should have bottom equal to timelineBottom prop - test 1", () => {
+          const { CompanyTimelines } = setup({
+            timelineBottom: "spacing12"
+          });
+
+          CompanyTimelines.forEach((CompanyTimeline: Element) => {
+            expect(CompanyTimeline).toHaveStyleRule("bottom", "1.2rem");
+          });
+        });
+
+        test("should have bottom equal to timelineBottom prop - test 2", () => {
+          const { CompanyTimelines } = setup({
+            timelineBottom: "spacing24"
+          });
+
+          CompanyTimelines.forEach((CompanyTimeline: Element) => {
+            expect(CompanyTimeline).toHaveStyleRule("bottom", "2.4rem");
+          });
+        });
+      });
+    });
+  });
+
   describe("CompanyLogos", () => {
     describe("Props", () => {
       describe("height", () => {
@@ -192,7 +218,7 @@ describe("organisms / CompanyTvDesktopAndTablet", () => {
           });
         });
 
-        test("should have Company-Shiji.svg when prop logo: brandJS", () => {
+        test("should have Company-Shiji.svg when prop logo: companyShiji", () => {
           const { CompanyLogos } = setup({
             logo: "companyShiji"
           });

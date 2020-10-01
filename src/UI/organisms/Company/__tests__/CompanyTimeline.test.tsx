@@ -5,6 +5,8 @@ import CompanyTimeline from "<organisms>/Company/CompanyTimeline";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
+import { CompanyTimelineProps } from "<organisms>/Company/__typings__/CompanyTimeline.d.ts";
+
 describe("molecules / CompanyTimeline", () => {
   test("should have correct structure", () => {
     const { 
@@ -17,38 +19,50 @@ describe("molecules / CompanyTimeline", () => {
 
   describe("PositionContainer", () => {
     describe("Props", () => {
-      let CompanyTimelineContainer: Element;
-
-      beforeEach(() => {
-        CompanyTimelineContainer = setup().CompanyTimelineContainer;
-      });
-
       describe("bottom", () => {
-        test("should have -1.6rem", () => {
+        test("should have -1.6rem by default", () => {
+          const { CompanyTimelineContainer } = setup();
+          
           expect(CompanyTimelineContainer).toHaveStyleRule("bottom", "-1.6rem");
+        });
+
+        test("should have value equal to timelineBottom prop", () => {
+          const { CompanyTimelineContainer } = setup({
+            timelineBottom: "spacing32"
+          });
+          
+          expect(CompanyTimelineContainer).toHaveStyleRule("bottom", "3.2rem");
         });
       });
 
       describe("left", () => {
         test("should have 50%", () => {
+          const { CompanyTimelineContainer } = setup();
+          
           expect(CompanyTimelineContainer).toHaveStyleRule("left", "50%");
         });
       });
 
       describe("position", () => {
         test("should have absolute", () => {
+          const { CompanyTimelineContainer } = setup();
+
           expect(CompanyTimelineContainer).toHaveStyleRule("position", "absolute");
         });
       });
 
       describe("top", () => {
         test("should have 1.6rem", () => {
+          const { CompanyTimelineContainer } = setup();
+
           expect(CompanyTimelineContainer).toHaveStyleRule("top", "1.6rem");
         });
       });
 
       describe("transform", () => {
         test("should have translateX(-50%)", () => {
+          const { CompanyTimelineContainer } = setup();
+
           expect(CompanyTimelineContainer).toHaveStyleRule("transform", "translateX(-50%)");
         });
       });
@@ -78,9 +92,9 @@ interface Setup extends RenderResult {
   Timeline: Element;
 }
 
-function setup(): Setup {
+function setup(props?: CompanyTimelineProps): Setup {
   const utils: RenderResult = renderWithTheme(
-    <CompanyTimeline />
+    <CompanyTimeline {...props} />
   );
 
   const { queryAllByTestId }: RenderResult = utils;

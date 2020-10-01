@@ -51,7 +51,7 @@ describe("Experience", () => {
           .within(() => {
             cy.dataCy("CompanyDescriptionMainTitle")
               .should("be.visible")
-              .should("contain", "Front end developer");
+              .should("contain", "Software engineer");
 
             cy.dataCy("CompanyLogo")
               .should("be.visible");
