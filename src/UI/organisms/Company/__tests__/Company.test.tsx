@@ -194,7 +194,7 @@ describe("organisms / Company", () => {
             logo: "companyOmise"
           });
 
-          expect(CompanyLogos[4].children[0].textContent).toEqual("Company-Omise.svg");
+          expect(CompanyLogos[3].children[0].textContent).toEqual("Company-Omise.svg");
         });
 
         test("should have Company-SAP.svg when prop logo: companySAP", () => {
@@ -202,7 +202,7 @@ describe("organisms / Company", () => {
             logo: "companySAP"
           });
 
-          expect(CompanyLogos[4].children[0].textContent).toEqual("Company-SAP.svg");
+          expect(CompanyLogos[3].children[0].textContent).toEqual("Company-SAP.svg");
         });
       });
 
