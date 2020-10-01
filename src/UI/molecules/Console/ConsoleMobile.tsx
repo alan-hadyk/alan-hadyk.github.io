@@ -8,6 +8,7 @@ import SpacingContainer from "<layout>/SpacingContainer";
 
 const ConsoleMobile = (): JSX.Element => (
   <SpacingContainer
+    dataCy="ConsoleMobile"  
     dataTestId="ConsoleMobileSpacingContainer"
     paddingTop="spacing48"
   >

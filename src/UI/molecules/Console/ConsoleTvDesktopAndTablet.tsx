@@ -9,7 +9,7 @@ import PositionContainer from "<layout>/PositionContainer";
 
 const ConsoleTvDesktopAndTablet = (): JSX.Element => (
   <PositionContainer
-    dataCy="Console"
+    dataCy="ConsoleTvDesktopAndTablet"
     dataTestId="ConsoleTvDesktopAndTabletOuterPositionContainer"
     left="spacing0"
     position="absolute"

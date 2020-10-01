@@ -24,6 +24,8 @@ describe("Dashboard", () => {
     it("should contain Tech Stack, Flux, Code, Console, Commits, Powered by, User Agent and Ip", () => {
       cy.dataCy("Dashboard")
         .should("be.visible")
+        .find("[data-testid='DashboardSectionTv']")
+        .should("be.visible")
         .within(() => {
           cy.dataCy("TechStack")
             .should("be.visible")
@@ -55,13 +57,13 @@ describe("Dashboard", () => {
             .find("[data-testid='DashboardElementTitleText']")
             .should("contain", "Code");
 
-          cy.dataCy("Console")
+          cy.dataCy("ConsoleTvDesktopAndTablet")
             .should("be.visible")
             .find("[data-testid='Text']")
             .should("contain", "GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin19)");
 
-          cy.dataCy("Console")
-            .find("[data-testid='ConsoleText']")
+          cy.dataCy("ConsoleTvDesktopAndTablet")
+            .find("[data-testid='ConsoleTvDesktopAndTabletText']")
             .should("contain", "Vision driven change agent with career-long record of front-end user strategy and UI development");
   
           cy.dataCy("Commits")
@@ -115,6 +117,8 @@ describe("Dashboard", () => {
     it("should contain Tech Stack, Flux, Code, Console, Commits, Powered by, User Agent and Ip", () => {
       cy.dataCy("Dashboard")
         .should("be.visible")
+        .find("[data-testid='DashboardSectionDesktop']")
+        .should("be.visible")
         .within(() => {
           cy.dataCy("TechStack")
             .should("be.visible")
@@ -146,13 +150,13 @@ describe("Dashboard", () => {
             .find("[data-testid='DashboardElementTitleText']")
             .should("contain", "Code");
 
-          cy.dataCy("Console")
+          cy.dataCy("ConsoleTvDesktopAndTablet")
             .should("be.visible")
             .find("[data-testid='Text']")
             .should("contain", "GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin19)");
 
-          cy.dataCy("Console")
-            .find("[data-testid='ConsoleText']")
+          cy.dataCy("ConsoleTvDesktopAndTablet")
+            .find("[data-testid='ConsoleTvDesktopAndTabletText']")
             .should("contain", "Vision driven change agent with career-long record of front-end user strategy and UI development");
   
           cy.dataCy("Commits")
@@ -206,6 +210,8 @@ describe("Dashboard", () => {
     it("should contain Tech Stack, Console, Commits, Powered by", () => {
       cy.dataCy("Dashboard")
         .should("be.visible")
+        .find("[data-testid='DashboardSectionTablet']")
+        .should("be.visible")
         .within(() => {
           cy.dataCy("TechStack")
             .should("be.visible")
@@ -228,13 +234,13 @@ describe("Dashboard", () => {
           cy.dataCy("Code")
             .should("not.be.visible");
 
-          cy.dataCy("Console")
+          cy.dataCy("ConsoleTvDesktopAndTablet")
             .should("be.visible")
             .find("[data-testid='Text']")
             .should("contain", "GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin19)");
 
-          cy.dataCy("Console")
-            .find("[data-testid='ConsoleText']")
+          cy.dataCy("ConsoleTvDesktopAndTablet")
+            .find("[data-testid='ConsoleTvDesktopAndTabletText']")
             .should("contain", "Vision driven change agent with career-long record of front-end user strategy and UI development");
   
           cy.dataCy("Commits")
@@ -269,6 +275,8 @@ describe("Dashboard", () => {
     it("should contain Console", () => {
       cy.dataCy("Dashboard")
         .should("be.visible")
+        .find("[data-testid='DashboardSectionMobile']")
+        .should("be.visible")
         .within(() => {
           cy.dataCy("TechStack")
             .should("not.be.visible");
@@ -279,13 +287,8 @@ describe("Dashboard", () => {
           cy.dataCy("Code")
             .should("not.be.visible");
 
-          cy.dataCy("Console")
-            .should("be.visible")
-            .find("[data-testid='Text']")
-            .should("contain", "GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin19)");
-
-          cy.dataCy("Console")
-            .find("[data-testid='ConsoleText']")
+          cy.dataCy("ConsoleMobile")
+            .find("[data-testid='ConsoleMobileText']")
             .should("contain", "Vision driven change agent with career-long record of front-end user strategy and UI development");
   
           cy.dataCy("Commits")
