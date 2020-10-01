@@ -8,6 +8,7 @@ import {
 export const hero = "Vision driven change agent with career-long record of front-end user strategy and UI development";
 
 const ConsoleText = ({
+  dataTestId,
   fontSize,
   height,
   lineHeight,
@@ -15,7 +16,7 @@ const ConsoleText = ({
   width
 }: ConsoleTextProps): JSX.Element => (
   <ConsoleText.Container 
-    data-testid="ConsoleText"
+    data-testid={dataTestId || "ConsoleText"}
     fontSize={fontSize}
     height={height}
     lineHeight={lineHeight}

@@ -59,20 +59,22 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
       Fluxes,
       Ips,	
       PoweredBy,	
-      ResponsiveDesktop,
-      ResponsiveTv,
+      DashboardSectionDesktop,
+      DashboardSectionTv,
       TechStacks,
       UserAgents
     } = setup();	
 
-    expect(ResponsiveTv.children[0]).toEqual(DashboardSectionOuterContainers[0]);
-    expect(ResponsiveDesktop.children[0]).toEqual(DashboardSectionOuterContainers[1]);
+    expect(DashboardSectionTv.children[0]).toEqual(DashboardSectionOuterContainers[0]);
+    expect(DashboardSectionDesktop.children[0]).toEqual(DashboardSectionOuterContainers[1]);
 
-    DashboardSectionOuterContainers.forEach((DashboardSectionOuterContainer: Element) => {
-      expect(DashboardSectionOuterContainer.children[0].children[0].children[0]).toEqual(DashboardSectionInnerContainers[0]);
-      expect(DashboardSectionOuterContainer.children[0].children[0].children[1]).toEqual(ConsolesTvDesktopAndTablet[0]);
-      expect(DashboardSectionOuterContainer.children[0].children[0].children[4]).toEqual(DashboardSectionInnerContainers[1]);
-    });
+    expect(DashboardSectionOuterContainers[0].children[0].children[0].children[0]).toEqual(DashboardSectionInnerContainers[0]);
+    expect(DashboardSectionOuterContainers[0].children[0].children[0].children[1]).toEqual(ConsolesTvDesktopAndTablet[0]);
+    expect(DashboardSectionOuterContainers[0].children[0].children[0].children[2]).toEqual(DashboardSectionInnerContainers[1]);
+
+    expect(DashboardSectionOuterContainers[1].children[0].children[0].children[0]).toEqual(DashboardSectionInnerContainers[2]);
+    expect(DashboardSectionOuterContainers[1].children[0].children[0].children[1]).toEqual(ConsolesTvDesktopAndTablet[1]);
+    expect(DashboardSectionOuterContainers[1].children[0].children[0].children[2]).toEqual(DashboardSectionInnerContainers[3]);
 
     expect(DashboardSectionInnerContainers[0].children[0].children[0]).toEqual(TechStacks[0]);
     expect(DashboardSectionInnerContainers[0].children[0].children[1]).toEqual(Fluxes[0]);
@@ -93,14 +95,14 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
     expect(DashboardSectionInnerContainers[3].children[0].children[3]).toEqual(Ips[1]);
   });
 
-  describe("ResponsiveTv", () => {
+  describe("DashboardSectionTv", () => {
     describe("Props", () => {
       describe("devices", () => {      
         describe("should have tv", () => {
           test("should have display block when min-width is 1681px", () => {
-            const { ResponsiveTv } = setup();
+            const { DashboardSectionTv } = setup();
       
-            expect(ResponsiveTv).toHaveStyleRule("display", "block", {
+            expect(DashboardSectionTv).toHaveStyleRule("display", "block", {
               media: "(min-width:1681px)"
             });
           });
@@ -109,14 +111,14 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
     });
   });
 
-  describe("ResponsiveDesktop", () => {
+  describe("DashboardSectionDesktop", () => {
     describe("Props", () => {
       describe("devices", () => {      
         describe("should have desktop", () => {
           test("should have display block when min-width is 1281px and max-width is 1680px", () => {
-            const { ResponsiveDesktop } = setup();
+            const { DashboardSectionDesktop } = setup();
       
-            expect(ResponsiveDesktop).toHaveStyleRule("display", "block", {
+            expect(DashboardSectionDesktop).toHaveStyleRule("display", "block", {
               media: "(min-width:1281px) and (max-width:1680px)"
             });
           });
@@ -172,13 +174,13 @@ interface Setup extends RenderResult {
   Codes: Element[];
   Commits: Element[];
   ConsolesTvDesktopAndTablet: Element[];	
+  DashboardSectionDesktop: Element;
   DashboardSectionInnerContainers: Element[];
   DashboardSectionOuterContainers: Element[];
+  DashboardSectionTv: Element;
   Fluxes: Element[];	
   Ips: Element[];	
   PoweredBy: Element[];	
-  ResponsiveDesktop: Element;
-  ResponsiveTv: Element;
   TechStacks: Element[];
   UserAgents: Element[];
 }	
@@ -192,14 +194,14 @@ function setup(): Setup {
 
   const Codes: Element[] = queryAllByTestId("Code");	
   const Commits: Element[] = queryAllByTestId("Commits");	
-  const ConsolesTvDesktopAndTablet: Element[] = queryAllByTestId("ConsoleTvDesktopAndTablet");
+  const ConsolesTvDesktopAndTablet: Element[] = queryAllByTestId("ConsoleTvDesktopAndTabletOuterPositionContainer");
+  const DashboardSectionDesktop: Element = queryAllByTestId("DashboardSectionDesktop")[0];
   const DashboardSectionInnerContainers: Element[] = queryAllByTestId("DashboardSectionInnerContainer");
   const DashboardSectionOuterContainers: Element[] = queryAllByTestId("DashboardSectionOuterContainer");
+  const DashboardSectionTv: Element = queryAllByTestId("DashboardSectionTv")[0];
   const Fluxes: Element[] = queryAllByTestId("Flux");	
   const Ips: Element[] = queryAllByTestId("IP");	
   const PoweredBy: Element[] = queryAllByTestId("PoweredBy");	
-  const ResponsiveDesktop: Element = queryAllByTestId("DashboardSectionDesktop")[0];
-  const ResponsiveTv: Element = queryAllByTestId("DashboardSectionTv")[0];
   const TechStacks: Element[] = queryAllByTestId("TechStack");	
   const UserAgents: Element[] = queryAllByTestId("UserAgent");
 
@@ -208,13 +210,13 @@ function setup(): Setup {
     Codes,
     Commits,
     ConsolesTvDesktopAndTablet,
+    DashboardSectionDesktop,
     DashboardSectionInnerContainers,
     DashboardSectionOuterContainers,	
+    DashboardSectionTv,
     Fluxes,
     Ips,	
     PoweredBy,	
-    ResponsiveDesktop,
-    ResponsiveTv,
     TechStacks,
     UserAgents
   };	

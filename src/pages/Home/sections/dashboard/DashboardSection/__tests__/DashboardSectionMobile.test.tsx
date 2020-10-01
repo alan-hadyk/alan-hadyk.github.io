@@ -59,7 +59,7 @@ function setup(): Setup {
 
   const { queryAllByTestId }: RenderResult = utils;	
 
-  const ConsoleMobile: Element = queryAllByTestId("ConsoleMobile")[0];
+  const ConsoleMobile: Element = queryAllByTestId("ConsoleMobileSpacingContainer")[0];
   const DashboardSectionSpacingContainer: Element = queryAllByTestId("DashboardSectionSpacingContainer")[0];
   const ResponsiveMobile: Element = queryAllByTestId("DashboardSectionMobile")[0];
 

@@ -6,50 +6,45 @@ import ConsoleText from "<atoms>/ConsoleText";
 import Text from "<atoms>/Text";
 
 import PositionContainer from "<layout>/PositionContainer";
-import Responsive from "<layout>/Responsive";
 
 const ConsoleTvDesktopAndTablet = (): JSX.Element => (
-  <Responsive
-    dataTestId="ConsoleTvDesktopAndTablet"
-    devices={["tv", "desktop", "tablet"]}
+  <PositionContainer
+    dataCy="Console"
+    dataTestId="ConsoleTvDesktopAndTabletOuterPositionContainer"
+    left="spacing0"
+    position="absolute"
+    right="spacing0"
+    top="50%"
+    transform="translateY(-50%)"
+    zIndex="layer3"
   >
-    <PositionContainer
-      dataCy="Console"
-      dataTestId="OuterPositionContainer"
-      left="spacing0"
-      position="absolute"
-      right="spacing0"
-      top="50%"
-      transform="translateY(-50%)"
-      zIndex="layer3"
-    >
-      <ConsoleTvDesktopAndTablet.Container data-testid="ConsoleTvDesktopAndTabletContainer">
-        <PositionContainer
-          dataTestId="InnerPositionContainer"
-          left="spacing0"
-          position="absolute"
-          top="spacing0"
-          transform="translateY(-100%)"
+    <ConsoleTvDesktopAndTablet.Container data-testid="ConsoleTvDesktopAndTabletContainer">
+      <PositionContainer
+        dataTestId="ConsoleTvDesktopAndTabletInnerPositionContainer"
+        left="spacing0"
+        position="absolute"
+        top="spacing0"
+        transform="translateY(-100%)"
+      >
+        <Text
+          fontSize="font12"
+          lineHeight="spacing28"
+          textTransform="uppercase"
         >
-          <Text
-            fontSize="font12"
-            lineHeight="spacing28"
-            textTransform="uppercase"
-          >
-          GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin19)
-          </Text>
-        </PositionContainer>
+        GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin19)
+        </Text>
+      </PositionContainer>
 
-        <ConsoleText
-          fontSize="6vh"
-          height="6vh"
-          lineHeight="7.4vh"
-          transform="translateY(1vh)"
-          width="3vh"
-        />
-      </ConsoleTvDesktopAndTablet.Container>
-    </PositionContainer>
-  </Responsive>
+      <ConsoleText
+        dataTestId="ConsoleTvDesktopAndTabletText"
+        fontSize="6vh"
+        height="6vh"
+        lineHeight="7.4vh"
+        transform="translateY(1vh)"
+        width="3vh"
+      />
+    </ConsoleTvDesktopAndTablet.Container>
+  </PositionContainer>
 );
 
 ConsoleTvDesktopAndTablet.Container = styled.div`

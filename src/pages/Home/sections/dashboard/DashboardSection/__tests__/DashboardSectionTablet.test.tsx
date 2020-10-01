@@ -39,7 +39,7 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
   test("should have correct structure", () => {	
     const {	
       Commit,
-      ConsolesTvDesktopAndTablet,
+      ConsoleTablet,
       DashboardSectionInnerContainers,
       DashboardSectionOuterContainer,	
       PoweredBy,	
@@ -50,8 +50,8 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
     expect(ResponsiveTablet.children[0]).toEqual(DashboardSectionOuterContainer);
 
     expect(DashboardSectionOuterContainer.children[0].children[0].children[0]).toEqual(DashboardSectionInnerContainers[0]);
-    expect(DashboardSectionOuterContainer.children[0].children[0].children[1]).toEqual(ConsolesTvDesktopAndTablet);
-    expect(DashboardSectionOuterContainer.children[0].children[0].children[4]).toEqual(DashboardSectionInnerContainers[1]);
+    expect(DashboardSectionOuterContainer.children[0].children[0].children[1]).toEqual(ConsoleTablet);
+    expect(DashboardSectionOuterContainer.children[0].children[0].children[2]).toEqual(DashboardSectionInnerContainers[1]);
 
 
     expect(DashboardSectionInnerContainers[0].children[0].children[0]).toEqual(TechStack);
@@ -121,7 +121,7 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
 
 interface Setup extends RenderResult {	
   Commit: Element;
-  ConsolesTvDesktopAndTablet: Element;	
+  ConsoleTablet: Element;	
   DashboardSectionInnerContainers: Element[];
   DashboardSectionOuterContainer: Element;
   PoweredBy: Element;	
@@ -137,7 +137,7 @@ function setup(): Setup {
   const { queryAllByTestId }: RenderResult = utils;	
 
   const Commit: Element = queryAllByTestId("Commits")[0];	
-  const ConsolesTvDesktopAndTablet: Element = queryAllByTestId("ConsoleTvDesktopAndTablet")[0];
+  const ConsoleTablet: Element = queryAllByTestId("ConsoleTvDesktopAndTabletOuterPositionContainer")[0];
   const DashboardSectionInnerContainers: Element[] = queryAllByTestId("DashboardSectionInnerContainer");
   const DashboardSectionOuterContainer: Element = queryAllByTestId("DashboardSectionOuterContainer")[0];
   const PoweredBy: Element = queryAllByTestId("PoweredBy")[0];	
@@ -147,7 +147,7 @@ function setup(): Setup {
   return {	
     ...utils,
     Commit,
-    ConsolesTvDesktopAndTablet,
+    ConsoleTablet,
     DashboardSectionInnerContainers,
     DashboardSectionOuterContainer,	
     PoweredBy,	
