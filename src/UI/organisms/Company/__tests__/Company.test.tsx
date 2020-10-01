@@ -83,19 +83,23 @@ describe("organisms / Company", () => {
 
       describe("logo", () => {
         test("should have Company-Omise.svg when prop logo: companyOmise", () => {
-          const { CompanyLogo } = setup({
+          const { CompanyLogos } = setup({
             logo: "companyOmise"
           });
 
-          expect(CompanyLogo.children[0].textContent).toEqual("Company-Omise.svg");
+          expect(CompanyLogos[0].children[0].textContent).toEqual("Company-Omise.svg");
+          expect(CompanyLogos[1].children[0].textContent).toEqual("Company-Omise.svg");
+          expect(CompanyLogos[2].children[0].textContent).toEqual("Company-Omise.svg");
         });
 
         test("should have Company-SAP.svg when prop logo: companySAP", () => {
-          const { CompanyLogo } = setup({
+          const { CompanyLogos } = setup({
             logo: "companySAP"
           });
 
-          expect(CompanyLogo.children[0].textContent).toEqual("Company-SAP.svg");
+          expect(CompanyLogos[0].children[0].textContent).toEqual("Company-SAP.svg");
+          expect(CompanyLogos[1].children[0].textContent).toEqual("Company-SAP.svg");
+          expect(CompanyLogos[2].children[0].textContent).toEqual("Company-SAP.svg");
         });
       });
 
@@ -186,19 +190,19 @@ describe("organisms / Company", () => {
 
       describe("logo", () => {
         test("should have Company-Omise.svg when prop logo: companyOmise", () => {
-          const { CompanyLogo } = setup({
+          const { CompanyLogos } = setup({
             logo: "companyOmise"
           });
 
-          expect(CompanyLogo.children[0].textContent).toEqual("Company-Omise.svg");
+          expect(CompanyLogos[4].children[0].textContent).toEqual("Company-Omise.svg");
         });
 
         test("should have Company-SAP.svg when prop logo: companySAP", () => {
-          const { CompanyLogo } = setup({
+          const { CompanyLogos } = setup({
             logo: "companySAP"
           });
 
-          expect(CompanyLogo.children[0].textContent).toEqual("Company-SAP.svg");
+          expect(CompanyLogos[4].children[0].textContent).toEqual("Company-SAP.svg");
         });
       });
 
@@ -251,7 +255,7 @@ interface Setup extends RenderResult {
   CompanyContainer: Element;
   CompanyDescriptions: Element[];
   CompanyDesktop: Element;
-  CompanyLogo: Element;
+  CompanyLogos: Element[];
   CompanyMobile: Element;
   CompanyPositionContainer: Element;
   CompanyTablet: Element;
@@ -295,7 +299,7 @@ function setup(additionalProps?: CompanyTestProps): Setup {
   const CompanyContainer: Element = queryAllByTestId("Company")[0];
   const CompanyDescriptions: Element[] = queryAllByTestId("CompanyDescription");
   const CompanyDesktop: Element = queryAllByTestId("ResponsiveDesktop")[0];
-  const CompanyLogo: Element = queryAllByTestId("CompanyLogoFlexContainer")[0];
+  const CompanyLogos: Element[] = queryAllByTestId("CompanyLogoFlexContainer");
   const CompanyMobile: Element = queryAllByTestId("ResponsiveMobile")[0];
   const CompanyPositionContainer: Element = queryAllByTestId("CompanyPositionContainer")[0];
   const CompanyTablet: Element = queryAllByTestId("ResponsiveTablet")[0];
@@ -306,7 +310,7 @@ function setup(additionalProps?: CompanyTestProps): Setup {
     CompanyContainer,
     CompanyDescriptions,
     CompanyDesktop,
-    CompanyLogo,
+    CompanyLogos,
     CompanyMobile,
     CompanyPositionContainer,
     CompanyTablet,

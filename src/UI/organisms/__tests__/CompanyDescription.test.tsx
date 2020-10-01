@@ -96,7 +96,7 @@ describe("organisms / CompanyDescription", () => {
             expect(MainTitle).toHaveStyleRule("text-align", "left");
           });
 
-          test("center when textAlign prop is center", () => {
+          test("should have center when textAlign prop is center", () => {
             const { MainTitle } = setup({
               textAlign: "center"
             });
