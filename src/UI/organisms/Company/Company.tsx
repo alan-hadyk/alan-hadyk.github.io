@@ -16,6 +16,7 @@ const Company = ({
   iconsWithLabels,
   logo,
   responsibilities,
+  timelineBottom,
   title
 }: CompanyProps): JSX.Element => (
   <FlexContainer
@@ -31,6 +32,7 @@ const Company = ({
         iconsWithLabels={iconsWithLabels}
         logo={logo}
         responsibilities={responsibilities}
+        timelineBottom={timelineBottom}
         title={title}
       />
 

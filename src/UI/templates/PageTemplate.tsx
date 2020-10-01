@@ -3,30 +3,35 @@ import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import { PageTemplateProps }  from "<templates>/__typings__/PageTemplate.d.ts";
 
-import spacing from "<styles>/variables/spacing";
-
 const PageTemplate = ({
-  children,
-  padding = `0 ${spacing.spacing48} ${spacing.spacing96}`
+  children
 }: PageTemplateProps): JSX.Element => (
-  <PageTemplate.Container
-    padding={padding}
-  >
+  <PageTemplate.Container>
     {children}
   </PageTemplate.Container>
 );
 
-PageTemplate.Container = styled.main<PageTemplateProps>`
+PageTemplate.Container = styled.main`
   ${({
-    padding,
     theme: {
-      spacing,
-      breakpoints: { breakpoint1920 }
+      breakpoints: {
+        breakpoint640,
+        breakpoint1920
+      },
+      spacing: {
+        spacing28,
+        spacing48,
+        spacing96
+      }
     }
   }): FlattenSimpleInterpolation => css`
     margin: 0 auto;
     max-width: ${breakpoint1920};
-    padding: ${padding};
+    padding: 0 ${spacing48} ${spacing96};
+
+    @media (max-width: ${breakpoint640}) {
+      padding: 0 ${spacing28} ${spacing96};
+    }
   `}
 `;
   
