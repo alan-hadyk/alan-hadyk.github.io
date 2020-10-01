@@ -152,7 +152,7 @@ describe("molecules / Section", () => {
             expect(TitleSpacingContainers[2]).toHaveStyleRule("margin-bottom", "9.6rem");
           });
 
-          test("should have 4.8rem for tv, desktop and tablet", () => {
+          test("should have 4.8rem for mobile", () => {
             const { TitleSpacingContainers } = setup();
 
             expect(TitleSpacingContainers[3]).toHaveStyleRule("margin-bottom", "4.8rem");

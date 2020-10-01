@@ -40,6 +40,19 @@ describe("templates / PageTemplate", () => {
         expect(PageTemplate).toHaveStyleRule("margin", "0 auto");
       });
     });
+
+    describe("@media (max-width: 640px)", () => {      
+      describe("padding", () => {      
+        test("should have '0 2.8rem 9.6rem'", () => {
+          const { PageTemplate } = setup();
+    
+          expect(PageTemplate).toHaveStyleRule("padding", "0 2.8rem 9.6rem", {
+            media: "(max-width:640px)"
+          });
+        });
+      });
+    });
+
   });
 });
 

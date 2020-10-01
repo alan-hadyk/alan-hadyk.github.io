@@ -4,7 +4,10 @@ import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { ListItemProps } from "<atoms>/__typings__/ListItem.d.ts";
 
 const ListItem = ({ children }: ListItemProps): JSX.Element => (
-  <ListItem.Container data-testid="ListItem">
+  <ListItem.Container
+    data-cy="ListItem"
+    data-testid="ListItem"
+  >
     {children}
   </ListItem.Container>
 );

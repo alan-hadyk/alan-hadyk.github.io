@@ -5,97 +5,111 @@ import CompanyPersonallyEmployed from "<pages>/Home/sections/experience/companie
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  IconWithLabelProps
-} from "<molecules>/__typings__/IconWithLabel.d.ts";
-
 describe("pages / Home / sections / experience / companies / CompanyPersonallyEmployed", () => {
   describe("Props", () => {
-    describe("date", () => {    
+    describe("companyMobilePaddingBottom", () => {
+      test("should have 0", () => {
+        const {
+          ResponsibilitiesSpacingContainers
+        } = setup();
+    
+        expect(ResponsibilitiesSpacingContainers[3]).toHaveStyleRule("padding-bottom", "0");
+      });
+    });
+
+    describe("date", () => {
       test("should render May 2008 to September 2010", () => {
         const {
-          CompanyDescription
+          CompanyDescriptions
         } = setup();
-    
-        expect(CompanyDescription.children[1].children[0].children[1].textContent).toEqual("May 2008 to September 2010");
+
+        CompanyDescriptions.forEach((CompanyDescription: Element) => {
+          expect(CompanyDescription.children[1].children[0].children[1].textContent).toEqual("May 2008 to September 2010");
+        });
       });
     });
 
-    describe("iconsWithLabels", () => {    
+    describe("iconsWithLabels", () => {
       test("should render correct icons with labels", () => {
         const {
-          CompanyDescription
+          CompanyDescriptions
         } = setup();
-        const IconsWithLabels: Element = CompanyDescription.children[2].children[1].children[0];
-    
-        const iconsWithLabels: IconWithLabelProps[] = [
-          {
-            iconName: "brandJS",
-            label: "Javascript"
-          },
-          {
-            iconName: "brandJQuery",
-            label: "jQuery"
-          }
-        ];
-    
-        iconsWithLabels.forEach(({ label }, index: number) => {
-          expect(IconsWithLabels.children[index].children[1].textContent).toEqual(label);  
+        
+        let IconsWithLabels: Element;
+
+        CompanyDescriptions.forEach((CompanyDescriptions: Element) => {
+          IconsWithLabels = CompanyDescriptions.children[2].children[1].children[0];
+
+          expect(IconsWithLabels.children[0].children[0].children[0].textContent).toEqual("Brand-JS.svg");
+          expect(IconsWithLabels.children[0].children[1].textContent).toEqual("Javascript");
+
+          expect(IconsWithLabels.children[1].children[0].children[0].textContent).toEqual("Brand-jQuery.svg");
+          expect(IconsWithLabels.children[1].children[1].textContent).toEqual("jQuery");
         });
-    
-        expect(IconsWithLabels.children[0].children[0].children[0].textContent).toEqual("Brand-JS.svg");
-        expect(IconsWithLabels.children[1].children[0].children[0].textContent).toEqual("Brand-jQuery.svg");
       });
     });
 
-    describe("logo", () => {    
-      test("should render correct logo", () => {
+    describe("logo", () => {
+      test("should render Icon-Logo.svg", () => {
         const {
-          Logo
+          Logos
         } = setup();
-    
-        expect(Logo.textContent).toEqual("Icon-Logo.svg");
+
+        Logos.forEach((Logo: Element) => {
+          expect(Logo.textContent).toEqual("Icon-Logo.svg");
+        });    
       });
     });
 
-    describe("responsibilities", () => {    
+    describe("responsibilities", () => {
       test("should render correct responsibilities", () => {
         const {
-          CompanyDescription
+          CompanyDescriptions
         } = setup();
-        const UnorderedList: Element = CompanyDescription.children[3].children[1].children[0];
-    
-        expect(UnorderedList.textContent).toEqual("Employed personal referral networks to attain small job order contractsInitialized personal motivation to acquire front-end development skillsCultivated strong ties to the technology community through exemplified demonstration of abilitiesCoordinated development of interactive web-based data visualizations, including interactive charts and maps");
+        let UnorderedList: Element;
+
+        CompanyDescriptions.forEach((CompanyDescription: Element) => {
+          UnorderedList = CompanyDescription.children[3].children[1].children[0];
+
+          expect(UnorderedList.textContent).toEqual("Employed personal referral networks to attain small job order contractsInitialized personal motivation to acquire front-end development skillsCultivated strong ties to the technology community through exemplified demonstration of abilitiesCoordinated development of interactive web-based data visualizations, including interactive charts and maps");
+        });
       });
     });
 
     describe("timelineBottom", () => {    
       test("should have 0", () => {
         const {
-          TimelinePositionContainer
+          TimelinePositionContainers
         } = setup();
         
-        expect(TimelinePositionContainer).toHaveStyleRule("bottom", "0");
+        TimelinePositionContainers.forEach((TimelinePositionContainer: Element) => {
+          expect(TimelinePositionContainer).toHaveStyleRule("bottom", "0");
+        });
       });
     });
 
-    describe("title", () => {    
+    describe("title", () => {
       test("should render Freelancer", () => {
         const {
-          CompanyDescription
+          CompanyDescriptions
         } = setup();
-        const Title: string = CompanyDescription.children[0].textContent;
-    
-        expect(Title).toEqual("Freelancer");
+        let Title: string;
+
+        CompanyDescriptions.forEach((CompanyDescription: Element) => {
+          Title = CompanyDescription.children[0].textContent;
+
+          expect(Title).toEqual("Freelancer");
+        });
       });
     });
   });
 });
 
 interface Setup extends RenderResult {
-  CompanyDescription: Element;
-  Logo: Element;
-  TimelinePositionContainer: Element;
+  CompanyDescriptions: Element[];
+  Logos: Element[];
+  ResponsibilitiesSpacingContainers: Element[];
+  TimelinePositionContainers: Element[];
 }
 
 function setup(): Setup {
@@ -105,15 +119,17 @@ function setup(): Setup {
 
   const { queryAllByTestId } = utils || {};
   
-  const CompanyDescription: Element = queryAllByTestId("CompanyDescription")[0];
-  const Logo: Element = queryAllByTestId("Logo")[0];
-  const TimelinePositionContainer: Element = queryAllByTestId("TimelinePositionContainer")[0];
+  const CompanyDescriptions: Element[] = queryAllByTestId("CompanyDescription");
+  const Logos: Element[] = queryAllByTestId("Logo");
+  const ResponsibilitiesSpacingContainers: Element[] = queryAllByTestId("ResponsibilitiesSpacingContainer");
+  const TimelinePositionContainers: Element[] = queryAllByTestId("TimelinePositionContainer");
 
   return {
     ...utils,
-    CompanyDescription,
-    Logo,
-    TimelinePositionContainer
+    CompanyDescriptions,
+    Logos,
+    ResponsibilitiesSpacingContainers,
+    TimelinePositionContainers
   };
 }
  

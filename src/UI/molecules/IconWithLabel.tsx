@@ -58,7 +58,6 @@ function IconWithLabel({
       <Text
         dataTestId="LabelText"
         color={labelColor}
-        ellipsis
         fontSize={mapSizeToTextFontSize[size]}
       >
         {label}
