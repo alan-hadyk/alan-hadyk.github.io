@@ -16,9 +16,9 @@ const ConsoleMobile = (): JSX.Element => (
       <ConsoleText
         dataTestId="ConsoleMobileText"
         fontSize="font32"
-        height="spacing36"
+        height="spacing24"
         lineHeight="spacing36"
-        transform="translateY(5px)"
+        transform="translateY(1px)"
         width="spacing12"
       />
     </ConsoleMobile.Container>

@@ -82,10 +82,10 @@ describe("molecules / ConsoleMobile", () => {
       });
       
       describe("height", () => {
-        test("should have 3.6rem", () => {
+        test("should have 2.4rem", () => {
           const { ConsoleText } = setup();
 
-          expect(ConsoleText).toHaveStyleRule("height", "3.6rem", {
+          expect(ConsoleText).toHaveStyleRule("height", "2.4rem", {
             modifier: "&::after"
           });
         });
@@ -100,10 +100,10 @@ describe("molecules / ConsoleMobile", () => {
       });
       
       describe("transform", () => {
-        test("should have translateY(5px)", () => {
+        test("should have translateY(1px)", () => {
           const { ConsoleText } = setup();
 
-          expect(ConsoleText).toHaveStyleRule("transform", "translateY(5px)", {
+          expect(ConsoleText).toHaveStyleRule("transform", "translateY(1px)", {
             modifier: "&::after"
           });
         });

@@ -9,6 +9,7 @@ export interface SectionProps {
   dataTestId?: string;
   dataTestId?: string;
   id: string;
+  marginBottom?: Spacing;
   minHeight?: Spacing | "100vh";
   title?: string;
 }

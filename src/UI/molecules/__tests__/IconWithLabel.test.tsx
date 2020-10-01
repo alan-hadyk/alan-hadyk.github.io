@@ -192,32 +192,6 @@ describe("molecules / IconWithLabel", () => {
           expect(Text).toHaveStyleRule("font-size", "24px");
         });
       });
-       
-      describe("ellipsis", () => {
-        describe("text-overflow", () => {
-          test("should have ellipsis", () => {
-            const { Text } = setup();
-
-            expect(Text).toHaveStyleRule("text-overflow", "ellipsis");
-          });
-        });
-
-        describe("overflow", () => {
-          test("should have hidden", () => {
-            const { Text } = setup();
-
-            expect(Text).toHaveStyleRule("overflow", "hidden");
-          });
-        });
-
-        describe("white-space", () => {
-          test("should have nowrap", () => {
-            const { Text } = setup();
-
-            expect(Text).toHaveStyleRule("white-space", "nowrap");
-          });
-        });
-      });
     });
   });
 });

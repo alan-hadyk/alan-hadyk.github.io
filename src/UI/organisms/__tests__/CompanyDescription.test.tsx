@@ -57,38 +57,58 @@ describe("organisms / CompanyDescription", () => {
       });
 
       describe("Props", () => {
-        let MainTitle: Element;
-
-        beforeEach(() => {
-          MainTitle = setup().MainTitle;
-        });
-
         describe("color", () => {
           test("should have #fff", () => {
+            const { MainTitle } = setup();
+
             expect(MainTitle).toHaveStyleRule("color", "#fff");
           });
         });
   
         describe("fontFamily", () => {
           test("should have ExanModifiedRegular, monospace", () => {
+            const { MainTitle } = setup();
+
             expect(MainTitle).toHaveStyleRule("font-family", "ExanModifiedRegular,monospace");
           });
         });
   
         describe("fontSize", () => {
           test("should have 36px", () => {
+            const { MainTitle } = setup();
+
             expect(MainTitle).toHaveStyleRule("font-size", "36px");
           });
         });
 
         describe("lineHeight", () => {
           test("should have 4.8rem", () => {
+            const { MainTitle } = setup();
+
             expect(MainTitle).toHaveStyleRule("line-height", "4.8rem");
+          });
+        });
+
+        describe("textAlign", () => {
+          test("should have left by default", () => {
+            const { MainTitle } = setup();
+
+            expect(MainTitle).toHaveStyleRule("text-align", "left");
+          });
+
+          test("should have center when textAlign prop is center", () => {
+            const { MainTitle } = setup({
+              textAlign: "center"
+            });
+
+            expect(MainTitle).toHaveStyleRule("text-align", "center");
           });
         });
 
         describe("textTransform", () => {
           test("should have uppercase", () => {
+            const { MainTitle } = setup();
+
             expect(MainTitle).toHaveStyleRule("text-transform", "uppercase");
           });
         });
@@ -393,10 +413,18 @@ describe("organisms / CompanyDescription", () => {
     describe("ResponsibilitiesSpacingContainer", () => { 
       describe("Props", () => {
         describe("paddingBottom", () => {      
-          test("should have 6.8rem", () => {
+          test("should have 6.8rem by default", () => {
             const { ResponsibilitiesSpacingContainer } = setup();
 
             expect(ResponsibilitiesSpacingContainer).toHaveStyleRule("padding-bottom", "6.8rem");
+          });
+
+          test("should have correct value passed via responsibilitiesPaddingBottom props", () => {
+            const { ResponsibilitiesSpacingContainer } = setup({
+              responsibilitiesPaddingBottom: "spacing64"
+            });
+
+            expect(ResponsibilitiesSpacingContainer).toHaveStyleRule("padding-bottom", "6.4rem");
           });
         });
       });

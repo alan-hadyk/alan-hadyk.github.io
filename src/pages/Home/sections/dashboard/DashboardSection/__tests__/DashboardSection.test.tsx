@@ -74,6 +74,14 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
           expect(Section.getAttribute("id")).toEqual("dashboard");	
         });	
       });	
+
+      describe("marginBottom", () => {	
+        test("should have 1.2rem", () => {	
+          const { Section } = setup();	
+
+          expect(Section).toHaveStyleRule("margin-bottom", "1.2rem");	
+        });	
+      });	
     });	
   });	
 });	

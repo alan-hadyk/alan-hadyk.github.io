@@ -13,16 +13,20 @@ function CompanyDescription({
   date,
   iconsWithLabels,
   responsibilities,
+  responsibilitiesPaddingBottom = "spacing68",
+  textAlign = "left",
   title
 }: CompanyDescriptionProps): JSX.Element {
   const renderTitleAndDate = useCallback((): JSX.Element => (
     <Fragment>
       <Text
         color="white"
+        dataCy="CompanyDescriptionMainTitle"
         dataTestId="MainTitle"
         fontFamily="Exan"
         fontSize="font36"
         lineHeight="spacing48"
+        textAlign={textAlign}
         textTransform="uppercase"
       >
         {title}
@@ -40,7 +44,7 @@ function CompanyDescription({
         />
       </SpacingContainer>
     </Fragment>
-  ), [date, title]);
+  ), [date, textAlign, title]);
 
   return (
     <CompanyDescription.Container
@@ -57,6 +61,7 @@ function CompanyDescription({
   function renderTechStack(): JSX.Element {
     return (
       <SpacingContainer
+        dataCy="CompanyTechStack"
         dataTestId="TechStackSpacingContainer"
         marginBottom="spacing16"
       >
@@ -88,8 +93,9 @@ function CompanyDescription({
   function renderResponsibilities(): JSX.Element {
     return (
       <SpacingContainer
+        dataCy="CompanyResponsibilities"
         dataTestId="ResponsibilitiesSpacingContainer"
-        paddingBottom="spacing68"
+        paddingBottom={responsibilitiesPaddingBottom}
       >
         <Text
           color="blue100"
@@ -99,7 +105,7 @@ function CompanyDescription({
           fontWeight="bold"
           lineHeight="spacing32"
         >
-        Responsibilities
+          Responsibilities
         </Text>
         <SpacingContainer
           dataTestId="ResponsibilitiesListSpacingContainer"
@@ -113,8 +119,6 @@ function CompanyDescription({
       </SpacingContainer>
     );
   }
-
-
 }
 
 CompanyDescription.Container = styled.div``;

@@ -11,6 +11,7 @@ const DashboardSection = (): JSX.Element => (
     dataCy="Dashboard"
     dataTestId="DashboardSection"
     id="dashboard"
+    marginBottom="spacing12"
   >
     <DashboardSectionTvAndDesktop />
     <DashboardSectionTablet />

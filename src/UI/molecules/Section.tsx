@@ -15,6 +15,7 @@ function Section({
   dataCy,
   dataTestId,
   id,
+  marginBottom = "spacing0",
   minHeight,
   title
 }: SectionProps): JSX.Element {
@@ -27,7 +28,6 @@ function Section({
       <SpacingContainer
         dataTestId="TitleSpacingContainer"
         marginBottom={marginBottom}
-        paddingTop="spacing108"
       >
         <Text
           color="blue100"
@@ -48,9 +48,9 @@ function Section({
       dataCy={dataCy}
       dataTestId={dataTestId || "Section"}
       id={id}
-      marginBottom="spacing16"
+      marginBottom={marginBottom}
       minHeight={minHeight}
-      paddingBottom={title ? "spacing96" : "spacing0"}
+      paddingTop={title ? "spacing96" : "spacing0"}
     >
       <Responsive devices={["tv", "desktop", "tablet"]}>
         {renderTitle({

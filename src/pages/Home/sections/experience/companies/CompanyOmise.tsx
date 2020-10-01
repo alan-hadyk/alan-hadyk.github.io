@@ -2,7 +2,7 @@ import React from "react";
 
 import Company from "<organisms>/Company";
 
-import { CompanyProps } from "<organisms>/__typings__/Company.d.ts";
+import { CompanyProps } from "<organisms>/Company/__typings__/Company.d.ts";
 
 const iconsWithLabels: CompanyProps["iconsWithLabels"] = [
   {
@@ -76,25 +76,26 @@ const iconsWithLabels: CompanyProps["iconsWithLabels"] = [
 ];
 
 const responsibilities: CompanyProps["responsibilities"] = [
-  <span key="create-scalable"><strong>Create</strong> scalable and sane front-end architecture</span>, 
-  <span key="orchestrate-and-direct"><strong>Orchestrate</strong> and <strong>direct</strong> collaborative team operational objectives for front-end layer of an application designed to manage payment systems</span>, 
-  <span key="apply-and-certify"><strong>Apply development</strong> and <strong>certify adherence</strong> to best practices to deliver application based on React.js</span>, 
-  <span key="streamline-project-timelines"><strong>Streamline project timelines</strong> to ensure application is being developed</span>, 
-  <span key="develop-api-gateway"><strong>Develop API gateway</strong> in the form of Express / Node.js server, along with Apollo / GraphQL stack</span>, 
-  <span key="transform-and-create"><strong>Transform and create</strong> reusable components</span>, 
-  <span key="author-unit"><strong>Author</strong> unit, integration and acceptance tests</span>, 
-  <span key="demonstrate-expertise"><strong>Demonstrate expertise</strong> in the utilization of GraphQL to communicate with backend</span>, 
-  <span key="mentor-junior"><strong>Mentor</strong> junior front-end developers</span>
+  <span data-testid="CreateScalable" key="create-scalable"><strong>Create</strong> scalable and sane front-end architecture</span>, 
+  <span data-testid="OrchestrateAndDirect" key="orchestrate-and-direct"><strong>Orchestrate</strong> and <strong>direct</strong> collaborative team operational objectives for front-end layer of an application designed to manage payment systems</span>, 
+  <span data-testid="ApplyAndCertify" key="apply-and-certify"><strong>Apply development</strong> and <strong>certify adherence</strong> to best practices to deliver application based on React.js</span>, 
+  <span data-testid="StreamlineProjectTimelines" key="streamline-project-timelines"><strong>Streamline project timelines</strong> to ensure application is being developed</span>, 
+  <span data-testid="DevelopApiGateway" key="develop-api-gateway"><strong>Develop API gateway</strong> in the form of Express / Node.js server, along with Apollo / GraphQL stack</span>, 
+  <span data-testid="TransformAndCreate" key="transform-and-create"><strong>Transform and create</strong> reusable components</span>, 
+  <span data-testid="AuthorUnit" key="author-unit"><strong>Author</strong> unit, integration and acceptance tests</span>, 
+  <span data-testid="DemonstrateExpertise" key="demonstrate-expertise"><strong>Demonstrate expertise</strong> in the utilization of GraphQL to communicate with backend</span>, 
+  <span data-testid="MentorJunior" key="mentor-junior"><strong>Mentor</strong> junior front-end developers</span>
 ];
 
 const CompanyOmise = (): JSX.Element => (
   <Company
+    dataCy="CompanyOmise"
     dataTestId="CompanyOmise"
     date="August 2018 to present"
     iconsWithLabels={iconsWithLabels}
     logo="companyOmise"
     responsibilities={responsibilities}
-    title="Front end developer"
+    title="Software engineer"
   />
 );
 

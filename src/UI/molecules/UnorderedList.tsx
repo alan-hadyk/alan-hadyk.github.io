@@ -7,7 +7,10 @@ import { UnorderedListProps } from "<molecules>/__typings__/UnorderedList.d.ts";
 import { ListItemProps } from "<atoms>/__typings__/ListItem.d.ts";
 
 const UnorderedList = ({ items }: UnorderedListProps): JSX.Element => (
-  <UnorderedList.Container data-testid="UnorderedList">
+  <UnorderedList.Container
+    data-cy="UnorderedList"
+    data-testid="UnorderedList"
+  >
     {items.map((item: ListItemProps["children"], index: number): JSX.Element => (
       <ListItem key={index}>{item}</ListItem>
     ))}
