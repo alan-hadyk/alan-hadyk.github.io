@@ -10,4 +10,5 @@ export interface CompanyProps extends CompanyDescriptionProps {
   dataCy?: string;
   dataTestId?: string;
   logo: IconProps["iconName"];
+  timelineBottom?: Spacing;
 }

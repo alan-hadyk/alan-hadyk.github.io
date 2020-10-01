@@ -4,9 +4,13 @@ import Timeline from "<molecules>/Timeline";
 
 import PositionContainer from "<layout>/PositionContainer";
 
-const CompanyTimeline = (): JSX.Element => (
+import { CompanyTimelineProps } from "<organisms>/Company/__typings__/CompanyTimeline.d.ts";
+
+const CompanyTimeline = ({
+  timelineBottom = "negativeSpacing16"
+}: CompanyTimelineProps): JSX.Element => (
   <PositionContainer
-    bottom="negativeSpacing16"
+    bottom={timelineBottom}    
     dataTestId="CompanyTimeline"
     left="50%"
     position="absolute"

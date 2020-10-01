@@ -76,6 +76,18 @@ describe("pages / Home / sections / experience / companies / CompanyPersonallyEm
       });
     });
 
+    describe("timelineBottom", () => {    
+      test("should have 0", () => {
+        const {
+          TimelinePositionContainers
+        } = setup();
+        
+        TimelinePositionContainers.forEach((TimelinePositionContainer: Element) => {
+          expect(TimelinePositionContainer).toHaveStyleRule("bottom", "0");
+        });
+      });
+    });
+
     describe("title", () => {
       test("should render Freelancer", () => {
         const {
@@ -97,6 +109,7 @@ interface Setup extends RenderResult {
   CompanyDescriptions: Element[];
   Logos: Element[];
   ResponsibilitiesSpacingContainers: Element[];
+  TimelinePositionContainers: Element[];
 }
 
 function setup(): Setup {
@@ -109,12 +122,14 @@ function setup(): Setup {
   const CompanyDescriptions: Element[] = queryAllByTestId("CompanyDescription");
   const Logos: Element[] = queryAllByTestId("Logo");
   const ResponsibilitiesSpacingContainers: Element[] = queryAllByTestId("ResponsibilitiesSpacingContainer");
+  const TimelinePositionContainers: Element[] = queryAllByTestId("TimelinePositionContainer");
 
   return {
     ...utils,
     CompanyDescriptions,
     Logos,
-    ResponsibilitiesSpacingContainers
+    ResponsibilitiesSpacingContainers,
+    TimelinePositionContainers
   };
 }
  

@@ -7,6 +7,7 @@ import HexagonWithDescription from "<molecules>/HexagonWithDescription";
 function AboutMeSection(): JSX.Element {
   return (
     <Section
+      dataCy="AboutMe"
       id="about-me"
       title="About me"
     >

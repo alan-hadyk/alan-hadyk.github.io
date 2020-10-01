@@ -23,7 +23,7 @@ describe("Skills", () => {
       cy.dataCy("Skills")
         .should("be.visible")
         .find("[data-testid='Text']")
-        .should("contain", "Skills, Technology & Tools");
+        .should("contain", "Skills");
 
       cy.dataCy("Skills")
         .within(() => {

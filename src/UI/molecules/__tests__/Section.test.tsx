@@ -71,6 +71,32 @@ describe("molecules / Section", () => {
   describe("SpacingContainers", () => { 
     describe("SectionContainer", () => { 
       describe("Props", () => {
+        describe("id", () => {      
+          test("should have id equal to id prop", () => {
+            const { SectionContainer } = setup({
+              id: "SectionID"
+            });
+
+            expect(SectionContainer.getAttribute("id")).toEqual("SectionID");
+          });
+        });
+
+        describe("marginBottom", () => {      
+          test("should have 0 by default", () => {
+            const { SectionContainer } = setup();
+
+            expect(SectionContainer).toHaveStyleRule("margin-bottom", "0");
+          });
+
+          test("should have value equal to marginBottom prop", () => {
+            const { SectionContainer } = setup({
+              marginBottom: "spacing24"
+            });
+
+            expect(SectionContainer).toHaveStyleRule("margin-bottom", "2.4rem");
+          });
+        });
+
         describe("minHeight", () => {      
           test("should not have min-height by default", () => {
             const { SectionContainer } = setup();
@@ -94,16 +120,22 @@ describe("molecules / Section", () => {
             expect(SectionContainer).toHaveStyleRule("min-height", "100vh");
           });
         });
-      });
 
-      describe("Props", () => {
-        describe("id", () => {      
-          test("should have id equal to id prop", () => {
+        describe("paddingTop", () => {      
+          test("should have 0 if there is no title", () => {
             const { SectionContainer } = setup({
-              id: "SectionID"
+              title: undefined
             });
 
-            expect(SectionContainer.getAttribute("id")).toEqual("SectionID");
+            expect(SectionContainer).toHaveStyleRule("padding-top", "0");
+          });
+
+          test("should have 9.6rem if there is title", () => {
+            const { SectionContainer } = setup({
+              title: "Custom title"
+            });
+
+            expect(SectionContainer).toHaveStyleRule("padding-top", "9.6rem");
           });
         });
       });
@@ -124,22 +156,6 @@ describe("molecules / Section", () => {
             const { TitleSpacingContainers } = setup();
 
             expect(TitleSpacingContainers[3]).toHaveStyleRule("margin-bottom", "4.8rem");
-          });
-        });
-
-        describe("paddingTop", () => {      
-          test("should have 12rem for tv, desktop and tablet", () => {
-            const { TitleSpacingContainers } = setup();
-
-            expect(TitleSpacingContainers[0]).toHaveStyleRule("padding-top", "12rem");
-            expect(TitleSpacingContainers[1]).toHaveStyleRule("padding-top", "12rem");
-            expect(TitleSpacingContainers[2]).toHaveStyleRule("padding-top", "12rem");
-          });
-
-          test("should have 9.6rem for mobile", () => {
-            const { TitleSpacingContainers } = setup();
-
-            expect(TitleSpacingContainers[3]).toHaveStyleRule("padding-top", "9.6rem");
           });
         });
       });

@@ -16,10 +16,11 @@ const CompanyTvDesktopAndTablet = ({
   iconsWithLabels,
   logo,
   responsibilities,
+  timelineBottom,
   title
 }: CompanyProps): JSX.Element => (
   <Responsive devices={["tv", "desktop", "tablet"]}>
-    <CompanyTimeline />
+    <CompanyTimeline timelineBottom={timelineBottom} />
 
     <FlexContainer
       alignItems="flex-start"

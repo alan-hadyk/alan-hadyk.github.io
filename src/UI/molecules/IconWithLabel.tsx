@@ -5,7 +5,6 @@ import Text from "<atoms>/Text";
 
 import FlexContainer from "<layout>/FlexContainer";
 import SpacingContainer from "<layout>/SpacingContainer";
-import Responsive from "<layout>/Responsive";
 
 import {
   IconWithLabelProps,

@@ -31,6 +31,7 @@ const CompanyPersonallyEmployed = (): JSX.Element => (
     iconsWithLabels={iconsWithLabels}
     logo="logo"
     responsibilities={responsibilities}
+    timelineBottom="spacing0"
     title="Freelancer"
   />
 );

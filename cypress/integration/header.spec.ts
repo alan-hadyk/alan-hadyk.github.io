@@ -3,15 +3,7 @@
 
 describe("Header", () => {
   beforeEach(() => {
-    cy.visit("/", {
-      onBeforeLoad: (win) => {
-        cy.stub(win, "fetch").withArgs("https://api.github.com/repos/alan-hadyk/portfolio/commits")
-          .resolves({
-            json: () => [],
-            ok: true
-          });
-      }
-    });
+    cy.visit("/");
   });
 
   it("each nav link should become active when given section is scrolled into view", () => {
