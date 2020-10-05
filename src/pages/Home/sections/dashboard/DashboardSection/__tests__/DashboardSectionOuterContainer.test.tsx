@@ -31,21 +31,19 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
 
   describe("SpacingContainer", () => {
     describe("Props", () => {
-      describe("Props", () => {	
-        describe("paddingTop", () => {	
-          test("should have 9.6rem", () => {	
-            const { SpacingContainer } = setup();	
+      describe("paddingTop", () => {	
+        test("should have 9.6rem", () => {	
+          const { SpacingContainer } = setup();	
   
-            expect(SpacingContainer).toHaveStyleRule("padding-top", "9.6rem");	
-          });	
+          expect(SpacingContainer).toHaveStyleRule("padding-top", "9.6rem");	
         });	
+      });	
   
-        describe("height", () => {	
-          test("should have 100vh", () => {	
-            const { SpacingContainer } = setup();	
+      describe("height", () => {	
+        test("should have 100vh", () => {	
+          const { SpacingContainer } = setup();	
   
-            expect(SpacingContainer).toHaveStyleRule("height", "100vh");	
-          });	
+          expect(SpacingContainer).toHaveStyleRule("height", "100vh");	
         });	
       });	
     });

@@ -1,7 +1,5 @@
 import React from "react";
 import {
-  act,
-  fireEvent, 
   RenderResult
 } from "@testing-library/react";
 

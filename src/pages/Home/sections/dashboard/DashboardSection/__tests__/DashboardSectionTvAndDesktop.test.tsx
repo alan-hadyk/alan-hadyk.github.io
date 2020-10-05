@@ -128,13 +128,14 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
   });
 
   describe("DashboardSectionInnerContainers", () => {
-    describe("DashboardSectionInnerContainer[0]", () => {
+    describe("DashboardSectionInnerContainer[0] and [2]", () => {
       describe("Props", () => {	
         describe("height", () => {	
           test("should have calc(17vh + 3.6rem)", () => {	
             const { DashboardSectionInnerContainers } = setup();	
   
             expect(DashboardSectionInnerContainers[0]).toHaveStyleRule("height", "calc(17vh + 3.6rem)");	
+            expect(DashboardSectionInnerContainers[2]).toHaveStyleRule("height", "calc(17vh + 3.6rem)");	
           });	
         });	
   
@@ -143,18 +144,20 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
             const { DashboardSectionInnerContainers } = setup();	
   
             expect(DashboardSectionInnerContainers[0]).toHaveStyleRule("margin-top", "2.22vh");	
+            expect(DashboardSectionInnerContainers[2]).toHaveStyleRule("margin-top", "2.22vh");	
           });	
         });	
       });	
     });
 
-    describe("DashboardSectionInnerContainer[1]", () => {
+    describe("DashboardSectionInnerContainer[1] and [3]", () => {
       describe("Props", () => {	
         describe("height", () => {	
           test("should have calc(22.6vh + 3.6rem)", () => {	
             const { DashboardSectionInnerContainers } = setup();	
   
             expect(DashboardSectionInnerContainers[1]).toHaveStyleRule("height", "calc(22.6vh + 3.6rem)");	
+            expect(DashboardSectionInnerContainers[3]).toHaveStyleRule("height", "calc(22.6vh + 3.6rem)");	
           });	
         });	
   
@@ -163,6 +166,7 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
             const { DashboardSectionInnerContainers } = setup();	
   
             expect(DashboardSectionInnerContainers[1]).toHaveStyleRule("margin-bottom", "2.22vh");	
+            expect(DashboardSectionInnerContainers[3]).toHaveStyleRule("margin-bottom", "2.22vh");	
           });	
         });	
       });	
