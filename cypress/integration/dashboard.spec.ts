@@ -21,8 +21,10 @@ describe("Dashboard", () => {
       cy.viewport(1681, 900);
     });
 
-    it("should contain Tech Stack, Flux, Code, Commits, Powered by, User Agent and Ip", () => {
+    it("should contain Tech Stack, Flux, Code, Console, Commits, Powered by, User Agent and Ip", () => {
       cy.dataCy("Dashboard")
+        .should("be.visible")
+        .find("[data-testid='DashboardSectionTv']")
         .should("be.visible")
         .within(() => {
           cy.dataCy("TechStack")
@@ -55,13 +57,13 @@ describe("Dashboard", () => {
             .find("[data-testid='DashboardElementTitleText']")
             .should("contain", "Code");
 
-          cy.dataCy("Console")
+          cy.dataCy("ConsoleTvDesktopAndTablet")
             .should("be.visible")
             .find("[data-testid='Text']")
             .should("contain", "GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin19)");
 
-          cy.dataCy("Console")
-            .find("[data-testid='ConsoleText']")
+          cy.dataCy("ConsoleTvDesktopAndTablet")
+            .find("[data-testid='ConsoleTvDesktopAndTabletText']")
             .should("contain", "Vision driven change agent with career-long record of front-end user strategy and UI development");
   
           cy.dataCy("Commits")
@@ -112,8 +114,10 @@ describe("Dashboard", () => {
       cy.viewport(1281, 900);
     });
 
-    it("should contain Tech Stack, Flux, Code, Commits, Powered by, User Agent and Ip", () => {
+    it("should contain Tech Stack, Flux, Code, Console, Commits, Powered by, User Agent and Ip", () => {
       cy.dataCy("Dashboard")
+        .should("be.visible")
+        .find("[data-testid='DashboardSectionDesktop']")
         .should("be.visible")
         .within(() => {
           cy.dataCy("TechStack")
@@ -146,13 +150,13 @@ describe("Dashboard", () => {
             .find("[data-testid='DashboardElementTitleText']")
             .should("contain", "Code");
 
-          cy.dataCy("Console")
+          cy.dataCy("ConsoleTvDesktopAndTablet")
             .should("be.visible")
             .find("[data-testid='Text']")
             .should("contain", "GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin19)");
 
-          cy.dataCy("Console")
-            .find("[data-testid='ConsoleText']")
+          cy.dataCy("ConsoleTvDesktopAndTablet")
+            .find("[data-testid='ConsoleTvDesktopAndTabletText']")
             .should("contain", "Vision driven change agent with career-long record of front-end user strategy and UI development");
   
           cy.dataCy("Commits")
@@ -203,8 +207,10 @@ describe("Dashboard", () => {
       cy.viewport(641, 900);
     });
 
-    it("should contain Tech Stack, Flux, Code, Commits, Powered by, User Agent and Ip", () => {
+    it("should contain Tech Stack, Console, Commits, Powered by", () => {
       cy.dataCy("Dashboard")
+        .should("be.visible")
+        .find("[data-testid='DashboardSectionTablet']")
         .should("be.visible")
         .within(() => {
           cy.dataCy("TechStack")
@@ -228,13 +234,13 @@ describe("Dashboard", () => {
           cy.dataCy("Code")
             .should("not.be.visible");
 
-          cy.dataCy("Console")
+          cy.dataCy("ConsoleTvDesktopAndTablet")
             .should("be.visible")
             .find("[data-testid='Text']")
             .should("contain", "GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin19)");
 
-          cy.dataCy("Console")
-            .find("[data-testid='ConsoleText']")
+          cy.dataCy("ConsoleTvDesktopAndTablet")
+            .find("[data-testid='ConsoleTvDesktopAndTabletText']")
             .should("contain", "Vision driven change agent with career-long record of front-end user strategy and UI development");
   
           cy.dataCy("Commits")
@@ -266,24 +272,14 @@ describe("Dashboard", () => {
       cy.viewport(640, 900);
     });
 
-    it("should contain Tech Stack, Flux, Code, Commits, Powered by, User Agent and Ip", () => {
+    it("should contain Console", () => {
       cy.dataCy("Dashboard")
+        .should("be.visible")
+        .find("[data-testid='DashboardSectionMobile']")
         .should("be.visible")
         .within(() => {
           cy.dataCy("TechStack")
-            .should("be.visible")
-            .find("[data-testid='DashboardElementTitleText']")
-            .should("contain", "Tech Stack");
-  
-          cy.dataCy("TechStack")
-            .within(() => {
-              cy.dataCy("react").should("be.visible");
-              cy.dataCy("javascript").should("be.visible");
-              cy.dataCy("typescript").should("be.visible");
-              cy.dataCy("webpack").should("be.visible");
-              cy.dataCy("node").should("be.visible");
-              cy.dataCy("apollo").should("be.visible");
-            });
+            .should("not.be.visible");
 
           cy.dataCy("Flux")
             .should("not.be.visible");
@@ -291,29 +287,18 @@ describe("Dashboard", () => {
           cy.dataCy("Code")
             .should("not.be.visible");
 
-          cy.dataCy("Console")
-            .should("be.visible")
-            .find("[data-testid='Text']")
-            .should("contain", "GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin19)");
-
-          cy.dataCy("Console")
-            .find("[data-testid='ConsoleText']")
+          cy.dataCy("ConsoleMobile")
+            .find("[data-testid='ConsoleMobileText']")
             .should("contain", "Vision driven change agent with career-long record of front-end user strategy and UI development");
   
           cy.dataCy("Commits")
-            .should("be.visible")
-            .find("[data-testid='DashboardElementTitleText']")
-            .should("contain", "Commits");
+            .should("not.be.visible");
 
           cy.dataCy("PoweredBy")
-            .should("be.visible")
-            .find("[data-testid='DashboardElementTitleText']")
-            .should("contain", "Powered by");
+            .should("not.be.visible");
 
           cy.dataCy("PoweredBy")
-            .within(() => {
-              cy.dataCy("reactLogo").should("be.visible");
-            });
+            .should("not.be.visible");
 
           cy.dataCy("UserAgent")
             .should("not.be.visible");
