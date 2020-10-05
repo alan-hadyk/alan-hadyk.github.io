@@ -48,7 +48,6 @@ jest.mock("detect-browser", () => ({
   detect: (): Detect => ({ name: "chrome" })	
 }));	
 
-
 describe("pages / Home / sections / dashboard / DashboardSection", () => {	
   test("should have correct structure", () => {	
     const {	

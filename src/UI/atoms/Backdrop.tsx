@@ -6,7 +6,7 @@ import {
 } from "<atoms>/__typings__/Backdrop.d.ts";
 
 const Backdrop = ({
-  onClick = () => false
+  onClick
 }: BackdropProps): JSX.Element => (
   <Backdrop.Container data-testid="Backdrop" onClick={onClick} />
 );

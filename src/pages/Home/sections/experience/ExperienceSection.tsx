@@ -10,6 +10,7 @@ import CompanyPersonallyEmployed from "<pages>/Home/sections/experience/companie
 const ExperienceSection = (): JSX.Element => (
   <Section
     dataCy="Experience"
+    dataTestId="ExperienceSection"
     id="experience"
     title="Experience"
   >

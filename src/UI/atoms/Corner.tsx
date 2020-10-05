@@ -30,7 +30,10 @@ const mapPositionToCornerProps = (isActive: CornerProps["isActive"]): MapPositio
   }
 });
 
-function Corner({ isActive = false, position }: CornerProps): JSX.Element {
+function Corner({
+  isActive = false,
+  position
+}: CornerProps): JSX.Element {
   const cornerProps: CornerContainerProps = mapPositionToCornerProps(isActive)[position];
   const opacity: CornerContainerProps["opacity"] = isActive ? 1 : 0.5;
 

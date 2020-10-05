@@ -43,10 +43,11 @@ describe("molecules / Nav", () => {
 
       setup();
 
+      expect(typeof spyUseIntersectionObserver.mock.calls[0][0]["onElementVisible"]).toEqual("function");
+      
       expect(JSON.stringify(spyUseIntersectionObserver.mock.calls[0][0])).toEqual(JSON.stringify({
         selectors: ["#portfolio", "#experience", "#skills", "#about-me", "#contact"]
       }));
-      expect(typeof spyUseIntersectionObserver.mock.calls[0][0]["onElementVisible"]).toEqual("function");
     });
   });
 
@@ -152,7 +153,6 @@ type NavTestProps = Partial<NavProps>;
 
 function setup(additionalProps?: NavTestProps): Setup {
   const props: NavProps = {
-    position: "horizontal",
     ...additionalProps
   };
 

@@ -8,6 +8,7 @@ import FlexContainer from "<layout>/FlexContainer";
 const ContactSection = (): JSX.Element => (
   <Section
     dataCy="Contact"
+    dataTestId="ContactSection"
     id="contact"
     title="Contact"
   >

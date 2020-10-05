@@ -210,8 +210,6 @@ function setup(additionalProps?: IconWithLabelTestProps): Setup {
   const props: IconWithLabelProps = {
     iconName: "brandJS",
     label: "/",
-    labelColor: "blue300",
-    size: "small",
     ...additionalProps
   };
   

@@ -59,7 +59,7 @@ function setup(): Setup {
   const CompanyPersonallyEmployed: Element = queryAllByTestId("CompanyPersonallyEmployed")[0];
   const CompanySAP: Element = queryAllByTestId("CompanySAP")[0];
   const CompanyShiji: Element = queryAllByTestId("CompanyShiji")[0];
-  const ExperienceSectionContainer: Element = document.querySelectorAll("#experience")[0];
+  const ExperienceSectionContainer: Element = queryAllByTestId("ExperienceSection")[0];
 
   return {
     ...utils,

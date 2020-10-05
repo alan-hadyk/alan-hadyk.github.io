@@ -28,6 +28,7 @@ function Header({
 
   return (
     <PositionContainer
+      dataTestId="HeaderPositionContainer"
       left="spacing0"
       position="fixed"
       right="spacing0"

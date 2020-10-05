@@ -179,7 +179,6 @@ type ProjectDescriptionButtonsTestProps = Partial<ProjectDescriptionButtonsProps
 
 function setup(additionalProps?: ProjectDescriptionButtonsTestProps): Setup {
   const props: ProjectDescriptionButtonsProps = {
-    size: "medium",
     ...additionalProps
   };
 

@@ -26,7 +26,7 @@ const mapSizeToFlexContainerGap: MapSizeToFlexContainerGap = {
 }; 
 
 function IconsWithLabels({
-  iconsWithLabels = [],
+  iconsWithLabels,
   labelColor = "blue100",
   position = "vertical",
   size = "medium"
@@ -45,7 +45,7 @@ function IconsWithLabels({
     >
       {
         position === "horizontal" ? (
-          iconsWithLabels.map(({ iconName, label }: IconWithLabelProps): JSX.Element => (
+          iconsWithLabels && iconsWithLabels.map(({ iconName, label }: IconWithLabelProps): JSX.Element => (
             <IconWithLabel
               labelColor={labelColor}
               iconName={iconName}

@@ -10,7 +10,7 @@ import {
 export interface IconsWithLabelsProps {
   iconsWithLabels: IconWithLabelProps[];
   labelColor?: ColorPalette;
-  position: "vertical" | "horizontal";
+  position?: "vertical" | "horizontal";
   size?: IconWithLabelProps["size"];
 }
 

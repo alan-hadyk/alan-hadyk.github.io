@@ -71,7 +71,7 @@ describe("atoms / Backdrop", () => {
   });
 
   describe("Props", () => {
-    describe("onClick", () => {  
+    describe("onClick", () => { 
       test("should fire onClick prop", () => {
         const onClick = jest.fn();
   
@@ -99,7 +99,7 @@ type BackdropTestProps = Partial<BackdropProps>;
 
 function setup(additionalProps?: BackdropTestProps): Setup {
   const props: BackdropProps = {
-    onClick: () => false,
+    onClick: jest.fn(),
     ...additionalProps
   };
 

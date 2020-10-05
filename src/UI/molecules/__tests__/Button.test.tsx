@@ -765,8 +765,6 @@ function setup(additionalProps?: ButtonTestProps): Setup {
   const props: ButtonProps = {
     buttonText: "Text content",
     iconName: "btnCodeSandbox",
-    size: "small",
-    type: "primary",
     ...additionalProps
   };
 

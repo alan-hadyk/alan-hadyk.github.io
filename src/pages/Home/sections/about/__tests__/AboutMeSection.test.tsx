@@ -73,7 +73,7 @@ function setup(): Setup {
 
   const { queryAllByTestId } = utils || {};
   
-  const AboutMeSectionContainer: Element = document.querySelectorAll("#about-me")[0];
+  const AboutMeSectionContainer: Element = queryAllByTestId("AboutMeSection")[0];
   const HexagonWithDescription: Element = queryAllByTestId("HexagonWithDescription")[0];
   const HexagonWithDescriptionContents: Element[] = queryAllByTestId("HexagonWithDescriptionContent");
   const IconContainer: Element = queryAllByTestId("IconContainer")[0];

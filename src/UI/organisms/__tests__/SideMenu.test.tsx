@@ -388,7 +388,6 @@ type SideMenuTestProps = Partial<SideMenuProps>;
 
 function setup(additionalProps?: SideMenuTestProps): Setup {
   const props: SideMenuProps = {
-    isExpanded: false,
     ...additionalProps
   };
 

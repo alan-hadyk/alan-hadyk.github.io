@@ -6,7 +6,7 @@ import { PageTemplateProps }  from "<templates>/__typings__/PageTemplate.d.ts";
 const PageTemplate = ({
   children
 }: PageTemplateProps): JSX.Element => (
-  <PageTemplate.Container>
+  <PageTemplate.Container data-testid="PageTemplate">
     {children}
   </PageTemplate.Container>
 );

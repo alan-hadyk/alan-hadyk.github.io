@@ -151,9 +151,8 @@ function setup(): Setup {
   const SkillsResponsiveMobile: Element = queryAllByTestId("SkillsResponsiveMobile")[0];
   const SkillsResponsiveTablet: Element = queryAllByTestId("SkillsResponsiveTablet")[0];
   const SkillsResponsiveTv: Element = queryAllByTestId("SkillsResponsiveTv")[0];
-  const SkillsSectionContainer: Element = document.querySelectorAll("#skills")[0];
+  const SkillsSectionContainer: Element = queryAllByTestId("SkillsSection")[0];
   const VerticalIconsWithLabels: Element[] = queryAllByTestId("VerticalIconsWithLabels");
-  
   
   return {
     ...utils,

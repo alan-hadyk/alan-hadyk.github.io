@@ -184,7 +184,7 @@ function setup(): Setup {
 
   const { queryAllByTestId } = utils || {};
   
-  const ContactSectionContainer: Element = document.querySelectorAll("#contact")[0];
+  const ContactSectionContainer: Element = queryAllByTestId("ContactSection")[0];
   const FlexContainer: Element = queryAllByTestId("FlexContainer")[0];
   const Link: Element = queryAllByTestId("Link")[0];
   const Text: Element = queryAllByTestId("EmailText")[0];

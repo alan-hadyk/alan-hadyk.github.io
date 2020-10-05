@@ -195,7 +195,6 @@ type ProjectDescriptionContentTestProps = Partial<ProjectDescriptionContentProps
 function setup(additionalProps?: ProjectDescriptionContentTestProps): Setup {
   const props: ProjectDescriptionContentProps = {
     description: "Lorem ipsum dolor sit amet",
-    size: "small",
     title: "Project",
     ...additionalProps
   };

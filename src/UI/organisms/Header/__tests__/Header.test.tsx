@@ -99,7 +99,7 @@ describe("organisms / Header", () => {
           expect(PositionContainer).toHaveStyleRule("z-index", "100");
         });
 
-        test("should have value equal to zIndex prop", () => {
+        test("should have correct value passed via zIndex props", () => {
           const { PositionContainer } = setup({
             zIndex: "layer4"
           });
@@ -457,7 +457,6 @@ type HeaderTestProps = Partial<HeaderProps>;
 
 function setup(additionalProps?: HeaderTestProps): Setup {
   const props: HeaderProps = {
-    zIndex: "layer1",
     ...additionalProps
   };
 
@@ -480,7 +479,7 @@ function setup(additionalProps?: HeaderTestProps): Setup {
   const HeaderTv: Element = queryAllByTestId("HeaderTv")[0];
   const LinksWithIcons: Element[] = queryAllByTestId("LinkWithIcon");
   const MenuButtons: Element[] = queryAllByTestId("MenuButtonContainer");
-  const PositionContainer: Element = queryAllByTestId("PositionContainer")[0];
+  const PositionContainer: Element = queryAllByTestId("HeaderPositionContainer")[0];
   const ResponsiveDesktop: Element = queryAllByTestId("ResponsiveDesktop")[0];
   const ResponsiveMobile: Element = queryAllByTestId("ResponsiveMobile")[0];
   const ResponsiveTablet: Element = queryAllByTestId("ResponsiveTablet")[0];

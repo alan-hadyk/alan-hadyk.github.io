@@ -242,7 +242,7 @@ describe("molecules / VerticalIconsWithLabels", () => {
 
     describe("Props", () => {
       describe("label", () => {
-        describe("should have correct content passed via label props", () => {
+        test("should have correct content passed via label props", () => {
           const { Texts } = setup({
             iconsWithLabels
           });
@@ -253,6 +253,14 @@ describe("molecules / VerticalIconsWithLabels", () => {
       });
 
       describe("color", () => {
+        test("should have #bcd8db by dafault", () => {
+          const { Texts } = setup();
+
+          Texts.forEach((Text) => {
+            expect(Text).toHaveStyleRule("color", "#bcd8db");
+          });
+        });
+
         test("should have correct color passed via labelColor props", () => {
           const { Texts } = setup({
             labelColor: "blue200"
@@ -260,16 +268,6 @@ describe("molecules / VerticalIconsWithLabels", () => {
 
           Texts.forEach((Text) => {
             expect(Text).toHaveStyleRule("color", "#67d2df");
-          });
-        });
-
-        test("should have #fff", () => {
-          const { Texts } = setup({
-            labelColor: "white"
-          });
-
-          Texts.forEach((Text) => {
-            expect(Text).toHaveStyleRule("color", "#fff");
           });
         });
       });
@@ -339,7 +337,7 @@ describe("molecules / VerticalIconsWithLabels", () => {
       });
 
       describe("lineHeight", () => {
-        describe("should have 3.2rem", () => {
+        test("should have 3.2rem", () => {
           const { Texts } = setup({
             labelColor: "blue200"
           });
@@ -379,8 +377,6 @@ function setup(additionalProps?: VerticalIconsWithLabelsTestProps): Setup {
 
   const props: VerticalIconsWithLabelsProps = {
     iconsWithLabels,
-    labelColor: "blue200",
-    size: "medium",
     ...additionalProps
   };
   

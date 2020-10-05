@@ -275,7 +275,6 @@ type CornerTestProps = Partial<CornerProps>;
 
 function setup(additionalProps?: CornerTestProps): Setup {
   const props: CornerProps = {
-    isActive: false,
     position: "topLeft",
     ...additionalProps
   };

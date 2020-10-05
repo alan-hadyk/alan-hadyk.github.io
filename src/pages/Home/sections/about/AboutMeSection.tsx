@@ -8,6 +8,7 @@ function AboutMeSection(): JSX.Element {
   return (
     <Section
       dataCy="AboutMe"
+      dataTestId="AboutMeSection"
       id="about-me"
       title="About me"
     >

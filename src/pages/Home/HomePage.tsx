@@ -10,7 +10,6 @@ import ContactSection from "<pages>/Home/sections/contact/ContactSection";
 import Header from "<organisms>/Header";
 import PageTemplate from "<templates>/PageTemplate";
 
-// TODO: Add tests when the component will be ready
 const HomePage = (): JSX.Element => (
   <PageTemplate>
     <Header 

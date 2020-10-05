@@ -1,3 +1,3 @@
 export interface BackdropProps {
-  onClick?: () => void;
+  onClick: MouseEvent<HTMLDivElement, MouseEvent>;
 }

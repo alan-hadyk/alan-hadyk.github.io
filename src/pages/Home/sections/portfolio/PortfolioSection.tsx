@@ -25,6 +25,7 @@ const iconsWithLabels: IconWithLabelProps[] = [
 // TODO: Write tests when this section will be ready
 const PortfolioSection = (): JSX.Element => (
   <Section
+    dataTestId="PortfolioSection"
     dataCy="Portfolio"
     id="portfolio"
     marginBottom="spacing12"
