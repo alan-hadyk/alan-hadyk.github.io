@@ -12,7 +12,7 @@ import Responsive from "<layout>/Responsive";
 
 import spacing from "<styles>/variables/spacing";
 
-const DashboardSectionTablet= (): JSX.Element => (
+const DashboardSectionTablet = (): JSX.Element => (
   <Responsive
     dataTestTabletId="DashboardSectionTablet"
     devices={["tablet"]}
