@@ -19,6 +19,14 @@ describe("pages / Home / sections / dashboard / elements / Fps", () => {
 
   describe("DashboardElement", () => {
     describe("Props", () => {
+      describe("childrenHeight", () => {
+        test("should have calc(100% - 3.6rem)", () => {
+          const { DashboardElement } = setup();
+
+          expect(DashboardElement.children[1]).toHaveStyleRule("height", "calc(100% - 3.6rem)");
+        });
+      });
+      
       describe("flex", () => {
         test("should have 0 1 20%", () => {
           const { DashboardElement } = setup();
@@ -32,14 +40,6 @@ describe("pages / Home / sections / dashboard / elements / Fps", () => {
           const { DashboardElement } = setup();
 
           expect(DashboardElement).toHaveStyleRule("overflow", "visible");
-        });
-      });
-
-      describe("childrenHeight", () => {
-        test("should have calc(100% - 3.6rem)", () => {
-          const { DashboardElement } = setup();
-
-          expect(DashboardElement.children[1]).toHaveStyleRule("height", "calc(100% - 3.6rem)");
         });
       });
 

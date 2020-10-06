@@ -17,14 +17,6 @@ describe("pages / Home / sections / dashboard / elements / PoweredBy", () => {
 
   describe("DashboardElement", () => {
     describe("Props", () => {
-      describe("flex", () => {
-        test("should have 1 0 30%", () => {
-          const { DashboardElement } = setup();
-
-          expect(DashboardElement).toHaveStyleRule("flex", "1 0 30%");
-        });
-      });
-
       describe("childrenHeight", () => {
         test("should have calc(100% - 3.6rem)", () => {
           const { DashboardElement } = setup();
@@ -33,11 +25,11 @@ describe("pages / Home / sections / dashboard / elements / PoweredBy", () => {
         });
       });
 
-      describe("title", () => {
-        test("should render Powered by", () => {
+      describe("flex", () => {
+        test("should have 1 0 30%", () => {
           const { DashboardElement } = setup();
 
-          expect(DashboardElement.children[0].textContent).toEqual("Powered by");
+          expect(DashboardElement).toHaveStyleRule("flex", "1 0 30%");
         });
       });
 
@@ -49,6 +41,14 @@ describe("pages / Home / sections / dashboard / elements / PoweredBy", () => {
           expect(DashboardElement.children[1].children[0].children[1]).toEqual(Corners[1]);
           expect(DashboardElement.children[1].children[0].children[2]).toEqual(Corners[2]);
           expect(DashboardElement.children[1].children[0].children[3]).toEqual(Corners[3]);
+        });
+      });
+
+      describe("title", () => {
+        test("should render Powered by", () => {
+          const { DashboardElement } = setup();
+
+          expect(DashboardElement.children[0].textContent).toEqual("Powered by");
         });
       });
     });

@@ -50,12 +50,11 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
     expect(ResponsiveTablet.children[0]).toEqual(DashboardSectionOuterContainer);
 
     expect(DashboardSectionOuterContainer.children[0].children[0].children[0]).toEqual(DashboardSectionInnerContainers[0]);
-    expect(DashboardSectionOuterContainer.children[0].children[0].children[1]).toEqual(ConsoleTablet);
-    expect(DashboardSectionOuterContainer.children[0].children[0].children[2]).toEqual(DashboardSectionInnerContainers[1]);
-
-
     expect(DashboardSectionInnerContainers[0].children[0].children[0]).toEqual(TechStack);
 
+    expect(DashboardSectionOuterContainer.children[0].children[0].children[1]).toEqual(ConsoleTablet);
+
+    expect(DashboardSectionOuterContainer.children[0].children[0].children[2]).toEqual(DashboardSectionInnerContainers[1]);
     expect(DashboardSectionInnerContainers[1].children[0].children[0]).toEqual(Commit);
     expect(DashboardSectionInnerContainers[1].children[0].children[1]).toEqual(PoweredBy);
   });

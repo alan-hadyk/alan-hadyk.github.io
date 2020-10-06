@@ -39,11 +39,17 @@ describe("pages / Home / sections / skills / SkillsSection", () => {
 
   describe("SkillsSectionContainer", () => {
     describe("Props", () => {
+      describe("id", () => {	
+        test("should equal skills", () => {	
+          const { SkillsSectionContainer } = setup();	
+
+          expect(SkillsSectionContainer.getAttribute("id")).toEqual("skills");	
+        });	
+      });	
+      
       describe("title", () => {
         test("should have Skills", () => {
-          const {
-            SkillsSectionContainer
-          } = setup();
+          const { SkillsSectionContainer } = setup();
   
           expect(SkillsSectionContainer.children[0].children[0].textContent).toEqual("Skills");
         });
@@ -55,9 +61,7 @@ describe("pages / Home / sections / skills / SkillsSection", () => {
     describe("Props", () => {
       describe("marginBottom", () => {
         test("should have 3.2rem", () => {
-          const {
-            ItemSpacingContainers
-          } = setup();
+          const { ItemSpacingContainers } = setup();
   
           ItemSpacingContainers.forEach(ItemSpacingContainer => {
             expect(ItemSpacingContainer).toHaveStyleRule("margin-bottom", "3.2rem");

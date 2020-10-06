@@ -1,6 +1,6 @@
 import testingCategory from "<pages>/Home/sections/skills/categories/testingCategory";
 
-describe("pages / Home / sections / skills / categories/ testingCategory", () => {
+describe("pages / Home / sections / skills / categories / testingCategory", () => {
   test("should have correct content", () => {
     expect(testingCategory).toEqual({
       iconsWithLabels: [

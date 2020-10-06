@@ -25,11 +25,17 @@ describe("pages / Home / sections / experience / ExperienceSection", () => {
 
   describe("ExperienceSectionContainer", () => {
     describe("Props", () => {
+      describe("id", () => {	
+        test("should equal experience", () => {	
+          const { ExperienceSectionContainer } = setup();	
+
+          expect(ExperienceSectionContainer.getAttribute("id")).toEqual("experience");	
+        });	
+      });	
+
       describe("title", () => {
         test("should have Experience", () => {
-          const {
-            ExperienceSectionContainer
-          } = setup();
+          const { ExperienceSectionContainer } = setup();
   
           expect(ExperienceSectionContainer.children[0].children[0].textContent).toEqual("Experience");
         });

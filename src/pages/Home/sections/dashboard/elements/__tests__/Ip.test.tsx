@@ -21,14 +21,6 @@ describe("pages / Home / sections / dashboard / elements / Ip", () => {
 
   describe("DashboardElement", () => {
     describe("Props", () => {
-      describe("flex", () => {
-        test("should have 0 1 30%", () => {
-          const { DashboardElement } = setup();
-
-          expect(DashboardElement).toHaveStyleRule("flex", "0 1 30%");
-        });
-      });
-
       describe("childrenHeight", () => {
         test("should have calc(100% - 3.6rem)", () => {
           const { DashboardElement } = setup();
@@ -37,14 +29,14 @@ describe("pages / Home / sections / dashboard / elements / Ip", () => {
         });
       });
 
-      describe("title", () => {
-        test("should render IP: ${ip.address} ", () => {
+      describe("flex", () => {
+        test("should have 0 1 30%", () => {
           const { DashboardElement } = setup();
 
-          expect(DashboardElement.children[0].textContent).toEqual("IP: 127.0.0.1");
+          expect(DashboardElement).toHaveStyleRule("flex", "0 1 30%");
         });
       });
-
+      
       describe("shouldDisplayCorners", () => {
         test("should render corners", () => {
           const { Corners, DashboardElement } = setup();
@@ -53,6 +45,14 @@ describe("pages / Home / sections / dashboard / elements / Ip", () => {
           expect(DashboardElement.children[1].children[0].children[1]).toEqual(Corners[1]);
           expect(DashboardElement.children[1].children[0].children[2]).toEqual(Corners[2]);
           expect(DashboardElement.children[1].children[0].children[3]).toEqual(Corners[3]);
+        });
+      });
+
+      describe("title", () => {
+        test("should render IP: ${ip.address} ", () => {
+          const { DashboardElement } = setup();
+
+          expect(DashboardElement.children[0].textContent).toEqual("IP: 127.0.0.1");
         });
       });
     });

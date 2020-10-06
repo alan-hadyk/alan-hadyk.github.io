@@ -1,6 +1,6 @@
 import frameworksCategory from "<pages>/Home/sections/skills/categories/frameworksCategory";
 
-describe("pages / Home / sections / skills / categories/ frameworksCategory", () => {
+describe("pages / Home / sections / skills / categories / frameworksCategory", () => {
   test("should have correct content", () => {
     expect(frameworksCategory).toEqual({
       iconsWithLabels: [

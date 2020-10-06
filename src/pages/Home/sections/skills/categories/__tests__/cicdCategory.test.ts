@@ -1,6 +1,6 @@
 import cicdCategory from "<pages>/Home/sections/skills/categories/cicdCategory";
 
-describe("pages / Home / sections / skills / categories/ cicdCategory", () => {
+describe("pages / Home / sections / skills / categoriesm/ cicdCategory", () => {
   test("should have correct content", () => {
     expect(cicdCategory).toEqual({
       iconsWithLabels: [

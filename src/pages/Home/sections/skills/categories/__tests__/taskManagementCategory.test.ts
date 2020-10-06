@@ -1,6 +1,6 @@
 import taskManagementCategory from "<pages>/Home/sections/skills/categories/taskManagementCategory";
 
-describe("pages / Home / sections / skills / categories/ taskManagementCategory", () => {
+describe("pages / Home / sections / skills / categories / taskManagementCategory", () => {
   test("should have correct content", () => {
     expect(taskManagementCategory).toEqual({
       iconsWithLabels: [

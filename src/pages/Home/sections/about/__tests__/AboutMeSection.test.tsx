@@ -23,6 +23,14 @@ describe("pages / Home / sections / about / AboutMeSection", () => {
 
   describe("AboutMeSectionContainer", () => {
     describe("Props", () => {
+      describe("id", () => {	
+        test("should equal about-me", () => {	
+          const { AboutMeSectionContainer } = setup();	
+
+          expect(AboutMeSectionContainer.getAttribute("id")).toEqual("about-me");	
+        });	
+      });	
+
       describe("title", () => {
         test("should have About me", () => {
           const { AboutMeSectionContainer } = setup();

@@ -17,19 +17,19 @@ describe("pages / Home / sections / dashboard / elements / Coords", () => {
 
   describe("DashboardElement", () => {
     describe("Props", () => {
-      describe("flex", () => {
-        test("should have 0 1 15%", () => {
-          const { DashboardElement } = setup();
-      
-          expect(DashboardElement).toHaveStyleRule("flex", "0 1 15%");
-        });
-      });
-
       describe("childrenHeight", () => {
         test("should have calc(100% - 3.6rem)", () => {
           const { DashboardElement } = setup();
       
           expect(DashboardElement.children[1]).toHaveStyleRule("height", "calc(100% - 3.6rem)");
+        });
+      });
+      
+      describe("flex", () => {
+        test("should have 0 1 15%", () => {
+          const { DashboardElement } = setup();
+      
+          expect(DashboardElement).toHaveStyleRule("flex", "0 1 15%");
         });
       });
 

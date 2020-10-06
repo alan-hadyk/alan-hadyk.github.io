@@ -21,6 +21,14 @@ describe("pages / Home / sections / contact / ContactSection", () => {
 
   describe("ContactSectionContainer", () => {
     describe("Props", () => {
+      describe("id", () => {	
+        test("should equal contact", () => {	
+          const { ContactSectionContainer } = setup();	
+
+          expect(ContactSectionContainer.getAttribute("id")).toEqual("contact");	
+        });	
+      });	
+
       describe("title", () => {
         test("should have Contact", () => {
           const { ContactSectionContainer } = setup();
