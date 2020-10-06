@@ -198,7 +198,7 @@ describe("atoms / MenuButton", () => {
         });
       });
 
-      describe("if isOpen: false", () => {
+      describe("if isOpen: true", () => {
         let _MenuButtonLines: Element[];
   
         beforeEach(() => {

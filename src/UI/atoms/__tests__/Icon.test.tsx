@@ -937,12 +937,36 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Company-Shiji.svg");
       });
 
+      test("should render corect icon for earth", () => {
+        const { IconComponent } = setup({
+          iconName: "earth"
+        });
+
+        expect(IconComponent.textContent).toEqual("Icon-Earth.svg");
+      });
+
       test("should render corect icon for firefox", () => {
         const { IconComponent } = setup({
           iconName: "firefox"
         });
 
         expect(IconComponent.textContent).toEqual("Icon-Firefox.svg");
+      });
+      
+      test("should render corect icon for gitHub", () => {
+        const { IconComponent } = setup({
+          iconName: "gitHub"
+        });
+
+        expect(IconComponent.textContent).toEqual("Icon-GitHub.svg");
+      });
+
+      test("should render correct icon for graphql", () => {
+        const { IconComponent } = setup({
+          iconName: "graphql"
+        });
+
+        expect(IconComponent.textContent).toEqual("Icon-Graphql.svg");
       });
 
       test("should render corect icon for hexagon", () => {
@@ -959,30 +983,6 @@ describe("atoms / Icon", () => {
         });
 
         expect(IconComponent.textContent).toEqual("Hexagon-With-Pattern.svg");
-      });
-
-      test("should render corect icon for earth", () => {
-        const { IconComponent } = setup({
-          iconName: "earth"
-        });
-
-        expect(IconComponent.textContent).toEqual("Icon-Earth.svg");
-      });
-
-      test("should render corect icon for gitHub", () => {
-        const { IconComponent } = setup({
-          iconName: "gitHub"
-        });
-
-        expect(IconComponent.textContent).toEqual("Icon-GitHub.svg");
-      });
-
-      test("should render correct icon for graphql", () => {
-        const { IconComponent } = setup({
-          iconName: "graphql"
-        });
-
-        expect(IconComponent.textContent).toEqual("Icon-Graphql.svg");
       });
 
       test("should render corect icon for ie", () => {

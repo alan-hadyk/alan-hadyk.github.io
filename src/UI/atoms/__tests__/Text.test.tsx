@@ -45,7 +45,7 @@ describe("atoms / Text", () => {
         expect(TextContainer).toHaveStyleRule("color", "#78b0b5");
       });
 
-      test("should have correct color when passed via color prop", () => {
+      test("should have correct color passed via color prop", () => {
         const { TextContainer } = setup({
           color: "blue500"
         });
@@ -65,7 +65,7 @@ describe("atoms / Text", () => {
 
 
       describe("strong", () => {
-        test("should have #bcd8db when color prop is blue300", () => {
+        test("should have #bcd8db color prop is blue300", () => {
           const { TextContainer } = setup({
             color: "blue300"
           });
@@ -73,14 +73,6 @@ describe("atoms / Text", () => {
           expect(TextContainer).toHaveStyleRule("color", "#bcd8db", {
             modifier: "strong"
           });
-        });
-      });
-
-      describe("transition", () => {
-        test("should have all 150ms ease-in-out", () => {
-          const { TextContainer } = setup();
-    
-          expect(TextContainer).toHaveStyleRule("transition", "all 150ms ease-in-out");
         });
       });
     });
@@ -148,7 +140,7 @@ describe("atoms / Text", () => {
         expect(TextContainer).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
       });
     
-      test("should have correct value when passed via fontFamily value in prop", () => {
+      test("should have correct value passed via fontFamily prop", () => {
         const { TextContainer } = setup({
           fontFamily: "Exan"
         });
@@ -164,7 +156,7 @@ describe("atoms / Text", () => {
         expect(TextContainer).toHaveStyleRule("font-size", "20px");
       });
     
-      test("should have correct value when passed via fontSize value in prop", () => {
+      test("should have correct value passed via fontSize prop", () => {
         const { TextContainer } = setup({
           fontSize: "font72"
         });
@@ -180,7 +172,7 @@ describe("atoms / Text", () => {
         expect(TextContainer).toHaveStyleRule("font-weight", "400");
       });
     
-      test("should have correct value when passed via fontWeight value in prop", () => {
+      test("should have correct value passed via fontWeight prop", () => {
         const { TextContainer } = setup({
           fontWeight: "bold"
         });
@@ -196,7 +188,7 @@ describe("atoms / Text", () => {
         expect(TextContainer).toHaveStyleRule("line-height", "1");
       });
     
-      test("should have correct value when passed via lineHeight prop - spacing", () => {
+      test("should have correct value passed via lineHeight prop - spacing", () => {
         const { TextContainer } = setup({
           lineHeight: "spacing24"
         });
@@ -206,7 +198,7 @@ describe("atoms / Text", () => {
     });
 
     describe("max-height", () => {        
-      test("should have correct value when passed via maxHeight prop", () => {
+      test("should have correct value passed via maxHeight prop", () => {
         const { TextContainer } = setup({
           maxHeight: "spacing24"
         });
@@ -222,7 +214,7 @@ describe("atoms / Text", () => {
         expect(TextContainer).toHaveStyleRule("overflow", "visible");
       });
 
-      test("should have correct value when passed via overflow prop", () => {
+      test("should have correct value passed via overflow prop", () => {
         const { TextContainer } = setup({
           overflow: "hidden"
         });
@@ -238,7 +230,7 @@ describe("atoms / Text", () => {
         expect(TextContainer).toHaveStyleRule("padding-bottom", "0");
       });
     
-      test("should have correct value when passed via paddingBottom prop - spacing", () => {
+      test("should have correct value passed via paddingBottom prop - spacing", () => {
         const { TextContainer } = setup({
           paddingBottom: "spacing24"
         });
@@ -254,7 +246,7 @@ describe("atoms / Text", () => {
         expect(TextContainer).toHaveStyleRule("padding-left", "0");
       });
     
-      test("should have correct value when passed via paddingLeft prop - spacing", () => {
+      test("should have correct value passed via paddingLeft prop - spacing", () => {
         const { TextContainer } = setup({
           paddingLeft: "spacing24"
         });
@@ -270,7 +262,7 @@ describe("atoms / Text", () => {
         expect(TextContainer).toHaveStyleRule("padding-right", "0");
       });
     
-      test("should have correct value when passed via paddingRight prop - spacing", () => {
+      test("should have correct value passed via paddingRight prop - spacing", () => {
         const { TextContainer } = setup({
           paddingRight: "spacing24"
         });
@@ -286,7 +278,7 @@ describe("atoms / Text", () => {
         expect(TextContainer).toHaveStyleRule("padding-top", "0");
       });
     
-      test("should have correct value when passed via paddingTop prop - spacing", () => {
+      test("should have correct value passed via paddingTop prop - spacing", () => {
         const { TextContainer } = setup({
           paddingTop: "spacing24"
         });
@@ -302,7 +294,7 @@ describe("atoms / Text", () => {
         expect(TextContainer).toHaveStyleRule("text-align", "left");
       });
     
-      test("should have center when passed via textAlign prop", () => {
+      test("should have center passed via textAlign prop", () => {
         const { TextContainer } = setup({
           textAlign: "center"
         });
@@ -310,7 +302,7 @@ describe("atoms / Text", () => {
         expect(TextContainer).toHaveStyleRule("text-align", "center");
       });
     
-      test("should have right when passed via textAlign prop", () => {
+      test("should have right passed via textAlign prop", () => {
         const { TextContainer } = setup({
           textAlign: "right"
         });
@@ -326,7 +318,7 @@ describe("atoms / Text", () => {
         expect(TextContainer).toHaveStyleRule("text-transform", "none");
       });
     
-      test("should have lowercase when passed via textTransform prop", () => {
+      test("should have lowercase passed via textTransform prop", () => {
         const { TextContainer } = setup({
           textTransform: "lowercase"
         });
@@ -334,7 +326,7 @@ describe("atoms / Text", () => {
         expect(TextContainer).toHaveStyleRule("text-transform", "lowercase");
       });
     
-      test("should have uppercase when passed via textTransform prop", () => {
+      test("should have uppercase passed via textTransform prop", () => {
         const { TextContainer } = setup({
           textTransform: "uppercase"
         });
@@ -342,12 +334,20 @@ describe("atoms / Text", () => {
         expect(TextContainer).toHaveStyleRule("text-transform", "uppercase");
       });
     
-      test("should have capitalize when passed via textTransform prop", () => {
+      test("should have capitalize passed via textTransform prop", () => {
         const { TextContainer } = setup({
           textTransform: "capitalize"
         });
       
         expect(TextContainer).toHaveStyleRule("text-transform", "capitalize");
+      });
+    });
+
+    describe("transition", () => {
+      test("should have all 150ms ease-in-out", () => {
+        const { TextContainer } = setup();
+  
+        expect(TextContainer).toHaveStyleRule("transition", "all 150ms ease-in-out");
       });
     });
   });
