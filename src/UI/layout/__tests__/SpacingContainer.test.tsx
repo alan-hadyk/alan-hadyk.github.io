@@ -26,7 +26,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("height", "auto");
       });
   
-      test("should have correct value when passed via spacing value in prop", () => {
+      test("should have correct value passed via height prop", () => {
         const { SpacingContainer } = setup({
           height: "spacing48"
         });
@@ -34,7 +34,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("height", "4.8rem");
       });
   
-      test("should have 100% when passed via prop", () => {
+      test("should have 100% passed via height prop", () => {
         const { SpacingContainer } = setup({
           height: "100%"
         });
@@ -42,7 +42,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("height", "100%");
       });
   
-      test("should have 50% when passed via prop", () => {
+      test("should have 50% passed via height prop", () => {
         const { SpacingContainer } = setup({
           height: "50%"
         });
@@ -58,7 +58,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("margin-bottom", "0");
       });
   
-      test("should have correct value when passed via spacing value in prop", () => {
+      test("should have correct value passed via marginBottom prop", () => {
         const { SpacingContainer } = setup({
           marginBottom: "spacing48"
         });
@@ -66,7 +66,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("margin-bottom", "4.8rem");
       });
   
-      test("should have correct value when passed via custom value in prop", () => {
+      test("should have 4vh passed via marginBottom prop", () => {
         const { SpacingContainer } = setup({
           marginBottom: "4vh"
         });
@@ -82,7 +82,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("margin-left", "0");
       });
   
-      test("should have correct value when passed via spacing value in prop", () => {
+      test("should have correct value passed via marginLeft prop", () => {
         const { SpacingContainer } = setup({
           marginLeft: "spacing48"
         });
@@ -90,7 +90,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("margin-left", "4.8rem");
       });
         
-      test("should have correct value when passed via custom value in prop", () => {
+      test("should have 4vw passed via marginLeft prop", () => {
         const { SpacingContainer } = setup({
           marginLeft: "4vw"
         });
@@ -106,7 +106,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("margin-right", "0");
       });
   
-      test("should have correct value when passed via spacing value in prop", () => {
+      test("should have correct value passed via marginRight prop", () => {
         const { SpacingContainer } = setup({
           marginRight: "spacing48"
         });
@@ -114,7 +114,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("margin-right", "4.8rem");
       });
               
-      test("should have correct value when passed via custom value in prop", () => {
+      test("should have 4vw passed via marginRight prop", () => {
         const { SpacingContainer } = setup({
           marginRight: "4vw"
         });
@@ -130,7 +130,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("margin-top", "0");
       });
   
-      test("should have correct value when passed via spacing value in prop", () => {
+      test("should have correct value passed via marginTop prop", () => {
         const { SpacingContainer } = setup({
           marginTop: "spacing48"
         });
@@ -138,7 +138,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("margin-top", "4.8rem");
       });
         
-      test("should have correct value when passed via custom value in prop", () => {
+      test("should have 4vh passed via marginTop prop", () => {
         const { SpacingContainer } = setup({
           marginTop: "4vh"
         });
@@ -148,7 +148,7 @@ describe("layout / SpacingContainer", () => {
     });
 
     describe("max-width", () => {      
-      test("should have correct value when passed via spacing value in prop", () => {
+      test("should have correct value passed via maxWidth prop", () => {
         const { SpacingContainer } = setup({
           maxWidth: "spacing1056"
         });
@@ -156,7 +156,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("max-width", "105.6rem");
       });
 
-      test("should have correct value when passed via custom value in prop", () => {
+      test("should have 100px passed via maxWidth prop", () => {
         const { SpacingContainer } = setup({
           maxWidth: "100px"
         });
@@ -172,7 +172,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("min-height", "0");
       });
   
-      test("should have correct value when passed via spacing value in prop", () => {
+      test("should have correct value passed via minHeight prop", () => {
         const { SpacingContainer } = setup({
           minHeight: "spacing48"
         });
@@ -180,7 +180,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("min-height", "4.8rem");
       });
   
-      test("should have 100vh when passed via prop", () => {
+      test("should have 100vh passed via minHeight prop", () => {
         const { SpacingContainer } = setup({
           minHeight: "100vh"
         });
@@ -196,7 +196,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("overflow-y", "initial");
       });
   
-      test("should have correct value when passed via overflow prop", () => {
+      test("should have correct value passed via overflow prop", () => {
         const { SpacingContainer } = setup({
           overflowY: "hidden"
         });
@@ -212,7 +212,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("padding-bottom", "0");
       });
   
-      test("should have correct value when passed via spacing value in prop", () => {
+      test("should have correct value passed via paddingBottom prop", () => {
         const { SpacingContainer } = setup({
           paddingBottom: "spacing48"
         });
@@ -220,7 +220,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("padding-bottom", "4.8rem");
       });
               
-      test("should have correct value when passed via custom value in prop", () => {
+      test("should have 8vh passed via paddingBottom prop", () => {
         const { SpacingContainer } = setup({
           paddingBottom: "8vh"
         });
@@ -236,7 +236,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("padding-left", "0");
       });
   
-      test("should have correct value when passed via spacing value in prop", () => {
+      test("should have correct value passed via paddingLeft prop", () => {
         const { SpacingContainer } = setup({
           paddingLeft: "spacing48"
         });
@@ -244,7 +244,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("padding-left", "4.8rem");
       });
                     
-      test("should have correct value when passed via custom value in prop", () => {
+      test("should have 8vw passed via paddingLeft prop", () => {
         const { SpacingContainer } = setup({
           paddingLeft: "8vw"
         });
@@ -260,7 +260,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("padding-right", "0");
       });
   
-      test("should have correct value when passed via spacing value in prop", () => {
+      test("should have correct value passed via paddingRight prop", () => {
         const { SpacingContainer } = setup({
           paddingRight: "spacing48"
         });
@@ -268,7 +268,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("padding-right", "4.8rem");
       });
                           
-      test("should have correct value when passed via custom value in prop", () => {
+      test("should have 8vw passed via paddingRight prop", () => {
         const { SpacingContainer } = setup({
           paddingRight: "8vw"
         });
@@ -284,7 +284,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("padding-top", "0");
       });
   
-      test("should have correct value when passed via spacing value in prop", () => {
+      test("should have correct value passed via paddingTop prop", () => {
         const { SpacingContainer } = setup({
           paddingTop: "spacing48"
         });
@@ -292,7 +292,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("padding-top", "4.8rem");
       });
                     
-      test("should have correct value when passed via custom value in prop", () => {
+      test("should have 8vh passed via paddingTop prop", () => {
         const { SpacingContainer } = setup({
           paddingTop: "8vh"
         });
@@ -308,7 +308,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("width", "auto");
       });
   
-      test("should have correct value when passed via spacing value in prop", () => {
+      test("should have correct value passed via width prop", () => {
         const { SpacingContainer } = setup({
           width: "spacing48"
         });
@@ -316,7 +316,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("width", "4.8rem");
       });
 
-      test("should have 50% when passed via prop", () => {
+      test("should have 50% passed via width prop", () => {
         const { SpacingContainer } = setup({
           width: "50%"
         });
@@ -324,7 +324,7 @@ describe("layout / SpacingContainer", () => {
         expect(SpacingContainer).toHaveStyleRule("width", "50%");
       });
   
-      test("should have 100% when passed via prop", () => {
+      test("should have 100% passed via width prop", () => {
         const { SpacingContainer } = setup({
           width: "100%"
         });
@@ -335,13 +335,12 @@ describe("layout / SpacingContainer", () => {
   });
 
   describe("Props", () => {
-    test("should have id when passed via id prop", () => {
+    test("should have id passed via id prop", () => {
       const { SpacingContainer } = setup({
         id: "customId"
       });
   
       expect(SpacingContainer.getAttribute("id")).toEqual("customId");
-  
     });
   });
 });

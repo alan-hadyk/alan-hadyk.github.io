@@ -26,7 +26,7 @@ describe("layout / FlexItem", () => {
         expect(FlexItem).toHaveStyleRule("align-self", "auto");
       });
   
-      test("should have stretch when passed via prop", () => {
+      test("should have stretch passed via alignSelf prop", () => {
         const { FlexItem } = setup({
           alignSelf: "stretch"
         });
@@ -34,7 +34,7 @@ describe("layout / FlexItem", () => {
         expect(FlexItem).toHaveStyleRule("align-self", "stretch");
       });
   
-      test("should have flex-start when passed via prop", () => {
+      test("should have flex-start passed via alignSelf prop", () => {
         const { FlexItem } = setup({
           alignSelf: "flex-start"
         });
@@ -42,7 +42,7 @@ describe("layout / FlexItem", () => {
         expect(FlexItem).toHaveStyleRule("align-self", "flex-start");
       });
   
-      test("should have flex-end when passed via prop", () => {
+      test("should have flex-end passed via alignSelf prop", () => {
         const { FlexItem } = setup({
           alignSelf: "flex-end"
         });
@@ -50,7 +50,7 @@ describe("layout / FlexItem", () => {
         expect(FlexItem).toHaveStyleRule("align-self", "flex-end");
       });
   
-      test("should have baseline when passed via prop", () => {
+      test("should have baseline passed via alignSelf prop", () => {
         const { FlexItem } = setup({
           alignSelf: "baseline"
         });
@@ -58,7 +58,7 @@ describe("layout / FlexItem", () => {
         expect(FlexItem).toHaveStyleRule("align-self", "baseline");
       });
   
-      test("should have center when passed via prop", () => {
+      test("should have center passed via alignSelf prop", () => {
         const { FlexItem } = setup({
           alignSelf: "center"
         });
@@ -68,7 +68,7 @@ describe("layout / FlexItem", () => {
     });
  
     describe("flex", () => {      
-      test("should have 1 0 15% when passed via prop", () => {
+      test("should have 1 0 15% passed via flex prop", () => {
         const { FlexItem } = setup({
           flex: "1 0 15%"
         });
@@ -76,7 +76,7 @@ describe("layout / FlexItem", () => {
         expect(FlexItem).toHaveStyleRule("flex", "1 0 15%");
       });
   
-      test("should have 0 1 50% when passed via prop", () => {
+      test("should have 0 1 50% passed via flex prop", () => {
         const { FlexItem } = setup({
           flex: "0 1 50%"
         });
@@ -92,7 +92,7 @@ describe("layout / FlexItem", () => {
         expect(FlexItem).toHaveStyleRule("height", "unset");
       });
   
-      test("should have correct value when passed via prop", () => {
+      test("should have correct value passed via height prop", () => {
         const { FlexItem } = setup({
           height: "spacing24"
         });
@@ -108,7 +108,7 @@ describe("layout / FlexItem", () => {
         expect(FlexItem).toHaveStyleRule("order", "0");
       });
   
-      test("should have 4 when passed via prop", () => {
+      test("should have 4 passed via order prop", () => {
         const { FlexItem } = setup({
           order: 4
         });
@@ -124,7 +124,7 @@ describe("layout / FlexItem", () => {
         expect(FlexItem).toHaveStyleRule("overflow", "auto");
       });
   
-      test("should have correct value when passed via prop", () => {
+      test("should have correct value passed via overflow prop", () => {
         const { FlexItem } = setup({
           overflow: "hidden"
         });
@@ -140,7 +140,7 @@ describe("layout / FlexItem", () => {
         expect(FlexItem).toHaveStyleRule("padding-bottom", "0");
       });
   
-      test("should have correct value when passed via prop", () => {
+      test("should have correct value passed via paddingBottom prop", () => {
         const { FlexItem } = setup({
           paddingBottom: "spacing24"
         });
@@ -156,7 +156,7 @@ describe("layout / FlexItem", () => {
         expect(FlexItem).toHaveStyleRule("padding-top", "0");
       });
   
-      test("should have correct value when passed via prop", () => {
+      test("should have correct value passed via paddingTop prop", () => {
         const { FlexItem } = setup({
           paddingTop: "spacing24"
         });

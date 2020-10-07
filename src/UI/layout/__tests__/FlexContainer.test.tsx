@@ -26,7 +26,7 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("align-items", "center");
       });
   
-      test("should have stretch when passed via prop", () => {
+      test("should have stretch passed via alignItems prop", () => {
         const { FlexContainer } = setup({
           alignItems: "stretch"
         });
@@ -34,7 +34,7 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("align-items", "stretch");
       });
   
-      test("should have flex-start when passed via prop", () => {
+      test("should have flex-start passed via alignItems prop", () => {
         const { FlexContainer } = setup({
           alignItems: "flex-start"
         });
@@ -42,7 +42,7 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("align-items", "flex-start");
       });
   
-      test("should have flex-end when passed via prop", () => {
+      test("should have flex-end passed via alignItems prop", () => {
         const { FlexContainer } = setup({
           alignItems: "flex-end"
         });
@@ -50,7 +50,7 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("align-items", "flex-end");
       });
   
-      test("should have baseline when passed via prop", () => {
+      test("should have baseline passed via alignItems prop", () => {
         const { FlexContainer } = setup({
           alignItems: "baseline"
         });
@@ -74,7 +74,7 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("flex-flow", "row wrap");
       });
   
-      test("should have row nowrap when passed via prop", () => {
+      test("should have row nowrap passed via flexFlow prop", () => {
         const { FlexContainer } = setup({
           flexFlow: "row nowrap"
         });
@@ -82,7 +82,7 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("flex-flow", "row nowrap");
       });
   
-      test("should have column wrap when passed via prop", () => {
+      test("should have column wrap passed via flexFlow prop", () => {
         const { FlexContainer } = setup({
           flexFlow: "column wrap"
         });
@@ -90,7 +90,7 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("flex-flow", "column wrap");
       });
   
-      test("should have column nowrap when passed via prop", () => {
+      test("should have column nowrap passed via flexFlow prop", () => {
         const { FlexContainer } = setup({
           flexFlow: "column nowrap"
         });
@@ -106,7 +106,7 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("height", "unset");
       });
   
-      test("should have correct value when passed via spacing value in prop", () => {
+      test("should have correct value passed via height prop", () => {
         const { FlexContainer } = setup({
           height: "spacing48"
         });
@@ -114,7 +114,7 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("height", "4.8rem");
       });
   
-      test("should have 50% when passed via prop", () => {
+      test("should have 50% passed via height prop", () => {
         const { FlexContainer } = setup({
           height: "50%"
         });
@@ -122,7 +122,7 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("height", "50%");
       });
   
-      test("should have 100% when passed via prop", () => {
+      test("should have 100% passed via height prop", () => {
         const { FlexContainer } = setup({
           height: "100%"
         });
@@ -138,7 +138,7 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("justify-content", "center");
       });
   
-      test("should have flex-start when passed via prop", () => {
+      test("should have flex-start passed via justifyContent prop", () => {
         const { FlexContainer } = setup({
           justifyContent: "flex-start"
         });
@@ -146,7 +146,7 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("justify-content", "flex-start");
       });
   
-      test("should have flex-end when passed via prop", () => {
+      test("should have flex-end passed via justifyContent prop", () => {
         const { FlexContainer } = setup({
           justifyContent: "flex-end"
         });
@@ -154,7 +154,7 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("justify-content", "flex-end");
       });
   
-      test("should have space-between when passed via prop", () => {
+      test("should have space-between passed via justifyContent prop", () => {
         const { FlexContainer } = setup({
           justifyContent: "space-between"
         });
@@ -170,7 +170,7 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("max-width", "unset");
       });
   
-      test("should have 2.4rem when passed via maxWidth prop", () => {
+      test("should have 2.4rem passed via maxWidth prop", () => {
         const { FlexContainer } = setup({
           maxWidth: "spacing24"
         });
@@ -178,7 +178,7 @@ describe("layout / FlexContainer", () => {
         expect(FlexContainer).toHaveStyleRule("max-width", "2.4rem");
       });
   
-      test("should have 4.8rem when passed via maxWidth prop", () => {
+      test("should have 4.8rem passed via maxWidth prop", () => {
         const { FlexContainer } = setup({
           maxWidth: "spacing48"
         });
@@ -190,7 +190,7 @@ describe("layout / FlexContainer", () => {
 
   describe("Props", () => {
     describe("gap", () => {
-      test("should apply margin-bottom and margin-right equal to gap to all children when flexFlow: row wrap", () => {
+      test("should apply margin-bottom and margin-right equal to gap to all children flexFlow: row wrap", () => {
         const { FlexContainer } = setup({
           flexFlow: "row wrap",
           gap: "spacing32"
@@ -204,7 +204,7 @@ describe("layout / FlexContainer", () => {
         });
       });
 
-      test("should apply margin-bottom and margin-right equal to custom gap passed via props to all children when flexFlow: row wrap", () => {
+      test("should apply margin-bottom and margin-right passed via gap prop to all children flexFlow: row wrap", () => {
         const { FlexContainer } = setup({
           flexFlow: "row wrap",
           gap: "40rem"
@@ -218,7 +218,7 @@ describe("layout / FlexContainer", () => {
         });
       });
 
-      test("should apply margin-left equal to gap to all children except the first one when flexFlow: row nowrap", () => {
+      test("should apply margin-left passed via gap prop to all children except the first one flexFlow: row nowrap", () => {
         const { FlexContainer } = setup({
           flexFlow: "row nowrap",
           gap: "spacing32"
@@ -232,7 +232,7 @@ describe("layout / FlexContainer", () => {
         });
       });
 
-      test("should apply margin-left equal to custom gap passed via props to all children except the first one when flexFlow: row nowrap", () => {
+      test("should apply margin-left passed via gap prop to all children except the first one flexFlow: row nowrap", () => {
         const { FlexContainer } = setup({
           flexFlow: "row nowrap",
           gap: "40rem"
@@ -246,7 +246,7 @@ describe("layout / FlexContainer", () => {
         });
       });
 
-      test("should apply margin-top equal to gap to all children except the first one when flexFlow includes column", () => {
+      test("should apply margin-top passed via gap prop to all children except the first one flexFlow includes column", () => {
         const { FlexContainer } = setup({
           flexFlow: "column nowrap",
           gap: "spacing40"
@@ -260,7 +260,7 @@ describe("layout / FlexContainer", () => {
         });
       });
 
-      test("should apply margin-top equal to custom gap passed via props to all children except the first one when flexFlow includes column", () => {
+      test("should apply margin-top passed via gap prop to all children except the first one flexFlow includes column", () => {
         const { FlexContainer } = setup({
           flexFlow: "column wrap",
           gap: "50rem"
