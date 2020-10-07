@@ -89,7 +89,7 @@ describe("organisms / ProjectTablet", () => {
     describe("Icon", () => {         
       describe("Props", () => {
         describe("projectIcon", () => {
-          test("should have correct icon passed via iconName props", () => {
+          test("should have correct icon passed via iconName prop", () => {
             const { HexagonInnerContainer } = setup({
               projectIcon: "react"
             });
@@ -104,7 +104,7 @@ describe("organisms / ProjectTablet", () => {
   describe("ProjectDescription", () => {   
     describe("Props", () => {
       describe("title", () => {
-        test("should have correct value passed via title props", () => {
+        test("should have correct value passed via title prop", () => {
           const { ProjectDescription } = setup({
             title: "Roland"
           });
@@ -114,7 +114,7 @@ describe("organisms / ProjectTablet", () => {
       });
 
       describe("description", () => {
-        test("should have correct value passed via description props", () => {
+        test("should have correct value passed via description prop", () => {
           const { ProjectDescription } = setup({
             description: "Lorem ipsum dolor sit amet."
           });
@@ -152,7 +152,7 @@ describe("organisms / ProjectTablet", () => {
           expect(IconsWithLabels.children[1].children[0].children[0].children[0].textContent).toEqual("Brand-React.svg");
         });
     
-        test("should have correct content passed via label props", () => {
+        test("should have correct content passed via label prop", () => {
           const { IconsWithLabels } = setup({
             iconsWithLabels
           });

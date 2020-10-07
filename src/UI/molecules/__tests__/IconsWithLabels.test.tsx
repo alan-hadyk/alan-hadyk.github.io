@@ -262,7 +262,7 @@ describe("molecules / IconsWithLabels", () => {
     describe("Text", () => {
       describe("Props", () => {
         describe("label", () => {
-          test("should have correct content passed via label props", () => {
+          test("should have correct content passed via label prop", () => {
             const { Texts } = setup();
   
             expect(Texts[0].textContent).toEqual("Javascript");
@@ -279,7 +279,7 @@ describe("molecules / IconsWithLabels", () => {
             });
           });
 
-          test("should have correct color passed via labelColor props", () => {
+          test("should have correct color passed via labelColor prop", () => {
             const { Texts } = setup({
               labelColor: "blue200"
             });

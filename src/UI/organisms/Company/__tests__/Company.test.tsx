@@ -53,7 +53,7 @@ describe("organisms / Company", () => {
       });
 
       describe("iconsWithLabels", () => {
-        test("should render correct icon and label passed via iconsWithLabels props", () => {
+        test("should render correct icon and label passed via iconsWithLabels prop", () => {
           const { CompanyDescriptions } = setup({
             iconsWithLabels: [
               {
@@ -104,7 +104,7 @@ describe("organisms / Company", () => {
       });
 
       describe("responsibilities", () => {
-        test("should render correct value passed via responsibilities props", () => {
+        test("should render correct value passed via responsibilities prop", () => {
           const responsibilities: CompanyProps["responsibilities"] = [
             "Create scalable and sane front-end architecture", 
             "Orchestrate and direct collaborative team operational objectives for front-end layer of an application designed to manage payment systems"    
@@ -128,7 +128,7 @@ describe("organisms / Company", () => {
       });
 
       describe("title", () => {
-        test("should render correct value passed via title props", () => {
+        test("should render correct value passed via title prop", () => {
           const title: CompanyProps["title"] = "Front-end developer";
 
           const { CompanyDescriptions } = setup({

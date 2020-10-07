@@ -177,7 +177,7 @@ describe("molecules / Button", () => {
           expect(ButtonContainer).toHaveStyleRule("width", "auto");
         });
 
-        test("should have correct value passed via width props", () => {
+        test("should have correct value passed via width prop", () => {
           const { ButtonContainer } = setup({
             width: "100%"
           });

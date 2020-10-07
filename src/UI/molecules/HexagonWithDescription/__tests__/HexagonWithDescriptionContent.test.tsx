@@ -41,7 +41,7 @@ describe("molecules / HexagonWithDescription", () => {
           expect(FlexContainer).toHaveStyleRule("flex-flow", "row nowrap");
         });
 
-        test("should have correct value passed via flexFlow props", () => {
+        test("should have correct value passed via flexFlow prop", () => {
           const { FlexContainer } = setup({
             flexFlow: "column nowrap"
           });
@@ -61,7 +61,7 @@ describe("molecules / HexagonWithDescription", () => {
           expect(DescriptionSpacingContainer).toHaveStyleRule("margin-right", "0");
         });
 
-        test("should have correct value passed via marginRight props", () => {
+        test("should have correct value passed via marginRight prop", () => {
           const { DescriptionSpacingContainer } = setup({
             marginRight: "spacing40"
           });
@@ -77,7 +77,7 @@ describe("molecules / HexagonWithDescription", () => {
           expect(DescriptionSpacingContainer).toHaveStyleRule("margin-bottom", "0");
         });
 
-        test("should have correct value passed via marginRight props", () => {
+        test("should have correct value passed via marginBottom prop", () => {
           const { DescriptionSpacingContainer } = setup({
             marginBottom: "spacing40"
           });
@@ -87,7 +87,7 @@ describe("molecules / HexagonWithDescription", () => {
       });
 
       describe("width", () => {      
-        test("should have correct value passed via width props", () => {
+        test("should have correct value passed via width prop", () => {
           const { DescriptionSpacingContainer } = setup({
             width: "100px"
           });

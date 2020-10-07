@@ -242,7 +242,7 @@ describe("molecules / VerticalIconsWithLabels", () => {
 
     describe("Props", () => {
       describe("label", () => {
-        test("should have correct content passed via label props", () => {
+        test("should have correct content passed via label prop", () => {
           const { Texts } = setup({
             iconsWithLabels
           });
@@ -261,7 +261,7 @@ describe("molecules / VerticalIconsWithLabels", () => {
           });
         });
 
-        test("should have correct color passed via labelColor props", () => {
+        test("should have correct color passed via labelColor prop", () => {
           const { Texts } = setup({
             labelColor: "blue200"
           });

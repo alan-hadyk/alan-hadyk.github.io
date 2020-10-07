@@ -30,7 +30,7 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
   describe("SpacingContainer", () => {
     describe("Props", () => {
       describe("height", () => {
-        test("should have correct value passed via height props", () => {
+        test("should have correct value passed via height prop", () => {
           const { SpacingContainer } = setup({
             height: "calc(17vh + 3.6rem)"
           });

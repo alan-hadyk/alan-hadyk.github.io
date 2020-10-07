@@ -60,7 +60,7 @@ describe("organisms / Project", () => {
   describe("ProjectTvAndDesktop, ProjectTablet, ProjectMobile", () => {
     describe("Props", () => {
       describe("description", () => {
-        test("should have correct value passed via description props", () => {
+        test("should have correct value passed via description prop", () => {
           const { ProjectDescriptions } = setup({
             description: "Lorem ipsum dolor sit amet."
           });
@@ -104,7 +104,7 @@ describe("organisms / Project", () => {
           });
         });
     
-        test("should have correct content passed via label props", () => {
+        test("should have correct content passed via label prop", () => {
           const { IconsWithLabels } = setup({
             iconsWithLabels
           });
@@ -117,7 +117,7 @@ describe("organisms / Project", () => {
       });
 
       describe("projectIcon", () => {
-        test("should have correct icon passed via iconName props", () => {
+        test("should have correct icon passed via iconName prop", () => {
           const { HexagonInnerContainers } = setup({
             projectIcon: "react"
           });
@@ -129,7 +129,7 @@ describe("organisms / Project", () => {
       });
 
       describe("title", () => {
-        test("should have correct value passed via title props", () => {
+        test("should have correct value passed via title prop", () => {
           const { ProjectDescriptions } = setup({
             title: "Roland"
           });

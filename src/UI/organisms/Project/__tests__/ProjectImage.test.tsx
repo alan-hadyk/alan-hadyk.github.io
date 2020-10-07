@@ -44,7 +44,7 @@ describe("organisms / ProjectImage", () => {
       });
 
       describe("projectIcon", () => {
-        test("should have correct icon passed via iconName props", () => {
+        test("should have correct icon passed via iconName prop", () => {
           const { HexagonInnerContainer } = setup({
             projectIcon: "react"
           });

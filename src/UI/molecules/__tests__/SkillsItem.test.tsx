@@ -166,7 +166,7 @@ describe("molecules / SkillsItem", () => {
       expect(IconsWithLabels.children[0].children[0].children[1].children[0].textContent).toEqual("Brand-React.svg");
     });
 
-    test("should have correct content passed via label props", () => {
+    test("should have correct content passed via data.iconsWithLanels['label'] prop", () => {
       const { IconsWithLabels } = setup({
         data
       });

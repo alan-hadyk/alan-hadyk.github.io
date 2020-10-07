@@ -230,7 +230,7 @@ describe("atoms / Text", () => {
         expect(TextContainer).toHaveStyleRule("padding-bottom", "0");
       });
     
-      test("should have correct value passed via paddingBottom prop - spacing", () => {
+      test("should have correct value passed via paddingBottom prop", () => {
         const { TextContainer } = setup({
           paddingBottom: "spacing24"
         });
@@ -246,7 +246,7 @@ describe("atoms / Text", () => {
         expect(TextContainer).toHaveStyleRule("padding-left", "0");
       });
     
-      test("should have correct value passed via paddingLeft prop - spacing", () => {
+      test("should have correct value passed via paddingLeft prop", () => {
         const { TextContainer } = setup({
           paddingLeft: "spacing24"
         });
@@ -262,7 +262,7 @@ describe("atoms / Text", () => {
         expect(TextContainer).toHaveStyleRule("padding-right", "0");
       });
     
-      test("should have correct value passed via paddingRight prop - spacing", () => {
+      test("should have correct value passed via paddingRight prop", () => {
         const { TextContainer } = setup({
           paddingRight: "spacing24"
         });
@@ -278,7 +278,7 @@ describe("atoms / Text", () => {
         expect(TextContainer).toHaveStyleRule("padding-top", "0");
       });
     
-      test("should have correct value passed via paddingTop prop - spacing", () => {
+      test("should have correct value passed via paddingTop prop", () => {
         const { TextContainer } = setup({
           paddingTop: "spacing24"
         });

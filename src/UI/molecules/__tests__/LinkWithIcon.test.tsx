@@ -27,7 +27,7 @@ describe("molecules / LinkWithIcon", () => {
           expect(IconContainer).toHaveStyleRule("height", "4.8rem");
         });
 
-        test("should have correct value when passed via height prop", () => {
+        test("should have correct value passed via height prop", () => {
           const { IconContainer } = setup({
             height: "spacing72"
           });
@@ -43,7 +43,7 @@ describe("molecules / LinkWithIcon", () => {
           expect(IconContainer).toHaveStyleRule("width", "auto");
         });
 
-        test("should have correct value when passed via width prop", () => {
+        test("should have correct value passed via width prop", () => {
           const { IconContainer } = setup({
             width: "spacing72"
           });
@@ -109,7 +109,7 @@ describe("molecules / LinkWithIcon", () => {
           expect(Link.getAttribute("height")).toEqual("spacing48");
         });
 
-        test("should have correct value when passed via height prop", () => {
+        test("should have correct value passed via height prop", () => {
           const { Link } = setup({
             height: "spacing72"
           });

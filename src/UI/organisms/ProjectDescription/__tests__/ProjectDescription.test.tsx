@@ -30,7 +30,7 @@ describe("organisms / ProjectDescription", () => {
   describe("ProjectDescriptionContent", () => {   
     describe("Props", () => {
       describe("description", () => {
-        test("should have correct value passed via description props", () => {
+        test("should have correct value passed via description prop", () => {
           const { ProjectDescriptionContent } = setup({
             description: "Lorem ipsum dolor sit amet."
           });
@@ -78,7 +78,7 @@ describe("organisms / ProjectDescription", () => {
       });
 
       describe("title", () => {
-        test("should have correct value passed via title props", () => {
+        test("should have correct value passed via title prop", () => {
           const { ProjectDescriptionContent } = setup({
             title: "Roland"
           });
@@ -120,7 +120,7 @@ describe("organisms / ProjectDescription", () => {
           expect(IconsWithLabels.children[1].children[0].children[0].children[0].textContent).toEqual("Brand-React.svg");
         });
     
-        test("should have correct content passed via label props", () => {
+        test("should have correct content passed via label prop", () => {
           const { IconsWithLabels } = setup({
             iconsWithLabels
           });

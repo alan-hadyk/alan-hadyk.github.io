@@ -38,7 +38,7 @@ describe("molecules / Link", () => {
         expect(LinkContainer).toHaveStyleRule("display", "inline");
       });
 
-      test("should have block when passed via value in prop", () => {
+      test("should have block passed via display prop", () => {
         const { LinkContainer } = setup({
           display: "block"
         });
@@ -54,7 +54,7 @@ describe("molecules / Link", () => {
         expect(LinkContainer).toHaveStyleRule("height", "unset");
       });
   
-      test("should have correct value when passed via spacing value in prop", () => {
+      test("should have correct value passed via height prop", () => {
         const { LinkContainer } = setup({
           height: "spacing48"
         });
@@ -62,7 +62,7 @@ describe("molecules / Link", () => {
         expect(LinkContainer).toHaveStyleRule("height", "4.8rem");
       });
   
-      test("should have 50% when passed via prop", () => {
+      test("should have 50% passed via height prop", () => {
         const { LinkContainer } = setup({
           height: "50%"
         });
@@ -70,7 +70,7 @@ describe("molecules / Link", () => {
         expect(LinkContainer).toHaveStyleRule("height", "50%");
       });
   
-      test("should have 100% when passed via prop", () => {
+      test("should have 100% passed via height prop", () => {
         const { LinkContainer } = setup({
           height: "100%"
         });

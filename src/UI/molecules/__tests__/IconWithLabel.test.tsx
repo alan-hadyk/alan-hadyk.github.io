@@ -93,7 +93,7 @@ describe("molecules / IconWithLabel", () => {
     describe("SVG", () => { 
       describe("Props", () => {
         describe("iconName", () => {
-          test("should render corect icon passed via props", () => {
+          test("should render corect icon passed via iconName prop", () => {
             const { Icon } = setup({
               iconName: "brandJS"
             });
@@ -148,7 +148,7 @@ describe("molecules / IconWithLabel", () => {
   });
 
   describe("Text", () => {
-    test("should render correct text passed via label props", () => {
+    test("should render correct text passed via label prop", () => {
       const { Text } = setup({
         label: "Javascript"
       });
@@ -158,7 +158,7 @@ describe("molecules / IconWithLabel", () => {
 
     describe("Props", () => {      
       describe("color", () => {
-        test("should have correct value passed via labelColor props", () => {
+        test("should have correct value passed via labelColor prop", () => {
           const { Text } = setup({
             labelColor: "blue500"
           });

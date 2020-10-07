@@ -74,7 +74,7 @@ describe("molecules / DashboardElement", () => {
           expect(DashboardElementContainer).toHaveStyleRule("align-self", "auto");
         });
 
-        test("should have flex-start when passed via prop value", () => {
+        test("should have flex-start passed via alignSelf prop", () => {
           const { DashboardElementContainer } = setup({
             alignSelf: "flex-start"
           });
@@ -82,7 +82,7 @@ describe("molecules / DashboardElement", () => {
           expect(DashboardElementContainer).toHaveStyleRule("align-self", "flex-start");
         });
 
-        test("should have flex-end when passed via prop value", () => {
+        test("should have flex-end passed via alignSelf prop", () => {
           const { DashboardElementContainer } = setup({
             alignSelf: "flex-end"
           });
@@ -90,7 +90,7 @@ describe("molecules / DashboardElement", () => {
           expect(DashboardElementContainer).toHaveStyleRule("align-self", "flex-end");
         });
 
-        test("should have center when passed via prop value", () => {
+        test("should have center passed via alignSelf prop", () => {
           const { DashboardElementContainer } = setup({
             alignSelf: "center"
           });
@@ -98,7 +98,7 @@ describe("molecules / DashboardElement", () => {
           expect(DashboardElementContainer).toHaveStyleRule("align-self", "center");
         });
 
-        test("should have baseline when passed via prop value", () => {
+        test("should have baseline passed via alignSelf prop", () => {
           const { DashboardElementContainer } = setup({
             alignSelf: "baseline"
           });
@@ -106,7 +106,7 @@ describe("molecules / DashboardElement", () => {
           expect(DashboardElementContainer).toHaveStyleRule("align-self", "baseline");
         });
 
-        test("should have stretch when passed via prop value", () => {
+        test("should have stretch passed via alignSelf prop", () => {
           const { DashboardElementContainer } = setup({
             alignSelf: "stretch"
           });
@@ -116,7 +116,7 @@ describe("molecules / DashboardElement", () => {
       });
 
       describe("flex", () => {
-        test("should have 1 0 50% when passed via prop value", () => {
+        test("should have 1 0 50% passed via flex prop", () => {
           const { DashboardElementContainer } = setup({
             flex: "1 0 50%"
           });
@@ -124,7 +124,7 @@ describe("molecules / DashboardElement", () => {
           expect(DashboardElementContainer).toHaveStyleRule("flex", "1 0 50%");
         });
 
-        test("should have 0 1 25% when passed via prop value", () => {
+        test("should have 0 1 25% passed via flex prop", () => {
           const { DashboardElementContainer } = setup({
             flex: "0 1 25%"
           });
@@ -132,7 +132,7 @@ describe("molecules / DashboardElement", () => {
           expect(DashboardElementContainer).toHaveStyleRule("flex", "0 1 25%");
         });
 
-        test("should have 1 1 75% when passed via prop value", () => {
+        test("should have 1 1 75% passed via flex prop", () => {
           const { DashboardElementContainer } = setup({
             flex: "1 1 75%"
           });
@@ -148,7 +148,7 @@ describe("molecules / DashboardElement", () => {
           expect(DashboardElementContainer).toHaveStyleRule("order", "0");
         });
 
-        test("should have 4 when passed via prop value", () => {
+        test("should have 4 passed via order prop", () => {
           const { DashboardElementContainer } = setup({
             order: 4
           });
@@ -156,7 +156,7 @@ describe("molecules / DashboardElement", () => {
           expect(DashboardElementContainer).toHaveStyleRule("order", "4");
         });
 
-        test("should have 2 when passed via prop value", () => {
+        test("should have 2 passed via order prop", () => {
           const { DashboardElementContainer } = setup({
             order: 2
           });
@@ -172,7 +172,7 @@ describe("molecules / DashboardElement", () => {
           expect(DashboardElementContainer).toHaveStyleRule("overflow", "visible");
         });
 
-        test("should have hidden if is passed via titleOverflow prop", () => {
+        test("should have hidden passed via titleOverflow prop", () => {
           const { DashboardElementContainer } = setup({
             titleOverflow: "hidden"
           });
@@ -290,7 +290,7 @@ describe("molecules / DashboardElement", () => {
           expect(DashboardElementInnerContainer).toHaveStyleRule("overflow", "hidden");
         });
 
-        test("should have visible when passed via prop value", () => {
+        test("should have visible passed via overflow prop", () => {
           const { DashboardElementInnerContainer } = setup({
             overflow: "visible"
           });
@@ -648,7 +648,7 @@ describe("molecules / DashboardElement", () => {
             expect(DashboardElementTitleText).toHaveStyleRule("font-size", "16px");
           });
 
-          test("should have 28px when passed via titleFontSize prop", () => {
+          test("should have 28px passed via titleFontSize prop", () => {
             const { DashboardElementTitleText } = setup({
               titleFontSize: "font28"
             });

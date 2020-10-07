@@ -28,7 +28,7 @@ describe("atoms / ConsoleText", () => {
     });
     
     describe("font-size", () => {
-      test("should have 6vh when passed via fontSize props", () => {
+      test("should have 6vh when passed via fontSize prop", () => {
         const { ConsoleTextContainer } = setup({
           fontSize: "6vh"
         });
@@ -36,7 +36,7 @@ describe("atoms / ConsoleText", () => {
         expect(ConsoleTextContainer).toHaveStyleRule("font-size", "6vh");
       });
 
-      test("should have 32px when passed via fontSize props", () => {
+      test("should have 32px when passed via fontSize prop", () => {
         const { ConsoleTextContainer } = setup({
           fontSize: "font32"
         });
@@ -46,7 +46,7 @@ describe("atoms / ConsoleText", () => {
     });
     
     describe("line-height", () => {
-      test("should have 7.4vh when passed via lineHeight props", () => {
+      test("should have 7.4vh when passed via lineHeight prop", () => {
         const { ConsoleTextContainer } = setup({
           lineHeight: "7.4vh"
         });
@@ -54,7 +54,7 @@ describe("atoms / ConsoleText", () => {
         expect(ConsoleTextContainer).toHaveStyleRule("line-height", "7.4vh");
       });
 
-      test("should have 3.0rem when passed via lineHeight props", () => {
+      test("should have 3.0rem when passed via lineHeight prop", () => {
         const { ConsoleTextContainer } = setup({
           lineHeight: "spacing30"
         });
@@ -141,7 +141,7 @@ describe("atoms / ConsoleText", () => {
       });
       
       describe("height", () => {
-        test("should have 6vh when passed via height props", () => {
+        test("should have 6vh when passed via height prop", () => {
           const { ConsoleTextContainer } = setup({
             height: "6vh"
           });
@@ -151,7 +151,7 @@ describe("atoms / ConsoleText", () => {
           });
         });
   
-        test("should have 3.0rem when passed via height props", () => {
+        test("should have 3.0rem when passed via height prop", () => {
           const { ConsoleTextContainer } = setup({
             height: "spacing30"
           });
@@ -173,7 +173,7 @@ describe("atoms / ConsoleText", () => {
       });
       
       describe("transform", () => {
-        test("should have translateY(1vh) when passed via transform props", () => {
+        test("should have translateY(1vh) when passed via transform prop", () => {
           const { ConsoleTextContainer } = setup({
             transform: "translateY(1vh)"
           });
@@ -183,7 +183,7 @@ describe("atoms / ConsoleText", () => {
           });
         });
   
-        test("should have translateY(6px) when passed via transform props", () => {
+        test("should have translateY(6px) when passed via transform prop", () => {
           const { ConsoleTextContainer } = setup({
             transform: "translateY(6px)"
           });
@@ -195,7 +195,7 @@ describe("atoms / ConsoleText", () => {
       });
       
       describe("width", () => {
-        test("should have 3vh when passed via width props", () => {
+        test("should have 3vh when passed via width prop", () => {
           const { ConsoleTextContainer } = setup({
             width: "3vh"
           });
@@ -205,7 +205,7 @@ describe("atoms / ConsoleText", () => {
           });
         });
   
-        test("should have 4rem when passed via width props", () => {
+        test("should have 4rem when passed via width prop", () => {
           const { ConsoleTextContainer } = setup({
             width: "spacing40"
           });

@@ -99,7 +99,7 @@ describe("organisms / Header", () => {
           expect(PositionContainer).toHaveStyleRule("z-index", "100");
         });
 
-        test("should have correct value passed via zIndex props", () => {
+        test("should have correct value passed via zIndex prop", () => {
           const { PositionContainer } = setup({
             zIndex: "layer4"
           });

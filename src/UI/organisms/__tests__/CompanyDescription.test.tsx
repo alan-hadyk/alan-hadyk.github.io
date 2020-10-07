@@ -284,7 +284,7 @@ describe("organisms / CompanyDescription", () => {
       expect(Icons.length).toEqual(3);
     });
 
-    test("icons should render correct SVGs passed via iconsWithLabels.iconName props", () => {
+    test("icons should render correct SVGs passed via iconsWithLabels.iconName prop", () => {
       const { Icons } = setup({
         iconsWithLabels
       });
@@ -293,7 +293,7 @@ describe("organisms / CompanyDescription", () => {
       expect(Icons[2].textContent).toEqual("Icon-Node.svg");
     });
 
-    test("should have correct content passed via iconsWithLabels.label props", () => {
+    test("should have correct content passed via iconsWithLabels.label prop", () => {
       const { IconsWithLabels } = setup({
         iconsWithLabels
       });

@@ -132,7 +132,7 @@ describe("organisms / ProjectDescriptionTechnologies", () => {
       expect(Icons[1].textContent).toEqual("Brand-React.svg");
     });
 
-    test("should have correct content passed via label props", () => {
+    test("should have correct content passed via label prop", () => {
       const { LabelTexts } = setup({
         iconsWithLabels
       });
