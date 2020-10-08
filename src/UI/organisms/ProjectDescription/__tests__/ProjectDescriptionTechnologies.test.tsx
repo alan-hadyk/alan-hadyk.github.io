@@ -156,44 +156,52 @@ describe("organisms / ProjectDescriptionTechnologies", () => {
           });
         });
 
-        describe("IconContainer - height", () => {
-          test("should have 4rem", () => {
-            const { IconContainers } = setup();
-
-            IconContainers.forEach((IconContainer: Element) => {
-              expect(IconContainer).toHaveStyleRule("height", "4rem");
+        describe("IconContainer", () => {
+          describe("height", () => {
+            test("should have 4rem", () => {
+              const { IconContainers } = setup();
+  
+              IconContainers.forEach((IconContainer: Element) => {
+                expect(IconContainer).toHaveStyleRule("height", "4rem");
+              });
             });
           });
         });
 
-        describe("IconWithLabelSpacingContainer - paddingRight", () => {
-          test("should have 1.2rem", () => {
-            const { IconWithLabelSpacingContainers } = setup();
-
-            IconWithLabelSpacingContainers.forEach((IconWithLabelSpacingContainer: Element) => {
-              expect(IconWithLabelSpacingContainer).toHaveStyleRule("padding-right", "1.2rem");
-            });    
+        describe("IconWithLabelSpacingContainer", () => {
+          describe("paddingRight", () => {
+            test("should have 1.2rem", () => {
+              const { IconWithLabelSpacingContainers } = setup();
+  
+              IconWithLabelSpacingContainers.forEach((IconWithLabelSpacingContainer: Element) => {
+                expect(IconWithLabelSpacingContainer).toHaveStyleRule("padding-right", "1.2rem");
+              });    
+            });
           });
         });
 
-        describe("LabelTexts - fontSize", () => {  
-          test("should have 24px", () => {
-            const { LabelTexts } = setup();
-
-            LabelTexts.forEach((LabelText: Element) => {
-              expect(LabelText).toHaveStyleRule("font-size", "24px");
-            });  
+        describe("LabelTexts", () => { 
+          describe("fontSize", () => {
+            test("should have 24px", () => {
+              const { LabelTexts } = setup();
+  
+              LabelTexts.forEach((LabelText: Element) => {
+                expect(LabelText).toHaveStyleRule("font-size", "24px");
+              });  
+            });
           });
         });
       });
 
       describe("position - horizontal", () => {
-        describe("FlexContainer - flexFlow", () => {      
-          test("should have row nowrap", () => {
-            const { IconsWithLabels } = setup();
-  
-            expect(IconsWithLabels).toHaveStyleRule("flex-flow", "row wrap");
-          });
+        describe("FlexContainer", () => {  
+          describe("flexFlow", () => {
+            test("should have row nowrap", () => {
+              const { IconsWithLabels } = setup();
+    
+              expect(IconsWithLabels).toHaveStyleRule("flex-flow", "row wrap");
+            });
+          }); 
         });
       });
     });

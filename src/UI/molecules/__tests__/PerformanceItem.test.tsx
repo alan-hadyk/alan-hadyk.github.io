@@ -160,7 +160,7 @@ describe("molecules / PerformanceItem", () => {
   });
 
   describe("Label", () => { 
-    test("should render textContent equal to label prop", () => {
+    test("should render correct content passed via label prop", () => {
       const { Text } = setup({
         label: "Hello"
       });

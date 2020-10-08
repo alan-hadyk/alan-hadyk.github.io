@@ -40,7 +40,7 @@ describe("organisms / ProjectDescription", () => {
       });
 
       describe("size", () => {
-        test("should have small when size prop is small", () => {
+        test("should have small passed via size prop", () => {
           const { ProjectDescriptionContent } = setup({
             size: "small"
           });
@@ -52,7 +52,7 @@ describe("organisms / ProjectDescription", () => {
           expect(ProjectDescriptionContent.children[1].children[0]).toHaveStyleRule("line-height", "2.4rem");
         });
         
-        test("should have large when size prop is medium", () => {
+        test("should have medium passed via size prop", () => {
           const { ProjectDescriptionContent } = setup({
             size: "medium"
           });
@@ -64,7 +64,7 @@ describe("organisms / ProjectDescription", () => {
           expect(ProjectDescriptionContent.children[1].children[0]).toHaveStyleRule("line-height", "3.2rem");
         });
         
-        test("should have large when size prop is large", () => {
+        test("should have large passed via size prop", () => {
           const { ProjectDescriptionContent } = setup({
             size: "large"
           });

@@ -202,7 +202,7 @@ describe("molecules / ConsoleTvDesktopAndTablet", () => {
   });
 
   describe("Text", () => {
-    test("should render textContent - GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin19)", () => {
+    test("should render correct content - GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin19)", () => {
       const { Text } = setup();
 
       expect(Text.textContent).toEqual("GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin19)");

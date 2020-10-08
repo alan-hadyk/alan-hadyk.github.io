@@ -67,7 +67,7 @@ describe("organisms / ProjectMobile", () => {
     describe("Icon", () => {         
       describe("Props", () => {
         describe("projectIcon", () => {
-          test("should have correct icon passed via iconName prop", () => {
+          test("should have correct icon passed via projectIcon prop", () => {
             const { HexagonInnerContainer } = setup({
               projectIcon: "react"
             });

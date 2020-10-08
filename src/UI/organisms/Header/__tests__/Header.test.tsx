@@ -212,7 +212,7 @@ describe("organisms / Header", () => {
     describe("LinksWithIcons[0]", () => {
       describe("Props", () => {
         describe("href", () => {
-          test("should have correct href", () => {
+          test("should have correct value", () => {
             const { LinksWithIcons } = setup();
       
             expect(LinksWithIcons[0].getAttribute("href")).toEqual("http://localhost/");
@@ -248,7 +248,7 @@ describe("organisms / Header", () => {
     describe("LinksWithIcons[1]", () => {
       describe("Props", () => {
         describe("href", () => {
-          test("should have correct href", () => {
+          test("should have correct value", () => {
             const { LinksWithIcons } = setup();
       
             expect(LinksWithIcons[1].getAttribute("href")).toEqual("http://localhost/");
@@ -284,7 +284,7 @@ describe("organisms / Header", () => {
     describe("LinksWithIcons[2]", () => {
       describe("Props", () => {
         describe("href", () => {
-          test("should have correct href", () => {
+          test("should have correct value", () => {
             const { LinksWithIcons } = setup();
       
             expect(LinksWithIcons[2].getAttribute("href")).toEqual("http://localhost/");
@@ -320,7 +320,7 @@ describe("organisms / Header", () => {
     describe("LinksWithIcons[3]", () => {
       describe("Props", () => {
         describe("href", () => {
-          test("should have correct href", () => {
+          test("should have correct value", () => {
             const { LinksWithIcons } = setup();
       
             expect(LinksWithIcons[3].getAttribute("href")).toEqual("http://localhost/");

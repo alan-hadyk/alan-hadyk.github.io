@@ -1,5 +1,5 @@
 export interface SideMenuProps {
-  isExpanded: boolean;
+  isExpanded?: boolean;
 }
 
 export type SideMenuContainerProps = Partial<SideMenuProps>;

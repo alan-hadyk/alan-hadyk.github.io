@@ -48,7 +48,7 @@ describe("organisms / CompanyDescription", () => {
 
   describe("Titles", () => { 
     describe("MainTitle", () => {
-      test("should render textContent equal to title prop", () => {
+      test("should render correct content passed via title prop", () => {
         const { MainTitle } = setup({
           title: "Self employed"
         });
@@ -116,7 +116,7 @@ describe("organisms / CompanyDescription", () => {
     });
 
     describe("TechStackTitle", () => {
-      test("should render textContent - Tech stack", () => {
+      test("should render correct content - Tech stack", () => {
         const { TechStackTitle } = setup();
   
         expect(TechStackTitle.textContent).toEqual("Tech stack");
@@ -162,7 +162,7 @@ describe("organisms / CompanyDescription", () => {
     });
 
     describe("ResponsibilitiesTitle", () => {
-      test("should render textContent - Responsibilities", () => {
+      test("should render correct content - Responsibilities", () => {
         const { ResponsibilitiesTitle } = setup();
   
         expect(ResponsibilitiesTitle.textContent).toEqual("Responsibilities");
@@ -227,7 +227,7 @@ describe("organisms / CompanyDescription", () => {
       });
 
       describe("label", () => {
-        test("should render label equal to date prop", () => {
+        test("should render correct label passed via date prop", () => {
           const { DateIconWithLabel } = setup({
             date: "July 2016 to present"
           });
@@ -243,21 +243,27 @@ describe("organisms / CompanyDescription", () => {
           DateIconWithLabel = setup().DateIconWithLabel;
         });
 
-        describe("SpacingContainer - paddingRight", () => {
-          test("should have 1.2rem", () => {
-            expect(DateIconWithLabel.children[0]).toHaveStyleRule("padding-right", "1.2rem");
+        describe("SpacingContainer", () => {
+          describe("paddingRight", () => {
+            test("should have 1.2rem", () => {
+              expect(DateIconWithLabel.children[0]).toHaveStyleRule("padding-right", "1.2rem");
+            });
           });
         });
 
-        describe("Icon - height", () => {
-          test("should have 3.2rem", () => {
-            expect(DateIconWithLabel.children[0].children[0]).toHaveStyleRule("height", "3.2rem");
+        describe("Icon", () => {
+          describe("height", () => {
+            test("should have 3.2rem", () => {
+              expect(DateIconWithLabel.children[0].children[0]).toHaveStyleRule("height", "3.2rem");
+            });
           });
         });
 
-        describe("Text - fontSize", () => {
-          test("should have 20px", () => {
-            expect(DateIconWithLabel.children[1]).toHaveStyleRule("font-size", "20px");
+        describe("Text", () => {
+          describe("fontSize", () => {
+            test("should have 20px", () => {
+              expect(DateIconWithLabel.children[1]).toHaveStyleRule("font-size", "20px");
+            });
           });
         });
       });

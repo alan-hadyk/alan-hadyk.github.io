@@ -580,7 +580,7 @@ describe("molecules / DashboardElement", () => {
 
   describe("Texts", () => {
     describe("DashboardElementTitleText", () => { 
-      test("should render textContent equal to title prop", () => {
+      test("should render correct content passed via title prop", () => {
         const { DashboardElementTitleText } = setup({
           title: "Tech Stack"
         });

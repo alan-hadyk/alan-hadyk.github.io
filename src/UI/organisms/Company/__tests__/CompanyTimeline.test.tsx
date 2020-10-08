@@ -26,7 +26,7 @@ describe("molecules / CompanyTimeline", () => {
           expect(CompanyTimelineContainer).toHaveStyleRule("bottom", "-1.6rem");
         });
 
-        test("should have value equal to timelineBottom prop", () => {
+        test("should have correct value passed via timelineBottom prop", () => {
           const { CompanyTimelineContainer } = setup({
             timelineBottom: "spacing32"
           });

@@ -47,7 +47,6 @@ const SideMenu = ({
         </FlexContainer>
       </Responsive>
 
-
       <FlexContainer
         dataTestId="SideMenuOuterFlexContainer"
         flexFlow="column nowrap"

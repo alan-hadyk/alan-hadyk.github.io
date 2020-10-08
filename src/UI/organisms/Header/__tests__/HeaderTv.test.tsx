@@ -116,30 +116,39 @@ describe("organisms / HeaderTv", () => {
     });
 
     describe("Props", () => {
-      describe("size", () => {      
-        test("height - should have 4.8rem", () => {
-          const { Button } = setup();
-    
-          expect(Button).toHaveStyleRule("height", "4.8rem");
+      describe("size", () => {
+        describe("height", () => {
+          test("should have 4.8rem", () => {
+            const { Button } = setup();
+      
+            expect(Button).toHaveStyleRule("height", "4.8rem");
+          });
         });
-
-        test("width - should have auto", () => {      
-          const { Button } = setup();
-
-          expect(Button).toHaveStyleRule("width", "auto");
-        });
+        
+        describe("width", () => {
+          test("should have auto", () => {      
+            const { Button } = setup();
   
-        test("padding - should have 2.4rem", () => {      
-          const { Button } = setup();
-
-          expect(Button.children[4].children[0]).toHaveStyleRule("padding-right", "2.4rem");
+            expect(Button).toHaveStyleRule("width", "auto");
+          });
         });
 
-        test("icon height - should have 2.4rem", () => {      
-          const { Button } = setup();
-
-          expect(Button.children[4].children[0].children[0].children[1]).toHaveStyleRule("height", "2.4rem");
+        describe("padding", () => {
+          test("should have 2.4rem", () => {      
+            const { Button } = setup();
+  
+            expect(Button.children[4].children[0]).toHaveStyleRule("padding-right", "2.4rem");
+          });  
         });
+
+        describe("icon height", () => { 
+          test("should have 2.4rem", () => {      
+            const { Button } = setup();
+  
+            expect(Button.children[4].children[0].children[0].children[1]).toHaveStyleRule("height", "2.4rem");
+          });
+        });
+        
       });
     });
   });

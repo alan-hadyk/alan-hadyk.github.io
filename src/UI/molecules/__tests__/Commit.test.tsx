@@ -220,7 +220,7 @@ describe("molecules / Commit", () => {
 
   describe("Texts", () => { 
     describe("Text[0]", () => {
-      test("should render textContent equal to sha prop", () => {
+      test("should render correct content passed via sha prop", () => {
         const { Texts } = setup({
           sha: "4380d5d391eee216e651d34700a331ec501c2964"
         });
@@ -354,7 +354,7 @@ describe("molecules / Commit", () => {
     });
 
     describe("Text[1]", () => {
-      test("should render textContent equal to date prop", () => {
+      test("should render correct content passed via date prop", () => {
         const { Texts } = setup({
           date: "2020-03-10T22:34:52Z"
         });

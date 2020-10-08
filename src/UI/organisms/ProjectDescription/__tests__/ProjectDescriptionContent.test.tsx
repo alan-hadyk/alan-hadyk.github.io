@@ -26,7 +26,7 @@ describe("organisms / ProjectDescriptionContent", () => {
 
   describe("Texts", () => { 
     describe("ProjectDescriptionTitle", () => {
-      test("should render textContent equal to title prop", () => {
+      test("should render correct content passed via title prop", () => {
         const { ProjectDescriptionTitle } = setup({
           title: "New project"
         });
@@ -70,7 +70,7 @@ describe("organisms / ProjectDescriptionContent", () => {
         });
 
         describe("lineHeight", () => {
-          test("should have 4.8rem if size is large", () => {
+          test("should have 5.2rem if size is large", () => {
             const { ProjectDescriptionTitle } = setup({
               size: "large"
             });
@@ -78,7 +78,7 @@ describe("organisms / ProjectDescriptionContent", () => {
             expect(ProjectDescriptionTitle).toHaveStyleRule("line-height", "5.2rem");
           });
 
-          test("should have 2.4rem if size is small", () => {
+          test("should have 3.2rem if size is small", () => {
             const { ProjectDescriptionTitle } = setup({
               size: "small"
             });
@@ -98,7 +98,7 @@ describe("organisms / ProjectDescriptionContent", () => {
     });
 
     describe("ProjectDescriptionText", () => {
-      test("should render textContent equal to description prop", () => {
+      test("should render correct content passed via description prop", () => {
         const { ProjectDescriptionText } = setup({
           description: "Project description"
         });
