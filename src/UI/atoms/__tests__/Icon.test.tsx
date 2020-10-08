@@ -881,7 +881,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Btn-ExternalLink.svg");
       });
 
-      test("should render corect icon for calendar", () => {
+      test("should render correct icon for calendar", () => {
         const { IconComponent } = setup({
           iconName: "calendar"
         });
@@ -889,7 +889,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Calendar.svg");
       });
 
-      test("should render corect icon for chrome", () => {
+      test("should render correct icon for chrome", () => {
         const { IconComponent } = setup({
           iconName: "chrome"
         });
@@ -897,7 +897,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Chrome.svg");
       });
 
-      test("should render corect icon for codeSandbox", () => {
+      test("should render correct icon for codeSandbox", () => {
         const { IconComponent } = setup({
           iconName: "codeSandbox"
         });
@@ -905,7 +905,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-CodeSandbox.svg");
       });
 
-      test("should render corect icon for companyDIH", () => {
+      test("should render correct icon for companyDIH", () => {
         const { IconComponent } = setup({
           iconName: "companyDIH"
         });
@@ -913,7 +913,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Company-DiH.svg");
       });
 
-      test("should render corect icon for companyOmise", () => {
+      test("should render correct icon for companyOmise", () => {
         const { IconComponent } = setup({
           iconName: "companyOmise"
         });
@@ -921,7 +921,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Company-Omise.svg");
       });
 
-      test("should render corect icon for companySAP", () => {
+      test("should render correct icon for companySAP", () => {
         const { IconComponent } = setup({
           iconName: "companySAP"
         });
@@ -929,7 +929,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Company-SAP.svg");
       });
 
-      test("should render corect icon for companyShiji", () => {
+      test("should render correct icon for companyShiji", () => {
         const { IconComponent } = setup({
           iconName: "companyShiji"
         });
@@ -937,7 +937,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Company-Shiji.svg");
       });
 
-      test("should render corect icon for earth", () => {
+      test("should render correct icon for earth", () => {
         const { IconComponent } = setup({
           iconName: "earth"
         });
@@ -945,7 +945,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Earth.svg");
       });
 
-      test("should render corect icon for firefox", () => {
+      test("should render correct icon for firefox", () => {
         const { IconComponent } = setup({
           iconName: "firefox"
         });
@@ -953,7 +953,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Firefox.svg");
       });
       
-      test("should render corect icon for gitHub", () => {
+      test("should render correct icon for gitHub", () => {
         const { IconComponent } = setup({
           iconName: "gitHub"
         });
@@ -969,7 +969,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Graphql.svg");
       });
 
-      test("should render corect icon for hexagon", () => {
+      test("should render correct icon for hexagon", () => {
         const { IconComponent } = setup({
           iconName: "hexagon"
         });
@@ -977,7 +977,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Hexagon.svg");
       });
 
-      test("should render corect icon for hexagonWithPattern", () => {
+      test("should render correct icon for hexagonWithPattern", () => {
         const { IconComponent } = setup({
           iconName: "hexagonWithPattern"
         });
@@ -985,7 +985,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Hexagon-With-Pattern.svg");
       });
 
-      test("should render corect icon for ie", () => {
+      test("should render correct icon for ie", () => {
         const { IconComponent } = setup({
           iconName: "ie"
         });
@@ -993,7 +993,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-IE.svg");
       });
 
-      test("should render corect icon for javascript", () => {
+      test("should render correct icon for javascript", () => {
         const { IconComponent } = setup({
           iconName: "javascript"
         });
@@ -1034,7 +1034,7 @@ describe("atoms / Icon", () => {
       });
 
 
-      test("should render corect icon for opera", () => {
+      test("should render correct icon for opera", () => {
         const { IconComponent } = setup({
           iconName: "opera"
         });
@@ -1042,7 +1042,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Opera.svg");
       });
 
-      test("should render corect icon for react", () => {
+      test("should render correct icon for react", () => {
         const { IconComponent } = setup({
           iconName: "react"
         });
@@ -1058,7 +1058,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-ReactLogo.svg");
       });
 
-      test("should render corect icon for safari", () => {
+      test("should render correct icon for safari", () => {
         const { IconComponent } = setup({
           iconName: "safari"
         });
@@ -1066,7 +1066,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Safari.svg");
       });
 
-      test("should render corect icon for typescript", () => {
+      test("should render correct icon for typescript", () => {
         const { IconComponent } = setup({
           iconName: "typescript"
         });
@@ -1074,7 +1074,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Typescript.svg");
       });
 
-      test("should render corect icon for unknown", () => {
+      test("should render correct icon for unknown", () => {
         const { IconComponent } = setup({
           iconName: "unknown"
         });
@@ -1082,7 +1082,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Unknown.svg");
       });
 
-      test("should render corect icon for webpack", () => {
+      test("should render correct icon for webpack", () => {
         const { IconComponent } = setup({
           iconName: "webpack"
         });

@@ -122,7 +122,7 @@ describe("molecules / Error", () => {
       });
 
       describe("animation-iteration-count", () => {
-        test("should have center", () => {
+        test("should have infinite", () => {
           const { ErrorIcon } = setup();
 
           expect(ErrorIcon).toHaveStyleRule("animation-iteration-count", "infinite");
@@ -130,7 +130,7 @@ describe("molecules / Error", () => {
       });
       
       describe("animation-timing-function", () => {
-        test("should have center", () => {
+        test("should have ease-in-out", () => {
           const { ErrorIcon } = setup();
 
           expect(ErrorIcon).toHaveStyleRule("animation-timing-function", "ease-in-out");

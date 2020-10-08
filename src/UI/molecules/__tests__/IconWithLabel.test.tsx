@@ -93,7 +93,7 @@ describe("molecules / IconWithLabel", () => {
     describe("SVG", () => { 
       describe("Props", () => {
         describe("iconName", () => {
-          test("should render corect icon passed via iconName prop", () => {
+          test("should render correct icon passed via iconName prop", () => {
             const { Icon } = setup({
               iconName: "brandJS"
             });

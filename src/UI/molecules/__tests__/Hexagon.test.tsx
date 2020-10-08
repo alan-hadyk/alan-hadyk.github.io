@@ -130,7 +130,7 @@ describe("molecules / Hexagon", () => {
     describe("Props", () => {
       describe("isActive", () => {
         describe("svg path - fill", () => {
-          test("should have true when fill is solid", () => {
+          test("should have #78b0b5 when fill is solid", () => {
             const { IconContainer } = setup({
               fill: "solid"
             });
@@ -140,7 +140,7 @@ describe("molecules / Hexagon", () => {
             });
           });
 
-          test("should have false when fill is none", () => {
+          test("should not have when fill is none", () => {
             const { IconContainer } = setup({
               fill: "none"
             });
@@ -150,7 +150,7 @@ describe("molecules / Hexagon", () => {
             });
           });
 
-          test("should have false when fill is pattern", () => {
+          test("should not have when fill is pattern", () => {
             const { IconContainer } = setup({
               fill: "pattern"
             });

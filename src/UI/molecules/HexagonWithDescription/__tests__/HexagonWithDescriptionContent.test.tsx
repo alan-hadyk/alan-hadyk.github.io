@@ -173,7 +173,7 @@ describe("molecules / HexagonWithDescription", () => {
           expect(Text).toHaveStyleRule("line-height", "3.6rem");
         });
 
-        test("should have correct value passed via lineHeight props", () => {
+        test("should have correct value passed via lineHeight prop", () => {
           const { Text } = setup({
             lineHeight: "spacing40"
           });

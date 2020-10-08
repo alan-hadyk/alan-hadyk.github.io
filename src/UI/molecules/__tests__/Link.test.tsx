@@ -122,7 +122,7 @@ describe("molecules / Link", () => {
   
   describe("Props", () => {
     describe("href", () => {      
-      test("should have value equal to passed value", () => {
+      test("should have correct value passed via href prop", () => {
         const { LinkContainer } = setup({
           href: "http://google.com"
         });

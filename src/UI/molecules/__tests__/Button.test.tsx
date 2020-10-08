@@ -556,7 +556,7 @@ describe("molecules / Button", () => {
 
     describe("Props", () => {
       describe("fontSize", () => {
-        test("should have font size 20px when size is small", () => {
+        test("should have 20px when size is small", () => {
           const { ButtonText } = setup({
             size: "small"
           });
@@ -564,7 +564,7 @@ describe("molecules / Button", () => {
           expect(ButtonText).toHaveStyleRule("font-size", "20px");
         }); 
   
-        test("should have font size 24px when size is medium", () => {
+        test("should have 24px when size is medium", () => {
           const { ButtonText } = setup({
             size: "medium"
           });
@@ -572,7 +572,7 @@ describe("molecules / Button", () => {
           expect(ButtonText).toHaveStyleRule("font-size", "24px");
         });
   
-        test("should have font size 28px when size is large", () => {
+        test("should have 28px when size is large", () => {
           const { ButtonText } = setup({
             size: "large"
           });
@@ -586,7 +586,7 @@ describe("molecules / Button", () => {
   describe("Icon", () => {    
     describe("Props", () => {
       describe("iconName", () => {
-        test("should render corect icon for codesandbox", () => {
+        test("should render correct icon for codesandbox", () => {
           const { Icon } = setup({
             iconName: "btnCodeSandbox"
           });
@@ -594,7 +594,7 @@ describe("molecules / Button", () => {
           expect(Icon.textContent).toEqual("Btn-CodeSandbox.svg");
         });
     
-        test("should render corect icon for download", () => {
+        test("should render correct icon for download", () => {
           const { Icon } = setup({
             iconName: "btnDownload"
           });
@@ -602,7 +602,7 @@ describe("molecules / Button", () => {
           expect(Icon.textContent).toEqual("Btn-Download.svg");
         });
     
-        test("should render corect icon for externalLink", () => {
+        test("should render correct icon for externalLink", () => {
           const { Icon } = setup({
             iconName: "btnExternalLink"
           });
@@ -612,7 +612,7 @@ describe("molecules / Button", () => {
       });
     
       describe("height", () => {
-        test("should have 2.4rem (size - large)", () => {
+        test("should have 2.4rem when size is large", () => {
           const { IconContainer } = setup({
             size: "large"
           });
@@ -620,7 +620,7 @@ describe("molecules / Button", () => {
           expect(IconContainer).toHaveStyleRule("height", "2.4rem");
         });
 
-        test("should have 2.4rem (size - medium)", () => {
+        test("should have 2.4rem when size is medium", () => {
           const { IconContainer } = setup({
             size: "medium"
           });
@@ -628,7 +628,7 @@ describe("molecules / Button", () => {
           expect(IconContainer).toHaveStyleRule("height", "2.4rem");
         });
 
-        test("should have 1.2rem (size - small)", () => {
+        test("should have 1.2rem when size is small", () => {
           const { IconContainer } = setup({
             size: "small"
           });

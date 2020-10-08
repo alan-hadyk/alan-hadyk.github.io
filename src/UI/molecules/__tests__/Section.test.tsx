@@ -72,7 +72,7 @@ describe("molecules / Section", () => {
     describe("SectionContainer", () => { 
       describe("Props", () => {
         describe("id", () => {      
-          test("should have id equal to id prop", () => {
+          test("should have correct value passed via id prop", () => {
             const { SectionContainer } = setup({
               id: "SectionID"
             });
@@ -88,7 +88,7 @@ describe("molecules / Section", () => {
             expect(SectionContainer).toHaveStyleRule("margin-bottom", "0");
           });
 
-          test("should have value equal to marginBottom prop", () => {
+          test("should have correct value passed via marginBottom prop", () => {
             const { SectionContainer } = setup({
               marginBottom: "spacing24"
             });
@@ -104,7 +104,7 @@ describe("molecules / Section", () => {
             expect(SectionContainer).not.toHaveStyleRule("min-height");
           });
 
-          test("should have min-height equal to minHeight prop - spacing value", () => {
+          test("should have correct value passed via minHeight prop", () => {
             const { SectionContainer } = setup({
               minHeight: "spacing36"
             });
@@ -112,7 +112,7 @@ describe("molecules / Section", () => {
             expect(SectionContainer).toHaveStyleRule("min-height", "3.6rem");
           });
 
-          test("should have min-height equal to minHeight prop - vh", () => {
+          test("should have 100vh passed via minHeight prop", () => {
             const { SectionContainer } = setup({
               minHeight: "100vh"
             });

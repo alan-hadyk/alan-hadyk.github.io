@@ -249,7 +249,7 @@ describe("molecules / PerformanceItem", () => {
     describe("Styles", () => {
       describe("when shouldAnimate is true", () => {
         describe("animation-delay", () => {
-          test("should have correct value passed via prop", () => {
+          test("should have correct value passed via animationDelay prop", () => {
             const { Barchart } = setup({
               animationDelay: "500ms",
               shouldAnimate: true

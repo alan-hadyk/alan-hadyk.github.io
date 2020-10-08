@@ -64,7 +64,7 @@ describe("molecules / LinkWithIcon", () => {
     });
 
     describe("Props", () => {
-      describe("should render correct icon for", () => {
+      describe("should render correct icon", () => {
         test("logo", () => {
           const { Icon } = setup({
             iconName: "logo"
@@ -145,7 +145,7 @@ describe("molecules / LinkWithIcon", () => {
       });
 
       describe("href", () => {      
-        test("should have value equal to href prop", () => {
+        test("should have correct value passed via href prop", () => {
           const { Link } = setup({
             href: "http://google.com"
           });

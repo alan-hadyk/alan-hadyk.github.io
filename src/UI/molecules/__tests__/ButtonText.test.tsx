@@ -59,32 +59,36 @@ describe("molecules / ButtonText", () => {
     });
 
     describe("Styles", () => {
-      test("should have font size 20px when size is small", () => {
-        const { Text } = setup();
-
-        expect(Text).toHaveStyleRule("font-size", "20px");
-      }); 
-
-      test("should have font size 24px when size is medium", () => {
-        const { Text } = setup({
-          size: "medium"
+      describe("font-size", () => {      
+        test("should have 20px when size is small", () => {
+          const { Text } = setup();
+  
+          expect(Text).toHaveStyleRule("font-size", "20px");
+        }); 
+  
+        test("should have 24px when size is medium", () => {
+          const { Text } = setup({
+            size: "medium"
+          });
+  
+          expect(Text).toHaveStyleRule("font-size", "24px");
         });
-
-        expect(Text).toHaveStyleRule("font-size", "24px");
+  
+        test("should have 28px when size is large", () => {
+          const { Text } = setup({
+            size: "large"
+          });
+  
+          expect(Text).toHaveStyleRule("font-size", "28px");
+        });
       });
 
-      test("should have font size 28px when size is large", () => {
-        const { Text } = setup({
-          size: "large"
+      describe("font-family", () => {
+        test("should have font family Exan", () => {
+          const { Text } = setup();
+  
+          expect(Text).toHaveStyleRule("font-family", "ExanModifiedRegular,monospace");
         });
-
-        expect(Text).toHaveStyleRule("font-size", "28px");
-      });
-
-      test("should have font family Exan", () => {
-        const { Text } = setup();
-
-        expect(Text).toHaveStyleRule("font-family", "ExanModifiedRegular,monospace");
       });
     });
   });
