@@ -90,7 +90,7 @@
     "@types/styled-components": "^5.1.4",
     "@types/vivus": "^0.4.2",
     "@typescript-eslint/eslint-plugin": "^4.2.0",
-    "@typescript-eslint/parser": "^4.3.0",
+    "@typescript-eslint/parser": "^4.4.1",
     "canvas": "^2.6.1",
     "craco-alias": "^2.1.1",
     "cypress": "5.2.0",
