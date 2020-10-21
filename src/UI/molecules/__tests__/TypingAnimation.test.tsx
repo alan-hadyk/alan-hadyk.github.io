@@ -341,7 +341,7 @@ import {
           test("should have ''", () => {
             const { TypingAnimationCode } = setup();
 
-            expect(TypingAnimationCode).toHaveStyleRule("content", "''", {
+            expect(TypingAnimationCode).toHaveStyleRule("content", "\"\"", {
               modifier: "::after"
             });
           });

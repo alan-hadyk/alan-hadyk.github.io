@@ -5,8 +5,8 @@ import fetch, { Response } from "node-fetch";
 import { CommitProps } from "<molecules>/__typings__/Commit.d.ts";
 import { ComponentWithCommitsType } from "<state>/__typings__/withCommitsState.d.ts";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const withCommitsState = (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   WrappedComponent: React.FunctionComponent<any>
 ): ComponentWithCommitsType => {
   const ComponentWithCommits = (props: unknown): JSX.Element => {

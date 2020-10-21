@@ -2,7 +2,7 @@ import React from "react";
 import { RenderResult } from "@testing-library/react";
 import ShuffleText from "shuffle-text";
 
-import ListOfCommits from "<molecules>/ListOfCommits";
+import ListOfCommits, { arePropsEqual } from "<molecules>/ListOfCommits";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
@@ -10,6 +10,32 @@ import {
   ListOfCommitsProps,
   CommitProps
 } from "<molecules>/__typings__/ListOfCommits.d.ts";
+
+const defaultProps: ListOfCommitsProps = {
+  commitsList: [
+    {
+      commit: {
+        author: {
+          date: "2020-03-10T22:34:52Z"
+        }
+      },
+      html_url:
+        "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2964",
+      sha: "4380d5d391eee216e651d34700a331ec501c2964"
+    },
+    {
+      commit: {
+        author: {
+          date: "2020-03-11T22:34:52Z"
+        }
+      },
+      html_url:
+        "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2969",
+      sha: "4380d5d391eee216e651d34700a331ec501c2969"
+    }
+  ],
+  hasError: false
+};
 
 describe("molecules / ListOfCommits", () => {
   test("should have correct structure if has no error", () => {
@@ -339,6 +365,36 @@ describe("molecules / ListOfCommits", () => {
       });
     });
   });
+
+  describe("arePropsEqual", () => {
+    test(`should return true if 
+    isEqual(prevProps.commitsList, nextProps.commitsList) &&
+    prevProps.hasError === nextProps.hasError`, () => {
+      expect(arePropsEqual(defaultProps, defaultProps)).toEqual(true);
+    });
+
+    test(`should return false if 
+    isEqual(prevProps.commitsList, nextProps.commitsList) &&
+    prevProps.hasError !== nextProps.hasError`, () => {
+      expect(
+        arePropsEqual(defaultProps, {
+          ...defaultProps,
+          hasError: true
+        })
+      ).toEqual(false);
+    });
+
+    test(`should return false if 
+    !isEqual(prevProps.commitsList, nextProps.commitsList) &&
+    prevProps.hasError === nextProps.hasError`, () => {
+      expect(
+        arePropsEqual(defaultProps, {
+          ...defaultProps,
+          commitsList: []
+        })
+      ).toEqual(false);
+    });
+  });
 });
 
 interface Setup extends RenderResult {
@@ -353,32 +409,6 @@ interface Setup extends RenderResult {
 type ListOfCommitsTestProps = Partial<ListOfCommitsProps>;
 
 function setup(additionalProps?: ListOfCommitsTestProps): Setup {
-  const defaultProps: ListOfCommitsProps = {
-    commitsList: [
-      {
-        commit: {
-          author: {
-            date: "2020-03-10T22:34:52Z"
-          }
-        },
-        html_url:
-          "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2964",
-        sha: "4380d5d391eee216e651d34700a331ec501c2964"
-      },
-      {
-        commit: {
-          author: {
-            date: "2020-03-11T22:34:52Z"
-          }
-        },
-        html_url:
-          "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2969",
-        sha: "4380d5d391eee216e651d34700a331ec501c2969"
-      }
-    ],
-    hasError: false
-  };
-
   const props: ListOfCommitsProps = { ...defaultProps, ...additionalProps };
 
   const utils: RenderResult = renderWithTheme(<ListOfCommits {...props} />);

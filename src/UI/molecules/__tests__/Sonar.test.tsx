@@ -223,7 +223,7 @@ describe("molecules / Sonar", () => {
           test("should have ''", () => {
             const { SonarDot } = setup();
 
-            expect(SonarDot).toHaveStyleRule("content", "''", {
+            expect(SonarDot).toHaveStyleRule("content", "\"\"", {
               modifier: "&:after"
             });
           });

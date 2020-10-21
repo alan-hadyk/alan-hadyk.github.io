@@ -94,7 +94,7 @@ NavItem.Link = styled.a<NavItemLinkProps>`
   `};
 `;
 
-const arePropsEqual = (
+export const arePropsEqual = (
   prevProps: NavItemProps,
   nextProps: NavItemProps
 ): boolean => prevProps.isActive === nextProps.isActive;

@@ -1,7 +1,7 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import NavItem from "<molecules>/NavItem";
+import NavItem, { arePropsEqual } from "<molecules>/NavItem";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
@@ -9,6 +9,11 @@ jest.mock("<hooks>/useShuffleText");
 import useShuffleText from "<hooks>/useShuffleText";
 
 import { NavItemProps } from "<molecules>/__typings__/NavItem.d.ts";
+
+const defaultProps: NavItemProps = {
+  href: "#element",
+  title: "Title"
+};
 
 describe("molecules / NavItem", () => {
   test("should have correct structure", () => {
@@ -307,6 +312,53 @@ describe("molecules / NavItem", () => {
       });
     });
   });
+
+  describe("arePropsEqual", () => {
+    test("should return true if prevProps.isActive === nextProps.isActive", () => {
+      expect(
+        arePropsEqual(
+          {
+            ...defaultProps,
+            isActive: true
+          },
+          {
+            ...defaultProps,
+            isActive: true
+          }
+        )
+      ).toEqual(true);
+    });
+
+    test("should return false if prevProps.isActive !== nextProps.isActive - test 1", () => {
+      expect(
+        arePropsEqual(
+          {
+            ...defaultProps,
+            isActive: false
+          },
+          {
+            ...defaultProps,
+            isActive: true
+          }
+        )
+      ).toEqual(false);
+    });
+
+    test("should return false if prevProps.isActive !== nextProps.isActive - test 1", () => {
+      expect(
+        arePropsEqual(
+          {
+            ...defaultProps,
+            isActive: true
+          },
+          {
+            ...defaultProps,
+            isActive: false
+          }
+        )
+      ).toEqual(false);
+    });
+  });
 });
 
 interface Setup extends RenderResult {
@@ -319,8 +371,7 @@ type NavItemTestProps = Partial<NavItemProps>;
 
 function setup(additionalProps?: NavItemTestProps): Setup {
   const props: NavItemProps = {
-    href: "#element",
-    title: "Title",
+    ...defaultProps,
     ...additionalProps
   };
 

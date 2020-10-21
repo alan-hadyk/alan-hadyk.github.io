@@ -69,7 +69,7 @@ describe("molecules / Commit", () => {
 
           expect(CommitContainer).toHaveStyleRule("display", "flex", {
             media: "(min-height: 800px)",
-            modifier: ":nth-child(-n+10)"
+            modifier: ":nth-child(-n + 10)"
           });
         });
 
@@ -78,7 +78,7 @@ describe("molecules / Commit", () => {
 
           expect(CommitContainer).toHaveStyleRule("display", "flex", {
             media: "(min-height: 401px) and (max-height: 799px)",
-            modifier: ":nth-child(-n+5)"
+            modifier: ":nth-child(-n + 5)"
           });
         });
 
@@ -87,7 +87,7 @@ describe("molecules / Commit", () => {
 
           expect(CommitContainer).toHaveStyleRule("display", "flex", {
             media: "(max-height: 400px)",
-            modifier: ":nth-child(-n+3)"
+            modifier: ":nth-child(-n + 3)"
           });
         });
       });

@@ -107,7 +107,7 @@ describe("molecules / UnorderedList", () => {
           test("should have ''", () => {
             const { UnorderedListContainer } = setup();
 
-            expect(UnorderedListContainer).toHaveStyleRule("content", "''", {
+            expect(UnorderedListContainer).toHaveStyleRule("content", "\"\"", {
               modifier: "& li::before"
             });
           });

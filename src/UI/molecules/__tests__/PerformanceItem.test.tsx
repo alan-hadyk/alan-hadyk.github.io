@@ -40,7 +40,7 @@ describe("molecules / PerformanceItem", () => {
 
           expect(PerformanceItemContainer).toHaveStyleRule("display", "flex", {
             media: "(min-height: 900px)",
-            modifier: ":nth-child(-n+17)"
+            modifier: ":nth-child(-n + 17)"
           });
         });
 
@@ -49,7 +49,7 @@ describe("molecules / PerformanceItem", () => {
 
           expect(PerformanceItemContainer).toHaveStyleRule("display", "flex", {
             media: "(min-height: 800px) and (max-height: 899px)",
-            modifier: ":nth-child(-n+15)"
+            modifier: ":nth-child(-n + 15)"
           });
         });
 
@@ -58,7 +58,7 @@ describe("molecules / PerformanceItem", () => {
 
           expect(PerformanceItemContainer).toHaveStyleRule("display", "flex", {
             media: "(min-height: 520px) and (max-height: 799px)",
-            modifier: ":nth-child(-n+10)"
+            modifier: ":nth-child(-n + 10)"
           });
         });
 
@@ -67,7 +67,7 @@ describe("molecules / PerformanceItem", () => {
 
           expect(PerformanceItemContainer).toHaveStyleRule("display", "flex", {
             media: "(min-height: 415px) and (max-height: 519px)",
-            modifier: ":nth-child(-n+8)"
+            modifier: ":nth-child(-n + 8)"
           });
         });
 
@@ -76,7 +76,7 @@ describe("molecules / PerformanceItem", () => {
 
           expect(PerformanceItemContainer).toHaveStyleRule("display", "flex", {
             media: "(max-height: 414px)",
-            modifier: ":nth-child(-n+3)"
+            modifier: ":nth-child(-n + 3)"
           });
         });
       });

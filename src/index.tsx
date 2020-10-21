@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import App from "<src>/App";
 import * as serviceWorker from "<src>/serviceWorker";
 
-const polyfills = [];
+export const polyfills: unknown[] = [];
 
 if (typeof window.IntersectionObserver === "undefined") {
   polyfills.push(

@@ -85,9 +85,6 @@
       "^<styles>/(.*)$": "<rootDir>/src/styles/$1",
       "^<templates>/(.*)$": "<rootDir>/src/UI/templates/$1",
       "roots": ["./src"]
-    },
-    "transform": {
-      "\\.svg$": "<rootDir>/src/fileTransform.js"
     }
   },
   "license": "UNLICENSED",
@@ -107,7 +104,7 @@
     "predeploy": "yarn build",
     "start": "craco start",
     "test": "craco test --passWithNoTests --env=jest-environment-jsdom-sixteen",
-    "test:coverage": "craco test --passWithNoTests --env=jest-environment-jsdom-sixteen --collectCoverage"
+    "test:coverage": "craco test --passWithNoTests --env=jest-environment-jsdom-sixteen --coverage --watchAll=false"
   },
   "version": "0.1.0"
 }

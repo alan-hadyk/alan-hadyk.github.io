@@ -144,7 +144,7 @@ describe("atoms / ConsoleText", () => {
         test("should have ''", () => {
           const { ConsoleTextContainer } = setup();
 
-          expect(ConsoleTextContainer).toHaveStyleRule("content", "''", {
+          expect(ConsoleTextContainer).toHaveStyleRule("content", "\"\"", {
             modifier: "&::after"
           });
         });

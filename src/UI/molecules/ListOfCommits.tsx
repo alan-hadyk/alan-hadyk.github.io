@@ -74,7 +74,7 @@ ListOfCommits.propTypes = {
   hasError: PropTypes.bool.isRequired
 };
 
-const arePropsEqual = (
+export const arePropsEqual = (
   prevProps: ListOfCommitsProps,
   nextProps: ListOfCommitsProps
 ): boolean =>
