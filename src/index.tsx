@@ -7,7 +7,11 @@ import * as serviceWorker from "<src>/serviceWorker";
 const polyfills = [];
 
 if (typeof window.IntersectionObserver === "undefined") {
-  polyfills.push(import(/* webpackChunkName: "intersection-observer" */ "intersection-observer"));
+  polyfills.push(
+    import(
+      /* webpackChunkName: "intersection-observer" */ "intersection-observer"
+    )
+  );
 }
 
 export function renderApp(): void {

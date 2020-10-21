@@ -13,19 +13,23 @@ import {
 function FpsChartLabels({ labels }: FpsChartLabelsProps): JSX.Element {
   const maxValue: number = max(labels);
 
-  return !isEmpty(labels) && (
-    <Fragment>
-      {labels.map((label: Label, index: number): JSX.Element => (
-        <FpsChartLabels.Label
-          bottom={`${(label / maxValue) * 100}%`}
-          data-testid="Label"
-          key={label}
-          transform={calculateTransform(index)}
-        >
-          {label}
-        </FpsChartLabels.Label>
-      ))}
-    </Fragment>
+  return (
+    !isEmpty(labels) && (
+      <Fragment>
+        {labels.map(
+          (label: Label, index: number): JSX.Element => (
+            <FpsChartLabels.Label
+              bottom={`${(label / maxValue) * 100}%`}
+              data-testid="Label"
+              key={label}
+              transform={calculateTransform(index)}
+            >
+              {label}
+            </FpsChartLabels.Label>
+          )
+        )}
+      </Fragment>
+    )
   );
 
   function calculateTransform(index: number): string {
@@ -62,7 +66,7 @@ FpsChartLabels.Label = styled.div<FpsChartLabelProps>`
     position: absolute;
     text-align: right;
     transform: ${transform};
-  `}
+  `};
 `;
 
 FpsChartLabels.propTypes = {

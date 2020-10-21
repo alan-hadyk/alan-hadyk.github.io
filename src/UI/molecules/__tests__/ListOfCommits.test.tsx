@@ -11,14 +11,9 @@ import {
   CommitProps
 } from "<molecules>/__typings__/ListOfCommits.d.ts";
 
-
 describe("molecules / ListOfCommits", () => {
   test("should have correct structure if has no error", () => {
-    const {
-      Commits,
-      Error,
-      ListOfCommitsWrapper
-    } = setup();
+    const { Commits, Error, ListOfCommitsWrapper } = setup();
 
     expect(ListOfCommitsWrapper.children[0]).toEqual(Commits[0]);
     expect(ListOfCommitsWrapper.children[1]).toEqual(Commits[1]);
@@ -26,12 +21,9 @@ describe("molecules / ListOfCommits", () => {
   });
 
   test("should have correct structure if has an error", () => {
-    const {
-      Error,
-      FlexContainer,
-      IconWarning,
-      Texts
-    } = setup({ hasError: true });
+    const { Error, FlexContainer, IconWarning, Texts } = setup({
+      hasError: true
+    });
 
     expect(Error.children[0]).toEqual(FlexContainer);
     expect(Error.children[0].children[0]).toEqual(IconWarning);
@@ -44,28 +36,74 @@ describe("molecules / ListOfCommits", () => {
       const { Commits } = setup();
 
       expect(Commits[0].children[0]).toHaveStyleRule("height", "auto");
-      expect(Commits[0].children[0].children[0]).toHaveStyleRule("height", "unset");
-      expect(Commits[0].children[0].children[0].children[0].children[0]).toHaveStyleRule("display", "inline");
-      expect(Commits[0].children[0].children[0].children[0].children[0]).toHaveStyleRule("height", "unset");
-      expect(Commits[0].children[0].children[0].children[0].children[0].getAttribute("target")).toEqual("_blank");
-      expect(Commits[0].children[0].children[0].children[0].children[0].children[0]).toHaveStyleRule("color", "#bcd8db");
-      expect(Commits[0].children[0].children[0].children[0].children[0].children[0]).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
-      expect(Commits[0].children[0].children[0].children[0].children[0].children[0]).toHaveStyleRule("font-size", "8px");
-      expect(Commits[0].children[0].children[0].children[1].children[0]).toHaveStyleRule("color", "#78b0b5");
-      expect(Commits[0].children[0].children[0].children[1].children[0]).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
-      expect(Commits[0].children[0].children[0].children[1].children[0]).toHaveStyleRule("font-size", "8px");
+      expect(Commits[0].children[0].children[0]).toHaveStyleRule(
+        "height",
+        "unset"
+      );
+      expect(
+        Commits[0].children[0].children[0].children[0].children[0]
+      ).toHaveStyleRule("display", "inline");
+      expect(
+        Commits[0].children[0].children[0].children[0].children[0]
+      ).toHaveStyleRule("height", "unset");
+      expect(
+        Commits[0].children[0].children[0].children[0].children[0].getAttribute(
+          "target"
+        )
+      ).toEqual("_blank");
+      expect(
+        Commits[0].children[0].children[0].children[0].children[0].children[0]
+      ).toHaveStyleRule("color", "#bcd8db");
+      expect(
+        Commits[0].children[0].children[0].children[0].children[0].children[0]
+      ).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
+      expect(
+        Commits[0].children[0].children[0].children[0].children[0].children[0]
+      ).toHaveStyleRule("font-size", "8px");
+      expect(
+        Commits[0].children[0].children[0].children[1].children[0]
+      ).toHaveStyleRule("color", "#78b0b5");
+      expect(
+        Commits[0].children[0].children[0].children[1].children[0]
+      ).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
+      expect(
+        Commits[0].children[0].children[0].children[1].children[0]
+      ).toHaveStyleRule("font-size", "8px");
 
       expect(Commits[1].children[0]).toHaveStyleRule("height", "auto");
-      expect(Commits[1].children[0].children[0]).toHaveStyleRule("height", "unset");
-      expect(Commits[1].children[0].children[0].children[0].children[0]).toHaveStyleRule("display", "inline");
-      expect(Commits[1].children[0].children[0].children[0].children[0]).toHaveStyleRule("height", "unset");
-      expect(Commits[1].children[0].children[0].children[0].children[0].getAttribute("target")).toEqual("_blank");
-      expect(Commits[1].children[0].children[0].children[0].children[0].children[0]).toHaveStyleRule("color", "#bcd8db");
-      expect(Commits[1].children[0].children[0].children[0].children[0].children[0]).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
-      expect(Commits[1].children[0].children[0].children[0].children[0].children[0]).toHaveStyleRule("font-size", "8px");
-      expect(Commits[1].children[0].children[0].children[1].children[0]).toHaveStyleRule("color", "#78b0b5");
-      expect(Commits[1].children[0].children[0].children[1].children[0]).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
-      expect(Commits[1].children[0].children[0].children[1].children[0]).toHaveStyleRule("font-size", "8px");
+      expect(Commits[1].children[0].children[0]).toHaveStyleRule(
+        "height",
+        "unset"
+      );
+      expect(
+        Commits[1].children[0].children[0].children[0].children[0]
+      ).toHaveStyleRule("display", "inline");
+      expect(
+        Commits[1].children[0].children[0].children[0].children[0]
+      ).toHaveStyleRule("height", "unset");
+      expect(
+        Commits[1].children[0].children[0].children[0].children[0].getAttribute(
+          "target"
+        )
+      ).toEqual("_blank");
+      expect(
+        Commits[1].children[0].children[0].children[0].children[0].children[0]
+      ).toHaveStyleRule("color", "#bcd8db");
+      expect(
+        Commits[1].children[0].children[0].children[0].children[0].children[0]
+      ).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
+      expect(
+        Commits[1].children[0].children[0].children[0].children[0].children[0]
+      ).toHaveStyleRule("font-size", "8px");
+      expect(
+        Commits[1].children[0].children[0].children[1].children[0]
+      ).toHaveStyleRule("color", "#78b0b5");
+      expect(
+        Commits[1].children[0].children[0].children[1].children[0]
+      ).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
+      expect(
+        Commits[1].children[0].children[0].children[1].children[0]
+      ).toHaveStyleRule("font-size", "8px");
     });
 
     test("should render number of singular commits equal to length of commits list array - 2 items", () => {
@@ -76,7 +114,8 @@ describe("molecules / ListOfCommits", () => {
               date: "2020-03-15T14:58:16Z"
             }
           },
-          html_url: "https://github.com/alan-hadyk/portfolio/commit/6f05bb91f454878edcb0f0e30e39501d39b46e4f",
+          html_url:
+            "https://github.com/alan-hadyk/portfolio/commit/6f05bb91f454878edcb0f0e30e39501d39b46e4f",
           sha: "6f05bb91f454878edcb0f0e30e39501d39b46e4f"
         },
         {
@@ -85,7 +124,8 @@ describe("molecules / ListOfCommits", () => {
               date: "2020-03-14T16:05:26Z"
             }
           },
-          html_url: "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c5",
+          html_url:
+            "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c5",
           sha: "b18b6616d0da725d49decc1b1f63c3322ca9c3c5"
         }
       ];
@@ -103,7 +143,8 @@ describe("molecules / ListOfCommits", () => {
               date: "2020-03-15T14:58:16Z"
             }
           },
-          html_url: "https://github.com/alan-hadyk/portfolio/commit/6f05bb91f454878edcb0f0e30e39501d39b46e4f",
+          html_url:
+            "https://github.com/alan-hadyk/portfolio/commit/6f05bb91f454878edcb0f0e30e39501d39b46e4f",
           sha: "6f05bb91f454878edcb0f0e30e39501d39b46e4f"
         },
         {
@@ -112,7 +153,8 @@ describe("molecules / ListOfCommits", () => {
               date: "2020-03-14T16:05:26Z"
             }
           },
-          html_url: "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c5",
+          html_url:
+            "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c5",
           sha: "b18b6616d0da725d49decc1b1f63c3322ca9c3c5"
         },
         {
@@ -121,7 +163,8 @@ describe("molecules / ListOfCommits", () => {
               date: "2020-03-14T16:05:26Z"
             }
           },
-          html_url: "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c7",
+          html_url:
+            "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c7",
           sha: "b18b6616d0da725d49decc1b1f63c3322ca9c3c7"
         },
         {
@@ -130,7 +173,8 @@ describe("molecules / ListOfCommits", () => {
               date: "2020-03-14T16:05:26Z"
             }
           },
-          html_url: "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c2",
+          html_url:
+            "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c2",
           sha: "b18b6616d0da725d49decc1b1f63c3322ca9c3c2"
         }
       ];
@@ -143,7 +187,7 @@ describe("molecules / ListOfCommits", () => {
     describe("Props", () => {
       let Commits: Element[];
       let commitsList: CommitProps[];
-      
+
       beforeEach(() => {
         commitsList = [
           {
@@ -152,7 +196,8 @@ describe("molecules / ListOfCommits", () => {
                 date: "2020-03-15T14:58:16Z"
               }
             },
-            html_url: "https://github.com/alan-hadyk/portfolio/commit/6f05bb91f454878edcb0f0e30e39501d39b46e4f",
+            html_url:
+              "https://github.com/alan-hadyk/portfolio/commit/6f05bb91f454878edcb0f0e30e39501d39b46e4f",
             sha: "6f05bb91f454878edcb0f0e30e39501d39b46e4f"
           },
           {
@@ -161,7 +206,8 @@ describe("molecules / ListOfCommits", () => {
                 date: "2020-03-14T16:05:26Z"
               }
             },
-            html_url: "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c5",
+            html_url:
+              "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c5",
             sha: "b18b6616d0da725d49decc1b1f63c3322ca9c3c5"
           }
         ];
@@ -170,19 +216,27 @@ describe("molecules / ListOfCommits", () => {
 
       test("should render each commit with sha", () => {
         Commits.forEach((Commit, index) => {
-          expect(Commit.children[0].children[0].children[0].textContent).toEqual(commitsList[index].sha);
+          expect(
+            Commit.children[0].children[0].children[0].textContent
+          ).toEqual(commitsList[index].sha);
         });
       });
-      
+
       test("should render each commit with date", () => {
         Commits.forEach((Commit, index) => {
-          expect(Commit.children[0].children[0].children[1].textContent).toEqual(commitsList[index].commit.author.date);
+          expect(
+            Commit.children[0].children[0].children[1].textContent
+          ).toEqual(commitsList[index].commit.author.date);
         });
       });
 
       test("should render each commit with url", () => {
         Commits.forEach((Commit, index) => {
-          expect(Commit.children[0].children[0].children[0].children[0].getAttribute("href")).toEqual(commitsList[index].html_url);
+          expect(
+            Commit.children[0].children[0].children[0].children[0].getAttribute(
+              "href"
+            )
+          ).toEqual(commitsList[index].html_url);
         });
       });
     });
@@ -199,19 +253,19 @@ describe("molecules / ListOfCommits", () => {
         jest.advanceTimersByTime(3600);
 
         expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
-  
+
         jest.advanceTimersByTime(300);
 
         expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
-  
+
         jest.advanceTimersByTime(3300);
-  
+
         expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
 
         jest.advanceTimersByTime(300);
-  
+
         expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(4);
-  
+
         jest.clearAllTimers();
       });
     });
@@ -223,7 +277,10 @@ describe("molecules / ListOfCommits", () => {
         test("should have flex-start", () => {
           const { ListOfCommitsWrapper } = setup();
 
-          expect(ListOfCommitsWrapper).toHaveStyleRule("align-items", "flex-start");
+          expect(ListOfCommitsWrapper).toHaveStyleRule(
+            "align-items",
+            "flex-start"
+          );
         });
       });
 
@@ -231,7 +288,10 @@ describe("molecules / ListOfCommits", () => {
         test("should have flex-start", () => {
           const { ListOfCommitsWrapper } = setup();
 
-          expect(ListOfCommitsWrapper).toHaveStyleRule("justify-content", "flex-start");
+          expect(ListOfCommitsWrapper).toHaveStyleRule(
+            "justify-content",
+            "flex-start"
+          );
         });
       });
 
@@ -239,7 +299,10 @@ describe("molecules / ListOfCommits", () => {
         test("should have column nowrap", () => {
           const { ListOfCommitsWrapper } = setup();
 
-          expect(ListOfCommitsWrapper).toHaveStyleRule("flex-flow", "column nowrap");
+          expect(ListOfCommitsWrapper).toHaveStyleRule(
+            "flex-flow",
+            "column nowrap"
+          );
         });
       });
     });
@@ -259,7 +322,9 @@ describe("molecules / ListOfCommits", () => {
         test("should have Github API is offline", () => {
           const { Error } = setup({ hasError: true });
 
-          expect(Error.children[0].children[2].textContent).toEqual("Github API is offline");
+          expect(Error.children[0].children[2].textContent).toEqual(
+            "Github API is offline"
+          );
         });
       });
     });
@@ -268,7 +333,9 @@ describe("molecules / ListOfCommits", () => {
       test("should render correct SVG", () => {
         const { Error } = setup({ hasError: true });
 
-        expect(Error.children[0].children[0].textContent).toEqual("Icon-Warning.svg");
+        expect(Error.children[0].children[0].textContent).toEqual(
+          "Icon-Warning.svg"
+        );
       });
     });
   });
@@ -294,7 +361,8 @@ function setup(additionalProps?: ListOfCommitsTestProps): Setup {
             date: "2020-03-10T22:34:52Z"
           }
         },
-        html_url: "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2964",
+        html_url:
+          "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2964",
         sha: "4380d5d391eee216e651d34700a331ec501c2964"
       },
       {
@@ -303,7 +371,8 @@ function setup(additionalProps?: ListOfCommitsTestProps): Setup {
             date: "2020-03-11T22:34:52Z"
           }
         },
-        html_url: "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2969",
+        html_url:
+          "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2969",
         sha: "4380d5d391eee216e651d34700a331ec501c2969"
       }
     ],
@@ -312,9 +381,7 @@ function setup(additionalProps?: ListOfCommitsTestProps): Setup {
 
   const props: ListOfCommitsProps = { ...defaultProps, ...additionalProps };
 
-  const utils: RenderResult = renderWithTheme(
-    <ListOfCommits {...props} />
-  );
+  const utils: RenderResult = renderWithTheme(<ListOfCommits {...props} />);
 
   const { queryByTestId, queryAllByTestId } = utils || {};
 

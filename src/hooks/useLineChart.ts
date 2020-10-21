@@ -26,7 +26,8 @@ export default function useLineChart({
     const maxTime: number = lastItem.time;
 
     const { height, width }: DOMRect = canvas.current.getBoundingClientRect();
-    const context: CanvasRenderingContext2D = canvas.current && canvas.current.getContext("2d");
+    const context: CanvasRenderingContext2D =
+      canvas.current && canvas.current.getContext("2d");
 
     clearCanvas({
       canvas: canvas.current,
@@ -35,39 +36,38 @@ export default function useLineChart({
       width
     });
 
-    chartData.current.forEach(({ time, value }: LineChartData, index: number) => {
-      const nextItem: LineChartData = chartData.current[index + 1];
+    chartData.current.forEach(
+      ({ time, value }: LineChartData, index: number) => {
+        const nextItem: LineChartData = chartData.current[index + 1];
 
-      if (!nextItem) {
-        return;
+        if (!nextItem) {
+          return;
+        }
+
+        const { x1, x2, y1, y2 }: GetLineCoordinatesResult = getLineCoordinates(
+          {
+            height,
+            maxTime,
+            nextItem,
+            time,
+            value,
+            width
+          }
+        );
+
+        if (context) {
+          context.moveTo(x1, y1);
+          context.lineTo(x2, y2);
+        }
       }
-
-      const {
-        x1,
-        x2,
-        y1,
-        y2
-      }: GetLineCoordinatesResult = getLineCoordinates({
-        height,
-        maxTime,
-        nextItem,
-        time,
-        value,
-        width
-      });
-
-      if (context) {
-        context.moveTo(x1, y1);
-        context.lineTo(x2, y2);
-      }
-    });
+    );
 
     if (context) {
       context.stroke();
     }
 
     window.requestAnimationFrame(drawChart);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useLayoutEffect((): void => {
@@ -83,16 +83,13 @@ export function getLineCoordinates({
   value,
   width
 }: GetLineCoordinates): GetLineCoordinatesResult {
-  const {
-    time: nextItemTime,
-    value: nextItemValue
-  }: LineChartData = nextItem;
-  
+  const { time: nextItemTime, value: nextItemValue }: LineChartData = nextItem;
+
   const x1: number = (time / maxTime) * width;
   const y1: number = ((60 - value) / 60) * height;
   const x2: number = (nextItemTime / maxTime) * width;
   const y2: number = ((60 - nextItemValue) / 60) * height;
-  
+
   return {
     x1,
     x2,

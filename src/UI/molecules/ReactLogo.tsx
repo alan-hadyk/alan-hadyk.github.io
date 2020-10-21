@@ -15,7 +15,7 @@ const ReactLogo = (): JSX.Element => (
     paddingTop="1vh"
     width="100%"
   >
-    <FlexContainer 
+    <FlexContainer
       alignItems="center"
       dataTestId="ReactLogoFlexContainer"
       height="100%"

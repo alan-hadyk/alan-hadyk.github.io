@@ -3,9 +3,7 @@ import React, { memo } from "react";
 import Section from "<molecules>/Section";
 import Project from "<organisms>/Project";
 
-import {
-  IconWithLabelProps
-} from "<molecules>/__typings__/IconWithLabel.d.ts";
+import { IconWithLabelProps } from "<molecules>/__typings__/IconWithLabel.d.ts";
 
 const iconsWithLabels: IconWithLabelProps[] = [
   {

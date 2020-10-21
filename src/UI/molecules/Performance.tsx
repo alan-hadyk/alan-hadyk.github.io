@@ -15,7 +15,7 @@ const PERFORMANCE_ITEMS: string[] = [
   "Fetch start",
   "Domain lookup",
   "Connect start",
-  "Connect end", 
+  "Connect end",
   "Request start",
   "Rasponse start",
   "Response end",
@@ -37,18 +37,20 @@ function Performance(): JSX.Element {
       flexFlow="column nowrap"
       justifyContent="flex-start"
     >
-      {PERFORMANCE_ITEMS.map((label: string, index: number): JSX.Element => {
-        const animationDelay = `${getRandomDelay(0, index * 600)}ms`;
-  
-        return (
-          <PerformanceItem
-            animationDelay={animationDelay}
-            key={label}
-            label={label}
-            shouldAnimate={!isPerformanceLow}
-          />
-        );
-      })}
+      {PERFORMANCE_ITEMS.map(
+        (label: string, index: number): JSX.Element => {
+          const animationDelay = `${getRandomDelay(0, index * 600)}ms`;
+
+          return (
+            <PerformanceItem
+              animationDelay={animationDelay}
+              key={label}
+              label={label}
+              shouldAnimate={!isPerformanceLow}
+            />
+          );
+        }
+      )}
     </FlexContainer>
   );
 }

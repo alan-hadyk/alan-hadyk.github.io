@@ -4,9 +4,7 @@ import FlexContainer from "<layout>/FlexContainer";
 import PositionContainer from "<layout>/PositionContainer";
 import SpacingContainer from "<layout>/SpacingContainer";
 
-import {
-  DashboardSectionOuterContainerProps
-} from "<pages>/Home/sections/dashboard/DashboardSection/__typings__/DashboardSectionOuterContainer.d.ts";
+import { DashboardSectionOuterContainerProps } from "<pages>/Home/sections/dashboard/DashboardSection/__typings__/DashboardSectionOuterContainer.d.ts";
 
 const DashboardSectionOuterContainer = ({
   children

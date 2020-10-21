@@ -8,7 +8,7 @@ import SpacingContainer from "<layout>/SpacingContainer";
 
 const ConsoleMobile = (): JSX.Element => (
   <SpacingContainer
-    dataCy="ConsoleMobile"  
+    dataCy="ConsoleMobile"
     dataTestId="ConsoleMobileSpacingContainer"
     paddingTop="spacing48"
   >
@@ -36,7 +36,7 @@ ConsoleMobile.Container = styled.div`
     border: 1px solid ${blue300};
     box-shadow: 0px 0px ${spacing8} 0px ${blue100};
     padding: ${spacing16};
-  `}
+  `};
 `;
 
 export default ConsoleMobile;

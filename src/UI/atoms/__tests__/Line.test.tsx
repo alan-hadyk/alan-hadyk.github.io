@@ -9,52 +9,55 @@ import { LineProps } from "<atoms>/__typings__/Line.d.ts";
 
 describe("atoms / Line", () => {
   describe("Styles", () => {
-    describe("background-color", () => {      
+    describe("background-color", () => {
       test("should have #fff", () => {
         const { LineContainer } = setup();
-  
+
         expect(LineContainer).toHaveStyleRule("background-color", "#fff");
       });
     });
 
-    describe("bottom", () => {      
+    describe("bottom", () => {
       test("should have 0", () => {
         const { LineContainer } = setup();
-  
+
         expect(LineContainer).toHaveStyleRule("bottom", "0");
       });
     });
 
-    describe("box-shadow", () => {      
+    describe("box-shadow", () => {
       test("should have 0px 0px .4rem 0px #bcd8db", () => {
         const { LineContainer } = setup();
-  
-        expect(LineContainer).toHaveStyleRule("box-shadow", "0px 0px .4rem 0px #bcd8db");
+
+        expect(LineContainer).toHaveStyleRule(
+          "box-shadow",
+          "0px 0px .4rem 0px #bcd8db"
+        );
       });
     });
 
-    describe("display", () => {      
+    describe("display", () => {
       test("should have block", () => {
         const { LineContainer } = setup();
-  
+
         expect(LineContainer).toHaveStyleRule("display", "block");
       });
     });
 
-    describe("height", () => {      
+    describe("height", () => {
       test("should have 1px", () => {
         const { LineContainer } = setup();
-  
+
         expect(LineContainer).toHaveStyleRule("height", "1px");
       });
     });
 
-    describe("opacity", () => {      
+    describe("opacity", () => {
       test("should have 1 when is active", () => {
         const { LineContainer } = setup({
           isActive: true
         });
-  
+
         expect(LineContainer).toHaveStyleRule("opacity", "1");
       });
 
@@ -62,33 +65,36 @@ describe("atoms / Line", () => {
         const { LineContainer } = setup({
           isActive: false
         });
-  
+
         expect(LineContainer).toHaveStyleRule("opacity", "0");
       });
     });
 
-    describe("position", () => {      
+    describe("position", () => {
       test("should have absolute", () => {
         const { LineContainer } = setup();
-  
+
         expect(LineContainer).toHaveStyleRule("position", "absolute");
       });
     });
 
-    describe("transition", () => {      
+    describe("transition", () => {
       test("should have all 150ms ease-in-out", () => {
         const { LineContainer } = setup();
-  
-        expect(LineContainer).toHaveStyleRule("transition", "all 150ms ease-in-out");
+
+        expect(LineContainer).toHaveStyleRule(
+          "transition",
+          "all 150ms ease-in-out"
+        );
       });
     });
 
-    describe("visibility", () => {      
+    describe("visibility", () => {
       test("should have visible when is active", () => {
         const { LineContainer } = setup({
           isActive: true
         });
-  
+
         expect(LineContainer).toHaveStyleRule("visibility", "visible");
       });
 
@@ -96,17 +102,17 @@ describe("atoms / Line", () => {
         const { LineContainer } = setup({
           isActive: false
         });
-  
+
         expect(LineContainer).toHaveStyleRule("visibility", "hidden");
       });
     });
 
-    describe("width", () => {      
+    describe("width", () => {
       test("should have 50% when is active", () => {
         const { LineContainer } = setup({
           isActive: true
         });
-  
+
         expect(LineContainer).toHaveStyleRule("width", "50%");
       });
 
@@ -114,25 +120,25 @@ describe("atoms / Line", () => {
         const { LineContainer } = setup({
           isActive: false
         });
-  
+
         expect(LineContainer).toHaveStyleRule("width", "0");
       });
     });
 
-    describe("z-index", () => {  
+    describe("z-index", () => {
       test("should have 100", () => {
         const { LineContainer } = setup();
-  
+
         expect(LineContainer).toHaveStyleRule("z-index", "100");
       });
     });
 
-    describe("left", () => {  
+    describe("left", () => {
       test("should have 50% if direction is set to left", () => {
         const { LineContainer } = setup({
           direction: "left"
         });
-  
+
         expect(LineContainer).toHaveStyleRule("left", "50%");
       });
 
@@ -140,17 +146,17 @@ describe("atoms / Line", () => {
         const { LineContainer } = setup({
           direction: "right"
         });
-  
+
         expect(LineContainer).not.toHaveStyleRule("left", "50%");
       });
     });
 
-    describe("right", () => {  
+    describe("right", () => {
       test("should have 50% if direction is set to right", () => {
         const { LineContainer } = setup({
           direction: "right"
         });
-  
+
         expect(LineContainer).toHaveStyleRule("right", "50%");
       });
 
@@ -158,7 +164,7 @@ describe("atoms / Line", () => {
         const { LineContainer } = setup({
           direction: "left"
         });
-  
+
         expect(LineContainer).not.toHaveStyleRule("right", "50%");
       });
     });
@@ -178,9 +184,7 @@ function setup(additionalProps?: LineTestProps): Setup {
     ...additionalProps
   };
 
-  const utils: RenderResult = renderWithTheme(
-    <Line {...props} />
-  );
+  const utils: RenderResult = renderWithTheme(<Line {...props} />);
 
   const { queryByTestId } = utils || {};
 

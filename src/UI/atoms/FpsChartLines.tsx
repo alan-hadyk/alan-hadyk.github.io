@@ -7,15 +7,20 @@ import {
   FpsChartLinesProps
 } from "<atoms>/__typings__/FpsChartLines.d.ts";
 
-const FpsChartLines = ({ lines, maxValue = 0 }: FpsChartLinesProps): JSX.Element => (
+const FpsChartLines = ({
+  lines,
+  maxValue = 0
+}: FpsChartLinesProps): JSX.Element => (
   <Fragment>
-    {lines.map((line: number): JSX.Element => (
-      <FpsChartLines.HorizontalLine
-        bottom={`${(line / maxValue) * 100}%`}
-        data-testid="HorizontalLine"
-        key={line}
-      />
-    ))}
+    {lines.map(
+      (line: number): JSX.Element => (
+        <FpsChartLines.HorizontalLine
+          bottom={`${(line / maxValue) * 100}%`}
+          data-testid="HorizontalLine"
+          key={line}
+        />
+      )
+    )}
   </Fragment>
 );
 
@@ -33,7 +38,7 @@ FpsChartLines.HorizontalLine = styled.div<FpsChartLinesHorizontalLineProps>`
     left: 0;
     position: absolute;
     right: 0;
-  `}
+  `};
 `;
 
 export default FpsChartLines;

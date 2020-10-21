@@ -1,8 +1,4 @@
-import {
-  act,
-  fireEvent,
-  RenderResult
-} from "@testing-library/react";
+import { act, fireEvent, RenderResult } from "@testing-library/react";
 import ShuffleText from "shuffle-text";
 import { Fragment } from "react";
 import React from "react";
@@ -11,12 +7,10 @@ import NavItem from "<molecules>/NavItem";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  NavItemProps
-} from "<molecules>/__typings__/NavItem.d.ts";
+import { NavItemProps } from "<molecules>/__typings__/NavItem.d.ts";
 
 describe("molecules / NavItem", () => {
-  describe("NavItem.Link", () => {    
+  describe("NavItem.Link", () => {
     describe("Event handlers", () => {
       test("should fire element.scrollIntoView onMouseUp", () => {
         const mockScrollIntoView = jest.fn();
@@ -28,7 +22,7 @@ describe("molecules / NavItem", () => {
           fireEvent.mouseUp(NavItemLink);
         });
 
-        expect(mockScrollIntoView).toHaveBeenCalledWith({ 
+        expect(mockScrollIntoView).toHaveBeenCalledWith({
           behavior: "smooth",
           block: "start"
         });
@@ -52,7 +46,7 @@ describe("molecules / NavItem", () => {
         jest.clearAllTimers();
       });
     });
-  }); 
+  });
 });
 
 interface Setup extends RenderResult {

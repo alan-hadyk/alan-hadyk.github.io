@@ -16,9 +16,7 @@ import useResize from "<hooks>/useResize";
 
 import { HeaderProps } from "<organisms>/Header/__typings__/Header.d.ts";
 
-function Header({
-  zIndex = "layer1"
-}: HeaderProps): JSX.Element {
+function Header({ zIndex = "layer1" }: HeaderProps): JSX.Element {
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false);
 
   useResize({
@@ -35,10 +33,7 @@ function Header({
       top="spacing0"
       zIndex={zIndex}
     >
-      <Header.Container 
-        data-cy="Header"
-        data-testid="HeaderContainer"
-      >
+      <Header.Container data-cy="Header" data-testid="HeaderContainer">
         <FlexContainer
           dataTestId="HeaderOuterFlexContainer"
           flexFlow="row nowrap"
@@ -58,9 +53,7 @@ function Header({
           height="spacing48"
           justifyContent="space-between"
         >
-          <Responsive
-            devices={["tv", "desktop", "tablet"]}
-          >
+          <Responsive devices={["tv", "desktop", "tablet"]}>
             <LinkWithIcon
               dataCy="SiteLogo"
               href={window.location.href}
@@ -70,9 +63,7 @@ function Header({
             />
           </Responsive>
 
-          <Responsive
-            devices={["mobile"]}
-          >
+          <Responsive devices={["mobile"]}>
             <LinkWithIcon
               dataCy="SiteLogoMobile"
               href={window.location.href}
@@ -92,14 +83,13 @@ function Header({
             isMenuVisible={isMenuVisible}
             onClick={handleMenuButtonClick}
           />
-            
         </FlexContainer>
       </Header.InnerContainer>
     );
   }
 
   function handleMenuButtonClick(): void {
-    setIsMenuVisible(_isMenuVisible => !_isMenuVisible);
+    setIsMenuVisible((_isMenuVisible) => !_isMenuVisible);
   }
 }
 
@@ -113,7 +103,7 @@ Header.Container = styled.header`
     background-color: ${transparentize(0.25, blue600)};
     border-bottom: 1px solid ${transparentize(0.5, blue300)};
     height: ${spacing96};
-  `}
+  `};
 `;
 
 Header.InnerContainer = styled.div`
@@ -126,7 +116,7 @@ Header.InnerContainer = styled.div`
     max-width: ${breakpoint1920};
     padding: ${spacing24} ${spacing48};
     width: 100%;
-  `}
+  `};
 `;
 
 export default memo(Header);

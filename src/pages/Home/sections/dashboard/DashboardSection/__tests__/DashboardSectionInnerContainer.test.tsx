@@ -5,16 +5,11 @@ import DashboardSectionInnerContainer from "<pages>/Home/sections/dashboard/Dash
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  DashboardSectionInnerContainerProps
-} from "<pages>/Home/sections/dashboard/DashboardSection/__typings__/DashboardSectionInnerContainer.d.ts";
+import { DashboardSectionInnerContainerProps } from "<pages>/Home/sections/dashboard/DashboardSection/__typings__/DashboardSectionInnerContainer.d.ts";
 
-describe("pages / Home / sections / dashboard / DashboardSection / DashboardSectionInnerContainer", () => {  
+describe("pages / Home / sections / dashboard / DashboardSection / DashboardSectionInnerContainer", () => {
   test("should have correct structure", () => {
-    const {
-      FlexContainer,
-      SpacingContainer
-    } = setup();
+    const { FlexContainer, SpacingContainer } = setup();
 
     expect(SpacingContainer.children[0]).toEqual(FlexContainer);
   });
@@ -35,7 +30,10 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
             height: "calc(17vh + 3.6rem)"
           });
 
-          expect(SpacingContainer).toHaveStyleRule("height", "calc(17vh + 3.6rem)");
+          expect(SpacingContainer).toHaveStyleRule(
+            "height",
+            "calc(17vh + 3.6rem)"
+          );
         });
       });
 
@@ -78,7 +76,6 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
           expect(SpacingContainer).toHaveStyleRule("width", "100%");
         });
       });
-
     });
   });
 
@@ -137,9 +134,13 @@ interface Setup extends RenderResult {
   SpacingContainer: Element;
 }
 
-type DashboardSectionInnerContainerTestProps = Partial<DashboardSectionInnerContainerProps>;
+type DashboardSectionInnerContainerTestProps = Partial<
+  DashboardSectionInnerContainerProps
+>;
 
-function setup(additionalProps?: DashboardSectionInnerContainerTestProps): Setup {
+function setup(
+  additionalProps?: DashboardSectionInnerContainerTestProps
+): Setup {
   const props: DashboardSectionInnerContainerProps = {
     children: <div>Custom children</div>,
     height: "24rem",
@@ -152,8 +153,12 @@ function setup(additionalProps?: DashboardSectionInnerContainerTestProps): Setup
 
   const { queryByTestId }: RenderResult = utils;
 
-  const FlexContainer: Element = queryByTestId("DashboardSectionInnerFlexContainer");
-  const SpacingContainer: Element = queryByTestId("DashboardSectionInnerContainer");
+  const FlexContainer: Element = queryByTestId(
+    "DashboardSectionInnerFlexContainer"
+  );
+  const SpacingContainer: Element = queryByTestId(
+    "DashboardSectionInnerContainer"
+  );
 
   return {
     ...utils,

@@ -7,47 +7,54 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 jest.mock("<hooks>/useIntersectionObserver");
 
-jest.mock("ip", () => ({	
-  address: (): string => "127.0.0.1"	
-}));	
+jest.mock("ip", () => ({
+  address: (): string => "127.0.0.1"
+}));
 
-jest.mock("<hooks>/useFpsCounter");	
+jest.mock("<hooks>/useFpsCounter");
 
-jest.mock("vivus");	
-// eslint-disable-next-line @typescript-eslint/no-explicit-any	
-jest.mock("<state>/withCommitsState", () => (WrappedComponent: React.FunctionComponent<any>) => (props: unknown): JSX.Element => {	
-  const commitsList = [	
-    {	
-      commit: {	
-        author: {	
-          date: "2020-03-10T22:34:52Z"	
-        }	
-      },	
-      html_url: "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2964",	
-      sha: "4380d5d391eee216e651d34700a331ec501c2964"	
-    },	
-    {	
-      commit: {	
-        author: {	
-          date: "2020-03-11T22:34:52Z"	
-        }	
-      },	
-      html_url: "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2969",	
-      sha: "4380d5d391eee216e651d34700a331ec501c2969"	
-    }	
-  ];	
+jest.mock("vivus");
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+jest.mock(
+  "<state>/withCommitsState",
+  () => (WrappedComponent: React.FunctionComponent<any>) => (
+    props: unknown
+  ): JSX.Element => {
+    const commitsList = [
+      {
+        commit: {
+          author: {
+            date: "2020-03-10T22:34:52Z"
+          }
+        },
+        html_url:
+          "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2964",
+        sha: "4380d5d391eee216e651d34700a331ec501c2964"
+      },
+      {
+        commit: {
+          author: {
+            date: "2020-03-11T22:34:52Z"
+          }
+        },
+        html_url:
+          "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2969",
+        sha: "4380d5d391eee216e651d34700a331ec501c2969"
+      }
+    ];
 
-  return (	
-    <WrappedComponent commitsList={commitsList} hasError={false} {...props} />	
-  );	
-});	
+    return (
+      <WrappedComponent commitsList={commitsList} hasError={false} {...props} />
+    );
+  }
+);
 
-interface Detect {	
-  name: string;	
-}	
+interface Detect {
+  name: string;
+}
 
-jest.mock("detect-browser", () => ({	
-  detect: (): Detect => ({ name: "chrome" })	
+jest.mock("detect-browser", () => ({
+  detect: (): Detect => ({ name: "chrome" })
 }));
 
 describe("pages / Home / HomePage", () => {
@@ -73,11 +80,11 @@ describe("pages / Home / HomePage", () => {
   });
 
   describe("Header", () => {
-    describe("Props", () => {      
+    describe("Props", () => {
       describe("zIndex", () => {
         test("should have 200", () => {
           const { HeaderPositionContainer } = setup();
-    
+
           expect(HeaderPositionContainer).toHaveStyleRule("z-index", "200");
         });
       });
@@ -97,9 +104,7 @@ interface Setup extends RenderResult {
 }
 
 function setup(): Setup {
-  const utils: RenderResult = renderWithTheme(
-    <HomePage />
-  );
+  const utils: RenderResult = renderWithTheme(<HomePage />);
 
   const { queryByTestId } = utils || {};
 
@@ -107,7 +112,9 @@ function setup(): Setup {
   const ContactSection: Element = queryByTestId("ContactSection");
   const DashboardSection: Element = queryByTestId("DashboardSection");
   const ExperienceSection: Element = queryByTestId("ExperienceSection");
-  const HeaderPositionContainer: Element = queryByTestId("HeaderPositionContainer");
+  const HeaderPositionContainer: Element = queryByTestId(
+    "HeaderPositionContainer"
+  );
   const PageTemplate: Element = queryByTestId("PageTemplate");
   const PortfolioSection: Element = queryByTestId("PortfolioSection");
   const SkillsSection: Element = queryByTestId("SkillsSection");

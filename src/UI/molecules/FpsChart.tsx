@@ -26,24 +26,11 @@ function FpsChart(): JSX.Element {
   });
 
   return (
-    <PositionContainer
-      dataTestId="FpsChart"
-      height="100%"
-      position="relative"
-    >
+    <PositionContainer dataTestId="FpsChart" height="100%" position="relative">
       <FpsChart.Container data-testid="Container">
-        <FpsChart.FpsCounter 
-          data-testid="FpsCounter"
-          ref={fpsContainerRef} 
-        />
-        <FpsChart.Canvas 
-          data-testid="Canvas"
-          ref={canvasRef} 
-        />
-        <FpsChartLines 
-          lines={[15, 30, 45]} 
-          maxValue={60}
-        />
+        <FpsChart.FpsCounter data-testid="FpsCounter" ref={fpsContainerRef} />
+        <FpsChart.Canvas data-testid="Canvas" ref={canvasRef} />
+        <FpsChartLines lines={[15, 30, 45]} maxValue={60} />
         <FpsChartLabels labels={[0, 15, 30, 45, 60]} />
       </FpsChart.Container>
     </PositionContainer>
@@ -58,7 +45,7 @@ FpsChart.Container = styled.div`
   }): FlattenSimpleInterpolation => css`
     border: thin solid ${blue400};
     height: 100%;
-  `}
+  `};
 `;
 
 FpsChart.FpsCounter = styled.div`
@@ -77,12 +64,12 @@ FpsChart.FpsCounter = styled.div`
     text-align: right;
     top: ${spacing0};
     transform: translateY(-${spacing36});
-  `}
+  `};
 `;
 
 FpsChart.Canvas = styled.canvas`
   height: 100%;
   width: 100%;
 `;
-  
+
 export default FpsChart;

@@ -24,9 +24,9 @@ describe("molecules / HexagonWithDescription", () => {
     expect(FlexItem.children[0]).toEqual(Text);
   });
 
-  describe("FlexContainer", () => {    
+  describe("FlexContainer", () => {
     describe("Props", () => {
-      describe("alignItems", () => { 
+      describe("alignItems", () => {
         test("should have center", () => {
           const { FlexContainer } = setup();
 
@@ -52,13 +52,16 @@ describe("molecules / HexagonWithDescription", () => {
     });
   });
 
-  describe("DescriptionSpacingContainer", () => { 
+  describe("DescriptionSpacingContainer", () => {
     describe("Props", () => {
-      describe("marginRight", () => {      
+      describe("marginRight", () => {
         test("should have 0 by default", () => {
           const { DescriptionSpacingContainer } = setup();
 
-          expect(DescriptionSpacingContainer).toHaveStyleRule("margin-right", "0");
+          expect(DescriptionSpacingContainer).toHaveStyleRule(
+            "margin-right",
+            "0"
+          );
         });
 
         test("should have correct value passed via marginRight prop", () => {
@@ -66,15 +69,21 @@ describe("molecules / HexagonWithDescription", () => {
             marginRight: "spacing40"
           });
 
-          expect(DescriptionSpacingContainer).toHaveStyleRule("margin-right", "4rem");
+          expect(DescriptionSpacingContainer).toHaveStyleRule(
+            "margin-right",
+            "4rem"
+          );
         });
       });
 
-      describe("marginBottom", () => {      
+      describe("marginBottom", () => {
         test("should have 0 by default", () => {
           const { DescriptionSpacingContainer } = setup();
 
-          expect(DescriptionSpacingContainer).toHaveStyleRule("margin-bottom", "0");
+          expect(DescriptionSpacingContainer).toHaveStyleRule(
+            "margin-bottom",
+            "0"
+          );
         });
 
         test("should have correct value passed via marginBottom prop", () => {
@@ -82,11 +91,14 @@ describe("molecules / HexagonWithDescription", () => {
             marginBottom: "spacing40"
           });
 
-          expect(DescriptionSpacingContainer).toHaveStyleRule("margin-bottom", "4rem");
+          expect(DescriptionSpacingContainer).toHaveStyleRule(
+            "margin-bottom",
+            "4rem"
+          );
         });
       });
 
-      describe("width", () => {      
+      describe("width", () => {
         test("should have correct value passed via width prop", () => {
           const { DescriptionSpacingContainer } = setup({
             width: "100px"
@@ -103,7 +115,7 @@ describe("molecules / HexagonWithDescription", () => {
       describe("flex", () => {
         test("should have 0 1 50%", () => {
           const { FlexItem } = setup();
-    
+
           expect(FlexItem).toHaveStyleRule("flex", "0 1 50%");
         });
       });
@@ -117,14 +129,16 @@ describe("molecules / HexagonWithDescription", () => {
         description: <span>Custom text</span>
       });
 
-      expect(Hexagon.children[1].children[0].textContent).toEqual("Custom image");
+      expect(Hexagon.children[1].children[0].textContent).toEqual(
+        "Custom image"
+      );
     });
 
     describe("Props", () => {
       describe("width", () => {
         test("should have 75%", () => {
           const { Hexagon } = setup();
-    
+
           expect(Hexagon.children[1]).toHaveStyleRule("width", "75%");
         });
       });
@@ -145,7 +159,7 @@ describe("molecules / HexagonWithDescription", () => {
       describe("color", () => {
         test("should have #78b0b5", () => {
           const { Text } = setup();
-    
+
           expect(Text).toHaveStyleRule("color", "#78b0b5");
         });
       });
@@ -154,14 +168,17 @@ describe("molecules / HexagonWithDescription", () => {
         test("should have 'Anonymous Pro',monospace", () => {
           const { Text } = setup();
 
-          expect(Text).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
+          expect(Text).toHaveStyleRule(
+            "font-family",
+            "'Anonymous Pro',monospace"
+          );
         });
       });
 
       describe("fontSize", () => {
         test("should have 20px", () => {
           const { Text } = setup();
-    
+
           expect(Text).toHaveStyleRule("font-size", "20px");
         });
       });
@@ -169,7 +186,7 @@ describe("molecules / HexagonWithDescription", () => {
       describe("lineHeight", () => {
         test("should have 3.6rem by default", () => {
           const { Text } = setup();
-    
+
           expect(Text).toHaveStyleRule("line-height", "3.6rem");
         });
 
@@ -177,7 +194,7 @@ describe("molecules / HexagonWithDescription", () => {
           const { Text } = setup({
             lineHeight: "spacing40"
           });
-    
+
           expect(Text).toHaveStyleRule("line-height", "4rem");
         });
       });
@@ -192,7 +209,9 @@ interface Setup extends RenderResult {
   Hexagon: Element;
   Text: Element;
 }
-type HexagonWithDescriptionTestProps = Partial<HexagonWithDescriptionContentProps>;
+type HexagonWithDescriptionTestProps = Partial<
+  HexagonWithDescriptionContentProps
+>;
 
 function setup(additionalProps?: HexagonWithDescriptionTestProps): Setup {
   const props: HexagonWithDescriptionContentProps = {
@@ -209,8 +228,12 @@ function setup(additionalProps?: HexagonWithDescriptionTestProps): Setup {
 
   const { queryAllByTestId } = utils || {};
 
-  const DescriptionSpacingContainer: Element = queryAllByTestId("DescriptionSpacingContainer")[0];
-  const FlexContainer: Element = queryAllByTestId("HexagonWithDescriptionContent")[0];
+  const DescriptionSpacingContainer: Element = queryAllByTestId(
+    "DescriptionSpacingContainer"
+  )[0];
+  const FlexContainer: Element = queryAllByTestId(
+    "HexagonWithDescriptionContent"
+  )[0];
   const FlexItem: Element = queryAllByTestId("FlexItem")[0];
   const Hexagon: Element = queryAllByTestId("Hexagon")[0];
   const Text: Element = queryAllByTestId("Text")[0];
@@ -224,4 +247,3 @@ function setup(additionalProps?: HexagonWithDescriptionTestProps): Setup {
     Text
   };
 }
- 

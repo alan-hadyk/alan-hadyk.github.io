@@ -5,17 +5,12 @@ import DashboardElement from "<molecules>/DashboardElement";
 
 import SpacingContainer from "<layout>/SpacingContainer";
 
-import {
-  SkillsItemProps
-} from "<molecules>/__typings__/SkillsItem.d.ts";
+import { SkillsItemProps } from "<molecules>/__typings__/SkillsItem.d.ts";
 
-function SkillsItem({ 
-  data: {
-    iconsWithLabels,
-    title
-  }
+function SkillsItem({
+  data: { iconsWithLabels, title }
 }: SkillsItemProps): JSX.Element {
-  const dataCyTitle = title.replace(/\s/g, "").replace("/","");
+  const dataCyTitle = title.replace(/\s/g, "").replace("/", "");
 
   return (
     <DashboardElement

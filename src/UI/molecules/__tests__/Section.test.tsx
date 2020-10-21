@@ -1,19 +1,15 @@
 import React from "react";
-import {
-  RenderResult
-} from "@testing-library/react";
+import { RenderResult } from "@testing-library/react";
 
 import Section from "<molecules>/Section";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  SectionProps
-} from "<molecules>/__typings__/Section.d.ts";
+import { SectionProps } from "<molecules>/__typings__/Section.d.ts";
 
 describe("molecules / Section", () => {
   test("should have correct structure", () => {
-    const { 
+    const {
       ResponsiveDesktop,
       ResponsiveMobile,
       ResponsiveTablet,
@@ -40,11 +36,9 @@ describe("molecules / Section", () => {
     expect(ResponsiveMobile.children[0]).toEqual(TitleSpacingContainers[3]);
     expect(TitleSpacingContainers[3].children[0]).toEqual(Texts[3]);
   });
- 
+
   test("should render children", () => {
-    const { 
-      queryByTestId
-    } = setup({
+    const { queryByTestId } = setup({
       children: <div data-testid="customChildren">Custom children</div>
     });
 
@@ -52,10 +46,7 @@ describe("molecules / Section", () => {
   });
 
   test("should not render TitleSpacingContainer and Text if there is no title", () => {
-    const { 
-      Texts,
-      TitleSpacingContainers
-    } = setup({
+    const { Texts, TitleSpacingContainers } = setup({
       title: undefined
     });
 
@@ -68,10 +59,10 @@ describe("molecules / Section", () => {
     });
   });
 
-  describe("SpacingContainers", () => { 
-    describe("SectionContainer", () => { 
+  describe("SpacingContainers", () => {
+    describe("SectionContainer", () => {
       describe("Props", () => {
-        describe("id", () => {      
+        describe("id", () => {
           test("should have correct value passed via id prop", () => {
             const { SectionContainer } = setup({
               id: "SectionID"
@@ -81,7 +72,7 @@ describe("molecules / Section", () => {
           });
         });
 
-        describe("marginBottom", () => {      
+        describe("marginBottom", () => {
           test("should have 0 by default", () => {
             const { SectionContainer } = setup();
 
@@ -97,7 +88,7 @@ describe("molecules / Section", () => {
           });
         });
 
-        describe("minHeight", () => {      
+        describe("minHeight", () => {
           test("should not have min-height by default", () => {
             const { SectionContainer } = setup();
 
@@ -121,7 +112,7 @@ describe("molecules / Section", () => {
           });
         });
 
-        describe("paddingTop", () => {      
+        describe("paddingTop", () => {
           test("should have 0 if there is no title", () => {
             const { SectionContainer } = setup({
               title: undefined
@@ -141,30 +132,42 @@ describe("molecules / Section", () => {
       });
     });
 
-    describe("TitleSpacingContainer", () => { 
+    describe("TitleSpacingContainer", () => {
       describe("Props", () => {
-        describe("marginBottom", () => {      
+        describe("marginBottom", () => {
           test("should have 9.6rem for tv, desktop and tablet", () => {
             const { TitleSpacingContainers } = setup();
 
-            expect(TitleSpacingContainers[0]).toHaveStyleRule("margin-bottom", "9.6rem");
-            expect(TitleSpacingContainers[1]).toHaveStyleRule("margin-bottom", "9.6rem");
-            expect(TitleSpacingContainers[2]).toHaveStyleRule("margin-bottom", "9.6rem");
+            expect(TitleSpacingContainers[0]).toHaveStyleRule(
+              "margin-bottom",
+              "9.6rem"
+            );
+            expect(TitleSpacingContainers[1]).toHaveStyleRule(
+              "margin-bottom",
+              "9.6rem"
+            );
+            expect(TitleSpacingContainers[2]).toHaveStyleRule(
+              "margin-bottom",
+              "9.6rem"
+            );
           });
 
           test("should have 4.8rem for mobile", () => {
             const { TitleSpacingContainers } = setup();
 
-            expect(TitleSpacingContainers[3]).toHaveStyleRule("margin-bottom", "4.8rem");
+            expect(TitleSpacingContainers[3]).toHaveStyleRule(
+              "margin-bottom",
+              "4.8rem"
+            );
           });
         });
       });
     });
   });
 
-  describe("Texts", () => { 
+  describe("Texts", () => {
     describe("Props", () => {
-      describe("color", () => {      
+      describe("color", () => {
         test("should have #bcd8db", () => {
           const { Texts } = setup();
 
@@ -174,17 +177,20 @@ describe("molecules / Section", () => {
         });
       });
 
-      describe("fontFamily", () => {      
+      describe("fontFamily", () => {
         test("should have ExanModifiedRegular,monospace", () => {
           const { Texts } = setup();
 
           Texts.forEach((Text: Element) => {
-            expect(Text).toHaveStyleRule("font-family", "ExanModifiedRegular,monospace");
+            expect(Text).toHaveStyleRule(
+              "font-family",
+              "ExanModifiedRegular,monospace"
+            );
           });
         });
       });
 
-      describe("fontSize", () => {      
+      describe("fontSize", () => {
         test("should have 72px for tv, desktop and tablet", () => {
           const { Texts } = setup();
 
@@ -200,7 +206,7 @@ describe("molecules / Section", () => {
         });
       });
 
-      describe("lineHeight", () => {      
+      describe("lineHeight", () => {
         test("should have 8rem", () => {
           const { Texts } = setup();
 
@@ -210,7 +216,7 @@ describe("molecules / Section", () => {
         });
       });
 
-      describe("textAlign", () => {      
+      describe("textAlign", () => {
         test("should have center", () => {
           const { Texts } = setup();
 
@@ -220,7 +226,7 @@ describe("molecules / Section", () => {
         });
       });
 
-      describe("textTransform", () => {      
+      describe("textTransform", () => {
         test("should have lowercase", () => {
           const { Texts } = setup();
 
@@ -245,7 +251,6 @@ interface Setup extends RenderResult {
 
 type SectionTestProps = Partial<SectionProps>;
 
-
 function setup(additionalProps?: SectionTestProps): Setup {
   const props: SectionProps = {
     children: <div data-testid="children">Children</div>,
@@ -254,9 +259,7 @@ function setup(additionalProps?: SectionTestProps): Setup {
     ...additionalProps
   };
 
-  const utils: RenderResult = renderWithTheme(
-    <Section {...props} />
-  );
+  const utils: RenderResult = renderWithTheme(<Section {...props} />);
 
   const { queryByTestId, queryAllByTestId }: RenderResult = utils;
 
@@ -265,7 +268,9 @@ function setup(additionalProps?: SectionTestProps): Setup {
   const ResponsiveTablet: Element = queryByTestId("ResponsiveTablet");
   const ResponsiveTv: Element = queryByTestId("ResponsiveTv");
   const SectionContainer: Element = queryByTestId("Section");
-  const TitleSpacingContainers: Element[] = queryAllByTestId("TitleSpacingContainer");
+  const TitleSpacingContainers: Element[] = queryAllByTestId(
+    "TitleSpacingContainer"
+  );
   const Texts: Element[] = queryAllByTestId("Text");
 
   return {

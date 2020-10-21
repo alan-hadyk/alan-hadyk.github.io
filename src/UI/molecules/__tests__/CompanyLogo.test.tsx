@@ -9,11 +9,7 @@ import { CompanyLogoProps } from "<molecules>/__typings__/CompanyLogo.d.ts";
 
 describe("molecules / CompanyLogo", () => {
   test("should have correct structure", () => {
-    const { 
-      CompanyLogoFlexContainer,
-      Icon,
-      Logo
-    } = setup();
+    const { CompanyLogoFlexContainer, Icon, Logo } = setup();
 
     expect(CompanyLogoFlexContainer.children[0]).toEqual(Logo);
     expect(Logo.children[0]).toEqual(Icon);
@@ -21,19 +17,25 @@ describe("molecules / CompanyLogo", () => {
 
   describe("FlexContainer", () => {
     describe("Props", () => {
-      describe("alignItems", () => { 
+      describe("alignItems", () => {
         test("should have flex-start", () => {
           const { CompanyLogoFlexContainer } = setup();
-  
-          expect(CompanyLogoFlexContainer).toHaveStyleRule("align-items", "flex-start");
+
+          expect(CompanyLogoFlexContainer).toHaveStyleRule(
+            "align-items",
+            "flex-start"
+          );
         });
       });
 
-      describe("justifyContent", () => { 
+      describe("justifyContent", () => {
         test("should have flex-end", () => {
           const { CompanyLogoFlexContainer } = setup();
-  
-          expect(CompanyLogoFlexContainer).toHaveStyleRule("justify-content", "flex-end");
+
+          expect(CompanyLogoFlexContainer).toHaveStyleRule(
+            "justify-content",
+            "flex-end"
+          );
         });
       });
     });
@@ -49,7 +51,7 @@ describe("molecules / CompanyLogo", () => {
     });
 
     describe("Props", () => {
-      describe("height", () => { 
+      describe("height", () => {
         test("should have 4.8rem", () => {
           const { Logo } = setup();
 
@@ -61,7 +63,7 @@ describe("molecules / CompanyLogo", () => {
         describe("height", () => {
           test("should have 100%", () => {
             const { Logo } = setup();
-      
+
             expect(Logo).toHaveStyleRule("height", "100%", {
               modifier: "svg"
             });
@@ -71,7 +73,7 @@ describe("molecules / CompanyLogo", () => {
         describe("width", () => {
           test("should have auto", () => {
             const { Logo } = setup();
-      
+
             expect(Logo).toHaveStyleRule("width", "auto", {
               modifier: "svg"
             });
@@ -96,13 +98,13 @@ function setup(additionalProps?: CompanyLogoTestProps): Setup {
     ...additionalProps
   };
 
-  const utils: RenderResult = renderWithTheme(
-    <CompanyLogo {...props} />
-  );
+  const utils: RenderResult = renderWithTheme(<CompanyLogo {...props} />);
 
   const { queryAllByTestId }: RenderResult = utils;
 
-  const CompanyLogoFlexContainer: Element  = queryAllByTestId("CompanyLogoFlexContainer")[0];
+  const CompanyLogoFlexContainer: Element = queryAllByTestId(
+    "CompanyLogoFlexContainer"
+  )[0];
   const Icon: SVGSVGElement = document.querySelector("svg");
   const Logo: Element = queryAllByTestId("Logo")[0];
 

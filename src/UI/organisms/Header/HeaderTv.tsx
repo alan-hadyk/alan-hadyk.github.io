@@ -9,10 +9,7 @@ import FlexContainer from "<layout>/FlexContainer";
 import SpacingContainer from "<layout>/SpacingContainer";
 
 const HeaderTv = (): JSX.Element => (
-  <Responsive
-    dataTestTvId="HeaderTv"
-    devices={["tv"]}
-  >
+  <Responsive dataTestTvId="HeaderTv" devices={["tv"]}>
     <FlexContainer
       dataTestId="HeaderTvFlexContainer"
       flexFlow="row nowrap"
@@ -20,18 +17,14 @@ const HeaderTv = (): JSX.Element => (
       gap="spacing24"
       justifyContent="flex-start"
     >
-      <SpacingContainer 
+      <SpacingContainer
         dataTestId="HeaderTvSpacingContainer"
         paddingRight="spacing24"
       >
         <Nav />
       </SpacingContainer>
 
-      <Button
-        buttonText="resume"
-        iconName="btnDownload"
-        size="medium"
-      />
+      <Button buttonText="resume" iconName="btnDownload" size="medium" />
 
       <MenuIcons />
     </FlexContainer>

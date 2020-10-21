@@ -27,11 +27,7 @@ function ButtonText({
       dataTestId={dataTestId || "ButtonText"}
       marginRight={size === "small" ? "spacing8" : "spacing16"}
     >
-      <Text 
-        {...buttonTextProps} 
-        fontFamily="Exan"
-        color="white"
-      >
+      <Text {...buttonTextProps} fontFamily="Exan" color="white">
         {buttonText}
       </Text>
     </SpacingContainer>

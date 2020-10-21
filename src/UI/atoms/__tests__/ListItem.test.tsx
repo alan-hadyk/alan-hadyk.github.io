@@ -15,37 +15,37 @@ describe("atoms / ListItem", () => {
 
     expect(ListItemContainer.textContent).toEqual("Custom children");
   });
-  
+
   describe("Styles", () => {
-    describe("color", () => {      
+    describe("color", () => {
       test("should have #78b0b5", () => {
         const { ListItemContainer } = setup();
-  
+
         expect(ListItemContainer).toHaveStyleRule("color", "#78b0b5");
       });
     });
 
-    describe("font-size", () => {      
+    describe("font-size", () => {
       test("should have 20px", () => {
         const { ListItemContainer } = setup();
-  
+
         expect(ListItemContainer).toHaveStyleRule("font-size", "20px");
       });
     });
 
-    describe("line-height", () => {      
+    describe("line-height", () => {
       test("should have 2.8rem", () => {
         const { ListItemContainer } = setup();
-  
+
         expect(ListItemContainer).toHaveStyleRule("line-height", "2.8rem");
       });
     });
 
-    describe("strong", () => {      
-      describe("color", () => {      
+    describe("strong", () => {
+      describe("color", () => {
         test("should have #bcd8db", () => {
           const { ListItemContainer } = setup();
-  
+
           expect(ListItemContainer).toHaveStyleRule("color", "#bcd8db", {
             modifier: "& strong"
           });
@@ -68,9 +68,7 @@ function setup(additionalProps?: ListItemTestProps): Setup {
   };
 
   const utils: RenderResult = renderWithTheme(
-    <ListItem {...props}>
-      {props.children}
-    </ListItem>
+    <ListItem {...props}>{props.children}</ListItem>
   );
 
   const { queryByTestId } = utils || {};

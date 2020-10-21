@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  act,
-  fireEvent,
-  RenderResult
-} from "@testing-library/react";
+import { act, fireEvent, RenderResult } from "@testing-library/react";
 import ShuffleText from "shuffle-text";
 
 import Text from "<atoms>/Text";
@@ -38,10 +34,10 @@ describe("atoms / Text", () => {
   });
 
   describe("Styles", () => {
-    describe("color", () => {      
+    describe("color", () => {
       test("should have #78b0b5 by default", () => {
         const { TextContainer } = setup();
-  
+
         expect(TextContainer).toHaveStyleRule("color", "#78b0b5");
       });
 
@@ -49,7 +45,7 @@ describe("atoms / Text", () => {
         const { TextContainer } = setup({
           color: "blue500"
         });
-  
+
         expect(TextContainer).toHaveStyleRule("color", "#2b595e");
       });
 
@@ -57,19 +53,18 @@ describe("atoms / Text", () => {
         const { TextContainer } = setup({
           isHoverable: true
         });
-  
+
         expect(TextContainer).toHaveStyleRule("color", "#fff", {
           modifier: "&:hover"
         });
       });
-
 
       describe("strong", () => {
         test("should have #bcd8db color prop is blue300", () => {
           const { TextContainer } = setup({
             color: "blue300"
           });
-    
+
           expect(TextContainer).toHaveStyleRule("color", "#bcd8db", {
             modifier: "strong"
           });
@@ -132,85 +127,91 @@ describe("atoms / Text", () => {
         });
       });
     });
-    
-    describe("font-family", () => {      
+
+    describe("font-family", () => {
       test("should have AnonymousPro by default", () => {
         const { TextContainer } = setup();
-      
-        expect(TextContainer).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
+
+        expect(TextContainer).toHaveStyleRule(
+          "font-family",
+          "'Anonymous Pro',monospace"
+        );
       });
-    
+
       test("should have correct value passed via fontFamily prop", () => {
         const { TextContainer } = setup({
           fontFamily: "Exan"
         });
-      
-        expect(TextContainer).toHaveStyleRule("font-family", "ExanModifiedRegular,monospace");
+
+        expect(TextContainer).toHaveStyleRule(
+          "font-family",
+          "ExanModifiedRegular,monospace"
+        );
       });
     });
-    
-    describe("font-size", () => {      
+
+    describe("font-size", () => {
       test("should have 20px by default", () => {
         const { TextContainer } = setup();
-      
+
         expect(TextContainer).toHaveStyleRule("font-size", "20px");
       });
-    
+
       test("should have correct value passed via fontSize prop", () => {
         const { TextContainer } = setup({
           fontSize: "font72"
         });
-      
+
         expect(TextContainer).toHaveStyleRule("font-size", "72px");
       });
     });
 
-    describe("font-weight", () => {      
+    describe("font-weight", () => {
       test("should have 400 by default", () => {
         const { TextContainer } = setup();
-      
+
         expect(TextContainer).toHaveStyleRule("font-weight", "400");
       });
-    
+
       test("should have correct value passed via fontWeight prop", () => {
         const { TextContainer } = setup({
           fontWeight: "bold"
         });
-      
+
         expect(TextContainer).toHaveStyleRule("font-weight", "700");
       });
     });
-    
-    describe("line-height", () => {      
+
+    describe("line-height", () => {
       test("should have 1 by default", () => {
         const { TextContainer } = setup();
-      
+
         expect(TextContainer).toHaveStyleRule("line-height", "1");
       });
-    
+
       test("should have correct value passed via lineHeight prop - spacing", () => {
         const { TextContainer } = setup({
           lineHeight: "spacing24"
         });
-      
+
         expect(TextContainer).toHaveStyleRule("line-height", "2.4rem");
       });
     });
 
-    describe("max-height", () => {        
+    describe("max-height", () => {
       test("should have correct value passed via maxHeight prop", () => {
         const { TextContainer } = setup({
           maxHeight: "spacing24"
         });
-      
+
         expect(TextContainer).toHaveStyleRule("max-height", "2.4rem");
       });
     });
 
-    describe("overflow", () => {        
+    describe("overflow", () => {
       test("should have visible by default", () => {
         const { TextContainer } = setup();
-      
+
         expect(TextContainer).toHaveStyleRule("overflow", "visible");
       });
 
@@ -218,127 +219,127 @@ describe("atoms / Text", () => {
         const { TextContainer } = setup({
           overflow: "hidden"
         });
-      
+
         expect(TextContainer).toHaveStyleRule("overflow", "hidden");
       });
     });
-    
-    describe("padding-bottom", () => {      
+
+    describe("padding-bottom", () => {
       test("should have 0 by default", () => {
         const { TextContainer } = setup();
-      
+
         expect(TextContainer).toHaveStyleRule("padding-bottom", "0");
       });
-    
+
       test("should have correct value passed via paddingBottom prop", () => {
         const { TextContainer } = setup({
           paddingBottom: "spacing24"
         });
-      
+
         expect(TextContainer).toHaveStyleRule("padding-bottom", "2.4rem");
       });
     });
-    
-    describe("padding-left", () => {      
+
+    describe("padding-left", () => {
       test("should have 0 by default", () => {
         const { TextContainer } = setup();
-      
+
         expect(TextContainer).toHaveStyleRule("padding-left", "0");
       });
-    
+
       test("should have correct value passed via paddingLeft prop", () => {
         const { TextContainer } = setup({
           paddingLeft: "spacing24"
         });
-      
+
         expect(TextContainer).toHaveStyleRule("padding-left", "2.4rem");
       });
     });
-    
-    describe("padding-right", () => {      
+
+    describe("padding-right", () => {
       test("should have 0 by default", () => {
         const { TextContainer } = setup();
-      
+
         expect(TextContainer).toHaveStyleRule("padding-right", "0");
       });
-    
+
       test("should have correct value passed via paddingRight prop", () => {
         const { TextContainer } = setup({
           paddingRight: "spacing24"
         });
-      
+
         expect(TextContainer).toHaveStyleRule("padding-right", "2.4rem");
       });
     });
-    
-    describe("padding-top", () => {      
+
+    describe("padding-top", () => {
       test("should have 0 by default", () => {
         const { TextContainer } = setup();
-      
+
         expect(TextContainer).toHaveStyleRule("padding-top", "0");
       });
-    
+
       test("should have correct value passed via paddingTop prop", () => {
         const { TextContainer } = setup({
           paddingTop: "spacing24"
         });
-      
+
         expect(TextContainer).toHaveStyleRule("padding-top", "2.4rem");
       });
     });
-    
-    describe("text-align", () => {      
+
+    describe("text-align", () => {
       test("should have left by default", () => {
         const { TextContainer } = setup();
-      
+
         expect(TextContainer).toHaveStyleRule("text-align", "left");
       });
-    
+
       test("should have center passed via textAlign prop", () => {
         const { TextContainer } = setup({
           textAlign: "center"
         });
-      
+
         expect(TextContainer).toHaveStyleRule("text-align", "center");
       });
-    
+
       test("should have right passed via textAlign prop", () => {
         const { TextContainer } = setup({
           textAlign: "right"
         });
-      
+
         expect(TextContainer).toHaveStyleRule("text-align", "right");
       });
     });
-    
-    describe("text-transform", () => {      
+
+    describe("text-transform", () => {
       test("should have none by default", () => {
         const { TextContainer } = setup();
-      
+
         expect(TextContainer).toHaveStyleRule("text-transform", "none");
       });
-    
+
       test("should have lowercase passed via textTransform prop", () => {
         const { TextContainer } = setup({
           textTransform: "lowercase"
         });
-      
+
         expect(TextContainer).toHaveStyleRule("text-transform", "lowercase");
       });
-    
+
       test("should have uppercase passed via textTransform prop", () => {
         const { TextContainer } = setup({
           textTransform: "uppercase"
         });
-      
+
         expect(TextContainer).toHaveStyleRule("text-transform", "uppercase");
       });
-    
+
       test("should have capitalize passed via textTransform prop", () => {
         const { TextContainer } = setup({
           textTransform: "capitalize"
         });
-      
+
         expect(TextContainer).toHaveStyleRule("text-transform", "capitalize");
       });
     });
@@ -346,8 +347,11 @@ describe("atoms / Text", () => {
     describe("transition", () => {
       test("should have all 150ms ease-in-out", () => {
         const { TextContainer } = setup();
-  
-        expect(TextContainer).toHaveStyleRule("transition", "all 150ms ease-in-out");
+
+        expect(TextContainer).toHaveStyleRule(
+          "transition",
+          "all 150ms ease-in-out"
+        );
       });
     });
   });
@@ -525,9 +529,7 @@ export function setup(additionalProps?: TextTestProps): Setup {
   };
 
   const utils: RenderResult = renderWithTheme(
-    <Text {...props}>
-      {props.children}
-    </Text> 
+    <Text {...props}>{props.children}</Text>
   );
 
   const { container } = utils || {};

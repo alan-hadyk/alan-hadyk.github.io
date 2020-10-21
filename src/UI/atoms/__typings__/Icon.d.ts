@@ -1,6 +1,9 @@
 import { FunctionComponent, SVGProps } from "react";
 
-import { Spacing, TransitionTimes } from "<styles>/variables/__typings__/variables.d.ts";
+import {
+  Spacing,
+  TransitionTimes
+} from "<styles>/variables/__typings__/variables.d.ts";
 
 export interface IconProps {
   animationDelay?: string;
@@ -8,86 +11,86 @@ export interface IconProps {
   dataTestId?: string;
   height?: string | Spacing;
   iconName:
-    "apollo" |
-    "brandAfterEffects" |
-    "brandAirbnb" |
-    "brandApollo" |
-    "brandBasecamp" |
-    "brandBamboo" |
-    "brandBuildkite" |
-    "brandCSS" |
-    "brandCSSModules" |
-    "brandCoffeeScript" |
-    "brandCorel" |
-    "brandCypress" |
-    "brandDocker" |
-    "brandDocpad" |
-    "brandEmber" |
-    "brandExpress" |
-    "brandFigma" |
-    "brandGallery" |
-    "brandGithub" |
-    "brandGitlab" |
-    "brandGraphQL" |
-    "brandGrunt" |
-    "brandGulp" |
-    "brandHTML" |
-    "brandJEST" |
-    "brandJIRA" |
-    "brandJQuery" |
-    "brandJS" |
-    "brandJenkins" |
-    "brandLESS" |
-    "brandNode" |
-    "brandPhabricator" |
-    "brandPhotoshop" |
-    "brandPrestaShop" |
-    "brandQuire" |
-    "brandQunit" |
-    "brandREST" |
-    "brandReact" |
-    "brandRedmine" |
-    "brandRedux" |
-    "brandSass" |
-    "brandSketch" |
-    "brandStash" |
-    "brandStyledComponents" |
-    "brandTS" |
-    "brandTaskade" |
-    "brandTestingLibrary" |
-    "brandTrello" |
-    "brandWebpack" |
-    "brandWebsocket" |
-    "brandZeplin" |
-    "btnCodeSandbox" |
-    "btnDownload" |
-    "btnExternalLink" |
-    "calendar" |
-    "chrome" |
-    "codeSandbox" |
-    "companyDIH" |
-    "companyOmise" |
-    "companySAP" |
-    "companyShiji" |
-    "earth" |
-    "firefox" |
-    "gitHub" |
-    "graphql" |
-    "hexagon" |
-    "hexagonWithPattern" |
-    "ie" |
-    "javascript" |
-    "linkedIn" |
-    "logo" |
-    "logoShortcut" |
-    "node" |
-    "opera" |
-    "react" |
-    "reactLogo" |
-    "safari" |
-    "typescript" |
-    "unknown" |
-    "webpack";
+    | "apollo"
+    | "brandAfterEffects"
+    | "brandAirbnb"
+    | "brandApollo"
+    | "brandBasecamp"
+    | "brandBamboo"
+    | "brandBuildkite"
+    | "brandCSS"
+    | "brandCSSModules"
+    | "brandCoffeeScript"
+    | "brandCorel"
+    | "brandCypress"
+    | "brandDocker"
+    | "brandDocpad"
+    | "brandEmber"
+    | "brandExpress"
+    | "brandFigma"
+    | "brandGallery"
+    | "brandGithub"
+    | "brandGitlab"
+    | "brandGraphQL"
+    | "brandGrunt"
+    | "brandGulp"
+    | "brandHTML"
+    | "brandJEST"
+    | "brandJIRA"
+    | "brandJQuery"
+    | "brandJS"
+    | "brandJenkins"
+    | "brandLESS"
+    | "brandNode"
+    | "brandPhabricator"
+    | "brandPhotoshop"
+    | "brandPrestaShop"
+    | "brandQuire"
+    | "brandQunit"
+    | "brandREST"
+    | "brandReact"
+    | "brandRedmine"
+    | "brandRedux"
+    | "brandSass"
+    | "brandSketch"
+    | "brandStash"
+    | "brandStyledComponents"
+    | "brandTS"
+    | "brandTaskade"
+    | "brandTestingLibrary"
+    | "brandTrello"
+    | "brandWebpack"
+    | "brandWebsocket"
+    | "brandZeplin"
+    | "btnCodeSandbox"
+    | "btnDownload"
+    | "btnExternalLink"
+    | "calendar"
+    | "chrome"
+    | "codeSandbox"
+    | "companyDIH"
+    | "companyOmise"
+    | "companySAP"
+    | "companyShiji"
+    | "earth"
+    | "firefox"
+    | "gitHub"
+    | "graphql"
+    | "hexagon"
+    | "hexagonWithPattern"
+    | "ie"
+    | "javascript"
+    | "linkedIn"
+    | "logo"
+    | "logoShortcut"
+    | "node"
+    | "opera"
+    | "react"
+    | "reactLogo"
+    | "safari"
+    | "typescript"
+    | "unknown"
+    | "webpack";
   isActive?: boolean;
   isHeightResponsive?: boolean;
   isResponsive?: boolean;

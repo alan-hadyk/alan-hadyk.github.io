@@ -1,6 +1,4 @@
-import {
-  LineChartData
-} from "<hooks>/__typings__/useLineChart.d.ts";
+import { LineChartData } from "<hooks>/__typings__/useLineChart.d.ts";
 
 export interface UseFpsCounter {
   chartData?: MutableRefObject<LineChartData[]>;
@@ -10,4 +8,3 @@ export interface UseFpsCounter {
 export interface UseFpsCounterResult {
   isPerformanceLow: boolean;
 }
-

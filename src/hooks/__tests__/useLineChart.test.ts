@@ -1,23 +1,27 @@
 import { clearCanvas, getLineCoordinates } from "<hooks>/useLineChart";
 
 describe("hooks / useLineChart", () => {
-  describe("clearCanvas", () => {    
+  describe("clearCanvas", () => {
     test("should return undefined if context is not defined", () => {
       const canvas: HTMLCanvasElement = document.createElement("canvas");
 
-      expect(clearCanvas({
-        canvas,
-        context: undefined,
-        height: 100,
-        width: 100
-      })).toEqual(undefined);
+      expect(
+        clearCanvas({
+          canvas,
+          context: undefined,
+          height: 100,
+          width: 100
+        })
+      ).toEqual(undefined);
 
-      expect(clearCanvas({
-        canvas,
-        context: null,
-        height: 100,
-        width: 100
-      })).toEqual(undefined);
+      expect(
+        clearCanvas({
+          canvas,
+          context: null,
+          height: 100,
+          width: 100
+        })
+      ).toEqual(undefined);
     });
 
     test("should not set canvas width and height if context is not defined", () => {
@@ -42,7 +46,8 @@ describe("hooks / useLineChart", () => {
 
     test("should be able to set width and height of canvas", () => {
       const canvas: HTMLCanvasElement = document.createElement("canvas");
-      const context: CanvasRenderingContext2D = canvas && canvas.getContext("2d");
+      const context: CanvasRenderingContext2D =
+        canvas && canvas.getContext("2d");
 
       canvas.width = 100;
       canvas.height = 100;
@@ -63,7 +68,8 @@ describe("hooks / useLineChart", () => {
 
     test("should reset context", () => {
       const canvas: HTMLCanvasElement = document.createElement("canvas");
-      const context: CanvasRenderingContext2D = canvas && canvas.getContext("2d");
+      const context: CanvasRenderingContext2D =
+        canvas && canvas.getContext("2d");
 
       const clearRect = jest.fn();
       const beginPath = jest.fn();
@@ -75,7 +81,7 @@ describe("hooks / useLineChart", () => {
       context.shadowColor = "#000";
       context.shadowBlur = 40;
       context.beginPath = beginPath;
-    
+
       clearCanvas({
         canvas,
         context,
@@ -93,24 +99,26 @@ describe("hooks / useLineChart", () => {
     });
   });
 
-  describe("getLineCoordinates", () => {    
+  describe("getLineCoordinates", () => {
     test("should return correct coordinates", () => {
       const nextItem = {
         time: 234234,
         value: 45
       };
 
-      expect(getLineCoordinates({
-        height: 55,
-        maxTime: 932784,
-        nextItem,
-        time: 111345,
-        value: 25,
-        width: 33
-      })).toEqual({
-        x1: 3.939159548191221, 
-        x2: 8.286722327998765, 
-        y1: 32.083333333333336, 
+      expect(
+        getLineCoordinates({
+          height: 55,
+          maxTime: 932784,
+          nextItem,
+          time: 111345,
+          value: 25,
+          width: 33
+        })
+      ).toEqual({
+        x1: 3.939159548191221,
+        x2: 8.286722327998765,
+        y1: 32.083333333333336,
         y2: 13.75
       });
     });

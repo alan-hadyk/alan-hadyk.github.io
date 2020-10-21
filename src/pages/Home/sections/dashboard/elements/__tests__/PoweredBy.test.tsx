@@ -7,12 +7,12 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 describe("pages / Home / sections / dashboard / elements / PoweredBy", () => {
   test("should have correct structure", () => {
-    const {
-      DashboardElement,
-      ReactLogo
-    } = setup();
+    const { DashboardElement, ReactLogo } = setup();
 
-    expect(DashboardElement.children[1].children[0].children[4].children[0].children[0]).toEqual(ReactLogo);
+    expect(
+      DashboardElement.children[1].children[0].children[4].children[0]
+        .children[0]
+    ).toEqual(ReactLogo);
   });
 
   describe("DashboardElement", () => {
@@ -21,7 +21,10 @@ describe("pages / Home / sections / dashboard / elements / PoweredBy", () => {
         test("should have calc(100% - 3.6rem)", () => {
           const { DashboardElement } = setup();
 
-          expect(DashboardElement.children[1]).toHaveStyleRule("height", "calc(100% - 3.6rem)");
+          expect(DashboardElement.children[1]).toHaveStyleRule(
+            "height",
+            "calc(100% - 3.6rem)"
+          );
         });
       });
 
@@ -37,10 +40,18 @@ describe("pages / Home / sections / dashboard / elements / PoweredBy", () => {
         test("should render corners", () => {
           const { Corners, DashboardElement } = setup();
 
-          expect(DashboardElement.children[1].children[0].children[0]).toEqual(Corners[0]);
-          expect(DashboardElement.children[1].children[0].children[1]).toEqual(Corners[1]);
-          expect(DashboardElement.children[1].children[0].children[2]).toEqual(Corners[2]);
-          expect(DashboardElement.children[1].children[0].children[3]).toEqual(Corners[3]);
+          expect(DashboardElement.children[1].children[0].children[0]).toEqual(
+            Corners[0]
+          );
+          expect(DashboardElement.children[1].children[0].children[1]).toEqual(
+            Corners[1]
+          );
+          expect(DashboardElement.children[1].children[0].children[2]).toEqual(
+            Corners[2]
+          );
+          expect(DashboardElement.children[1].children[0].children[3]).toEqual(
+            Corners[3]
+          );
         });
       });
 
@@ -48,7 +59,9 @@ describe("pages / Home / sections / dashboard / elements / PoweredBy", () => {
         test("should render Powered by", () => {
           const { DashboardElement } = setup();
 
-          expect(DashboardElement.children[0].textContent).toEqual("Powered by");
+          expect(DashboardElement.children[0].textContent).toEqual(
+            "Powered by"
+          );
         });
       });
     });
@@ -70,12 +83,10 @@ interface Setup extends RenderResult {
 }
 
 function setup(): Setup {
-  const utils: RenderResult = renderWithTheme(
-    <PoweredBy />
-  );
+  const utils: RenderResult = renderWithTheme(<PoweredBy />);
 
   const { queryByTestId, queryAllByTestId } = utils || {};
-  
+
   const DashboardElement: Element = queryByTestId("PoweredBy");
   const ReactLogo: Element = queryByTestId("ReactLogo");
   const Corners: Element[] = queryAllByTestId("Corner");

@@ -7,12 +7,12 @@ const Flux = (): JSX.Element => (
   <DashboardElement
     dataCy="Flux"
     dataTestId="Flux"
-    flex="1 0 30%" 
+    flex="1 0 30%"
     shouldDisplayCorners
-    title="Flux" 
+    title="Flux"
   >
     <FlowChart />
   </DashboardElement>
 );
-  
+
 export default Flux;

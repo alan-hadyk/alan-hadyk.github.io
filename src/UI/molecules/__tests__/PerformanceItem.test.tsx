@@ -5,9 +5,7 @@ import PerformanceItem from "<molecules>/PerformanceItem";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  PerformanceItemProps
-} from "<molecules>/__typings__/PerformanceItem.d.ts";
+import { PerformanceItemProps } from "<molecules>/__typings__/PerformanceItem.d.ts";
 
 describe("molecules / PerformanceItem", () => {
   test("should have correct structure", () => {
@@ -28,9 +26,9 @@ describe("molecules / PerformanceItem", () => {
     expect(FlexItems[1].children[0]).toEqual(Barchart);
   });
 
-  describe("PerformanceItemContainer", () => {    
+  describe("PerformanceItemContainer", () => {
     describe("Styles", () => {
-      describe("display", () => {      
+      describe("display", () => {
         test("should have none", () => {
           const { PerformanceItemContainer } = setup();
 
@@ -83,7 +81,7 @@ describe("molecules / PerformanceItem", () => {
         });
       });
 
-      describe("width", () => {      
+      describe("width", () => {
         test("should have 100%", () => {
           const { PerformanceItemContainer } = setup();
 
@@ -93,9 +91,9 @@ describe("molecules / PerformanceItem", () => {
     });
   });
 
-  describe("SpacingContainer", () => {    
+  describe("SpacingContainer", () => {
     describe("Props", () => {
-      describe("paddingTop", () => {      
+      describe("paddingTop", () => {
         test("should have .2rem", () => {
           const { SpacingContainer } = setup();
 
@@ -103,15 +101,15 @@ describe("molecules / PerformanceItem", () => {
         });
       });
 
-      describe("paddingBottom", () => {      
+      describe("paddingBottom", () => {
         test("should have .2rem", () => {
           const { SpacingContainer } = setup();
 
           expect(SpacingContainer).toHaveStyleRule("padding-bottom", ".2rem");
         });
       });
-      
-      describe("width", () => {      
+
+      describe("width", () => {
         test("should have 100%", () => {
           const { SpacingContainer } = setup();
 
@@ -121,9 +119,9 @@ describe("molecules / PerformanceItem", () => {
     });
   });
 
-  describe("FlexContainer", () => {    
+  describe("FlexContainer", () => {
     describe("Props", () => {
-      describe("flexFlow", () => { 
+      describe("flexFlow", () => {
         test("should have row nowrap", () => {
           const { FlexContainer } = setup();
 
@@ -133,13 +131,13 @@ describe("molecules / PerformanceItem", () => {
     });
   });
 
-  describe("FlexItems", () => { 
+  describe("FlexItems", () => {
     describe("FlexItems[0]", () => {
       describe("Props", () => {
         describe("flex", () => {
           test("should have 0 1 40%", () => {
             const { FlexItems } = setup();
-      
+
             expect(FlexItems[0]).toHaveStyleRule("flex", "0 1 40%");
           });
         });
@@ -151,7 +149,7 @@ describe("molecules / PerformanceItem", () => {
         describe("flex", () => {
           test("should have 0 1 60%", () => {
             const { FlexItems } = setup();
-      
+
             expect(FlexItems[1]).toHaveStyleRule("flex", "0 1 60%");
           });
         });
@@ -159,7 +157,7 @@ describe("molecules / PerformanceItem", () => {
     });
   });
 
-  describe("Label", () => { 
+  describe("Label", () => {
     test("should render correct content passed via label prop", () => {
       const { Text } = setup({
         label: "Hello"
@@ -172,7 +170,7 @@ describe("molecules / PerformanceItem", () => {
       describe("color", () => {
         test("should have #bcd8db", () => {
           const { Text } = setup();
-    
+
           expect(Text).toHaveStyleRule("color", "#bcd8db");
         });
       });
@@ -207,14 +205,17 @@ describe("molecules / PerformanceItem", () => {
         test("should have 'Anonymous Pro',monospace", () => {
           const { Text } = setup();
 
-          expect(Text).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
+          expect(Text).toHaveStyleRule(
+            "font-family",
+            "'Anonymous Pro',monospace"
+          );
         });
       });
 
       describe("fontSize", () => {
         test("should have 8px", () => {
           const { Text } = setup();
-    
+
           expect(Text).toHaveStyleRule("font-size", "8px");
         });
       });
@@ -222,7 +223,7 @@ describe("molecules / PerformanceItem", () => {
       describe("paddingRight", () => {
         test("should have .4rem", () => {
           const { Text } = setup();
-    
+
           expect(Text).toHaveStyleRule("padding-right", ".4rem");
         });
       });
@@ -230,7 +231,7 @@ describe("molecules / PerformanceItem", () => {
       describe("textAlign", () => {
         test("should have right", () => {
           const { Text } = setup();
-    
+
           expect(Text).toHaveStyleRule("text-align", "right");
         });
       });
@@ -238,14 +239,14 @@ describe("molecules / PerformanceItem", () => {
       describe("textTransform", () => {
         test("should have uppercase", () => {
           const { Text } = setup();
-    
+
           expect(Text).toHaveStyleRule("text-transform", "uppercase");
         });
       });
     });
   });
-  
-  describe("Barchart", () => { 
+
+  describe("Barchart", () => {
     describe("Styles", () => {
       describe("when shouldAnimate is true", () => {
         describe("animation-delay", () => {
@@ -254,38 +255,44 @@ describe("molecules / PerformanceItem", () => {
               animationDelay: "500ms",
               shouldAnimate: true
             });
-      
+
             expect(Barchart).toHaveStyleRule("animation-delay", "500ms");
           });
         });
-  
+
         describe("animation-duration", () => {
           test("should have 3600ms", () => {
             const { Barchart } = setup({
               shouldAnimate: true
             });
-      
+
             expect(Barchart).toHaveStyleRule("animation-duration", "3600ms");
           });
         });
-  
+
         describe("animation-iteration-count", () => {
           test("should have infinite", () => {
             const { Barchart } = setup({
               shouldAnimate: true
             });
-      
-            expect(Barchart).toHaveStyleRule("animation-iteration-count", "infinite");
+
+            expect(Barchart).toHaveStyleRule(
+              "animation-iteration-count",
+              "infinite"
+            );
           });
         });
-  
+
         describe("animation-timing-function", () => {
           test("should have ease-in-out", () => {
             const { Barchart } = setup({
               shouldAnimate: true
             });
-      
-            expect(Barchart).toHaveStyleRule("animation-timing-function", "ease-in-out");
+
+            expect(Barchart).toHaveStyleRule(
+              "animation-timing-function",
+              "ease-in-out"
+            );
           });
         });
       });
@@ -300,25 +307,25 @@ describe("molecules / PerformanceItem", () => {
         });
 
         describe("animation-delay", () => {
-          test("should not have", () => {      
+          test("should not have", () => {
             expect(Barchart).not.toHaveStyleRule("animation-delay");
           });
         });
-  
+
         describe("animation-duration", () => {
-          test("should not have", () => {      
+          test("should not have", () => {
             expect(Barchart).not.toHaveStyleRule("animation-duration");
           });
         });
-  
+
         describe("animation-iteration-count", () => {
-          test("should not have", () => {      
+          test("should not have", () => {
             expect(Barchart).not.toHaveStyleRule("animation-iteration-count");
           });
         });
-  
+
         describe("animation-timing-function", () => {
-          test("should not have", () => {      
+          test("should not have", () => {
             expect(Barchart).not.toHaveStyleRule("animation-timing-function");
           });
         });
@@ -327,7 +334,7 @@ describe("molecules / PerformanceItem", () => {
       describe("background-color", () => {
         test("should have #78b0b5", () => {
           const { Barchart } = setup();
-    
+
           expect(Barchart).toHaveStyleRule("background-color", "#78b0b5");
         });
       });
@@ -335,7 +342,7 @@ describe("molecules / PerformanceItem", () => {
       describe("height", () => {
         test("should have .4rem", () => {
           const { Barchart } = setup();
-    
+
           expect(Barchart).toHaveStyleRule("height", ".4rem");
         });
       });
@@ -343,7 +350,7 @@ describe("molecules / PerformanceItem", () => {
       describe("padding-right", () => {
         test("should have .4rem", () => {
           const { Barchart } = setup();
-    
+
           expect(Barchart).toHaveStyleRule("padding-right", ".4rem");
         });
       });
@@ -351,7 +358,7 @@ describe("molecules / PerformanceItem", () => {
       describe("width", () => {
         test("should have 100%", () => {
           const { Barchart } = setup();
-    
+
           expect(Barchart).toHaveStyleRule("width", "100%");
         });
       });
@@ -378,9 +385,7 @@ function setup(additionalProps?: PerformanceItemTestProps): Setup {
     ...additionalProps
   };
 
-  const utils: RenderResult = renderWithTheme(
-    <PerformanceItem {...props} />
-  );
+  const utils: RenderResult = renderWithTheme(<PerformanceItem {...props} />);
 
   const { queryByTestId, queryAllByTestId } = utils || {};
 
@@ -401,4 +406,3 @@ function setup(additionalProps?: PerformanceItemTestProps): Setup {
     Text
   };
 }
- 

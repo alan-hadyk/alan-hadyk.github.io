@@ -1,11 +1,10 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import {
-  ConsoleTextProps
-} from "<atoms>/__typings__/ConsoleText.d.ts";
+import { ConsoleTextProps } from "<atoms>/__typings__/ConsoleText.d.ts";
 
-export const hero = "Vision driven change agent with career-long record of front-end user strategy and UI development";
+export const hero =
+  "Vision driven change agent with career-long record of front-end user strategy and UI development";
 
 const ConsoleText = ({
   dataTestId,
@@ -15,7 +14,7 @@ const ConsoleText = ({
   transform,
   width
 }: ConsoleTextProps): JSX.Element => (
-  <ConsoleText.Container 
+  <ConsoleText.Container
     data-testid={dataTestId || "ConsoleText"}
     fontSize={fontSize}
     height={height}
@@ -47,7 +46,8 @@ ConsoleText.Container = styled.div<ConsoleTextProps>`
     color: ${white};
     font-family: ${Exan};
     font-size: ${(fontSize in fontSizes && fontSizes[fontSize]) || fontSize};
-    line-height: ${(lineHeight in spacing && spacing[lineHeight]) || lineHeight};
+    line-height: ${(lineHeight in spacing && spacing[lineHeight]) ||
+    lineHeight};
     text-align: center;
     text-transform: lowercase;
 
@@ -57,14 +57,14 @@ ConsoleText.Container = styled.div<ConsoleTextProps>`
       animation-name: ${blink};
       animation-timing-function: ${easeInOut};
       background-color: ${blue100};
-      content: '';
+      content: "";
       display: inline-block;
       height: ${(height in spacing && spacing[height]) || height};
       margin-left: ${spacing.spacing8};
       transform: ${transform};
       width: ${(width in spacing && spacing[width]) || width};
     }
-  `}
+  `};
 `;
 
 export default ConsoleText;

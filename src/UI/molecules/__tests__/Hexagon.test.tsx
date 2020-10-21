@@ -8,7 +8,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 describe("molecules / Hexagon", () => {
   test("should have correct structure", () => {
-    const { 
+    const {
       HexagonContainer,
       HexagonInnerContainer,
       Icon,
@@ -30,9 +30,9 @@ describe("molecules / Hexagon", () => {
     expect(HexagonInnerContainer.textContent).toEqual("Custom children");
   });
 
-  describe("HexagonContainer", () => {    
+  describe("HexagonContainer", () => {
     describe("Styles", () => {
-      describe("position", () => { 
+      describe("position", () => {
         test("should have relative", () => {
           const { HexagonContainer } = setup();
 
@@ -42,17 +42,17 @@ describe("molecules / Hexagon", () => {
     });
   });
 
-  describe("HexagonInnerContainer", () => { 
+  describe("HexagonInnerContainer", () => {
     test("should not render if children are not passed", () => {
       const { HexagonInnerContainer } = setup({
         children: undefined
       });
-  
+
       expect(HexagonInnerContainer).toBeFalsy();
     });
-  
+
     describe("Styles", () => {
-      describe("left", () => { 
+      describe("left", () => {
         test("should have 50%", () => {
           const { HexagonInnerContainer } = setup();
 
@@ -60,7 +60,7 @@ describe("molecules / Hexagon", () => {
         });
       });
 
-      describe("position", () => { 
+      describe("position", () => {
         test("should have absolute", () => {
           const { HexagonInnerContainer } = setup();
 
@@ -68,7 +68,7 @@ describe("molecules / Hexagon", () => {
         });
       });
 
-      describe("top", () => { 
+      describe("top", () => {
         test("should have 50%", () => {
           const { HexagonInnerContainer } = setup();
 
@@ -76,15 +76,18 @@ describe("molecules / Hexagon", () => {
         });
       });
 
-      describe("transform", () => { 
+      describe("transform", () => {
         test("should have translate(-50%,-50%)", () => {
           const { HexagonInnerContainer } = setup();
 
-          expect(HexagonInnerContainer).toHaveStyleRule("transform", "translate(-50%,-50%)");
+          expect(HexagonInnerContainer).toHaveStyleRule(
+            "transform",
+            "translate(-50%,-50%)"
+          );
         });
       });
 
-      describe("width", () => { 
+      describe("width", () => {
         test("should have 100% by default", () => {
           const { HexagonInnerContainer } = setup();
 
@@ -102,7 +105,7 @@ describe("molecules / Hexagon", () => {
     });
   });
 
-  describe("Icon", () => {   
+  describe("Icon", () => {
     test("should have correct icon for fill: pattern", () => {
       const { Icon } = setup({
         fill: "pattern"
@@ -168,30 +171,42 @@ describe("molecules / Hexagon", () => {
             const { IconContainer } = setup({
               fill: "solid"
             });
-  
-            expect(IconContainer).toHaveStyleRule("filter", "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", {
-              modifier: "svg"
-            });
+
+            expect(IconContainer).toHaveStyleRule(
+              "filter",
+              "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))",
+              {
+                modifier: "svg"
+              }
+            );
           });
-  
+
           test("should have drop-shadow(0px 0px .4rem rgba(255,255,255,0.5)) - fill: none", () => {
             const { IconContainer } = setup({
               fill: "none"
             });
-  
-            expect(IconContainer).toHaveStyleRule("filter", "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", {
-              modifier: "svg"
-            });
+
+            expect(IconContainer).toHaveStyleRule(
+              "filter",
+              "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))",
+              {
+                modifier: "svg"
+              }
+            );
           });
-  
+
           test("should not have filter - fill: pattern", () => {
             const { IconContainer } = setup({
               fill: "pattern"
             });
-  
-            expect(IconContainer).not.toHaveStyleRule("filter", "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", {
-              modifier: "svg"
-            });
+
+            expect(IconContainer).not.toHaveStyleRule(
+              "filter",
+              "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))",
+              {
+                modifier: "svg"
+              }
+            );
           });
         });
       });
@@ -215,13 +230,13 @@ function setup(addedProps?: HexagonTestProps): Setup {
     ...addedProps
   };
 
-  const utils: RenderResult = renderWithTheme(
-    <Hexagon {...props} />
-  );
+  const utils: RenderResult = renderWithTheme(<Hexagon {...props} />);
 
   const { queryAllByTestId }: RenderResult = utils;
   const HexagonContainer: Element = queryAllByTestId("Hexagon")[0];
-  const HexagonInnerContainer: Element = queryAllByTestId("HexagonInnerContainer")[0];
+  const HexagonInnerContainer: Element = queryAllByTestId(
+    "HexagonInnerContainer"
+  )[0];
   const Icon: SVGSVGElement = document.querySelector("svg");
   const IconContainer: Element = queryAllByTestId("IconContainer")[0];
 

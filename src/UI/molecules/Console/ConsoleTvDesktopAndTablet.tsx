@@ -31,7 +31,7 @@ const ConsoleTvDesktopAndTablet = (): JSX.Element => (
           lineHeight="spacing28"
           textTransform="uppercase"
         >
-        GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin19)
+          GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin19)
         </Text>
       </PositionContainer>
 
@@ -65,7 +65,7 @@ ConsoleTvDesktopAndTablet.Container = styled.div`
     padding: 1.11vh 0.62vw;
     position: relative;
     width: 100%;
-  `}
+  `};
 `;
 
 export default ConsoleTvDesktopAndTablet;

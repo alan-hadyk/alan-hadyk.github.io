@@ -19,29 +19,32 @@ function Section({
   minHeight,
   title
 }: SectionProps): JSX.Element {
-  const renderTitle = useCallback(({ fontSize, marginBottom }: RenderTitle): JSX.Element => {
-    if (!title) {	
-      return;	
-    }
+  const renderTitle = useCallback(
+    ({ fontSize, marginBottom }: RenderTitle): JSX.Element => {
+      if (!title) {
+        return;
+      }
 
-    return (
-      <SpacingContainer
-        dataTestId="TitleSpacingContainer"
-        marginBottom={marginBottom}
-      >
-        <Text
-          color="blue100"
-          fontFamily="Exan"
-          fontSize={fontSize}
-          lineHeight="spacing80"
-          textAlign="center"
-          textTransform="lowercase"
+      return (
+        <SpacingContainer
+          dataTestId="TitleSpacingContainer"
+          marginBottom={marginBottom}
         >
-          {title}
-        </Text>
-      </SpacingContainer>
-    );
-  }, [title]);
+          <Text
+            color="blue100"
+            fontFamily="Exan"
+            fontSize={fontSize}
+            lineHeight="spacing80"
+            textAlign="center"
+            textTransform="lowercase"
+          >
+            {title}
+          </Text>
+        </SpacingContainer>
+      );
+    },
+    [title]
+  );
 
   return (
     <SpacingContainer
@@ -65,10 +68,8 @@ function Section({
           marginBottom: "spacing48"
         })}
       </Responsive>
-      
-      <Fragment>
-        {children}
-      </Fragment>
+
+      <Fragment>{children}</Fragment>
     </SpacingContainer>
   );
 }

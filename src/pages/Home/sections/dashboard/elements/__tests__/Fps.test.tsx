@@ -9,12 +9,11 @@ jest.mock("<hooks>/useFpsCounter");
 
 describe("pages / Home / sections / dashboard / elements / Fps", () => {
   test("should have correct structure", () => {
-    const {
-      DashboardElement,
-      FpsChart
-    } = setup();
+    const { DashboardElement, FpsChart } = setup();
 
-    expect(DashboardElement.children[1].children[0].children[0].children[0]).toEqual(FpsChart);
+    expect(
+      DashboardElement.children[1].children[0].children[0].children[0]
+    ).toEqual(FpsChart);
   });
 
   describe("DashboardElement", () => {
@@ -23,10 +22,13 @@ describe("pages / Home / sections / dashboard / elements / Fps", () => {
         test("should have calc(100% - 3.6rem)", () => {
           const { DashboardElement } = setup();
 
-          expect(DashboardElement.children[1]).toHaveStyleRule("height", "calc(100% - 3.6rem)");
+          expect(DashboardElement.children[1]).toHaveStyleRule(
+            "height",
+            "calc(100% - 3.6rem)"
+          );
         });
       });
-      
+
       describe("flex", () => {
         test("should have 0 1 20%", () => {
           const { DashboardElement } = setup();
@@ -69,12 +71,10 @@ interface Setup extends RenderResult {
 }
 
 function setup(): Setup {
-  const utils: RenderResult = renderWithTheme(
-    <Fps />
-  );
+  const utils: RenderResult = renderWithTheme(<Fps />);
 
   const { queryByTestId } = utils || {};
-  
+
   const DashboardElement: Element = queryByTestId("Fps");
   const FpsChart: Element = queryByTestId("FpsChart");
 

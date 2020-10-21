@@ -21,12 +21,7 @@ const Earth = (): JSX.Element => (
       height="100%"
       justifyContent="center"
     >
-      <Icon
-        height="100%"
-        iconName="earth"
-        isResponsive
-        width="100%"
-      />
+      <Icon height="100%" iconName="earth" isResponsive width="100%" />
     </FlexContainer>
   </SpacingContainer>
 );

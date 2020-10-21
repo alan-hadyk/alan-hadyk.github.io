@@ -9,7 +9,7 @@ jest.mock("<hooks>/useFpsCounter");
 
 describe("molecules / FpsChart", () => {
   test("should have correct structure", () => {
-    const { 
+    const {
       Canvas,
       Container,
       FpsCounter,
@@ -30,18 +30,18 @@ describe("molecules / FpsChart", () => {
     expect(Container.children[8]).toEqual(Labels[3]);
     expect(Container.children[9]).toEqual(Labels[4]);
   });
-  
-  describe("PositionContainer", () => {    
+
+  describe("PositionContainer", () => {
     describe("Props", () => {
-      describe("height", () => {      
+      describe("height", () => {
         test("should have 100%", () => {
           const { PositionContainer } = setup();
 
           expect(PositionContainer).toHaveStyleRule("height", "100%");
         });
       });
-      
-      describe("position", () => {      
+
+      describe("position", () => {
         test("should have relative", () => {
           const { PositionContainer } = setup();
 
@@ -50,10 +50,10 @@ describe("molecules / FpsChart", () => {
       });
     });
   });
-  
-  describe("FpsChart.Container", () => {    
+
+  describe("FpsChart.Container", () => {
     describe("Styles", () => {
-      describe("border", () => {      
+      describe("border", () => {
         test("should have thin solid #526065", () => {
           const { Container } = setup();
 
@@ -61,7 +61,7 @@ describe("molecules / FpsChart", () => {
         });
       });
 
-      describe("height", () => {      
+      describe("height", () => {
         test("should have 100%", () => {
           const { Container } = setup();
 
@@ -70,10 +70,10 @@ describe("molecules / FpsChart", () => {
       });
     });
   });
-  
-  describe("FpsChart.FpsCounter", () => {    
+
+  describe("FpsChart.FpsCounter", () => {
     describe("Styles", () => {
-      describe("color", () => {      
+      describe("color", () => {
         test("should have #bcd8db", () => {
           const { FpsCounter } = setup();
 
@@ -81,7 +81,7 @@ describe("molecules / FpsChart", () => {
         });
       });
 
-      describe("font-size", () => {      
+      describe("font-size", () => {
         test("should have 16px", () => {
           const { FpsCounter } = setup();
 
@@ -89,7 +89,7 @@ describe("molecules / FpsChart", () => {
         });
       });
 
-      describe("line-height", () => {      
+      describe("line-height", () => {
         test("should have 3.6rem", () => {
           const { FpsCounter } = setup();
 
@@ -97,7 +97,7 @@ describe("molecules / FpsChart", () => {
         });
       });
 
-      describe("position", () => {      
+      describe("position", () => {
         test("should have absolute", () => {
           const { FpsCounter } = setup();
 
@@ -105,7 +105,7 @@ describe("molecules / FpsChart", () => {
         });
       });
 
-      describe("right", () => {      
+      describe("right", () => {
         test("should have 0", () => {
           const { FpsCounter } = setup();
 
@@ -113,7 +113,7 @@ describe("molecules / FpsChart", () => {
         });
       });
 
-      describe("text-align", () => {      
+      describe("text-align", () => {
         test("should have right", () => {
           const { FpsCounter } = setup();
 
@@ -121,7 +121,7 @@ describe("molecules / FpsChart", () => {
         });
       });
 
-      describe("top", () => {      
+      describe("top", () => {
         test("should have 0", () => {
           const { FpsCounter } = setup();
 
@@ -129,19 +129,22 @@ describe("molecules / FpsChart", () => {
         });
       });
 
-      describe("transform", () => {      
+      describe("transform", () => {
         test("should have translateY(-3.6rem)", () => {
           const { FpsCounter } = setup();
 
-          expect(FpsCounter).toHaveStyleRule("transform", "translateY(-3.6rem)");
+          expect(FpsCounter).toHaveStyleRule(
+            "transform",
+            "translateY(-3.6rem)"
+          );
         });
       });
     });
   });
-  
-  describe("FpsChart.Canvas", () => {    
+
+  describe("FpsChart.Canvas", () => {
     describe("Styles", () => {
-      describe("height", () => {      
+      describe("height", () => {
         test("should have 100%", () => {
           const { Canvas } = setup();
 
@@ -149,7 +152,7 @@ describe("molecules / FpsChart", () => {
         });
       });
 
-      describe("width", () => {      
+      describe("width", () => {
         test("should have 100%", () => {
           const { Canvas } = setup();
 
@@ -158,17 +161,16 @@ describe("molecules / FpsChart", () => {
       });
     });
   });
-  
-  describe("FpsChartLines", () => {   
+
+  describe("FpsChartLines", () => {
     test("should render 3 items", () => {
       const { HorizontalLines } = setup();
 
       expect(HorizontalLines.length).toEqual(3);
+    });
 
-    }); 
-    
     describe("Props", () => {
-      describe("lines", () => {      
+      describe("lines", () => {
         test("should have [15, 30, 45] (maxValue === 60)", () => {
           const { HorizontalLines } = setup();
 
@@ -179,17 +181,16 @@ describe("molecules / FpsChart", () => {
       });
     });
   });
-  
-  describe("FpsChartLabels", () => {   
+
+  describe("FpsChartLabels", () => {
     test("should render 5 items", () => {
       const { Labels } = setup();
 
       expect(Labels.length).toEqual(5);
+    });
 
-    }); 
-    
     describe("Props", () => {
-      describe("labels", () => {      
+      describe("labels", () => {
         test("should have [0, 15, 30, 45, 60]", () => {
           const labels: number[] = [0, 15, 30, 45, 60];
           const { Labels } = setup();
@@ -213,9 +214,7 @@ interface Setup extends RenderResult {
 }
 
 function setup(): Setup {
-  const utils: RenderResult = renderWithTheme(
-    <FpsChart />
-  );
+  const utils: RenderResult = renderWithTheme(<FpsChart />);
 
   const { queryAllByTestId }: RenderResult = utils;
 

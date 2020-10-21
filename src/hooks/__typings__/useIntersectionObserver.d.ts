@@ -8,4 +8,3 @@ export type IntersectionObserverType = IntersectionObserver;
 export interface IntersectionObserverWithPolyfill extends IntersectionObserver {
   POLL_INTERVAL?: number;
 }
-

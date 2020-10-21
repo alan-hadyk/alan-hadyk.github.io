@@ -66,9 +66,9 @@ function TypingAnimation(): JSX.Element {
       position="relative"
     >
       <TypingAnimation.Pre data-testid="TypingAnimationPre">
-        <TypingAnimation.Code 
+        <TypingAnimation.Code
           data-testid="TypingAnimationCode"
-          ref={codeContainerRef} 
+          ref={codeContainerRef}
         />
       </TypingAnimation.Pre>
     </PositionContainer>
@@ -117,14 +117,14 @@ TypingAnimation.Code = styled.code`
       animation-name: ${blink};
       animation-timing-function: ${easeInOut};
       background-color: ${blue100};
-      content: '';
+      content: "";
       display: inline-block;
       height: ${spacing8};
       margin-left: ${spacing4};
       transform: translateY(1px);
       width: ${spacing4};
     }
-  `}
+  `};
 `;
 
 export default TypingAnimation;

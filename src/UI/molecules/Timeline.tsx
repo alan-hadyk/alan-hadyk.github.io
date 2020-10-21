@@ -5,13 +5,13 @@ import Hexagon from "<molecules>/Hexagon";
 import PositionContainer from "<layout>/PositionContainer";
 
 const Timeline = (): JSX.Element => (
-  <PositionContainer 
+  <PositionContainer
     dataTestId="Timeline"
     height="100%"
     position="relative"
     width="spacing16"
   >
-    <PositionContainer 
+    <PositionContainer
       dataTestId="TimelineHexagonPositionContainer"
       height="spacing16"
       left="spacing0"
@@ -19,7 +19,7 @@ const Timeline = (): JSX.Element => (
       top="spacing0"
       width="spacing16"
     >
-      <Hexagon fill="solid"/>
+      <Hexagon fill="solid" />
     </PositionContainer>
     <Timeline.Line data-testid="TimelineLine" />
   </PositionContainer>
@@ -39,7 +39,7 @@ Timeline.Line = styled.div`
     top: ${spacing0};
     transform: translateX(-50%);
     width: ${spacing2};
-  `}
+  `};
 `;
 
 export default memo(Timeline);

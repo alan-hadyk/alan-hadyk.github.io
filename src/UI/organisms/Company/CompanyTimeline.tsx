@@ -10,7 +10,7 @@ const CompanyTimeline = ({
   timelineBottom = "negativeSpacing16"
 }: CompanyTimelineProps): JSX.Element => (
   <PositionContainer
-    bottom={timelineBottom}    
+    bottom={timelineBottom}
     dataTestId="CompanyTimeline"
     left="50%"
     position="absolute"

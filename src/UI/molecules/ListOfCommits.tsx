@@ -15,13 +15,15 @@ import {
   CommitProps
 } from "<molecules>/__typings__/ListOfCommits.d.ts";
 
-function ListOfCommits({ commitsList, hasError }: ListOfCommitsProps): JSX.Element {
+function ListOfCommits({
+  commitsList,
+  hasError
+}: ListOfCommitsProps): JSX.Element {
   return hasError ? (
-    <Error
-      title="Error"
-      description="Github API is offline"
-    />
-  ) : renderCommits();
+    <Error title="Error" description="Github API is offline" />
+  ) : (
+    renderCommits()
+  );
 
   function renderCommits(): JSX.Element {
     return (
@@ -31,25 +33,27 @@ function ListOfCommits({ commitsList, hasError }: ListOfCommitsProps): JSX.Eleme
         flexFlow="column nowrap"
         justifyContent="flex-start"
       >
-        {!isEmpty(commitsList) && commitsList.map(({
-          commit,
-          html_url,
-          sha
-        }: CommitProps, index: number): JSX.Element => {
-          const { author } = commit || {};
-          const { date } = author || {};
-          const delay = index * parseInt(transitionTimes.default);
-    
-          return (
-            <Commit
-              date={date}
-              delay={delay}
-              htmlUrl={html_url}
-              key={sha}
-              sha={sha}
-            />
-          );
-        })}
+        {!isEmpty(commitsList) &&
+          commitsList.map(
+            (
+              { commit, html_url, sha }: CommitProps,
+              index: number
+            ): JSX.Element => {
+              const { author } = commit || {};
+              const { date } = author || {};
+              const delay = index * parseInt(transitionTimes.default);
+
+              return (
+                <Commit
+                  date={date}
+                  delay={delay}
+                  htmlUrl={html_url}
+                  key={sha}
+                  sha={sha}
+                />
+              );
+            }
+          )}
       </FlexContainer>
     );
   }
@@ -70,7 +74,11 @@ ListOfCommits.propTypes = {
   hasError: PropTypes.bool.isRequired
 };
 
-const arePropsEqual = (prevProps: ListOfCommitsProps, nextProps: ListOfCommitsProps): boolean =>
-  isEqual(prevProps.commitsList, nextProps.commitsList) && prevProps.hasError === nextProps.hasError;
+const arePropsEqual = (
+  prevProps: ListOfCommitsProps,
+  nextProps: ListOfCommitsProps
+): boolean =>
+  isEqual(prevProps.commitsList, nextProps.commitsList) &&
+  prevProps.hasError === nextProps.hasError;
 
 export default memo(ListOfCommits, arePropsEqual);

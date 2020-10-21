@@ -7,19 +7,10 @@ import FlexContainer from "<layout>/FlexContainer";
 import SpacingContainer from "<layout>/SpacingContainer";
 import FlexItem from "<layout>/FlexItem";
 
-import {
-  CommitProps
-} from "<molecules>/__typings__/Commit.d.ts";
+import { CommitProps } from "<molecules>/__typings__/Commit.d.ts";
 
-const Commit = ({
-  date,
-  delay,
-  htmlUrl,
-  sha
-}: CommitProps): JSX.Element => (
-  <Commit.Container
-    data-testid="Commit"
-  >
+const Commit = ({ date, delay, htmlUrl, sha }: CommitProps): JSX.Element => (
+  <Commit.Container data-testid="Commit">
     <SpacingContainer
       dataTestId="CommitSpacingContainer"
       paddingTop="spacing4"
@@ -32,14 +23,8 @@ const Commit = ({
         flexFlow="row nowrap"
         justifyContent="space-between"
       >
-        <FlexItem
-          flex="0 0 60.97%"
-          overflow="hidden"
-        >
-          <Link 
-            href={htmlUrl}
-            isExternal
-          >
+        <FlexItem flex="0 0 60.97%" overflow="hidden">
+          <Link href={htmlUrl} isExternal>
             <Text
               color="blue100"
               ellipsis
@@ -52,13 +37,8 @@ const Commit = ({
             </Text>
           </Link>
         </FlexItem>
-        <FlexItem
-          flex="0 0 30.66%"
-        >
-          <Text
-            fontSize="font8"
-            ellipsis
-          >
+        <FlexItem flex="0 0 30.66%">
+          <Text fontSize="font8" ellipsis>
             {date}
           </Text>
         </FlexItem>
@@ -77,11 +57,11 @@ Commit.Container = styled.div`
     border-top: thin solid ${blue400};
     display: none;
     width: 100%;
-    
-    @media (min-height: 800px)  {
+
+    @media (min-height: 800px) {
       height: 2.26vh;
 
-      &:nth-child(-n+10) {
+      &:nth-child(-n + 10) {
         display: flex;
       }
     }
@@ -89,7 +69,7 @@ Commit.Container = styled.div`
     @media (min-height: 401px) and (max-height: 799px) {
       height: 4.52vh;
 
-      &:nth-child(-n+5) {
+      &:nth-child(-n + 5) {
         display: flex;
       }
     }
@@ -97,7 +77,7 @@ Commit.Container = styled.div`
     @media (max-height: 400px) {
       height: 7.53vh;
 
-      &:nth-child(-n+3) {
+      &:nth-child(-n + 3) {
         display: flex;
       }
     }
@@ -105,7 +85,7 @@ Commit.Container = styled.div`
     &:first-child {
       border-top: 0;
     }
-  `}
+  `};
 `;
 
 export default memo(Commit);

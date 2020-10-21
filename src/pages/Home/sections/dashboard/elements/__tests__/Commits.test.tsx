@@ -5,27 +5,24 @@ import { Commits } from "<pages>/Home/sections/dashboard/elements/Commits";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  ListOfCommitsProps
-} from "<molecules>/__typings__/ListOfCommits.d.ts";
+import { ListOfCommitsProps } from "<molecules>/__typings__/ListOfCommits.d.ts";
 
 describe("pages / Home / sections / dashboard / elements / Commits", () => {
   test("should have correct structure if has no error", () => {
-    const {
-      DashboardElement,
-      ListOfCommits
-    } = setup();
+    const { DashboardElement, ListOfCommits } = setup();
 
-    expect(DashboardElement.children[1].children[0].children[0].children[0]).toEqual(ListOfCommits);
+    expect(
+      DashboardElement.children[1].children[0].children[0].children[0]
+    ).toEqual(ListOfCommits);
   });
 
   test("should have correct structure if has an error", () => {
-    const {
-      Error,
-      DashboardElement
-    } = setup({ hasError: true });
+    const { Error, DashboardElement } = setup({ hasError: true });
 
-    expect(DashboardElement.children[1].children[0].children[4].children[0].children[0]).toEqual(Error);
+    expect(
+      DashboardElement.children[1].children[0].children[4].children[0]
+        .children[0]
+    ).toEqual(Error);
   });
 
   describe("DashboardElement", () => {
@@ -33,11 +30,14 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
       describe("childrenHeight", () => {
         test("should have calc(100% - 3.6rem)", () => {
           const { DashboardElement } = setup();
-      
-          expect(DashboardElement.children[1]).toHaveStyleRule("height", "calc(100% - 3.6rem)");
+
+          expect(DashboardElement.children[1]).toHaveStyleRule(
+            "height",
+            "calc(100% - 3.6rem)"
+          );
         });
       });
-      
+
       describe("flex", () => {
         test("should have 1 0 20%", () => {
           const { DashboardElement } = setup();
@@ -52,10 +52,18 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
             hasError: true
           });
 
-          expect(DashboardElement.children[1].children[0].children[0]).toEqual(Corners[0]);
-          expect(DashboardElement.children[1].children[0].children[1]).toEqual(Corners[1]);
-          expect(DashboardElement.children[1].children[0].children[2]).toEqual(Corners[2]);
-          expect(DashboardElement.children[1].children[0].children[3]).toEqual(Corners[3]);
+          expect(DashboardElement.children[1].children[0].children[0]).toEqual(
+            Corners[0]
+          );
+          expect(DashboardElement.children[1].children[0].children[1]).toEqual(
+            Corners[1]
+          );
+          expect(DashboardElement.children[1].children[0].children[2]).toEqual(
+            Corners[2]
+          );
+          expect(DashboardElement.children[1].children[0].children[3]).toEqual(
+            Corners[3]
+          );
         });
 
         test("should not render corners if has no error", () => {
@@ -107,7 +115,8 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
                   date: "2020-03-15T14:58:16Z"
                 }
               },
-              html_url: "https://github.com/alan-hadyk/portfolio/commit/6f05bb91f454878edcb0f0e30e39501d39b46e4f",
+              html_url:
+                "https://github.com/alan-hadyk/portfolio/commit/6f05bb91f454878edcb0f0e30e39501d39b46e4f",
               sha: "6f05bb91f454878edcb0f0e30e39501d39b46e4f"
             },
             {
@@ -116,7 +125,8 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
                   date: "2020-03-14T16:05:26Z"
                 }
               },
-              html_url: "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c5",
+              html_url:
+                "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c5",
               sha: "b18b6616d0da725d49decc1b1f63c3322ca9c3c5"
             }
           ];
@@ -134,7 +144,8 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
                   date: "2020-03-15T14:58:16Z"
                 }
               },
-              html_url: "https://github.com/alan-hadyk/portfolio/commit/6f05bb91f454878edcb0f0e30e39501d39b46e4f",
+              html_url:
+                "https://github.com/alan-hadyk/portfolio/commit/6f05bb91f454878edcb0f0e30e39501d39b46e4f",
               sha: "6f05bb91f454878edcb0f0e30e39501d39b46e4f"
             },
             {
@@ -143,7 +154,8 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
                   date: "2020-03-14T16:05:26Z"
                 }
               },
-              html_url: "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c5",
+              html_url:
+                "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c5",
               sha: "b18b6616d0da725d49decc1b1f63c3322ca9c3c5"
             },
             {
@@ -152,7 +164,8 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
                   date: "2020-03-14T16:05:26Z"
                 }
               },
-              html_url: "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c7",
+              html_url:
+                "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c7",
               sha: "b18b6616d0da725d49decc1b1f63c3322ca9c3c7"
             },
             {
@@ -161,7 +174,8 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
                   date: "2020-03-14T16:05:26Z"
                 }
               },
-              html_url: "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c2",
+              html_url:
+                "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c2",
               sha: "b18b6616d0da725d49decc1b1f63c3322ca9c3c2"
             }
           ];
@@ -179,7 +193,8 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
                   date: "2020-03-15T14:58:16Z"
                 }
               },
-              html_url: "https://github.com/alan-hadyk/portfolio/commit/6f05bb91f454878edcb0f0e30e39501d39b46e4f",
+              html_url:
+                "https://github.com/alan-hadyk/portfolio/commit/6f05bb91f454878edcb0f0e30e39501d39b46e4f",
               sha: "6f05bb91f454878edcb0f0e30e39501d39b46e4f"
             },
             {
@@ -188,15 +203,22 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
                   date: "2020-03-14T16:05:26Z"
                 }
               },
-              html_url: "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c5",
+              html_url:
+                "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c5",
               sha: "b18b6616d0da725d49decc1b1f63c3322ca9c3c5"
             }
           ];
 
           const { ListOfCommits } = setup({ commitsList });
 
-          expect(ListOfCommits.children[0].children[0].children[0].children[0].textContent).toEqual(commitsList[0].sha);
-          expect(ListOfCommits.children[1].children[0].children[0].children[0].textContent).toEqual(commitsList[1].sha);
+          expect(
+            ListOfCommits.children[0].children[0].children[0].children[0]
+              .textContent
+          ).toEqual(commitsList[0].sha);
+          expect(
+            ListOfCommits.children[1].children[0].children[0].children[0]
+              .textContent
+          ).toEqual(commitsList[1].sha);
         });
 
         test("should render each commit with date", () => {
@@ -207,7 +229,8 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
                   date: "2020-03-15T14:58:16Z"
                 }
               },
-              html_url: "https://github.com/alan-hadyk/portfolio/commit/6f05bb91f454878edcb0f0e30e39501d39b46e4f",
+              html_url:
+                "https://github.com/alan-hadyk/portfolio/commit/6f05bb91f454878edcb0f0e30e39501d39b46e4f",
               sha: "6f05bb91f454878edcb0f0e30e39501d39b46e4f"
             },
             {
@@ -216,15 +239,22 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
                   date: "2020-03-14T16:05:26Z"
                 }
               },
-              html_url: "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c5",
+              html_url:
+                "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c5",
               sha: "b18b6616d0da725d49decc1b1f63c3322ca9c3c5"
             }
           ];
 
           const { ListOfCommits } = setup({ commitsList });
 
-          expect(ListOfCommits.children[0].children[0].children[0].children[1].textContent).toEqual(commitsList[0].commit.author.date);
-          expect(ListOfCommits.children[1].children[0].children[0].children[1].textContent).toEqual(commitsList[1].commit.author.date);
+          expect(
+            ListOfCommits.children[0].children[0].children[0].children[1]
+              .textContent
+          ).toEqual(commitsList[0].commit.author.date);
+          expect(
+            ListOfCommits.children[1].children[0].children[0].children[1]
+              .textContent
+          ).toEqual(commitsList[1].commit.author.date);
         });
 
         test("should render each commit with url", () => {
@@ -235,7 +265,8 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
                   date: "2020-03-15T14:58:16Z"
                 }
               },
-              html_url: "https://github.com/alan-hadyk/portfolio/commit/6f05bb91f454878edcb0f0e30e39501d39b46e4f",
+              html_url:
+                "https://github.com/alan-hadyk/portfolio/commit/6f05bb91f454878edcb0f0e30e39501d39b46e4f",
               sha: "6f05bb91f454878edcb0f0e30e39501d39b46e4f"
             },
             {
@@ -244,34 +275,41 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
                   date: "2020-03-14T16:05:26Z"
                 }
               },
-              html_url: "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c5",
+              html_url:
+                "https://github.com/alan-hadyk/portfolio/commit/b18b6616d0da725d49decc1b1f63c3322ca9c3c5",
               sha: "b18b6616d0da725d49decc1b1f63c3322ca9c3c5"
             }
           ];
 
           const { ListOfCommits } = setup({ commitsList });
 
-          expect(ListOfCommits.children[0].children[0].children[0].children[0].children[0].getAttribute("href")).toEqual(commitsList[0].html_url);
-          expect(ListOfCommits.children[1].children[0].children[0].children[0].children[0].getAttribute("href")).toEqual(commitsList[1].html_url);
+          expect(
+            ListOfCommits.children[0].children[0].children[0].children[0].children[0].getAttribute(
+              "href"
+            )
+          ).toEqual(commitsList[0].html_url);
+          expect(
+            ListOfCommits.children[1].children[0].children[0].children[0].children[0].getAttribute(
+              "href"
+            )
+          ).toEqual(commitsList[1].html_url);
         });
       });
 
       describe("hasError", () => {
         test("should render Error if hasError is true", () => {
-          const {
-            Error,
-            DashboardElement
-          } = setup({
+          const { Error, DashboardElement } = setup({
             hasError: true
           });
 
-          expect(DashboardElement.children[1].children[0].children[4].children[0].children[0]).toEqual(Error);
+          expect(
+            DashboardElement.children[1].children[0].children[4].children[0]
+              .children[0]
+          ).toEqual(Error);
         });
 
         test("should not render Error if hasError is false", () => {
-          const {
-            Error
-          } = setup({
+          const { Error } = setup({
             hasError: false
           });
 
@@ -300,7 +338,8 @@ function setup(additionalProps?: ListOfCommitsTestProps): Setup {
             date: "2020-03-10T22:34:52Z"
           }
         },
-        html_url: "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2964",
+        html_url:
+          "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2964",
         sha: "4380d5d391eee216e651d34700a331ec501c2964"
       }
     ],
@@ -309,9 +348,7 @@ function setup(additionalProps?: ListOfCommitsTestProps): Setup {
 
   const props: ListOfCommitsProps = { ...defaultProps, ...additionalProps };
 
-  const utils: RenderResult = renderWithTheme(
-    <Commits {...props} />
-  );
+  const utils: RenderResult = renderWithTheme(<Commits {...props} />);
 
   const { queryByTestId, queryAllByTestId } = utils || {};
 

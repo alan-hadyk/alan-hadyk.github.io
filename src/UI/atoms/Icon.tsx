@@ -142,7 +142,7 @@ function Icon({
     brandPhotoshop: BrandPhotoshop,
     brandPrestaShop: BrandPrestaShop,
     brandQuire: BrandQuire,
-    brandQunit: BrandQunit, 
+    brandQunit: BrandQunit,
     brandREST: BrandREST,
     brandReact: BrandReact,
     brandRedmine: BrandRedmine,
@@ -227,18 +227,9 @@ Icon.Container = styled.div<IconContainerProps>`
     shouldGlowOnHover,
     shouldRotate,
     theme: {
-      colorPalette: {
-        blue300,
-        white
-      },
-      easing: {
-        easeInOut,
-        linear
-      },
-      keyframes: {
-        glow,
-        rotate
-      },
+      colorPalette: { blue300, white },
+      easing: { easeInOut, linear },
+      keyframes: { glow, rotate },
       spacing,
       transitionTimes
     },
@@ -248,7 +239,8 @@ Icon.Container = styled.div<IconContainerProps>`
     overflow: ${overflow};
     width: ${(width in spacing && spacing[width]) || width};
 
-    ${shouldRotate && css`
+    ${shouldRotate &&
+    css`
       animation-duration: ${transitionTimes.verySlow};
       animation-iteration-count: infinite;
       animation-name: ${rotate};
@@ -257,15 +249,17 @@ Icon.Container = styled.div<IconContainerProps>`
 
     svg {
       height: ${isResponsive || isHeightResponsive ? "100%" : "auto"};
-      width: ${(isResponsive && !isHeightResponsive) ? "100%" : "auto"};
+      width: ${isResponsive && !isHeightResponsive ? "100%" : "auto"};
 
-      ${isActive && css`
+      ${isActive &&
+      css`
         path {
           fill: ${blue300};
         }
       `}
 
-      ${shouldDisplayGlowAnimation && css`
+      ${shouldDisplayGlowAnimation &&
+      css`
         animation-delay: ${animationDelay};
         animation-duration: ${transitionTimes[animationTime]};
         animation-iteration-count: infinite;
@@ -273,19 +267,29 @@ Icon.Container = styled.div<IconContainerProps>`
         animation-timing-function: ${easeInOut};
       `}
     
-      ${shouldGlow && `
-        filter: drop-shadow(0px 0px ${spacing.spacing4} ${transparentize(0.5, white)});
+      ${shouldGlow &&
+      `
+        filter: drop-shadow(0px 0px ${spacing.spacing4} ${transparentize(
+  0.5,
+  white
+)});
       `}
 
-      ${shouldGlowOnHover && `
-        transition: all ${transitionTimes[animationTime]} ${easeInOut} ${animationDelay};
+      ${shouldGlowOnHover &&
+      `
+        transition: all ${
+  transitionTimes[animationTime]
+} ${easeInOut} ${animationDelay};
   
         &:hover {
-          filter: drop-shadow(0px 0px ${spacing.spacing4} ${transparentize(0.5, white)});
+          filter: drop-shadow(0px 0px ${spacing.spacing4} ${transparentize(
+  0.5,
+  white
+)});
         }
       `}
     }
-  `}
+  `};
 `;
 
 export default memo(Icon);

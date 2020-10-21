@@ -1,8 +1,6 @@
 import { useLayoutEffect, useRef, useCallback, useState } from "react";
 
-import {
-  LineChartData
-} from "<hooks>/__typings__/useLineChart.d.ts";
+import { LineChartData } from "<hooks>/__typings__/useLineChart.d.ts";
 import {
   UseFpsCounter,
   UseFpsCounterResult
@@ -22,10 +20,11 @@ export default function useFpsCounter({
       while (times.current.length > 0 && times.current[0] <= now - 1000) {
         times.current.shift();
       }
-  
+
       times.current.push(now);
 
-      const currentFPS: number = times.current.length > 60 ? 60 : times.current.length;
+      const currentFPS: number =
+        times.current.length > 60 ? 60 : times.current.length;
 
       if (fpsContainer && fpsContainer.current) {
         fpsContainer.current.textContent = String(currentFPS);
@@ -36,16 +35,17 @@ export default function useFpsCounter({
           time: 0,
           value: currentFPS
         });
-  
+
         if (chartData.current.length > 120) {
           chartData.current.shift();
         }
-        
-        chartData.current = chartData.current
-          .map(({ value }: LineChartData, index: number) => ({
+
+        chartData.current = chartData.current.map(
+          ({ value }: LineChartData, index: number) => ({
             time: index,
             value
-          }));
+          })
+        );
       }
 
       if (!isPerformanceLow && currentFPS < 25) {

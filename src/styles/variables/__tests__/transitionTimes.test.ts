@@ -11,4 +11,4 @@ describe("styles / variables / transitionTimes", () => {
       verySlow: "3600ms"
     });
   });
-});  
+});

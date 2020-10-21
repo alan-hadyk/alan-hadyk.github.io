@@ -7,7 +7,9 @@ import {
   MapPositionToCornerProps
 } from "<atoms>/__typings__/Corner.d.ts";
 
-const mapPositionToCornerProps = (isActive: CornerProps["isActive"]): MapPositionToCornerProps => ({
+const mapPositionToCornerProps = (
+  isActive: CornerProps["isActive"]
+): MapPositionToCornerProps => ({
   bottomLeft: {
     left: isActive ? "-8px" : 0,
     top: isActive ? "100%" : "calc(100% - 8px)",
@@ -30,11 +32,10 @@ const mapPositionToCornerProps = (isActive: CornerProps["isActive"]): MapPositio
   }
 });
 
-function Corner({
-  isActive = false,
-  position
-}: CornerProps): JSX.Element {
-  const cornerProps: CornerContainerProps = mapPositionToCornerProps(isActive)[position];
+function Corner({ isActive = false, position }: CornerProps): JSX.Element {
+  const cornerProps: CornerContainerProps = mapPositionToCornerProps(isActive)[
+    position
+  ];
   const opacity: CornerContainerProps["opacity"] = isActive ? 1 : 0.5;
 
   return (
@@ -65,7 +66,7 @@ Corner.Container = styled.div<CornerContainerProps>`
     transform: ${transform};
     transition: all ${fast} ${easeInOut};
     width: ${spacing8};
-  `}
+  `};
 `;
 
 export default Corner;

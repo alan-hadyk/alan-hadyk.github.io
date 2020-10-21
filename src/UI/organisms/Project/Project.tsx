@@ -2,9 +2,7 @@ import React from "react";
 
 import SpacingContainer from "<layout>/SpacingContainer";
 
-import {
-  ProjectProps
-} from "<organisms>/Project/__typings__/Project.d.ts";
+import { ProjectProps } from "<organisms>/Project/__typings__/Project.d.ts";
 
 import ProjectTvAndDesktop from "<organisms>/Project/ProjectTvAndDesktop";
 import ProjectTablet from "<organisms>/Project/ProjectTablet";

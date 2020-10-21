@@ -7,9 +7,7 @@ import Responsive from "<layout>/Responsive";
 import ProjectDescription from "<organisms>/ProjectDescription";
 import ProjectImage from "<organisms>/Project/ProjectImage";
 
-import {
-  ProjectProps
-} from "<organisms>/Project/__typings__/Project.d.ts";
+import { ProjectProps } from "<organisms>/Project/__typings__/Project.d.ts";
 
 const ProjectTablet = ({
   description,
@@ -17,19 +15,13 @@ const ProjectTablet = ({
   projectIcon,
   title
 }: ProjectProps): JSX.Element => (
-  <Responsive
-    dataTestTabletId="ProjectTablet"
-    devices={["tablet"]}
-  >
+  <Responsive dataTestTabletId="ProjectTablet" devices={["tablet"]}>
     <FlexContainer
       dataTestId="ProjectTabletFlexContainer"
       alignItems="center"
       flexFlow="column nowrap"
     >
-      <SpacingContainer
-        marginBottom="4rem"
-        width="60%"
-      >
+      <SpacingContainer marginBottom="4rem" width="60%">
         <ProjectImage projectIcon={projectIcon} />
       </SpacingContainer>
 

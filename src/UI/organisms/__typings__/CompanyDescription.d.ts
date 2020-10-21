@@ -1,6 +1,4 @@
-import {
-  IconWithLabelProps
-} from "<molecules>/__typings__/IconWithLabel.d.ts";
+import { IconWithLabelProps } from "<molecules>/__typings__/IconWithLabel.d.ts";
 import { UnorderedListProps } from "<molecules>/__typings__/UnorderedList.d.ts";
 
 import { TextProps } from "<atoms>/__typings__/Text.d.ts";

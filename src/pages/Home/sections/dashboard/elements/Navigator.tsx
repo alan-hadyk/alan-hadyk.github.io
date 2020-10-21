@@ -4,11 +4,7 @@ import DashboardElement from "<molecules>/DashboardElement";
 import Performance from "<molecules>/Performance";
 
 const Navigator = (): JSX.Element => (
-  <DashboardElement
-    dataTestId="Navigator"
-    flex="0 1 13.6%"
-    title="Navigator"
-  >
+  <DashboardElement dataTestId="Navigator" flex="0 1 13.6%" title="Navigator">
     <Performance />
   </DashboardElement>
 );

@@ -2,7 +2,8 @@ import globalStyle from "<styles>/globalStyle";
 
 describe("styles / globalStyle", () => {
   test("should have correct global styling", () => {
-    expect(globalStyle.replace(/\s/g,"")).toEqual(`
+    expect(globalStyle.replace(/\s/g, "")).toEqual(
+      `
       html, body, div, span, applet, object, iframe,
       h1, h2, h3, h4, h5, h6, p, blockquote, pre,
       a, abbr, acronym, address, big, cite, code,
@@ -83,6 +84,7 @@ describe("styles / globalStyle", () => {
 
       a {
         text-decoration: none;
-    }`.replace(/\s/g,""));
+    }`.replace(/\s/g, "")
+    );
   });
 });

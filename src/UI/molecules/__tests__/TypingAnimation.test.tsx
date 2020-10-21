@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  act,
-  RenderResult
-} from "@testing-library/react";
+import { act, RenderResult } from "@testing-library/react";
 
 import TypingAnimation, { CODE } from "<molecules>/TypingAnimation";
 
@@ -17,41 +14,44 @@ describe("molecules / TypingAnimation", () => {
   });
 
   test("should have correct structure", () => {
-    const { 
+    const {
       PositionContainer,
       TypingAnimationCode,
-      TypingAnimationPre 
+      TypingAnimationPre
     } = setup();
 
     expect(PositionContainer.children[0]).toEqual(TypingAnimationPre);
     expect(TypingAnimationPre.children[0]).toEqual(TypingAnimationCode);
   });
 
-  describe("PositionContainer", () => {    
+  describe("PositionContainer", () => {
     describe("Props", () => {
-      describe("height", () => {      
+      describe("height", () => {
         test("should have 100%", () => {
           const { PositionContainer } = setup();
-    
+
           expect(PositionContainer).toHaveStyleRule("height", "100%");
         });
       });
 
-      describe("position", () => {      
+      describe("position", () => {
         test("should have relative", () => {
           const { PositionContainer } = setup();
-    
+
           expect(PositionContainer).toHaveStyleRule("position", "relative");
         });
       });
     });
   });
 
-  describe("TypingAnimationCode", () => {   
+  describe("TypingAnimationCode", () => {
     test("should update code character by character in intervals (50ms) if performance is high", () => {
       jest.useFakeTimers();
 
-      const mockUseFpsCounter: jest.Mock<unknown, unknown[]> = useFpsCounter as unknown as jest.Mock;
+      const mockUseFpsCounter: jest.Mock<
+        unknown,
+        unknown[]
+      > = (useFpsCounter as unknown) as jest.Mock;
 
       mockUseFpsCounter.mockImplementation(() => ({
         isPerformanceLow: false
@@ -101,7 +101,8 @@ describe("molecules / TypingAnimation", () => {
         jest.advanceTimersByTime(5000);
       });
 
-      expect(TypingAnimationCode.textContent).toEqual(`import { useLayoutEffect } from "react";
+      expect(TypingAnimationCode.textContent)
+        .toEqual(`import { useLayoutEffect } from "react";
 
 import {
   IntersectionObserverWithPolyfill,
@@ -109,11 +110,14 @@ import {
 
       jest.clearAllTimers();
     });
-    
+
     test("should not update code character by character in intervals if performance is low", () => {
       jest.useFakeTimers();
 
-      const mockUseFpsCounter: jest.Mock<unknown, unknown[]> = useFpsCounter as unknown as jest.Mock;
+      const mockUseFpsCounter: jest.Mock<
+        unknown,
+        unknown[]
+      > = (useFpsCounter as unknown) as jest.Mock;
 
       mockUseFpsCounter.mockImplementation(() => ({
         isPerformanceLow: true
@@ -137,11 +141,14 @@ import {
 
       jest.clearAllTimers();
     });
-    
+
     test("should clear code after typing the whole text if performance is high", () => {
       jest.useFakeTimers();
 
-      const mockUseFpsCounter: jest.Mock<unknown, unknown[]> = useFpsCounter as unknown as jest.Mock;
+      const mockUseFpsCounter: jest.Mock<
+        unknown,
+        unknown[]
+      > = (useFpsCounter as unknown) as jest.Mock;
 
       mockUseFpsCounter.mockImplementation(() => ({
         isPerformanceLow: false
@@ -165,11 +172,14 @@ import {
 
       jest.clearAllTimers();
     });
-    
+
     test("should not clear code if performance is low", () => {
       jest.useFakeTimers();
 
-      const mockUseFpsCounter: jest.Mock<unknown, unknown[]> = useFpsCounter as unknown as jest.Mock;
+      const mockUseFpsCounter: jest.Mock<
+        unknown,
+        unknown[]
+      > = (useFpsCounter as unknown) as jest.Mock;
 
       mockUseFpsCounter.mockImplementation(() => ({
         isPerformanceLow: true
@@ -193,175 +203,206 @@ import {
 
       jest.clearAllTimers();
     });
-    
+
     describe("Styles", () => {
-      describe("bottom", () => {      
+      describe("bottom", () => {
         test("should have 0", () => {
           const { TypingAnimationCode } = setup();
-    
+
           expect(TypingAnimationCode).toHaveStyleRule("bottom", "0");
         });
       });
 
-      describe("color", () => {      
+      describe("color", () => {
         test("should have #78b0b5", () => {
           const { TypingAnimationCode } = setup();
-    
+
           expect(TypingAnimationCode).toHaveStyleRule("color", "#78b0b5");
         });
       });
 
-      describe("font-family", () => {      
+      describe("font-family", () => {
         test("should have 'Anonymous Pro',monospace", () => {
           const { TypingAnimationCode } = setup();
-    
-          expect(TypingAnimationCode).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
+
+          expect(TypingAnimationCode).toHaveStyleRule(
+            "font-family",
+            "'Anonymous Pro',monospace"
+          );
         });
       });
 
-      describe("font-size", () => {      
+      describe("font-size", () => {
         test("should have 8px", () => {
           const { TypingAnimationCode } = setup();
-    
+
           expect(TypingAnimationCode).toHaveStyleRule("font-size", "8px");
         });
       });
 
-      describe("left", () => {      
+      describe("left", () => {
         test("should have 0", () => {
           const { TypingAnimationCode } = setup();
-    
+
           expect(TypingAnimationCode).toHaveStyleRule("left", "0");
         });
       });
 
-      describe("line-height", () => {      
+      describe("line-height", () => {
         test("should have 1.2rem", () => {
           const { TypingAnimationCode } = setup();
-    
+
           expect(TypingAnimationCode).toHaveStyleRule("line-height", "1.2rem");
         });
       });
 
-      describe("min-height", () => {      
+      describe("min-height", () => {
         test("should have 100%", () => {
           const { TypingAnimationCode } = setup();
-    
+
           expect(TypingAnimationCode).toHaveStyleRule("min-height", "100%");
         });
       });
 
-      describe("position", () => {      
+      describe("position", () => {
         test("should have absolute", () => {
           const { TypingAnimationCode } = setup();
-    
+
           expect(TypingAnimationCode).toHaveStyleRule("position", "absolute");
         });
       });
 
-      describe("right", () => {      
+      describe("right", () => {
         test("should have 0", () => {
           const { TypingAnimationCode } = setup();
-    
+
           expect(TypingAnimationCode).toHaveStyleRule("right", "0");
         });
       });
 
       describe("&::after", () => {
-        describe("animation-duration", () => {      
+        describe("animation-duration", () => {
           test("should have 300ms", () => {
             const { TypingAnimationCode } = setup();
-      
-            expect(TypingAnimationCode).toHaveStyleRule("animation-duration", "300ms", {
-              modifier: "::after"
-            });
+
+            expect(TypingAnimationCode).toHaveStyleRule(
+              "animation-duration",
+              "300ms",
+              {
+                modifier: "::after"
+              }
+            );
           });
         });
-  
-        describe("animation-iteration-count", () => {      
+
+        describe("animation-iteration-count", () => {
           test("should have infinite", () => {
             const { TypingAnimationCode } = setup();
-      
-            expect(TypingAnimationCode).toHaveStyleRule("animation-iteration-count", "infinite", {
-              modifier: "::after"
-            });
+
+            expect(TypingAnimationCode).toHaveStyleRule(
+              "animation-iteration-count",
+              "infinite",
+              {
+                modifier: "::after"
+              }
+            );
           });
         });
-  
-        describe("animation-timing-function", () => {      
+
+        describe("animation-timing-function", () => {
           test("should have ease-in-out", () => {
             const { TypingAnimationCode } = setup();
-      
-            expect(TypingAnimationCode).toHaveStyleRule("animation-timing-function", "ease-in-out", {
-              modifier: "::after"
-            });
+
+            expect(TypingAnimationCode).toHaveStyleRule(
+              "animation-timing-function",
+              "ease-in-out",
+              {
+                modifier: "::after"
+              }
+            );
           });
         });
-  
-        describe("background-color", () => {      
+
+        describe("background-color", () => {
           test("should have #bcd8db", () => {
             const { TypingAnimationCode } = setup();
-      
-            expect(TypingAnimationCode).toHaveStyleRule("background-color", "#bcd8db", {
-              modifier: "::after"
-            });
+
+            expect(TypingAnimationCode).toHaveStyleRule(
+              "background-color",
+              "#bcd8db",
+              {
+                modifier: "::after"
+              }
+            );
           });
         });
-  
-        describe("content", () => {      
+
+        describe("content", () => {
           test("should have ''", () => {
             const { TypingAnimationCode } = setup();
-      
+
             expect(TypingAnimationCode).toHaveStyleRule("content", "''", {
               modifier: "::after"
             });
           });
         });
-  
-        describe("display", () => {      
+
+        describe("display", () => {
           test("should have inline-block", () => {
             const { TypingAnimationCode } = setup();
-      
-            expect(TypingAnimationCode).toHaveStyleRule("display", "inline-block", {
-              modifier: "::after"
-            });
+
+            expect(TypingAnimationCode).toHaveStyleRule(
+              "display",
+              "inline-block",
+              {
+                modifier: "::after"
+              }
+            );
           });
         });
-  
-        describe("height", () => {      
+
+        describe("height", () => {
           test("should have .8rem", () => {
             const { TypingAnimationCode } = setup();
-      
+
             expect(TypingAnimationCode).toHaveStyleRule("height", ".8rem", {
               modifier: "::after"
             });
           });
         });
-  
-        describe("margin-left", () => {      
+
+        describe("margin-left", () => {
           test("should have .4rem", () => {
             const { TypingAnimationCode } = setup();
-      
-            expect(TypingAnimationCode).toHaveStyleRule("margin-left", ".4rem", {
-              modifier: "::after"
-            });
+
+            expect(TypingAnimationCode).toHaveStyleRule(
+              "margin-left",
+              ".4rem",
+              {
+                modifier: "::after"
+              }
+            );
           });
         });
-  
-        describe("transform", () => {      
+
+        describe("transform", () => {
           test("should have translateY(1px)", () => {
             const { TypingAnimationCode } = setup();
-      
-            expect(TypingAnimationCode).toHaveStyleRule("transform", "translateY(1px)", {
-              modifier: "::after"
-            });
+
+            expect(TypingAnimationCode).toHaveStyleRule(
+              "transform",
+              "translateY(1px)",
+              {
+                modifier: "::after"
+              }
+            );
           });
         });
-  
-        describe("width", () => {      
+
+        describe("width", () => {
           test("should have .4rem", () => {
             const { TypingAnimationCode } = setup();
-      
+
             expect(TypingAnimationCode).toHaveStyleRule("width", ".4rem", {
               modifier: "::after"
             });
@@ -379,15 +420,13 @@ interface Setup extends RenderResult {
 }
 
 function setup(): Setup {
-  const utils: RenderResult = renderWithTheme(
-    <TypingAnimation />
-  );
+  const utils: RenderResult = renderWithTheme(<TypingAnimation />);
 
   const { queryByTestId }: RenderResult = utils;
   const PositionContainer: Element = queryByTestId("TypingAnimation");
   const TypingAnimationPre: Element = queryByTestId("TypingAnimationPre");
   const TypingAnimationCode: Element = queryByTestId("TypingAnimationCode");
-  
+
   return {
     ...utils,
     PositionContainer,

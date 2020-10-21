@@ -19,10 +19,7 @@ const Company = ({
   timelineBottom,
   title
 }: CompanyProps): JSX.Element => (
-  <FlexContainer
-    dataCy={dataCy}
-    dataTestId={dataTestId || "Company"}
-  >
+  <FlexContainer dataCy={dataCy} dataTestId={dataTestId || "Company"}>
     <PositionContainer
       dataTestId="CompanyPositionContainer"
       position="relative"

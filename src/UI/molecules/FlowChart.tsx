@@ -19,7 +19,7 @@ function FlowChart(): JSX.Element {
   // useLayoutEffect((): void => {
   //   const _vivusInstance: Vivus = new Vivus("flow-chart", {
   //     delay: parseInt(transitionTimes.fast),
-  //     duration: parseInt(transitionTimes.default), 
+  //     duration: parseInt(transitionTimes.default),
   //     type: "delayed"
   //   }, (vivusCb: Vivus): Vivus => vivusCb.play(vivusCb.getStatus() === "end" ? -1 : 1));
 
@@ -40,12 +40,12 @@ function FlowChart(): JSX.Element {
   // }, [isPerformanceLow, vivusInstance]);
 
   return (
-    <FlexContainer 
+    <FlexContainer
       alignItems="center"
       dataTestId="FlowChart"
       height="100%"
       justifyContent="center"
-    > 
+    >
       <SpacingContainer
         dataTestId="FlowChartSpacingContainer"
         height="100%"
@@ -55,9 +55,7 @@ function FlowChart(): JSX.Element {
         paddingTop="spacing8"
         width="100%"
       >
-        <FlowChart.Icon
-          id="flow-chart"
-        />
+        <FlowChart.Icon id="flow-chart" />
       </SpacingContainer>
     </FlexContainer>
   );

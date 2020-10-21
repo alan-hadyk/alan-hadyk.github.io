@@ -1,6 +1,4 @@
-import {
-  IconWithLabelProps
-} from "<molecules>/__typings__/IconWithLabel.d.ts";
+import { IconWithLabelProps } from "<molecules>/__typings__/IconWithLabel.d.ts";
 
 export interface Data {
   iconsWithLabels: IconWithLabelProps[];

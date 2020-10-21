@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  act,
-  fireEvent, 
-  RenderResult
-} from "@testing-library/react";
+import { act, fireEvent, RenderResult } from "@testing-library/react";
 
 import Backdrop from "<atoms>/Backdrop";
 
@@ -13,78 +9,78 @@ import { BackdropProps } from "<atoms>/__typings__/Backdrop.d.ts";
 
 describe("atoms / Backdrop", () => {
   describe("Styles", () => {
-    describe("bottom", () => {      
+    describe("bottom", () => {
       test("should have 0", () => {
         const { BackdropContainer } = setup();
-  
+
         expect(BackdropContainer).toHaveStyleRule("bottom", "0");
       });
     });
 
-    describe("cursor", () => {      
+    describe("cursor", () => {
       test("should have pointer", () => {
         const { BackdropContainer } = setup();
-  
+
         expect(BackdropContainer).toHaveStyleRule("cursor", "pointer");
       });
     });
 
-    describe("left", () => {  
+    describe("left", () => {
       test("should have 0", () => {
         const { BackdropContainer } = setup();
-  
+
         expect(BackdropContainer).toHaveStyleRule("left", "0");
       });
     });
 
-    describe("position", () => {      
+    describe("position", () => {
       test("should have fixed", () => {
         const { BackdropContainer } = setup();
-  
+
         expect(BackdropContainer).toHaveStyleRule("position", "fixed");
       });
     });
 
-    describe("right", () => {  
+    describe("right", () => {
       test("should have 0", () => {
         const { BackdropContainer } = setup();
-  
+
         expect(BackdropContainer).toHaveStyleRule("right", "0");
       });
     });
 
-    describe("top", () => {  
+    describe("top", () => {
       test("should have 0", () => {
         const { BackdropContainer } = setup();
-  
+
         expect(BackdropContainer).toHaveStyleRule("top", "0");
       });
     });
 
-    describe("z-index", () => {  
+    describe("z-index", () => {
       test("should have 900", () => {
         const { BackdropContainer } = setup();
-  
+
         expect(BackdropContainer).toHaveStyleRule("z-index", "900");
       });
     });
   });
 
   describe("Props", () => {
-    describe("onClick", () => { 
+    describe("onClick", () => {
       test("should fire onClick prop", () => {
         const onClick = jest.fn();
-  
+
         const { BackdropContainer } = setup({
           onClick
         });
-  
+
         expect(onClick).toHaveBeenCalledTimes(0);
-  
+
         act(() => {
           fireEvent.click(BackdropContainer);
         });
-  
+
         expect(onClick).toHaveBeenCalledTimes(1);
       });
     });
@@ -103,9 +99,7 @@ function setup(additionalProps?: BackdropTestProps): Setup {
     ...additionalProps
   };
 
-  const utils: RenderResult = renderWithTheme(
-    <Backdrop {...props} />
-  );
+  const utils: RenderResult = renderWithTheme(<Backdrop {...props} />);
 
   const { queryByTestId } = utils || {};
 

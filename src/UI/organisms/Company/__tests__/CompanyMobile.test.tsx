@@ -25,11 +25,11 @@ describe("organisms / CompanyMobile", () => {
 
   describe("ResponsiveMobile", () => {
     describe("Props", () => {
-      describe("devices", () => {      
+      describe("devices", () => {
         describe("should have mobile", () => {
           test("should have display block when max-width is 640px", () => {
             const { ResponsiveMobile } = setup();
-      
+
             expect(ResponsiveMobile).toHaveStyleRule("display", "block", {
               media: "(max-width:640px)"
             });
@@ -41,7 +41,7 @@ describe("organisms / CompanyMobile", () => {
 
   describe("FlexContainer", () => {
     describe("Props", () => {
-      describe("alignItems", () => {  
+      describe("alignItems", () => {
         test("should have center", () => {
           const { FlexContainer } = setup();
 
@@ -49,7 +49,7 @@ describe("organisms / CompanyMobile", () => {
         });
       });
 
-      describe("flexFlow", () => {  
+      describe("flexFlow", () => {
         test("should have column nowrap", () => {
           const { FlexContainer } = setup();
 
@@ -71,7 +71,7 @@ describe("organisms / CompanyMobile", () => {
         });
       });
 
-      describe("maxWidth", () => {  
+      describe("maxWidth", () => {
         test("should have 105.6rem", () => {
           const { FlexContainer } = setup();
 
@@ -97,7 +97,9 @@ describe("organisms / CompanyMobile", () => {
             logo: "companyOmise"
           });
 
-          expect(CompanyLogo.children[0].textContent).toEqual("Company-Omise.svg");
+          expect(CompanyLogo.children[0].textContent).toEqual(
+            "Company-Omise.svg"
+          );
         });
 
         test("should have Company-SAP.svg when prop logo: companySAP", () => {
@@ -105,7 +107,9 @@ describe("organisms / CompanyMobile", () => {
             logo: "companySAP"
           });
 
-          expect(CompanyLogo.children[0].textContent).toEqual("Company-SAP.svg");
+          expect(CompanyLogo.children[0].textContent).toEqual(
+            "Company-SAP.svg"
+          );
         });
       });
     });
@@ -119,7 +123,9 @@ describe("organisms / CompanyMobile", () => {
             date: "July 2016 to present"
           });
 
-          expect(CompanyDescription.children[1].children[0].children[1].textContent).toEqual("July 2016 to present");
+          expect(
+            CompanyDescription.children[1].children[0].children[1].textContent
+          ).toEqual("July 2016 to present");
         });
 
         test("should render label equal to date prop - March 2017 to August 2018", () => {
@@ -127,7 +133,9 @@ describe("organisms / CompanyMobile", () => {
             date: "March 2017 to August 2018"
           });
 
-          expect(CompanyDescription.children[1].children[0].children[1].textContent).toEqual("March 2017 to August 2018");
+          expect(
+            CompanyDescription.children[1].children[0].children[1].textContent
+          ).toEqual("March 2017 to August 2018");
         });
       });
 
@@ -145,13 +153,22 @@ describe("organisms / CompanyMobile", () => {
               }
             ]
           });
-          const IconsWithLabels: Element = CompanyDescription.children[2].children[1].children[0];
+          const IconsWithLabels: Element =
+            CompanyDescription.children[2].children[1].children[0];
 
           expect(IconsWithLabels.children.length).toEqual(2);
-          expect(IconsWithLabels.children[0].children[0].children[0].textContent).toEqual("Brand-Webpack.svg");
-          expect(IconsWithLabels.children[0].children[1].textContent).toEqual("Webpack");
-          expect(IconsWithLabels.children[1].children[0].children[0].textContent).toEqual("Icon-Node.svg");
-          expect(IconsWithLabels.children[1].children[1].textContent).toEqual("Node");
+          expect(
+            IconsWithLabels.children[0].children[0].children[0].textContent
+          ).toEqual("Brand-Webpack.svg");
+          expect(IconsWithLabels.children[0].children[1].textContent).toEqual(
+            "Webpack"
+          );
+          expect(
+            IconsWithLabels.children[1].children[0].children[0].textContent
+          ).toEqual("Icon-Node.svg");
+          expect(IconsWithLabels.children[1].children[1].textContent).toEqual(
+            "Node"
+          );
         });
 
         test("should render correct icons - React, Apollo", () => {
@@ -167,46 +184,61 @@ describe("organisms / CompanyMobile", () => {
               }
             ]
           });
-          const IconsWithLabels: Element = CompanyDescription.children[2].children[1].children[0];
+          const IconsWithLabels: Element =
+            CompanyDescription.children[2].children[1].children[0];
 
           expect(IconsWithLabels.children.length).toEqual(2);
-          expect(IconsWithLabels.children[0].children[0].children[0].textContent).toEqual("Brand-React.svg");
-          expect(IconsWithLabels.children[0].children[1].textContent).toEqual("React");
-          expect(IconsWithLabels.children[1].children[0].children[0].textContent).toEqual("Icon-Apollo.svg");
-          expect(IconsWithLabels.children[1].children[1].textContent).toEqual("Apollo");
+          expect(
+            IconsWithLabels.children[0].children[0].children[0].textContent
+          ).toEqual("Brand-React.svg");
+          expect(IconsWithLabels.children[0].children[1].textContent).toEqual(
+            "React"
+          );
+          expect(
+            IconsWithLabels.children[1].children[0].children[0].textContent
+          ).toEqual("Icon-Apollo.svg");
+          expect(IconsWithLabels.children[1].children[1].textContent).toEqual(
+            "Apollo"
+          );
         });
       });
 
       describe("responsibilities", () => {
         test("should render correct responsibilities - test 1", () => {
           const responsibilities: CompanyProps["responsibilities"] = [
-            "Create scalable and sane front-end architecture", 
-            "Orchestrate and direct collaborative team operational objectives for front-end layer of an application designed to manage payment systems"    
+            "Create scalable and sane front-end architecture",
+            "Orchestrate and direct collaborative team operational objectives for front-end layer of an application designed to manage payment systems"
           ];
           const { CompanyDescription } = setup({
             responsibilities
           });
-          const UnorderedList: Element = CompanyDescription.children[3].children[1].children[0];
+          const UnorderedList: Element =
+            CompanyDescription.children[3].children[1].children[0];
 
           expect(UnorderedList.children.length).toEqual(2);
           responsibilities.forEach((responsibility: string, index: number) => {
-            expect(UnorderedList.children[index].textContent).toEqual(responsibility);
+            expect(UnorderedList.children[index].textContent).toEqual(
+              responsibility
+            );
           });
         });
 
         test("should render correct responsibilities - test 2", () => {
           const responsibilities: CompanyProps["responsibilities"] = [
-            "Apply development and certify adherence to best practices to deliver PoC based on React.js", 
-            "Transform and create reusable components and manage adapters, models and serializers"    
+            "Apply development and certify adherence to best practices to deliver PoC based on React.js",
+            "Transform and create reusable components and manage adapters, models and serializers"
           ];
           const { CompanyDescription } = setup({
             responsibilities
           });
-          const UnorderedList: Element = CompanyDescription.children[3].children[1].children[0];
+          const UnorderedList: Element =
+            CompanyDescription.children[3].children[1].children[0];
 
           expect(UnorderedList.children.length).toEqual(2);
           responsibilities.forEach((responsibility: string, index: number) => {
-            expect(UnorderedList.children[index].textContent).toEqual(responsibility);
+            expect(UnorderedList.children[index].textContent).toEqual(
+              responsibility
+            );
           });
         });
       });
@@ -216,8 +248,11 @@ describe("organisms / CompanyMobile", () => {
           const { CompanyDescription } = setup({
             responsibilitiesPaddingBottom: "spacing52"
           });
-          
-          expect(CompanyDescription.children[3]).toHaveStyleRule("padding-bottom", "5.2rem");
+
+          expect(CompanyDescription.children[3]).toHaveStyleRule(
+            "padding-bottom",
+            "5.2rem"
+          );
         });
       });
 
@@ -225,7 +260,10 @@ describe("organisms / CompanyMobile", () => {
         test("should have center", () => {
           const { CompanyDescription } = setup();
 
-          expect(CompanyDescription.children[0]).toHaveStyleRule("text-align", "center");
+          expect(CompanyDescription.children[0]).toHaveStyleRule(
+            "text-align",
+            "center"
+          );
         });
       });
 
@@ -265,7 +303,7 @@ type CompanyTestProps = Partial<CompanyProps>;
 
 function setup(additionalProps?: CompanyTestProps): Setup {
   const responsibilities: CompanyProps["responsibilities"] = [
-    "Create scalable and sane front-end architecture", 
+    "Create scalable and sane front-end architecture",
     "Orchestrate and direct collaborative team operational objectives for front-end layer of an application designed to manage payment systems"
   ];
 
@@ -289,15 +327,15 @@ function setup(additionalProps?: CompanyTestProps): Setup {
     ...additionalProps
   };
 
-  const utils: RenderResult = renderWithTheme(
-    <CompanyMobile {...props} />
-  );
+  const utils: RenderResult = renderWithTheme(<CompanyMobile {...props} />);
 
   const { queryAllByTestId } = utils || {};
 
   const CompanyDescription: Element = queryAllByTestId("CompanyDescription")[0];
   const CompanyLogo: Element = queryAllByTestId("CompanyLogoFlexContainer")[0];
-  const FlexContainer: Element = queryAllByTestId("CompanyMobileFlexContainer")[0];
+  const FlexContainer: Element = queryAllByTestId(
+    "CompanyMobileFlexContainer"
+  )[0];
   const ResponsiveMobile: Element = queryAllByTestId("ResponsiveMobile")[0];
 
   return {

@@ -23,9 +23,9 @@ describe("molecules / IconWithLabel", () => {
     expect(IconContainer.children[0]).toEqual(Icon);
   });
 
-  describe("FlexContainer", () => {    
+  describe("FlexContainer", () => {
     describe("Props", () => {
-      describe("alignItems", () => {      
+      describe("alignItems", () => {
         test("should have center", () => {
           const { FlexContainer } = setup();
 
@@ -33,7 +33,7 @@ describe("molecules / IconWithLabel", () => {
         });
       });
 
-      describe("flexFlow", () => {      
+      describe("flexFlow", () => {
         test("should have row nowrap", () => {
           const { FlexContainer } = setup();
 
@@ -41,7 +41,7 @@ describe("molecules / IconWithLabel", () => {
         });
       });
 
-      describe("height", () => {      
+      describe("height", () => {
         test("should have 100%", () => {
           const { FlexContainer } = setup();
 
@@ -49,19 +49,22 @@ describe("molecules / IconWithLabel", () => {
         });
       });
 
-      describe("justifyContent", () => {      
+      describe("justifyContent", () => {
         test("should have flex-start", () => {
           const { FlexContainer } = setup();
 
-          expect(FlexContainer).toHaveStyleRule("justify-content", "flex-start");
+          expect(FlexContainer).toHaveStyleRule(
+            "justify-content",
+            "flex-start"
+          );
         });
       });
     });
   });
 
-  describe("SpacingContainer", () => {    
+  describe("SpacingContainer", () => {
     describe("Props", () => {
-      describe("paddingRight", () => {      
+      describe("paddingRight", () => {
         test("should have .8rem when size is small", () => {
           const { SpacingContainer } = setup({
             size: "small"
@@ -89,21 +92,21 @@ describe("molecules / IconWithLabel", () => {
     });
   });
 
-  describe("Icon", () => {    
-    describe("SVG", () => { 
+  describe("Icon", () => {
+    describe("SVG", () => {
       describe("Props", () => {
         describe("iconName", () => {
           test("should render correct icon passed via iconName prop", () => {
             const { Icon } = setup({
               iconName: "brandJS"
             });
-      
+
             expect(Icon.textContent).toEqual("Brand-JS.svg");
           });
         });
       });
     });
-  
+
     describe("IconContainer", () => {
       describe("Props", () => {
         describe("height", () => {
@@ -111,23 +114,23 @@ describe("molecules / IconWithLabel", () => {
             const { IconContainer } = setup({
               size: "small"
             });
-    
+
             expect(IconContainer).toHaveStyleRule("height", "2.8rem");
           });
-  
+
           test("should have 3.2rem for medium size", () => {
             const { IconContainer } = setup({
               size: "medium"
             });
-    
+
             expect(IconContainer).toHaveStyleRule("height", "3.2rem");
           });
-  
+
           test("should have 4rem for large size", () => {
             const { IconContainer } = setup({
               size: "large"
             });
-    
+
             expect(IconContainer).toHaveStyleRule("height", "4rem");
           });
         });
@@ -136,7 +139,7 @@ describe("molecules / IconWithLabel", () => {
           describe("height", () => {
             test("should have 100%", () => {
               const { IconContainer } = setup();
-        
+
               expect(IconContainer).toHaveStyleRule("height", "100%", {
                 modifier: "svg"
               });
@@ -156,7 +159,7 @@ describe("molecules / IconWithLabel", () => {
       expect(Text.textContent).toEqual("Javascript");
     });
 
-    describe("Props", () => {      
+    describe("Props", () => {
       describe("color", () => {
         test("should have correct value passed via labelColor prop", () => {
           const { Text } = setup({
@@ -212,17 +215,17 @@ function setup(additionalProps?: IconWithLabelTestProps): Setup {
     label: "/",
     ...additionalProps
   };
-  
-  const utils: RenderResult = renderWithTheme(
-    <IconWithLabel {...props} />
-  );
+
+  const utils: RenderResult = renderWithTheme(<IconWithLabel {...props} />);
 
   const { queryByTestId }: RenderResult = utils;
 
   const FlexContainer: Element = queryByTestId("IconWithLabel");
   const Icon: SVGSVGElement = document.querySelector("svg");
   const IconContainer: Element = queryByTestId("IconContainer");
-  const SpacingContainer: Element = queryByTestId("IconWithLabelSpacingContainer");
+  const SpacingContainer: Element = queryByTestId(
+    "IconWithLabelSpacingContainer"
+  );
   const Text: Element = queryByTestId("LabelText");
 
   return {
@@ -233,4 +236,4 @@ function setup(additionalProps?: IconWithLabelTestProps): Setup {
     SpacingContainer,
     Text
   };
-} 
+}

@@ -18,20 +18,11 @@ const HeaderTabletAndMobile = ({
     dataTestTabletId="HeaderTablet"
     devices={["tablet", "mobile"]}
   >
-    <MenuButton
-      isOpen={isMenuVisible}
-      onClick={onClick}
-    />
+    <MenuButton isOpen={isMenuVisible} onClick={onClick} />
 
-    {
-      isMenuVisible && (
-        <Backdrop onClick={onClick} />
-      )
-    }
+    {isMenuVisible && <Backdrop onClick={onClick} />}
 
-    <SideMenu
-      isExpanded={isMenuVisible}
-    />
+    <SideMenu isExpanded={isMenuVisible} />
   </Responsive>
 );
 

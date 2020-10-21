@@ -5,13 +5,9 @@ import CompanyDescription from "<organisms>/CompanyDescription";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  CompanyDescriptionProps
-} from "<organisms>/__typings__/CompanyDescription.d.ts";
+import { CompanyDescriptionProps } from "<organisms>/__typings__/CompanyDescription.d.ts";
 
-import {
-  IconWithLabelProps
-} from "<molecules>/__typings__/IconWithLabel.d.ts";
+import { IconWithLabelProps } from "<molecules>/__typings__/IconWithLabel.d.ts";
 
 describe("organisms / CompanyDescription", () => {
   test("should have correct structure", () => {
@@ -31,28 +27,44 @@ describe("organisms / CompanyDescription", () => {
     } = setup();
 
     expect(CompanyDescriptionContainer.children[0]).toEqual(MainTitle);
-    expect(CompanyDescriptionContainer.children[1]).toEqual(DateSpacingContainer);
-    expect(CompanyDescriptionContainer.children[2]).toEqual(TechStackSpacingContainer);
-    expect(CompanyDescriptionContainer.children[3]).toEqual(ResponsibilitiesSpacingContainer);
+    expect(CompanyDescriptionContainer.children[1]).toEqual(
+      DateSpacingContainer
+    );
+    expect(CompanyDescriptionContainer.children[2]).toEqual(
+      TechStackSpacingContainer
+    );
+    expect(CompanyDescriptionContainer.children[3]).toEqual(
+      ResponsibilitiesSpacingContainer
+    );
 
     expect(DateSpacingContainer.children[0]).toEqual(DateIconWithLabel);
 
     expect(TechStackSpacingContainer.children[0]).toEqual(TechStackTitle);
-    expect(TechStackSpacingContainer.children[1]).toEqual(TechStackIconsWithLabelsSpacingContainer);
-    expect(TechStackIconsWithLabelsSpacingContainer.children[0]).toEqual(IconsWithLabels);
+    expect(TechStackSpacingContainer.children[1]).toEqual(
+      TechStackIconsWithLabelsSpacingContainer
+    );
+    expect(TechStackIconsWithLabelsSpacingContainer.children[0]).toEqual(
+      IconsWithLabels
+    );
 
-    expect(ResponsibilitiesSpacingContainer.children[0]).toEqual(ResponsibilitiesTitle);
-    expect(ResponsibilitiesSpacingContainer.children[1]).toEqual(ResponsibilitiesListSpacingContainer);
-    expect(ResponsibilitiesListSpacingContainer.children[0]).toEqual(UnorderedList);
+    expect(ResponsibilitiesSpacingContainer.children[0]).toEqual(
+      ResponsibilitiesTitle
+    );
+    expect(ResponsibilitiesSpacingContainer.children[1]).toEqual(
+      ResponsibilitiesListSpacingContainer
+    );
+    expect(ResponsibilitiesListSpacingContainer.children[0]).toEqual(
+      UnorderedList
+    );
   });
 
-  describe("Titles", () => { 
+  describe("Titles", () => {
     describe("MainTitle", () => {
       test("should render correct content passed via title prop", () => {
         const { MainTitle } = setup({
           title: "Self employed"
         });
-  
+
         expect(MainTitle.textContent).toEqual("Self employed");
       });
 
@@ -64,15 +76,18 @@ describe("organisms / CompanyDescription", () => {
             expect(MainTitle).toHaveStyleRule("color", "#fff");
           });
         });
-  
+
         describe("fontFamily", () => {
           test("should have ExanModifiedRegular, monospace", () => {
             const { MainTitle } = setup();
 
-            expect(MainTitle).toHaveStyleRule("font-family", "ExanModifiedRegular,monospace");
+            expect(MainTitle).toHaveStyleRule(
+              "font-family",
+              "ExanModifiedRegular,monospace"
+            );
           });
         });
-  
+
         describe("fontSize", () => {
           test("should have 36px", () => {
             const { MainTitle } = setup();
@@ -118,7 +133,7 @@ describe("organisms / CompanyDescription", () => {
     describe("TechStackTitle", () => {
       test("should render correct content - Tech stack", () => {
         const { TechStackTitle } = setup();
-  
+
         expect(TechStackTitle.textContent).toEqual("Tech stack");
       });
 
@@ -134,10 +149,13 @@ describe("organisms / CompanyDescription", () => {
             expect(TechStackTitle).toHaveStyleRule("color", "#bcd8db");
           });
         });
-  
+
         describe("fontFamily", () => {
           test("should have 'Anonymous Pro',monospace", () => {
-            expect(TechStackTitle).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
+            expect(TechStackTitle).toHaveStyleRule(
+              "font-family",
+              "'Anonymous Pro',monospace"
+            );
           });
         });
 
@@ -164,7 +182,7 @@ describe("organisms / CompanyDescription", () => {
     describe("ResponsibilitiesTitle", () => {
       test("should render correct content - Responsibilities", () => {
         const { ResponsibilitiesTitle } = setup();
-  
+
         expect(ResponsibilitiesTitle.textContent).toEqual("Responsibilities");
       });
 
@@ -180,10 +198,13 @@ describe("organisms / CompanyDescription", () => {
             expect(ResponsibilitiesTitle).toHaveStyleRule("color", "#bcd8db");
           });
         });
-  
+
         describe("fontFamily", () => {
           test("should have 'Anonymous Pro',monospace", () => {
-            expect(ResponsibilitiesTitle).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
+            expect(ResponsibilitiesTitle).toHaveStyleRule(
+              "font-family",
+              "'Anonymous Pro',monospace"
+            );
           });
         });
 
@@ -201,7 +222,10 @@ describe("organisms / CompanyDescription", () => {
 
         describe("lineHeight", () => {
           test("should have 3.2rem", () => {
-            expect(ResponsibilitiesTitle).toHaveStyleRule("line-height", "3.2rem");
+            expect(ResponsibilitiesTitle).toHaveStyleRule(
+              "line-height",
+              "3.2rem"
+            );
           });
         });
       });
@@ -214,7 +238,10 @@ describe("organisms / CompanyDescription", () => {
         test("should have #78b0b5", () => {
           const { DateIconWithLabel } = setup();
 
-          expect(DateIconWithLabel.children[1]).toHaveStyleRule("color", "#78b0b5");
+          expect(DateIconWithLabel.children[1]).toHaveStyleRule(
+            "color",
+            "#78b0b5"
+          );
         });
       });
 
@@ -222,7 +249,9 @@ describe("organisms / CompanyDescription", () => {
         test("should render calendar", () => {
           const { DateIconWithLabel } = setup();
 
-          expect(DateIconWithLabel.children[0].children[0].textContent).toEqual("Icon-Calendar.svg");
+          expect(DateIconWithLabel.children[0].children[0].textContent).toEqual(
+            "Icon-Calendar.svg"
+          );
         });
       });
 
@@ -232,7 +261,9 @@ describe("organisms / CompanyDescription", () => {
             date: "July 2016 to present"
           });
 
-          expect(DateIconWithLabel.children[1].textContent).toEqual("July 2016 to present");
+          expect(DateIconWithLabel.children[1].textContent).toEqual(
+            "July 2016 to present"
+          );
         });
       });
 
@@ -246,7 +277,10 @@ describe("organisms / CompanyDescription", () => {
         describe("SpacingContainer", () => {
           describe("paddingRight", () => {
             test("should have 1.2rem", () => {
-              expect(DateIconWithLabel.children[0]).toHaveStyleRule("padding-right", "1.2rem");
+              expect(DateIconWithLabel.children[0]).toHaveStyleRule(
+                "padding-right",
+                "1.2rem"
+              );
             });
           });
         });
@@ -254,7 +288,10 @@ describe("organisms / CompanyDescription", () => {
         describe("Icon", () => {
           describe("height", () => {
             test("should have 3.2rem", () => {
-              expect(DateIconWithLabel.children[0].children[0]).toHaveStyleRule("height", "3.2rem");
+              expect(DateIconWithLabel.children[0].children[0]).toHaveStyleRule(
+                "height",
+                "3.2rem"
+              );
             });
           });
         });
@@ -262,7 +299,10 @@ describe("organisms / CompanyDescription", () => {
         describe("Text", () => {
           describe("fontSize", () => {
             test("should have 20px", () => {
-              expect(DateIconWithLabel.children[1]).toHaveStyleRule("font-size", "20px");
+              expect(DateIconWithLabel.children[1]).toHaveStyleRule(
+                "font-size",
+                "20px"
+              );
             });
           });
         });
@@ -304,16 +344,20 @@ describe("organisms / CompanyDescription", () => {
         iconsWithLabels
       });
 
-      expect(IconsWithLabels.children[0].children[1].textContent).toEqual("Webpack");
-      expect(IconsWithLabels.children[1].children[1].textContent).toEqual("Node");
+      expect(IconsWithLabels.children[0].children[1].textContent).toEqual(
+        "Webpack"
+      );
+      expect(IconsWithLabels.children[1].children[1].textContent).toEqual(
+        "Node"
+      );
     });
 
     describe("Props", () => {
       describe("size - small", () => {
-        describe("FlexContainer - gap", () => {    
+        describe("FlexContainer - gap", () => {
           test("should have margin-bottom: 1.6rem and margin-right: 1.6rem in all children", () => {
             const { IconsWithLabels } = setup();
-            
+
             expect(IconsWithLabels).toHaveStyleRule("margin-bottom", "1.6rem", {
               modifier: "& > *"
             });
@@ -326,36 +370,52 @@ describe("organisms / CompanyDescription", () => {
         describe("IconContainer - height", () => {
           test("should have 2.8rem", () => {
             const { IconsWithLabels } = setup();
-    
-            expect(IconsWithLabels.children[0].children[0].children[0]).toHaveStyleRule("height", "2.8rem");
-            expect(IconsWithLabels.children[1].children[0].children[0]).toHaveStyleRule("height", "2.8rem");
+
+            expect(
+              IconsWithLabels.children[0].children[0].children[0]
+            ).toHaveStyleRule("height", "2.8rem");
+            expect(
+              IconsWithLabels.children[1].children[0].children[0]
+            ).toHaveStyleRule("height", "2.8rem");
           });
         });
 
         describe("IconWithLabelSpacingContainer - paddingRight", () => {
           test("should have .8rem", () => {
             const { IconsWithLabels } = setup();
-    
-            expect(IconsWithLabels.children[0].children[0]).toHaveStyleRule("padding-right", ".8rem");
-            expect(IconsWithLabels.children[0].children[0]).toHaveStyleRule("padding-right", ".8rem");
+
+            expect(IconsWithLabels.children[0].children[0]).toHaveStyleRule(
+              "padding-right",
+              ".8rem"
+            );
+            expect(IconsWithLabels.children[0].children[0]).toHaveStyleRule(
+              "padding-right",
+              ".8rem"
+            );
           });
         });
 
-        describe("LabelTexts - fontSize", () => {  
+        describe("LabelTexts - fontSize", () => {
           test("should have 16px", () => {
             const { IconsWithLabels } = setup();
-  
-            expect(IconsWithLabels.children[0].children[1]).toHaveStyleRule("font-size", "16px");
-            expect(IconsWithLabels.children[1].children[1]).toHaveStyleRule("font-size", "16px");
+
+            expect(IconsWithLabels.children[0].children[1]).toHaveStyleRule(
+              "font-size",
+              "16px"
+            );
+            expect(IconsWithLabels.children[1].children[1]).toHaveStyleRule(
+              "font-size",
+              "16px"
+            );
           });
         });
       });
 
       describe("position - horizontal", () => {
-        describe("FlexContainer - flexFlow", () => {      
+        describe("FlexContainer - flexFlow", () => {
           test("should have row nowrap", () => {
             const { IconsWithLabels } = setup();
-  
+
             expect(IconsWithLabels).toHaveStyleRule("flex-flow", "row wrap");
           });
         });
@@ -363,66 +423,84 @@ describe("organisms / CompanyDescription", () => {
     });
   });
 
-  describe("SpacingContainers", () => { 
-    describe("DateSpacingContainer", () => { 
+  describe("SpacingContainers", () => {
+    describe("DateSpacingContainer", () => {
       describe("Props", () => {
-        describe("marginBottom", () => {      
+        describe("marginBottom", () => {
           test("should have 3.2rem", () => {
             const { DateSpacingContainer } = setup();
 
-            expect(DateSpacingContainer).toHaveStyleRule("margin-bottom", "3.2rem");
+            expect(DateSpacingContainer).toHaveStyleRule(
+              "margin-bottom",
+              "3.2rem"
+            );
           });
         });
 
-        describe("marginTop", () => {      
+        describe("marginTop", () => {
           test("should have 3.2rem", () => {
             const { DateSpacingContainer } = setup();
 
-            expect(DateSpacingContainer).toHaveStyleRule("margin-top", "3.2rem");
+            expect(DateSpacingContainer).toHaveStyleRule(
+              "margin-top",
+              "3.2rem"
+            );
           });
         });
       });
     });
 
-    describe("TechStackSpacingContainer", () => { 
+    describe("TechStackSpacingContainer", () => {
       describe("Props", () => {
-        describe("marginBottom", () => {      
+        describe("marginBottom", () => {
           test("should have 1.6rem", () => {
             const { TechStackSpacingContainer } = setup();
 
-            expect(TechStackSpacingContainer).toHaveStyleRule("margin-bottom", "1.6rem");
+            expect(TechStackSpacingContainer).toHaveStyleRule(
+              "margin-bottom",
+              "1.6rem"
+            );
           });
         });
       });
     });
 
-    describe("TechStackIconsWithLabelsSpacingContainer", () => { 
+    describe("TechStackIconsWithLabelsSpacingContainer", () => {
       describe("Props", () => {
-        describe("marginLeft", () => {      
+        describe("marginLeft", () => {
           test("should have 1.6rem", () => {
             const { TechStackIconsWithLabelsSpacingContainer } = setup();
 
-            expect(TechStackIconsWithLabelsSpacingContainer).toHaveStyleRule("margin-left", "1.6rem");
+            expect(TechStackIconsWithLabelsSpacingContainer).toHaveStyleRule(
+              "margin-left",
+              "1.6rem"
+            );
           });
         });
 
-        describe("marginTop", () => {      
+        describe("marginTop", () => {
           test("should have 1.6rem", () => {
             const { TechStackIconsWithLabelsSpacingContainer } = setup();
 
-            expect(TechStackIconsWithLabelsSpacingContainer).toHaveStyleRule("margin-top", "1.6rem");
+            expect(TechStackIconsWithLabelsSpacingContainer).toHaveStyleRule(
+              "margin-top",
+              "1.6rem"
+            );
           });
         });
       });
     });
 
-    describe("ResponsibilitiesSpacingContainer", () => { 
+    describe("ResponsibilitiesSpacingContainer", () => {
       describe("Props", () => {
-        describe("paddingBottom", () => {      
+        describe("paddingBottom", () => {
           test("should have 6.8rem by default", () => {
             const { ResponsibilitiesSpacingContainer } = setup();
 
-            expect(ResponsibilitiesSpacingContainer).toHaveStyleRule("padding-bottom", "6.8rem");
+            expect(ResponsibilitiesSpacingContainer).toHaveStyleRule(
+              "padding-bottom",
+              "6.8rem"
+            );
           });
 
           test("should have correct value passed via responsibilitiesPaddingBottom props", () => {
@@ -430,36 +508,45 @@ describe("organisms / CompanyDescription", () => {
               responsibilitiesPaddingBottom: "spacing64"
             });
 
-            expect(ResponsibilitiesSpacingContainer).toHaveStyleRule("padding-bottom", "6.4rem");
+            expect(ResponsibilitiesSpacingContainer).toHaveStyleRule(
+              "padding-bottom",
+              "6.4rem"
+            );
           });
         });
       });
     });
 
-    describe("ResponsibilitiesListSpacingContainer", () => { 
+    describe("ResponsibilitiesListSpacingContainer", () => {
       describe("Props", () => {
-        describe("marginLeft", () => {      
+        describe("marginLeft", () => {
           test("should have 1.6rem", () => {
             const { ResponsibilitiesListSpacingContainer } = setup();
 
-            expect(ResponsibilitiesListSpacingContainer).toHaveStyleRule("margin-left", "1.6rem");
+            expect(ResponsibilitiesListSpacingContainer).toHaveStyleRule(
+              "margin-left",
+              "1.6rem"
+            );
           });
         });
 
-        describe("marginTop", () => {      
+        describe("marginTop", () => {
           test("should have 1.6rem", () => {
             const { ResponsibilitiesListSpacingContainer } = setup();
 
-            expect(ResponsibilitiesListSpacingContainer).toHaveStyleRule("margin-top", "1.6rem");
+            expect(ResponsibilitiesListSpacingContainer).toHaveStyleRule(
+              "margin-top",
+              "1.6rem"
+            );
           });
         });
       });
     });
   });
 
-  describe("UnorderedList", () => { 
+  describe("UnorderedList", () => {
     describe("Props", () => {
-      describe("items", () => {      
+      describe("items", () => {
         test("should render items based on responsibilities prop", () => {
           const responsibilities: CompanyDescriptionProps["responsibilities"] = [
             "Streamline project timelines to ensure application is being developed in React.js with JavaScript",
@@ -471,9 +558,13 @@ describe("organisms / CompanyDescription", () => {
             responsibilities
           });
 
-          expect(UnorderedList.childElementCount).toEqual(responsibilities.length);
-          responsibilities.forEach((resposibility: string, index: number) => {            
-            expect(UnorderedList.children[index].textContent).toEqual(resposibility);
+          expect(UnorderedList.childElementCount).toEqual(
+            responsibilities.length
+          );
+          responsibilities.forEach((resposibility: string, index: number) => {
+            expect(UnorderedList.children[index].textContent).toEqual(
+              resposibility
+            );
           });
         });
       });
@@ -502,7 +593,7 @@ type CompanyDescriptionTestProps = Partial<CompanyDescriptionProps>;
 
 function setup(additionalProps?: CompanyDescriptionTestProps): Setup {
   const responsibilities: CompanyDescriptionProps["responsibilities"] = [
-    "Create scalable and sane front-end architecture", 
+    "Create scalable and sane front-end architecture",
     "Orchestrate and direct collaborative team operational objectives for front-end layer of an application designed to manage payment systems"
   ];
 
@@ -530,19 +621,35 @@ function setup(additionalProps?: CompanyDescriptionTestProps): Setup {
   );
 
   const { queryAllByTestId } = utils || {};
-  
-  const CompanyDescriptionContainer: Element = queryAllByTestId("CompanyDescription")[0];
+
+  const CompanyDescriptionContainer: Element = queryAllByTestId(
+    "CompanyDescription"
+  )[0];
   const DateIconWithLabel: Element = queryAllByTestId("IconWithLabel")[0];
-  const DateSpacingContainer: Element = queryAllByTestId("DateSpacingContainer")[0];
+  const DateSpacingContainer: Element = queryAllByTestId(
+    "DateSpacingContainer"
+  )[0];
   const Icons: Element[] = queryAllByTestId("IconContainer");
   const IconsWithLabels: Element = queryAllByTestId("IconsWithLabels")[0];
-  const IconsWithLabelsSpacingContainers: Element[] = queryAllByTestId("IconsWithLabelsSpacingContainer");
+  const IconsWithLabelsSpacingContainers: Element[] = queryAllByTestId(
+    "IconsWithLabelsSpacingContainer"
+  );
   const MainTitle: Element = queryAllByTestId("MainTitle")[0];
-  const ResponsibilitiesListSpacingContainer: Element = queryAllByTestId("ResponsibilitiesListSpacingContainer")[0];
-  const ResponsibilitiesSpacingContainer: Element = queryAllByTestId("ResponsibilitiesSpacingContainer")[0];
-  const ResponsibilitiesTitle: Element = queryAllByTestId("ResponsibilitiesTitle")[0];
-  const TechStackSpacingContainer: Element = queryAllByTestId("TechStackSpacingContainer")[0];
-  const TechStackIconsWithLabelsSpacingContainer: Element = queryAllByTestId("TechStackIconsWithLabelsSpacingContainer")[0];
+  const ResponsibilitiesListSpacingContainer: Element = queryAllByTestId(
+    "ResponsibilitiesListSpacingContainer"
+  )[0];
+  const ResponsibilitiesSpacingContainer: Element = queryAllByTestId(
+    "ResponsibilitiesSpacingContainer"
+  )[0];
+  const ResponsibilitiesTitle: Element = queryAllByTestId(
+    "ResponsibilitiesTitle"
+  )[0];
+  const TechStackSpacingContainer: Element = queryAllByTestId(
+    "TechStackSpacingContainer"
+  )[0];
+  const TechStackIconsWithLabelsSpacingContainer: Element = queryAllByTestId(
+    "TechStackIconsWithLabelsSpacingContainer"
+  )[0];
   const TechStackTitle: Element = queryAllByTestId("TechStackTitle")[0];
   const UnorderedList: Element = queryAllByTestId("UnorderedList")[0];
 
@@ -564,4 +671,3 @@ function setup(additionalProps?: CompanyDescriptionTestProps): Setup {
     UnorderedList
   };
 }
- 

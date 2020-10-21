@@ -1,30 +1,21 @@
 import React from "react";
-import {
-  RenderResult
-} from "@testing-library/react";
+import { RenderResult } from "@testing-library/react";
 
 import Nav from "<molecules>/Nav";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  NavProps
-} from "<molecules>/__typings__/Nav.d.ts";
+import { NavProps } from "<molecules>/__typings__/Nav.d.ts";
 
 jest.mock("<hooks>/useIntersectionObserver");
 
 import useIntersectionObserver from "<hooks>/useIntersectionObserver";
 
-import {
-  UseIntersectionObserver
-} from "<hooks>/__typings__/useIntersectionObserver.d.ts";
+import { UseIntersectionObserver } from "<hooks>/__typings__/useIntersectionObserver.d.ts";
 
 describe("molecules / Nav", () => {
   test("should have correct structure", () => {
-    const { 
-      FlexContainer,
-      NavItems
-    } = setup();
+    const { FlexContainer, NavItems } = setup();
 
     expect(FlexContainer.children[0]).toEqual(NavItems[0].parentNode);
     expect(FlexContainer.children[1]).toEqual(NavItems[1].parentNode);
@@ -32,33 +23,47 @@ describe("molecules / Nav", () => {
     expect(FlexContainer.children[3]).toEqual(NavItems[3].parentNode);
     expect(FlexContainer.children[4]).toEqual(NavItems[4].parentNode);
   });
-  
-  describe("useIntersectionObserver", () => {    
+
+  describe("useIntersectionObserver", () => {
     test("should be called initially with correct arguments", () => {
       const spyUseIntersectionObserver = jest.fn();
       const mockUseIntersectionObserver = useIntersectionObserver as jest.Mock;
-      mockUseIntersectionObserver.mockImplementation((args: UseIntersectionObserver) => {
-        spyUseIntersectionObserver(args);
-      });
+      mockUseIntersectionObserver.mockImplementation(
+        (args: UseIntersectionObserver) => {
+          spyUseIntersectionObserver(args);
+        }
+      );
 
       setup();
 
-      expect(typeof spyUseIntersectionObserver.mock.calls[0][0]["onElementVisible"]).toEqual("function");
-      
-      expect(JSON.stringify(spyUseIntersectionObserver.mock.calls[0][0])).toEqual(JSON.stringify({
-        selectors: ["#portfolio", "#experience", "#skills", "#about-me", "#contact"]
-      }));
+      expect(
+        typeof spyUseIntersectionObserver.mock.calls[0][0]["onElementVisible"]
+      ).toEqual("function");
+
+      expect(
+        JSON.stringify(spyUseIntersectionObserver.mock.calls[0][0])
+      ).toEqual(
+        JSON.stringify({
+          selectors: [
+            "#portfolio",
+            "#experience",
+            "#skills",
+            "#about-me",
+            "#contact"
+          ]
+        })
+      );
     });
   });
 
-  describe("FlexContainer", () => {    
+  describe("FlexContainer", () => {
     describe("Props", () => {
-      describe("alignItems", () => {      
+      describe("alignItems", () => {
         test("should have center if position is horizontal", () => {
           const { FlexContainer } = setup({
             position: "horizontal"
           });
-    
+
           expect(FlexContainer).toHaveStyleRule("align-items", "center");
         });
 
@@ -66,17 +71,17 @@ describe("molecules / Nav", () => {
           const { FlexContainer } = setup({
             position: "vertical"
           });
-    
+
           expect(FlexContainer).toHaveStyleRule("align-items", "flex-end");
         });
       });
 
-      describe("flexFlow", () => {      
+      describe("flexFlow", () => {
         test("should have row nowrap if position is horizontal", () => {
           const { FlexContainer } = setup({
             position: "horizontal"
           });
-    
+
           expect(FlexContainer).toHaveStyleRule("flex-flow", "row nowrap");
         });
 
@@ -84,12 +89,12 @@ describe("molecules / Nav", () => {
           const { FlexContainer } = setup({
             position: "vertical"
           });
-    
+
           expect(FlexContainer).toHaveStyleRule("flex-flow", "column nowrap");
         });
       });
 
-      describe("gap", () => {      
+      describe("gap", () => {
         test("each child of FlexContainer should have margin-left: 2.4rem, except first item if position is horizontal", () => {
           const { FlexContainer } = setup();
 
@@ -115,22 +120,22 @@ describe("molecules / Nav", () => {
         });
       });
 
-      describe("justifyContent", () => {      
+      describe("justifyContent", () => {
         test("should have center", () => {
           const { FlexContainer } = setup();
-    
+
           expect(FlexContainer).toHaveStyleRule("justify-content", "center");
         });
       });
     });
   });
 
-  describe("NavItem", () => { 
+  describe("NavItem", () => {
     test("there should be 5 elements", () => {
       const { NavItems } = setup();
 
       expect(NavItems.length).toEqual(5);
-    });   
+    });
 
     test("each NavItem should have correct content", () => {
       const { NavItems } = setup();
@@ -140,7 +145,7 @@ describe("molecules / Nav", () => {
       expect(NavItems[2].textContent).toEqual("Skills");
       expect(NavItems[3].textContent).toEqual("About me");
       expect(NavItems[4].textContent).toEqual("Contact");
-    });      
+    });
   });
 });
 
@@ -156,14 +161,14 @@ function setup(additionalProps?: NavTestProps): Setup {
     ...additionalProps
   };
 
-  const utils: RenderResult = renderWithTheme(
-    <Nav {...props} />
-  );
+  const utils: RenderResult = renderWithTheme(<Nav {...props} />);
 
   const { queryAllByTestId }: RenderResult = utils;
 
   const FlexContainer: Element = queryAllByTestId("Nav")[0];
-  const NavItems: NodeListOf<HTMLAnchorElement> = document.querySelectorAll("a");
+  const NavItems: NodeListOf<HTMLAnchorElement> = document.querySelectorAll(
+    "a"
+  );
 
   return {
     ...utils,

@@ -6,13 +6,11 @@ import Commit from "<molecules>/Commit";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  CommitProps
-} from "<molecules>/__typings__/Commit.d.ts";
+import { CommitProps } from "<molecules>/__typings__/Commit.d.ts";
 
 describe("molecules / Commit", () => {
   test("should have correct structure", () => {
-    const { 
+    const {
       CommitContainer,
       CommitFlexContainer,
       CommitSpacingContainer,
@@ -29,10 +27,10 @@ describe("molecules / Commit", () => {
     expect(CommitFlexContainer.children[1]).toEqual(FlexItems[1]);
     expect(FlexItems[1].children[0]).toEqual(Texts[1]);
   });
-  
-  describe("CommitContainer", () => {    
+
+  describe("CommitContainer", () => {
     describe("Styles", () => {
-      describe("align-items", () => {      
+      describe("align-items", () => {
         test("should have center", () => {
           const { CommitContainer } = setup();
 
@@ -40,7 +38,7 @@ describe("molecules / Commit", () => {
         });
       });
 
-      describe("border-top", () => {      
+      describe("border-top", () => {
         test("should have 0 for the first child", () => {
           const { CommitContainer } = setup();
 
@@ -52,11 +50,14 @@ describe("molecules / Commit", () => {
         test("should have thin solid #526065 for the rest of children", () => {
           const { CommitContainer } = setup();
 
-          expect(CommitContainer).toHaveStyleRule("border-top", "thin solid #526065");
+          expect(CommitContainer).toHaveStyleRule(
+            "border-top",
+            "thin solid #526065"
+          );
         });
       });
 
-      describe("display", () => {      
+      describe("display", () => {
         test("should have none by default", () => {
           const { CommitContainer } = setup();
 
@@ -91,7 +92,7 @@ describe("molecules / Commit", () => {
         });
       });
 
-      describe("height", () => {      
+      describe("height", () => {
         test("should have 2.26vh if min-height: 800px", () => {
           const { CommitContainer } = setup();
 
@@ -117,7 +118,7 @@ describe("molecules / Commit", () => {
         });
       });
 
-      describe("width", () => {      
+      describe("width", () => {
         test("should have 100%", () => {
           const { CommitContainer } = setup();
 
@@ -127,26 +128,31 @@ describe("molecules / Commit", () => {
     });
   });
 
-  describe("CommitSpacingContainer", () => {    
+  describe("CommitSpacingContainer", () => {
     describe("Props", () => {
-      describe("paddingTop", () => {      
+      describe("paddingTop", () => {
         test("should have .4rem", () => {
           const { CommitSpacingContainer } = setup();
 
-          expect(CommitSpacingContainer).toHaveStyleRule("padding-top", ".4rem");
+          expect(CommitSpacingContainer).toHaveStyleRule(
+            "padding-top",
+            ".4rem"
+          );
         });
       });
 
-      describe("paddingBottom", () => {      
+      describe("paddingBottom", () => {
         test("should have .4rem", () => {
           const { CommitSpacingContainer } = setup();
 
-          expect(CommitSpacingContainer).toHaveStyleRule("padding-bottom", ".4rem");
+          expect(CommitSpacingContainer).toHaveStyleRule(
+            "padding-bottom",
+            ".4rem"
+          );
         });
       });
 
-      
-      describe("width", () => {      
+      describe("width", () => {
         test("should have 100%", () => {
           const { CommitSpacingContainer } = setup();
 
@@ -156,9 +162,9 @@ describe("molecules / Commit", () => {
     });
   });
 
-  describe("CommitFlexContainer", () => {    
+  describe("CommitFlexContainer", () => {
     describe("Props", () => {
-      describe("alignItems", () => { 
+      describe("alignItems", () => {
         test("should have center", () => {
           const { CommitFlexContainer } = setup();
 
@@ -166,31 +172,37 @@ describe("molecules / Commit", () => {
         });
       });
 
-      describe("flexFlow", () => { 
+      describe("flexFlow", () => {
         test("should have row nowrap", () => {
           const { CommitFlexContainer } = setup();
 
-          expect(CommitFlexContainer).toHaveStyleRule("flex-flow", "row nowrap");
+          expect(CommitFlexContainer).toHaveStyleRule(
+            "flex-flow",
+            "row nowrap"
+          );
         });
       });
 
-      describe("justifyContent", () => { 
+      describe("justifyContent", () => {
         test("should have space-between", () => {
           const { CommitFlexContainer } = setup();
 
-          expect(CommitFlexContainer).toHaveStyleRule("justify-content", "space-between");
+          expect(CommitFlexContainer).toHaveStyleRule(
+            "justify-content",
+            "space-between"
+          );
         });
       });
     });
   });
 
-  describe("FlexItems", () => { 
+  describe("FlexItems", () => {
     describe("FlexItems[0]", () => {
       describe("Props", () => {
         describe("flex", () => {
           test("should have 0 0 60.97%", () => {
             const { FlexItems } = setup();
-      
+
             expect(FlexItems[0]).toHaveStyleRule("flex", "0 0 60.97%");
           });
         });
@@ -198,7 +210,7 @@ describe("molecules / Commit", () => {
         describe("overflow", () => {
           test("should have hidden", () => {
             const { FlexItems } = setup();
-      
+
             expect(FlexItems[0]).toHaveStyleRule("overflow", "hidden");
           });
         });
@@ -210,7 +222,7 @@ describe("molecules / Commit", () => {
         describe("flex", () => {
           test("should have 0 0 30.66%%", () => {
             const { FlexItems } = setup();
-      
+
             expect(FlexItems[1]).toHaveStyleRule("flex", "0 0 30.66%");
           });
         });
@@ -218,21 +230,23 @@ describe("molecules / Commit", () => {
     });
   });
 
-  describe("Texts", () => { 
+  describe("Texts", () => {
     describe("Text[0]", () => {
       test("should render correct content passed via sha prop", () => {
         const { Texts } = setup({
           sha: "4380d5d391eee216e651d34700a331ec501c2964"
         });
-  
-        expect(Texts[0].textContent).toEqual("4380d5d391eee216e651d34700a331ec501c2964");
+
+        expect(Texts[0].textContent).toEqual(
+          "4380d5d391eee216e651d34700a331ec501c2964"
+        );
       });
 
       describe("Props", () => {
         describe("color", () => {
           test("should have #bcd8db", () => {
             const { Texts } = setup();
-      
+
             expect(Texts[0]).toHaveStyleRule("color", "#bcd8db");
           });
         });
@@ -241,7 +255,7 @@ describe("molecules / Commit", () => {
           describe("text-overflow", () => {
             test("should have ellipsis", () => {
               const { Texts } = setup();
-  
+
               expect(Texts[0]).toHaveStyleRule("text-overflow", "ellipsis");
             });
           });
@@ -249,7 +263,7 @@ describe("molecules / Commit", () => {
           describe("overflow", () => {
             test("should have hidden", () => {
               const { Texts } = setup();
-  
+
               expect(Texts[0]).toHaveStyleRule("overflow", "hidden");
             });
           });
@@ -257,24 +271,27 @@ describe("molecules / Commit", () => {
           describe("white-space", () => {
             test("should have nowrap", () => {
               const { Texts } = setup();
-  
+
               expect(Texts[0]).toHaveStyleRule("white-space", "nowrap");
             });
           });
         });
-  
+
         describe("font-family", () => {
           test("should have 'Anonymous Pro',monospace", () => {
             const { Texts } = setup();
 
-            expect(Texts[0]).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
+            expect(Texts[0]).toHaveStyleRule(
+              "font-family",
+              "'Anonymous Pro',monospace"
+            );
           });
         });
-  
+
         describe("fontSize", () => {
           test("should have 8px", () => {
             const { Texts } = setup();
-      
+
             expect(Texts[0]).toHaveStyleRule("font-size", "8px");
           });
         });
@@ -283,19 +300,19 @@ describe("molecules / Commit", () => {
           test("should trigger shuffleText.start in intervals", () => {
             jest.spyOn(ShuffleText.prototype, "start");
             jest.useFakeTimers();
-      
+
             setup();
-      
+
             expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
-      
+
             jest.advanceTimersByTime(3600);
-      
+
             expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
-      
+
             jest.advanceTimersByTime(3600);
-      
+
             expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
-      
+
             jest.clearAllTimers();
           });
         });
@@ -304,41 +321,41 @@ describe("molecules / Commit", () => {
           test("should trigger shuffleText.start in intervals with 300ms delay", () => {
             jest.spyOn(ShuffleText.prototype, "start");
             jest.useFakeTimers();
-      
+
             setup({
               delay: 300
             });
-  
+
             expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
-  
+
             jest.advanceTimersByTime(300);
-      
+
             expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(0);
-      
+
             jest.advanceTimersByTime(3600);
-      
+
             expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
-      
+
             jest.advanceTimersByTime(300);
-      
+
             expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(1);
-      
+
             jest.advanceTimersByTime(3600);
-      
+
             expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
-      
+
             jest.advanceTimersByTime(300);
-      
+
             expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(2);
-      
+
             jest.advanceTimersByTime(3600);
-      
+
             expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
-      
+
             jest.advanceTimersByTime(300);
-      
+
             expect(ShuffleText.prototype.start).toHaveBeenCalledTimes(3);
-      
+
             jest.clearAllTimers();
           });
         });
@@ -346,7 +363,7 @@ describe("molecules / Commit", () => {
         describe("textTransform", () => {
           test("should have uppercase", () => {
             const { Texts } = setup();
-      
+
             expect(Texts[0]).toHaveStyleRule("text-transform", "uppercase");
           });
         });
@@ -358,7 +375,7 @@ describe("molecules / Commit", () => {
         const { Texts } = setup({
           date: "2020-03-10T22:34:52Z"
         });
-  
+
         expect(Texts[1].textContent).toEqual("2020-03-10T22:34:52Z");
       });
 
@@ -366,7 +383,7 @@ describe("molecules / Commit", () => {
         describe("color", () => {
           test("should have #78b0b5", () => {
             const { Texts } = setup();
-      
+
             expect(Texts[1]).toHaveStyleRule("color", "#78b0b5");
           });
         });
@@ -375,7 +392,7 @@ describe("molecules / Commit", () => {
           describe("text-overflow", () => {
             test("should have ellipsis", () => {
               const { Texts } = setup();
-  
+
               expect(Texts[1]).toHaveStyleRule("text-overflow", "ellipsis");
             });
           });
@@ -383,7 +400,7 @@ describe("molecules / Commit", () => {
           describe("overflow", () => {
             test("should have hidden", () => {
               const { Texts } = setup();
-  
+
               expect(Texts[1]).toHaveStyleRule("overflow", "hidden");
             });
           });
@@ -391,65 +408,70 @@ describe("molecules / Commit", () => {
           describe("white-space", () => {
             test("should have nowrap", () => {
               const { Texts } = setup();
-  
+
               expect(Texts[1]).toHaveStyleRule("white-space", "nowrap");
             });
           });
         });
-  
+
         describe("font-family", () => {
           test("should have 'Anonymous Pro',monospace", () => {
             const { Texts } = setup();
 
-            expect(Texts[1]).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
+            expect(Texts[1]).toHaveStyleRule(
+              "font-family",
+              "'Anonymous Pro',monospace"
+            );
           });
         });
 
         describe("fontSize", () => {
           test("should have 8px", () => {
             const { Texts } = setup();
-      
+
             expect(Texts[1]).toHaveStyleRule("font-size", "8px");
           });
         });
       });
     });
   });
-  
-  describe("Link", () => {    
+
+  describe("Link", () => {
     describe("Props", () => {
-      describe("display", () => {      
+      describe("display", () => {
         test("should have inline", () => {
           const { Link } = setup();
-    
-          expect(Link).toHaveStyleRule("display", "inline");
 
+          expect(Link).toHaveStyleRule("display", "inline");
         });
       });
 
-      describe("height", () => {      
+      describe("height", () => {
         test("should have unset", () => {
           const { Link } = setup();
-    
+
           expect(Link).toHaveStyleRule("height", "unset");
         });
       });
 
-      describe("target", () => {      
+      describe("target", () => {
         test("should have _blank", () => {
           const { Link } = setup();
-    
+
           expect(Link.getAttribute("target")).toEqual("_blank");
         });
       });
 
-      describe("href", () => {      
+      describe("href", () => {
         test("should have value equal to htmlUrl prop", () => {
           const { Link } = setup({
-            htmlUrl: "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2964"
+            htmlUrl:
+              "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2964"
           });
-    
-          expect(Link.getAttribute("href")).toEqual("https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2964");
+
+          expect(Link.getAttribute("href")).toEqual(
+            "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2964"
+          );
         });
       });
     });
@@ -471,20 +493,23 @@ function setup(additionalProps?: CommitTestProps): Setup {
   const props: CommitProps = {
     date: "2020-03-10T22:34:52Z",
     delay: 0,
-    htmlUrl: "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2964",
+    htmlUrl:
+      "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2964",
     sha: "4380d5d391eee216e651d34700a331ec501c2964",
     ...additionalProps
   };
 
-  const utils: RenderResult = renderWithTheme(
-    <Commit {...props} />
-  );
+  const utils: RenderResult = renderWithTheme(<Commit {...props} />);
 
   const { queryAllByTestId }: RenderResult = utils;
 
   const CommitContainer: Element = queryAllByTestId("Commit")[0];
-  const CommitFlexContainer: Element = queryAllByTestId("CommitFlexContainer")[0];
-  const CommitSpacingContainer: Element = queryAllByTestId("CommitSpacingContainer")[0];
+  const CommitFlexContainer: Element = queryAllByTestId(
+    "CommitFlexContainer"
+  )[0];
+  const CommitSpacingContainer: Element = queryAllByTestId(
+    "CommitSpacingContainer"
+  )[0];
   const FlexItems: Element[] = queryAllByTestId("FlexItem");
   const Link: Element = queryAllByTestId("Link")[0];
   const Texts: Element[] = queryAllByTestId("Text");

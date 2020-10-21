@@ -20,4 +20,4 @@ export interface ResponsiveContainerProps {
   device: Device;
   height: ResponsiveProps["height"];
   width: ResponsiveProps["width"];
-} 
+}

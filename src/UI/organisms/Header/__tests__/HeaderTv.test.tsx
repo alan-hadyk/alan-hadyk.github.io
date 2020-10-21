@@ -27,11 +27,11 @@ describe("organisms / HeaderTv", () => {
 
   describe("HeaderTv", () => {
     describe("Props", () => {
-      describe("devices", () => {      
+      describe("devices", () => {
         describe("should have tv", () => {
           test("should have display block when min-width is 1681px", () => {
             const { HeaderTvContainer } = setup();
-      
+
             expect(HeaderTvContainer).toHaveStyleRule("display", "block", {
               media: "(min-width:1681px)"
             });
@@ -43,11 +43,14 @@ describe("organisms / HeaderTv", () => {
 
   describe("FlexContainer", () => {
     describe("Props", () => {
-      describe("flexFlow", () => {      
+      describe("flexFlow", () => {
         test("should have row nowrap", () => {
           const { HeaderTvFlexContainer } = setup();
-    
-          expect(HeaderTvFlexContainer).toHaveStyleRule("flex-flow", "row nowrap");
+
+          expect(HeaderTvFlexContainer).toHaveStyleRule(
+            "flex-flow",
+            "row nowrap"
+          );
         });
       });
 
@@ -55,42 +58,50 @@ describe("organisms / HeaderTv", () => {
         test("should have margin-left: 2.4rem for all children (except first)", () => {
           const { HeaderTvFlexContainer } = setup();
 
-          expect(HeaderTvFlexContainer).toHaveStyleRule("margin-left", "2.4rem", {
-            modifier: "& > *"
-          });
+          expect(HeaderTvFlexContainer).toHaveStyleRule(
+            "margin-left",
+            "2.4rem",
+            {
+              modifier: "& > *"
+            }
+          );
           expect(HeaderTvFlexContainer).toHaveStyleRule("margin-left", "0", {
             modifier: "& > *:first-child"
           });
         });
       });
 
-
-      describe("height", () => {      
+      describe("height", () => {
         test("should have 4.8rem", () => {
           const { HeaderTvFlexContainer } = setup();
-    
+
           expect(HeaderTvFlexContainer).toHaveStyleRule("height", "4.8rem");
         });
       });
 
-      describe("justifyContent", () => {      
+      describe("justifyContent", () => {
         test("should have flex-start", () => {
           const { HeaderTvFlexContainer } = setup();
-    
-          expect(HeaderTvFlexContainer).toHaveStyleRule("justify-content", "flex-start");
+
+          expect(HeaderTvFlexContainer).toHaveStyleRule(
+            "justify-content",
+            "flex-start"
+          );
         });
       });
     });
   });
 
-
   describe("SpacingContainer", () => {
     describe("Props", () => {
-      describe("paddingRight", () => {      
+      describe("paddingRight", () => {
         test("should have 2.4rem", () => {
           const { HeaderTvSpacingContainer } = setup();
-    
-          expect(HeaderTvSpacingContainer).toHaveStyleRule("padding-right", "2.4rem");
+
+          expect(HeaderTvSpacingContainer).toHaveStyleRule(
+            "padding-right",
+            "2.4rem"
+          );
         });
       });
     });
@@ -120,35 +131,39 @@ describe("organisms / HeaderTv", () => {
         describe("height", () => {
           test("should have 4.8rem", () => {
             const { Button } = setup();
-      
+
             expect(Button).toHaveStyleRule("height", "4.8rem");
           });
         });
-        
+
         describe("width", () => {
-          test("should have auto", () => {      
+          test("should have auto", () => {
             const { Button } = setup();
-  
+
             expect(Button).toHaveStyleRule("width", "auto");
           });
         });
 
         describe("padding", () => {
-          test("should have 2.4rem", () => {      
+          test("should have 2.4rem", () => {
             const { Button } = setup();
-  
-            expect(Button.children[4].children[0]).toHaveStyleRule("padding-right", "2.4rem");
-          });  
-        });
 
-        describe("icon height", () => { 
-          test("should have 2.4rem", () => {      
-            const { Button } = setup();
-  
-            expect(Button.children[4].children[0].children[0].children[1]).toHaveStyleRule("height", "2.4rem");
+            expect(Button.children[4].children[0]).toHaveStyleRule(
+              "padding-right",
+              "2.4rem"
+            );
           });
         });
-        
+
+        describe("icon height", () => {
+          test("should have 2.4rem", () => {
+            const { Button } = setup();
+
+            expect(
+              Button.children[4].children[0].children[0].children[1]
+            ).toHaveStyleRule("height", "2.4rem");
+          });
+        });
       });
     });
   });
@@ -172,18 +187,18 @@ interface Setup extends RenderResult {
 }
 
 function setup(): Setup {
-  const utils: RenderResult = renderWithTheme(
-    <HeaderTv />
-  );
+  const utils: RenderResult = renderWithTheme(<HeaderTv />);
 
-  const {
-    queryAllByTestId
-  } = utils || {};
+  const { queryAllByTestId } = utils || {};
 
   const Button: Element = queryAllByTestId("Button")[0];
   const HeaderTvContainer: Element = queryAllByTestId("HeaderTv")[0];
-  const HeaderTvFlexContainer: Element = queryAllByTestId("HeaderTvFlexContainer")[0];
-  const HeaderTvSpacingContainer: Element = queryAllByTestId("HeaderTvSpacingContainer")[0];
+  const HeaderTvFlexContainer: Element = queryAllByTestId(
+    "HeaderTvFlexContainer"
+  )[0];
+  const HeaderTvSpacingContainer: Element = queryAllByTestId(
+    "HeaderTvSpacingContainer"
+  )[0];
   const MenuIcons: Element[] = queryAllByTestId("MenuIcons");
   const Nav: Element = queryAllByTestId("Nav")[0];
 

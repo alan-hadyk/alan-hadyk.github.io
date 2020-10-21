@@ -5,13 +5,9 @@ import SkillsItem from "<molecules>/SkillsItem";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  SkillsItemProps
-} from "<molecules>/__typings__/SkillsItem.d.ts";
+import { SkillsItemProps } from "<molecules>/__typings__/SkillsItem.d.ts";
 
-import {
-  IconWithLabelProps
-} from "<molecules>/__typings__/IconWithLabel.d.ts";
+import { IconWithLabelProps } from "<molecules>/__typings__/IconWithLabel.d.ts";
 
 describe("molecules / SkillsItem", () => {
   test("should have correct structure", () => {
@@ -21,7 +17,9 @@ describe("molecules / SkillsItem", () => {
       SkillsItemSpacingContainer
     } = setup();
 
-    expect(SkillsItemContainer.children[1].children[0].children[0].children[0]).toEqual(SkillsItemSpacingContainer);
+    expect(
+      SkillsItemContainer.children[1].children[0].children[0].children[0]
+    ).toEqual(SkillsItemSpacingContainer);
     expect(SkillsItemSpacingContainer.children[0]).toEqual(IconsWithLabels);
   });
 
@@ -43,7 +41,7 @@ describe("molecules / SkillsItem", () => {
     };
 
     describe("Props", () => {
-      describe("flex", () => {      
+      describe("flex", () => {
         test("should have 1 1 100%", () => {
           const { SkillsItemContainer } = setup({
             data
@@ -53,14 +51,16 @@ describe("molecules / SkillsItem", () => {
         });
       });
 
-      describe("shouldDisplayBorder", () => {   
+      describe("shouldDisplayBorder", () => {
         describe("border", () => {
           test("should have thin solid #78b0b5", () => {
             const { SkillsItemContainer } = setup({
               data
             });
-      
-            expect(SkillsItemContainer.children[1].children[0].children[0]).toHaveStyleRule("border", "thin solid #78b0b5");
+
+            expect(
+              SkillsItemContainer.children[1].children[0].children[0]
+            ).toHaveStyleRule("border", "thin solid #78b0b5");
           });
         });
 
@@ -69,63 +69,82 @@ describe("molecules / SkillsItem", () => {
             const { SkillsItemContainer } = setup({
               data
             });
-      
-            expect(SkillsItemContainer.children[1].children[0].children[0]).toHaveStyleRule("box-shadow", "0px 0px .8rem 0px #bcd8db");
+
+            expect(
+              SkillsItemContainer.children[1].children[0].children[0]
+            ).toHaveStyleRule("box-shadow", "0px 0px .8rem 0px #bcd8db");
           });
-        }); 
+        });
       });
 
-      describe("title", () => {      
+      describe("title", () => {
         test("should have correct content", () => {
           const { SkillsItemContainer } = setup({
             data
           });
 
-          expect(SkillsItemContainer.children[0].textContent).toEqual("Languages");
+          expect(SkillsItemContainer.children[0].textContent).toEqual(
+            "Languages"
+          );
         });
       });
 
-      describe("titleFontSize", () => {      
+      describe("titleFontSize", () => {
         test("should have 28px", () => {
           const { SkillsItemContainer } = setup();
 
-          expect(SkillsItemContainer.children[0]).toHaveStyleRule("font-size", "28px");
+          expect(SkillsItemContainer.children[0]).toHaveStyleRule(
+            "font-size",
+            "28px"
+          );
         });
       });
     });
   });
-  
-  describe("SkillsItemSpacingContainer", () => {    
+
+  describe("SkillsItemSpacingContainer", () => {
     describe("Props", () => {
-      describe("paddingBottom", () => {      
+      describe("paddingBottom", () => {
         test("should have 3.2rem", () => {
           const { SkillsItemSpacingContainer } = setup();
 
-          expect(SkillsItemSpacingContainer).toHaveStyleRule("padding-bottom", "3.2rem");
+          expect(SkillsItemSpacingContainer).toHaveStyleRule(
+            "padding-bottom",
+            "3.2rem"
+          );
         });
       });
 
-      describe("paddingLeft", () => {      
+      describe("paddingLeft", () => {
         test("should have 3.2rem", () => {
           const { SkillsItemSpacingContainer } = setup();
 
-          expect(SkillsItemSpacingContainer).toHaveStyleRule("padding-left", "3.2rem");
+          expect(SkillsItemSpacingContainer).toHaveStyleRule(
+            "padding-left",
+            "3.2rem"
+          );
         });
       });
 
-      describe("paddingRight", () => {      
+      describe("paddingRight", () => {
         test("should have 3.2rem", () => {
           const { SkillsItemSpacingContainer } = setup();
 
-          expect(SkillsItemSpacingContainer).toHaveStyleRule("padding-right", "3.2rem");
+          expect(SkillsItemSpacingContainer).toHaveStyleRule(
+            "padding-right",
+            "3.2rem"
+          );
         });
       });
 
-      describe("paddingTop", () => {      
+      describe("paddingTop", () => {
         test("should have 3.2rem", () => {
           const { SkillsItemSpacingContainer } = setup();
 
-          expect(SkillsItemSpacingContainer).toHaveStyleRule("padding-top", "3.2rem");
+          expect(SkillsItemSpacingContainer).toHaveStyleRule(
+            "padding-top",
+            "3.2rem"
+          );
         });
       });
     });
@@ -149,7 +168,6 @@ describe("molecules / SkillsItem", () => {
     };
 
     test("there should be correct number of icons", () => {
-
       const { IconsWithLabels } = setup({
         data
       });
@@ -162,8 +180,14 @@ describe("molecules / SkillsItem", () => {
         data
       });
 
-      expect(IconsWithLabels.children[0].children[0].children[0].children[0].textContent).toEqual("Brand-JS.svg");
-      expect(IconsWithLabels.children[0].children[0].children[1].children[0].textContent).toEqual("Brand-React.svg");
+      expect(
+        IconsWithLabels.children[0].children[0].children[0].children[0]
+          .textContent
+      ).toEqual("Brand-JS.svg");
+      expect(
+        IconsWithLabels.children[0].children[0].children[1].children[0]
+          .textContent
+      ).toEqual("Brand-React.svg");
     });
 
     test("should have correct content passed via data.iconsWithLanels['label'] prop", () => {
@@ -171,23 +195,26 @@ describe("molecules / SkillsItem", () => {
         data
       });
 
-      expect(IconsWithLabels.children[0].children[1].children[0].children[0].textContent).toEqual("Javascript");
-      expect(IconsWithLabels.children[0].children[1].children[1].children[0].textContent).toEqual("React");
+      expect(
+        IconsWithLabels.children[0].children[1].children[0].children[0]
+          .textContent
+      ).toEqual("Javascript");
+      expect(
+        IconsWithLabels.children[0].children[1].children[1].children[0]
+          .textContent
+      ).toEqual("React");
     });
 
     describe("Props", () => {
-      describe("position", () => {      
+      describe("position", () => {
         test("should have vertical", () => {
-          const {
-            IconsWithLabels,
-            VerticalIconsWithLabels
-          } = setup();
+          const { IconsWithLabels, VerticalIconsWithLabels } = setup();
 
           expect(IconsWithLabels.children[0]).toEqual(VerticalIconsWithLabels);
         });
       });
 
-      describe("size", () => {      
+      describe("size", () => {
         test("should have medium", () => {
           const { IconsWithLabels } = setup();
 
@@ -235,17 +262,19 @@ function setup(additionalProps?: SkillsItemTestProps): Setup {
     ...additionalProps
   };
 
-  const utils: RenderResult = renderWithTheme(
-    <SkillsItem {...props} />
-  );
+  const utils: RenderResult = renderWithTheme(<SkillsItem {...props} />);
 
   const { queryByTestId, queryAllByTestId }: RenderResult = utils;
 
   const IconFlexItems: Element[] = queryAllByTestId("FlexItem");
   const IconsWithLabels: Element = queryByTestId("IconsWithLabels");
   const SkillsItemContainer: Element = queryByTestId("SkillsItem");
-  const SkillsItemSpacingContainer: Element = queryByTestId("SkillsItemSpacingContainer");
-  const VerticalIconsWithLabels: Element = queryByTestId("VerticalIconsWithLabels");
+  const SkillsItemSpacingContainer: Element = queryByTestId(
+    "SkillsItemSpacingContainer"
+  );
+  const VerticalIconsWithLabels: Element = queryByTestId(
+    "VerticalIconsWithLabels"
+  );
 
   return {
     ...utils,

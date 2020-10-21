@@ -5,17 +5,17 @@ import Performance from "<molecules>/Performance";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-jest.mock("<helpers>/math/getRandomDelay", () => (_min: number, max: number): number => max);
+jest.mock(
+  "<helpers>/math/getRandomDelay",
+  () => (_min: number, max: number): number => max
+);
 
 jest.mock("<hooks>/useFpsCounter");
 import useFpsCounter from "<hooks>/useFpsCounter";
 
 describe("molecules / Performance", () => {
   test("should have correct structure", () => {
-    const {
-      PerformanceItems,
-      PerformanceWrapper
-    } = setup();
+    const { PerformanceItems, PerformanceWrapper } = setup();
 
     PerformanceItems.forEach((PerformanceItem, index) => {
       expect(PerformanceWrapper.children[index]).toEqual(PerformanceItem);
@@ -35,7 +35,9 @@ describe("molecules / Performance", () => {
           const { PerformanceItems } = setup();
 
           PerformanceItems.forEach((PerformanceItem, index) => {
-            expect(PerformanceItem.children[0].children[0].children[1].children[0]).toHaveStyleRule("animation-delay", `${index * 600}ms`);
+            expect(
+              PerformanceItem.children[0].children[0].children[1].children[0]
+            ).toHaveStyleRule("animation-delay", `${index * 600}ms`);
           });
         });
       });
@@ -62,46 +64,70 @@ describe("molecules / Performance", () => {
             "Event end",
             "Dom complete",
             "Load event"
-          ];  
-  
+          ];
+
           PerformanceItems.forEach((PerformanceItem, index) => {
-            expect(PerformanceItem.textContent).toEqual(performanceItems[index]);
+            expect(PerformanceItem.textContent).toEqual(
+              performanceItems[index]
+            );
           });
         });
       });
 
       describe("shouldAnimate", () => {
         test("should animate if performance is high", () => {
-          const mockUseFpsCounter: jest.Mock<unknown, unknown[]> = useFpsCounter as unknown as jest.Mock;
+          const mockUseFpsCounter: jest.Mock<
+            unknown,
+            unknown[]
+          > = (useFpsCounter as unknown) as jest.Mock;
 
           mockUseFpsCounter.mockImplementation(() => ({
             isPerformanceLow: false
           }));
-      
+
           const { PerformanceItems } = setup();
-          
+
           PerformanceItems.forEach((PerformanceItem, index) => {
-            expect(PerformanceItem.children[0].children[0].children[1].children[0]).toHaveStyleRule("animation-delay", `${index * 600}ms`);
-            expect(PerformanceItem.children[0].children[0].children[1].children[0]).toHaveStyleRule("animation-duration", "3600ms");
-            expect(PerformanceItem.children[0].children[0].children[1].children[0]).toHaveStyleRule("animation-iteration-count", "infinite");
-            expect(PerformanceItem.children[0].children[0].children[1].children[0]).toHaveStyleRule("animation-timing-function", "ease-in-out");
+            expect(
+              PerformanceItem.children[0].children[0].children[1].children[0]
+            ).toHaveStyleRule("animation-delay", `${index * 600}ms`);
+            expect(
+              PerformanceItem.children[0].children[0].children[1].children[0]
+            ).toHaveStyleRule("animation-duration", "3600ms");
+            expect(
+              PerformanceItem.children[0].children[0].children[1].children[0]
+            ).toHaveStyleRule("animation-iteration-count", "infinite");
+            expect(
+              PerformanceItem.children[0].children[0].children[1].children[0]
+            ).toHaveStyleRule("animation-timing-function", "ease-in-out");
           });
         });
 
         test("should not animate if performance is low", () => {
-          const mockUseFpsCounter: jest.Mock<unknown, unknown[]> = useFpsCounter as unknown as jest.Mock;
+          const mockUseFpsCounter: jest.Mock<
+            unknown,
+            unknown[]
+          > = (useFpsCounter as unknown) as jest.Mock;
 
           mockUseFpsCounter.mockImplementation(() => ({
             isPerformanceLow: true
           }));
-      
+
           const { PerformanceItems } = setup();
-          
+
           PerformanceItems.forEach((PerformanceItem) => {
-            expect(PerformanceItem.children[0].children[0].children[1].children[0]).not.toHaveStyleRule("animation-delay");
-            expect(PerformanceItem.children[0].children[0].children[1].children[0]).not.toHaveStyleRule("animation-duration");
-            expect(PerformanceItem.children[0].children[0].children[1].children[0]).not.toHaveStyleRule("animation-iteration-count");
-            expect(PerformanceItem.children[0].children[0].children[1].children[0]).not.toHaveStyleRule("animation-timing-function");
+            expect(
+              PerformanceItem.children[0].children[0].children[1].children[0]
+            ).not.toHaveStyleRule("animation-delay");
+            expect(
+              PerformanceItem.children[0].children[0].children[1].children[0]
+            ).not.toHaveStyleRule("animation-duration");
+            expect(
+              PerformanceItem.children[0].children[0].children[1].children[0]
+            ).not.toHaveStyleRule("animation-iteration-count");
+            expect(
+              PerformanceItem.children[0].children[0].children[1].children[0]
+            ).not.toHaveStyleRule("animation-timing-function");
           });
         });
       });
@@ -114,7 +140,10 @@ describe("molecules / Performance", () => {
         test("should have flex-start", () => {
           const { PerformanceWrapper } = setup();
 
-          expect(PerformanceWrapper).toHaveStyleRule("align-items", "flex-start");
+          expect(PerformanceWrapper).toHaveStyleRule(
+            "align-items",
+            "flex-start"
+          );
         });
       });
 
@@ -122,7 +151,10 @@ describe("molecules / Performance", () => {
         test("should have flex-start", () => {
           const { PerformanceWrapper } = setup();
 
-          expect(PerformanceWrapper).toHaveStyleRule("justify-content", "flex-start");
+          expect(PerformanceWrapper).toHaveStyleRule(
+            "justify-content",
+            "flex-start"
+          );
         });
       });
 
@@ -130,7 +162,10 @@ describe("molecules / Performance", () => {
         test("should have column nowrap", () => {
           const { PerformanceWrapper } = setup();
 
-          expect(PerformanceWrapper).toHaveStyleRule("flex-flow", "column nowrap");
+          expect(PerformanceWrapper).toHaveStyleRule(
+            "flex-flow",
+            "column nowrap"
+          );
         });
       });
     });
@@ -143,9 +178,7 @@ interface Setup extends RenderResult {
 }
 
 function setup(): Setup {
-  const utils: RenderResult = renderWithTheme(
-    <Performance />
-  );
+  const utils: RenderResult = renderWithTheme(<Performance />);
 
   const { queryByTestId, queryAllByTestId } = utils || {};
 

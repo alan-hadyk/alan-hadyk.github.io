@@ -1,7 +1,5 @@
 import React from "react";
-import {
-  RenderResult
-} from "@testing-library/react";
+import { RenderResult } from "@testing-library/react";
 
 import Sonar from "<molecules>/Sonar";
 
@@ -14,257 +12,281 @@ describe("molecules / Sonar", () => {
     expect(PositionContainer).toBeTruthy();
   });
 
-  describe("PositionContainer", () => {    
+  describe("PositionContainer", () => {
     describe("Props", () => {
-      describe("height", () => {      
+      describe("height", () => {
         test("should have 100%", () => {
           const { PositionContainer } = setup();
-    
+
           expect(PositionContainer).toHaveStyleRule("height", "100%");
         });
       });
 
-      describe("position", () => {      
+      describe("position", () => {
         test("should have relative", () => {
           const { PositionContainer } = setup();
-    
+
           expect(PositionContainer).toHaveStyleRule("position", "relative");
         });
       });
     });
   });
 
-  describe("SonarContainer", () => {    
+  describe("SonarContainer", () => {
     describe("Styles", () => {
-      describe("backface-visibility", () => {      
+      describe("backface-visibility", () => {
         test("should have hidden", () => {
           const { SonarContainer } = setup();
-    
-          expect(SonarContainer).toHaveStyleRule("backface-visibility", "hidden");
+
+          expect(SonarContainer).toHaveStyleRule(
+            "backface-visibility",
+            "hidden"
+          );
         });
       });
 
-      describe("border", () => {      
+      describe("border", () => {
         test("should have thin solid #526065", () => {
           const { SonarContainer } = setup();
-    
-          expect(SonarContainer).toHaveStyleRule("border", "thin solid #526065");
+
+          expect(SonarContainer).toHaveStyleRule(
+            "border",
+            "thin solid #526065"
+          );
         });
       });
 
-      describe("height", () => {      
+      describe("height", () => {
         test("should have 100%", () => {
           const { SonarContainer } = setup();
-    
+
           expect(SonarContainer).toHaveStyleRule("height", "100%");
         });
       });
 
-      describe("overflow", () => {      
+      describe("overflow", () => {
         test("should have hidden", () => {
           const { SonarContainer } = setup();
-    
+
           expect(SonarContainer).toHaveStyleRule("overflow", "hidden");
         });
       });
 
-      describe("width", () => {      
+      describe("width", () => {
         test("should have 100%", () => {
           const { SonarContainer } = setup();
-    
+
           expect(SonarContainer).toHaveStyleRule("width", "100%");
         });
       });
     });
   });
 
-  describe("SonarDot", () => {    
+  describe("SonarDot", () => {
     describe("Styles", () => {
-      describe("backface-visibility", () => {      
+      describe("backface-visibility", () => {
         test("should have hidden", () => {
           const { SonarDot } = setup();
-    
+
           expect(SonarDot).toHaveStyleRule("backface-visibility", "hidden");
         });
       });
 
-      describe("background-color", () => {      
+      describe("background-color", () => {
         test("should have #78b0b5", () => {
           const { SonarDot } = setup();
-    
+
           expect(SonarDot).toHaveStyleRule("background-color", "#78b0b5");
         });
       });
 
-      describe("border-radius", () => {      
+      describe("border-radius", () => {
         test("should have 50%", () => {
           const { SonarDot } = setup();
-    
+
           expect(SonarDot).toHaveStyleRule("border-radius", "50%");
         });
       });
 
-      describe("box-shadow", () => {      
+      describe("box-shadow", () => {
         test("should have 0px 0px .8rem 0px #bcd8db", () => {
           const { SonarDot } = setup();
-    
-          expect(SonarDot).toHaveStyleRule("box-shadow", "0px 0px .8rem 0px #bcd8db");
+
+          expect(SonarDot).toHaveStyleRule(
+            "box-shadow",
+            "0px 0px .8rem 0px #bcd8db"
+          );
         });
       });
 
-      describe("height", () => {      
+      describe("height", () => {
         test("should have .4rem", () => {
           const { SonarDot } = setup();
-    
+
           expect(SonarDot).toHaveStyleRule("height", ".4rem");
         });
       });
 
-      describe("left", () => {      
+      describe("left", () => {
         test("should have 50%", () => {
           const { SonarDot } = setup();
-    
+
           expect(SonarDot).toHaveStyleRule("left", "50%");
         });
       });
 
-      describe("position", () => {      
+      describe("position", () => {
         test("should have absolute", () => {
           const { SonarDot } = setup();
-    
+
           expect(SonarDot).toHaveStyleRule("position", "absolute");
         });
       });
 
-      describe("top", () => {      
+      describe("top", () => {
         test("should have 50%", () => {
           const { SonarDot } = setup();
-    
+
           expect(SonarDot).toHaveStyleRule("top", "50%");
         });
       });
 
-      describe("transform", () => {      
+      describe("transform", () => {
         test("should have translateX(-37.5%) translateY(-37.5%)", () => {
           const { SonarDot } = setup();
-    
-          expect(SonarDot).toHaveStyleRule("transform", "translateX(-37.5%) translateY(-37.5%)");
+
+          expect(SonarDot).toHaveStyleRule(
+            "transform",
+            "translateX(-37.5%) translateY(-37.5%)"
+          );
         });
       });
 
-      describe("width", () => {      
+      describe("width", () => {
         test("should have .4rem", () => {
           const { SonarDot } = setup();
-    
+
           expect(SonarDot).toHaveStyleRule("width", ".4rem");
         });
       });
 
       describe("&:after", () => {
-        describe("animation-duration", () => {      
+        describe("animation-duration", () => {
           test("should have 3600ms", () => {
             const { SonarDot } = setup();
-      
+
             expect(SonarDot).toHaveStyleRule("animation-duration", "3600ms", {
               modifier: "&:after"
             });
           });
         });
-        
-        describe("animation-iteration-count", () => {      
+
+        describe("animation-iteration-count", () => {
           test("should have infinite", () => {
             const { SonarDot } = setup();
-      
-            expect(SonarDot).toHaveStyleRule("animation-iteration-count", "infinite", {
-              modifier: "&:after"
-            });
+
+            expect(SonarDot).toHaveStyleRule(
+              "animation-iteration-count",
+              "infinite",
+              {
+                modifier: "&:after"
+              }
+            );
           });
         });
 
-        describe("border-radius", () => {      
+        describe("border-radius", () => {
           test("should have 50%", () => {
             const { SonarDot } = setup();
-      
+
             expect(SonarDot).toHaveStyleRule("border-radius", "50%", {
               modifier: "&:after"
             });
           });
         });
 
-        describe("box-shadow", () => {      
+        describe("box-shadow", () => {
           test("should have 0px 0px .8rem 0px #78b0b5", () => {
             const { SonarDot } = setup();
-      
-            expect(SonarDot).toHaveStyleRule("box-shadow", "0px 0px .8rem 0px #78b0b5", {
-              modifier: "&:after"
-            });
+
+            expect(SonarDot).toHaveStyleRule(
+              "box-shadow",
+              "0px 0px .8rem 0px #78b0b5",
+              {
+                modifier: "&:after"
+              }
+            );
           });
         });
 
-        describe("content", () => {      
+        describe("content", () => {
           test("should have ''", () => {
             const { SonarDot } = setup();
-      
+
             expect(SonarDot).toHaveStyleRule("content", "''", {
               modifier: "&:after"
             });
           });
         });
 
-        describe("display", () => {      
+        describe("display", () => {
           test("should have block", () => {
             const { SonarDot } = setup();
-      
+
             expect(SonarDot).toHaveStyleRule("display", "block", {
               modifier: "&:after"
             });
           });
         });
 
-        describe("height", () => {      
+        describe("height", () => {
           test("should have 2.4rem", () => {
             const { SonarDot } = setup();
-      
+
             expect(SonarDot).toHaveStyleRule("height", "2.4rem", {
               modifier: "&:after"
             });
           });
         });
 
-        describe("opacity", () => {      
+        describe("opacity", () => {
           test("should have 0", () => {
             const { SonarDot } = setup();
-      
+
             expect(SonarDot).toHaveStyleRule("opacity", "0", {
               modifier: "&:after"
             });
           });
         });
 
-        describe("position", () => {      
+        describe("position", () => {
           test("should have absolute", () => {
             const { SonarDot } = setup();
-      
+
             expect(SonarDot).toHaveStyleRule("position", "absolute", {
               modifier: "&:after"
             });
           });
         });
 
-        describe("transform", () => {      
+        describe("transform", () => {
           test("should have translate(calc(-50% + .2rem),calc(-50% + .2rem))", () => {
             const { SonarDot } = setup();
-      
-            expect(SonarDot).toHaveStyleRule("transform", "translate(calc(-50% + .2rem),calc(-50% + .2rem))", {
-              modifier: "&:after"
-            });
+
+            expect(SonarDot).toHaveStyleRule(
+              "transform",
+              "translate(calc(-50% + .2rem),calc(-50% + .2rem))",
+              {
+                modifier: "&:after"
+              }
+            );
           });
         });
 
-        describe("width", () => {      
+        describe("width", () => {
           test("should have 2.4rem", () => {
             const { SonarDot } = setup();
-      
+
             expect(SonarDot).toHaveStyleRule("width", "2.4rem", {
               modifier: "&:after"
             });
@@ -274,200 +296,242 @@ describe("molecules / Sonar", () => {
     });
   });
 
-  describe("SonarVerticalLine", () => {    
+  describe("SonarVerticalLine", () => {
     describe("Styles", () => {
-      describe("animation-duration", () => {      
+      describe("animation-duration", () => {
         test("should have 300ms", () => {
           const { SonarVerticalLine } = setup();
-    
-          expect(SonarVerticalLine).toHaveStyleRule("animation-duration", "300ms");
+
+          expect(SonarVerticalLine).toHaveStyleRule(
+            "animation-duration",
+            "300ms"
+          );
         });
       });
 
-      describe("animation-iteration-count", () => {      
+      describe("animation-iteration-count", () => {
         test("should have infinite", () => {
           const { SonarVerticalLine } = setup();
-    
-          expect(SonarVerticalLine).toHaveStyleRule("animation-iteration-count", "infinite");
+
+          expect(SonarVerticalLine).toHaveStyleRule(
+            "animation-iteration-count",
+            "infinite"
+          );
         });
       });
 
-      describe("animation-timing-function", () => {      
+      describe("animation-timing-function", () => {
         test("should have linear", () => {
           const { SonarVerticalLine } = setup();
-    
-          expect(SonarVerticalLine).toHaveStyleRule("animation-timing-function", "linear");
+
+          expect(SonarVerticalLine).toHaveStyleRule(
+            "animation-timing-function",
+            "linear"
+          );
         });
       });
 
-      describe("backface-visibility", () => {      
+      describe("backface-visibility", () => {
         test("should have hidden", () => {
           const { SonarVerticalLine } = setup();
-    
-          expect(SonarVerticalLine).toHaveStyleRule("backface-visibility", "hidden");
+
+          expect(SonarVerticalLine).toHaveStyleRule(
+            "backface-visibility",
+            "hidden"
+          );
         });
       });
 
-      describe("background-image", () => {      
+      describe("background-image", () => {
         test("should have linear-gradient(0deg,#78b0b5 50%,transparent 50%)", () => {
           const { SonarVerticalLine } = setup();
-    
-          expect(SonarVerticalLine).toHaveStyleRule("background-image", "linear-gradient(0deg,#78b0b5 50%,transparent 50%)");
+
+          expect(SonarVerticalLine).toHaveStyleRule(
+            "background-image",
+            "linear-gradient(0deg,#78b0b5 50%,transparent 50%)"
+          );
         });
       });
 
-      describe("background-repeat", () => {      
+      describe("background-repeat", () => {
         test("should have repeat-y", () => {
           const { SonarVerticalLine } = setup();
-    
-          expect(SonarVerticalLine).toHaveStyleRule("background-repeat", "repeat-y");
+
+          expect(SonarVerticalLine).toHaveStyleRule(
+            "background-repeat",
+            "repeat-y"
+          );
         });
       });
 
-      describe("background-size", () => {      
+      describe("background-size", () => {
         test("should have .1rem 1.2rem", () => {
           const { SonarVerticalLine } = setup();
-    
-          expect(SonarVerticalLine).toHaveStyleRule("background-size", ".1rem 1.2rem");
+
+          expect(SonarVerticalLine).toHaveStyleRule(
+            "background-size",
+            ".1rem 1.2rem"
+          );
         });
       });
 
-      describe("bottom", () => {      
+      describe("bottom", () => {
         test("should have 1px", () => {
           const { SonarVerticalLine } = setup();
-    
+
           expect(SonarVerticalLine).toHaveStyleRule("bottom", "1px");
         });
       });
 
-      describe("left", () => {      
+      describe("left", () => {
         test("should have 50%", () => {
           const { SonarVerticalLine } = setup();
-    
+
           expect(SonarVerticalLine).toHaveStyleRule("left", "50%");
         });
       });
 
-      describe("position", () => {      
+      describe("position", () => {
         test("should have absolute", () => {
           const { SonarVerticalLine } = setup();
-    
+
           expect(SonarVerticalLine).toHaveStyleRule("position", "absolute");
         });
       });
 
-      describe("top", () => {      
+      describe("top", () => {
         test("should have 1px", () => {
           const { SonarVerticalLine } = setup();
-    
+
           expect(SonarVerticalLine).toHaveStyleRule("top", "1px");
         });
       });
 
-      describe("width", () => {      
+      describe("width", () => {
         test("should have .2rem", () => {
           const { SonarVerticalLine } = setup();
-    
+
           expect(SonarVerticalLine).toHaveStyleRule("width", ".2rem");
         });
       });
     });
   });
 
-  describe("SonarHorizontalLine", () => {    
+  describe("SonarHorizontalLine", () => {
     describe("Styles", () => {
-      describe("animation-duration", () => {      
+      describe("animation-duration", () => {
         test("should have 300ms", () => {
           const { SonarHorizontallLine } = setup();
-    
-          expect(SonarHorizontallLine).toHaveStyleRule("animation-duration", "300ms");
+
+          expect(SonarHorizontallLine).toHaveStyleRule(
+            "animation-duration",
+            "300ms"
+          );
         });
       });
 
-      describe("animation-iteration-count", () => {      
+      describe("animation-iteration-count", () => {
         test("should have infinite", () => {
           const { SonarHorizontallLine } = setup();
-    
-          expect(SonarHorizontallLine).toHaveStyleRule("animation-iteration-count", "infinite");
+
+          expect(SonarHorizontallLine).toHaveStyleRule(
+            "animation-iteration-count",
+            "infinite"
+          );
         });
       });
 
-      describe("animation-timing-function", () => {      
+      describe("animation-timing-function", () => {
         test("should have linear", () => {
           const { SonarHorizontallLine } = setup();
-    
-          expect(SonarHorizontallLine).toHaveStyleRule("animation-timing-function", "linear");
+
+          expect(SonarHorizontallLine).toHaveStyleRule(
+            "animation-timing-function",
+            "linear"
+          );
         });
       });
 
-      describe("backface-visibility", () => {      
+      describe("backface-visibility", () => {
         test("should have hidden", () => {
           const { SonarHorizontallLine } = setup();
-    
-          expect(SonarHorizontallLine).toHaveStyleRule("backface-visibility", "hidden");
+
+          expect(SonarHorizontallLine).toHaveStyleRule(
+            "backface-visibility",
+            "hidden"
+          );
         });
       });
 
-      describe("background-image", () => {      
+      describe("background-image", () => {
         test("should have linear-gradient(90deg,#78b0b5 50%,transparent 50%)", () => {
           const { SonarHorizontallLine } = setup();
-    
-          expect(SonarHorizontallLine).toHaveStyleRule("background-image", "linear-gradient(90deg,#78b0b5 50%,transparent 50%)");
+
+          expect(SonarHorizontallLine).toHaveStyleRule(
+            "background-image",
+            "linear-gradient(90deg,#78b0b5 50%,transparent 50%)"
+          );
         });
       });
 
-      describe("background-repeat", () => {      
+      describe("background-repeat", () => {
         test("should have repeat-x", () => {
           const { SonarHorizontallLine } = setup();
-    
-          expect(SonarHorizontallLine).toHaveStyleRule("background-repeat", "repeat-x");
+
+          expect(SonarHorizontallLine).toHaveStyleRule(
+            "background-repeat",
+            "repeat-x"
+          );
         });
       });
 
-      describe("background-size", () => {      
+      describe("background-size", () => {
         test("should have 1.2rem .1rem", () => {
           const { SonarHorizontallLine } = setup();
-    
-          expect(SonarHorizontallLine).toHaveStyleRule("background-size", "1.2rem .1rem");
+
+          expect(SonarHorizontallLine).toHaveStyleRule(
+            "background-size",
+            "1.2rem .1rem"
+          );
         });
       });
 
-      describe("height", () => {      
+      describe("height", () => {
         test("should have .2rem", () => {
           const { SonarHorizontallLine } = setup();
-    
+
           expect(SonarHorizontallLine).toHaveStyleRule("height", ".2rem");
         });
       });
 
-      describe("left", () => {      
+      describe("left", () => {
         test("should have 1px", () => {
           const { SonarHorizontallLine } = setup();
-    
+
           expect(SonarHorizontallLine).toHaveStyleRule("left", "1px");
         });
       });
 
-      describe("position", () => {      
+      describe("position", () => {
         test("should have absolute", () => {
           const { SonarHorizontallLine } = setup();
-    
+
           expect(SonarHorizontallLine).toHaveStyleRule("position", "absolute");
         });
       });
 
-      describe("right", () => {      
+      describe("right", () => {
         test("should have 1px", () => {
           const { SonarHorizontallLine } = setup();
-    
+
           expect(SonarHorizontallLine).toHaveStyleRule("right", "1px");
         });
       });
 
-      describe("top", () => {      
+      describe("top", () => {
         test("should have 50%", () => {
           const { SonarHorizontallLine } = setup();
-    
+
           expect(SonarHorizontallLine).toHaveStyleRule("top", "50%");
         });
       });
@@ -484,9 +548,7 @@ interface Setup extends RenderResult {
 }
 
 function setup(): Setup {
-  const utils: RenderResult = renderWithTheme(
-    <Sonar />
-  );
+  const utils: RenderResult = renderWithTheme(<Sonar />);
 
   const { container }: RenderResult = utils;
   const PositionContainer: Element = container.children[0];
@@ -494,7 +556,7 @@ function setup(): Setup {
   const SonarDot: Element = SonarContainer.children[0];
   const SonarVerticalLine: Element = SonarContainer.children[1];
   const SonarHorizontallLine: Element = SonarContainer.children[2];
-  
+
   return {
     ...utils,
     PositionContainer,

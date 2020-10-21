@@ -18,146 +18,185 @@ describe("molecules / UnorderedList", () => {
       items
     });
 
-    items.forEach((item: ListItemProps["children"], index: number) => {      
+    items.forEach((item: ListItemProps["children"], index: number) => {
       expect(ListItem[index].textContent).toEqual(item);
     });
   });
-  
+
   describe("Styles", () => {
-    describe("list-style-type", () => {      
+    describe("list-style-type", () => {
       test("should have none", () => {
         const { UnorderedListContainer } = setup();
-  
-        expect(UnorderedListContainer).toHaveStyleRule("list-style-type", "none");
+
+        expect(UnorderedListContainer).toHaveStyleRule(
+          "list-style-type",
+          "none"
+        );
       });
     });
 
-    describe("li", () => {      
-      describe("align-items", () => {      
+    describe("li", () => {
+      describe("align-items", () => {
         test("should have flex-start", () => {
           const { UnorderedListContainer } = setup();
-  
-          expect(UnorderedListContainer).toHaveStyleRule("align-items", "flex-start", {
-            modifier: "& li"
-          });
+
+          expect(UnorderedListContainer).toHaveStyleRule(
+            "align-items",
+            "flex-start",
+            {
+              modifier: "& li"
+            }
+          );
         });
       });
-      
-      describe("display", () => {      
+
+      describe("display", () => {
         test("should have flex", () => {
           const { UnorderedListContainer } = setup();
-  
+
           expect(UnorderedListContainer).toHaveStyleRule("display", "flex", {
             modifier: "& li"
           });
         });
       });
-      
-      describe("margin-bottom", () => {      
+
+      describe("margin-bottom", () => {
         test("should have 1.6rem", () => {
           const { UnorderedListContainer } = setup();
-  
-          expect(UnorderedListContainer).toHaveStyleRule("margin-bottom", "1.6rem", {
-            modifier: "& li"
-          });
+
+          expect(UnorderedListContainer).toHaveStyleRule(
+            "margin-bottom",
+            "1.6rem",
+            {
+              modifier: "& li"
+            }
+          );
         });
       });
-      
-      describe("&::before", () => {      
-        describe("background", () => {      
+
+      describe("&::before", () => {
+        describe("background", () => {
           test("should have #bcd8db", () => {
             const { UnorderedListContainer } = setup();
-  
-            expect(UnorderedListContainer).toHaveStyleRule("background", "#bcd8db", {
-              modifier: "& li::before"
-            });
+
+            expect(UnorderedListContainer).toHaveStyleRule(
+              "background",
+              "#bcd8db",
+              {
+                modifier: "& li::before"
+              }
+            );
           });
         });
-        
-        describe("border-radius", () => {      
+
+        describe("border-radius", () => {
           test("should have 50%", () => {
             const { UnorderedListContainer } = setup();
-  
-            expect(UnorderedListContainer).toHaveStyleRule("border-radius", "50%", {
-              modifier: "& li::before"
-            });
+
+            expect(UnorderedListContainer).toHaveStyleRule(
+              "border-radius",
+              "50%",
+              {
+                modifier: "& li::before"
+              }
+            );
           });
         });
-        
-        describe("content", () => {      
+
+        describe("content", () => {
           test("should have ''", () => {
             const { UnorderedListContainer } = setup();
-  
+
             expect(UnorderedListContainer).toHaveStyleRule("content", "''", {
               modifier: "& li::before"
             });
           });
         });
-        
-        describe("display", () => {      
+
+        describe("display", () => {
           test("should have inline-block", () => {
             const { UnorderedListContainer } = setup();
-  
-            expect(UnorderedListContainer).toHaveStyleRule("display", "inline-block", {
-              modifier: "& li::before"
-            });
+
+            expect(UnorderedListContainer).toHaveStyleRule(
+              "display",
+              "inline-block",
+              {
+                modifier: "& li::before"
+              }
+            );
           });
         });
-        
-        describe("height", () => {      
+
+        describe("height", () => {
           test("should have .8rem", () => {
             const { UnorderedListContainer } = setup();
-  
+
             expect(UnorderedListContainer).toHaveStyleRule("height", ".8rem", {
               modifier: "& li::before"
             });
           });
         });
-        
-        describe("margin-right", () => {      
+
+        describe("margin-right", () => {
           test("should have .8rem", () => {
             const { UnorderedListContainer } = setup();
-  
-            expect(UnorderedListContainer).toHaveStyleRule("margin-right", ".8rem", {
-              modifier: "& li::before"
-            });
+
+            expect(UnorderedListContainer).toHaveStyleRule(
+              "margin-right",
+              ".8rem",
+              {
+                modifier: "& li::before"
+              }
+            );
           });
         });
-        
-        describe("margin-top", () => {      
+
+        describe("margin-top", () => {
           test("should have 1rem", () => {
             const { UnorderedListContainer } = setup();
-  
-            expect(UnorderedListContainer).toHaveStyleRule("margin-top", "1rem", {
-              modifier: "& li::before"
-            });
+
+            expect(UnorderedListContainer).toHaveStyleRule(
+              "margin-top",
+              "1rem",
+              {
+                modifier: "& li::before"
+              }
+            );
           });
         });
-        
-        describe("min-height", () => {      
+
+        describe("min-height", () => {
           test("should have .8rem", () => {
             const { UnorderedListContainer } = setup();
-  
-            expect(UnorderedListContainer).toHaveStyleRule("min-height", ".8rem", {
-              modifier: "& li::before"
-            });
+
+            expect(UnorderedListContainer).toHaveStyleRule(
+              "min-height",
+              ".8rem",
+              {
+                modifier: "& li::before"
+              }
+            );
           });
         });
-        
-        describe("min-width", () => {      
+
+        describe("min-width", () => {
           test("should have .8rem", () => {
             const { UnorderedListContainer } = setup();
-  
-            expect(UnorderedListContainer).toHaveStyleRule("min-width", ".8rem", {
-              modifier: "& li::before"
-            });
+
+            expect(UnorderedListContainer).toHaveStyleRule(
+              "min-width",
+              ".8rem",
+              {
+                modifier: "& li::before"
+              }
+            );
           });
         });
-        
-        describe("width", () => {      
+
+        describe("width", () => {
           test("should have .8rem", () => {
             const { UnorderedListContainer } = setup();
-  
+
             expect(UnorderedListContainer).toHaveStyleRule("width", ".8rem", {
               modifier: "& li::before"
             });
@@ -181,9 +220,7 @@ function setup(additionalProps?: UnorderedListTestProps): Setup {
     ...additionalProps
   };
 
-  const utils: RenderResult = renderWithTheme(
-    <UnorderedList {...props} />
-  );
+  const utils: RenderResult = renderWithTheme(<UnorderedList {...props} />);
 
   const { queryByTestId, queryAllByTestId } = utils || {};
   const ListItem: Element[] = queryAllByTestId("ListItem");

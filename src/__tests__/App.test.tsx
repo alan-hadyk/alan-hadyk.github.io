@@ -6,9 +6,7 @@ import App from "<src>/App";
 jest.mock("<hooks>/useIntersectionObserver");
 
 function mockHomePage(): JSX.Element {
-  return (
-    <div data-testid="Home" />
-  );
+  return <div data-testid="Home" />;
 }
 jest.mock("<pages>/Home/HomePage", () => mockHomePage);
 
@@ -25,9 +23,7 @@ interface Setup extends RenderResult {
 }
 
 function setup(): Setup {
-  const utils: RenderResult = render(
-    <App />
-  );
+  const utils: RenderResult = render(<App />);
 
   const { queryByTestId } = utils || {};
 

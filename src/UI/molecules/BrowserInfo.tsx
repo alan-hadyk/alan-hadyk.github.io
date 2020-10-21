@@ -10,7 +10,14 @@ import Icon from "<atoms>/Icon";
 
 import { IconProps } from "<atoms>/__typings__/Icon.d.ts";
 
-const BROWSER_ICONS: IconProps["iconName"][] = ["chrome", "firefox", "ie", "opera", "safari", "unknown"];
+const BROWSER_ICONS: IconProps["iconName"][] = [
+  "chrome",
+  "firefox",
+  "ie",
+  "opera",
+  "safari",
+  "unknown"
+];
 
 function BrowserInfo(): JSX.Element {
   return (
@@ -24,8 +31,8 @@ function BrowserInfo(): JSX.Element {
       width="100%"
     >
       <BrowserInfo.IconsContainer data-testid="BrowserInfoIconsContainer">
-        <FlexContainer 
-          alignItems="center" 
+        <FlexContainer
+          alignItems="center"
           dataTestId="BrowserInfoFlexContainer"
           flexFlow="row wrap"
           height="100%"
@@ -38,34 +45,39 @@ function BrowserInfo(): JSX.Element {
   );
 
   function renderIcons(): JSX.Element[] {
-    return BROWSER_ICONS.map((icon: IconProps["iconName"]): JSX.Element => {
-      const { name } = detect();
+    return BROWSER_ICONS.map(
+      (icon: IconProps["iconName"]): JSX.Element => {
+        const { name } = detect();
 
-      const isUnknown = !BROWSER_ICONS.find((icon: IconProps["iconName"]) => icon === name);
-      const isActive: boolean = icon === "ie" ? (name === "ie" || name === "edge") : name === icon;
+        const isUnknown = !BROWSER_ICONS.find(
+          (icon: IconProps["iconName"]) => icon === name
+        );
+        const isActive: boolean =
+          icon === "ie" ? name === "ie" || name === "edge" : name === icon;
 
-      return (
-        <FlexItem
-          className={isActive ? "isActive" : "isInactive"}
-          flex="0 1 28%"
-          height="50%"
-          key={icon}
-          paddingBottom="4.8%"
-          paddingTop="4.8%"
-        >
-          <Icon 
-            animationTime="verySlow"
-            height="100%"
-            iconName={icon}
-            isActive={isActive || isUnknown}
-            isResponsive
-            overflow="hidden"
-            shouldDisplayGlowAnimation={isActive || isUnknown}
-            width="100%"
-          />
-        </FlexItem>
-      );
-    });
+        return (
+          <FlexItem
+            className={isActive ? "isActive" : "isInactive"}
+            flex="0 1 28%"
+            height="50%"
+            key={icon}
+            paddingBottom="4.8%"
+            paddingTop="4.8%"
+          >
+            <Icon
+              animationTime="verySlow"
+              height="100%"
+              iconName={icon}
+              isActive={isActive || isUnknown}
+              isResponsive
+              overflow="hidden"
+              shouldDisplayGlowAnimation={isActive || isUnknown}
+              width="100%"
+            />
+          </FlexItem>
+        );
+      }
+    );
   }
 }
 

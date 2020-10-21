@@ -12,9 +12,7 @@ import PageTemplate from "<templates>/PageTemplate";
 
 const HomePage = (): JSX.Element => (
   <PageTemplate>
-    <Header 
-      zIndex="layer2"
-    />
+    <Header zIndex="layer2" />
 
     <DashboardSection />
     <PortfolioSection />
@@ -24,5 +22,5 @@ const HomePage = (): JSX.Element => (
     <ContactSection />
   </PageTemplate>
 );
-  
+
 export default memo(HomePage);

@@ -1,24 +1,15 @@
 import React from "react";
-import {
-  act,
-  fireEvent, 
-  RenderResult
-} from "@testing-library/react";
+import { act, fireEvent, RenderResult } from "@testing-library/react";
 
 import MenuButton from "<atoms>/MenuButton";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  MenuButtonProps
-} from "<atoms>/__typings__/MenuButton.d.ts";
+import { MenuButtonProps } from "<atoms>/__typings__/MenuButton.d.ts";
 
 describe("atoms / MenuButton", () => {
   test("should have correct structure", () => {
-    const {
-      MenuButtonContainer,
-      MenuButtonLines
-    } = setup();
+    const { MenuButtonContainer, MenuButtonLines } = setup();
 
     expect(MenuButtonContainer.children[0]).toEqual(MenuButtonLines[0]);
     expect(MenuButtonContainer.children[1]).toEqual(MenuButtonLines[1]);
@@ -31,17 +22,17 @@ describe("atoms / MenuButton", () => {
       describe("onClick", () => {
         test("should fire onClick prop", () => {
           const onClick = jest.fn();
-    
+
           const { MenuButtonContainer } = setup({
             onClick
           });
-    
+
           expect(onClick).toHaveBeenCalledTimes(0);
-    
+
           act(() => {
             fireEvent.click(MenuButtonContainer);
           });
-    
+
           expect(onClick).toHaveBeenCalledTimes(1);
         });
       });
@@ -54,43 +45,46 @@ describe("atoms / MenuButton", () => {
         MenuButtonContainer = setup().MenuButtonContainer;
       });
 
-      describe("background", () => {      
+      describe("background", () => {
         test("should have none", () => {
           expect(MenuButtonContainer).toHaveStyleRule("background", "none");
         });
       });
 
-      describe("cursor", () => {      
+      describe("cursor", () => {
         test("should have pointer", () => {
           expect(MenuButtonContainer).toHaveStyleRule("cursor", "pointer");
         });
       });
 
-      describe("height", () => {      
+      describe("height", () => {
         test("should have 3.0rem", () => {
           expect(MenuButtonContainer).toHaveStyleRule("height", "3.0rem");
         });
       });
 
-      describe("position", () => {      
+      describe("position", () => {
         test("should have relative", () => {
           expect(MenuButtonContainer).toHaveStyleRule("position", "relative");
         });
       });
 
-      describe("transition", () => {      
+      describe("transition", () => {
         test("should have all 150ms ease-in-out", () => {
-          expect(MenuButtonContainer).toHaveStyleRule("transition", "all 150ms ease-in-out");
+          expect(MenuButtonContainer).toHaveStyleRule(
+            "transition",
+            "all 150ms ease-in-out"
+          );
         });
       });
 
-      describe("width", () => {      
+      describe("width", () => {
         test("should have 4.8rem", () => {
           expect(MenuButtonContainer).toHaveStyleRule("width", "4.8rem");
         });
       });
 
-      describe("z-index", () => {      
+      describe("z-index", () => {
         test("should have 1100", () => {
           expect(MenuButtonContainer).toHaveStyleRule("z-index", "1100");
         });
@@ -100,9 +94,13 @@ describe("atoms / MenuButton", () => {
         test("should have drop-shadow(0px 0px .2rem rgba(255,255,255,0.9)) on hover", () => {
           const { MenuButtonContainer } = setup();
 
-          expect(MenuButtonContainer).toHaveStyleRule("filter", "drop-shadow(0px 0px .2rem rgba(255,255,255,0.9))", {
-            modifier: ":hover"
-          });
+          expect(MenuButtonContainer).toHaveStyleRule(
+            "filter",
+            "drop-shadow(0px 0px .2rem rgba(255,255,255,0.9))",
+            {
+              modifier: ":hover"
+            }
+          );
         });
       });
     });
@@ -118,78 +116,81 @@ describe("atoms / MenuButton", () => {
     describe("Styles", () => {
       describe("if isOpen: false", () => {
         let _MenuButtonLines: Element[];
-  
+
         beforeEach(() => {
           const { MenuButtonLines } = setup();
 
           _MenuButtonLines = MenuButtonLines;
         });
 
-        describe("background", () => {      
+        describe("background", () => {
           test("should have #fff", () => {
             _MenuButtonLines.forEach((MenuButtonLine: Element) => {
               expect(MenuButtonLine).toHaveStyleRule("background", "#fff");
             });
           });
         });
-  
-        describe("height", () => {      
+
+        describe("height", () => {
           test("should have .2rem", () => {
             _MenuButtonLines.forEach((MenuButtonLine: Element) => {
               expect(MenuButtonLine).toHaveStyleRule("height", ".2rem");
             });
           });
         });
-  
-        describe("left", () => {      
+
+        describe("left", () => {
           test("should have 0", () => {
             _MenuButtonLines.forEach((MenuButtonLine: Element) => {
               expect(MenuButtonLine).toHaveStyleRule("left", "0");
             });
           });
         });
-  
-        describe("position", () => {      
+
+        describe("position", () => {
           test("should have absolute", () => {
             _MenuButtonLines.forEach((MenuButtonLine: Element) => {
               expect(MenuButtonLine).toHaveStyleRule("position", "absolute");
             });
           });
         });
-  
-        describe("transition", () => {      
+
+        describe("transition", () => {
           test("should have all 150ms ease-in-out", () => {
             _MenuButtonLines.forEach((MenuButtonLine: Element) => {
-              expect(MenuButtonLine).toHaveStyleRule("transition", "all 150ms ease-in-out");
+              expect(MenuButtonLine).toHaveStyleRule(
+                "transition",
+                "all 150ms ease-in-out"
+              );
             });
           });
         });
-  
-        describe("width", () => {      
+
+        describe("width", () => {
           test("should have 100%", () => {
             _MenuButtonLines.forEach((MenuButtonLine: Element) => {
               expect(MenuButtonLine).toHaveStyleRule("width", "100%");
             });
           });
         });
-  
-        describe("top", () => {      
+
+        describe("top", () => {
           test("should have 0 for the first child", () => {
             expect(_MenuButtonLines[0]).toHaveStyleRule("top", "0", {
               modifier: ":nth-child(1)"
             });
           });
-  
+
           test("should have 1.4rem for the second and third children", () => {
             expect(_MenuButtonLines[1]).toHaveStyleRule("top", "1.4rem", {
               modifier: "&:nth-child(2)"
             });
-  
+
             expect(_MenuButtonLines[2]).toHaveStyleRule("top", "1.4rem", {
               modifier: " &:nth-child(3)"
             });
           });
-  
+
           test("should have 2.8rem for the fourth child", () => {
             expect(_MenuButtonLines[3]).toHaveStyleRule("top", "2.8rem", {
               modifier: ":nth-child(4)"
@@ -200,7 +201,7 @@ describe("atoms / MenuButton", () => {
 
       describe("if isOpen: true", () => {
         let _MenuButtonLines: Element[];
-  
+
         beforeEach(() => {
           const { MenuButtonLines } = setup({
             isOpen: true
@@ -209,7 +210,7 @@ describe("atoms / MenuButton", () => {
           _MenuButtonLines = MenuButtonLines;
         });
 
-        describe("left", () => {      
+        describe("left", () => {
           test("should have 50% for the first child", () => {
             _MenuButtonLines.forEach((MenuButtonLine: Element) => {
               expect(MenuButtonLine).toHaveStyleRule("left", "50%", {
@@ -217,7 +218,7 @@ describe("atoms / MenuButton", () => {
               });
             });
           });
-  
+
           test("should have 50% for the fourth child", () => {
             _MenuButtonLines.forEach((MenuButtonLine: Element) => {
               expect(MenuButtonLine).toHaveStyleRule("left", "50%", {
@@ -227,7 +228,7 @@ describe("atoms / MenuButton", () => {
           });
         });
 
-        describe("top", () => {      
+        describe("top", () => {
           test("should have 1.4rem for the first child", () => {
             _MenuButtonLines.forEach((MenuButtonLine: Element) => {
               expect(MenuButtonLine).toHaveStyleRule("top", "1.4rem", {
@@ -235,7 +236,7 @@ describe("atoms / MenuButton", () => {
               });
             });
           });
-  
+
           test("should have 1.4rem for the fourth child", () => {
             _MenuButtonLines.forEach((MenuButtonLine: Element) => {
               expect(MenuButtonLine).toHaveStyleRule("top", "1.4rem", {
@@ -245,7 +246,7 @@ describe("atoms / MenuButton", () => {
           });
         });
 
-        describe("width", () => {      
+        describe("width", () => {
           test("should have 0 for the first child", () => {
             _MenuButtonLines.forEach((MenuButtonLine: Element) => {
               expect(MenuButtonLine).toHaveStyleRule("width", "0", {
@@ -253,7 +254,7 @@ describe("atoms / MenuButton", () => {
               });
             });
           });
-  
+
           test("should have 0 for the fourth child", () => {
             _MenuButtonLines.forEach((MenuButtonLine: Element) => {
               expect(MenuButtonLine).toHaveStyleRule("width", "0", {
@@ -263,20 +264,28 @@ describe("atoms / MenuButton", () => {
           });
         });
 
-        describe("transform", () => {      
+        describe("transform", () => {
           test("should have rotate(40deg) for the second child", () => {
             _MenuButtonLines.forEach((MenuButtonLine: Element) => {
-              expect(MenuButtonLine).toHaveStyleRule("transform", "rotate(40deg)", {
-                modifier: ":nth-child(2)"
-              });
+              expect(MenuButtonLine).toHaveStyleRule(
+                "transform",
+                "rotate(40deg)",
+                {
+                  modifier: ":nth-child(2)"
+                }
+              );
             });
           });
-  
+
           test("should have rotate(-40deg) for the third child", () => {
             _MenuButtonLines.forEach((MenuButtonLine: Element) => {
-              expect(MenuButtonLine).toHaveStyleRule("transform", "rotate(-40deg)", {
-                modifier: ":nth-child(3)"
-              });
+              expect(MenuButtonLine).toHaveStyleRule(
+                "transform",
+                "rotate(-40deg)",
+                {
+                  modifier: ":nth-child(3)"
+                }
+              );
             });
           });
         });
@@ -298,13 +307,13 @@ function setup(additionalProps?: MenuButtonTestProps): Setup {
     ...additionalProps
   };
 
-  const utils: RenderResult = renderWithTheme(
-    <MenuButton {...props} />
-  );
+  const utils: RenderResult = renderWithTheme(<MenuButton {...props} />);
 
   const { queryAllByTestId }: RenderResult = utils;
 
-  const MenuButtonContainer: Element = queryAllByTestId("MenuButtonContainer")[0];
+  const MenuButtonContainer: Element = queryAllByTestId(
+    "MenuButtonContainer"
+  )[0];
   const MenuButtonLines: Element[] = queryAllByTestId("MenuButtonLine");
 
   return {

@@ -4,11 +4,7 @@ import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import PositionContainer from "<layout>/PositionContainer";
 
 const Sonar = (): JSX.Element => (
-  <PositionContainer
-    dataTestId="Sonar"
-    height="100%"
-    position="relative"
-  >
+  <PositionContainer dataTestId="Sonar" height="100%" position="relative">
     <Sonar.Container>
       <Sonar.Dot />
       <Sonar.VerticalLine />
@@ -28,7 +24,7 @@ Sonar.Container = styled.div`
     height: 100%;
     overflow: hidden;
     width: 100%;
-  `}
+  `};
 `;
 
 Sonar.Dot = styled.div`
@@ -57,7 +53,7 @@ Sonar.Dot = styled.div`
       animation-name: ${rippleAlternative};
       border-radius: 50%;
       box-shadow: 0px 0px ${spacing8} 0px ${blue300};
-      content: '';
+      content: "";
       display: block;
       height: ${spacing24};
       opacity: 0;
@@ -65,7 +61,7 @@ Sonar.Dot = styled.div`
       transform: translate(calc(-50% + ${spacing2}), calc(-50% + ${spacing2}));
       width: ${spacing24};
     }
-  `}
+  `};
 `;
 
 Sonar.VerticalLine = styled.div`
@@ -90,7 +86,7 @@ Sonar.VerticalLine = styled.div`
     position: absolute;
     top: 1px;
     width: ${spacing2};
-  `}
+  `};
 `;
 
 Sonar.HorizontalLine = styled.div`
@@ -115,7 +111,7 @@ Sonar.HorizontalLine = styled.div`
     position: absolute;
     right: 1px;
     top: 50%;
-  `}
+  `};
 `;
 
 export default Sonar;

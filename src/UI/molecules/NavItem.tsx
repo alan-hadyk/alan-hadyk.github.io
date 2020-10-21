@@ -1,8 +1,4 @@
-import React, {
-  memo,
-  useRef,
-  useState
-} from "react";
+import React, { memo, useRef, useState } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import Line from "<atoms>/Line";
@@ -17,11 +13,7 @@ import {
 } from "<molecules>/__typings__/NavItem.d.ts";
 import { ShuffleState } from "<hooks>/__typings__/useShuffleText.d.ts";
 
-function NavItem({
-  href,
-  isActive = false,
-  title
-}: NavItemProps): JSX.Element {
+function NavItem({ href, isActive = false, title }: NavItemProps): JSX.Element {
   const [shuffleText, setShuffleText] = useState<ShuffleState | undefined>();
   const navItemElementRef = useRef<HTMLAnchorElement>(null);
 
@@ -33,10 +25,7 @@ function NavItem({
   });
 
   return (
-    <PositionContainer 
-      dataTestId="NavItem"
-      position="relative"
-    >
+    <PositionContainer dataTestId="NavItem" position="relative">
       <NavItem.Link
         data-cy="NavItemLink"
         data-testid="NavItemLink"
@@ -48,24 +37,19 @@ function NavItem({
       >
         {title}
       </NavItem.Link>
-      <Line
-        direction="left" 
-        isActive={isActive}
-      />
-      <Line
-        direction="right" 
-        isActive={isActive}
-      />
+      <Line direction="left" isActive={isActive} />
+      <Line direction="right" isActive={isActive} />
     </PositionContainer>
   );
 
   function handleClick(): void {
     const element: HTMLElement = document.querySelector(href);
 
-    element && element.scrollIntoView({ 
-      behavior: "smooth",
-      block: "start"
-    });
+    element &&
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
   }
 
   function handleMouseOver(): void {
@@ -101,14 +85,18 @@ NavItem.Link = styled.a<NavItemLinkProps>`
     transition: all ${transitionTimes.fast} ${easeInOut};
     z-index: ${zIndex.layer2};
 
-    &:hover, &:active, &:focus {
+    &:hover,
+    &:active,
+    &:focus {
       color: ${white};
       text-shadow: 0px 0px ${spacing8} ${blue100};
     }
-  `}
+  `};
 `;
 
-const arePropsEqual = (prevProps: NavItemProps, nextProps: NavItemProps): boolean =>
-  prevProps.isActive === nextProps.isActive;
-  
+const arePropsEqual = (
+  prevProps: NavItemProps,
+  nextProps: NavItemProps
+): boolean => prevProps.isActive === nextProps.isActive;
+
 export default memo(NavItem, arePropsEqual);

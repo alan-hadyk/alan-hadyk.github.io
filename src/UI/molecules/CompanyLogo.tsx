@@ -5,9 +5,7 @@ import FlexContainer from "<layout>/FlexContainer";
 
 import { CompanyLogoProps } from "<molecules>/__typings__/CompanyLogo.d.ts";
 
-const CompanyLogo = ({
-  logo
-}: CompanyLogoProps): JSX.Element => (
+const CompanyLogo = ({ logo }: CompanyLogoProps): JSX.Element => (
   <FlexContainer
     alignItems="flex-start"
     dataCy="CompanyLogo"

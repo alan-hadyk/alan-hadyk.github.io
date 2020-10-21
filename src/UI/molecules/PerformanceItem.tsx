@@ -12,21 +12,19 @@ import {
   PerformanceItemProps
 } from "<molecules>/__typings__/PerformanceItem.d.ts";
 
-const PerformanceItem = ({ animationDelay, label, shouldAnimate }: PerformanceItemProps): JSX.Element => (
-  <PerformanceItem.Container
-    data-testid="PerformanceItem"
-  >
+const PerformanceItem = ({
+  animationDelay,
+  label,
+  shouldAnimate
+}: PerformanceItemProps): JSX.Element => (
+  <PerformanceItem.Container data-testid="PerformanceItem">
     <SpacingContainer
       paddingBottom="spacing2"
       paddingTop="spacing2"
       width="100%"
     >
-      <FlexContainer
-        flexFlow="row nowrap"
-      >
-        <FlexItem
-          flex="0 1 40%"
-        >
+      <FlexContainer flexFlow="row nowrap">
+        <FlexItem flex="0 1 40%">
           <Text
             color="blue100"
             ellipsis
@@ -38,9 +36,7 @@ const PerformanceItem = ({ animationDelay, label, shouldAnimate }: PerformanceIt
             {label}
           </Text>
         </FlexItem>
-        <FlexItem
-          flex="0 1 60%"
-        >
+        <FlexItem flex="0 1 60%">
           <PerformanceItem.Barchart
             animationDelay={animationDelay}
             data-testid="PerformanceItemBarchart"
@@ -64,7 +60,8 @@ PerformanceItem.Barchart = styled.div<PerformanceItemBarchartProps>`
     },
     shouldAnimate
   }): FlattenSimpleInterpolation => css`
-    ${shouldAnimate && css`    
+    ${shouldAnimate &&
+    css`
       animation-delay: ${animationDelay};
       animation-duration: ${verySlow};
       animation-iteration-count: infinite;
@@ -76,39 +73,39 @@ PerformanceItem.Barchart = styled.div<PerformanceItemBarchartProps>`
     height: ${spacing4};
     padding-right: ${spacing4};
     width: 100%;
-  `}
+  `};
 `;
 
 PerformanceItem.Container = styled.div`
   display: none;
   width: 100%;
 
-  @media (min-height: 900px)  {
-    &:nth-child(-n+17) {
+  @media (min-height: 900px) {
+    &:nth-child(-n + 17) {
       display: flex;
     }
   }
 
   @media (min-height: 800px) and (max-height: 899px) {
-    &:nth-child(-n+15) {
+    &:nth-child(-n + 15) {
       display: flex;
     }
   }
 
   @media (min-height: 520px) and (max-height: 799px) {
-    &:nth-child(-n+10) {
+    &:nth-child(-n + 10) {
       display: flex;
     }
   }
 
   @media (min-height: 415px) and (max-height: 519px) {
-    &:nth-child(-n+8) {
+    &:nth-child(-n + 8) {
       display: flex;
     }
   }
 
   @media (max-height: 414px) {
-    &:nth-child(-n+3) {
+    &:nth-child(-n + 3) {
       display: flex;
     }
   }

@@ -1,15 +1,11 @@
 import React from "react";
-import {
-  RenderResult,
-  act,
-  fireEvent
-} from "@testing-library/react";
+import { RenderResult, act, fireEvent } from "@testing-library/react";
 
 import HeaderTabletAndMobile from "<organisms>/Header/HeaderTabletAndMobile";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import { HeaderMobileProps }  from "<organisms>/Header/__typings__/HeaderMobile.d.ts";
+import { HeaderMobileProps } from "<organisms>/Header/__typings__/HeaderMobile.d.ts";
 
 jest.mock("<hooks>/useIntersectionObserver");
 
@@ -53,11 +49,11 @@ describe("organisms / HeaderTabletAndMobileProps", () => {
 
   describe("HeaderMobile", () => {
     describe("Props", () => {
-      describe("devices", () => {      
+      describe("devices", () => {
         describe("should have mobile", () => {
           test("should have display block when max-width is 640px", () => {
             const { HeaderMobileContainer } = setup();
-      
+
             expect(HeaderMobileContainer).toHaveStyleRule("display", "block", {
               media: "(max-width:640px)"
             });
@@ -69,11 +65,11 @@ describe("organisms / HeaderTabletAndMobileProps", () => {
 
   describe("HeaderTablet", () => {
     describe("Props", () => {
-      describe("devices", () => {      
+      describe("devices", () => {
         describe("should have tablet", () => {
           test("should have display block when min-width is 641px and max-width is 1280px", () => {
             const { HeaderTabletContainer } = setup();
-      
+
             expect(HeaderTabletContainer).toHaveStyleRule("display", "block", {
               media: "(min-width:641px) and (max-width:1280px)"
             });
@@ -93,19 +89,19 @@ describe("organisms / HeaderTabletAndMobileProps", () => {
     });
 
     describe("Props", () => {
-      describe("isOpen", () => {  
+      describe("isOpen", () => {
         describe("when isMenuVisible is true", () => {
           let _MenuButtonLines: Element[];
-    
+
           beforeEach(() => {
             const { MenuButtonLines } = setup({
               isMenuVisible: true
             });
-  
+
             _MenuButtonLines = MenuButtonLines;
           });
-  
-          describe("left", () => {      
+
+          describe("left", () => {
             test("should have 50% for the first child", () => {
               _MenuButtonLines.forEach((MenuButtonLine: Element) => {
                 expect(MenuButtonLine).toHaveStyleRule("left", "50%", {
@@ -113,7 +109,7 @@ describe("organisms / HeaderTabletAndMobileProps", () => {
                 });
               });
             });
-    
+
             test("should have 50% for the fourth child", () => {
               _MenuButtonLines.forEach((MenuButtonLine: Element) => {
                 expect(MenuButtonLine).toHaveStyleRule("left", "50%", {
@@ -122,8 +118,8 @@ describe("organisms / HeaderTabletAndMobileProps", () => {
               });
             });
           });
-  
-          describe("top", () => {      
+
+          describe("top", () => {
             test("should have 1.4rem for the first child", () => {
               _MenuButtonLines.forEach((MenuButtonLine: Element) => {
                 expect(MenuButtonLine).toHaveStyleRule("top", "1.4rem", {
@@ -131,7 +127,7 @@ describe("organisms / HeaderTabletAndMobileProps", () => {
                 });
               });
             });
-    
+
             test("should have 1.4rem for the fourth child", () => {
               _MenuButtonLines.forEach((MenuButtonLine: Element) => {
                 expect(MenuButtonLine).toHaveStyleRule("top", "1.4rem", {
@@ -140,8 +136,8 @@ describe("organisms / HeaderTabletAndMobileProps", () => {
               });
             });
           });
-  
-          describe("width", () => {      
+
+          describe("width", () => {
             test("should have 0 for the first child", () => {
               _MenuButtonLines.forEach((MenuButtonLine: Element) => {
                 expect(MenuButtonLine).toHaveStyleRule("width", "0", {
@@ -149,7 +145,7 @@ describe("organisms / HeaderTabletAndMobileProps", () => {
                 });
               });
             });
-    
+
             test("should have 0 for the fourth child", () => {
               _MenuButtonLines.forEach((MenuButtonLine: Element) => {
                 expect(MenuButtonLine).toHaveStyleRule("width", "0", {
@@ -158,21 +154,29 @@ describe("organisms / HeaderTabletAndMobileProps", () => {
               });
             });
           });
-  
-          describe("transform", () => {      
+
+          describe("transform", () => {
             test("should have rotate(40deg) for the second child", () => {
               _MenuButtonLines.forEach((MenuButtonLine: Element) => {
-                expect(MenuButtonLine).toHaveStyleRule("transform", "rotate(40deg)", {
-                  modifier: ":nth-child(2)"
-                });
+                expect(MenuButtonLine).toHaveStyleRule(
+                  "transform",
+                  "rotate(40deg)",
+                  {
+                    modifier: ":nth-child(2)"
+                  }
+                );
               });
             });
-    
+
             test("should have rotate(-40deg) for the third child", () => {
               _MenuButtonLines.forEach((MenuButtonLine: Element) => {
-                expect(MenuButtonLine).toHaveStyleRule("transform", "rotate(-40deg)", {
-                  modifier: ":nth-child(3)"
-                });
+                expect(MenuButtonLine).toHaveStyleRule(
+                  "transform",
+                  "rotate(-40deg)",
+                  {
+                    modifier: ":nth-child(3)"
+                  }
+                );
               });
             });
           });
@@ -180,16 +184,16 @@ describe("organisms / HeaderTabletAndMobileProps", () => {
 
         describe("when isMenuVisible is false", () => {
           let _MenuButtonLines: Element[];
-    
+
           beforeEach(() => {
             const { MenuButtonLines } = setup({
               isMenuVisible: false
             });
-  
+
             _MenuButtonLines = MenuButtonLines;
           });
-  
-          describe("left", () => {      
+
+          describe("left", () => {
             test("should not have 50% for the first child", () => {
               _MenuButtonLines.forEach((MenuButtonLine: Element) => {
                 expect(MenuButtonLine).not.toHaveStyleRule("left", "50%", {
@@ -197,7 +201,7 @@ describe("organisms / HeaderTabletAndMobileProps", () => {
                 });
               });
             });
-    
+
             test("should not have 50% for the fourth child", () => {
               _MenuButtonLines.forEach((MenuButtonLine: Element) => {
                 expect(MenuButtonLine).not.toHaveStyleRule("left", "50%", {
@@ -206,8 +210,8 @@ describe("organisms / HeaderTabletAndMobileProps", () => {
               });
             });
           });
-  
-          describe("top", () => {      
+
+          describe("top", () => {
             test("should not have 1.4rem for the first child", () => {
               _MenuButtonLines.forEach((MenuButtonLine: Element) => {
                 expect(MenuButtonLine).not.toHaveStyleRule("top", "1.4rem", {
@@ -215,7 +219,7 @@ describe("organisms / HeaderTabletAndMobileProps", () => {
                 });
               });
             });
-    
+
             test("should not have 1.4rem for the fourth child", () => {
               _MenuButtonLines.forEach((MenuButtonLine: Element) => {
                 expect(MenuButtonLine).not.toHaveStyleRule("top", "1.4rem", {
@@ -224,8 +228,8 @@ describe("organisms / HeaderTabletAndMobileProps", () => {
               });
             });
           });
-  
-          describe("width", () => {      
+
+          describe("width", () => {
             test("should not have 0 for the first child", () => {
               _MenuButtonLines.forEach((MenuButtonLine: Element) => {
                 expect(MenuButtonLine).not.toHaveStyleRule("width", "0", {
@@ -233,7 +237,7 @@ describe("organisms / HeaderTabletAndMobileProps", () => {
                 });
               });
             });
-    
+
             test("should not have 0 for the fourth child", () => {
               _MenuButtonLines.forEach((MenuButtonLine: Element) => {
                 expect(MenuButtonLine).not.toHaveStyleRule("width", "0", {
@@ -242,31 +246,39 @@ describe("organisms / HeaderTabletAndMobileProps", () => {
               });
             });
           });
-  
-          describe("transform", () => {      
+
+          describe("transform", () => {
             test("should not have rotate(40deg) for the second child", () => {
               _MenuButtonLines.forEach((MenuButtonLine: Element) => {
-                expect(MenuButtonLine).not.toHaveStyleRule("transform", "rotate(40deg)", {
-                  modifier: ":nth-child(2)"
-                });
+                expect(MenuButtonLine).not.toHaveStyleRule(
+                  "transform",
+                  "rotate(40deg)",
+                  {
+                    modifier: ":nth-child(2)"
+                  }
+                );
               });
             });
-    
+
             test("should not have rotate(-40deg) for the third child", () => {
               _MenuButtonLines.forEach((MenuButtonLine: Element) => {
-                expect(MenuButtonLine).not.toHaveStyleRule("transform", "rotate(-40deg)", {
-                  modifier: ":nth-child(3)"
-                });
+                expect(MenuButtonLine).not.toHaveStyleRule(
+                  "transform",
+                  "rotate(-40deg)",
+                  {
+                    modifier: ":nth-child(3)"
+                  }
+                );
               });
             });
           });
         });
       });
 
-      describe("onClick", () => {      
+      describe("onClick", () => {
         test("should fire click", () => {
           const onClick = jest.fn();
-    
+
           const { MenuButtons } = setup({
             onClick
           });
@@ -307,10 +319,10 @@ describe("organisms / HeaderTabletAndMobileProps", () => {
     });
 
     describe("Props", () => {
-      describe("onClick", () => {      
+      describe("onClick", () => {
         test("should fire onClick prop", () => {
           const onClick = jest.fn();
-    
+
           const { Backdrop } = setup({
             isMenuVisible: true,
             onClick
@@ -338,20 +350,22 @@ describe("organisms / HeaderTabletAndMobileProps", () => {
             const { SideMenus } = setup({
               isMenuVisible: true
             });
-            
+
             SideMenus.forEach((_SideMenu: Element) => {
               expect(_SideMenu).toHaveStyleRule("transform", "translateX(0)");
             });
           });
-  
-  
+
           test("should have translateX(100%) if isMenuVisible is false", () => {
             const { SideMenus } = setup({
               isMenuVisible: false
             });
-      
+
             SideMenus.forEach((_SideMenu: Element) => {
-              expect(_SideMenu).toHaveStyleRule("transform", "translateX(100%)");
+              expect(_SideMenu).toHaveStyleRule(
+                "transform",
+                "translateX(100%)"
+              );
             });
           });
         });

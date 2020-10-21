@@ -8,22 +8,26 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 import { LinkWithIconProps } from "<molecules>/__typings__/LinkWithIcon.d.ts";
 
 describe("molecules / LinkWithIcon", () => {
-  describe("Icon", () => {    
+  describe("Icon", () => {
     describe("Props", () => {
-      describe("animationTime", () => {      
+      describe("animationTime", () => {
         test("should have transiton: all 150ms ease-in-out 0ms", () => {
           const { IconContainer } = setup();
-    
-          expect(IconContainer).toHaveStyleRule("transition", "all 150ms ease-in-out 0ms", {
-            modifier: "svg"
-          });
+
+          expect(IconContainer).toHaveStyleRule(
+            "transition",
+            "all 150ms ease-in-out 0ms",
+            {
+              modifier: "svg"
+            }
+          );
         });
       });
 
-      describe("height", () => {      
+      describe("height", () => {
         test("should have 4.8rem by default", () => {
           const { IconContainer } = setup();
-    
+
           expect(IconContainer).toHaveStyleRule("height", "4.8rem");
         });
 
@@ -31,15 +35,15 @@ describe("molecules / LinkWithIcon", () => {
           const { IconContainer } = setup({
             height: "spacing72"
           });
-    
+
           expect(IconContainer).toHaveStyleRule("height", "7.2rem");
         });
       });
 
-      describe("width", () => {      
+      describe("width", () => {
         test("should have auto", () => {
           const { IconContainer } = setup();
-    
+
           expect(IconContainer).toHaveStyleRule("width", "auto");
         });
 
@@ -47,18 +51,22 @@ describe("molecules / LinkWithIcon", () => {
           const { IconContainer } = setup({
             width: "spacing72"
           });
-    
+
           expect(IconContainer).toHaveStyleRule("width", "7.2rem");
         });
       });
 
-      describe("shouldGlowOnHover", () => {      
+      describe("shouldGlowOnHover", () => {
         test("should have filter: drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", () => {
           const { IconContainer } = setup();
-    
-          expect(IconContainer).toHaveStyleRule("filter", "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", {
-            modifier: "svg:hover"
-          });
+
+          expect(IconContainer).toHaveStyleRule(
+            "filter",
+            "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))",
+            {
+              modifier: "svg:hover"
+            }
+          );
         });
       });
     });
@@ -69,7 +77,7 @@ describe("molecules / LinkWithIcon", () => {
           const { Icon } = setup({
             iconName: "logo"
           });
-    
+
           expect(Icon.textContent).toEqual("Icon-Logo.svg");
         });
 
@@ -77,7 +85,7 @@ describe("molecules / LinkWithIcon", () => {
           const { Icon } = setup({
             iconName: "codeSandbox"
           });
-    
+
           expect(Icon.textContent).toEqual("Icon-CodeSandbox.svg");
         });
 
@@ -85,7 +93,7 @@ describe("molecules / LinkWithIcon", () => {
           const { Icon } = setup({
             iconName: "gitHub"
           });
-    
+
           expect(Icon.textContent).toEqual("Icon-GitHub.svg");
         });
 
@@ -93,19 +101,19 @@ describe("molecules / LinkWithIcon", () => {
           const { Icon } = setup({
             iconName: "linkedIn"
           });
-    
+
           expect(Icon.textContent).toEqual("Icon-LinkedIn.svg");
         });
       });
     });
   });
 
-  describe("Link", () => {    
+  describe("Link", () => {
     describe("Props", () => {
-      describe("height", () => {      
+      describe("height", () => {
         test("should have spacing48", () => {
           const { Link } = setup();
-    
+
           expect(Link.getAttribute("height")).toEqual("spacing48");
         });
 
@@ -113,25 +121,25 @@ describe("molecules / LinkWithIcon", () => {
           const { Link } = setup({
             height: "spacing72"
           });
-    
+
           expect(Link).toHaveStyleRule("height", "7.2rem");
         });
       });
 
-      describe("display", () => {      
+      describe("display", () => {
         test("should have block", () => {
           const { Link } = setup();
-    
+
           expect(Link.getAttribute("display")).toEqual("block");
         });
       });
 
-      describe("target", () => {      
+      describe("target", () => {
         test("should have _self if isExternal prop is false", () => {
           const { Link } = setup({
             isExternal: false
           });
-    
+
           expect(Link.getAttribute("target")).toEqual("_self");
         });
 
@@ -139,17 +147,17 @@ describe("molecules / LinkWithIcon", () => {
           const { Link } = setup({
             isExternal: true
           });
-    
+
           expect(Link.getAttribute("target")).toEqual("_blank");
         });
       });
 
-      describe("href", () => {      
+      describe("href", () => {
         test("should have correct value passed via href prop", () => {
           const { Link } = setup({
             href: "http://google.com"
           });
-    
+
           expect(Link.getAttribute("href")).toEqual("http://google.com");
         });
       });
@@ -172,13 +180,10 @@ function setup(additionalProps?: LinkWithIconTestProps): Setup {
     iconName: "logo",
     ...additionalProps
   };
-  
-  const utils: RenderResult = renderWithTheme(
-    <LinkWithIcon {...props} />
-  );
+
+  const utils: RenderResult = renderWithTheme(<LinkWithIcon {...props} />);
 
   const { queryByTestId }: RenderResult = utils;
-
 
   return {
     ...utils,

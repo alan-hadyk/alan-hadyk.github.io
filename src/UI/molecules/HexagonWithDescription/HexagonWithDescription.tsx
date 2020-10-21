@@ -5,9 +5,7 @@ import Responsive from "<layout>/Responsive";
 
 import HexagonWithDescriptionContent from "<molecules>/HexagonWithDescription/HexagonWithDescriptionContent";
 
-import {
-  HexagonWithDescriptionProps
-} from "<molecules>/HexagonWithDescription/__typings__/HexagonWithDescription.d.ts";
+import { HexagonWithDescriptionProps } from "<molecules>/HexagonWithDescription/__typings__/HexagonWithDescription.d.ts";
 
 const HexagonWithDescription = ({
   children,

@@ -17,39 +17,40 @@ function CompanyDescription({
   textAlign = "left",
   title
 }: CompanyDescriptionProps): JSX.Element {
-  const renderTitleAndDate = useCallback((): JSX.Element => (
-    <Fragment>
-      <Text
-        color="white"
-        dataCy="CompanyDescriptionMainTitle"
-        dataTestId="MainTitle"
-        fontFamily="Exan"
-        fontSize="font36"
-        lineHeight="spacing48"
-        textAlign={textAlign}
-        textTransform="uppercase"
-      >
-        {title}
-      </Text>
-      <SpacingContainer
-        dataTestId="DateSpacingContainer"
-        marginBottom="spacing32"
-        marginTop="spacing32"
-      >
-        <IconWithLabel
-          labelColor="blue300"
-          iconName="calendar"
-          label={date}
-          size="medium"
-        />
-      </SpacingContainer>
-    </Fragment>
-  ), [date, textAlign, title]);
+  const renderTitleAndDate = useCallback(
+    (): JSX.Element => (
+      <Fragment>
+        <Text
+          color="white"
+          dataCy="CompanyDescriptionMainTitle"
+          dataTestId="MainTitle"
+          fontFamily="Exan"
+          fontSize="font36"
+          lineHeight="spacing48"
+          textAlign={textAlign}
+          textTransform="uppercase"
+        >
+          {title}
+        </Text>
+        <SpacingContainer
+          dataTestId="DateSpacingContainer"
+          marginBottom="spacing32"
+          marginTop="spacing32"
+        >
+          <IconWithLabel
+            labelColor="blue300"
+            iconName="calendar"
+            label={date}
+            size="medium"
+          />
+        </SpacingContainer>
+      </Fragment>
+    ),
+    [date, textAlign, title]
+  );
 
   return (
-    <CompanyDescription.Container
-      data-testid="CompanyDescription"
-    >
+    <CompanyDescription.Container data-testid="CompanyDescription">
       {renderTitleAndDate()}
 
       {renderTechStack()}
@@ -112,9 +113,7 @@ function CompanyDescription({
           marginLeft="spacing16"
           marginTop="spacing16"
         >
-          <UnorderedList
-            items={responsibilities}
-          />
+          <UnorderedList items={responsibilities} />
         </SpacingContainer>
       </SpacingContainer>
     );

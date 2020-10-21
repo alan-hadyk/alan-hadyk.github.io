@@ -22,14 +22,14 @@ const LinkWithIcon = ({
     href={href}
     isExternal={isExternal}
   >
-    <Icon 
+    <Icon
       animationTime="fast"
       height={height}
-      iconName={iconName} 
-      width={width} 
+      iconName={iconName}
+      width={width}
       shouldGlowOnHover
     />
   </Link>
 );
-  
+
 export default LinkWithIcon;

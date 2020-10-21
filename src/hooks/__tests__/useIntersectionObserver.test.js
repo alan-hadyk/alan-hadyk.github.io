@@ -22,25 +22,29 @@ describe("hooks / useIntersectionObserver", () => {
     const observe = jest.fn();
     const disconnect = jest.fn();
 
-    const mockEntries = [{
-      intersectionRatio: 0.3285198509693146,
-      isIntersecting: true,
-      target: {
-        id: "portfolio"
+    const mockEntries = [
+      {
+        intersectionRatio: 0.3285198509693146,
+        isIntersecting: true,
+        target: {
+          id: "portfolio"
+        }
+      },
+      {
+        intersectionRatio: 0.7433498509693146,
+        isIntersecting: false,
+        target: {
+          id: "experience"
+        }
+      },
+      {
+        intersectionRatio: 0.533498509693146,
+        isIntersecting: true,
+        target: {
+          id: "skills"
+        }
       }
-    }, {
-      intersectionRatio: 0.7433498509693146,
-      isIntersecting: false,
-      target: {
-        id: "experience"
-      }
-    }, {
-      intersectionRatio: 0.533498509693146,
-      isIntersecting: true,
-      target: {
-        id: "skills"
-      }
-    }];
+    ];
 
     function IntersectionObserver(entries) {
       this.observe = observe;
@@ -58,10 +62,18 @@ describe("hooks / useIntersectionObserver", () => {
     }));
 
     const onElementVisible = jest.fn();
-    renderHook(() => useIntersectionObserver({
-      onElementVisible,
-      selectors: ["#portfolio", "#experience", "#skills", "#about-me", "#contact"]
-    }));
+    renderHook(() =>
+      useIntersectionObserver({
+        onElementVisible,
+        selectors: [
+          "#portfolio",
+          "#experience",
+          "#skills",
+          "#about-me",
+          "#contact"
+        ]
+      })
+    );
 
     expect(onElementVisible).toHaveBeenNthCalledWith(1, "#skills");
   });
@@ -73,8 +85,8 @@ describe("hooks / useIntersectionObserver", () => {
     const dom = new JSDOM();
     global.document = dom.window.document;
 
-    Object.defineProperty(global.document, "querySelector", { 
-      value: selector => {
+    Object.defineProperty(global.document, "querySelector", {
+      value: (selector) => {
         spyQuerySelector(selector);
 
         return selector === "#portfolio" || selector === "#skills";
@@ -87,17 +99,25 @@ describe("hooks / useIntersectionObserver", () => {
       this.takeRecords = jest.fn();
       this.unobserve = jest.fn();
     }
-  
+
     windowSpy.mockImplementation(() => ({
       IntersectionObserver,
       addEventListener: jest.fn(),
       removeEventListener: jest.fn()
     }));
 
-    const { unmount } = renderHook(() => useIntersectionObserver({
-      onElementVisible: jest.fn(),
-      selectors: ["#portfolio", "#experience", "#skills", "#about-me", "#contact"]
-    }));
+    const { unmount } = renderHook(() =>
+      useIntersectionObserver({
+        onElementVisible: jest.fn(),
+        selectors: [
+          "#portfolio",
+          "#experience",
+          "#skills",
+          "#about-me",
+          "#contact"
+        ]
+      })
+    );
 
     expect(observe).toHaveBeenCalledTimes(2);
     expect(spyQuerySelector).toHaveBeenNthCalledWith(1, "#portfolio");

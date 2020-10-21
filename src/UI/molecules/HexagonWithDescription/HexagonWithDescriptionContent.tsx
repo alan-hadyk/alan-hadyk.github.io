@@ -7,9 +7,7 @@ import FlexContainer from "<layout>/FlexContainer";
 import SpacingContainer from "<layout>/SpacingContainer";
 import FlexItem from "<layout>/FlexItem";
 
-import {
-  HexagonWithDescriptionContentProps
-} from "<molecules>/HexagonWithDescription/__typings__/HexagonWithDescriptionContent.d.ts";
+import { HexagonWithDescriptionContentProps } from "<molecules>/HexagonWithDescription/__typings__/HexagonWithDescriptionContent.d.ts";
 
 const HexagonWithDescriptionContent = ({
   children,
@@ -31,14 +29,10 @@ const HexagonWithDescriptionContent = ({
       marginRight={marginRight}
       width={width}
     >
-      <Hexagon contentWidth="75%">
-        {children}
-      </Hexagon>
+      <Hexagon contentWidth="75%">{children}</Hexagon>
     </SpacingContainer>
 
-    <FlexItem
-      flex="0 1 50%"
-    >
+    <FlexItem flex="0 1 50%">
       <Text
         color="blue300"
         fontFamily="AnonymousPro"

@@ -12,9 +12,7 @@ import {
   MapSizeToTextFontSize
 } from "<molecules>/__typings__/IconWithLabel.d.ts";
 
-import {
-  Spacing
-} from "<styles>/variables/__typings__/variables.d.ts";
+import { Spacing } from "<styles>/variables/__typings__/variables.d.ts";
 
 export const mapSizeToIconHeight: MapSizeToIconHeight = {
   large: "spacing40",
@@ -43,13 +41,13 @@ function IconWithLabel({
       dataTestId="IconWithLabel"
       flexFlow="row nowrap"
       height="100%"
-      justifyContent="flex-start" 
+      justifyContent="flex-start"
     >
       <SpacingContainer
         dataTestId="IconWithLabelSpacingContainer"
         paddingRight={iconPadding}
       >
-        <Icon 
+        <Icon
           height={mapSizeToIconHeight[size]}
           iconName={iconName}
           isHeightResponsive
@@ -65,5 +63,5 @@ function IconWithLabel({
     </FlexContainer>
   );
 }
-  
+
 export default IconWithLabel;

@@ -5,41 +5,40 @@ import ProjectImage from "<organisms>/Project/ProjectImage";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  ProjectImageProps
-} from "<organisms>/Project/__typings__/ProjectImage.d.ts";
+import { ProjectImageProps } from "<organisms>/Project/__typings__/ProjectImage.d.ts";
 
 describe("organisms / ProjectImage", () => {
   test("should have correct structure", () => {
-    const {
-      Hexagon,
-      Icon,
-      IconContainer
-    } = setup();
+    const { Hexagon, Icon, IconContainer } = setup();
 
     expect(Hexagon.children[0]).toEqual(IconContainer);
     expect(IconContainer.children[0]).toEqual(Icon);
   });
 
-  describe("Hexagon", () => {   
+  describe("Hexagon", () => {
     describe("Props", () => {
       describe("fill", () => {
         test("should have pattern", () => {
           const { Hexagon } = setup();
-    
-          expect(Hexagon.children[0].textContent).toEqual("Hexagon-With-Pattern.svg");
+
+          expect(Hexagon.children[0].textContent).toEqual(
+            "Hexagon-With-Pattern.svg"
+          );
         });
       });
     });
   });
 
-  describe("Icon", () => {         
+  describe("Icon", () => {
     describe("Props", () => {
       describe("height", () => {
         test("should have auto", () => {
           const { HexagonInnerContainer } = setup();
 
-          expect(HexagonInnerContainer.children[0]).toHaveStyleRule("height", "auto");
+          expect(HexagonInnerContainer.children[0]).toHaveStyleRule(
+            "height",
+            "auto"
+          );
         });
       });
 
@@ -49,7 +48,9 @@ describe("organisms / ProjectImage", () => {
             projectIcon: "react"
           });
 
-          expect(HexagonInnerContainer.children[0].textContent).toEqual("Icon-React.svg");
+          expect(HexagonInnerContainer.children[0].textContent).toEqual(
+            "Icon-React.svg"
+          );
         });
       });
 
@@ -57,7 +58,10 @@ describe("organisms / ProjectImage", () => {
         test("should have 100%", () => {
           const { HexagonInnerContainer } = setup();
 
-          expect(HexagonInnerContainer.children[0]).toHaveStyleRule("width", "100%");
+          expect(HexagonInnerContainer.children[0]).toHaveStyleRule(
+            "width",
+            "100%"
+          );
         });
       });
     });
@@ -79,14 +83,14 @@ function setup(additionalProps?: ProjectImageTestProps): Setup {
     ...additionalProps
   };
 
-  const utils: RenderResult = renderWithTheme(
-    <ProjectImage {...props} />
-  );
+  const utils: RenderResult = renderWithTheme(<ProjectImage {...props} />);
 
   const { queryAllByTestId } = utils || {};
 
   const Hexagon: Element = queryAllByTestId("ProjectImage")[0];
-  const HexagonInnerContainer: Element = queryAllByTestId("HexagonInnerContainer")[0];
+  const HexagonInnerContainer: Element = queryAllByTestId(
+    "HexagonInnerContainer"
+  )[0];
   const Icon: SVGSVGElement = document.querySelectorAll("svg")[0];
   const IconContainer: Element = queryAllByTestId("IconContainer")[0];
 
@@ -98,4 +102,3 @@ function setup(additionalProps?: ProjectImageTestProps): Setup {
     IconContainer
   };
 }
- 

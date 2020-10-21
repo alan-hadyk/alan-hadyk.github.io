@@ -13,11 +13,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 describe("molecules / FlowChart", () => {
   test("should have correct structure", () => {
-    const { 
-      FlexContainer,
-      FlowChartIcon,
-      SpacingContainer
-    } = setup();
+    const { FlexContainer, FlowChartIcon, SpacingContainer } = setup();
 
     expect(FlexContainer.children[0]).toEqual(SpacingContainer);
     expect(SpacingContainer.children[0]).toEqual(FlowChartIcon);
@@ -36,7 +32,7 @@ describe("molecules / FlowChart", () => {
   //   expect(mockCall[0]).toEqual("flow-chart");
   //   expect(mockCall[1]).toEqual({
   //     delay: 150,
-  //     duration: 300, 
+  //     duration: 300,
   //     type: "delayed"
   //   });
   //   expect(typeof mockCall[2]).toEqual("function");
@@ -101,9 +97,9 @@ describe("molecules / FlowChart", () => {
   //   jest.clearAllTimers();
   // });
 
-  describe("FlexContainer", () => {    
+  describe("FlexContainer", () => {
     describe("Props", () => {
-      describe("align-items", () => { 
+      describe("align-items", () => {
         test("should have center", () => {
           const { FlexContainer } = setup();
 
@@ -111,7 +107,7 @@ describe("molecules / FlowChart", () => {
         });
       });
 
-      describe("justify-content", () => { 
+      describe("justify-content", () => {
         test("should have center", () => {
           const { FlexContainer } = setup();
 
@@ -119,7 +115,7 @@ describe("molecules / FlowChart", () => {
         });
       });
 
-      describe("height", () => { 
+      describe("height", () => {
         test("should have 100%", () => {
           const { FlexContainer } = setup();
 
@@ -129,7 +125,7 @@ describe("molecules / FlowChart", () => {
     });
   });
 
-  describe("SpacingContainer", () => {    
+  describe("SpacingContainer", () => {
     describe("Props", () => {
       describe("height", () => {
         test("should have 100%", () => {
@@ -189,7 +185,7 @@ describe("molecules / FlowChart", () => {
     });
 
     describe("Styles", () => {
-      describe("display", () => { 
+      describe("display", () => {
         test("should have block", () => {
           const { FlowChartIcon } = setup();
 
@@ -197,7 +193,7 @@ describe("molecules / FlowChart", () => {
         });
       });
 
-      describe("height", () => { 
+      describe("height", () => {
         test("should have 100%", () => {
           const { FlowChartIcon } = setup();
 
@@ -205,7 +201,7 @@ describe("molecules / FlowChart", () => {
         });
       });
 
-      describe("margin", () => { 
+      describe("margin", () => {
         test("should have 0 auto", () => {
           const { FlowChartIcon } = setup();
 
@@ -213,18 +209,17 @@ describe("molecules / FlowChart", () => {
         });
       });
 
-      describe("width", () => { 
+      describe("width", () => {
         test("should have 100%", () => {
           const { FlowChartIcon } = setup();
 
           expect(FlowChartIcon).toHaveStyleRule("width", "100%");
         });
       });
-
     });
 
     describe("Props", () => {
-      describe("id", () => { 
+      describe("id", () => {
         test("should have flow-chart", () => {
           const { FlowChartIcon } = setup();
 
@@ -242,9 +237,7 @@ interface Setup extends RenderResult {
 }
 
 function setup(): Setup {
-  const utils: RenderResult = renderWithTheme(
-    <FlowChart />
-  );
+  const utils: RenderResult = renderWithTheme(<FlowChart />);
 
   const { queryByTestId }: RenderResult = utils;
   const FlexContainer: Element = queryByTestId("FlowChart");

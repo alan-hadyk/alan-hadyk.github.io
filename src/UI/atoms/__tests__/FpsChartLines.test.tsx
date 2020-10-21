@@ -5,9 +5,7 @@ import FpsChartLines from "<atoms>/FpsChartLines";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  FpsChartLinesProps
-} from "<atoms>/__typings__/FpsChartLines.d.ts";
+import { FpsChartLinesProps } from "<atoms>/__typings__/FpsChartLines.d.ts";
 
 describe("atoms / FpsChartLines", () => {
   describe("FpsChartLines.HorizontalLine", () => {
@@ -16,19 +14,19 @@ describe("atoms / FpsChartLines", () => {
         const { HorizontalLines } = setup({
           lines: [1, 2, 3, 4, 5]
         });
-        
+
         expect(HorizontalLines.length).toEqual(5);
       });
-      
+
       test("for 10 lines", () => {
         const { HorizontalLines } = setup({
           lines: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         });
-        
+
         expect(HorizontalLines.length).toEqual(10);
-      });  
+      });
     });
-    
+
     describe("Styles", () => {
       const lines: number[] = [15, 30, 45];
       let HorizontalLines: Element[];
@@ -42,23 +40,29 @@ describe("atoms / FpsChartLines", () => {
       });
 
       describe("border", () => {
-        test("should have thin solid rgba(82,96,101,0.25)", () => {          
+        test("should have thin solid rgba(82,96,101,0.25)", () => {
           lines.forEach((_label: number, index: number) => {
-            expect(HorizontalLines[index]).toHaveStyleRule("border", "thin solid rgba(82,96,101,0.25)");
+            expect(HorizontalLines[index]).toHaveStyleRule(
+              "border",
+              "thin solid rgba(82,96,101,0.25)"
+            );
           });
         });
       });
 
       describe("bottom", () => {
-        test("should have ${(line / maxValue) * 100}%", () => {          
+        test("should have ${(line / maxValue) * 100}%", () => {
           lines.forEach((line: number, index: number) => {
-            expect(HorizontalLines[index]).toHaveStyleRule("bottom", `${(line / maxValue) * 100}%`);
+            expect(HorizontalLines[index]).toHaveStyleRule(
+              "bottom",
+              `${(line / maxValue) * 100}%`
+            );
           });
         });
       });
 
       describe("height", () => {
-        test("should have .1rem", () => {          
+        test("should have .1rem", () => {
           lines.forEach((_line: number, index: number) => {
             expect(HorizontalLines[index]).toHaveStyleRule("height", ".1rem");
           });
@@ -66,7 +70,7 @@ describe("atoms / FpsChartLines", () => {
       });
 
       describe("left", () => {
-        test("should have 0", () => {          
+        test("should have 0", () => {
           lines.forEach((_line: number, index: number) => {
             expect(HorizontalLines[index]).toHaveStyleRule("left", "0");
           });
@@ -74,15 +78,18 @@ describe("atoms / FpsChartLines", () => {
       });
 
       describe("position", () => {
-        test("should have absolute", () => {          
+        test("should have absolute", () => {
           lines.forEach((_line: number, index: number) => {
-            expect(HorizontalLines[index]).toHaveStyleRule("position", "absolute");
+            expect(HorizontalLines[index]).toHaveStyleRule(
+              "position",
+              "absolute"
+            );
           });
         });
       });
 
       describe("right", () => {
-        test("should have 0", () => {          
+        test("should have 0", () => {
           lines.forEach((_line: number, index: number) => {
             expect(HorizontalLines[index]).toHaveStyleRule("right", "0");
           });
@@ -104,9 +111,7 @@ function setup(additionalProps?: FpsChartLinesTestProps): Setup {
     ...additionalProps
   };
 
-  const utils: RenderResult = renderWithTheme(
-    <FpsChartLines {...props} /> 
-  );
+  const utils: RenderResult = renderWithTheme(<FpsChartLines {...props} />);
 
   const { queryAllByTestId } = utils || {};
 

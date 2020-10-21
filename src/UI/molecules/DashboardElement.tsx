@@ -29,9 +29,9 @@ function DashboardElement({
   titleOverflow = "visible"
 }: DashboardElementProps): JSX.Element {
   const calcChildrenHeight = useCallback((): string => {
-    return description ?
-      `calc(100% - ${spacing.spacing36} - ${spacing.spacing24} - ${spacing.spacing28})` :
-      `calc(100% - ${spacing.spacing36})`;
+    return description
+      ? `calc(100% - ${spacing.spacing36} - ${spacing.spacing24} - ${spacing.spacing28})`
+      : `calc(100% - ${spacing.spacing36})`;
   }, [description]);
 
   return (
@@ -43,7 +43,7 @@ function DashboardElement({
       order={order}
       overflow={titleOverflow}
     >
-      <Text 
+      <Text
         color={titleFontSize === "font28" ? "blue100" : "blue300"}
         dataTestId="DashboardElementTitleText"
         ellipsis
@@ -68,22 +68,19 @@ function DashboardElement({
             lineHeight="spacing12"
             maxHeight="spacing36"
             overflow="hidden"
-            textTransform="uppercase" 
+            textTransform="uppercase"
           >
             {description}
           </Text>
         </SpacingContainer>
       )}
-      
+
       <SpacingContainer
         dataTestId="DashboardElementOuterSpacingContainer"
         height={calcChildrenHeight()}
         marginTop={titleFontSize === "font28" ? "spacing8" : "spacing0"}
       >
-        <PositionContainer
-          height="100%"
-          position="relative"
-        >
+        <PositionContainer height="100%" position="relative">
           {shouldDisplayCorners && <Corners />}
           {renderInnerContainer()}
         </PositionContainer>
@@ -99,20 +96,20 @@ function DashboardElement({
         shouldDisplayBorder={shouldDisplayBorder}
         shouldDisplayCorners={shouldDisplayCorners}
       >
-        {
-          shouldDisplayCorners ? (
-            <SpacingContainer 
-              dataTestId="DashboardElementInnerSpacingContainer"
-              height="100%"
-              paddingRight="spacing8" 
-              paddingLeft="spacing8" 
-              paddingTop="spacing8" 
-              paddingBottom="spacing8"
-            >
-              {children}
-            </SpacingContainer>
-          ) : children
-        }
+        {shouldDisplayCorners ? (
+          <SpacingContainer
+            dataTestId="DashboardElementInnerSpacingContainer"
+            height="100%"
+            paddingRight="spacing8"
+            paddingLeft="spacing8"
+            paddingTop="spacing8"
+            paddingBottom="spacing8"
+          >
+            {children}
+          </SpacingContainer>
+        ) : (
+          children
+        )}
       </DashboardElement.InnerContainer>
     );
   }
@@ -126,31 +123,25 @@ DashboardElement.InnerContainer = styled.div<DashboardElementInnerContainer>`
     shouldDisplayBorder,
     shouldDisplayCorners,
     theme: {
-      colorPalette: {
-        blue100,
-        blue300
-      },
-      spacing: {
-        spacing8,
-        spacing32
-      }
+      colorPalette: { blue100, blue300 },
+      spacing: { spacing8, spacing32 }
     }
   }): FlattenSimpleInterpolation => css`
     height: 100%;
     overflow: ${overflow};
-    
-    ${shouldDisplayBorder && `
+
+    ${shouldDisplayBorder &&
+    `
       border: thin solid ${blue300};
       box-shadow: 0px 0px ${spacing8} 0px ${blue100};
-    `}
-    
-    ${(shouldDisplayCorners || shouldDisplayBorder) && `
+    `} ${(shouldDisplayCorners || shouldDisplayBorder) &&
+    `
       background: url(${Cross});
       background-position: center;
       background-repeat: space;
       background-size: ${spacing32} ${spacing32};
-    `}
-  `}
+    `};
+  `};
 `;
 
 export default DashboardElement;

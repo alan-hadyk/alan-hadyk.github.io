@@ -1,6 +1,4 @@
-import {
-  FlexItemProps
-} from "<layout>/__typings__/FlexItem.d.ts";
+import { FlexItemProps } from "<layout>/__typings__/FlexItem.d.ts";
 
 export interface DashboardElementProps extends FlexItemProps {
   dataCy?: string;

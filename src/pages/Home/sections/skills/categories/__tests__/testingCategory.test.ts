@@ -23,7 +23,7 @@ describe("pages / Home / sections / skills / categories / testingCategory", () =
         {
           iconName: "brandQunit",
           label: "QUnit"
-        } 
+        }
       ],
       title: "Testing"
     });

@@ -37,34 +37,40 @@ function ProjectDescriptionContent({
   size = "large",
   title
 }: ProjectDescriptionContentProps): JSX.Element {
-  const renderTitle = useCallback(() => (
-    <Text
-      {...mapSizeToProjectDescriptionTitleProps[size]}
-      color="white"
-      dataTestId="ProjectDescriptionTitle"
-      fontFamily="Exan"
-      textTransform="lowercase"
-    >
-      {title}
-    </Text>
-  ), [size, title]);
-  
-  const renderDescription = useCallback(() => (
-    <SpacingContainer
-      dataTestId="TitleWithDescriptionSpacingContainer"
-      marginBottom="spacing40"
-      marginTop="spacing16"
-    >
+  const renderTitle = useCallback(
+    () => (
       <Text
-        {...mapSizeToProjectDescriptionContentProps[size]}
-        color="blue300"
-        dataTestId="ProjectDescriptionText"
+        {...mapSizeToProjectDescriptionTitleProps[size]}
+        color="white"
+        dataTestId="ProjectDescriptionTitle"
+        fontFamily="Exan"
+        textTransform="lowercase"
       >
-        {description}
+        {title}
       </Text>
-    </SpacingContainer>
-  ), [description, size]);
-  
+    ),
+    [size, title]
+  );
+
+  const renderDescription = useCallback(
+    () => (
+      <SpacingContainer
+        dataTestId="TitleWithDescriptionSpacingContainer"
+        marginBottom="spacing40"
+        marginTop="spacing16"
+      >
+        <Text
+          {...mapSizeToProjectDescriptionContentProps[size]}
+          color="blue300"
+          dataTestId="ProjectDescriptionText"
+        >
+          {description}
+        </Text>
+      </SpacingContainer>
+    ),
+    [description, size]
+  );
+
   return (
     <ProjectDescriptionContent.Container data-testid="ProjectDescriptionContent">
       {renderTitle()}

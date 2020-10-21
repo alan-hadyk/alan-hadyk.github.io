@@ -13,8 +13,8 @@ global.requestAnimationFrame = (callback) => {
   setTimeout(callback, 1);
 };
 
-describe("molecules / FpsChart", () => {  
-  describe("FpsChart.FpsCounter", () => {    
+describe("molecules / FpsChart", () => {
+  describe("FpsChart.FpsCounter", () => {
     test("should have constantly updated value as FPS count", () => {
       jest.useFakeTimers();
 
@@ -39,16 +39,14 @@ describe("molecules / FpsChart", () => {
       });
 
       expect(FpsCounter.textContent).toEqual("60");
-      
+
       jest.clearAllTimers();
     });
   });
 });
 
 function setup() {
-  const utils = renderWithTheme(
-    <FpsChart />
-  );
+  const utils = renderWithTheme(<FpsChart />);
 
   const { queryAllByTestId } = utils;
 

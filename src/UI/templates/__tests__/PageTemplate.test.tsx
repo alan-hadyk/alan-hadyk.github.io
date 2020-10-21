@@ -5,7 +5,7 @@ import PageTemplate from "<templates>/PageTemplate";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import { PageTemplateProps }  from "<templates>/__typings__/PageTemplate.d.ts";
+import { PageTemplateProps } from "<templates>/__typings__/PageTemplate.d.ts";
 
 describe("templates / PageTemplate", () => {
   test("should render children", () => {
@@ -15,44 +15,43 @@ describe("templates / PageTemplate", () => {
 
     expect(PageTemplate.textContent).toEqual("Custom children");
   });
-  
+
   describe("Styles", () => {
-    describe("padding", () => {      
+    describe("padding", () => {
       test("should have '0 4.8rem 9.6rem'", () => {
         const { PageTemplate } = setup();
-  
+
         expect(PageTemplate).toHaveStyleRule("padding", "0 4.8rem 9.6rem");
       });
     });
 
-    describe("max-width", () => {      
+    describe("max-width", () => {
       test("should have '1920px'", () => {
         const { PageTemplate } = setup();
-  
+
         expect(PageTemplate).toHaveStyleRule("max-width", "1920px");
       });
-    }); 
+    });
 
-    describe("margin", () => {      
+    describe("margin", () => {
       test("should have '0 auto'", () => {
         const { PageTemplate } = setup();
-  
+
         expect(PageTemplate).toHaveStyleRule("margin", "0 auto");
       });
     });
 
-    describe("@media (max-width: 640px)", () => {      
-      describe("padding", () => {      
+    describe("@media (max-width: 640px)", () => {
+      describe("padding", () => {
         test("should have '0 2.8rem 9.6rem'", () => {
           const { PageTemplate } = setup();
-    
+
           expect(PageTemplate).toHaveStyleRule("padding", "0 2.8rem 9.6rem", {
             media: "(max-width:640px)"
           });
         });
       });
     });
-
   });
 });
 
@@ -69,9 +68,7 @@ function setup(additionalProps?: PageTemplateTestProps): Setup {
   };
 
   const utils: RenderResult = renderWithTheme(
-    <PageTemplate {...props}>
-      {props.children}
-    </PageTemplate>
+    <PageTemplate {...props}>{props.children}</PageTemplate>
   );
 
   const { container } = utils || {};

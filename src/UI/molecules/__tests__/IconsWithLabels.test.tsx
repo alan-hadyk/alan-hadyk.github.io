@@ -7,9 +7,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 import { IconsWithLabelsProps } from "<molecules>/__typings__/IconsWithLabels.d.ts";
 
-import {
-  IconWithLabelProps
-} from "<molecules>/__typings__/IconWithLabel.d.ts";
+import { IconWithLabelProps } from "<molecules>/__typings__/IconWithLabel.d.ts";
 
 describe("molecules / IconsWithLabels", () => {
   test("should have correct structure when position is vertical", () => {
@@ -33,7 +31,7 @@ describe("molecules / IconsWithLabels", () => {
 
     IconSpacingContainers.forEach((IconSpacingContainer, index) => {
       expect(IconSpacingContainer.children[0]).toEqual(IconContainers[index]);
-      expect(IconContainers[index].children[0]).toEqual(Icons[index]); 
+      expect(IconContainers[index].children[0]).toEqual(Icons[index]);
     });
 
     LabelSpacingContainers.forEach((LabelSpacingContainer, index) => {
@@ -57,16 +55,20 @@ describe("molecules / IconsWithLabels", () => {
     expect(FlexContainer.children[1]).toEqual(IconsWithLabelsList[1]);
 
     IconsWithLabelsList.forEach((IconWithLabel, index) => {
-      expect(IconWithLabel.children[0]).toEqual(IconWithLabelSpacingContainers[index]);
+      expect(IconWithLabel.children[0]).toEqual(
+        IconWithLabelSpacingContainers[index]
+      );
       expect(IconWithLabel.children[1]).toEqual(Texts[index]);
-      expect(IconWithLabelSpacingContainers[index].children[0]).toEqual(IconContainers[index]);
-      expect(IconContainers[index].children[0]).toEqual(Icons[index]); 
+      expect(IconWithLabelSpacingContainers[index].children[0]).toEqual(
+        IconContainers[index]
+      );
+      expect(IconContainers[index].children[0]).toEqual(Icons[index]);
     });
   });
 
-  describe("FlexContainer", () => {    
+  describe("FlexContainer", () => {
     describe("Props", () => {
-      describe("alignItems", () => {      
+      describe("alignItems", () => {
         test("should have flex-start", () => {
           const { FlexContainer } = setup();
 
@@ -74,7 +76,7 @@ describe("molecules / IconsWithLabels", () => {
         });
       });
 
-      describe("flexFlow", () => {      
+      describe("flexFlow", () => {
         test("should have row wrap when position is horizontal", () => {
           const { FlexContainer } = setup({
             position: "horizontal"
@@ -99,7 +101,7 @@ describe("molecules / IconsWithLabels", () => {
               position: "horizontal",
               size: "small"
             });
-            
+
             expect(FlexContainer).toHaveStyleRule("margin-right", "1.6rem", {
               modifier: "& > *"
             });
@@ -113,7 +115,7 @@ describe("molecules / IconsWithLabels", () => {
               position: "horizontal",
               size: "medium"
             });
-            
+
             expect(FlexContainer).toHaveStyleRule("margin-right", "1.2rem", {
               modifier: "& > *"
             });
@@ -127,7 +129,7 @@ describe("molecules / IconsWithLabels", () => {
               position: "horizontal",
               size: "large"
             });
-            
+
             expect(FlexContainer).toHaveStyleRule("margin-right", "2.8rem", {
               modifier: "& > *"
             });
@@ -142,7 +144,7 @@ describe("molecules / IconsWithLabels", () => {
             const { FlexContainer } = setup({
               size: "small"
             });
-  
+
             expect(FlexContainer).toHaveStyleRule("margin-left", "1.6rem", {
               modifier: "& > *"
             });
@@ -155,7 +157,7 @@ describe("molecules / IconsWithLabels", () => {
             const { FlexContainer } = setup({
               size: "medium"
             });
-  
+
             expect(FlexContainer).toHaveStyleRule("margin-left", "1.2rem", {
               modifier: "& > *"
             });
@@ -168,7 +170,7 @@ describe("molecules / IconsWithLabels", () => {
             const { FlexContainer } = setup({
               size: "large"
             });
-  
+
             expect(FlexContainer).toHaveStyleRule("margin-left", "2.8rem", {
               modifier: "& > *"
             });
@@ -179,7 +181,7 @@ describe("molecules / IconsWithLabels", () => {
         });
       });
 
-      describe("height", () => {      
+      describe("height", () => {
         test("should have 100%", () => {
           const { FlexContainer } = setup();
 
@@ -187,13 +189,16 @@ describe("molecules / IconsWithLabels", () => {
         });
       });
 
-      describe("justifyContent", () => {      
+      describe("justifyContent", () => {
         test("should have flex-start when position is horizontal", () => {
           const { FlexContainer } = setup({
             position: "horizontal"
           });
 
-          expect(FlexContainer).toHaveStyleRule("justify-content", "flex-start");
+          expect(FlexContainer).toHaveStyleRule(
+            "justify-content",
+            "flex-start"
+          );
         });
 
         test("should have center when position is vertical", () => {
@@ -211,13 +216,13 @@ describe("molecules / IconsWithLabels", () => {
     describe("Icon", () => {
       test("there should be correct number of icons", () => {
         const { Icons } = setup();
-  
+
         expect(Icons.length).toEqual(2);
       });
-  
+
       test("icons should render correct SVGs", () => {
         const { Icons } = setup();
-  
+
         expect(Icons[0].textContent).toEqual("Brand-JS.svg");
         expect(Icons[1].textContent).toEqual("Brand-React.svg");
       });
@@ -229,27 +234,27 @@ describe("molecules / IconsWithLabels", () => {
               const { IconContainers } = setup({
                 size: "small"
               });
-      
+
               IconContainers.forEach((IconContainer) => {
                 expect(IconContainer).toHaveStyleRule("height", "2.8rem");
               });
             });
-    
+
             test("should have 3.2rem for medium size", () => {
               const { IconContainers } = setup({
                 size: "medium"
               });
-      
+
               IconContainers.forEach((IconContainer) => {
                 expect(IconContainer).toHaveStyleRule("height", "3.2rem");
               });
             });
-    
+
             test("should have 4rem for large size", () => {
               const { IconContainers } = setup({
                 size: "large"
               });
-      
+
               IconContainers.forEach((IconContainer) => {
                 expect(IconContainer).toHaveStyleRule("height", "4rem");
               });
@@ -264,7 +269,7 @@ describe("molecules / IconsWithLabels", () => {
         describe("label", () => {
           test("should have correct content passed via label prop", () => {
             const { Texts } = setup();
-  
+
             expect(Texts[0].textContent).toEqual("Javascript");
             expect(Texts[1].textContent).toEqual("React");
           });
@@ -273,7 +278,7 @@ describe("molecules / IconsWithLabels", () => {
         describe("color", () => {
           test("should have #bcd8db by default", () => {
             const { Texts } = setup();
-  
+
             Texts.forEach((Text) => {
               expect(Text).toHaveStyleRule("color", "#bcd8db");
             });
@@ -283,7 +288,7 @@ describe("molecules / IconsWithLabels", () => {
             const { Texts } = setup({
               labelColor: "blue200"
             });
-  
+
             Texts.forEach((Text) => {
               expect(Text).toHaveStyleRule("color", "#67d2df");
             });
@@ -300,22 +305,22 @@ describe("molecules / IconsWithLabels", () => {
               expect(Text).toHaveStyleRule("font-size", "16px");
             });
           });
-  
+
           test("should have 20px when size is medium", () => {
             const { Texts } = setup({
               size: "medium"
             });
-  
+
             Texts.forEach((Text) => {
               expect(Text).toHaveStyleRule("font-size", "20px");
             });
           });
-  
+
           test("should have 24px when size is large", () => {
             const { Texts } = setup({
               size: "large"
             });
-  
+
             Texts.forEach((Text) => {
               expect(Text).toHaveStyleRule("font-size", "24px");
             });
@@ -357,10 +362,8 @@ function setup(additionalProps?: IconsWithLabelsTestProps): Setup {
     iconsWithLabels,
     ...additionalProps
   };
-  
-  const utils: RenderResult = renderWithTheme(
-    <IconsWithLabels {...props} />
-  );
+
+  const utils: RenderResult = renderWithTheme(<IconsWithLabels {...props} />);
 
   const { queryAllByTestId }: RenderResult = utils;
 
@@ -369,11 +372,19 @@ function setup(additionalProps?: IconsWithLabelsTestProps): Setup {
   const IconContainers: Element[] = queryAllByTestId("IconContainer");
   const Icons: NodeListOf<SVGSVGElement> = document.querySelectorAll("svg");
   const IconsWithLabelsList: Element[] = queryAllByTestId("IconWithLabel");
-  const IconWithLabelSpacingContainers: Element[] = queryAllByTestId("IconWithLabelSpacingContainer");
-  const LabelSpacingContainers: Element[] = queryAllByTestId("LabelSpacingContainer");
-  const IconSpacingContainers: Element[] = queryAllByTestId("IconSpacingContainer");
+  const IconWithLabelSpacingContainers: Element[] = queryAllByTestId(
+    "IconWithLabelSpacingContainer"
+  );
+  const LabelSpacingContainers: Element[] = queryAllByTestId(
+    "LabelSpacingContainer"
+  );
+  const IconSpacingContainers: Element[] = queryAllByTestId(
+    "IconSpacingContainer"
+  );
   const Texts: Element[] = queryAllByTestId("LabelText");
-  const VerticalIconsWithLabels: Element = queryAllByTestId("VerticalIconsWithLabels")[0];
+  const VerticalIconsWithLabels: Element = queryAllByTestId(
+    "VerticalIconsWithLabels"
+  )[0];
 
   return {
     ...utils,
@@ -388,4 +399,4 @@ function setup(additionalProps?: IconsWithLabelsTestProps): Setup {
     Texts,
     VerticalIconsWithLabels
   };
-} 
+}

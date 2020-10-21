@@ -1,24 +1,25 @@
 import React, { forwardRef, Ref } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import {
-  PositionContainerProps
-} from "<layout>/__typings__/PositionContainer.d.ts";
+import { PositionContainerProps } from "<layout>/__typings__/PositionContainer.d.ts";
 
-const PositionContainer = ({
-  bottom = "unset",
-  children,
-  dataCy,
-  dataTestId,
-  height = "unset",
-  left = "unset",
-  position = "relative",
-  right = "unset",
-  top = "unset",
-  transform = "none",
-  width = "auto",
-  zIndex = "layer1"
-}: PositionContainerProps, ref: Ref<HTMLDivElement>): JSX.Element => (
+const PositionContainer = (
+  {
+    bottom = "unset",
+    children,
+    dataCy,
+    dataTestId,
+    height = "unset",
+    left = "unset",
+    position = "relative",
+    right = "unset",
+    top = "unset",
+    transform = "none",
+    width = "auto",
+    zIndex = "layer1"
+  }: PositionContainerProps,
+  ref: Ref<HTMLDivElement>
+): JSX.Element => (
   <PositionContainer.Container
     bottom={bottom}
     data-cy={dataCy}
@@ -45,10 +46,7 @@ PositionContainer.Container = styled.div<PositionContainerProps>`
     position,
     right,
     top,
-    theme: {
-      spacing,
-      zIndex: zIndexVariables
-    },
+    theme: { spacing, zIndex: zIndexVariables },
     transform,
     width,
     zIndex
@@ -62,7 +60,7 @@ PositionContainer.Container = styled.div<PositionContainerProps>`
     transform: ${transform};
     width: ${(width in spacing && spacing[width]) || width};
     z-index: ${zIndex in zIndexVariables && zIndexVariables[zIndex]};
-  `}
+  `};
 `;
-  
+
 export default forwardRef(PositionContainer);

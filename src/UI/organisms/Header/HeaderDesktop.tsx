@@ -14,10 +14,7 @@ const HeaderDesktop = ({
   isMenuVisible,
   onClick
 }: HeaderMobileProps): JSX.Element => (
-  <Responsive
-    dataTestDesktopId="HeaderDesktop"
-    devices={["desktop"]}
-  >
+  <Responsive dataTestDesktopId="HeaderDesktop" devices={["desktop"]}>
     <FlexContainer
       dataTestId="HeaderDesktopFlexContainer"
       flexFlow="row nowrap"
@@ -27,20 +24,11 @@ const HeaderDesktop = ({
     >
       <Nav />
 
-      <MenuButton
-        isOpen={isMenuVisible}
-        onClick={onClick}
-      />
+      <MenuButton isOpen={isMenuVisible} onClick={onClick} />
 
-      {
-        isMenuVisible && (
-          <Backdrop onClick={onClick} />
-        )
-      }
+      {isMenuVisible && <Backdrop onClick={onClick} />}
 
-      <SideMenu
-        isExpanded={isMenuVisible}
-      />
+      <SideMenu isExpanded={isMenuVisible} />
     </FlexContainer>
   </Responsive>
 );
