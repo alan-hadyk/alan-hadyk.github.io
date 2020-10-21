@@ -1,59 +1,8 @@
 {
-  "name": "portfolio",
-  "version": "0.1.0",
-  "private": false,
-  "license": "UNLICENSED",
-  "homepage": "http://alan-hadyk.github.io/portfolio",
-  "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test --passWithNoTests --env=jest-environment-jsdom-sixteen",
-    "test:coverage": "craco test --passWithNoTests --env=jest-environment-jsdom-sixteen --collectCoverage",
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run",
-    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}'",
-    "lint:fix": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-    "eject": "react-scripts eject",
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -d build"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "jest": {
-    "clearMocks": true,
-    "moduleNameMapper": {
-      "roots": [
-        "./src"
-      ],
-      "^<src>/(.*)$": "<rootDir>/src/$1",
-      "^<assets>/(.*)$": "<rootDir>/src/assets/$1",
-      "^<helpers>/(.*)$": "<rootDir>/src/helpers/$1",
-      "^<hooks>/(.*)$": "<rootDir>/src/hooks/$1",
-      "^<pages>/(.*)$": "<rootDir>/src/pages/$1",
-      "^<styles>/(.*)$": "<rootDir>/src/styles/$1",
-      "^<atoms>/(.*)$": "<rootDir>/src/UI/atoms/$1",
-      "^<layout>/(.*)$": "<rootDir>/src/UI/layout/$1",
-      "^<molecules>/(.*)$": "<rootDir>/src/UI/molecules/$1",
-      "^<organisms>/(.*)$": "<rootDir>/src/UI/organisms/$1",
-      "^<state>/(.*)$": "<rootDir>/src/state/$1",
-      "^<templates>/(.*)$": "<rootDir>/src/UI/templates/$1"
-    },
-    "transform": {
-      "\\.svg$": "<rootDir>/src/fileTransform.js"
-    }
-  },
+  "author": "Alan Hadyk",
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"],
+    "production": [">0.2%", "not dead", "not op_mini all"]
   },
   "dependencies": {
     "@craco/craco": "^5.7.0",
@@ -100,11 +49,65 @@
     "eslint-plugin-react-hooks": "^4.1.2",
     "eslint-plugin-typescript-sort-keys": "^1.5.0",
     "gh-pages": "^3.1.0",
+    "husky": "^4.3.0",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "jsdom": "^16.4.0",
+    "lint-staged": "^10.4.2",
+    "prettier": "^2.1.2",
     "react-test-renderer": "^16.13.1"
   },
   "engines": {
     "node": ">=14.11.0"
-  }
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "homepage": "http://alan-hadyk.github.io/portfolio",
+  "husky": {
+    "hooks": {
+      "post-commit": "git update-index --again",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "jest": {
+    "clearMocks": true,
+    "moduleNameMapper": {
+      "^<assets>/(.*)$": "<rootDir>/src/assets/$1",
+      "^<atoms>/(.*)$": "<rootDir>/src/UI/atoms/$1",
+      "^<helpers>/(.*)$": "<rootDir>/src/helpers/$1",
+      "^<hooks>/(.*)$": "<rootDir>/src/hooks/$1",
+      "^<layout>/(.*)$": "<rootDir>/src/UI/layout/$1",
+      "^<molecules>/(.*)$": "<rootDir>/src/UI/molecules/$1",
+      "^<organisms>/(.*)$": "<rootDir>/src/UI/organisms/$1",
+      "^<pages>/(.*)$": "<rootDir>/src/pages/$1",
+      "^<src>/(.*)$": "<rootDir>/src/$1",
+      "^<state>/(.*)$": "<rootDir>/src/state/$1",
+      "^<styles>/(.*)$": "<rootDir>/src/styles/$1",
+      "^<templates>/(.*)$": "<rootDir>/src/UI/templates/$1",
+      "roots": ["./src"]
+    },
+    "transform": {
+      "\\.svg$": "<rootDir>/src/fileTransform.js"
+    }
+  },
+  "license": "UNLICENSED",
+  "lint-staged": {
+    "*": ["prettier --write", "eslint --fix", "eslint"]
+  },
+  "name": "portfolio",
+  "private": false,
+  "scripts": {
+    "build": "craco build",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "deploy": "gh-pages -d build",
+    "eject": "react-scripts eject",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --fix --ext .js,.jsx,.ts,.tsx",
+    "predeploy": "yarn build",
+    "start": "craco start",
+    "test": "craco test --passWithNoTests --env=jest-environment-jsdom-sixteen",
+    "test:coverage": "craco test --passWithNoTests --env=jest-environment-jsdom-sixteen --collectCoverage"
+  },
+  "version": "0.1.0"
 }
