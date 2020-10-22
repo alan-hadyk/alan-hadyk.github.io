@@ -20,18 +20,30 @@ describe("pages / Home / sections / experience / ExperienceSection", () => {
     expect(ExperienceSectionContainer.children[5]).toEqual(CompanyShiji);
     expect(ExperienceSectionContainer.children[6]).toEqual(CompanySAP);
     expect(ExperienceSectionContainer.children[7]).toEqual(CompanyDiH);
-    expect(ExperienceSectionContainer.children[8]).toEqual(CompanyPersonallyEmployed);
+    expect(ExperienceSectionContainer.children[8]).toEqual(
+      CompanyPersonallyEmployed
+    );
   });
 
   describe("ExperienceSectionContainer", () => {
     describe("Props", () => {
+      describe("id", () => {
+        test("should equal experience", () => {
+          const { ExperienceSectionContainer } = setup();
+
+          expect(ExperienceSectionContainer.getAttribute("id")).toEqual(
+            "experience"
+          );
+        });
+      });
+
       describe("title", () => {
         test("should have Experience", () => {
-          const {
-            ExperienceSectionContainer
-          } = setup();
-  
-          expect(ExperienceSectionContainer.children[0].children[0].textContent).toEqual("Experience");
+          const { ExperienceSectionContainer } = setup();
+
+          expect(
+            ExperienceSectionContainer.children[0].children[0].textContent
+          ).toEqual("Experience");
         });
       });
     });
@@ -48,18 +60,20 @@ interface Setup extends RenderResult {
 }
 
 function setup(): Setup {
-  const utils: RenderResult = renderWithTheme(
-    <ExperienceSection />
-  );
+  const utils: RenderResult = renderWithTheme(<ExperienceSection />);
 
   const { queryAllByTestId } = utils || {};
-  
+
   const CompanyDiH: Element = queryAllByTestId("CompanyDiH")[0];
   const CompanyOmise: Element = queryAllByTestId("CompanyOmise")[0];
-  const CompanyPersonallyEmployed: Element = queryAllByTestId("CompanyPersonallyEmployed")[0];
+  const CompanyPersonallyEmployed: Element = queryAllByTestId(
+    "CompanyPersonallyEmployed"
+  )[0];
   const CompanySAP: Element = queryAllByTestId("CompanySAP")[0];
   const CompanyShiji: Element = queryAllByTestId("CompanyShiji")[0];
-  const ExperienceSectionContainer: Element = document.querySelectorAll("#experience")[0];
+  const ExperienceSectionContainer: Element = queryAllByTestId(
+    "ExperienceSection"
+  )[0];
 
   return {
     ...utils,
@@ -71,4 +85,3 @@ function setup(): Setup {
     ExperienceSectionContainer
   };
 }
- 

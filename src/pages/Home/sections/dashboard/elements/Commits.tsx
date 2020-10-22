@@ -5,11 +5,12 @@ import withCommitsState from "<state>/withCommitsState";
 import DashboardElement from "<molecules>/DashboardElement";
 import ListOfCommits from "<molecules>/ListOfCommits";
 
-import {
-  ListOfCommitsProps
-} from "<molecules>/__typings__/ListOfCommits.d.ts";
+import { ListOfCommitsProps } from "<molecules>/__typings__/ListOfCommits.d.ts";
 
-export const Commits = ({ commitsList, hasError }: ListOfCommitsProps): JSX.Element => (
+export const Commits = ({
+  commitsList,
+  hasError
+}: ListOfCommitsProps): JSX.Element => (
   <DashboardElement
     dataCy="Commits"
     dataTestId="Commits"

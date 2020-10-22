@@ -5,23 +5,18 @@ import ButtonText from "<molecules>/ButtonText";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  ButtonTextProps
-} from "<molecules>/__typings__/ButtonText.d.ts";
+import { ButtonTextProps } from "<molecules>/__typings__/ButtonText.d.ts";
 
 describe("molecules / ButtonText", () => {
   test("should have correct structure", () => {
-    const { 
-      Text,
-      SpacingContainer
-    } = setup();
+    const { Text, SpacingContainer } = setup();
 
     expect(SpacingContainer.children[0]).toEqual(Text);
   });
 
-  describe("SpacingContainer", () => {    
+  describe("SpacingContainer", () => {
     describe("Styles", () => {
-      describe("margin-right", () => {      
+      describe("margin-right", () => {
         test("should have .8rem when size is small", () => {
           const { SpacingContainer } = setup({
             size: "small"
@@ -49,7 +44,7 @@ describe("molecules / ButtonText", () => {
     });
   });
 
-  describe("Text", () => { 
+  describe("Text", () => {
     test("should have correct content passed as buttonText", () => {
       const { Text } = setup({
         buttonText: "Button text"
@@ -59,32 +54,39 @@ describe("molecules / ButtonText", () => {
     });
 
     describe("Styles", () => {
-      test("should have font size 20px when size is small", () => {
-        const { Text } = setup();
+      describe("font-size", () => {
+        test("should have 20px when size is small", () => {
+          const { Text } = setup();
 
-        expect(Text).toHaveStyleRule("font-size", "20px");
-      }); 
-
-      test("should have font size 24px when size is medium", () => {
-        const { Text } = setup({
-          size: "medium"
+          expect(Text).toHaveStyleRule("font-size", "20px");
         });
 
-        expect(Text).toHaveStyleRule("font-size", "24px");
-      });
+        test("should have 24px when size is medium", () => {
+          const { Text } = setup({
+            size: "medium"
+          });
 
-      test("should have font size 28px when size is large", () => {
-        const { Text } = setup({
-          size: "large"
+          expect(Text).toHaveStyleRule("font-size", "24px");
         });
 
-        expect(Text).toHaveStyleRule("font-size", "28px");
+        test("should have 28px when size is large", () => {
+          const { Text } = setup({
+            size: "large"
+          });
+
+          expect(Text).toHaveStyleRule("font-size", "28px");
+        });
       });
 
-      test("should have font family Exan", () => {
-        const { Text } = setup();
+      describe("font-family", () => {
+        test("should have font family Exan", () => {
+          const { Text } = setup();
 
-        expect(Text).toHaveStyleRule("font-family", "ExanModifiedRegular,monospace");
+          expect(Text).toHaveStyleRule(
+            "font-family",
+            "ExanModifiedRegular,monospace"
+          );
+        });
       });
     });
   });
@@ -104,9 +106,7 @@ function setup(additionalProps?: ButtonTextTestProps): Setup {
     ...additionalProps
   };
 
-  const utils: RenderResult = renderWithTheme(
-    <ButtonText {...props} />
-  );
+  const utils: RenderResult = renderWithTheme(<ButtonText {...props} />);
 
   const { container }: RenderResult = utils;
   const SpacingContainer: Element = container.children[0];

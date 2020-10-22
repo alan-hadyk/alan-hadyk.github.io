@@ -25,14 +25,17 @@ describe("organisms / Company", () => {
     expect(CompanyPositionContainer.children[2]).toEqual(CompanyTablet);
     expect(CompanyPositionContainer.children[3]).toEqual(CompanyMobile);
   });
-  
+
   describe("CompanyPositionContainer", () => {
     describe("Props", () => {
       describe("position", () => {
         test("should have relative", () => {
           const { CompanyPositionContainer } = setup();
 
-          expect(CompanyPositionContainer).toHaveStyleRule("position", "relative");
+          expect(CompanyPositionContainer).toHaveStyleRule(
+            "position",
+            "relative"
+          );
         });
       });
     });
@@ -47,13 +50,15 @@ describe("organisms / Company", () => {
           });
 
           CompanyDescriptions.forEach((CompanyDescription: Element) => {
-            expect(CompanyDescription.children[1].children[0].children[1].textContent).toEqual("July 2016 to present");
+            expect(
+              CompanyDescription.children[1].children[0].children[1].textContent
+            ).toEqual("July 2016 to present");
           });
         });
       });
 
       describe("iconsWithLabels", () => {
-        test("should render correct icon and label passed via iconsWithLabels props", () => {
+        test("should render correct icon and label passed via iconsWithLabels prop", () => {
           const { CompanyDescriptions } = setup({
             iconsWithLabels: [
               {
@@ -70,13 +75,22 @@ describe("organisms / Company", () => {
           let IconsWithLabels: Element;
 
           CompanyDescriptions.forEach((CompanyDescriptions: Element) => {
-            IconsWithLabels = CompanyDescriptions.children[2].children[1].children[0];
+            IconsWithLabels =
+              CompanyDescriptions.children[2].children[1].children[0];
 
             expect(IconsWithLabels.children.length).toEqual(2);
-            expect(IconsWithLabels.children[0].children[0].children[0].textContent).toEqual("Brand-Webpack.svg");
-            expect(IconsWithLabels.children[0].children[1].textContent).toEqual("Webpack");
-            expect(IconsWithLabels.children[1].children[0].children[0].textContent).toEqual("Icon-Node.svg");
-            expect(IconsWithLabels.children[1].children[1].textContent).toEqual("Node");
+            expect(
+              IconsWithLabels.children[0].children[0].children[0].textContent
+            ).toEqual("Brand-Webpack.svg");
+            expect(IconsWithLabels.children[0].children[1].textContent).toEqual(
+              "Webpack"
+            );
+            expect(
+              IconsWithLabels.children[1].children[0].children[0].textContent
+            ).toEqual("Icon-Node.svg");
+            expect(IconsWithLabels.children[1].children[1].textContent).toEqual(
+              "Node"
+            );
           });
         });
       });
@@ -88,7 +102,9 @@ describe("organisms / Company", () => {
           });
 
           CompanyLogos.forEach((CompanyLogo: Element) => {
-            expect(CompanyLogo.children[0].textContent).toEqual("Company-Omise.svg");
+            expect(CompanyLogo.children[0].textContent).toEqual(
+              "Company-Omise.svg"
+            );
           });
         });
 
@@ -98,16 +114,18 @@ describe("organisms / Company", () => {
           });
 
           CompanyLogos.forEach((CompanyLogo: Element) => {
-            expect(CompanyLogo.children[0].textContent).toEqual("Company-SAP.svg");
+            expect(CompanyLogo.children[0].textContent).toEqual(
+              "Company-SAP.svg"
+            );
           });
         });
       });
 
       describe("responsibilities", () => {
-        test("should render correct value passed via responsibilities props", () => {
+        test("should render correct value passed via responsibilities prop", () => {
           const responsibilities: CompanyProps["responsibilities"] = [
-            "Create scalable and sane front-end architecture", 
-            "Orchestrate and direct collaborative team operational objectives for front-end layer of an application designed to manage payment systems"    
+            "Create scalable and sane front-end architecture",
+            "Orchestrate and direct collaborative team operational objectives for front-end layer of an application designed to manage payment systems"
           ];
 
           const { CompanyDescriptions } = setup({
@@ -117,18 +135,23 @@ describe("organisms / Company", () => {
           let UnorderedList: Element;
 
           CompanyDescriptions.forEach((CompanyDescription: Element) => {
-            UnorderedList = CompanyDescription.children[3].children[1].children[0];
+            UnorderedList =
+              CompanyDescription.children[3].children[1].children[0];
 
             expect(UnorderedList.children.length).toEqual(2);
-            responsibilities.forEach((responsibility: string, index: number) => {
-              expect(UnorderedList.children[index].textContent).toEqual(responsibility);
-            });
+            responsibilities.forEach(
+              (responsibility: string, index: number) => {
+                expect(UnorderedList.children[index].textContent).toEqual(
+                  responsibility
+                );
+              }
+            );
           });
         });
       });
 
       describe("title", () => {
-        test("should render correct value passed via title props", () => {
+        test("should render correct value passed via title prop", () => {
           const title: CompanyProps["title"] = "Front-end developer";
 
           const { CompanyDescriptions } = setup({
@@ -171,7 +194,10 @@ describe("organisms / Company", () => {
             companyMobilePaddingBottom: "spacing0"
           });
 
-          expect(CompanyDescriptions[3].children[3]).toHaveStyleRule("padding-bottom", "0");
+          expect(CompanyDescriptions[3].children[3]).toHaveStyleRule(
+            "padding-bottom",
+            "0"
+          );
         });
       });
     });
@@ -194,7 +220,7 @@ type CompanyTestProps = Partial<CompanyProps>;
 
 function setup(additionalProps?: CompanyTestProps): Setup {
   const responsibilities: CompanyProps["responsibilities"] = [
-    "Create scalable and sane front-end architecture", 
+    "Create scalable and sane front-end architecture",
     "Orchestrate and direct collaborative team operational objectives for front-end layer of an application designed to manage payment systems"
   ];
 
@@ -218,18 +244,18 @@ function setup(additionalProps?: CompanyTestProps): Setup {
     ...additionalProps
   };
 
-  const utils: RenderResult = renderWithTheme(
-    <Company {...props} />
-  );
+  const utils: RenderResult = renderWithTheme(<Company {...props} />);
 
   const { queryAllByTestId } = utils || {};
-  
+
   const CompanyContainer: Element = queryAllByTestId("Company")[0];
   const CompanyDescriptions: Element[] = queryAllByTestId("CompanyDescription");
   const CompanyDesktop: Element = queryAllByTestId("ResponsiveDesktop")[0];
   const CompanyLogos: Element[] = queryAllByTestId("CompanyLogoFlexContainer");
   const CompanyMobile: Element = queryAllByTestId("ResponsiveMobile")[0];
-  const CompanyPositionContainer: Element = queryAllByTestId("CompanyPositionContainer")[0];
+  const CompanyPositionContainer: Element = queryAllByTestId(
+    "CompanyPositionContainer"
+  )[0];
   const CompanyTablet: Element = queryAllByTestId("ResponsiveTablet")[0];
   const CompanyTimelines: Element[] = queryAllByTestId("CompanyTimeline");
   const CompanyTv: Element = queryAllByTestId("ResponsiveTv")[0];
@@ -247,4 +273,3 @@ function setup(additionalProps?: CompanyTestProps): Setup {
     CompanyTv
   };
 }
- 

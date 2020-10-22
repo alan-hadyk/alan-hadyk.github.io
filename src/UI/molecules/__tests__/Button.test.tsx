@@ -1,5 +1,10 @@
 import React from "react";
-import { act, fireEvent, RenderResult, waitForElementToBeRemoved } from "@testing-library/react";
+import {
+  act,
+  fireEvent,
+  RenderResult,
+  waitForElementToBeRemoved
+} from "@testing-library/react";
 import { css } from "styled-components";
 
 import Button from "<molecules>/Button";
@@ -13,13 +18,11 @@ jest.mock("react-device-detect", () => ({
 
 import * as reactDeviceDetect from "react-device-detect";
 
-import {
-  ButtonProps
-} from "<molecules>/__typings__/Button.d.ts";
+import { ButtonProps } from "<molecules>/__typings__/Button.d.ts";
 
 describe("molecules / Button", () => {
   test("should have correct structure", () => {
-    const { 
+    const {
       ButtonContainer,
       ButtonInnerContainer,
       Corners,
@@ -40,15 +43,18 @@ describe("molecules / Button", () => {
     expect(FlexContainer.children[1]).toEqual(IconContainer);
   });
 
-  describe("ButtonContainer", () => {    
+  describe("ButtonContainer", () => {
     describe("Styles", () => {
-      describe("background-color", () => {      
+      describe("background-color", () => {
         test("should have #2b595e for type: primary", () => {
           const { ButtonContainer } = setup({
             type: "primary"
           });
 
-          expect(ButtonContainer).toHaveStyleRule("background-color", "#2b595e");
+          expect(ButtonContainer).toHaveStyleRule(
+            "background-color",
+            "#2b595e"
+          );
         });
 
         test("should have transparent for type: secondary", () => {
@@ -56,11 +62,14 @@ describe("molecules / Button", () => {
             type: "secondary"
           });
 
-          expect(ButtonContainer).toHaveStyleRule("background-color", "transparent");
+          expect(ButtonContainer).toHaveStyleRule(
+            "background-color",
+            "transparent"
+          );
         });
       });
 
-      describe("border", () => {      
+      describe("border", () => {
         test("should have none for type: primary", () => {
           const { ButtonContainer } = setup({
             type: "primary"
@@ -78,7 +87,7 @@ describe("molecules / Button", () => {
         });
       });
 
-      describe("border-color", () => {      
+      describe("border-color", () => {
         test("should have undefined for type: primary", () => {
           const { ButtonContainer } = setup({
             type: "primary"
@@ -96,7 +105,7 @@ describe("molecules / Button", () => {
         });
       });
 
-      describe("color", () => {      
+      describe("color", () => {
         test("should have #fff", () => {
           const { ButtonContainer } = setup();
 
@@ -104,7 +113,7 @@ describe("molecules / Button", () => {
         });
       });
 
-      describe("cursor", () => {      
+      describe("cursor", () => {
         test("should have pointer", () => {
           const { ButtonContainer } = setup();
 
@@ -112,7 +121,7 @@ describe("molecules / Button", () => {
         });
       });
 
-      describe("height", () => {      
+      describe("height", () => {
         test("should have 4rem for size: small", () => {
           const { ButtonContainer } = setup({
             size: "small"
@@ -138,7 +147,7 @@ describe("molecules / Button", () => {
         });
       });
 
-      describe("outline", () => {      
+      describe("outline", () => {
         test("should have 0", () => {
           const { ButtonContainer } = setup();
 
@@ -146,7 +155,7 @@ describe("molecules / Button", () => {
         });
       });
 
-      describe("position", () => {      
+      describe("position", () => {
         test("should have relative", () => {
           const { ButtonContainer } = setup();
 
@@ -154,30 +163,36 @@ describe("molecules / Button", () => {
         });
       });
 
-      describe("text-transform", () => {      
+      describe("text-transform", () => {
         test("should have lowercase", () => {
           const { ButtonContainer } = setup();
 
-          expect(ButtonContainer).toHaveStyleRule("text-transform", "lowercase");
+          expect(ButtonContainer).toHaveStyleRule(
+            "text-transform",
+            "lowercase"
+          );
         });
       });
 
-      describe("transition", () => {      
+      describe("transition", () => {
         test("should have all 150ms ease-in-out", () => {
           const { ButtonContainer } = setup();
 
-          expect(ButtonContainer).toHaveStyleRule("transition", "all 150ms ease-in-out");
+          expect(ButtonContainer).toHaveStyleRule(
+            "transition",
+            "all 150ms ease-in-out"
+          );
         });
       });
 
-      describe("width", () => {      
+      describe("width", () => {
         test("should have auto by default", () => {
           const { ButtonContainer } = setup();
 
           expect(ButtonContainer).toHaveStyleRule("width", "auto");
         });
 
-        test("should have correct value passed via width props", () => {
+        test("should have correct value passed via width prop", () => {
           const { ButtonContainer } = setup({
             width: "100%"
           });
@@ -187,13 +202,17 @@ describe("molecules / Button", () => {
       });
 
       describe(":hover", () => {
-        describe("box-shadow", () => {      
+        describe("box-shadow", () => {
           test("should have inset 0px 0px 1.6rem 0px rgba(103,210,223,0.5)", () => {
             const { ButtonContainer } = setup();
-  
-            expect(ButtonContainer).toHaveStyleRule("box-shadow", "inset 0px 0px 1.6rem 0px rgba(103,210,223,0.5)", {
-              modifier: ":hover"
-            });
+
+            expect(ButtonContainer).toHaveStyleRule(
+              "box-shadow",
+              "inset 0px 0px 1.6rem 0px rgba(103,210,223,0.5)",
+              {
+                modifier: ":hover"
+              }
+            );
           });
         });
       });
@@ -202,13 +221,10 @@ describe("molecules / Button", () => {
     describe("Event handlers", () => {
       test("should activate button onMouseEnter, and deactivate onMouseLeave", () => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const mockReactDeviceDetect: any = reactDeviceDetect as unknown as jest.Mock;
+        const mockReactDeviceDetect: any = (reactDeviceDetect as unknown) as jest.Mock;
         mockReactDeviceDetect.isMobile = false;
-    
-        const {
-          ButtonContainer,
-          Corners
-        } = setup();
+
+        const { ButtonContainer, Corners } = setup();
 
         for (const Corner of Corners) {
           expect(Corner.getAttribute("opacity")).toEqual("0.5");
@@ -222,7 +238,7 @@ describe("molecules / Button", () => {
         expect(Corners[3]).toHaveStyleRule("left", "calc(100% - 8px)");
         expect(Corners[3]).toHaveStyleRule("top", "calc(100% - 8px)");
 
-        act(() => { 
+        act(() => {
           fireEvent.mouseEnter(ButtonContainer);
         });
 
@@ -255,13 +271,10 @@ describe("molecules / Button", () => {
 
       test("should not activate button onMouseEnter when isMobile is true", () => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const mockReactDeviceDetect: any = reactDeviceDetect as unknown as jest.Mock;
+        const mockReactDeviceDetect: any = (reactDeviceDetect as unknown) as jest.Mock;
         mockReactDeviceDetect.isMobile = true;
-    
-        const {
-          ButtonContainer,
-          Corners
-        } = setup();
+
+        const { ButtonContainer, Corners } = setup();
 
         for (const Corner of Corners) {
           expect(Corner.getAttribute("opacity")).toEqual("0.5");
@@ -278,7 +291,6 @@ describe("molecules / Button", () => {
         act(() => {
           fireEvent.mouseEnter(ButtonContainer);
         });
-        
 
         for (const Corner of Corners) {
           expect(Corner.getAttribute("opacity")).toEqual("0.5");
@@ -295,13 +307,10 @@ describe("molecules / Button", () => {
 
       test("should append ripple onClick", async () => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const mockReactDeviceDetect: any = reactDeviceDetect as unknown as jest.Mock;
+        const mockReactDeviceDetect: any = (reactDeviceDetect as unknown) as jest.Mock;
         mockReactDeviceDetect.isMobile = false;
-        
-        const {
-          ButtonContainer,
-          Corners
-        } = setup();
+
+        const { ButtonContainer, Corners } = setup();
 
         for (const Corner of Corners) {
           expect(Corner.getAttribute("opacity")).toEqual("0.5");
@@ -354,20 +363,19 @@ describe("molecules / Button", () => {
 
         expect(ripple).toBeTruthy();
 
-        await waitForElementToBeRemoved(() => document.querySelector(".ripple"));
+        await waitForElementToBeRemoved(() =>
+          document.querySelector(".ripple")
+        );
 
         expect(document.querySelector(".ripple")).toBeFalsy();
       });
 
       test("should append ripple onClick - isMobile: true", async () => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const mockReactDeviceDetect: any = reactDeviceDetect as unknown as jest.Mock;
+        const mockReactDeviceDetect: any = (reactDeviceDetect as unknown) as jest.Mock;
         mockReactDeviceDetect.isMobile = true;
-        
-        const {
-          ButtonContainer,
-          Corners
-        } = setup();
+
+        const { ButtonContainer, Corners } = setup();
 
         for (const Corner of Corners) {
           expect(Corner.getAttribute("opacity")).toEqual("0.5");
@@ -420,49 +428,51 @@ describe("molecules / Button", () => {
 
         expect(ripple).toBeTruthy();
 
-        await waitForElementToBeRemoved(() => document.querySelector(".ripple"));
+        await waitForElementToBeRemoved(() =>
+          document.querySelector(".ripple")
+        );
 
         expect(document.querySelector(".ripple")).toBeFalsy();
       });
     });
   });
 
-  describe("ButtonInnerContainer", () => {    
+  describe("ButtonInnerContainer", () => {
     describe("Styles", () => {
-      describe("align-items", () => {      
+      describe("align-items", () => {
         test("should have center", () => {
           const { ButtonInnerContainer } = setup();
 
           expect(ButtonInnerContainer).toHaveStyleRule("align-items", "center");
         });
       });
-      
-      describe("display", () => {      
+
+      describe("display", () => {
         test("should have flex", () => {
           const { ButtonInnerContainer } = setup();
 
           expect(ButtonInnerContainer).toHaveStyleRule("display", "flex");
         });
       });
-      
-      describe("height", () => {      
+
+      describe("height", () => {
         test("should have 100%", () => {
           const { ButtonInnerContainer } = setup();
 
           expect(ButtonInnerContainer).toHaveStyleRule("height", "100%");
         });
       });
-      
-      describe("overflow", () => {      
+
+      describe("overflow", () => {
         test("should have hidden", () => {
           const { ButtonInnerContainer } = setup();
 
           expect(ButtonInnerContainer).toHaveStyleRule("overflow", "hidden");
         });
       });
-      
-      describe("position", () => {      
-        test("should have relative", () => { 
+
+      describe("position", () => {
+        test("should have relative", () => {
           const { ButtonInnerContainer } = setup();
 
           expect(ButtonInnerContainer).toHaveStyleRule("position", "relative");
@@ -471,9 +481,9 @@ describe("molecules / Button", () => {
     });
   });
 
-  describe("SpacingContainer", () => {    
+  describe("SpacingContainer", () => {
     describe("Props", () => {
-      describe("paddingRight", () => {      
+      describe("paddingRight", () => {
         test("should have 1.6rem when size is small", () => {
           const { SpacingContainer } = setup({
             size: "small"
@@ -498,8 +508,8 @@ describe("molecules / Button", () => {
           expect(SpacingContainer).toHaveStyleRule("padding-right", "2.4rem");
         });
       });
-      
-      describe("paddingLeft", () => {      
+
+      describe("paddingLeft", () => {
         test("should have 1.6rem when size is small", () => {
           const { SpacingContainer } = setup({
             size: "small"
@@ -525,7 +535,7 @@ describe("molecules / Button", () => {
         });
       });
 
-      describe("width", () => {      
+      describe("width", () => {
         test("should have 100%", () => {
           const { SpacingContainer } = setup();
 
@@ -534,10 +544,10 @@ describe("molecules / Button", () => {
       });
     });
   });
-  
-  describe("FlexContainer", () => {    
+
+  describe("FlexContainer", () => {
     describe("Props", () => {
-      describe("flexFlow", () => {      
+      describe("flexFlow", () => {
         test("should have row wrap", () => {
           const { FlexContainer } = setup();
 
@@ -547,7 +557,7 @@ describe("molecules / Button", () => {
     });
   });
 
-  describe("ButtonText", () => { 
+  describe("ButtonText", () => {
     test("text should have correct content", () => {
       const { ButtonText } = setup();
 
@@ -556,83 +566,83 @@ describe("molecules / Button", () => {
 
     describe("Props", () => {
       describe("fontSize", () => {
-        test("should have font size 20px when size is small", () => {
+        test("should have 20px when size is small", () => {
           const { ButtonText } = setup({
             size: "small"
           });
-  
+
           expect(ButtonText).toHaveStyleRule("font-size", "20px");
-        }); 
-  
-        test("should have font size 24px when size is medium", () => {
+        });
+
+        test("should have 24px when size is medium", () => {
           const { ButtonText } = setup({
             size: "medium"
           });
-  
+
           expect(ButtonText).toHaveStyleRule("font-size", "24px");
         });
-  
-        test("should have font size 28px when size is large", () => {
+
+        test("should have 28px when size is large", () => {
           const { ButtonText } = setup({
             size: "large"
           });
-  
+
           expect(ButtonText).toHaveStyleRule("font-size", "28px");
         });
       });
     });
   });
 
-  describe("Icon", () => {    
+  describe("Icon", () => {
     describe("Props", () => {
       describe("iconName", () => {
-        test("should render corect icon for codesandbox", () => {
+        test("should render correct icon for codesandbox", () => {
           const { Icon } = setup({
             iconName: "btnCodeSandbox"
           });
-      
+
           expect(Icon.textContent).toEqual("Btn-CodeSandbox.svg");
         });
-    
-        test("should render corect icon for download", () => {
+
+        test("should render correct icon for download", () => {
           const { Icon } = setup({
             iconName: "btnDownload"
           });
-      
+
           expect(Icon.textContent).toEqual("Btn-Download.svg");
         });
-    
-        test("should render corect icon for externalLink", () => {
+
+        test("should render correct icon for externalLink", () => {
           const { Icon } = setup({
             iconName: "btnExternalLink"
           });
-      
+
           expect(Icon.textContent).toEqual("Btn-ExternalLink.svg");
         });
       });
-    
+
       describe("height", () => {
-        test("should have 2.4rem (size - large)", () => {
+        test("should have 2.4rem when size is large", () => {
           const { IconContainer } = setup({
             size: "large"
           });
-  
+
           expect(IconContainer).toHaveStyleRule("height", "2.4rem");
         });
 
-        test("should have 2.4rem (size - medium)", () => {
+        test("should have 2.4rem when size is medium", () => {
           const { IconContainer } = setup({
             size: "medium"
           });
-  
+
           expect(IconContainer).toHaveStyleRule("height", "2.4rem");
         });
 
-        test("should have 1.2rem (size - small)", () => {
+        test("should have 1.2rem when size is small", () => {
           const { IconContainer } = setup({
             size: "small"
           });
-  
+
           expect(IconContainer).toHaveStyleRule("height", "1.2rem");
         });
       });
@@ -642,7 +652,7 @@ describe("molecules / Button", () => {
           describe("height", () => {
             test("should have 100%", () => {
               const { IconContainer } = setup();
-  
+
               expect(IconContainer).toHaveStyleRule("height", "100%", {
                 modifier: "svg"
               });
@@ -655,27 +665,35 @@ describe("molecules / Button", () => {
 
   describe(".ripple", () => {
     describe("Styles", () => {
-      describe("animation-duration", () => {      
+      describe("animation-duration", () => {
         test("should have 900ms", () => {
           const { ButtonContainer } = setup();
-    
-          expect(ButtonContainer).toHaveStyleRule("animation-duration", "900ms", {
-            modifier: css` .ripple`
-          });
+
+          expect(ButtonContainer).toHaveStyleRule(
+            "animation-duration",
+            "900ms",
+            {
+              modifier: css` .ripple`
+            }
+          );
         });
       });
 
-      describe("background-color", () => {      
+      describe("background-color", () => {
         test("should have rgba(120,176,181,0.5)", () => {
           const { ButtonContainer } = setup();
 
-          expect(ButtonContainer).toHaveStyleRule("background-color", "rgba(120,176,181,0.5)", {
-            modifier: css` .ripple`
-          });
+          expect(ButtonContainer).toHaveStyleRule(
+            "background-color",
+            "rgba(120,176,181,0.5)",
+            {
+              modifier: css` .ripple`
+            }
+          );
         });
       });
 
-      describe("border-radius", () => {      
+      describe("border-radius", () => {
         test("should have 50%", () => {
           const { ButtonContainer } = setup();
 
@@ -685,7 +703,7 @@ describe("molecules / Button", () => {
         });
       });
 
-      describe("height", () => {      
+      describe("height", () => {
         test("should have 2.4rem", () => {
           const { ButtonContainer } = setup();
 
@@ -695,7 +713,7 @@ describe("molecules / Button", () => {
         });
       });
 
-      describe("margin-left", () => {      
+      describe("margin-left", () => {
         test("should have -1.2rem", () => {
           const { ButtonContainer } = setup();
 
@@ -705,7 +723,7 @@ describe("molecules / Button", () => {
         });
       });
 
-      describe("margin-top", () => {      
+      describe("margin-top", () => {
         test("should have -1.2rem", () => {
           const { ButtonContainer } = setup();
 
@@ -715,7 +733,7 @@ describe("molecules / Button", () => {
         });
       });
 
-      describe("opacity", () => {      
+      describe("opacity", () => {
         test("should have 0", () => {
           const { ButtonContainer } = setup();
 
@@ -725,7 +743,7 @@ describe("molecules / Button", () => {
         });
       });
 
-      describe("position", () => {      
+      describe("position", () => {
         test("should have absolute", () => {
           const { ButtonContainer } = setup();
 
@@ -735,7 +753,7 @@ describe("molecules / Button", () => {
         });
       });
 
-      describe("width", () => {      
+      describe("width", () => {
         test("should have 2.4rem", () => {
           const { ButtonContainer } = setup();
 
@@ -765,19 +783,12 @@ function setup(additionalProps?: ButtonTestProps): Setup {
   const props: ButtonProps = {
     buttonText: "Text content",
     iconName: "btnCodeSandbox",
-    size: "small",
-    type: "primary",
     ...additionalProps
   };
 
-  const utils: RenderResult = renderWithTheme(
-    <Button {...props} />
-  );
+  const utils: RenderResult = renderWithTheme(<Button {...props} />);
 
-  const {
-    queryAllByTestId,
-    queryByTestId
-  } = utils || {};
+  const { queryAllByTestId, queryByTestId } = utils || {};
 
   const ButtonContainer: Element = document.querySelector("button");
   const ButtonInnerContainer: Element = queryByTestId("ButtonInnerContainer");

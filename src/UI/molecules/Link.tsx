@@ -5,9 +5,7 @@ import Line from "<atoms>/Line";
 
 import PositionContainer from "<layout>/PositionContainer";
 
-import {
-  LinkProps
-} from "<molecules>/__typings__/Link.d.ts";
+import { LinkProps } from "<molecules>/__typings__/Link.d.ts";
 
 const Link = ({
   children,
@@ -31,15 +29,9 @@ const Link = ({
       {children}
 
       {isHoverable && (
-        <PositionContainer 
-          position="relative"
-        >
-          <Line
-            direction="left" 
-          />
-          <Line
-            direction="right" 
-          />
+        <PositionContainer position="relative">
+          <Line direction="left" />
+          <Line direction="right" />
         </PositionContainer>
       )}
     </Fragment>
@@ -50,9 +42,7 @@ Link.Container = styled.a<LinkProps>`
   ${({
     display,
     height,
-    theme: {
-      spacing
-    }
+    theme: { spacing }
   }): FlattenSimpleInterpolation => css`
     display: ${display};
     height: ${(height in spacing && spacing[height]) || height};
@@ -63,7 +53,7 @@ Link.Container = styled.a<LinkProps>`
       visibility: visible;
       width: 50%;
     }
-  `}
+  `};
 `;
-  
+
 export default Link;

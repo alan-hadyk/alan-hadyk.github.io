@@ -5,13 +5,9 @@ import ProjectTablet from "<organisms>/Project/ProjectTablet";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  IconWithLabelProps
-} from "<molecules>/__typings__/IconWithLabel.d.ts";
+import { IconWithLabelProps } from "<molecules>/__typings__/IconWithLabel.d.ts";
 
-import {
-  ProjectProps
-} from "<organisms>/Project/__typings__/Project.d.ts";
+import { ProjectProps } from "<organisms>/Project/__typings__/Project.d.ts";
 
 describe("organisms / ProjectTablet", () => {
   test("should have correct structure", () => {
@@ -31,11 +27,11 @@ describe("organisms / ProjectTablet", () => {
 
   describe("ProjectTablet", () => {
     describe("Props", () => {
-      describe("devices", () => {      
+      describe("devices", () => {
         describe("should have tablet", () => {
           test("should have display block when min-width is 641px and max-width is 1280px", () => {
             const { ProjectTabletContainer } = setup();
-      
+
             expect(ProjectTabletContainer).toHaveStyleRule("display", "block", {
               media: "(min-width:641px) and (max-width:1280px)"
             });
@@ -45,9 +41,9 @@ describe("organisms / ProjectTablet", () => {
     });
   });
 
-  describe("FlexContainer", () => { 
+  describe("FlexContainer", () => {
     describe("Props", () => {
-      describe("alignItems", () => {      
+      describe("alignItems", () => {
         test("should have center", () => {
           const { FlexContainer } = setup();
 
@@ -55,7 +51,7 @@ describe("organisms / ProjectTablet", () => {
         });
       });
 
-      describe("flexFlow", () => {      
+      describe("flexFlow", () => {
         test("should have column nowrap", () => {
           const { FlexContainer } = setup();
 
@@ -65,9 +61,9 @@ describe("organisms / ProjectTablet", () => {
     });
   });
 
-  describe("SpacingContainer", () => { 
+  describe("SpacingContainer", () => {
     describe("Props", () => {
-      describe("marginBottom", () => {      
+      describe("marginBottom", () => {
         test("should have 4rem", () => {
           const { SpacingContainer } = setup();
 
@@ -75,7 +71,7 @@ describe("organisms / ProjectTablet", () => {
         });
       });
 
-      describe("width", () => {      
+      describe("width", () => {
         test("should have 60%", () => {
           const { SpacingContainer } = setup();
 
@@ -86,25 +82,27 @@ describe("organisms / ProjectTablet", () => {
   });
 
   describe("ProjectImage", () => {
-    describe("Icon", () => {         
+    describe("Icon", () => {
       describe("Props", () => {
         describe("projectIcon", () => {
-          test("should have correct icon passed via iconName props", () => {
+          test("should have correct icon passed via projectIcon prop", () => {
             const { HexagonInnerContainer } = setup({
               projectIcon: "react"
             });
-  
-            expect(HexagonInnerContainer.children[0].textContent).toEqual("Icon-React.svg");
+
+            expect(HexagonInnerContainer.children[0].textContent).toEqual(
+              "Icon-React.svg"
+            );
           });
         });
       });
     });
   });
 
-  describe("ProjectDescription", () => {   
+  describe("ProjectDescription", () => {
     describe("Props", () => {
       describe("title", () => {
-        test("should have correct value passed via title props", () => {
+        test("should have correct value passed via title prop", () => {
           const { ProjectDescription } = setup({
             title: "Roland"
           });
@@ -114,12 +112,14 @@ describe("organisms / ProjectTablet", () => {
       });
 
       describe("description", () => {
-        test("should have correct value passed via description props", () => {
+        test("should have correct value passed via description prop", () => {
           const { ProjectDescription } = setup({
             description: "Lorem ipsum dolor sit amet."
           });
 
-          expect(ProjectDescription).toHaveTextContent("Lorem ipsum dolor sit amet.");
+          expect(ProjectDescription).toHaveTextContent(
+            "Lorem ipsum dolor sit amet."
+          );
         });
       });
 
@@ -134,43 +134,63 @@ describe("organisms / ProjectTablet", () => {
             label: "React"
           }
         ];
-    
+
         test("there should be correct number of icons", () => {
           const { IconsWithLabels } = setup({
             iconsWithLabels
           });
-    
+
           expect(IconsWithLabels.children.length).toEqual(2);
         });
-    
+
         test("icons should render correct SVGs", () => {
           const { IconsWithLabels } = setup({
             iconsWithLabels
           });
-  
-          expect(IconsWithLabels.children[0].children[0].children[0].children[0].textContent).toEqual("Brand-JS.svg");
-          expect(IconsWithLabels.children[1].children[0].children[0].children[0].textContent).toEqual("Brand-React.svg");
+
+          expect(
+            IconsWithLabels.children[0].children[0].children[0].children[0]
+              .textContent
+          ).toEqual("Brand-JS.svg");
+          expect(
+            IconsWithLabels.children[1].children[0].children[0].children[0]
+              .textContent
+          ).toEqual("Brand-React.svg");
         });
-    
-        test("should have correct content passed via label props", () => {
+
+        test("should have correct content passed via label prop", () => {
           const { IconsWithLabels } = setup({
             iconsWithLabels
           });
-    
-          expect(IconsWithLabels.children[0].children[1].textContent).toEqual("Javascript");
-          expect(IconsWithLabels.children[1].children[1].textContent).toEqual("React");
+
+          expect(IconsWithLabels.children[0].children[1].textContent).toEqual(
+            "Javascript"
+          );
+          expect(IconsWithLabels.children[1].children[1].textContent).toEqual(
+            "React"
+          );
         });
       });
-    
+
       describe("size", () => {
         test("should have large", () => {
           const { ProjectDescription } = setup();
 
-          expect(ProjectDescription.children[0].children[0]).toHaveStyleRule("font-size", "48px");
-          expect(ProjectDescription.children[0].children[0]).toHaveStyleRule("line-height", "5.2rem");
+          expect(ProjectDescription.children[0].children[0]).toHaveStyleRule(
+            "font-size",
+            "48px"
+          );
+          expect(ProjectDescription.children[0].children[0]).toHaveStyleRule(
+            "line-height",
+            "5.2rem"
+          );
 
-          expect(ProjectDescription.children[0].children[1].children[0]).toHaveStyleRule("font-size", "24px");
-          expect(ProjectDescription.children[0].children[1].children[0]).toHaveStyleRule("line-height", "3.2rem");
+          expect(
+            ProjectDescription.children[0].children[1].children[0]
+          ).toHaveStyleRule("font-size", "24px");
+          expect(
+            ProjectDescription.children[0].children[1].children[0]
+          ).toHaveStyleRule("line-height", "3.2rem");
         });
       });
     });
@@ -209,14 +229,16 @@ function setup(additionalProps?: ProjectTestProps): Setup {
     ...additionalProps
   };
 
-  const utils: RenderResult = renderWithTheme(
-    <ProjectTablet {...props} />
-  );
+  const utils: RenderResult = renderWithTheme(<ProjectTablet {...props} />);
 
   const { queryAllByTestId } = utils || {};
 
-  const FlexContainer: Element = queryAllByTestId("ProjectTabletFlexContainer")[0];
-  const HexagonInnerContainer: Element = queryAllByTestId("HexagonInnerContainer")[0];
+  const FlexContainer: Element = queryAllByTestId(
+    "ProjectTabletFlexContainer"
+  )[0];
+  const HexagonInnerContainer: Element = queryAllByTestId(
+    "HexagonInnerContainer"
+  )[0];
   const IconsWithLabels: Element = queryAllByTestId("IconsWithLabels")[0];
   const ProjectDescription: Element = queryAllByTestId("ProjectDescription")[0];
   const ProjectImage: Element = queryAllByTestId("ProjectImage")[0];
@@ -234,4 +256,3 @@ function setup(additionalProps?: ProjectTestProps): Setup {
     SpacingContainer
   };
 }
- 

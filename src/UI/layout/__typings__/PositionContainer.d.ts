@@ -1,7 +1,4 @@
-import {
-  Spacing,
-  ZIndex
-} from "<styles>/variables/__typings__/variables.d.ts";
+import { Spacing, ZIndex } from "<styles>/variables/__typings__/variables.d.ts";
 
 export interface PositionContainerProps {
   bottom?: Spacing | string;

@@ -8,9 +8,7 @@ import Responsive from "<layout>/Responsive";
 import ProjectDescription from "<organisms>/ProjectDescription";
 import ProjectImage from "<organisms>/Project/ProjectImage";
 
-import {
-  ProjectProps
-} from "<organisms>/Project/__typings__/Project.d.ts";
+import { ProjectProps } from "<organisms>/Project/__typings__/Project.d.ts";
 
 const ProjectTvAndDesktop = ({
   description,
@@ -28,16 +26,11 @@ const ProjectTvAndDesktop = ({
       dataTestId="ProjectTvAndDesktopFlexContainer"
       flexFlow="row nowrap"
     >
-      <FlexItem
-        flex="0 1 50%"
-      >
+      <FlexItem flex="0 1 50%">
         <ProjectImage projectIcon={projectIcon} />
       </FlexItem>
 
-      <FlexItem
-        flex="0 1 50%"
-        overflow="visible"
-      >
+      <FlexItem flex="0 1 50%" overflow="visible">
         <SpacingContainer
           dataTestId="ProjectDescriptionSpacingContainer"
           marginLeft="spacing48"

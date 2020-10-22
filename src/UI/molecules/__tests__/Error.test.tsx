@@ -5,9 +5,7 @@ import Error from "<molecules>/Error";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  ErrorProps
-} from "<molecules>/__typings__/Error.d.ts";
+import { ErrorProps } from "<molecules>/__typings__/Error.d.ts";
 
 describe("molecules / Error", () => {
   test("should have correct structure", () => {
@@ -122,18 +120,24 @@ describe("molecules / Error", () => {
       });
 
       describe("animation-iteration-count", () => {
-        test("should have center", () => {
+        test("should have infinite", () => {
           const { ErrorIcon } = setup();
 
-          expect(ErrorIcon).toHaveStyleRule("animation-iteration-count", "infinite");
+          expect(ErrorIcon).toHaveStyleRule(
+            "animation-iteration-count",
+            "infinite"
+          );
         });
       });
-      
+
       describe("animation-timing-function", () => {
-        test("should have center", () => {
+        test("should have ease-in-out", () => {
           const { ErrorIcon } = setup();
 
-          expect(ErrorIcon).toHaveStyleRule("animation-timing-function", "ease-in-out");
+          expect(ErrorIcon).toHaveStyleRule(
+            "animation-timing-function",
+            "ease-in-out"
+          );
         });
       });
     });
@@ -153,7 +157,10 @@ describe("molecules / Error", () => {
         test("should have 'Anonymous Pro',monospace", () => {
           const { Title } = setup();
 
-          expect(Title).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
+          expect(Title).toHaveStyleRule(
+            "font-family",
+            "'Anonymous Pro',monospace"
+          );
         });
       });
 
@@ -213,7 +220,10 @@ describe("molecules / Error", () => {
         test("should have 'Anonymous Pro',monospace", () => {
           const { Description } = setup();
 
-          expect(Description).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
+          expect(Description).toHaveStyleRule(
+            "font-family",
+            "'Anonymous Pro',monospace"
+          );
         });
       });
 
@@ -262,9 +272,7 @@ function setup(additionalProps?: ErrorTestProps): Setup {
 
   const props: ErrorProps = { ...defaultProps, ...additionalProps };
 
-  const utils: RenderResult = renderWithTheme(
-    <Error {...props} />
-  );
+  const utils: RenderResult = renderWithTheme(<Error {...props} />);
 
   const { queryByTestId, queryAllByTestId } = utils || {};
 

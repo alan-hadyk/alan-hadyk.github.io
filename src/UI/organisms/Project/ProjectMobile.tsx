@@ -6,9 +6,7 @@ import Responsive from "<layout>/Responsive";
 import ProjectDescription from "<organisms>/ProjectDescription";
 import ProjectImage from "<organisms>/Project/ProjectImage";
 
-import {
-  ProjectProps
-} from "<organisms>/Project/__typings__/Project.d.ts";
+import { ProjectProps } from "<organisms>/Project/__typings__/Project.d.ts";
 
 const ProjectMobile = ({
   description,
@@ -16,14 +14,8 @@ const ProjectMobile = ({
   projectIcon,
   title
 }: ProjectProps): JSX.Element => (
-  <Responsive
-    dataTestMobileId="ProjectMobile"
-    devices={["mobile"]}
-  >
-    <SpacingContainer
-      marginBottom="4rem"
-      width="100%"
-    >
+  <Responsive dataTestMobileId="ProjectMobile" devices={["mobile"]}>
+    <SpacingContainer marginBottom="4rem" width="100%">
       <ProjectImage projectIcon={projectIcon} />
     </SpacingContainer>
 

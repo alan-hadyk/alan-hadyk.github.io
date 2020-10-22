@@ -5,13 +5,9 @@ import Project from "<organisms>/Project";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  ProjectProps
-} from "<organisms>/Project/__typings__/Project.d.ts";
+import { ProjectProps } from "<organisms>/Project/__typings__/Project.d.ts";
 
-import {
-  IconWithLabelProps
-} from "<molecules>/__typings__/IconWithLabel.d.ts";
+import { IconWithLabelProps } from "<molecules>/__typings__/IconWithLabel.d.ts";
 
 describe("organisms / Project", () => {
   test("should have correct structure", () => {
@@ -29,9 +25,9 @@ describe("organisms / Project", () => {
     expect(ProjectContainer.children[3]).toEqual(ProjectMobile);
   });
 
-  describe("SpacingContainer", () => { 
+  describe("SpacingContainer", () => {
     describe("Props", () => {
-      describe("marginLeft", () => {      
+      describe("marginLeft", () => {
         test("should have auto", () => {
           const { ProjectContainer } = setup();
 
@@ -39,7 +35,7 @@ describe("organisms / Project", () => {
         });
       });
 
-      describe("marginRight", () => {      
+      describe("marginRight", () => {
         test("should have auto", () => {
           const { ProjectContainer } = setup();
 
@@ -47,7 +43,7 @@ describe("organisms / Project", () => {
         });
       });
 
-      describe("maxWidth", () => {      
+      describe("maxWidth", () => {
         test("should have 105.6rem", () => {
           const { ProjectContainer } = setup();
 
@@ -60,13 +56,15 @@ describe("organisms / Project", () => {
   describe("ProjectTvAndDesktop, ProjectTablet, ProjectMobile", () => {
     describe("Props", () => {
       describe("description", () => {
-        test("should have correct value passed via description props", () => {
+        test("should have correct value passed via description prop", () => {
           const { ProjectDescriptions } = setup({
             description: "Lorem ipsum dolor sit amet."
           });
 
           ProjectDescriptions.forEach((ProjectDescription: Element) => {
-            expect(ProjectDescription).toHaveTextContent("Lorem ipsum dolor sit amet.");
+            expect(ProjectDescription).toHaveTextContent(
+              "Lorem ipsum dolor sit amet."
+            );
           });
         });
       });
@@ -82,7 +80,7 @@ describe("organisms / Project", () => {
             label: "React"
           }
         ];
-    
+
         test("there should be correct number of icons", () => {
           const { IconsWithLabels } = setup({
             iconsWithLabels
@@ -92,44 +90,56 @@ describe("organisms / Project", () => {
             expect(IconWithLabel.children.length).toEqual(2);
           });
         });
-    
+
         test("icons should render correct SVGs", () => {
           const { IconsWithLabels } = setup({
             iconsWithLabels
           });
 
           IconsWithLabels.forEach((IconWithLabel: Element) => {
-            expect(IconWithLabel.children[0].children[0].children[0].children[0].textContent).toEqual("Brand-JS.svg");
-            expect(IconWithLabel.children[1].children[0].children[0].children[0].textContent).toEqual("Brand-React.svg");
+            expect(
+              IconWithLabel.children[0].children[0].children[0].children[0]
+                .textContent
+            ).toEqual("Brand-JS.svg");
+            expect(
+              IconWithLabel.children[1].children[0].children[0].children[0]
+                .textContent
+            ).toEqual("Brand-React.svg");
           });
         });
-    
-        test("should have correct content passed via label props", () => {
+
+        test("should have correct content passed via label prop", () => {
           const { IconsWithLabels } = setup({
             iconsWithLabels
           });
 
           IconsWithLabels.forEach((IconWithLabel: Element) => {
-            expect(IconWithLabel.children[0].children[1].textContent).toEqual("Javascript");
-            expect(IconWithLabel.children[1].children[1].textContent).toEqual("React");
+            expect(IconWithLabel.children[0].children[1].textContent).toEqual(
+              "Javascript"
+            );
+            expect(IconWithLabel.children[1].children[1].textContent).toEqual(
+              "React"
+            );
           });
         });
       });
 
       describe("projectIcon", () => {
-        test("should have correct icon passed via iconName props", () => {
+        test("should have correct icon passed via projectIcon prop", () => {
           const { HexagonInnerContainers } = setup({
             projectIcon: "react"
           });
 
           HexagonInnerContainers.forEach((HexagonInnerContainer: Element) => {
-            expect(HexagonInnerContainer.children[0].textContent).toEqual("Icon-React.svg");
+            expect(HexagonInnerContainer.children[0].textContent).toEqual(
+              "Icon-React.svg"
+            );
           });
         });
       });
 
       describe("title", () => {
-        test("should have correct value passed via title props", () => {
+        test("should have correct value passed via title prop", () => {
           const { ProjectDescriptions } = setup({
             title: "Roland"
           });
@@ -176,13 +186,13 @@ function setup(additionalProps?: ProjectTestProps): Setup {
     ...additionalProps
   };
 
-  const utils: RenderResult = renderWithTheme(
-    <Project {...props} />
-  );
+  const utils: RenderResult = renderWithTheme(<Project {...props} />);
 
   const { queryAllByTestId } = utils || {};
 
-  const HexagonInnerContainers: Element []= queryAllByTestId("HexagonInnerContainer");
+  const HexagonInnerContainers: Element[] = queryAllByTestId(
+    "HexagonInnerContainer"
+  );
   const IconsWithLabels: Element[] = queryAllByTestId("IconsWithLabels");
   const ProjectContainer: Element = queryAllByTestId("Project")[0];
   const ProjectDescriptions: Element[] = queryAllByTestId("ProjectDescription");
@@ -203,4 +213,3 @@ function setup(additionalProps?: ProjectTestProps): Setup {
     ProjectTv
   };
 }
- 

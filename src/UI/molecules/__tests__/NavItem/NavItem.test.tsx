@@ -1,26 +1,23 @@
 import React from "react";
-import {
-  RenderResult
-} from "@testing-library/react";
+import { RenderResult } from "@testing-library/react";
 
-import NavItem from "<molecules>/NavItem";
+import NavItem, { arePropsEqual } from "<molecules>/NavItem";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 jest.mock("<hooks>/useShuffleText");
 import useShuffleText from "<hooks>/useShuffleText";
 
-import {
-  NavItemProps
-} from "<molecules>/__typings__/NavItem.d.ts";
+import { NavItemProps } from "<molecules>/__typings__/NavItem.d.ts";
+
+const defaultProps: NavItemProps = {
+  href: "#element",
+  title: "Title"
+};
 
 describe("molecules / NavItem", () => {
   test("should have correct structure", () => {
-    const { 
-      Lines,
-      NavItemLink,
-      PositionContainer
-    } = setup();
+    const { Lines, NavItemLink, PositionContainer } = setup();
 
     expect(PositionContainer.children[0]).toEqual(NavItemLink);
     expect(PositionContainer.children[1]).toEqual(Lines[0]);
@@ -44,34 +41,34 @@ describe("molecules / NavItem", () => {
     });
   });
 
-  describe("PositionContainer", () => {    
+  describe("PositionContainer", () => {
     describe("Props", () => {
-      describe("position", () => {      
+      describe("position", () => {
         test("should have relative", () => {
           const { PositionContainer } = setup();
-    
+
           expect(PositionContainer).toHaveStyleRule("position", "relative");
         });
       });
     });
   });
-  
-  describe("NavItem.Link", () => {    
+
+  describe("NavItem.Link", () => {
     test("should have textContent equal to title prop", () => {
       const { NavItemLink } = setup({
         title: "Nice portfolio"
       });
-      
+
       expect(NavItemLink.textContent).toEqual("Nice portfolio");
     });
 
     describe("Styles", () => {
-      describe("color", () => {      
+      describe("color", () => {
         test("should have #fff when isActive: true", () => {
           const { NavItemLink } = setup({
             isActive: true
           });
-    
+
           expect(NavItemLink).toHaveStyleRule("color", "#fff");
         });
 
@@ -79,138 +76,154 @@ describe("molecules / NavItem", () => {
           const { NavItemLink } = setup({
             isActive: false
           });
-    
+
           expect(NavItemLink).toHaveStyleRule("color", "#78b0b5");
         });
 
         test("should have #fff for &:hover, &:active, &:focus", () => {
           const { NavItemLink } = setup();
-    
+
           expect(NavItemLink).toHaveStyleRule("color", "#fff", {
             modifier: ":hover"
           });
-    
+
           expect(NavItemLink).toHaveStyleRule("color", "#fff", {
             modifier: ":active"
           });
-    
+
           expect(NavItemLink).toHaveStyleRule("color", "#fff", {
             modifier: ":focus"
           });
         });
       });
 
-      describe("cursor", () => {      
+      describe("cursor", () => {
         test("should have pointer", () => {
           const { NavItemLink } = setup();
-    
+
           expect(NavItemLink).toHaveStyleRule("cursor", "pointer");
         });
       });
 
-      describe("display", () => {      
+      describe("display", () => {
         test("should have block", () => {
           const { NavItemLink } = setup();
-    
+
           expect(NavItemLink).toHaveStyleRule("display", "block");
         });
       });
 
-      describe("font-size", () => {      
+      describe("font-size", () => {
         test("should have 28px", () => {
           const { NavItemLink } = setup();
-    
+
           expect(NavItemLink).toHaveStyleRule("font-size", "28px");
         });
       });
 
-      describe("height", () => {      
+      describe("height", () => {
         test("should have 4.8rem", () => {
           const { NavItemLink } = setup();
-    
+
           expect(NavItemLink).toHaveStyleRule("height", "4.8rem");
         });
       });
 
-      describe("line-height", () => {      
+      describe("line-height", () => {
         test("should have 4.8rem", () => {
           const { NavItemLink } = setup();
-    
+
           expect(NavItemLink).toHaveStyleRule("line-height", "4.8rem");
         });
       });
 
-      describe("position", () => {      
+      describe("position", () => {
         test("should have relative", () => {
           const { NavItemLink } = setup();
-    
+
           expect(NavItemLink).toHaveStyleRule("position", "relative");
         });
       });
 
-      describe("text-shadow", () => {      
+      describe("text-shadow", () => {
         test("should have 0px 0px .8rem #bcd8db when isActive: true", () => {
           const { NavItemLink } = setup({
             isActive: true
           });
-    
-          expect(NavItemLink).toHaveStyleRule("text-shadow", "0px 0px .8rem #bcd8db");
+
+          expect(NavItemLink).toHaveStyleRule(
+            "text-shadow",
+            "0px 0px .8rem #bcd8db"
+          );
         });
 
         test("should have none when isActive: false", () => {
           const { NavItemLink } = setup({
             isActive: false
           });
-    
+
           expect(NavItemLink).toHaveStyleRule("text-shadow", "none");
         });
 
-
         test("should have 0px 0px .8rem #bcd8db for &:hover, &:active, &:focus", () => {
           const { NavItemLink } = setup();
-    
-          expect(NavItemLink).toHaveStyleRule("text-shadow", "0px 0px .8rem #bcd8db", {
-            modifier: ":hover"
-          });
-    
-          expect(NavItemLink).toHaveStyleRule("text-shadow", "0px 0px .8rem #bcd8db", {
-            modifier: ":active"
-          });
-    
-          expect(NavItemLink).toHaveStyleRule("text-shadow", "0px 0px .8rem #bcd8db", {
-            modifier: ":focus"
-          });
+
+          expect(NavItemLink).toHaveStyleRule(
+            "text-shadow",
+            "0px 0px .8rem #bcd8db",
+            {
+              modifier: ":hover"
+            }
+          );
+
+          expect(NavItemLink).toHaveStyleRule(
+            "text-shadow",
+            "0px 0px .8rem #bcd8db",
+            {
+              modifier: ":active"
+            }
+          );
+
+          expect(NavItemLink).toHaveStyleRule(
+            "text-shadow",
+            "0px 0px .8rem #bcd8db",
+            {
+              modifier: ":focus"
+            }
+          );
         });
       });
 
-      describe("text-transform", () => {      
+      describe("text-transform", () => {
         test("should have uppercase", () => {
           const { NavItemLink } = setup();
-    
+
           expect(NavItemLink).toHaveStyleRule("text-transform", "uppercase");
         });
       });
 
-      describe("transition", () => {      
+      describe("transition", () => {
         test("should have all 150ms ease-in-out", () => {
           const { NavItemLink } = setup();
-    
-          expect(NavItemLink).toHaveStyleRule("transition", "all 150ms ease-in-out");
+
+          expect(NavItemLink).toHaveStyleRule(
+            "transition",
+            "all 150ms ease-in-out"
+          );
         });
       });
 
-      describe("z-index", () => {      
+      describe("z-index", () => {
         test("should have 200", () => {
           const { NavItemLink } = setup();
-    
+
           expect(NavItemLink).toHaveStyleRule("z-index", "200");
         });
       });
     });
   });
-  
-  describe("Lines", () => {
 
+  describe("Lines", () => {
     describe("Props", () => {
       describe("isActive", () => {
         describe("opacity", () => {
@@ -218,7 +231,7 @@ describe("molecules / NavItem", () => {
             const { Lines } = setup({
               isActive: true
             });
-    
+
             expect(Lines[0]).toHaveStyleRule("opacity", "1");
             expect(Lines[1]).toHaveStyleRule("opacity", "1");
           });
@@ -227,18 +240,18 @@ describe("molecules / NavItem", () => {
             const { Lines } = setup({
               isActive: false
             });
-    
+
             expect(Lines[0]).toHaveStyleRule("opacity", "0");
             expect(Lines[1]).toHaveStyleRule("opacity", "0");
           });
         });
-        
+
         describe("visibility", () => {
           test("should be visible when isActive is true", () => {
             const { Lines } = setup({
               isActive: true
             });
-    
+
             expect(Lines[0]).toHaveStyleRule("visibility", "visible");
             expect(Lines[1]).toHaveStyleRule("visibility", "visible");
           });
@@ -247,7 +260,7 @@ describe("molecules / NavItem", () => {
             const { Lines } = setup({
               isActive: false
             });
-    
+
             expect(Lines[0]).toHaveStyleRule("visibility", "hidden");
             expect(Lines[1]).toHaveStyleRule("visibility", "hidden");
           });
@@ -258,7 +271,7 @@ describe("molecules / NavItem", () => {
             const { Lines } = setup({
               isActive: true
             });
-    
+
             expect(Lines[0]).toHaveStyleRule("width", "50%");
             expect(Lines[1]).toHaveStyleRule("width", "50%");
           });
@@ -267,7 +280,7 @@ describe("molecules / NavItem", () => {
             const { Lines } = setup({
               isActive: false
             });
-    
+
             expect(Lines[0]).toHaveStyleRule("width", "0");
             expect(Lines[1]).toHaveStyleRule("width", "0");
           });
@@ -277,10 +290,10 @@ describe("molecules / NavItem", () => {
 
     describe("Line[0]", () => {
       describe("Props", () => {
-        describe("direction", () => { 
+        describe("direction", () => {
           test("should be left", () => {
             const { Lines } = setup();
-    
+
             expect(Lines[0]).toHaveStyleRule("left", "50%");
           });
         });
@@ -289,14 +302,61 @@ describe("molecules / NavItem", () => {
 
     describe("Line[1]", () => {
       describe("Props", () => {
-        describe("direction", () => { 
+        describe("direction", () => {
           test("should be right", () => {
             const { Lines } = setup();
-    
+
             expect(Lines[1]).toHaveStyleRule("right", "50%");
           });
         });
       });
+    });
+  });
+
+  describe("arePropsEqual", () => {
+    test("should return true if prevProps.isActive === nextProps.isActive", () => {
+      expect(
+        arePropsEqual(
+          {
+            ...defaultProps,
+            isActive: true
+          },
+          {
+            ...defaultProps,
+            isActive: true
+          }
+        )
+      ).toEqual(true);
+    });
+
+    test("should return false if prevProps.isActive !== nextProps.isActive - test 1", () => {
+      expect(
+        arePropsEqual(
+          {
+            ...defaultProps,
+            isActive: false
+          },
+          {
+            ...defaultProps,
+            isActive: true
+          }
+        )
+      ).toEqual(false);
+    });
+
+    test("should return false if prevProps.isActive !== nextProps.isActive - test 1", () => {
+      expect(
+        arePropsEqual(
+          {
+            ...defaultProps,
+            isActive: true
+          },
+          {
+            ...defaultProps,
+            isActive: false
+          }
+        )
+      ).toEqual(false);
     });
   });
 });
@@ -311,14 +371,11 @@ type NavItemTestProps = Partial<NavItemProps>;
 
 function setup(additionalProps?: NavItemTestProps): Setup {
   const props: NavItemProps = {
-    href: "#element",
-    title: "Title",
+    ...defaultProps,
     ...additionalProps
   };
 
-  const utils: RenderResult = renderWithTheme(
-    <NavItem {...props} />
-  );
+  const utils: RenderResult = renderWithTheme(<NavItem {...props} />);
 
   const { queryAllByTestId, queryByTestId }: RenderResult = utils;
   const Lines: Element[] = queryAllByTestId("Line");

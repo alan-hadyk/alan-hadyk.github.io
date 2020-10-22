@@ -10,4 +10,3 @@ export interface LinkProps {
   isExternal?: boolean;
   isHoverable?: boolean;
 }
-

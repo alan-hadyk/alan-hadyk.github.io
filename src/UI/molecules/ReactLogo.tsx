@@ -15,21 +15,13 @@ const ReactLogo = (): JSX.Element => (
     paddingTop="1vh"
     width="100%"
   >
-    <FlexContainer 
+    <FlexContainer
       alignItems="center"
       dataTestId="ReactLogoFlexContainer"
       height="100%"
       justifyContent="center"
     >
-      <Icon
-        // animationTime="verySlow"
-        height="100%"
-        iconName="reactLogo"
-        isResponsive
-        // shouldDisplayGlowAnimation
-        // shouldRotate
-        width="100%"
-      />
+      <Icon height="100%" iconName="reactLogo" isResponsive width="100%" />
     </FlexContainer>
   </SpacingContainer>
 );

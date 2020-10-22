@@ -1,6 +1,4 @@
-import {
-  IconWithLabelProps
-} from "<molecules>/__typings__/IconWithLabel.d.ts";
+import { IconWithLabelProps } from "<molecules>/__typings__/IconWithLabel.d.ts";
 
 const iconsWithLabels: IconWithLabelProps[] = [
   {
@@ -22,7 +20,7 @@ const iconsWithLabels: IconWithLabelProps[] = [
   {
     iconName: "brandQunit",
     label: "QUnit"
-  } 
+  }
 ];
 
 export default {

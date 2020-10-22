@@ -7,19 +7,21 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 describe("molecules / Timeline", () => {
   test("should have correct structure", () => {
-    const { 
+    const {
       Hexagon,
       TimelineContainer,
       TimelineHexagonPositionContainer,
-      TimelineLine  
+      TimelineLine
     } = setup();
 
-    expect(TimelineContainer.children[0]).toEqual(TimelineHexagonPositionContainer);
+    expect(TimelineContainer.children[0]).toEqual(
+      TimelineHexagonPositionContainer
+    );
     expect(TimelineContainer.children[1]).toEqual(TimelineLine);
 
     expect(TimelineHexagonPositionContainer.children[0]).toEqual(Hexagon);
   });
-  
+
   describe("TimelineContainer", () => {
     describe("Props", () => {
       let TimelineContainer: Element;
@@ -28,66 +30,76 @@ describe("molecules / Timeline", () => {
         TimelineContainer = setup().TimelineContainer;
       });
 
-      describe("height", () => {      
+      describe("height", () => {
         test("should have 100%", () => {
           expect(TimelineContainer).toHaveStyleRule("height", "100%");
         });
       });
 
-      describe("position", () => {      
+      describe("position", () => {
         test("should have relative", () => {
           expect(TimelineContainer).toHaveStyleRule("position", "relative");
         });
       });
 
-      describe("width", () => {      
+      describe("width", () => {
         test("should have 1.6rem", () => {
           expect(TimelineContainer).toHaveStyleRule("width", "1.6rem");
         });
       });
     });
   });
-  
+
   describe("TimelineHexagonPositionContainer", () => {
     describe("Props", () => {
       let TimelineHexagonPositionContainer: Element;
 
       beforeEach(() => {
-        TimelineHexagonPositionContainer = setup().TimelineHexagonPositionContainer;
+        TimelineHexagonPositionContainer = setup()
+          .TimelineHexagonPositionContainer;
       });
 
-      describe("height", () => {      
+      describe("height", () => {
         test("should have 1.6rem", () => {
-          expect(TimelineHexagonPositionContainer).toHaveStyleRule("height", "1.6rem");
+          expect(TimelineHexagonPositionContainer).toHaveStyleRule(
+            "height",
+            "1.6rem"
+          );
         });
       });
 
-      describe("left", () => {      
+      describe("left", () => {
         test("should have 0", () => {
           expect(TimelineHexagonPositionContainer).toHaveStyleRule("left", "0");
         });
       });
 
-      describe("position", () => {      
+      describe("position", () => {
         test("should have absolute", () => {
-          expect(TimelineHexagonPositionContainer).toHaveStyleRule("position", "absolute");
+          expect(TimelineHexagonPositionContainer).toHaveStyleRule(
+            "position",
+            "absolute"
+          );
         });
       });
 
-      describe("top", () => {      
+      describe("top", () => {
         test("should have 0", () => {
           expect(TimelineHexagonPositionContainer).toHaveStyleRule("top", "0");
         });
       });
 
-      describe("width", () => {      
+      describe("width", () => {
         test("should have 1.6rem", () => {
-          expect(TimelineHexagonPositionContainer).toHaveStyleRule("width", "1.6rem");
+          expect(TimelineHexagonPositionContainer).toHaveStyleRule(
+            "width",
+            "1.6rem"
+          );
         });
       });
     });
   });
-  
+
   describe("Hexagon", () => {
     describe("Props", () => {
       let Hexagon: Element;
@@ -96,20 +108,24 @@ describe("molecules / Timeline", () => {
         Hexagon = setup().Hexagon;
       });
 
-      describe("fill", () => {      
+      describe("fill", () => {
         test("should have solid", () => {
           expect(Hexagon.children[0].textContent).toEqual("Hexagon.svg");
           expect(Hexagon.children[0]).toHaveStyleRule("fill", "#78b0b5", {
             modifier: "svg path"
           });
-          expect(Hexagon.children[0]).toHaveStyleRule("filter", "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", {
-            modifier: "svg"
-          });
+          expect(Hexagon.children[0]).toHaveStyleRule(
+            "filter",
+            "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))",
+            {
+              modifier: "svg"
+            }
+          );
         });
       });
     });
   });
-  
+
   describe("TimelineLine", () => {
     describe("Styles", () => {
       let TimelineLine: Element;
@@ -118,43 +134,43 @@ describe("molecules / Timeline", () => {
         TimelineLine = setup().TimelineLine;
       });
 
-      describe("background-color", () => {      
+      describe("background-color", () => {
         test("should have #78b0b5", () => {
           expect(TimelineLine).toHaveStyleRule("background-color", "#78b0b5");
         });
       });
-      
-      describe("bottom", () => {      
+
+      describe("bottom", () => {
         test("should have 0", () => {
           expect(TimelineLine).toHaveStyleRule("bottom", "0");
         });
       });
-      
-      describe("left", () => {      
+
+      describe("left", () => {
         test("should have 50%", () => {
           expect(TimelineLine).toHaveStyleRule("left", "50%");
         });
       });
-      
-      describe("position", () => {      
+
+      describe("position", () => {
         test("should have absolute", () => {
           expect(TimelineLine).toHaveStyleRule("position", "absolute");
         });
       });
-      
-      describe("top", () => {      
+
+      describe("top", () => {
         test("should have 0", () => {
           expect(TimelineLine).toHaveStyleRule("top", "0");
         });
       });
-      
-      describe("transform", () => {      
+
+      describe("transform", () => {
         test("should have translateX(-50%)", () => {
           expect(TimelineLine).toHaveStyleRule("transform", "translateX(-50%)");
         });
       });
-      
-      describe("width", () => {      
+
+      describe("width", () => {
         test("should have .2rem", () => {
           expect(TimelineLine).toHaveStyleRule("width", ".2rem");
         });
@@ -171,14 +187,14 @@ interface Setup extends RenderResult {
 }
 
 function setup(): Setup {
-  const utils: RenderResult = renderWithTheme(
-    <Timeline />
-  );
+  const utils: RenderResult = renderWithTheme(<Timeline />);
 
   const { queryAllByTestId } = utils || {};
   const Hexagon: Element = queryAllByTestId("Hexagon")[0];
   const TimelineContainer: Element = queryAllByTestId("Timeline")[0];
-  const TimelineHexagonPositionContainer: Element = queryAllByTestId("TimelineHexagonPositionContainer")[0];
+  const TimelineHexagonPositionContainer: Element = queryAllByTestId(
+    "TimelineHexagonPositionContainer"
+  )[0];
   const TimelineLine: Element = queryAllByTestId("TimelineLine")[0];
 
   return {

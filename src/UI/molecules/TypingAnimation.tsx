@@ -1,10 +1,9 @@
-import React, { useRef, useMemo } from "react";
+import React, { useRef } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import PositionContainer from "<layout>/PositionContainer";
 
 import useInterval from "<hooks>/useInterval";
-import useFpsCounter from "<hooks>/useFpsCounter";
 
 export const CODE = `import { useLayoutEffect } from "react";
 
@@ -45,19 +44,10 @@ export default function useIntersectionObserver({
 function TypingAnimation(): JSX.Element {
   const codeContainerRef = useRef<HTMLDivElement>(null);
   const currentChar = useRef<number>(0);
-  const { isPerformanceLow } = useFpsCounter({}) || {};
 
   useInterval(() => {
-    if (!isPerformanceLow) {
-      updateText();
-    }
+    updateText();
   }, 50);
-
-  useMemo(() => {
-    if (isPerformanceLow && codeContainerRef && codeContainerRef.current) {
-      codeContainerRef.current.innerHTML = CODE;
-    }
-  }, [isPerformanceLow]);
 
   return (
     <PositionContainer
@@ -66,9 +56,9 @@ function TypingAnimation(): JSX.Element {
       position="relative"
     >
       <TypingAnimation.Pre data-testid="TypingAnimationPre">
-        <TypingAnimation.Code 
+        <TypingAnimation.Code
           data-testid="TypingAnimationCode"
-          ref={codeContainerRef} 
+          ref={codeContainerRef}
         />
       </TypingAnimation.Pre>
     </PositionContainer>
@@ -117,14 +107,14 @@ TypingAnimation.Code = styled.code`
       animation-name: ${blink};
       animation-timing-function: ${easeInOut};
       background-color: ${blue100};
-      content: '';
+      content: "";
       display: inline-block;
       height: ${spacing8};
       margin-left: ${spacing4};
       transform: translateY(1px);
       width: ${spacing4};
     }
-  `}
+  `};
 `;
 
 export default TypingAnimation;

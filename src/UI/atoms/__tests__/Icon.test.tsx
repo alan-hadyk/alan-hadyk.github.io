@@ -5,9 +5,7 @@ import Icon from "<atoms>/Icon";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  IconProps
-} from "<atoms>/__typings__/Icon.d.ts";
+import { IconProps } from "<atoms>/__typings__/Icon.d.ts";
 
 describe("atoms / Icon", () => {
   describe("Styles", () => {
@@ -33,7 +31,6 @@ describe("atoms / Icon", () => {
 
         expect(IconContainer).toHaveStyleRule("height", "2.4rem");
       });
-
     });
 
     describe("overflow", () => {
@@ -88,19 +85,28 @@ describe("atoms / Icon", () => {
 
         describe("animation-duration", () => {
           test("should have 3600ms", () => {
-            expect(IconContainer).toHaveStyleRule("animation-duration", "3600ms");
+            expect(IconContainer).toHaveStyleRule(
+              "animation-duration",
+              "3600ms"
+            );
           });
         });
 
         describe("animation-iteration-count", () => {
           test("should have infinite", () => {
-            expect(IconContainer).toHaveStyleRule("animation-iteration-count", "infinite");
+            expect(IconContainer).toHaveStyleRule(
+              "animation-iteration-count",
+              "infinite"
+            );
           });
         });
 
         describe("animation-timing-function", () => {
           test("should have linear", () => {
-            expect(IconContainer).toHaveStyleRule("animation-timing-function", "linear");
+            expect(IconContainer).toHaveStyleRule(
+              "animation-timing-function",
+              "linear"
+            );
           });
         });
       });
@@ -123,11 +129,15 @@ describe("atoms / Icon", () => {
         });
 
         test("animation-iteration-count", () => {
-          expect(IconContainer).not.toHaveStyleRule("animation-iteration-count");
+          expect(IconContainer).not.toHaveStyleRule(
+            "animation-iteration-count"
+          );
         });
 
         test("animation-timing-function", () => {
-          expect(IconContainer).not.toHaveStyleRule("animation-timing-function");
+          expect(IconContainer).not.toHaveStyleRule(
+            "animation-timing-function"
+          );
         });
       });
     });
@@ -138,80 +148,80 @@ describe("atoms / Icon", () => {
           const { IconContainer } = setup({
             isResponsive: true
           });
-  
+
           expect(IconContainer).toHaveStyleRule("height", "100%", {
             modifier: "svg"
           });
         });
-  
+
         test("should have 100% if isHeightResponsive: true", () => {
           const { IconContainer } = setup({
             isHeightResponsive: true
           });
-  
+
           expect(IconContainer).toHaveStyleRule("height", "100%", {
             modifier: "svg"
           });
-        });  
-  
+        });
+
         test("should have auto if isResponsive: false and isHeightResponsive: false ", () => {
           const { IconContainer } = setup({
             isHeightResponsive: false,
             isResponsive: false
           });
-  
+
           expect(IconContainer).toHaveStyleRule("height", "auto", {
             modifier: "svg"
           });
-        });  
+        });
       });
-      
+
       describe("width", () => {
         test("should have 100% if isResponsive: true and isHeightResponsive: false", () => {
           const { IconContainer } = setup({
             isHeightResponsive: false,
             isResponsive: true
           });
-  
+
           expect(IconContainer).toHaveStyleRule("width", "100%", {
             modifier: "svg"
           });
         });
-  
+
         test("should have auto if isResponsive: false and isHeightResponsive: false", () => {
           const { IconContainer } = setup({
             isHeightResponsive: false,
             isResponsive: false
           });
-  
+
           expect(IconContainer).toHaveStyleRule("width", "auto", {
             modifier: "svg"
           });
         });
-  
+
         test("should have auto if isResponsive: true and isHeightResponsive: true", () => {
           const { IconContainer } = setup({
             isHeightResponsive: true,
             isResponsive: true
           });
-  
+
           expect(IconContainer).toHaveStyleRule("width", "auto", {
             modifier: "svg"
           });
         });
-  
+
         test("should have auto if isResponsive: false and isHeightResponsive: true", () => {
           const { IconContainer } = setup({
             isHeightResponsive: true,
             isResponsive: false
           });
-  
+
           expect(IconContainer).toHaveStyleRule("width", "auto", {
             modifier: "svg"
           });
         });
       });
-  
+
       describe("path", () => {
         describe("fill", () => {
           describe("when isActive is true", () => {
@@ -237,7 +247,7 @@ describe("atoms / Icon", () => {
           });
         });
       });
-    
+
       describe("animation-delay, animation-duration, animation-iteration-count, animation-timing-function", () => {
         describe("when shouldDisplayGlowAnimation is true", () => {
           describe("animation-delay", () => {
@@ -257,9 +267,13 @@ describe("atoms / Icon", () => {
                 shouldDisplayGlowAnimation: true
               });
 
-              expect(IconContainer).toHaveStyleRule("animation-delay", "150ms", {
-                modifier: "svg"
-              });
+              expect(IconContainer).toHaveStyleRule(
+                "animation-delay",
+                "150ms",
+                {
+                  modifier: "svg"
+                }
+              );
             });
           });
 
@@ -269,9 +283,13 @@ describe("atoms / Icon", () => {
                 shouldDisplayGlowAnimation: true
               });
 
-              expect(IconContainer).toHaveStyleRule("animation-duration", "900ms", {
-                modifier: "svg"
-              });
+              expect(IconContainer).toHaveStyleRule(
+                "animation-duration",
+                "900ms",
+                {
+                  modifier: "svg"
+                }
+              );
             });
 
             test("should have 300ms when passed via animationTime prop", () => {
@@ -280,9 +298,13 @@ describe("atoms / Icon", () => {
                 shouldDisplayGlowAnimation: true
               });
 
-              expect(IconContainer).toHaveStyleRule("animation-duration", "300ms", {
-                modifier: "svg"
-              });
+              expect(IconContainer).toHaveStyleRule(
+                "animation-duration",
+                "300ms",
+                {
+                  modifier: "svg"
+                }
+              );
             });
           });
 
@@ -292,9 +314,13 @@ describe("atoms / Icon", () => {
                 shouldDisplayGlowAnimation: true
               });
 
-              expect(IconContainer).toHaveStyleRule("animation-iteration-count", "infinite", {
-                modifier: "svg"
-              });
+              expect(IconContainer).toHaveStyleRule(
+                "animation-iteration-count",
+                "infinite",
+                {
+                  modifier: "svg"
+                }
+              );
             });
           });
 
@@ -304,9 +330,13 @@ describe("atoms / Icon", () => {
                 shouldDisplayGlowAnimation: true
               });
 
-              expect(IconContainer).toHaveStyleRule("animation-timing-function", "ease-in-out", {
-                modifier: "svg"
-              });
+              expect(IconContainer).toHaveStyleRule(
+                "animation-timing-function",
+                "ease-in-out",
+                {
+                  modifier: "svg"
+                }
+              );
             });
           });
         });
@@ -319,7 +349,7 @@ describe("atoms / Icon", () => {
               shouldDisplayGlowAnimation: false
             }).IconContainer;
           });
-          
+
           test("animation-name", () => {
             expect(IconContainer).not.toHaveStyleRule("animation-name", {
               modifier: "svg"
@@ -339,15 +369,21 @@ describe("atoms / Icon", () => {
           });
 
           test("animation-iteration-count", () => {
-            expect(IconContainer).not.toHaveStyleRule("animation-iteration-count", {
-              modifier: "svg"
-            });
+            expect(IconContainer).not.toHaveStyleRule(
+              "animation-iteration-count",
+              {
+                modifier: "svg"
+              }
+            );
           });
 
           test("animation-timing-function", () => {
-            expect(IconContainer).not.toHaveStyleRule("animation-timing-function", {
-              modifier: "svg"
-            });
+            expect(IconContainer).not.toHaveStyleRule(
+              "animation-timing-function",
+              {
+                modifier: "svg"
+              }
+            );
           });
         });
       });
@@ -358,9 +394,13 @@ describe("atoms / Icon", () => {
             shouldGlow: true
           });
 
-          expect(IconContainer).toHaveStyleRule("filter", "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", {
-            modifier: "svg"
-          });
+          expect(IconContainer).toHaveStyleRule(
+            "filter",
+            "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))",
+            {
+              modifier: "svg"
+            }
+          );
         });
 
         test("should not have filter - shouldGlow: false ", () => {
@@ -368,9 +408,13 @@ describe("atoms / Icon", () => {
             shouldGlow: false
           });
 
-          expect(IconContainer).not.toHaveStyleRule("filter", "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", {
-            modifier: "svg"
-          });
+          expect(IconContainer).not.toHaveStyleRule(
+            "filter",
+            "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))",
+            {
+              modifier: "svg"
+            }
+          );
         });
       });
 
@@ -381,9 +425,13 @@ describe("atoms / Icon", () => {
               shouldGlowOnHover: true
             });
 
-            expect(IconContainer).toHaveStyleRule("transition", "all 900ms ease-in-out 0ms", {
-              modifier: "svg"
-            });
+            expect(IconContainer).toHaveStyleRule(
+              "transition",
+              "all 900ms ease-in-out 0ms",
+              {
+                modifier: "svg"
+              }
+            );
           });
 
           test("should have all 150ms ease-in-out 0ms when animationTime: fast", () => {
@@ -392,9 +440,13 @@ describe("atoms / Icon", () => {
               shouldGlowOnHover: true
             });
 
-            expect(IconContainer).toHaveStyleRule("transition", "all 150ms ease-in-out 0ms", {
-              modifier: "svg"
-            });
+            expect(IconContainer).toHaveStyleRule(
+              "transition",
+              "all 150ms ease-in-out 0ms",
+              {
+                modifier: "svg"
+              }
+            );
           });
 
           test("should have all 900ms ease-in-out 150ms when animationDelay: 150ms", () => {
@@ -403,9 +455,13 @@ describe("atoms / Icon", () => {
               shouldGlowOnHover: true
             });
 
-            expect(IconContainer).toHaveStyleRule("transition", "all 900ms ease-in-out 150ms", {
-              modifier: "svg"
-            }); 
+            expect(IconContainer).toHaveStyleRule(
+              "transition",
+              "all 900ms ease-in-out 150ms",
+              {
+                modifier: "svg"
+              }
+            );
           });
         });
 
@@ -427,9 +483,13 @@ describe("atoms / Icon", () => {
               shouldGlowOnHover: true
             });
 
-            expect(IconContainer).toHaveStyleRule("filter", "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", {
-              modifier: "svg:hover"
-            });
+            expect(IconContainer).toHaveStyleRule(
+              "filter",
+              "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))",
+              {
+                modifier: "svg:hover"
+              }
+            );
           });
 
           test("should not have filter - shouldGlowOnHover: false ", () => {
@@ -437,11 +497,14 @@ describe("atoms / Icon", () => {
               shouldGlowOnHover: false
             });
 
-            expect(IconContainer).not.toHaveStyleRule("filter", "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", {
-              modifier: "svg:hover"
-            });
+            expect(IconContainer).not.toHaveStyleRule(
+              "filter",
+              "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))",
+              {
+                modifier: "svg:hover"
+              }
+            );
           });
-
         });
       });
     });
@@ -669,7 +732,7 @@ describe("atoms / Icon", () => {
         const { IconComponent } = setup({
           iconName: "brandJS"
         });
-  
+
         expect(IconComponent.textContent).toEqual("Brand-JS.svg");
       });
 
@@ -749,7 +812,7 @@ describe("atoms / Icon", () => {
         const { IconComponent } = setup({
           iconName: "brandReact"
         });
-  
+
         expect(IconComponent.textContent).toEqual("Brand-React.svg");
       });
 
@@ -837,7 +900,7 @@ describe("atoms / Icon", () => {
         const { IconComponent } = setup({
           iconName: "brandWebpack"
         });
-  
+
         expect(IconComponent.textContent).toEqual("Brand-Webpack.svg");
       });
 
@@ -845,7 +908,7 @@ describe("atoms / Icon", () => {
         const { IconComponent } = setup({
           iconName: "brandWebsocket"
         });
-  
+
         expect(IconComponent.textContent).toEqual("Brand-Websocket.svg");
       });
 
@@ -881,7 +944,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Btn-ExternalLink.svg");
       });
 
-      test("should render corect icon for calendar", () => {
+      test("should render correct icon for calendar", () => {
         const { IconComponent } = setup({
           iconName: "calendar"
         });
@@ -889,7 +952,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Calendar.svg");
       });
 
-      test("should render corect icon for chrome", () => {
+      test("should render correct icon for chrome", () => {
         const { IconComponent } = setup({
           iconName: "chrome"
         });
@@ -897,7 +960,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Chrome.svg");
       });
 
-      test("should render corect icon for codeSandbox", () => {
+      test("should render correct icon for codeSandbox", () => {
         const { IconComponent } = setup({
           iconName: "codeSandbox"
         });
@@ -905,7 +968,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-CodeSandbox.svg");
       });
 
-      test("should render corect icon for companyDIH", () => {
+      test("should render correct icon for companyDIH", () => {
         const { IconComponent } = setup({
           iconName: "companyDIH"
         });
@@ -913,7 +976,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Company-DiH.svg");
       });
 
-      test("should render corect icon for companyOmise", () => {
+      test("should render correct icon for companyOmise", () => {
         const { IconComponent } = setup({
           iconName: "companyOmise"
         });
@@ -921,7 +984,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Company-Omise.svg");
       });
 
-      test("should render corect icon for companySAP", () => {
+      test("should render correct icon for companySAP", () => {
         const { IconComponent } = setup({
           iconName: "companySAP"
         });
@@ -929,7 +992,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Company-SAP.svg");
       });
 
-      test("should render corect icon for companyShiji", () => {
+      test("should render correct icon for companyShiji", () => {
         const { IconComponent } = setup({
           iconName: "companyShiji"
         });
@@ -937,31 +1000,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Company-Shiji.svg");
       });
 
-      test("should render corect icon for firefox", () => {
-        const { IconComponent } = setup({
-          iconName: "firefox"
-        });
-
-        expect(IconComponent.textContent).toEqual("Icon-Firefox.svg");
-      });
-
-      test("should render corect icon for hexagon", () => {
-        const { IconComponent } = setup({
-          iconName: "hexagon"
-        });
-
-        expect(IconComponent.textContent).toEqual("Hexagon.svg");
-      });
-
-      test("should render corect icon for hexagonWithPattern", () => {
-        const { IconComponent } = setup({
-          iconName: "hexagonWithPattern"
-        });
-
-        expect(IconComponent.textContent).toEqual("Hexagon-With-Pattern.svg");
-      });
-
-      test("should render corect icon for earth", () => {
+      test("should render correct icon for earth", () => {
         const { IconComponent } = setup({
           iconName: "earth"
         });
@@ -969,7 +1008,15 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Earth.svg");
       });
 
-      test("should render corect icon for gitHub", () => {
+      test("should render correct icon for firefox", () => {
+        const { IconComponent } = setup({
+          iconName: "firefox"
+        });
+
+        expect(IconComponent.textContent).toEqual("Icon-Firefox.svg");
+      });
+
+      test("should render correct icon for gitHub", () => {
         const { IconComponent } = setup({
           iconName: "gitHub"
         });
@@ -985,7 +1032,23 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Graphql.svg");
       });
 
-      test("should render corect icon for ie", () => {
+      test("should render correct icon for hexagon", () => {
+        const { IconComponent } = setup({
+          iconName: "hexagon"
+        });
+
+        expect(IconComponent.textContent).toEqual("Hexagon.svg");
+      });
+
+      test("should render correct icon for hexagonWithPattern", () => {
+        const { IconComponent } = setup({
+          iconName: "hexagonWithPattern"
+        });
+
+        expect(IconComponent.textContent).toEqual("Hexagon-With-Pattern.svg");
+      });
+
+      test("should render correct icon for ie", () => {
         const { IconComponent } = setup({
           iconName: "ie"
         });
@@ -993,7 +1056,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-IE.svg");
       });
 
-      test("should render corect icon for javascript", () => {
+      test("should render correct icon for javascript", () => {
         const { IconComponent } = setup({
           iconName: "javascript"
         });
@@ -1033,8 +1096,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Node.svg");
       });
 
-
-      test("should render corect icon for opera", () => {
+      test("should render correct icon for opera", () => {
         const { IconComponent } = setup({
           iconName: "opera"
         });
@@ -1042,7 +1104,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Opera.svg");
       });
 
-      test("should render corect icon for react", () => {
+      test("should render correct icon for react", () => {
         const { IconComponent } = setup({
           iconName: "react"
         });
@@ -1058,7 +1120,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-ReactLogo.svg");
       });
 
-      test("should render corect icon for safari", () => {
+      test("should render correct icon for safari", () => {
         const { IconComponent } = setup({
           iconName: "safari"
         });
@@ -1066,7 +1128,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Safari.svg");
       });
 
-      test("should render corect icon for typescript", () => {
+      test("should render correct icon for typescript", () => {
         const { IconComponent } = setup({
           iconName: "typescript"
         });
@@ -1074,7 +1136,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Typescript.svg");
       });
 
-      test("should render corect icon for unknown", () => {
+      test("should render correct icon for unknown", () => {
         const { IconComponent } = setup({
           iconName: "unknown"
         });
@@ -1082,7 +1144,7 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Icon-Unknown.svg");
       });
 
-      test("should render corect icon for webpack", () => {
+      test("should render correct icon for webpack", () => {
         const { IconComponent } = setup({
           iconName: "webpack"
         });
@@ -1106,9 +1168,7 @@ function setup(additionalProps?: IconTestProps): Setup {
     ...additionalProps
   };
 
-  const utils: RenderResult = renderWithTheme(
-    <Icon {...props} />
-  );
+  const utils: RenderResult = renderWithTheme(<Icon {...props} />);
 
   const { queryByTestId }: RenderResult = utils;
 

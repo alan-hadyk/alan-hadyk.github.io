@@ -1,18 +1,13 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import {
-  LineProps
-} from "<atoms>/__typings__/Line.d.ts";
+import { LineProps } from "<atoms>/__typings__/Line.d.ts";
 
-const Line = ({
-  direction,
-  isActive = false
-}: LineProps): JSX.Element => (
+const Line = ({ direction, isActive = false }: LineProps): JSX.Element => (
   <Line.Container
     className="line"
     data-testid="Line"
-    direction={direction} 
+    direction={direction}
     isActive={isActive}
   />
 );
@@ -41,9 +36,9 @@ Line.Container = styled.div<LineProps>`
     width: ${isActive ? "50%" : 0};
     z-index: ${zIndex.layer1};
 
-    ${direction === "left" && "left: 50%;"}
-    ${direction === "right" && "right: 50%;"}
-  `}
+    ${direction === "left" && "left: 50%;"} ${direction === "right" &&
+    "right: 50%;"};
+  `};
 `;
 
 export default Line;

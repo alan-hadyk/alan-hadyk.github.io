@@ -4,10 +4,8 @@ import React from "react";
 
 import theme from "<styles>/theme";
 
-export default function renderWithTheme(children: JSX.Element | JSX.Element[]): RenderResult {
-  return render(
-    <ThemeProvider theme={theme}>
-      {children}
-    </ThemeProvider>
-  );
+export default function renderWithTheme(
+  children: JSX.Element | JSX.Element[]
+): RenderResult {
+  return render(<ThemeProvider theme={theme}>{children}</ThemeProvider>);
 }

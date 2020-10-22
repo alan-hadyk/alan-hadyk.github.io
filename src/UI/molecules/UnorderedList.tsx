@@ -7,13 +7,12 @@ import { UnorderedListProps } from "<molecules>/__typings__/UnorderedList.d.ts";
 import { ListItemProps } from "<atoms>/__typings__/ListItem.d.ts";
 
 const UnorderedList = ({ items }: UnorderedListProps): JSX.Element => (
-  <UnorderedList.Container
-    data-cy="UnorderedList"
-    data-testid="UnorderedList"
-  >
-    {items.map((item: ListItemProps["children"], index: number): JSX.Element => (
-      <ListItem key={index}>{item}</ListItem>
-    ))}
+  <UnorderedList.Container data-cy="UnorderedList" data-testid="UnorderedList">
+    {items.map(
+      (item: ListItemProps["children"], index: number): JSX.Element => (
+        <ListItem key={index}>{item}</ListItem>
+      )
+    )}
   </UnorderedList.Container>
 );
 
@@ -34,7 +33,7 @@ UnorderedList.Container = styled.ul`
       &::before {
         background: ${blue100};
         border-radius: 50%;
-        content: '';
+        content: "";
         display: inline-block;
         height: ${spacing8};
         margin-right: ${spacing8};
@@ -44,7 +43,7 @@ UnorderedList.Container = styled.ul`
         width: ${spacing8};
       }
     }
-  `}
+  `};
 `;
-  
+
 export default UnorderedList;

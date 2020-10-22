@@ -5,9 +5,7 @@ import FlexItem from "<layout>/FlexItem";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  FlexItemProps
-} from "<layout>/__typings__/FlexItem.d.ts";
+import { FlexItemProps } from "<layout>/__typings__/FlexItem.d.ts";
 
 describe("layout / FlexItem", () => {
   test("should render children", () => {
@@ -17,150 +15,150 @@ describe("layout / FlexItem", () => {
 
     expect(FlexItem.textContent).toEqual("Custom children");
   });
-  
+
   describe("Styles", () => {
-    describe("align-self", () => {      
+    describe("align-self", () => {
       test("should have auto by default", () => {
         const { FlexItem } = setup();
-  
+
         expect(FlexItem).toHaveStyleRule("align-self", "auto");
       });
-  
-      test("should have stretch when passed via prop", () => {
+
+      test("should have stretch passed via alignSelf prop", () => {
         const { FlexItem } = setup({
           alignSelf: "stretch"
         });
-  
+
         expect(FlexItem).toHaveStyleRule("align-self", "stretch");
       });
-  
-      test("should have flex-start when passed via prop", () => {
+
+      test("should have flex-start passed via alignSelf prop", () => {
         const { FlexItem } = setup({
           alignSelf: "flex-start"
         });
-  
+
         expect(FlexItem).toHaveStyleRule("align-self", "flex-start");
       });
-  
-      test("should have flex-end when passed via prop", () => {
+
+      test("should have flex-end passed via alignSelf prop", () => {
         const { FlexItem } = setup({
           alignSelf: "flex-end"
         });
-  
+
         expect(FlexItem).toHaveStyleRule("align-self", "flex-end");
       });
-  
-      test("should have baseline when passed via prop", () => {
+
+      test("should have baseline passed via alignSelf prop", () => {
         const { FlexItem } = setup({
           alignSelf: "baseline"
         });
-  
+
         expect(FlexItem).toHaveStyleRule("align-self", "baseline");
       });
-  
-      test("should have center when passed via prop", () => {
+
+      test("should have center passed via alignSelf prop", () => {
         const { FlexItem } = setup({
           alignSelf: "center"
         });
-  
+
         expect(FlexItem).toHaveStyleRule("align-self", "center");
       });
     });
- 
-    describe("flex", () => {      
-      test("should have 1 0 15% when passed via prop", () => {
+
+    describe("flex", () => {
+      test("should have 1 0 15% passed via flex prop", () => {
         const { FlexItem } = setup({
           flex: "1 0 15%"
         });
-  
+
         expect(FlexItem).toHaveStyleRule("flex", "1 0 15%");
       });
-  
-      test("should have 0 1 50% when passed via prop", () => {
+
+      test("should have 0 1 50% passed via flex prop", () => {
         const { FlexItem } = setup({
           flex: "0 1 50%"
         });
-  
+
         expect(FlexItem).toHaveStyleRule("flex", "0 1 50%");
       });
     });
 
-    describe("height", () => {      
+    describe("height", () => {
       test("should have unset by default", () => {
         const { FlexItem } = setup();
-  
+
         expect(FlexItem).toHaveStyleRule("height", "unset");
       });
-  
-      test("should have correct value when passed via prop", () => {
+
+      test("should have correct value passed via height prop", () => {
         const { FlexItem } = setup({
           height: "spacing24"
         });
-  
+
         expect(FlexItem).toHaveStyleRule("height", "2.4rem");
       });
     });
- 
-    describe("order", () => {      
+
+    describe("order", () => {
       test("should have 0 by default", () => {
         const { FlexItem } = setup();
-  
+
         expect(FlexItem).toHaveStyleRule("order", "0");
       });
-  
-      test("should have 4 when passed via prop", () => {
+
+      test("should have 4 passed via order prop", () => {
         const { FlexItem } = setup({
           order: 4
         });
-  
+
         expect(FlexItem).toHaveStyleRule("order", "4");
       });
     });
 
-    describe("overflow", () => {      
+    describe("overflow", () => {
       test("should have auto by default", () => {
         const { FlexItem } = setup();
-  
+
         expect(FlexItem).toHaveStyleRule("overflow", "auto");
       });
-  
-      test("should have correct value when passed via prop", () => {
+
+      test("should have correct value passed via overflow prop", () => {
         const { FlexItem } = setup({
           overflow: "hidden"
         });
-  
+
         expect(FlexItem).toHaveStyleRule("overflow", "hidden");
       });
     });
 
-    describe("padding-bottom", () => {      
+    describe("padding-bottom", () => {
       test("should have 0 by default", () => {
         const { FlexItem } = setup();
-  
+
         expect(FlexItem).toHaveStyleRule("padding-bottom", "0");
       });
-  
-      test("should have correct value when passed via prop", () => {
+
+      test("should have correct value passed via paddingBottom prop", () => {
         const { FlexItem } = setup({
           paddingBottom: "spacing24"
         });
-  
+
         expect(FlexItem).toHaveStyleRule("padding-bottom", "2.4rem");
       });
     });
 
-    describe("padding-top", () => {      
+    describe("padding-top", () => {
       test("should have 0 by default", () => {
         const { FlexItem } = setup();
-  
+
         expect(FlexItem).toHaveStyleRule("padding-top", "0");
       });
-  
-      test("should have correct value when passed via prop", () => {
+
+      test("should have correct value passed via paddingTop prop", () => {
         const { FlexItem } = setup({
           paddingTop: "spacing24"
         });
-  
+
         expect(FlexItem).toHaveStyleRule("padding-top", "2.4rem");
       });
     });
@@ -181,9 +179,7 @@ function setup(additionalProps?: FlexItemTestProps): Setup {
   };
 
   const utils: RenderResult = renderWithTheme(
-    <FlexItem {...props}>
-      {props.children}
-    </FlexItem>
+    <FlexItem {...props}>{props.children}</FlexItem>
   );
 
   const { container } = utils || {};

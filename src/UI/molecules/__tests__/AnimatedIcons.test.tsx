@@ -7,7 +7,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 describe("molecules / AnimatedIcons", () => {
   test("should have correct structure", () => {
-    const { 
+    const {
       FlexContainer,
       IconContainers,
       Icons,
@@ -24,9 +24,9 @@ describe("molecules / AnimatedIcons", () => {
     });
   });
 
-  describe("SpacingContainer", () => {    
+  describe("SpacingContainer", () => {
     describe("Props", () => {
-      describe("height", () => { 
+      describe("height", () => {
         test("should have 100%", () => {
           const { SpacingContainer } = setup();
 
@@ -34,7 +34,7 @@ describe("molecules / AnimatedIcons", () => {
         });
       });
 
-      describe("paddingBottom", () => { 
+      describe("paddingBottom", () => {
         test("should have .8rem", () => {
           const { SpacingContainer } = setup();
 
@@ -42,7 +42,7 @@ describe("molecules / AnimatedIcons", () => {
         });
       });
 
-      describe("paddingLeft", () => { 
+      describe("paddingLeft", () => {
         test("should have .8rem", () => {
           const { SpacingContainer } = setup();
 
@@ -50,7 +50,7 @@ describe("molecules / AnimatedIcons", () => {
         });
       });
 
-      describe("paddingRight", () => { 
+      describe("paddingRight", () => {
         test("should have .8rem", () => {
           const { SpacingContainer } = setup();
 
@@ -58,7 +58,7 @@ describe("molecules / AnimatedIcons", () => {
         });
       });
 
-      describe("paddingTop", () => { 
+      describe("paddingTop", () => {
         test("should have .8rem", () => {
           const { SpacingContainer } = setup();
 
@@ -66,7 +66,7 @@ describe("molecules / AnimatedIcons", () => {
         });
       });
 
-      describe("width", () => { 
+      describe("width", () => {
         test("should have 100%", () => {
           const { SpacingContainer } = setup();
 
@@ -76,9 +76,9 @@ describe("molecules / AnimatedIcons", () => {
     });
   });
 
-  describe("FlexContainer", () => {    
+  describe("FlexContainer", () => {
     describe("Props", () => {
-      describe("alignItems", () => { 
+      describe("alignItems", () => {
         test("should have center", () => {
           const { FlexContainer } = setup();
 
@@ -86,7 +86,7 @@ describe("molecules / AnimatedIcons", () => {
         });
       });
 
-      describe("flexFlow", () => { 
+      describe("flexFlow", () => {
         test("should have row nowrap", () => {
           const { FlexContainer } = setup();
 
@@ -94,7 +94,7 @@ describe("molecules / AnimatedIcons", () => {
         });
       });
 
-      describe("height", () => { 
+      describe("height", () => {
         test("should have 100%", () => {
           const { FlexContainer } = setup();
 
@@ -102,7 +102,7 @@ describe("molecules / AnimatedIcons", () => {
         });
       });
 
-      describe("justifyContent", () => { 
+      describe("justifyContent", () => {
         test("should have center", () => {
           const { FlexContainer } = setup();
 
@@ -114,35 +114,38 @@ describe("molecules / AnimatedIcons", () => {
 
   describe("PositionContainer", () => {
     describe("Props", () => {
-      describe("height", () => { 
+      describe("height", () => {
         test("should be 100%", () => {
           const { PositionContainers } = setup();
-  
+
           PositionContainers.forEach((PositionContainer) => {
             expect(PositionContainer).toHaveStyleRule("height", "100%");
           });
         });
-      });   
+      });
 
-      describe("position", () => { 
+      describe("position", () => {
         test("should be relative", () => {
           const { PositionContainers } = setup();
-  
+
           PositionContainers.forEach((PositionContainer) => {
             expect(PositionContainer).toHaveStyleRule("position", "relative");
           });
         });
       });
 
-      describe("width", () => { 
+      describe("width", () => {
         test("should be 14.285714285714286%", () => {
           const { PositionContainers } = setup();
-  
+
           PositionContainers.forEach((PositionContainer) => {
-            expect(PositionContainer).toHaveStyleRule("width", "14.285714285714286%");
+            expect(PositionContainer).toHaveStyleRule(
+              "width",
+              "14.285714285714286%"
+            );
           });
         });
-      });   
+      });
     });
   });
 
@@ -166,11 +169,11 @@ describe("molecules / AnimatedIcons", () => {
     });
 
     describe("Props", () => {
-      describe("height", () => { 
+      describe("height", () => {
         test("should have 100%", () => {
           const { IconContainers } = setup();
 
-          IconContainers.forEach(IconContainer => {
+          IconContainers.forEach((IconContainer) => {
             expect(IconContainer).toHaveStyleRule("height", "100%");
           });
         });
@@ -180,7 +183,7 @@ describe("molecules / AnimatedIcons", () => {
         describe("height", () => {
           test("should have 100%", () => {
             const { IconContainers } = setup();
-      
+
             IconContainers.forEach((IconContainer) => {
               expect(IconContainer).toHaveStyleRule("height", "100%", {
                 modifier: "svg"
@@ -192,7 +195,7 @@ describe("molecules / AnimatedIcons", () => {
         describe("width", () => {
           test("should have 100%", () => {
             const { IconContainers } = setup();
-      
+
             IconContainers.forEach((IconContainer) => {
               expect(IconContainer).toHaveStyleRule("width", "100%", {
                 modifier: "svg"
@@ -202,11 +205,11 @@ describe("molecules / AnimatedIcons", () => {
         });
       });
 
-      describe("width", () => { 
+      describe("width", () => {
         test("should have 100%", () => {
           const { IconContainers } = setup();
 
-          IconContainers.forEach(IconContainer => {
+          IconContainers.forEach((IconContainer) => {
             expect(IconContainer).toHaveStyleRule("width", "100%");
           });
         });
@@ -224,9 +227,7 @@ interface Setup extends RenderResult {
 }
 
 function setup(): Setup {
-  const utils: RenderResult = renderWithTheme(
-    <AnimatedIcons />
-  );
+  const utils: RenderResult = renderWithTheme(<AnimatedIcons />);
 
   const { queryAllByTestId, queryByTestId }: RenderResult = utils;
   const FlexContainer: Element = queryByTestId("AnimatedIconsFlexContainer");

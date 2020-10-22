@@ -22,9 +22,9 @@ const ProjectDescriptionTechnologies = ({
       fontWeight="bold"
       lineHeight="spacing40"
     >
-    Made with:
+      Made with:
     </Text>
-    
+
     <SpacingContainer
       dataTestId="ProjectDescriptionTechnologiesSpacingContainer"
       marginTop="spacing8"

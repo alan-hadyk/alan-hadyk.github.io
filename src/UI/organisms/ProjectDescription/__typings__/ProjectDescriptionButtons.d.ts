@@ -1,7 +1,5 @@
-import {
-  ButtonProps
-} from "<molecules>/__typings__/Button.d.ts";
+import { ButtonProps } from "<molecules>/__typings__/Button.d.ts";
 
 export interface ProjectDescriptionButtonsProps {
-  size: ButtonProps["size"];
+  size?: ButtonProps["size"];
 }

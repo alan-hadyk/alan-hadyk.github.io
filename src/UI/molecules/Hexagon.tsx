@@ -15,21 +15,13 @@ const Hexagon = ({
   dataTestId,
   fill = "none"
 }: HexagonProps): JSX.Element => (
-  <Hexagon.Container
-    data-cy={dataCy}
-    data-testid={dataTestId || "Hexagon"}
-  >
-    {fill === "pattern" ?
-      <Icon 
-        iconName="hexagonWithPattern"
-      /> :
-      <Icon 
-        iconName="hexagon"
-        isActive={fill === "solid"}
-        shouldGlow
-      />
-    }
-    
+  <Hexagon.Container data-cy={dataCy} data-testid={dataTestId || "Hexagon"}>
+    {fill === "pattern" ? (
+      <Icon iconName="hexagonWithPattern" />
+    ) : (
+      <Icon iconName="hexagon" isActive={fill === "solid"} shouldGlow />
+    )}
+
     {children && (
       <Hexagon.InnerContainer
         data-testid="HexagonInnerContainer"
@@ -46,15 +38,13 @@ Hexagon.Container = styled.div`
 `;
 
 Hexagon.InnerContainer = styled.div<HexagonInnerContainerProps>`
-  ${({
-    width
-  }): FlattenSimpleInterpolation => css`
+  ${({ width }): FlattenSimpleInterpolation => css`
     left: 50%;
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
     width: ${width};
-  `}
+  `};
 `;
 
 export default Hexagon;

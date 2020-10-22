@@ -39,6 +39,7 @@ const items: Data[] = [
 const SkillsSection = (): JSX.Element => (
   <Section
     dataCy="Skills"
+    dataTestId="SkillsSection"
     id="skills"
     title="Skills"
   >

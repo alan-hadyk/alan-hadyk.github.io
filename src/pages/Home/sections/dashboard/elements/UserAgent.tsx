@@ -10,10 +10,10 @@ export const UserAgent = (): JSX.Element => (
     description={window && window.navigator && window.navigator.userAgent}
     flex="1 0 20%"
     shouldDisplayCorners
-    title="User Agent" 
+    title="User Agent"
   >
     <BrowserInfo />
   </DashboardElement>
 );
-  
+
 export default UserAgent;

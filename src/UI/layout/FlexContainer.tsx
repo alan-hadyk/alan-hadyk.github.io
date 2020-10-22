@@ -41,9 +41,7 @@ FlexContainer.Container = styled.div<FlexContainerProps>`
     height,
     justifyContent,
     maxWidth,
-    theme: {
-      spacing
-    }
+    theme: { spacing }
   }): FlattenSimpleInterpolation => css`
     align-items: ${alignItems};
     display: flex;
@@ -52,16 +50,17 @@ FlexContainer.Container = styled.div<FlexContainerProps>`
     justify-content: ${justifyContent};
     max-width: ${(maxWidth in spacing && spacing[maxWidth]) || maxWidth};
 
-    ${gap !== "spacing0" && `
+    ${gap !== "spacing0" &&
+    `
       & > * {
         ${calculateGap({ flexFlow, gap })}
       }
-    `} 
-  `}
+    `};
+  `};
 `;
 
 function calculateGap({ flexFlow, gap }: CalculateGap): string {
-  switch(flexFlow) {
+  switch (flexFlow) {
   case "row nowrap":
     return `
       margin-left: ${(gap in spacing && spacing[gap]) || gap};
@@ -88,5 +87,5 @@ function calculateGap({ flexFlow, gap }: CalculateGap): string {
     `;
   }
 }
-  
+
 export default FlexContainer;

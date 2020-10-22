@@ -7,7 +7,7 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 describe("molecules / ReactLogo", () => {
   test("should have correct structure", () => {
-    const { 
+    const {
       FlexContainer,
       IconContainer,
       ReactLogoIcon,
@@ -19,7 +19,7 @@ describe("molecules / ReactLogo", () => {
     expect(IconContainer.children[0]).toEqual(ReactLogoIcon);
   });
 
-  describe("SpacingContainer", () => {    
+  describe("SpacingContainer", () => {
     describe("Props", () => {
       describe("height", () => {
         test("should have 100%", () => {
@@ -71,9 +71,9 @@ describe("molecules / ReactLogo", () => {
     });
   });
 
-  describe("FlexContainer", () => {    
+  describe("FlexContainer", () => {
     describe("Props", () => {
-      describe("alignItems", () => { 
+      describe("alignItems", () => {
         test("should have center", () => {
           const { FlexContainer } = setup();
 
@@ -81,7 +81,7 @@ describe("molecules / ReactLogo", () => {
         });
       });
 
-      describe("justifyContent", () => { 
+      describe("justifyContent", () => {
         test("should have center", () => {
           const { FlexContainer } = setup();
 
@@ -89,7 +89,7 @@ describe("molecules / ReactLogo", () => {
         });
       });
 
-      describe("height", () => { 
+      describe("height", () => {
         test("should have 100%", () => {
           const { FlexContainer } = setup();
 
@@ -107,7 +107,7 @@ describe("molecules / ReactLogo", () => {
     });
 
     describe("Props", () => {
-      describe.skip("animationTime", () => {      
+      describe.skip("animationTime", () => {
         test("should have 3600ms", () => {
           const { IconContainer } = setup();
 
@@ -115,7 +115,7 @@ describe("molecules / ReactLogo", () => {
         });
       });
 
-      describe("height", () => { 
+      describe("height", () => {
         test("should have 100%", () => {
           const { IconContainer } = setup();
 
@@ -123,11 +123,11 @@ describe("molecules / ReactLogo", () => {
         });
       });
 
-      describe("isResponsive", () => { 
+      describe("isResponsive", () => {
         describe("height", () => {
           test("should have 100%", () => {
             const { IconContainer } = setup();
-  
+
             expect(IconContainer).toHaveStyleRule("height", "100%", {
               modifier: "svg"
             });
@@ -137,7 +137,7 @@ describe("molecules / ReactLogo", () => {
         describe("width", () => {
           test("should have 100%", () => {
             const { IconContainer } = setup();
-  
+
             expect(IconContainer).toHaveStyleRule("width", "100%", {
               modifier: "svg"
             });
@@ -160,29 +160,41 @@ describe("molecules / ReactLogo", () => {
           test("should have 3600ms", () => {
             const { IconContainer } = setup();
 
-            expect(IconContainer).toHaveStyleRule("animation-duration", "3600ms", {
-              modifier: "svg"
-            });
+            expect(IconContainer).toHaveStyleRule(
+              "animation-duration",
+              "3600ms",
+              {
+                modifier: "svg"
+              }
+            );
           });
         });
 
-        describe("animation-iteration-count", () => {      
+        describe("animation-iteration-count", () => {
           test("should have infinite", () => {
             const { IconContainer } = setup();
 
-            expect(IconContainer).toHaveStyleRule("animation-iteration-count", "infinite", {
-              modifier: "svg"
-            });
+            expect(IconContainer).toHaveStyleRule(
+              "animation-iteration-count",
+              "infinite",
+              {
+                modifier: "svg"
+              }
+            );
           });
         });
 
-        describe("animation-timing-function", () => {      
+        describe("animation-timing-function", () => {
           test("should have ease-in-out", () => {
             const { IconContainer } = setup();
 
-            expect(IconContainer).toHaveStyleRule("animation-timing-function", "ease-in-out", {
-              modifier: "svg"
-            });
+            expect(IconContainer).toHaveStyleRule(
+              "animation-timing-function",
+              "ease-in-out",
+              {
+                modifier: "svg"
+              }
+            );
           });
         });
       });
@@ -192,28 +204,37 @@ describe("molecules / ReactLogo", () => {
           test("should have 3600ms", () => {
             const { IconContainer } = setup();
 
-            expect(IconContainer).toHaveStyleRule("animation-duration", "3600ms");
+            expect(IconContainer).toHaveStyleRule(
+              "animation-duration",
+              "3600ms"
+            );
           });
         });
 
-        describe("animation-iteration-count", () => {      
+        describe("animation-iteration-count", () => {
           test("should have infinite", () => {
             const { IconContainer } = setup();
 
-            expect(IconContainer).toHaveStyleRule("animation-iteration-count", "infinite");
+            expect(IconContainer).toHaveStyleRule(
+              "animation-iteration-count",
+              "infinite"
+            );
           });
         });
 
-        describe("animation-timing-function", () => {      
+        describe("animation-timing-function", () => {
           test("should have linear", () => {
             const { IconContainer } = setup();
 
-            expect(IconContainer).toHaveStyleRule("animation-timing-function", "linear");
+            expect(IconContainer).toHaveStyleRule(
+              "animation-timing-function",
+              "linear"
+            );
           });
         });
       });
 
-      describe("width", () => { 
+      describe("width", () => {
         test("should have 100%", () => {
           const { IconContainer } = setup();
 
@@ -232,9 +253,7 @@ interface Setup extends RenderResult {
 }
 
 function setup(): Setup {
-  const utils: RenderResult = renderWithTheme(
-    <ReactLogo />
-  );
+  const utils: RenderResult = renderWithTheme(<ReactLogo />);
 
   const { queryByTestId }: RenderResult = utils;
   const FlexContainer: Element = queryByTestId("ReactLogoFlexContainer");

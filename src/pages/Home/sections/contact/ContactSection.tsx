@@ -8,17 +8,12 @@ import FlexContainer from "<layout>/FlexContainer";
 const ContactSection = (): JSX.Element => (
   <Section
     dataCy="Contact"
+    dataTestId="ContactSection"
     id="contact"
     title="Contact"
   >
-    <FlexContainer
-      justifyContent="center"
-    >
-      <Link
-        dataCy="EmailLink"
-        href="mailto:alan.hadyk@gmail.com"
-        isHoverable
-      >
+    <FlexContainer justifyContent="center">
+      <Link dataCy="EmailLink" href="mailto:alan.hadyk@gmail.com" isHoverable>
         <Text
           color="blue300"
           dataTestId="EmailText"

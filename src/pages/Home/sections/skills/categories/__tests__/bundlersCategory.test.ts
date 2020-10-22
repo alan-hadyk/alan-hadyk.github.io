@@ -1,6 +1,6 @@
 import bundlersCategory from "<pages>/Home/sections/skills/categories/bundlersCategory";
 
-describe("pages / Home / sections / skills / categories/ bundlersCategory", () => {
+describe("pages / Home / sections / skills / categories / bundlersCategory", () => {
   test("should have correct content", () => {
     expect(bundlersCategory).toEqual({
       iconsWithLabels: [

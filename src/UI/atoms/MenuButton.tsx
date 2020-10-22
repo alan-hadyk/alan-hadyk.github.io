@@ -27,23 +27,11 @@ const MenuButton = ({
 MenuButton.Container = styled.button`
   ${({
     theme: {
-      colorPalette: {
-        white
-      },
-      easing: {
-        easeInOut
-      },
-      spacing: {
-        spacing2,
-        spacing30,
-        spacing48
-      },
-      transitionTimes: {
-        fast
-      },
-      zIndex: {
-        layer11
-      }
+      colorPalette: { white },
+      easing: { easeInOut },
+      spacing: { spacing2, spacing30, spacing48 },
+      transitionTimes: { fast },
+      zIndex: { layer11 }
     }
   }): FlattenSimpleInterpolation => css`
     background: none;
@@ -57,28 +45,17 @@ MenuButton.Container = styled.button`
     &:hover {
       filter: drop-shadow(0px 0px ${spacing2} ${transparentize(0.1, white)});
     }
-  `}
+  `};
 `;
 
 MenuButton.Line = styled.span<MenuButtonLineProps>`
   ${({
     isOpen,
     theme: {
-      colorPalette: {
-        white
-      },
-      easing: {
-        easeInOut
-      },
-      spacing: {
-        spacing0,
-        spacing2,
-        spacing14,
-        spacing28
-      },
-      transitionTimes: {
-        fast
-      }
+      colorPalette: { white },
+      easing: { easeInOut },
+      spacing: { spacing0, spacing2, spacing14, spacing28 },
+      transitionTimes: { fast }
     }
   }): FlattenSimpleInterpolation => css`
     background: ${white};
@@ -92,7 +69,8 @@ MenuButton.Line = styled.span<MenuButtonLineProps>`
       top: ${spacing0};
     }
 
-    &:nth-child(2), &:nth-child(3) {
+    &:nth-child(2),
+    &:nth-child(3) {
       top: ${spacing14};
     }
 
@@ -100,7 +78,8 @@ MenuButton.Line = styled.span<MenuButtonLineProps>`
       top: ${spacing28};
     }
 
-    ${isOpen && `
+    ${isOpen &&
+    `
       &:nth-child(1) {
         left: 50%;
         top: ${spacing14};
@@ -120,8 +99,8 @@ MenuButton.Line = styled.span<MenuButtonLineProps>`
         top: ${spacing14};
         width: 0;
       }
-    `}
-  `}
+    `};
+  `};
 `;
 
 export default MenuButton;

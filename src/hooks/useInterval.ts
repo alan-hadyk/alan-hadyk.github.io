@@ -1,6 +1,9 @@
 import { useEffect, useRef } from "react";
 
-export default function useInterval(callback: VoidFunction, delay: number): void {
+export default function useInterval(
+  callback: VoidFunction,
+  delay: number
+): void {
   const savedCallback = useRef<VoidFunction>(() => false);
 
   useEffect(() => {
@@ -9,10 +12,8 @@ export default function useInterval(callback: VoidFunction, delay: number): void
 
   useEffect(() => {
     const tick = (): void => savedCallback && savedCallback.current();
+    const id: number = setInterval(tick, delay);
 
-    if (delay !== null) {
-      const id: number = setInterval(tick, delay);
-      return (): void => clearInterval(id);
-    }
+    return (): void => clearInterval(id);
   }, [delay]);
 }

@@ -1,10 +1,7 @@
 import { useLayoutEffect, useRef } from "react";
 
-import {
-  UseResizeArgs
-} from "<hooks>/__typings__/useResize.d.ts";
+import { UseResizeArgs } from "<hooks>/__typings__/useResize.d.ts";
 
-// TODO: Add tests for this hook
 export default function useResize({
   breakpoint,
   callback

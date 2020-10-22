@@ -76,11 +76,16 @@ function Button({
       width={width}
     >
       <Corners isActive={isActive} />
-      <Button.InnerContainer ref={buttonInnerContainerRef} data-testid="ButtonInnerContainer">
-        <SpacingContainer paddingRight={buttonPadding} paddingLeft={buttonPadding} width="100%">
-          <FlexContainer
-            flexFlow="row wrap"
-          >
+      <Button.InnerContainer
+        ref={buttonInnerContainerRef}
+        data-testid="ButtonInnerContainer"
+      >
+        <SpacingContainer
+          paddingRight={buttonPadding}
+          paddingLeft={buttonPadding}
+          width="100%"
+        >
+          <FlexContainer flexFlow="row wrap">
             <ButtonText buttonText={buttonText} size={size} />
             <Icon
               height={size === "small" ? spacing.spacing12 : spacing.spacing24}
@@ -113,7 +118,10 @@ function Button({
 
     if (buttonInnerContainerRef.current) {
       const { clientX, clientY }: React.MouseEvent = event;
-      const { x, y }: ButtonInnnerContainerPositions = buttonInnerContainerRef.current.getBoundingClientRect();
+      const {
+        x,
+        y
+      }: ButtonInnnerContainerPositions = buttonInnerContainerRef.current.getBoundingClientRect();
 
       const span: HTMLSpanElement = document.createElement("span");
       span.classList.add("ripple");
@@ -150,26 +158,17 @@ Button.Container = styled.button<ButtonContainerProps>`
     border,
     borderColor,
     theme: {
-      colorPalette: {
-        blue200,
-        blue300,
-        white
-      },
-      easing: {
-        easeInOut
-      },
-      keyframes: {
-        ripple
-      },
+      colorPalette: { blue200, blue300, white },
+      easing: { easeInOut },
+      keyframes: { ripple },
       spacing,
-      transitionTimes: {
-        fast,
-        slow
-      }
+      transitionTimes: { fast, slow }
     },
     width
   }): FlattenSimpleInterpolation => css`
-    background-color: ${(backgroundColor in colorPalette && colorPalette[backgroundColor]) || backgroundColor};
+    background-color: ${(backgroundColor in colorPalette &&
+      colorPalette[backgroundColor]) ||
+    backgroundColor};
     border: ${border};
     border-color: ${borderColor in colorPalette && colorPalette[borderColor]};
     color: ${white};
@@ -183,7 +182,8 @@ Button.Container = styled.button<ButtonContainerProps>`
     width: ${width};
 
     &:hover {
-      box-shadow: inset 0px 0px ${spacing.spacing16} 0px ${transparentize(0.5, blue200)};
+      box-shadow: inset 0px 0px ${spacing.spacing16} 0px
+        ${transparentize(0.5, blue200)};
     }
 
     .ripple {
@@ -191,7 +191,10 @@ Button.Container = styled.button<ButtonContainerProps>`
       animation-name: ${ripple};
       ${radialGradient({
     // eslint-disable-next-line indent
-        colorStops: [`${transparentize(0.5, blue300)} 0%`, `${transparentize(1, blue200)} 50%`],
+        colorStops: [
+      `${transparentize(0.5, blue300)} 0%`,
+      `${transparentize(1, blue200)} 50%`
+    ],
     // eslint-disable-next-line indent
         extent: `farthest-corner at ${spacing.spacing12} ${spacing.spacing12}`,
     // eslint-disable-next-line indent
@@ -199,8 +202,7 @@ Button.Container = styled.button<ButtonContainerProps>`
     // eslint-disable-next-line indent
         shape: "ellipse"
     // eslint-disable-next-line indent
-      })}
-      border-radius: 50%;
+      })} border-radius: 50%;
       height: ${spacing.spacing24};
       margin-left: -${spacing.spacing12};
       margin-top: -${spacing.spacing12};
@@ -208,7 +210,7 @@ Button.Container = styled.button<ButtonContainerProps>`
       position: absolute;
       width: ${spacing.spacing24};
     }
-  `}
+  `};
 `;
 
 export default Button;

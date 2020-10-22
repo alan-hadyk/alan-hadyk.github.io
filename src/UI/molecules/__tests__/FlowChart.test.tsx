@@ -5,105 +5,17 @@ import FlowChart from "<molecules>/FlowChart";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-// jest.mock("vivus");
-// import Vivus from "vivus";
-
-// jest.mock("<hooks>/useFpsCounter");
-// import useFpsCounter from "<hooks>/useFpsCounter";
-
 describe("molecules / FlowChart", () => {
   test("should have correct structure", () => {
-    const { 
-      FlexContainer,
-      FlowChartIcon,
-      SpacingContainer
-    } = setup();
+    const { FlexContainer, FlowChartIcon, SpacingContainer } = setup();
 
     expect(FlexContainer.children[0]).toEqual(SpacingContainer);
     expect(SpacingContainer.children[0]).toEqual(FlowChartIcon);
   });
 
-  // test.skip("should fire Vivus during initial render", () => {
-  //   const spyVivus = jest.fn();
-  //   const mockVivus: jest.Mock<unknown, unknown[]> = Vivus as unknown as jest.Mock;
-
-  //   mockVivus.mockImplementation(spyVivus);
-
-  //   setup();
-
-  //   const mockCall = spyVivus.mock.calls[0];
-
-  //   expect(mockCall[0]).toEqual("flow-chart");
-  //   expect(mockCall[1]).toEqual({
-  //     delay: 150,
-  //     duration: 300, 
-  //     type: "delayed"
-  //   });
-  //   expect(typeof mockCall[2]).toEqual("function");
-  // });
-
-  // test.skip("should fire vivusInstance.finish() and vivusInstance.stop() if performance is low", () => {
-  //   jest.useFakeTimers();
-  //   const finish = jest.fn();
-  //   const stop = jest.fn();
-  //   const play = jest.fn();
-  //   const mockVivus: jest.Mock<unknown, unknown[]> = Vivus as unknown as jest.Mock;
-  //   const mockUseFpsCounter: jest.Mock<unknown, unknown[]> = useFpsCounter as unknown as jest.Mock;
-
-  //   mockVivus.mockImplementation(() => ({
-  //     finish,
-  //     play,
-  //     stop
-  //   }));
-
-  //   mockUseFpsCounter.mockImplementation(() => ({
-  //     isPerformanceLow: true
-  //   }));
-
-  //   setup();
-
-  //   jest.advanceTimersByTime(100);
-
-  //   expect(finish).toHaveBeenCalledTimes(1);
-  //   expect(stop).toHaveBeenCalledTimes(1);
-  //   expect(play).toHaveBeenCalledTimes(0);
-
-  //   jest.clearAllTimers();
-  // });
-
-  // test.skip("should fire vivusInstance.play() if performance is high", () => {
-  //   jest.useFakeTimers();
-  //   const finish = jest.fn();
-  //   const stop = jest.fn();
-  //   const play = jest.fn();
-  //   const mockVivus: jest.Mock<unknown, unknown[]> = Vivus as unknown as jest.Mock;
-  //   const mockUseFpsCounter: jest.Mock<unknown, unknown[]> = useFpsCounter as unknown as jest.Mock;
-
-  //   mockVivus.mockImplementation(() => ({
-  //     finish,
-  //     getStatus: (): string => "beginning",
-  //     play,
-  //     stop
-  //   }));
-
-  //   mockUseFpsCounter.mockImplementation(() => ({
-  //     isPerformanceLow: false
-  //   }));
-
-  //   setup();
-
-  //   jest.advanceTimersByTime(100);
-
-  //   expect(finish).toHaveBeenCalledTimes(0);
-  //   expect(stop).toHaveBeenCalledTimes(0);
-  //   expect(play).toHaveBeenCalledWith(1);
-
-  //   jest.clearAllTimers();
-  // });
-
-  describe("FlexContainer", () => {    
+  describe("FlexContainer", () => {
     describe("Props", () => {
-      describe("align-items", () => { 
+      describe("align-items", () => {
         test("should have center", () => {
           const { FlexContainer } = setup();
 
@@ -111,7 +23,7 @@ describe("molecules / FlowChart", () => {
         });
       });
 
-      describe("justify-content", () => { 
+      describe("justify-content", () => {
         test("should have center", () => {
           const { FlexContainer } = setup();
 
@@ -119,7 +31,7 @@ describe("molecules / FlowChart", () => {
         });
       });
 
-      describe("height", () => { 
+      describe("height", () => {
         test("should have 100%", () => {
           const { FlexContainer } = setup();
 
@@ -129,7 +41,7 @@ describe("molecules / FlowChart", () => {
     });
   });
 
-  describe("SpacingContainer", () => {    
+  describe("SpacingContainer", () => {
     describe("Props", () => {
       describe("height", () => {
         test("should have 100%", () => {
@@ -189,7 +101,7 @@ describe("molecules / FlowChart", () => {
     });
 
     describe("Styles", () => {
-      describe("display", () => { 
+      describe("display", () => {
         test("should have block", () => {
           const { FlowChartIcon } = setup();
 
@@ -197,7 +109,7 @@ describe("molecules / FlowChart", () => {
         });
       });
 
-      describe("height", () => { 
+      describe("height", () => {
         test("should have 100%", () => {
           const { FlowChartIcon } = setup();
 
@@ -205,7 +117,7 @@ describe("molecules / FlowChart", () => {
         });
       });
 
-      describe("margin", () => { 
+      describe("margin", () => {
         test("should have 0 auto", () => {
           const { FlowChartIcon } = setup();
 
@@ -213,18 +125,17 @@ describe("molecules / FlowChart", () => {
         });
       });
 
-      describe("width", () => { 
+      describe("width", () => {
         test("should have 100%", () => {
           const { FlowChartIcon } = setup();
 
           expect(FlowChartIcon).toHaveStyleRule("width", "100%");
         });
       });
-
     });
 
     describe("Props", () => {
-      describe("id", () => { 
+      describe("id", () => {
         test("should have flow-chart", () => {
           const { FlowChartIcon } = setup();
 
@@ -242,9 +153,7 @@ interface Setup extends RenderResult {
 }
 
 function setup(): Setup {
-  const utils: RenderResult = renderWithTheme(
-    <FlowChart />
-  );
+  const utils: RenderResult = renderWithTheme(<FlowChart />);
 
   const { queryByTestId }: RenderResult = utils;
   const FlexContainer: Element = queryByTestId("FlowChart");

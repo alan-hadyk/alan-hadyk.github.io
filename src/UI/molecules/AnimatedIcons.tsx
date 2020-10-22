@@ -7,7 +7,15 @@ import SpacingContainer from "<layout>/SpacingContainer";
 
 import { IconProps } from "<atoms>/__typings__/Icon.d.ts";
 
-const animatedIcons: IconProps["iconName"][] = ["react", "javascript", "typescript", "webpack", "node", "apollo", "graphql"];
+const animatedIcons: IconProps["iconName"][] = [
+  "react",
+  "javascript",
+  "typescript",
+  "webpack",
+  "node",
+  "apollo",
+  "graphql"
+];
 
 function AnimatedIcons(): JSX.Element {
   return (
@@ -20,12 +28,12 @@ function AnimatedIcons(): JSX.Element {
       paddingTop="spacing8"
       width="100%"
     >
-      <FlexContainer 
-        alignItems="center" 
+      <FlexContainer
+        alignItems="center"
         dataTestId="AnimatedIconsFlexContainer"
         flexFlow="row nowrap"
         height="100%"
-        justifyContent="center" 
+        justifyContent="center"
       >
         {renderIcons()}
       </FlexContainer>
@@ -33,21 +41,18 @@ function AnimatedIcons(): JSX.Element {
   );
 
   function renderIcons(): JSX.Element[] {
-    return animatedIcons.map((icon: IconProps["iconName"]): JSX.Element => (
-      <PositionContainer
-        height="100%"
-        key={icon}
-        position="relative"
-        width={`${100 / animatedIcons.length}%`}
-      >
-        <Icon 
+    return animatedIcons.map(
+      (icon: IconProps["iconName"]): JSX.Element => (
+        <PositionContainer
           height="100%"
-          iconName={icon}
-          isResponsive
-          width="100%"
-        />
-      </PositionContainer>
-    ));
+          key={icon}
+          position="relative"
+          width={`${100 / animatedIcons.length}%`}
+        >
+          <Icon height="100%" iconName={icon} isResponsive width="100%" />
+        </PositionContainer>
+      )
+    );
   }
 }
 

@@ -11,7 +11,10 @@ import HomePage from "<pages>/Home/HomePage";
 import theme from "<styles>/theme";
 import globalStyle from "<styles>/globalStyle";
 
-const GlobalStyle: GlobalStyleComponent<unknown, DefaultTheme> = createGlobalStyle`
+const GlobalStyle: GlobalStyleComponent<
+  unknown,
+  DefaultTheme
+> = createGlobalStyle`
   ${globalStyle}
 `;
 

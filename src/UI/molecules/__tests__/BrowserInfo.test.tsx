@@ -34,9 +34,9 @@ describe("molecules / BrowserInfo", () => {
     });
   });
 
-  describe("SpacingContainer", () => {    
+  describe("SpacingContainer", () => {
     describe("Props", () => {
-      describe("height", () => { 
+      describe("height", () => {
         test("should have 100%", () => {
           const { SpacingContainer } = setup();
 
@@ -44,7 +44,7 @@ describe("molecules / BrowserInfo", () => {
         });
       });
 
-      describe("paddingBottom", () => { 
+      describe("paddingBottom", () => {
         test("should have 1.25vh", () => {
           const { SpacingContainer } = setup();
 
@@ -52,7 +52,7 @@ describe("molecules / BrowserInfo", () => {
         });
       });
 
-      describe("paddingLeft", () => { 
+      describe("paddingLeft", () => {
         test("should have 1.25vw", () => {
           const { SpacingContainer } = setup();
 
@@ -60,7 +60,7 @@ describe("molecules / BrowserInfo", () => {
         });
       });
 
-      describe("paddingRight", () => { 
+      describe("paddingRight", () => {
         test("should have 1.25vw", () => {
           const { SpacingContainer } = setup();
 
@@ -68,7 +68,7 @@ describe("molecules / BrowserInfo", () => {
         });
       });
 
-      describe("paddingTop", () => { 
+      describe("paddingTop", () => {
         test("should have 1.25vh", () => {
           const { SpacingContainer } = setup();
 
@@ -76,7 +76,7 @@ describe("molecules / BrowserInfo", () => {
         });
       });
 
-      describe("width", () => { 
+      describe("width", () => {
         test("should have 100%", () => {
           const { SpacingContainer } = setup();
 
@@ -86,9 +86,9 @@ describe("molecules / BrowserInfo", () => {
     });
   });
 
-  describe("FlexContainer", () => {    
+  describe("FlexContainer", () => {
     describe("Props", () => {
-      describe("alignItems", () => { 
+      describe("alignItems", () => {
         test("should have center", () => {
           const { FlexContainer } = setup();
 
@@ -96,7 +96,7 @@ describe("molecules / BrowserInfo", () => {
         });
       });
 
-      describe("flexFlow", () => { 
+      describe("flexFlow", () => {
         test("should have row wrap", () => {
           const { FlexContainer } = setup();
 
@@ -104,7 +104,7 @@ describe("molecules / BrowserInfo", () => {
         });
       });
 
-      describe("height", () => { 
+      describe("height", () => {
         test("should have 100%", () => {
           const { FlexContainer } = setup();
 
@@ -112,11 +112,14 @@ describe("molecules / BrowserInfo", () => {
         });
       });
 
-      describe("justifyContent", () => { 
+      describe("justifyContent", () => {
         test("should have space-between", () => {
           const { FlexContainer } = setup();
 
-          expect(FlexContainer).toHaveStyleRule("justify-content", "space-between");
+          expect(FlexContainer).toHaveStyleRule(
+            "justify-content",
+            "space-between"
+          );
         });
       });
     });
@@ -127,7 +130,7 @@ describe("molecules / BrowserInfo", () => {
       describe("flex", () => {
         test("should have 0 1 28%", () => {
           const { FlexItems } = setup();
-  
+
           FlexItems.forEach((FlexItem) => {
             expect(FlexItem).toHaveStyleRule("flex", "0 1 28%");
           });
@@ -137,7 +140,7 @@ describe("molecules / BrowserInfo", () => {
       describe("height", () => {
         test("should have 50%", () => {
           const { FlexItems } = setup();
-  
+
           FlexItems.forEach((FlexItem) => {
             expect(FlexItem).toHaveStyleRule("height", "50%");
           });
@@ -147,7 +150,7 @@ describe("molecules / BrowserInfo", () => {
       describe("paddingBottom", () => {
         test("should have 4.8%", () => {
           const { FlexItems } = setup();
-  
+
           FlexItems.forEach((FlexItem) => {
             expect(FlexItem).toHaveStyleRule("padding-bottom", "4.8%");
           });
@@ -157,7 +160,7 @@ describe("molecules / BrowserInfo", () => {
       describe("paddingTop", () => {
         test("should have 4.8%", () => {
           const { FlexItems } = setup();
-  
+
           FlexItems.forEach((FlexItem) => {
             expect(FlexItem).toHaveStyleRule("padding-top", "4.8%");
           });
@@ -185,11 +188,11 @@ describe("molecules / BrowserInfo", () => {
     });
 
     describe("Props", () => {
-      describe("height", () => { 
+      describe("height", () => {
         test("should have 100%", () => {
           const { IconContainers } = setup();
 
-          IconContainers.forEach(IconContainer => {
+          IconContainers.forEach((IconContainer) => {
             expect(IconContainer).toHaveStyleRule("height", "100%");
           });
         });
@@ -200,9 +203,11 @@ describe("molecules / BrowserInfo", () => {
           describe("fill", () => {
             test("should have #78b0b5", () => {
               const { IconContainers } = setup();
-        
+
               IconContainers.forEach((IconContainer) => {
-                if(IconContainer.children[0].textContent === "Icon-Chrome.svg") {
+                if (
+                  IconContainer.children[0].textContent === "Icon-Chrome.svg"
+                ) {
                   expect(IconContainer).toHaveStyleRule("fill", "#78b0b5", {
                     modifier: "svg path"
                   });
@@ -216,9 +221,11 @@ describe("molecules / BrowserInfo", () => {
           describe("fill", () => {
             test("should not have", () => {
               const { IconContainers } = setup();
-        
+
               IconContainers.forEach((IconContainer) => {
-                if(IconContainer.children[0].textContent !== "Icon-Chrome.svg") {
+                if (
+                  IconContainer.children[0].textContent !== "Icon-Chrome.svg"
+                ) {
                   expect(IconContainer).not.toHaveStyleRule("fill", "#78b0b5", {
                     modifier: "svg path"
                   });
@@ -233,7 +240,7 @@ describe("molecules / BrowserInfo", () => {
         describe("height", () => {
           test("should have 100%", () => {
             const { IconContainers } = setup();
-      
+
             IconContainers.forEach((IconContainer) => {
               expect(IconContainer).toHaveStyleRule("height", "100%", {
                 modifier: "svg"
@@ -245,7 +252,7 @@ describe("molecules / BrowserInfo", () => {
         describe("width", () => {
           test("should have 100%", () => {
             const { IconContainers } = setup();
-      
+
             IconContainers.forEach((IconContainer) => {
               expect(IconContainer).toHaveStyleRule("width", "100%", {
                 modifier: "svg"
@@ -255,11 +262,11 @@ describe("molecules / BrowserInfo", () => {
         });
       });
 
-      describe("overflow", () => { 
+      describe("overflow", () => {
         test("should have hidden", () => {
           const { IconContainers } = setup();
 
-          IconContainers.forEach(IconContainer => {
+          IconContainers.forEach((IconContainer) => {
             expect(IconContainer).toHaveStyleRule("overflow", "hidden");
           });
         });
@@ -270,12 +277,18 @@ describe("molecules / BrowserInfo", () => {
           describe("animation-delay", () => {
             test("should have 0ms", () => {
               const { IconContainers } = setup();
-        
+
               IconContainers.forEach((IconContainer) => {
-                if(IconContainer.children[0].textContent === "Icon-Chrome.svg") {
-                  expect(IconContainer).toHaveStyleRule("animation-delay", "0ms", {
-                    modifier: "svg"
-                  });
+                if (
+                  IconContainer.children[0].textContent === "Icon-Chrome.svg"
+                ) {
+                  expect(IconContainer).toHaveStyleRule(
+                    "animation-delay",
+                    "0ms",
+                    {
+                      modifier: "svg"
+                    }
+                  );
                 }
               });
             });
@@ -284,40 +297,58 @@ describe("molecules / BrowserInfo", () => {
           describe("animation-duration", () => {
             test("should have 3600ms", () => {
               const { IconContainers } = setup();
-        
+
               IconContainers.forEach((IconContainer) => {
-                if(IconContainer.children[0].textContent === "Icon-Chrome.svg") {
-                  expect(IconContainer).toHaveStyleRule("animation-duration", "3600ms", {
-                    modifier: "svg"
-                  });
+                if (
+                  IconContainer.children[0].textContent === "Icon-Chrome.svg"
+                ) {
+                  expect(IconContainer).toHaveStyleRule(
+                    "animation-duration",
+                    "3600ms",
+                    {
+                      modifier: "svg"
+                    }
+                  );
                 }
               });
             });
           });
 
-          describe("animation-iteration-count", () => {      
+          describe("animation-iteration-count", () => {
             test("should have infinite", () => {
               const { IconContainers } = setup();
-        
+
               IconContainers.forEach((IconContainer) => {
-                if(IconContainer.children[0].textContent === "Icon-Chrome.svg") {
-                  expect(IconContainer).toHaveStyleRule("animation-iteration-count", "infinite", {
-                    modifier: "svg"
-                  });
+                if (
+                  IconContainer.children[0].textContent === "Icon-Chrome.svg"
+                ) {
+                  expect(IconContainer).toHaveStyleRule(
+                    "animation-iteration-count",
+                    "infinite",
+                    {
+                      modifier: "svg"
+                    }
+                  );
                 }
               });
             });
           });
-    
-          describe("animation-timing-function", () => {      
+
+          describe("animation-timing-function", () => {
             test("should have ease-in-out", () => {
               const { IconContainers } = setup();
-        
+
               IconContainers.forEach((IconContainer) => {
-                if(IconContainer.children[0].textContent === "Icon-Chrome.svg") {
-                  expect(IconContainer).toHaveStyleRule("animation-timing-function", "ease-in-out", {
-                    modifier: "svg"
-                  });
+                if (
+                  IconContainer.children[0].textContent === "Icon-Chrome.svg"
+                ) {
+                  expect(IconContainer).toHaveStyleRule(
+                    "animation-timing-function",
+                    "ease-in-out",
+                    {
+                      modifier: "svg"
+                    }
+                  );
                 }
               });
             });
@@ -328,24 +359,42 @@ describe("molecules / BrowserInfo", () => {
           describe("animation-duration, animation-iteration-count, animation-timing-function", () => {
             test("should not have", () => {
               const { IconContainers } = setup();
-        
+
               IconContainers.forEach((IconContainer) => {
-                if(IconContainer.children[0].textContent !== "Icon-Chrome.svg") {
-                  expect(IconContainer).not.toHaveStyleRule("animation-delay", "0ms", {
-                    modifier: "svg"
-                  });
+                if (
+                  IconContainer.children[0].textContent !== "Icon-Chrome.svg"
+                ) {
+                  expect(IconContainer).not.toHaveStyleRule(
+                    "animation-delay",
+                    "0ms",
+                    {
+                      modifier: "svg"
+                    }
+                  );
 
-                  expect(IconContainer).not.toHaveStyleRule("animation-duration", "3600ms", {
-                    modifier: "svg"
-                  });
+                  expect(IconContainer).not.toHaveStyleRule(
+                    "animation-duration",
+                    "3600ms",
+                    {
+                      modifier: "svg"
+                    }
+                  );
 
-                  expect(IconContainer).not.toHaveStyleRule("animation-iteration-count", "infinite", {
-                    modifier: "svg"
-                  });
+                  expect(IconContainer).not.toHaveStyleRule(
+                    "animation-iteration-count",
+                    "infinite",
+                    {
+                      modifier: "svg"
+                    }
+                  );
 
-                  expect(IconContainer).not.toHaveStyleRule("animation-timing-function", "ease-in-out", {
-                    modifier: "svg"
-                  });
+                  expect(IconContainer).not.toHaveStyleRule(
+                    "animation-timing-function",
+                    "ease-in-out",
+                    {
+                      modifier: "svg"
+                    }
+                  );
                 }
               });
             });
@@ -353,11 +402,11 @@ describe("molecules / BrowserInfo", () => {
         });
       });
 
-      describe("width", () => { 
+      describe("width", () => {
         test("should have 100%", () => {
           const { IconContainers } = setup();
 
-          IconContainers.forEach(IconContainer => {
+          IconContainers.forEach((IconContainer) => {
             expect(IconContainer).toHaveStyleRule("width", "100%");
           });
         });
@@ -370,7 +419,7 @@ describe("molecules / BrowserInfo", () => {
       describe("height", () => {
         test("should have 100%", () => {
           const { BrowserInfoIconsContainer } = setup();
-  
+
           expect(BrowserInfoIconsContainer).toHaveStyleRule("height", "100%");
         });
       });
@@ -379,11 +428,15 @@ describe("molecules / BrowserInfo", () => {
         describe("display", () => {
           test("should have none if max-height: 640px", () => {
             const { BrowserInfoIconsContainer } = setup();
-    
-            expect(BrowserInfoIconsContainer).toHaveStyleRule("display", "none", {
-              media: "(max-height: 640px)",
-              modifier: ".isInactive"
-            });
+
+            expect(BrowserInfoIconsContainer).toHaveStyleRule(
+              "display",
+              "none",
+              {
+                media: "(max-height: 640px)",
+                modifier: ".isInactive"
+              }
+            );
           });
         });
       });
@@ -392,33 +445,45 @@ describe("molecules / BrowserInfo", () => {
         describe("display", () => {
           test("should have block if max-height: 640px", () => {
             const { BrowserInfoIconsContainer } = setup();
-    
-            expect(BrowserInfoIconsContainer).toHaveStyleRule("display", "block", {
-              media: "(max-height: 640px)",
-              modifier: ".isActive"
-            });
+
+            expect(BrowserInfoIconsContainer).toHaveStyleRule(
+              "display",
+              "block",
+              {
+                media: "(max-height: 640px)",
+                modifier: ".isActive"
+              }
+            );
           });
         });
 
         describe("height", () => {
           test("should have 100% if max-height: 640px", () => {
             const { BrowserInfoIconsContainer } = setup();
-    
-            expect(BrowserInfoIconsContainer).toHaveStyleRule("height", "100%", {
-              media: "(max-height: 640px)",
-              modifier: ".isActive"
-            });
+
+            expect(BrowserInfoIconsContainer).toHaveStyleRule(
+              "height",
+              "100%",
+              {
+                media: "(max-height: 640px)",
+                modifier: ".isActive"
+              }
+            );
           });
         });
 
         describe("margin", () => {
           test("should have 0 auto if max-height: 640px", () => {
             const { BrowserInfoIconsContainer } = setup();
-    
-            expect(BrowserInfoIconsContainer).toHaveStyleRule("margin", "0 auto", {
-              media: "(max-height: 640px)",
-              modifier: ".isActive"
-            });
+
+            expect(BrowserInfoIconsContainer).toHaveStyleRule(
+              "margin",
+              "0 auto",
+              {
+                media: "(max-height: 640px)",
+                modifier: ".isActive"
+              }
+            );
           });
         });
       });
@@ -436,13 +501,13 @@ interface Setup extends RenderResult {
 }
 
 function setup(): Setup {
-  const utils: RenderResult = renderWithTheme(
-    <BrowserInfo />
-  );
+  const utils: RenderResult = renderWithTheme(<BrowserInfo />);
 
   const { queryAllByTestId, queryByTestId }: RenderResult = utils;
 
-  const BrowserInfoIconsContainer: Element = queryByTestId("BrowserInfoIconsContainer");
+  const BrowserInfoIconsContainer: Element = queryByTestId(
+    "BrowserInfoIconsContainer"
+  );
   const FlexContainer: Element = queryByTestId("BrowserInfoFlexContainer");
   const FlexItems: Element[] = queryAllByTestId("FlexItem");
   const IconContainers: Element[] = queryAllByTestId("IconContainer");

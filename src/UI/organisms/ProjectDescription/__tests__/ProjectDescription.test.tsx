@@ -5,13 +5,9 @@ import ProjectDescription from "<organisms>/ProjectDescription";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  ProjectDescriptionProps
-} from "<organisms>/ProjectDescription/__typings__/ProjectDescription.d.ts";
+import { ProjectDescriptionProps } from "<organisms>/ProjectDescription/__typings__/ProjectDescription.d.ts";
 
-import {
-  IconWithLabelProps
-} from "<molecules>/__typings__/IconWithLabel.d.ts";
+import { IconWithLabelProps } from "<molecules>/__typings__/IconWithLabel.d.ts";
 
 describe("organisms / ProjectDescription", () => {
   test("should have correct structure", () => {
@@ -22,63 +18,101 @@ describe("organisms / ProjectDescription", () => {
       ProjectDescriptionTechnologies
     } = setup();
 
-    expect(ProjectDescriptionContainer.children[0]).toEqual(ProjectDescriptionContent);
-    expect(ProjectDescriptionContainer.children[1]).toEqual(ProjectDescriptionTechnologies);
-    expect(ProjectDescriptionContainer.children[2]).toEqual(ProjectDescriptionButtons);
+    expect(ProjectDescriptionContainer.children[0]).toEqual(
+      ProjectDescriptionContent
+    );
+    expect(ProjectDescriptionContainer.children[1]).toEqual(
+      ProjectDescriptionTechnologies
+    );
+    expect(ProjectDescriptionContainer.children[2]).toEqual(
+      ProjectDescriptionButtons
+    );
   });
 
-  describe("ProjectDescriptionContent", () => {   
+  describe("ProjectDescriptionContent", () => {
     describe("Props", () => {
       describe("description", () => {
-        test("should have correct value passed via description props", () => {
+        test("should have correct value passed via description prop", () => {
           const { ProjectDescriptionContent } = setup({
             description: "Lorem ipsum dolor sit amet."
           });
 
-          expect(ProjectDescriptionContent).toHaveTextContent("Lorem ipsum dolor sit amet.");
+          expect(ProjectDescriptionContent).toHaveTextContent(
+            "Lorem ipsum dolor sit amet."
+          );
         });
       });
 
       describe("size", () => {
-        test("should have small when size prop is small", () => {
+        test("should have small passed via size prop", () => {
           const { ProjectDescriptionContent } = setup({
             size: "small"
           });
 
-          expect(ProjectDescriptionContent.children[0]).toHaveStyleRule("font-size", "28px");
-          expect(ProjectDescriptionContent.children[0]).toHaveStyleRule("line-height", "3.2rem");
+          expect(ProjectDescriptionContent.children[0]).toHaveStyleRule(
+            "font-size",
+            "28px"
+          );
+          expect(ProjectDescriptionContent.children[0]).toHaveStyleRule(
+            "line-height",
+            "3.2rem"
+          );
 
-          expect(ProjectDescriptionContent.children[1].children[0]).toHaveStyleRule("font-size", "20px");
-          expect(ProjectDescriptionContent.children[1].children[0]).toHaveStyleRule("line-height", "2.4rem");
+          expect(
+            ProjectDescriptionContent.children[1].children[0]
+          ).toHaveStyleRule("font-size", "20px");
+          expect(
+            ProjectDescriptionContent.children[1].children[0]
+          ).toHaveStyleRule("line-height", "2.4rem");
         });
-        
-        test("should have large when size prop is medium", () => {
+
+        test("should have medium passed via size prop", () => {
           const { ProjectDescriptionContent } = setup({
             size: "medium"
           });
 
-          expect(ProjectDescriptionContent.children[0]).toHaveStyleRule("font-size", "48px");
-          expect(ProjectDescriptionContent.children[0]).toHaveStyleRule("line-height", "5.2rem");
+          expect(ProjectDescriptionContent.children[0]).toHaveStyleRule(
+            "font-size",
+            "48px"
+          );
+          expect(ProjectDescriptionContent.children[0]).toHaveStyleRule(
+            "line-height",
+            "5.2rem"
+          );
 
-          expect(ProjectDescriptionContent.children[1].children[0]).toHaveStyleRule("font-size", "24px");
-          expect(ProjectDescriptionContent.children[1].children[0]).toHaveStyleRule("line-height", "3.2rem");
+          expect(
+            ProjectDescriptionContent.children[1].children[0]
+          ).toHaveStyleRule("font-size", "24px");
+          expect(
+            ProjectDescriptionContent.children[1].children[0]
+          ).toHaveStyleRule("line-height", "3.2rem");
         });
-        
-        test("should have large when size prop is large", () => {
+
+        test("should have large passed via size prop", () => {
           const { ProjectDescriptionContent } = setup({
             size: "large"
           });
 
-          expect(ProjectDescriptionContent.children[0]).toHaveStyleRule("font-size", "48px");
-          expect(ProjectDescriptionContent.children[0]).toHaveStyleRule("line-height", "5.2rem");
+          expect(ProjectDescriptionContent.children[0]).toHaveStyleRule(
+            "font-size",
+            "48px"
+          );
+          expect(ProjectDescriptionContent.children[0]).toHaveStyleRule(
+            "line-height",
+            "5.2rem"
+          );
 
-          expect(ProjectDescriptionContent.children[1].children[0]).toHaveStyleRule("font-size", "24px");
-          expect(ProjectDescriptionContent.children[1].children[0]).toHaveStyleRule("line-height", "3.2rem");
+          expect(
+            ProjectDescriptionContent.children[1].children[0]
+          ).toHaveStyleRule("font-size", "24px");
+          expect(
+            ProjectDescriptionContent.children[1].children[0]
+          ).toHaveStyleRule("line-height", "3.2rem");
         });
       });
 
       describe("title", () => {
-        test("should have correct value passed via title props", () => {
+        test("should have correct value passed via title prop", () => {
           const { ProjectDescriptionContent } = setup({
             title: "Roland"
           });
@@ -88,10 +122,10 @@ describe("organisms / ProjectDescription", () => {
       });
     });
   });
-  
+
   describe("ProjectDescriptionTechnologies", () => {
     describe("Props", () => {
-      describe("iconsWithLabels", () => {        
+      describe("iconsWithLabels", () => {
         const iconsWithLabels: IconWithLabelProps[] = [
           {
             iconName: "brandJS",
@@ -102,31 +136,41 @@ describe("organisms / ProjectDescription", () => {
             label: "React"
           }
         ];
-    
+
         test("there should be correct number of icons", () => {
           const { IconsWithLabels } = setup({
             iconsWithLabels
           });
-    
+
           expect(IconsWithLabels.children.length).toEqual(2);
         });
-    
+
         test("icons should render correct SVGs", () => {
           const { IconsWithLabels } = setup({
             iconsWithLabels
           });
-    
-          expect(IconsWithLabels.children[0].children[0].children[0].children[0].textContent).toEqual("Brand-JS.svg");
-          expect(IconsWithLabels.children[1].children[0].children[0].children[0].textContent).toEqual("Brand-React.svg");
+
+          expect(
+            IconsWithLabels.children[0].children[0].children[0].children[0]
+              .textContent
+          ).toEqual("Brand-JS.svg");
+          expect(
+            IconsWithLabels.children[1].children[0].children[0].children[0]
+              .textContent
+          ).toEqual("Brand-React.svg");
         });
-    
-        test("should have correct content passed via label props", () => {
+
+        test("should have correct content passed via label prop", () => {
           const { IconsWithLabels } = setup({
             iconsWithLabels
           });
-    
-          expect(IconsWithLabels.children[0].children[1].textContent).toEqual("Javascript");
-          expect(IconsWithLabels.children[1].children[1].textContent).toEqual("React");
+
+          expect(IconsWithLabels.children[0].children[1].textContent).toEqual(
+            "Javascript"
+          );
+          expect(IconsWithLabels.children[1].children[1].textContent).toEqual(
+            "React"
+          );
         });
       });
     });
@@ -140,23 +184,32 @@ describe("organisms / ProjectDescription", () => {
             size: "large"
           });
 
-          expect(ProjectDescriptionButtons.children[0]).toHaveStyleRule("height", "5.6rem");
+          expect(ProjectDescriptionButtons.children[0]).toHaveStyleRule(
+            "height",
+            "5.6rem"
+          );
         });
 
-        test("should have height 4.8rem if size is medium", () => {     
+        test("should have height 4.8rem if size is medium", () => {
           const { ProjectDescriptionButtons } = setup({
             size: "medium"
           });
 
-          expect(ProjectDescriptionButtons.children[0]).toHaveStyleRule("height", "4.8rem");
+          expect(ProjectDescriptionButtons.children[0]).toHaveStyleRule(
+            "height",
+            "4.8rem"
+          );
         });
 
-        test("should have height 4rem if size is small", () => {     
+        test("should have height 4rem if size is small", () => {
           const { ProjectDescriptionButtons } = setup({
             size: "small"
           });
 
-          expect(ProjectDescriptionButtons.children[0]).toHaveStyleRule("height", "4rem");
+          expect(ProjectDescriptionButtons.children[0]).toHaveStyleRule(
+            "height",
+            "4rem"
+          );
         });
       });
     });
@@ -198,12 +251,20 @@ function setup(additionalProps?: ProjectDescriptionTestProps): Setup {
   );
 
   const { queryAllByTestId } = utils || {};
-  
+
   const IconsWithLabels: Element = queryAllByTestId("IconsWithLabels")[0];
-  const ProjectDescriptionButtons: Element = queryAllByTestId("ProjectDescriptionButtons")[0];
-  const ProjectDescriptionContainer: Element = queryAllByTestId("ProjectDescription")[0];
-  const ProjectDescriptionContent: Element = queryAllByTestId("ProjectDescriptionContent")[0];
-  const ProjectDescriptionTechnologies: Element = queryAllByTestId("ProjectDescriptionTechnologies")[0];
+  const ProjectDescriptionButtons: Element = queryAllByTestId(
+    "ProjectDescriptionButtons"
+  )[0];
+  const ProjectDescriptionContainer: Element = queryAllByTestId(
+    "ProjectDescription"
+  )[0];
+  const ProjectDescriptionContent: Element = queryAllByTestId(
+    "ProjectDescriptionContent"
+  )[0];
+  const ProjectDescriptionTechnologies: Element = queryAllByTestId(
+    "ProjectDescriptionTechnologies"
+  )[0];
 
   return {
     ...utils,
@@ -214,4 +275,3 @@ function setup(additionalProps?: ProjectDescriptionTestProps): Setup {
     ProjectDescriptionTechnologies
   };
 }
- 

@@ -1,5 +1,11 @@
 export interface FlexItemProps {
-  alignSelf?: "auto" | "flex-start" | "flex-end" | "center" | "baseline" | "stretch"; 
+  alignSelf?:
+    | "auto"
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "baseline"
+    | "stretch";
   children: JSX.Element | JSX.Element[];
   className?: string;
   dataCy?: string;

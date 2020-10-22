@@ -8,14 +8,9 @@ import Text from "<atoms>/Text";
 
 import { ReactComponent as IconWarning } from "<assets>/svg/Icon-Warning.svg";
 
-import {
-  ErrorProps
-} from "<molecules>/__typings__/Error.d.ts";
+import { ErrorProps } from "<molecules>/__typings__/Error.d.ts";
 
-const Error = ({
-  title,
-  description
-}: ErrorProps): JSX.Element => (
+const Error = ({ title, description }: ErrorProps): JSX.Element => (
   <SpacingContainer
     dataTestId="Error"
     paddingBottom="spacing8"
@@ -37,12 +32,10 @@ const Error = ({
         lineHeight="spacing24"
         paddingTop="spacing12"
         textTransform="uppercase"
-      >{title}</Text>
-      <Text
-        fontSize="font16"
-        lineHeight="spacing24"
-        textTransform="uppercase"
       >
+        {title}
+      </Text>
+      <Text fontSize="font16" lineHeight="spacing24" textTransform="uppercase">
         {description}
       </Text>
     </FlexContainer>
@@ -61,7 +54,7 @@ Error.Icon = styled(IconWarning)`
     animation-iteration-count: infinite;
     animation-name: ${glow};
     animation-timing-function: ${easeInOut};
-  `}
+  `};
 `;
 
 export default Error;

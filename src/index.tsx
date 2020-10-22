@@ -4,10 +4,14 @@ import ReactDOM from "react-dom";
 import App from "<src>/App";
 import * as serviceWorker from "<src>/serviceWorker";
 
-const polyfills = [];
+export const polyfills: unknown[] = [];
 
 if (typeof window.IntersectionObserver === "undefined") {
-  polyfills.push(import(/* webpackChunkName: "intersection-observer" */ "intersection-observer"));
+  polyfills.push(
+    import(
+      /* webpackChunkName: "intersection-observer" */ "intersection-observer"
+    )
+  );
 }
 
 export function renderApp(): void {

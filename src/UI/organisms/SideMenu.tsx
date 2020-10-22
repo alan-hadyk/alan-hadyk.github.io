@@ -16,9 +16,7 @@ import {
   SideMenuProps
 } from "<organisms>/__typings__/SideMenu.d.ts";
 
-const SideMenu = ({
-  isExpanded = false
-}: SideMenuProps): JSX.Element => (
+const SideMenu = ({ isExpanded = false }: SideMenuProps): JSX.Element => (
   <SideMenu.Container
     data-cy="SideMenu"
     data-testid="SideMenu"
@@ -31,7 +29,7 @@ const SideMenu = ({
       paddingLeft="spacing48"
       paddingRight="spacing48"
       paddingTop="spacing8"
-    > 
+    >
       <Responsive devices={["mobile", "tablet"]}>
         <FlexContainer
           dataTestId="SideMenuMobileFlexContainer"
@@ -46,7 +44,6 @@ const SideMenu = ({
           </SpacingContainer>
         </FlexContainer>
       </Responsive>
-
 
       <FlexContainer
         dataTestId="SideMenuOuterFlexContainer"
@@ -70,7 +67,7 @@ const SideMenu = ({
             flexFlow="row nowrap"
             gap="spacing24"
           >
-            <MenuIcons /> 
+            <MenuIcons />
           </FlexContainer>
         </SpacingContainer>
       </FlexContainer>
@@ -82,22 +79,11 @@ SideMenu.Container = styled.div<SideMenuContainerProps>`
   ${({
     isExpanded,
     theme: {
-      colorPalette: {
-        blue300,
-        blue600
-      },
-      easing: {
-        easeInOut
-      },
-      spacing: {
-        spacing88
-      },
-      transitionTimes: {
-        fast
-      },
-      zIndex: {
-        layer10
-      }
+      colorPalette: { blue300, blue600 },
+      easing: { easeInOut },
+      spacing: { spacing88 },
+      transitionTimes: { fast },
+      zIndex: { layer10 }
     }
   }): FlattenSimpleInterpolation => css`
     background: ${transparentize(0.125, blue600)};
@@ -110,7 +96,7 @@ SideMenu.Container = styled.div<SideMenuContainerProps>`
     transform: ${isExpanded ? "translateX(0)" : "translateX(100%)"};
     transition: all ${fast} ${easeInOut};
     z-index: ${layer10};
-  `}
+  `};
 `;
 
 export default SideMenu;

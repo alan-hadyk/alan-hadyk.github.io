@@ -5,9 +5,7 @@ import ProjectDescriptionContent from "<organisms>/ProjectDescription/ProjectDes
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  ProjectDescriptionContentProps
-} from "<organisms>/ProjectDescription/__typings__/ProjectDescriptionContent.d.ts";
+import { ProjectDescriptionContentProps } from "<organisms>/ProjectDescription/__typings__/ProjectDescriptionContent.d.ts";
 
 describe("organisms / ProjectDescriptionContent", () => {
   test("should have correct structure", () => {
@@ -16,21 +14,24 @@ describe("organisms / ProjectDescriptionContent", () => {
       ProjectDescriptionText,
       ProjectDescriptionTitle,
       SpacingContainer
-
     } = setup();
 
-    expect(ProjectDescriptionContentContainer.children[0]).toEqual(ProjectDescriptionTitle);
-    expect(ProjectDescriptionContentContainer.children[1]).toEqual(SpacingContainer);
+    expect(ProjectDescriptionContentContainer.children[0]).toEqual(
+      ProjectDescriptionTitle
+    );
+    expect(ProjectDescriptionContentContainer.children[1]).toEqual(
+      SpacingContainer
+    );
     expect(SpacingContainer.children[0]).toEqual(ProjectDescriptionText);
   });
 
-  describe("Texts", () => { 
+  describe("Texts", () => {
     describe("ProjectDescriptionTitle", () => {
-      test("should render textContent equal to title prop", () => {
+      test("should render correct content passed via title prop", () => {
         const { ProjectDescriptionTitle } = setup({
           title: "New project"
         });
-  
+
         expect(ProjectDescriptionTitle.textContent).toEqual("New project");
       });
 
@@ -38,88 +39,111 @@ describe("organisms / ProjectDescriptionContent", () => {
         describe("color", () => {
           test("should have #fff", () => {
             const { ProjectDescriptionTitle } = setup();
-      
+
             expect(ProjectDescriptionTitle).toHaveStyleRule("color", "#fff");
           });
         });
-  
+
         describe("fontFamily", () => {
           test("should have ExanModifiedRegular, monospace", () => {
             const { ProjectDescriptionTitle } = setup();
 
-            expect(ProjectDescriptionTitle).toHaveStyleRule("font-family", "ExanModifiedRegular,monospace");
+            expect(ProjectDescriptionTitle).toHaveStyleRule(
+              "font-family",
+              "ExanModifiedRegular,monospace"
+            );
           });
         });
-  
+
         describe("fontSize", () => {
           test("should have 48px if size is large", () => {
             const { ProjectDescriptionTitle } = setup({
               size: "large"
             });
-      
-            expect(ProjectDescriptionTitle).toHaveStyleRule("font-size", "48px");
+
+            expect(ProjectDescriptionTitle).toHaveStyleRule(
+              "font-size",
+              "48px"
+            );
           });
 
           test("should have 28px if size is small", () => {
             const { ProjectDescriptionTitle } = setup({
               size: "small"
             });
-      
-            expect(ProjectDescriptionTitle).toHaveStyleRule("font-size", "28px");
+
+            expect(ProjectDescriptionTitle).toHaveStyleRule(
+              "font-size",
+              "28px"
+            );
           });
         });
 
         describe("lineHeight", () => {
-          test("should have 4.8rem if size is large", () => {
+          test("should have 5.2rem if size is large", () => {
             const { ProjectDescriptionTitle } = setup({
               size: "large"
             });
-      
-            expect(ProjectDescriptionTitle).toHaveStyleRule("line-height", "5.2rem");
+
+            expect(ProjectDescriptionTitle).toHaveStyleRule(
+              "line-height",
+              "5.2rem"
+            );
           });
 
-          test("should have 2.4rem if size is small", () => {
+          test("should have 3.2rem if size is small", () => {
             const { ProjectDescriptionTitle } = setup({
               size: "small"
             });
-      
-            expect(ProjectDescriptionTitle).toHaveStyleRule("line-height", "3.2rem");
+
+            expect(ProjectDescriptionTitle).toHaveStyleRule(
+              "line-height",
+              "3.2rem"
+            );
           });
         });
 
         describe("textTransform", () => {
           test("should have lowercase", () => {
             const { ProjectDescriptionTitle } = setup();
-      
-            expect(ProjectDescriptionTitle).toHaveStyleRule("text-transform", "lowercase");
+
+            expect(ProjectDescriptionTitle).toHaveStyleRule(
+              "text-transform",
+              "lowercase"
+            );
           });
         });
       });
     });
 
     describe("ProjectDescriptionText", () => {
-      test("should render textContent equal to description prop", () => {
+      test("should render correct content passed via description prop", () => {
         const { ProjectDescriptionText } = setup({
           description: "Project description"
         });
-  
-        expect(ProjectDescriptionText.textContent).toEqual("Project description");
+
+        expect(ProjectDescriptionText.textContent).toEqual(
+          "Project description"
+        );
       });
 
       describe("Props", () => {
         describe("color", () => {
           test("should have #78b0b5", () => {
             const { ProjectDescriptionText } = setup();
-      
+
             expect(ProjectDescriptionText).toHaveStyleRule("color", "#78b0b5");
           });
         });
-  
+
         describe("font-family", () => {
           test("should have 'Anonymous Pro',monospace", () => {
             const { ProjectDescriptionText } = setup();
 
-            expect(ProjectDescriptionText).toHaveStyleRule("font-family", "'Anonymous Pro',monospace");
+            expect(ProjectDescriptionText).toHaveStyleRule(
+              "font-family",
+              "'Anonymous Pro',monospace"
+            );
           });
         });
 
@@ -128,7 +152,7 @@ describe("organisms / ProjectDescriptionContent", () => {
             const { ProjectDescriptionText } = setup({
               size: "large"
             });
-      
+
             expect(ProjectDescriptionText).toHaveStyleRule("font-size", "24px");
           });
 
@@ -136,7 +160,7 @@ describe("organisms / ProjectDescriptionContent", () => {
             const { ProjectDescriptionText } = setup({
               size: "small"
             });
-      
+
             expect(ProjectDescriptionText).toHaveStyleRule("font-size", "20px");
           });
         });
@@ -146,25 +170,31 @@ describe("organisms / ProjectDescriptionContent", () => {
             const { ProjectDescriptionText } = setup({
               size: "large"
             });
-      
-            expect(ProjectDescriptionText).toHaveStyleRule("line-height", "3.2rem");
+
+            expect(ProjectDescriptionText).toHaveStyleRule(
+              "line-height",
+              "3.2rem"
+            );
           });
 
           test("should have 2.4rem", () => {
             const { ProjectDescriptionText } = setup({
               size: "small"
             });
-      
-            expect(ProjectDescriptionText).toHaveStyleRule("line-height", "2.4rem");
+
+            expect(ProjectDescriptionText).toHaveStyleRule(
+              "line-height",
+              "2.4rem"
+            );
           });
         });
       });
     });
   });
 
-  describe("SpacingContainer", () => { 
+  describe("SpacingContainer", () => {
     describe("Props", () => {
-      describe("marginBottom", () => {      
+      describe("marginBottom", () => {
         test("should have 4rem", () => {
           const { SpacingContainer } = setup();
 
@@ -172,7 +202,7 @@ describe("organisms / ProjectDescriptionContent", () => {
         });
       });
 
-      describe("marginTop", () => {      
+      describe("marginTop", () => {
         test("should have 1.6rem", () => {
           const { SpacingContainer } = setup();
 
@@ -190,12 +220,13 @@ interface Setup extends RenderResult {
   SpacingContainer: Element;
 }
 
-type ProjectDescriptionContentTestProps = Partial<ProjectDescriptionContentProps>;
+type ProjectDescriptionContentTestProps = Partial<
+  ProjectDescriptionContentProps
+>;
 
 function setup(additionalProps?: ProjectDescriptionContentTestProps): Setup {
   const props: ProjectDescriptionContentProps = {
     description: "Lorem ipsum dolor sit amet",
-    size: "small",
     title: "Project",
     ...additionalProps
   };
@@ -206,10 +237,18 @@ function setup(additionalProps?: ProjectDescriptionContentTestProps): Setup {
 
   const { queryAllByTestId } = utils || {};
 
-  const ProjectDescriptionContentContainer: Element = queryAllByTestId("ProjectDescriptionContent")[0];
-  const ProjectDescriptionTitle: Element = queryAllByTestId("ProjectDescriptionTitle")[0];
-  const ProjectDescriptionText: Element = queryAllByTestId("ProjectDescriptionText")[0];
-  const SpacingContainer: Element = queryAllByTestId("TitleWithDescriptionSpacingContainer")[0];
+  const ProjectDescriptionContentContainer: Element = queryAllByTestId(
+    "ProjectDescriptionContent"
+  )[0];
+  const ProjectDescriptionTitle: Element = queryAllByTestId(
+    "ProjectDescriptionTitle"
+  )[0];
+  const ProjectDescriptionText: Element = queryAllByTestId(
+    "ProjectDescriptionText"
+  )[0];
+  const SpacingContainer: Element = queryAllByTestId(
+    "TitleWithDescriptionSpacingContainer"
+  )[0];
 
   return {
     ...utils,
@@ -219,4 +258,3 @@ function setup(additionalProps?: ProjectDescriptionContentTestProps): Setup {
     SpacingContainer
   };
 }
- 

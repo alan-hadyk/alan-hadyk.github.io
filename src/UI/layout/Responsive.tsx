@@ -20,17 +20,23 @@ function Responsive(props: ResponsiveProps): JSX.Element {
 
   return (
     <Fragment>
-      {devices.map((device: Device): JSX.Element => (
-        <Responsive.Container
-          data-testid={props[`dataTest${capitalize(device)}Id`] || dataTestId || `Responsive${capitalize(device)}`}
-          device={device}
-          height={height}
-          key={device}
-          width={width}
-        >
-          {children}
-        </Responsive.Container>
-      ))}
+      {devices.map(
+        (device: Device): JSX.Element => (
+          <Responsive.Container
+            data-testid={
+              props[`dataTest${capitalize(device)}Id`] ||
+              dataTestId ||
+              `Responsive${capitalize(device)}`
+            }
+            device={device}
+            height={height}
+            key={device}
+            width={width}
+          >
+            {children}
+          </Responsive.Container>
+        )
+      )}
     </Fragment>
   );
 }
@@ -55,30 +61,34 @@ Responsive.Container = styled.div<ResponsiveContainerProps>`
     height: ${height};
     width: ${width};
 
-    ${device === "tv" && css`
+    ${device === "tv" &&
+    css`
       @media (min-width: ${breakpoint1681}) {
         display: block;
       }
     `}
 
-    ${device === "desktop" && css`
-      @media (min-width: ${breakpoint1281}) and (max-width: ${breakpoint1680})  {
+    ${device === "desktop" &&
+    css`
+      @media (min-width: ${breakpoint1281}) and (max-width: ${breakpoint1680}) {
         display: block;
       }
     `}
 
-    ${device === "tablet" && css`
+    ${device === "tablet" &&
+    css`
       @media (min-width: ${breakpoint641}) and (max-width: ${breakpoint1280}) {
         display: block;
       }
     `}
 
-    ${device === "mobile" && css`
+    ${device === "mobile" &&
+    css`
       @media (max-width: ${breakpoint640}) {
         display: block;
       }
     `}
-  `}
+  `};
 `;
 
 export default Responsive;

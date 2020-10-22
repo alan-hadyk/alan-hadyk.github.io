@@ -156,9 +156,7 @@ interface Setup extends RenderResult {
 }
 
 function setup(): Setup {
-  const utils: RenderResult = renderWithTheme(
-    <Earth />
-  );
+  const utils: RenderResult = renderWithTheme(<Earth />);
 
   const { queryByTestId }: RenderResult = utils;
   const FlexContainer: Element = queryByTestId("EarthFlexContainer");

@@ -19,15 +19,19 @@ function CompanyTvDesktopAndTablet({
   timelineBottom,
   title
 }: CompanyProps): JSX.Element {
-  const renderCompanyTimeline = useCallback(() => (
-    <CompanyTimeline timelineBottom={timelineBottom} />
-  ), [timelineBottom]);
+  const renderCompanyTimeline = useCallback(
+    () => <CompanyTimeline timelineBottom={timelineBottom} />,
+    [timelineBottom]
+  );
 
-  const renderCompanyLogo = useCallback(() => (
-    <FlexItem flex="0 0 50%">
-      <CompanyLogo logo={logo} />
-    </FlexItem>
-  ), [logo]);
+  const renderCompanyLogo = useCallback(
+    () => (
+      <FlexItem flex="0 0 50%">
+        <CompanyLogo logo={logo} />
+      </FlexItem>
+    ),
+    [logo]
+  );
 
   return (
     <Responsive devices={["tv", "desktop", "tablet"]}>

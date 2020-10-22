@@ -1,9 +1,7 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import {
-  SpacingContainerProps
-} from "<layout>/__typings__/SpacingContainer.d.ts";
+import { SpacingContainerProps } from "<layout>/__typings__/SpacingContainer.d.ts";
 
 const SpacingContainer = ({
   children,
@@ -60,25 +58,30 @@ SpacingContainer.Container = styled.div<SpacingContainerProps>`
     paddingLeft,
     paddingRight,
     paddingTop,
-    theme: {
-      spacing
-    },
+    theme: { spacing },
     width
   }): FlattenSimpleInterpolation => css`
     height: ${(height in spacing && spacing[height]) || height};
-    margin-bottom: ${(marginBottom in spacing && spacing[marginBottom]) || marginBottom};
-    margin-left: ${(marginLeft in spacing && spacing[marginLeft]) || marginLeft};
-    margin-right: ${(marginRight in spacing && spacing[marginRight]) || marginRight};
+    margin-bottom: ${(marginBottom in spacing && spacing[marginBottom]) ||
+    marginBottom};
+    margin-left: ${(marginLeft in spacing && spacing[marginLeft]) ||
+    marginLeft};
+    margin-right: ${(marginRight in spacing && spacing[marginRight]) ||
+    marginRight};
     margin-top: ${(marginTop in spacing && spacing[marginTop]) || marginTop};
     max-width: ${(maxWidth in spacing && spacing[maxWidth]) || maxWidth};
     min-height: ${(minHeight in spacing && spacing[minHeight]) || minHeight};
     overflow-y: ${overflowY};
-    padding-bottom: ${(paddingBottom in spacing && spacing[paddingBottom]) || paddingBottom};
-    padding-left: ${(paddingLeft in spacing && spacing[paddingLeft]) || paddingLeft};
-    padding-right: ${(paddingRight in spacing && spacing[paddingRight]) || paddingRight};
-    padding-top: ${(paddingTop in spacing && spacing[paddingTop]) || paddingTop};
+    padding-bottom: ${(paddingBottom in spacing && spacing[paddingBottom]) ||
+    paddingBottom};
+    padding-left: ${(paddingLeft in spacing && spacing[paddingLeft]) ||
+    paddingLeft};
+    padding-right: ${(paddingRight in spacing && spacing[paddingRight]) ||
+    paddingRight};
+    padding-top: ${(paddingTop in spacing && spacing[paddingTop]) ||
+    paddingTop};
     width: ${(width in spacing && spacing[width]) || width};
-  `}
+  `};
 `;
-  
+
 export default SpacingContainer;

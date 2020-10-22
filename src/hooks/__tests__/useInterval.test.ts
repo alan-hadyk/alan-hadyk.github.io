@@ -3,7 +3,7 @@ import { renderHook, RenderHookResult } from "@testing-library/react-hooks";
 import useInterval from "<hooks>/useInterval";
 
 describe("hooks / useInterval", () => {
-  describe("setText", () => {    
+  describe("setText", () => {
     test("should fire callback in intervals, and stop when hook gets unomounted", () => {
       const callback = jest.fn();
       jest.useFakeTimers();
@@ -31,7 +31,7 @@ describe("hooks / useInterval", () => {
       unmount();
 
       jest.advanceTimersByTime(1800);
- 
+
       expect(callback).toHaveBeenCalledTimes(4);
 
       jest.clearAllTimers();
@@ -39,7 +39,10 @@ describe("hooks / useInterval", () => {
   });
 });
 
-function setup(callback: VoidFunction, delay: number): RenderHookResult<unknown, void> {
+function setup(
+  callback: VoidFunction,
+  delay: number
+): RenderHookResult<unknown, void> {
   const result: RenderHookResult<unknown, void> = renderHook(() => {
     useInterval(callback, delay);
   });

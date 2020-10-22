@@ -5,13 +5,9 @@ import ProjectTvAndDesktop from "<organisms>/Project/ProjectTvAndDesktop";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  IconWithLabelProps
-} from "<molecules>/__typings__/IconWithLabel.d.ts";
+import { IconWithLabelProps } from "<molecules>/__typings__/IconWithLabel.d.ts";
 
-import {
-  ProjectProps
-} from "<organisms>/Project/__typings__/Project.d.ts";
+import { ProjectProps } from "<organisms>/Project/__typings__/Project.d.ts";
 
 describe("organisms / ProjectTvAndDesktop", () => {
   test("should have correct structure", () => {
@@ -42,11 +38,11 @@ describe("organisms / ProjectTvAndDesktop", () => {
 
   describe("ProjectTv", () => {
     describe("Props", () => {
-      describe("devices", () => {      
+      describe("devices", () => {
         describe("should have tv", () => {
           test("should have display block when min-width is 1681px", () => {
             const { ProjectTv } = setup();
-      
+
             expect(ProjectTv).toHaveStyleRule("display", "block", {
               media: "(min-width:1681px)"
             });
@@ -58,11 +54,11 @@ describe("organisms / ProjectTvAndDesktop", () => {
 
   describe("ProjectDesktop", () => {
     describe("Props", () => {
-      describe("devices", () => {      
+      describe("devices", () => {
         describe("should have tv", () => {
           test("should have display block when min-width is 1681px", () => {
             const { ProjectDesktop } = setup();
-      
+
             expect(ProjectDesktop).toHaveStyleRule("display", "block", {
               media: "(min-width:1281px) and (max-width:1680px)"
             });
@@ -72,9 +68,9 @@ describe("organisms / ProjectTvAndDesktop", () => {
     });
   });
 
-  describe("FlexContainers", () => { 
+  describe("FlexContainers", () => {
     describe("Props", () => {
-      describe("alignItems", () => {      
+      describe("alignItems", () => {
         test("should have flex-start", () => {
           const { FlexContainers } = setup();
 
@@ -84,7 +80,7 @@ describe("organisms / ProjectTvAndDesktop", () => {
         });
       });
 
-      describe("flexFlow", () => {      
+      describe("flexFlow", () => {
         test("should have row nowrap", () => {
           const { FlexContainers } = setup();
 
@@ -96,9 +92,9 @@ describe("organisms / ProjectTvAndDesktop", () => {
     });
   });
 
-  describe("FlexItems", () => { 
+  describe("FlexItems", () => {
     describe("Props", () => {
-      describe("flex", () => {      
+      describe("flex", () => {
         test("should have 0 1 50%", () => {
           const { FlexItems } = setup();
 
@@ -108,7 +104,7 @@ describe("organisms / ProjectTvAndDesktop", () => {
         });
       });
 
-      describe("overflow", () => {      
+      describe("overflow", () => {
         test("second item should have visible", () => {
           const { FlexItems } = setup();
 
@@ -119,16 +115,18 @@ describe("organisms / ProjectTvAndDesktop", () => {
   });
 
   describe("ProjectImage", () => {
-    describe("Icon", () => {         
+    describe("Icon", () => {
       describe("Props", () => {
         describe("projectIcon", () => {
-          test("should have correct icon passed via iconName props", () => {
+          test("should have correct icon passed via projectIcon prop", () => {
             const { HexagonInnerContainers } = setup({
               projectIcon: "react"
             });
 
             HexagonInnerContainers.forEach((HexagonInnerContainer: Element) => {
-              expect(HexagonInnerContainer.children[0].textContent).toEqual("Icon-React.svg");
+              expect(HexagonInnerContainer.children[0].textContent).toEqual(
+                "Icon-React.svg"
+              );
             });
           });
         });
@@ -136,9 +134,9 @@ describe("organisms / ProjectTvAndDesktop", () => {
     });
   });
 
-  describe("SpacingContainers", () => { 
+  describe("SpacingContainers", () => {
     describe("Props", () => {
-      describe("marginLeft", () => {      
+      describe("marginLeft", () => {
         test("should have 4.8rem", () => {
           const { SpacingContainers } = setup();
 
@@ -150,13 +148,11 @@ describe("organisms / ProjectTvAndDesktop", () => {
     });
   });
 
-  describe("ProjectDescription", () => {   
+  describe("ProjectDescription", () => {
     describe("Props", () => {
       describe("title", () => {
-        test("should have correct value passed via title props", () => {
-          const { 
-            ProjectDescriptions
-          } = setup({
+        test("should have correct value passed via title prop", () => {
+          const { ProjectDescriptions } = setup({
             title: "Roland"
           });
 
@@ -167,15 +163,15 @@ describe("organisms / ProjectTvAndDesktop", () => {
       });
 
       describe("description", () => {
-        test("should have correct value passed via description props", () => {
-          const {             
-            ProjectDescriptions
-          } = setup({
+        test("should have correct value passed via description prop", () => {
+          const { ProjectDescriptions } = setup({
             description: "Lorem ipsum dolor sit amet."
           });
 
           ProjectDescriptions.forEach((ProjectDescription) => {
-            expect(ProjectDescription).toHaveTextContent("Lorem ipsum dolor sit amet.");
+            expect(ProjectDescription).toHaveTextContent(
+              "Lorem ipsum dolor sit amet."
+            );
           });
         });
       });
@@ -191,7 +187,7 @@ describe("organisms / ProjectTvAndDesktop", () => {
             label: "React"
           }
         ];
-    
+
         test("there should be correct number of icons", () => {
           const { IconsWithLabels } = setup({
             iconsWithLabels
@@ -201,26 +197,36 @@ describe("organisms / ProjectTvAndDesktop", () => {
             expect(IconsWithLabel.children.length).toEqual(2);
           });
         });
-    
+
         test("icons should render correct SVGs", () => {
           const { IconsWithLabels } = setup({
             iconsWithLabels
           });
 
           IconsWithLabels.forEach((IconsWithLabel: Element) => {
-            expect(IconsWithLabel.children[0].children[0].children[0].children[0].textContent).toEqual("Brand-JS.svg");
-            expect(IconsWithLabel.children[1].children[0].children[0].children[0].textContent).toEqual("Brand-React.svg");
+            expect(
+              IconsWithLabel.children[0].children[0].children[0].children[0]
+                .textContent
+            ).toEqual("Brand-JS.svg");
+            expect(
+              IconsWithLabel.children[1].children[0].children[0].children[0]
+                .textContent
+            ).toEqual("Brand-React.svg");
           });
         });
-    
-        test("should have correct content passed via label props", () => {
+
+        test("should have correct content passed via label prop", () => {
           const { IconsWithLabels } = setup({
             iconsWithLabels
           });
 
           IconsWithLabels.forEach((IconsWithLabel: Element) => {
-            expect(IconsWithLabel.children[0].children[1].textContent).toEqual("Javascript");
-            expect(IconsWithLabel.children[1].children[1].textContent).toEqual("React");
+            expect(IconsWithLabel.children[0].children[1].textContent).toEqual(
+              "Javascript"
+            );
+            expect(IconsWithLabel.children[1].children[1].textContent).toEqual(
+              "React"
+            );
           });
         });
       });
@@ -268,15 +274,21 @@ function setup(additionalProps?: ProjectTestProps): Setup {
 
   const { queryAllByTestId } = utils || {};
 
-  const FlexContainers: Element[] = queryAllByTestId("ProjectTvAndDesktopFlexContainer");
+  const FlexContainers: Element[] = queryAllByTestId(
+    "ProjectTvAndDesktopFlexContainer"
+  );
   const FlexItems: Element[] = queryAllByTestId("FlexItem");
-  const HexagonInnerContainers: Element[] = queryAllByTestId("HexagonInnerContainer");
+  const HexagonInnerContainers: Element[] = queryAllByTestId(
+    "HexagonInnerContainer"
+  );
   const IconsWithLabels: Element[] = queryAllByTestId("IconsWithLabels");
   const ProjectDescriptions: Element[] = queryAllByTestId("ProjectDescription");
   const ProjectDesktop: Element = queryAllByTestId("ProjectDesktop")[0];
   const ProjectImage: Element[] = queryAllByTestId("ProjectImage");
   const ProjectTv: Element = queryAllByTestId("ProjectTv")[0];
-  const SpacingContainers: Element[] = queryAllByTestId("ProjectDescriptionSpacingContainer");
+  const SpacingContainers: Element[] = queryAllByTestId(
+    "ProjectDescriptionSpacingContainer"
+  );
 
   return {
     ...utils,
@@ -291,4 +303,3 @@ function setup(additionalProps?: ProjectTestProps): Setup {
     SpacingContainers
   };
 }
- 

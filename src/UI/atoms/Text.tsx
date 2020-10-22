@@ -9,30 +9,33 @@ import transitionTimes from "<styles>/variables/transitionTimes";
 import { TextProps } from "<atoms>/__typings__/Text.d.ts";
 import { ShuffleState } from "<hooks>/__typings__/useShuffleText.d.ts";
 
-function Text({
-  children,
-  color = "blue300",
-  dataCy,
-  dataTestId,
-  ellipsis = false,
-  fontFamily = "AnonymousPro",
-  fontSize = "font20",
-  fontWeight = "normal",
-  isHoverable = false,
-  lineHeight = "1",
-  maxHeight,
-  overflow = "visible",
-  paddingBottom = "spacing0",
-  paddingLeft = "spacing0",
-  paddingRight = "spacing0",
-  paddingTop = "spacing0",
-  shouldShuffle = false,
-  shouldShuffleOnHover = false,
-  shuffleDelay = 0,
-  shuffleInterval = parseInt(transitionTimes.verySlow),
-  textAlign = "left",
-  textTransform = "none"
-}: TextProps, ref?: Ref<HTMLDivElement>): JSX.Element {
+function Text(
+  {
+    children,
+    color = "blue300",
+    dataCy,
+    dataTestId,
+    ellipsis = false,
+    fontFamily = "AnonymousPro",
+    fontSize = "font20",
+    fontWeight = "normal",
+    isHoverable = false,
+    lineHeight = "1",
+    maxHeight,
+    overflow = "visible",
+    paddingBottom = "spacing0",
+    paddingLeft = "spacing0",
+    paddingRight = "spacing0",
+    paddingTop = "spacing0",
+    shouldShuffle = false,
+    shouldShuffleOnHover = false,
+    shuffleDelay = 0,
+    shuffleInterval = parseInt(transitionTimes.verySlow),
+    textAlign = "left",
+    textTransform = "none"
+  }: TextProps,
+  ref?: Ref<HTMLDivElement>
+): JSX.Element {
   const [shuffleText, setShuffleText] = useState<ShuffleState | undefined>();
   const textElementRef = useRef<HTMLDivElement>(null);
 
@@ -69,7 +72,7 @@ function Text({
       paddingBottom={paddingBottom}
       paddingLeft={paddingLeft}
       paddingRight={paddingRight}
-      paddingTop={paddingTop}  
+      paddingTop={paddingTop}
       ref={ref || textElementRef}
       textAlign={textAlign}
       textTransform={textTransform}
@@ -118,7 +121,8 @@ Text.Container = styled.div<TextProps>`
     font-family: ${fontFamily in fontFamilies && fontFamilies[fontFamily]};
     font-size: ${fontSize in fontSizes && fontSizes[fontSize]};
     font-weight: ${fontWeight in fontWeights && fontWeights[fontWeight]};
-    line-height: ${(lineHeight in spacing && spacing[lineHeight]) || lineHeight};
+    line-height: ${(lineHeight in spacing && spacing[lineHeight]) ||
+    lineHeight};
     max-height: ${(maxHeight in spacing && spacing[maxHeight]) || maxHeight};
     overflow: ${overflow};
     padding-bottom: ${paddingBottom in spacing && spacing[paddingBottom]};
@@ -128,25 +132,28 @@ Text.Container = styled.div<TextProps>`
     text-align: ${textAlign};
     text-transform: ${textTransform};
     transition: all ${fast} ${easeInOut};
-    
-    ${ellipsis && `
+
+    ${ellipsis &&
+    `
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
     `}
 
-    ${color === "blue300" && `
+    ${color === "blue300" &&
+    `
       strong {
         color: ${colorPalette.blue100};
       }
     `}
 
-    ${isHoverable && `
+    ${isHoverable &&
+    `
       &:hover {
         color: ${colorPalette.white};
       }
     `}
-  `}
+  `};
 `;
 
 export default forwardRef(Text);

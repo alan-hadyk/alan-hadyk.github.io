@@ -5,13 +5,9 @@ import ProjectMobile from "<organisms>/Project/ProjectMobile";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  IconWithLabelProps
-} from "<molecules>/__typings__/IconWithLabel.d.ts";
+import { IconWithLabelProps } from "<molecules>/__typings__/IconWithLabel.d.ts";
 
-import {
-  ProjectProps
-} from "<organisms>/Project/__typings__/Project.d.ts";
+import { ProjectProps } from "<organisms>/Project/__typings__/Project.d.ts";
 
 describe("organisms / ProjectMobile", () => {
   test("should have correct structure", () => {
@@ -29,11 +25,11 @@ describe("organisms / ProjectMobile", () => {
 
   describe("ProjectMobile", () => {
     describe("Props", () => {
-      describe("devices", () => {      
+      describe("devices", () => {
         describe("should have mobile", () => {
           test("should have display block when max-width is 640px", () => {
             const { ProjectMobileContainer } = setup();
-      
+
             expect(ProjectMobileContainer).toHaveStyleRule("display", "block", {
               media: "(max-width:640px)"
             });
@@ -43,9 +39,9 @@ describe("organisms / ProjectMobile", () => {
     });
   });
 
-  describe("SpacingContainer", () => { 
+  describe("SpacingContainer", () => {
     describe("Props", () => {
-      describe("marginBottom", () => {      
+      describe("marginBottom", () => {
         test("should have 4rem", () => {
           const { SpacingContainer } = setup();
 
@@ -53,7 +49,7 @@ describe("organisms / ProjectMobile", () => {
         });
       });
 
-      describe("width", () => {      
+      describe("width", () => {
         test("should have 100%", () => {
           const { SpacingContainer } = setup();
 
@@ -64,25 +60,27 @@ describe("organisms / ProjectMobile", () => {
   });
 
   describe("ProjectImage", () => {
-    describe("Icon", () => {         
+    describe("Icon", () => {
       describe("Props", () => {
         describe("projectIcon", () => {
-          test("should have correct icon passed via iconName props", () => {
+          test("should have correct icon passed via projectIcon prop", () => {
             const { HexagonInnerContainer } = setup({
               projectIcon: "react"
             });
-  
-            expect(HexagonInnerContainer.children[0].textContent).toEqual("Icon-React.svg");
+
+            expect(HexagonInnerContainer.children[0].textContent).toEqual(
+              "Icon-React.svg"
+            );
           });
         });
       });
     });
   });
 
-  describe("ProjectDescription", () => {   
+  describe("ProjectDescription", () => {
     describe("Props", () => {
       describe("title", () => {
-        test("should have correct value passed via title props", () => {
+        test("should have correct value passed via title prop", () => {
           const { ProjectDescription } = setup({
             title: "Roland"
           });
@@ -92,12 +90,14 @@ describe("organisms / ProjectMobile", () => {
       });
 
       describe("description", () => {
-        test("should have correct value passed via description props", () => {
+        test("should have correct value passed via description prop", () => {
           const { ProjectDescription } = setup({
             description: "Lorem ipsum dolor sit amet."
           });
 
-          expect(ProjectDescription).toHaveTextContent("Lorem ipsum dolor sit amet.");
+          expect(ProjectDescription).toHaveTextContent(
+            "Lorem ipsum dolor sit amet."
+          );
         });
       });
 
@@ -112,31 +112,41 @@ describe("organisms / ProjectMobile", () => {
             label: "React"
           }
         ];
-    
+
         test("there should be correct number of icons", () => {
           const { IconsWithLabels } = setup({
             iconsWithLabels
           });
-    
+
           expect(IconsWithLabels.children.length).toEqual(2);
         });
-    
+
         test("icons should render correct SVGs", () => {
           const { IconsWithLabels } = setup({
             iconsWithLabels
           });
-  
-          expect(IconsWithLabels.children[0].children[0].children[0].children[0].textContent).toEqual("Brand-JS.svg");
-          expect(IconsWithLabels.children[1].children[0].children[0].children[0].textContent).toEqual("Brand-React.svg");
+
+          expect(
+            IconsWithLabels.children[0].children[0].children[0].children[0]
+              .textContent
+          ).toEqual("Brand-JS.svg");
+          expect(
+            IconsWithLabels.children[1].children[0].children[0].children[0]
+              .textContent
+          ).toEqual("Brand-React.svg");
         });
-    
-        test("should have correct content passed via label props", () => {
+
+        test("should have correct content passed via label prop", () => {
           const { IconsWithLabels } = setup({
             iconsWithLabels
           });
-    
-          expect(IconsWithLabels.children[0].children[1].textContent).toEqual("Javascript");
-          expect(IconsWithLabels.children[1].children[1].textContent).toEqual("React");
+
+          expect(IconsWithLabels.children[0].children[1].textContent).toEqual(
+            "Javascript"
+          );
+          expect(IconsWithLabels.children[1].children[1].textContent).toEqual(
+            "React"
+          );
         });
       });
 
@@ -144,11 +154,21 @@ describe("organisms / ProjectMobile", () => {
         test("should have small", () => {
           const { ProjectDescription } = setup();
 
-          expect(ProjectDescription.children[0].children[0]).toHaveStyleRule("font-size", "28px");
-          expect(ProjectDescription.children[0].children[0]).toHaveStyleRule("line-height", "3.2rem");
+          expect(ProjectDescription.children[0].children[0]).toHaveStyleRule(
+            "font-size",
+            "28px"
+          );
+          expect(ProjectDescription.children[0].children[0]).toHaveStyleRule(
+            "line-height",
+            "3.2rem"
+          );
 
-          expect(ProjectDescription.children[0].children[1].children[0]).toHaveStyleRule("font-size", "20px");
-          expect(ProjectDescription.children[0].children[1].children[0]).toHaveStyleRule("line-height", "2.4rem");
+          expect(
+            ProjectDescription.children[0].children[1].children[0]
+          ).toHaveStyleRule("font-size", "20px");
+          expect(
+            ProjectDescription.children[0].children[1].children[0]
+          ).toHaveStyleRule("line-height", "2.4rem");
         });
       });
     });
@@ -186,13 +206,13 @@ function setup(additionalProps?: ProjectTestProps): Setup {
     ...additionalProps
   };
 
-  const utils: RenderResult = renderWithTheme(
-    <ProjectMobile {...props} />
-  );
+  const utils: RenderResult = renderWithTheme(<ProjectMobile {...props} />);
 
   const { queryAllByTestId } = utils || {};
 
-  const HexagonInnerContainer: Element = queryAllByTestId("HexagonInnerContainer")[0];
+  const HexagonInnerContainer: Element = queryAllByTestId(
+    "HexagonInnerContainer"
+  )[0];
   const IconsWithLabels: Element = queryAllByTestId("IconsWithLabels")[0];
   const ProjectDescription: Element = queryAllByTestId("ProjectDescription")[0];
   const ProjectImage: Element = queryAllByTestId("ProjectImage")[0];
@@ -209,4 +229,3 @@ function setup(additionalProps?: ProjectTestProps): Setup {
     SpacingContainer
   };
 }
- 

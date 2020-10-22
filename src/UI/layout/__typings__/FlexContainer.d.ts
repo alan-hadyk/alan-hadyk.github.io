@@ -1,6 +1,4 @@
-import {
-  Spacing
-} from "<styles>/variables/__typings__/variables.d.ts";
+import { Spacing } from "<styles>/variables/__typings__/variables.d.ts";
 
 export interface FlexContainerProps {
   alignItems?: "stretch" | "flex-start" | "flex-end" | "center" | "baseline";
@@ -10,8 +8,8 @@ export interface FlexContainerProps {
   flexFlow?: "row wrap" | "row nowrap" | "column wrap" | "column nowrap";
   gap?: Spacing | string;
   height?: Spacing | "unset" | "50%" | "100%";
-  justifyContent?: "flex-start" | "flex-end" | "center" | "space-between"; 
-  maxWidth?: Spacing | "unset"; 
+  justifyContent?: "flex-start" | "flex-end" | "center" | "space-between";
+  maxWidth?: Spacing | "unset";
 }
 
 export interface CalculateGap {

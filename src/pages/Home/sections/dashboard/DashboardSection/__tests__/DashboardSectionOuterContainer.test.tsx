@@ -5,17 +5,11 @@ import DashboardSectionOuterContainer from "<pages>/Home/sections/dashboard/Dash
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-import {
-  DashboardSectionOuterContainerProps
-} from "<pages>/Home/sections/dashboard/DashboardSection/__typings__/DashboardSectionOuterContainer.d.ts";
+import { DashboardSectionOuterContainerProps } from "<pages>/Home/sections/dashboard/DashboardSection/__typings__/DashboardSectionOuterContainer.d.ts";
 
-describe("pages / Home / sections / dashboard / DashboardSection / DashboardSectionOuterContainer", () => {  
+describe("pages / Home / sections / dashboard / DashboardSection / DashboardSectionOuterContainer", () => {
   test("should have correct structure", () => {
-    const {
-      FlexContainer,
-      PositionContainer,
-      SpacingContainer
-    } = setup();
+    const { FlexContainer, PositionContainer, SpacingContainer } = setup();
 
     expect(SpacingContainer.children[0]).toEqual(PositionContainer);
     expect(PositionContainer.children[0]).toEqual(FlexContainer);
@@ -31,43 +25,43 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
 
   describe("SpacingContainer", () => {
     describe("Props", () => {
-      describe("paddingTop", () => {	
-        test("should have 9.6rem", () => {	
-          const { SpacingContainer } = setup();	
-  
-          expect(SpacingContainer).toHaveStyleRule("padding-top", "9.6rem");	
-        });	
-      });	
-  
-      describe("height", () => {	
-        test("should have 100vh", () => {	
-          const { SpacingContainer } = setup();	
-  
-          expect(SpacingContainer).toHaveStyleRule("height", "100vh");	
-        });	
-      });	
+      describe("height", () => {
+        test("should have 100vh", () => {
+          const { SpacingContainer } = setup();
+
+          expect(SpacingContainer).toHaveStyleRule("height", "100vh");
+        });
+      });
+
+      describe("paddingTop", () => {
+        test("should have 9.6rem", () => {
+          const { SpacingContainer } = setup();
+
+          expect(SpacingContainer).toHaveStyleRule("padding-top", "9.6rem");
+        });
+      });
     });
   });
 
-  describe("PositionContainer", () => {	
-    describe("Props", () => {	
-      describe("height", () => {	
-        test("should have 100%", () => {	
-          const { PositionContainer } = setup();	
+  describe("PositionContainer", () => {
+    describe("Props", () => {
+      describe("height", () => {
+        test("should have 100%", () => {
+          const { PositionContainer } = setup();
 
-          expect(PositionContainer).toHaveStyleRule("height", "100%");	
-        });	
-      });	
+          expect(PositionContainer).toHaveStyleRule("height", "100%");
+        });
+      });
 
-      describe("position", () => {	
-        test("should have relative", () => {	
-          const { PositionContainer } = setup();	
+      describe("position", () => {
+        test("should have relative", () => {
+          const { PositionContainer } = setup();
 
-          expect(PositionContainer).toHaveStyleRule("position", "relative");	
-        });	
-      });	
-    });	
-  });	
+          expect(PositionContainer).toHaveStyleRule("position", "relative");
+        });
+      });
+    });
+  });
 
   describe("FlexContainer", () => {
     describe("Props", () => {
@@ -99,7 +93,10 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
         test("should have space-between", () => {
           const { FlexContainer } = setup();
 
-          expect(FlexContainer).toHaveStyleRule("justify-content", "space-between");
+          expect(FlexContainer).toHaveStyleRule(
+            "justify-content",
+            "space-between"
+          );
         });
       });
     });
@@ -112,9 +109,13 @@ interface Setup extends RenderResult {
   SpacingContainer: Element;
 }
 
-type DashboardSectionOuterContainerTestProps = Partial<DashboardSectionOuterContainerProps>;
+type DashboardSectionOuterContainerTestProps = Partial<
+  DashboardSectionOuterContainerProps
+>;
 
-function setup(additionalProps?: DashboardSectionOuterContainerTestProps): Setup {
+function setup(
+  additionalProps?: DashboardSectionOuterContainerTestProps
+): Setup {
   const props: DashboardSectionOuterContainerProps = {
     children: <div>Custom children</div>,
     ...additionalProps
@@ -126,9 +127,15 @@ function setup(additionalProps?: DashboardSectionOuterContainerTestProps): Setup
 
   const { queryByTestId }: RenderResult = utils;
 
-  const FlexContainer: Element = queryByTestId("DashboardSectionOuterFlexContainer");
-  const PositionContainer: Element = queryByTestId("DashboardSectionPositionContainer");
-  const SpacingContainer: Element = queryByTestId("DashboardSectionOuterContainer");
+  const FlexContainer: Element = queryByTestId(
+    "DashboardSectionOuterFlexContainer"
+  );
+  const PositionContainer: Element = queryByTestId(
+    "DashboardSectionPositionContainer"
+  );
+  const SpacingContainer: Element = queryByTestId(
+    "DashboardSectionOuterContainer"
+  );
 
   return {
     ...utils,

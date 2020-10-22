@@ -17,7 +17,7 @@ export interface ButtonProps {
   buttonText: string;
   dataTestId?: string;
   iconName: "btnCodeSandbox" | "btnDownload" | "btnExternalLink";
-  size: "small" | "medium" | "large";
+  size?: "small" | "medium" | "large";
   type?: "primary" | "secondary";
   width?: "100%" | "auto";
 }

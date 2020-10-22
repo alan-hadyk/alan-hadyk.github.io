@@ -1,6 +1,6 @@
 import stateManagementCategory from "<pages>/Home/sections/skills/categories/stateManagementCategory";
 
-describe("pages / Home / sections / skills / categories/ languagesCategory", () => {
+describe("pages / Home / sections / skills / categories / languagesCategory", () => {
   test("should have correct content", () => {
     expect(stateManagementCategory).toEqual({
       iconsWithLabels: [
