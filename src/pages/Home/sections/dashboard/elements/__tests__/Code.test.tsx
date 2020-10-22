@@ -5,8 +5,6 @@ import Code from "<pages>/Home/sections/dashboard/elements/Code";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-jest.mock("<hooks>/useFpsCounter");
-
 describe("pages / Home / sections / dashboard / elements / Code", () => {
   test("should have correct structure", () => {
     const { DashboardElement, TypingAnimation } = setup();

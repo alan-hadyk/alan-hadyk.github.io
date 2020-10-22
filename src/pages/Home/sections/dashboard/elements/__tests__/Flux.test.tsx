@@ -5,10 +5,6 @@ import Flux from "<pages>/Home/sections/dashboard/elements/Flux";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-jest.mock("vivus");
-
-jest.mock("<hooks>/useFpsCounter");
-
 describe("pages / Home / sections / dashboard / elements / Flux", () => {
   test("should have correct structure", () => {
     const { DashboardElement, FlowChart } = setup();

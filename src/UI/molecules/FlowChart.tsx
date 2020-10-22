@@ -1,65 +1,31 @@
-// import React, { memo, useLayoutEffect, useState, useMemo } from "react";
 import React, { memo } from "react";
-// import Vivus from "vivus";
 import styled from "styled-components";
 
 import FlexContainer from "<layout>/FlexContainer";
 import SpacingContainer from "<layout>/SpacingContainer";
 
-// import useFpsCounter from "<hooks>/useFpsCounter";
-
-// import transitionTimes from "<styles>/variables/transitionTimes";
-
 import { ReactComponent as FluxFlowChart } from "<assets>/svg/Flux-FlowChart.svg";
 
-function FlowChart(): JSX.Element {
-  // const { isPerformanceLow } = useFpsCounter({}) || {};
-  // const [vivusInstance, setVivusInstance] = useState<Vivus>(null);
-
-  // useLayoutEffect((): void => {
-  //   const _vivusInstance: Vivus = new Vivus("flow-chart", {
-  //     delay: parseInt(transitionTimes.fast),
-  //     duration: parseInt(transitionTimes.default),
-  //     type: "delayed"
-  //   }, (vivusCb: Vivus): Vivus => vivusCb.play(vivusCb.getStatus() === "end" ? -1 : 1));
-
-  //   setVivusInstance(_vivusInstance);
-  // }, []);
-
-  // useMemo((): void => {
-  //   if (!vivusInstance) {
-  //     return;
-  //   }
-
-  //   if (isPerformanceLow) {
-  //     vivusInstance.finish();
-  //     vivusInstance.stop();
-  //   } else {
-  //     vivusInstance.play(vivusInstance.getStatus() === "end" ? -1 : 1);
-  //   }
-  // }, [isPerformanceLow, vivusInstance]);
-
-  return (
-    <FlexContainer
-      alignItems="center"
-      dataTestId="FlowChart"
+const FlowChart = (): JSX.Element => (
+  <FlexContainer
+    alignItems="center"
+    dataTestId="FlowChart"
+    height="100%"
+    justifyContent="center"
+  >
+    <SpacingContainer
+      dataTestId="FlowChartSpacingContainer"
       height="100%"
-      justifyContent="center"
+      paddingBottom="spacing8"
+      paddingLeft="spacing8"
+      paddingRight="spacing8"
+      paddingTop="spacing8"
+      width="100%"
     >
-      <SpacingContainer
-        dataTestId="FlowChartSpacingContainer"
-        height="100%"
-        paddingBottom="spacing8"
-        paddingLeft="spacing8"
-        paddingRight="spacing8"
-        paddingTop="spacing8"
-        width="100%"
-      >
-        <FlowChart.Icon id="flow-chart" />
-      </SpacingContainer>
-    </FlexContainer>
-  );
-}
+      <FlowChart.Icon id="flow-chart" />
+    </SpacingContainer>
+  </FlexContainer>
+);
 
 FlowChart.Icon = styled(FluxFlowChart)`
   display: block;

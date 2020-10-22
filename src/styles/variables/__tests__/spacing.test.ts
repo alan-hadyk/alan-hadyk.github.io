@@ -5,7 +5,6 @@ describe("styles / variables / spacing", () => {
     expect(spacing).toEqual({
       negativeSpacing16: "-1.6rem",
       spacing0: "0",
-      spacing1: ".1rem",
       spacing2: ".2rem",
       spacing4: ".4rem",
       spacing8: ".8rem",
@@ -22,21 +21,13 @@ describe("styles / variables / spacing", () => {
       spacing48: "4.8rem",
       spacing52: "5.2rem",
       spacing56: "5.6rem",
-      spacing60: "6rem",
       spacing64: "6.4rem",
       spacing68: "6.8rem",
       spacing72: "7.2rem",
       spacing80: "8rem",
-      spacing84: "8.4rem",
       spacing88: "8.8rem",
       spacing96: "9.6rem",
-      spacing108: "10.8rem",
-      spacing120: "12rem",
-      spacing184: "18.4rem",
-      spacing220: "22rem",
-      spacing240: "24rem",
       spacing248: "24.8rem",
-      spacing288: "28rem",
       spacing1056: "105.6rem"
     });
   });

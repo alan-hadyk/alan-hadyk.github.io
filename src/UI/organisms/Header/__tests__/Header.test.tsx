@@ -7,7 +7,13 @@ import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
 jest.mock("<hooks>/useIntersectionObserver");
 
+jest.mock("<hooks>/useResize");
+
+import useResize from "<hooks>/useResize";
+
 import { HeaderProps } from "<organisms>/Header/__typings__/Header.d.ts";
+
+import { UseResizeArgs } from "<hooks>/__typings__/useResize.d.ts";
 
 describe("organisms / Header", () => {
   test("should have correct structure", () => {
@@ -52,6 +58,24 @@ describe("organisms / Header", () => {
     expect(HeaderInnerFlexContainer.children[5]).toEqual(HeaderDesktop);
     expect(HeaderInnerFlexContainer.children[6]).toEqual(HeaderTablet);
     expect(HeaderInnerFlexContainer.children[7]).toEqual(HeaderMobile);
+  });
+
+  describe("useResize", () => {
+    test("should be called initially with correct arguments", () => {
+      const spyUseResize = jest.fn();
+      const mockUseResize = useResize as jest.Mock;
+      mockUseResize.mockImplementation((args: UseResizeArgs) => {
+        spyUseResize(args);
+      });
+
+      setup();
+
+      expect(typeof spyUseResize.mock.calls[0][0]["callback"]).toEqual(
+        "function"
+      );
+
+      expect(spyUseResize.mock.calls[0][0]["breakpoint"]).toEqual("1680px");
+    });
   });
 
   describe("PositionContainer", () => {

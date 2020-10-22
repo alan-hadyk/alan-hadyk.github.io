@@ -2,44 +2,15 @@
 import keyframes from "<styles>/variables/keyframes";
 
 interface KeyframesVariables {
-  barChartWidth: any;
   blink: any;
-  borderDanceHorizontal: any;
-  borderDanceVertical: any;
   glow: any;
   ripple: any;
-  rippleAlternative: any;
   rotate: any;
 }
 
-const {
-  barChartWidth,
-  blink,
-  borderDanceHorizontal,
-  borderDanceVertical,
-  glow,
-  ripple,
-  rippleAlternative,
-  rotate
-}: KeyframesVariables = keyframes;
+const { blink, glow, ripple, rotate }: KeyframesVariables = keyframes;
 
 describe("styles / variables / keyframes", () => {
-  test("should have correct keyframe - barChartWidth", () => {
-    expect(barChartWidth.rules).toEqual(`
-    0% {
-      opacity: 0.99;
-      width: 100%;
-    }
-    50% {
-      width: 20%;
-    }
-    100% {
-      opacity: 1;
-      width: 100%;
-    }
-  `);
-  });
-
   test("should have correct keyframe - blink", () => {
     expect(blink.rules).toEqual(`
     0% {
@@ -49,32 +20,6 @@ describe("styles / variables / keyframes", () => {
       opacity: 0;
     }
     100% {
-      opacity: 1;
-    }
-  `);
-  });
-
-  test("should have correct keyframe - borderDanceHorizontal", () => {
-    expect(borderDanceHorizontal.rules).toEqual(`
-    from {
-      background-position: left top;
-      opacity: 0.99;
-    }
-    to {
-      background-position: left 1.2rem top;
-      opacity: 1;
-    }
-  `);
-  });
-
-  test("should have correct keyframe - borderDanceVertical", () => {
-    expect(borderDanceVertical.rules).toEqual(`
-    from {
-      background-position: left top;
-      opacity: 0.99;
-    }
-    to {
-      background-position: left top 1.2rem;
       opacity: 1;
     }
   `);
@@ -111,21 +56,6 @@ describe("styles / variables / keyframes", () => {
     to {
       opacity: 0;
       transform: scale(10);
-    }
-  `);
-  });
-
-  test("should have correct keyframe - rippleAlternative", () => {
-    expect(rippleAlternative.rules).toEqual(`
-    from {
-      height: 2.4rem;
-      opacity: 1;
-      width: 2.4rem;
-    }
-    to {
-      height: 12rem;
-      opacity: 0;
-      width: 12rem;
     }
   `);
   });

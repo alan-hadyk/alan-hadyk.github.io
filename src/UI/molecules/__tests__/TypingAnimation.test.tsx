@@ -5,9 +5,6 @@ import TypingAnimation, { CODE } from "<molecules>/TypingAnimation";
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-jest.mock("<hooks>/useFpsCounter");
-import useFpsCounter from "<hooks>/useFpsCounter";
-
 describe("molecules / TypingAnimation", () => {
   afterEach(() => {
     jest.restoreAllMocks();
@@ -45,17 +42,8 @@ describe("molecules / TypingAnimation", () => {
   });
 
   describe("TypingAnimationCode", () => {
-    test("should update code character by character in intervals (50ms) if performance is high", () => {
+    test("should update code character by character in intervals (50ms)", () => {
       jest.useFakeTimers();
-
-      const mockUseFpsCounter: jest.Mock<
-        unknown,
-        unknown[]
-      > = (useFpsCounter as unknown) as jest.Mock;
-
-      mockUseFpsCounter.mockImplementation(() => ({
-        isPerformanceLow: false
-      }));
 
       const { TypingAnimationCode } = setup();
 
@@ -111,48 +99,8 @@ import {
       jest.clearAllTimers();
     });
 
-    test("should not update code character by character in intervals if performance is low", () => {
+    test("should clear code after typing the whole text", () => {
       jest.useFakeTimers();
-
-      const mockUseFpsCounter: jest.Mock<
-        unknown,
-        unknown[]
-      > = (useFpsCounter as unknown) as jest.Mock;
-
-      mockUseFpsCounter.mockImplementation(() => ({
-        isPerformanceLow: true
-      }));
-
-      const { TypingAnimationCode } = setup();
-
-      expect(TypingAnimationCode.textContent).toEqual("");
-
-      act(() => {
-        jest.advanceTimersByTime(50);
-      });
-
-      expect(TypingAnimationCode.textContent).toEqual("");
-
-      act(() => {
-        jest.advanceTimersByTime(500);
-      });
-
-      expect(TypingAnimationCode.textContent).toEqual("");
-
-      jest.clearAllTimers();
-    });
-
-    test("should clear code after typing the whole text if performance is high", () => {
-      jest.useFakeTimers();
-
-      const mockUseFpsCounter: jest.Mock<
-        unknown,
-        unknown[]
-      > = (useFpsCounter as unknown) as jest.Mock;
-
-      mockUseFpsCounter.mockImplementation(() => ({
-        isPerformanceLow: false
-      }));
 
       const { TypingAnimationCode } = setup();
 
@@ -169,37 +117,6 @@ import {
       });
 
       expect(TypingAnimationCode.textContent).toEqual("i");
-
-      jest.clearAllTimers();
-    });
-
-    test("should not clear code if performance is low", () => {
-      jest.useFakeTimers();
-
-      const mockUseFpsCounter: jest.Mock<
-        unknown,
-        unknown[]
-      > = (useFpsCounter as unknown) as jest.Mock;
-
-      mockUseFpsCounter.mockImplementation(() => ({
-        isPerformanceLow: true
-      }));
-
-      const { TypingAnimationCode } = setup();
-
-      expect(TypingAnimationCode.textContent).toEqual("");
-
-      act(() => {
-        jest.advanceTimersByTime(CODE.length * 50 + 105);
-      });
-
-      expect(TypingAnimationCode.textContent).toEqual("");
-
-      act(() => {
-        jest.advanceTimersByTime(50);
-      });
-
-      expect(TypingAnimationCode.textContent).toEqual("");
 
       jest.clearAllTimers();
     });

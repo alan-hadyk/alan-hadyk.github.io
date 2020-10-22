@@ -21,15 +21,7 @@ const ReactLogo = (): JSX.Element => (
       height="100%"
       justifyContent="center"
     >
-      <Icon
-        // animationTime="verySlow"
-        height="100%"
-        iconName="reactLogo"
-        isResponsive
-        // shouldDisplayGlowAnimation
-        // shouldRotate
-        width="100%"
-      />
+      <Icon height="100%" iconName="reactLogo" isResponsive width="100%" />
     </FlexContainer>
   </SpacingContainer>
 );

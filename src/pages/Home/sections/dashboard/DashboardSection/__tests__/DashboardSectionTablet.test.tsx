@@ -5,8 +5,6 @@ import DashboardSectionTablet from "<pages>/Home/sections/dashboard/DashboardSec
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-jest.mock("<hooks>/useFpsCounter");
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 jest.mock(
   "<state>/withCommitsState",

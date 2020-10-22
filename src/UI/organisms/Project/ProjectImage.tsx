@@ -2,7 +2,7 @@ import React from "react";
 
 import Icon from "<atoms>/Icon";
 
-import Hexagon from "<molecules>//Hexagon";
+import Hexagon from "<molecules>/Hexagon";
 
 import { ProjectImageProps } from "<organisms>/Project/__typings__/ProjectImage.d.ts";
 

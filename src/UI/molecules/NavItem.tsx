@@ -53,11 +53,9 @@ function NavItem({ href, isActive = false, title }: NavItemProps): JSX.Element {
   }
 
   function handleMouseOver(): void {
-    if (!navItemElementRef.current) {
-      return;
+    if (navItemElementRef.current) {
+      shuffleText.start();
     }
-
-    shuffleText.start();
   }
 }
 

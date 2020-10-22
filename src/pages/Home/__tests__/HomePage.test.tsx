@@ -11,9 +11,6 @@ jest.mock("ip", () => ({
   address: (): string => "127.0.0.1"
 }));
 
-jest.mock("<hooks>/useFpsCounter");
-
-jest.mock("vivus");
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 jest.mock(
   "<state>/withCommitsState",

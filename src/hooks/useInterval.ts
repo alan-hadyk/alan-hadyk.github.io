@@ -12,10 +12,8 @@ export default function useInterval(
 
   useEffect(() => {
     const tick = (): void => savedCallback && savedCallback.current();
+    const id: number = setInterval(tick, delay);
 
-    if (delay !== null) {
-      const id: number = setInterval(tick, delay);
-      return (): void => clearInterval(id);
-    }
+    return (): void => clearInterval(id);
   }, [delay]);
 }

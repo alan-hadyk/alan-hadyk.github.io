@@ -78,6 +78,66 @@ describe("hooks / useIntersectionObserver", () => {
     expect(onElementVisible).toHaveBeenNthCalledWith(1, "#skills");
   });
 
+  test("should call onElementVisible with empty string if there's no highest intersection", () => {
+    const observe = jest.fn();
+    const disconnect = jest.fn();
+
+    const mockEntries = [
+      {
+        intersectionRatio: 0.3285198509693146,
+        isIntersecting: false,
+        target: {
+          id: "portfolio"
+        }
+      },
+      {
+        intersectionRatio: 0.7433498509693146,
+        isIntersecting: false,
+        target: {
+          id: "experience"
+        }
+      },
+      {
+        intersectionRatio: 0.533498509693146,
+        isIntersecting: false,
+        target: {
+          id: "skills"
+        }
+      }
+    ];
+
+    function IntersectionObserver(entries) {
+      this.observe = observe;
+      this.disconnect = disconnect;
+      this.takeRecords = jest.fn();
+      this.unobserve = jest.fn();
+
+      entries(mockEntries);
+    }
+
+    windowSpy.mockImplementation(() => ({
+      IntersectionObserver,
+      addEventListener: jest.fn(),
+      removeEventListener: jest.fn()
+    }));
+
+    const onElementVisible = jest.fn();
+    renderHook(() =>
+      useIntersectionObserver({
+        onElementVisible,
+        selectors: [
+          "#portfolio",
+          "#experience",
+          "#skills",
+          "#about-me",
+          "#contact"
+        ]
+      })
+    );
+
+    expect(onElementVisible).toHaveBeenNthCalledWith(1, "");
+  });
+
   test("should call observe for selectors that exist in the DOM, and call disconnect when hook gets unmounted", () => {
     const observe = jest.fn();
     const disconnect = jest.fn();
