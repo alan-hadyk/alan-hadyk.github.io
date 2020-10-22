@@ -5,9 +5,9 @@ import DashboardSectionTablet from "<pages>/Home/sections/dashboard/DashboardSec
 
 import renderWithTheme from "<helpers>/tests/renderWithTheme";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 jest.mock(
   "<state>/withCommitsState",
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   () => (WrappedComponent: React.FunctionComponent<any>) => (
     props: unknown
   ): JSX.Element => {

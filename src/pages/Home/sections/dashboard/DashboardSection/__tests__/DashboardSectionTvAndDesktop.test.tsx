@@ -9,9 +9,9 @@ jest.mock("ip", () => ({
   address: (): string => "127.0.0.1"
 }));
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 jest.mock(
   "<state>/withCommitsState",
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   () => (WrappedComponent: React.FunctionComponent<any>) => (
     props: unknown
   ): JSX.Element => {

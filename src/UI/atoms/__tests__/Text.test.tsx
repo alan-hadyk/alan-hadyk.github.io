@@ -60,13 +60,15 @@ describe("atoms / Text", () => {
       });
 
       describe("strong", () => {
-        test("should have #bcd8db color prop is blue300", () => {
-          const { TextContainer } = setup({
-            color: "blue300"
-          });
+        describe("color", () => {
+          test("should have #bcd8db if color prop is blue300", () => {
+            const { TextContainer } = setup({
+              color: "blue300"
+            });
 
-          expect(TextContainer).toHaveStyleRule("color", "#bcd8db", {
-            modifier: "strong"
+            expect(TextContainer).toHaveStyleRule("color", "#bcd8db", {
+              modifier: "strong"
+            });
           });
         });
       });

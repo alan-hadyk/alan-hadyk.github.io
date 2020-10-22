@@ -7,7 +7,6 @@ package.json
 .eslintignore
 yarn.lock
 README.md
-CHANGELOG.md
 tsconfig.json
 .gitignore
 tsconfig.paths.json

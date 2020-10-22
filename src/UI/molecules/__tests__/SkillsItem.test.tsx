@@ -190,7 +190,7 @@ describe("molecules / SkillsItem", () => {
       ).toEqual("Brand-React.svg");
     });
 
-    test("should have correct content passed via data.iconsWithLanels['label'] prop", () => {
+    test("should have correct content passed via data.iconsWithLabels['label'] prop", () => {
       const { IconsWithLabels } = setup({
         data
       });
