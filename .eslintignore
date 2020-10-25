@@ -2,10 +2,8 @@ node_modules
 public
 build
 coverage
-package.json
 .prettierignore
 .eslintignore
 yarn.lock
 README.md
-tsconfig.json
-tsconfig.paths.json
+*.json
