@@ -1,4 +1,4 @@
-import designToolsCategory from "<pages>/Home/sections/skills/categories/designToolsCategory";
+import designToolsCategory from "pages/Home/sections/skills/categories/designToolsCategory";
 
 describe("pages / Home / sections / skills / categories / designToolsCategory", () => {
   test("should have correct content", () => {

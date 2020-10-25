@@ -7,9 +7,9 @@ import {
 } from "@testing-library/react";
 import { css } from "styled-components";
 
-import Button from "<molecules>/Button";
+import Button from "molecules/Button";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
 jest.mock("react-device-detect", () => ({
   __esModule: true,
@@ -18,7 +18,7 @@ jest.mock("react-device-detect", () => ({
 
 import * as reactDeviceDetect from "react-device-detect";
 
-import { ButtonProps } from "<molecules>/__typings__/Button.d.ts";
+import { ButtonProps } from "molecules/__typings__/Button";
 
 describe("molecules / Button", () => {
   test("should have correct structure", () => {

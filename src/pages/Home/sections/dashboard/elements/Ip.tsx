@@ -1,8 +1,8 @@
 import React from "react";
 import ip from "ip";
 
-import DashboardElement from "<molecules>/DashboardElement";
-import Earth from "<molecules>/Earth";
+import DashboardElement from "molecules/DashboardElement";
+import Earth from "molecules/Earth";
 
 const Ip = (): JSX.Element => (
   <DashboardElement

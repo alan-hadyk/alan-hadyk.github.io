@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import Corner from "<atoms>/Corner";
+import Corner from "atoms/Corner";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { CornerProps } from "<atoms>/__typings__/Corner.d.ts";
+import { CornerProps } from "atoms/__typings__/Corner";
 
 describe("atoms / Corner", () => {
   describe("Styles", () => {

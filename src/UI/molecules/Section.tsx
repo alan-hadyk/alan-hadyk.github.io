@@ -1,14 +1,11 @@
 import React, { Fragment, useCallback } from "react";
 
-import Text from "<atoms>/Text";
+import Text from "atoms/Text";
 
-import SpacingContainer from "<layout>/SpacingContainer";
-import Responsive from "<layout>/Responsive";
+import SpacingContainer from "layout/SpacingContainer";
+import Responsive from "layout/Responsive";
 
-import {
-  RenderTitle,
-  SectionProps
-} from "<molecules>/__typings__/Section.d.ts";
+import { RenderTitle, SectionProps } from "molecules/__typings__/Section";
 
 function Section({
   children,

@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import HexagonWithDescriptionContent from "<molecules>/HexagonWithDescription/HexagonWithDescriptionContent";
+import HexagonWithDescriptionContent from "molecules/HexagonWithDescription/HexagonWithDescriptionContent";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { HexagonWithDescriptionContentProps } from "<molecules>/HexagonWithDescription/__typings__/HexagonWithDescriptionContent.d.ts";
+import { HexagonWithDescriptionContentProps } from "molecules/HexagonWithDescription/__typings__/HexagonWithDescriptionContent";
 
 describe("molecules / HexagonWithDescription", () => {
   test("should have correct structure", () => {

@@ -1,9 +1,9 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import CompanySAP from "<pages>/Home/sections/experience/companies/CompanySAP";
+import CompanySAP from "pages/Home/sections/experience/companies/CompanySAP";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
 describe("pages / Home / sections / experience / companies / CompanySAP", () => {
   describe("Props", () => {

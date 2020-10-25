@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import { Commits } from "<pages>/Home/sections/dashboard/elements/Commits";
+import { Commits } from "pages/Home/sections/dashboard/elements/Commits";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { ListOfCommitsProps } from "<molecules>/__typings__/ListOfCommits.d.ts";
+import { ListOfCommitsProps } from "molecules/__typings__/ListOfCommits";
 
 describe("pages / Home / sections / dashboard / elements / Commits", () => {
   test("should have correct structure if has no error", () => {

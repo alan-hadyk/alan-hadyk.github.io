@@ -1,9 +1,9 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import ExperienceSection from "<pages>/Home/sections/experience/ExperienceSection";
+import ExperienceSection from "pages/Home/sections/experience/ExperienceSection";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
 describe("pages / Home / sections / experience / ExperienceSection", () => {
   test("should have correct structure", () => {

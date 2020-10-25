@@ -1,14 +1,14 @@
 import React from "react";
 
-import MenuButton from "<atoms>/MenuButton";
-import Nav from "<molecules>/Nav";
-import SideMenu from "<organisms>/SideMenu";
+import MenuButton from "atoms/MenuButton";
+import Nav from "molecules/Nav";
+import SideMenu from "organisms/SideMenu";
 
-import Responsive from "<layout>/Responsive";
-import FlexContainer from "<layout>/FlexContainer";
+import Responsive from "layout/Responsive";
+import FlexContainer from "layout/FlexContainer";
 
-import Backdrop from "<atoms>/Backdrop";
-import { HeaderMobileProps } from "<organisms>/Header/__typings__/HeaderMobile.d.ts";
+import Backdrop from "atoms/Backdrop";
+import { HeaderMobileProps } from "organisms/Header/__typings__/HeaderMobile";
 
 const HeaderDesktop = ({
   isMenuVisible,

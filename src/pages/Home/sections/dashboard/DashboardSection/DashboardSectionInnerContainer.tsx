@@ -1,9 +1,9 @@
 import React from "react";
 
-import FlexContainer from "<layout>/FlexContainer";
-import SpacingContainer from "<layout>/SpacingContainer";
+import FlexContainer from "layout/FlexContainer";
+import SpacingContainer from "layout/SpacingContainer";
 
-import { DashboardSectionInnerContainerProps } from "<pages>/Home/sections/dashboard/DashboardSection/__typings__/DashboardSectionInnerContainer.d.ts";
+import { DashboardSectionInnerContainerProps } from "pages/Home/sections/dashboard/DashboardSection/__typings__/DashboardSectionInnerContainer";
 
 const DashboardSectionInnerContainer = ({
   children,

@@ -1,13 +1,13 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import CompanyMobile from "<organisms>/Company/CompanyMobile";
+import CompanyMobile from "organisms/Company/CompanyMobile";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { CompanyProps } from "<organisms>/Company/__typings__/Company.d.ts";
+import { CompanyProps } from "organisms/Company/__typings__/Company";
 
-jest.mock("<hooks>/useIntersectionObserver");
+jest.mock("hooks/useIntersectionObserver");
 
 describe("organisms / CompanyMobile", () => {
   test("should have correct structure", () => {

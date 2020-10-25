@@ -1,4 +1,4 @@
-import { TextProps } from "<atoms>/__typings__/Text.d.ts";
+import { TextProps } from "atoms/__typings__/Text";
 
 export interface ProjectDescriptionContentProps {
   description: string;

@@ -1,12 +1,12 @@
 import React from "react";
 
-import SpacingContainer from "<layout>/SpacingContainer";
+import SpacingContainer from "layout/SpacingContainer";
 
-import Text from "<atoms>/Text";
+import Text from "atoms/Text";
 
-import IconsWithLabels from "<molecules>/IconsWithLabels";
+import IconsWithLabels from "molecules/IconsWithLabels";
 
-import { ProjectDescriptionTechnologiesProps } from "<organisms>/ProjectDescription/__typings__/ProjectDescriptionTechnologies.d.ts";
+import { ProjectDescriptionTechnologiesProps } from "organisms/ProjectDescription/__typings__/ProjectDescriptionTechnologies";
 
 const ProjectDescriptionTechnologies = ({
   iconsWithLabels

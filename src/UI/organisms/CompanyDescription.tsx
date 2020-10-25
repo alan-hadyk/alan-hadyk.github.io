@@ -1,13 +1,13 @@
 import React, { useCallback, Fragment } from "react";
 import styled from "styled-components";
 
-import Text from "<atoms>/Text";
-import IconsWithLabels from "<molecules>/IconsWithLabels";
-import IconWithLabel from "<molecules>/IconWithLabel";
-import UnorderedList from "<molecules>/UnorderedList";
-import SpacingContainer from "<layout>/SpacingContainer";
+import Text from "atoms/Text";
+import IconsWithLabels from "molecules/IconsWithLabels";
+import IconWithLabel from "molecules/IconWithLabel";
+import UnorderedList from "molecules/UnorderedList";
+import SpacingContainer from "layout/SpacingContainer";
 
-import { CompanyDescriptionProps } from "<organisms>/__typings__/CompanyDescription.d.ts";
+import { CompanyDescriptionProps } from "organisms/__typings__/CompanyDescription";
 
 function CompanyDescription({
   date,

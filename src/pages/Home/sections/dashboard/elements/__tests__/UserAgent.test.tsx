@@ -1,9 +1,9 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import UserAgent from "<pages>/Home/sections/dashboard/elements/UserAgent";
+import UserAgent from "pages/Home/sections/dashboard/elements/UserAgent";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
 jest.mock("detect-browser", () => ({
   detect: (): { name: string } => ({ name: "chrome" })

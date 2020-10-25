@@ -1,14 +1,14 @@
 import React from "react";
 
-import FlexContainer from "<layout>/FlexContainer";
-import FlexItem from "<layout>/FlexItem";
-import SpacingContainer from "<layout>/SpacingContainer";
-import Responsive from "<layout>/Responsive";
+import FlexContainer from "layout/FlexContainer";
+import FlexItem from "layout/FlexItem";
+import SpacingContainer from "layout/SpacingContainer";
+import Responsive from "layout/Responsive";
 
-import ProjectDescription from "<organisms>/ProjectDescription";
-import ProjectImage from "<organisms>/Project/ProjectImage";
+import ProjectDescription from "organisms/ProjectDescription";
+import ProjectImage from "organisms/Project/ProjectImage";
 
-import { ProjectProps } from "<organisms>/Project/__typings__/Project.d.ts";
+import { ProjectProps } from "organisms/Project/__typings__/Project";
 
 const ProjectTvAndDesktop = ({
   description,

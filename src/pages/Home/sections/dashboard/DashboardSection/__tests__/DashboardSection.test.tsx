@@ -1,16 +1,16 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import DashboardSection from "<pages>/Home/sections/dashboard/DashboardSection";
+import DashboardSection from "pages/Home/sections/dashboard/DashboardSection";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
 jest.mock("ip", () => ({
   address: (): string => "127.0.0.1"
 }));
 
 jest.mock(
-  "<state>/withCommitsState",
+  "state/withCommitsState",
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   () => (WrappedComponent: React.FunctionComponent<any>) => (
     props: unknown

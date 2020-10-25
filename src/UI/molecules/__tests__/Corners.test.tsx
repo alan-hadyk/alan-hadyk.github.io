@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import Corners from "<molecules>/Corners";
+import Corners from "molecules/Corners";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { CornersProps } from "<molecules>/__typings__/Corners.d.ts";
+import { CornersProps } from "molecules/__typings__/Corners";
 
 describe("molecules / Corners", () => {
   describe("Corner", () => {

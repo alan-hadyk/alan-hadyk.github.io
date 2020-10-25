@@ -1,4 +1,4 @@
-import transitionTimes from "<styles>/variables/transitionTimes";
+import transitionTimes from "styles/variables/transitionTimes";
 
 describe("styles / variables / transitionTimes", () => {
   test("should have correct transitionTimes", () => {

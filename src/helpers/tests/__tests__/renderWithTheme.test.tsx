@@ -2,7 +2,7 @@ import React from "react";
 import { RenderResult } from "@testing-library/react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
 describe("helpers / tests / renderWithTheme", () => {
   test("should render children", () => {

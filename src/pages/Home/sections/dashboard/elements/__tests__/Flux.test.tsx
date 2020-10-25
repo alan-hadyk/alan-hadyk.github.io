@@ -1,9 +1,9 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import Flux from "<pages>/Home/sections/dashboard/elements/Flux";
+import Flux from "pages/Home/sections/dashboard/elements/Flux";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
 describe("pages / Home / sections / dashboard / elements / Flux", () => {
   test("should have correct structure", () => {

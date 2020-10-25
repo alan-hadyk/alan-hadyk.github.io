@@ -1,16 +1,16 @@
 import React, { useRef } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import PositionContainer from "<layout>/PositionContainer";
+import PositionContainer from "layout/PositionContainer";
 
-import useInterval from "<hooks>/useInterval";
+import useInterval from "hooks/useInterval";
 
 export const CODE = `import { useLayoutEffect } from "react";
 
 import {
   IntersectionObserverWithPolyfill,
   UseIntersectionObserver
-} from "<hooks>/__typings__/useIntersectionObserver.d.ts";
+} from "hooks/__typings__/useIntersectionObserver";
 
 export default function useIntersectionObserver({
   onElementVisible,

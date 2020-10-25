@@ -1,13 +1,13 @@
 import React, { memo, useState } from "react";
 
-import NavItem from "<molecules>/NavItem";
-import FlexContainer from "<layout>/FlexContainer";
+import NavItem from "molecules/NavItem";
+import FlexContainer from "layout/FlexContainer";
 
-import useIntersectionObserver from "<hooks>/useIntersectionObserver";
+import useIntersectionObserver from "hooks/useIntersectionObserver";
 
-import { NavItemProps } from "<molecules>/__typings__/NavItem.d.ts";
+import { NavItemProps } from "molecules/__typings__/NavItem";
 
-import { NavProps } from "<molecules>/__typings__/Nav.d.ts";
+import { NavProps } from "molecules/__typings__/Nav";
 
 const navItems: NavItemProps[] = [
   {

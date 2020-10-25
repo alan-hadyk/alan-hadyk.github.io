@@ -1,13 +1,13 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import ProjectDescriptionTechnologies from "<organisms>/ProjectDescription/ProjectDescriptionTechnologies";
+import ProjectDescriptionTechnologies from "organisms/ProjectDescription/ProjectDescriptionTechnologies";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { ProjectDescriptionTechnologiesProps } from "<organisms>/ProjectDescription/__typings__/ProjectDescriptionTechnologies.d.ts";
+import { ProjectDescriptionTechnologiesProps } from "organisms/ProjectDescription/__typings__/ProjectDescriptionTechnologies";
 
-import { IconWithLabelProps } from "<molecules>/__typings__/IconWithLabel.d.ts";
+import { IconWithLabelProps } from "molecules/__typings__/IconWithLabel";
 
 describe("organisms / ProjectDescriptionTechnologies", () => {
   test("should have correct structure", () => {

@@ -1,18 +1,18 @@
 import React from "react";
 
-import Icon from "<atoms>/Icon";
-import Text from "<atoms>/Text";
+import Icon from "atoms/Icon";
+import Text from "atoms/Text";
 
-import FlexContainer from "<layout>/FlexContainer";
-import SpacingContainer from "<layout>/SpacingContainer";
+import FlexContainer from "layout/FlexContainer";
+import SpacingContainer from "layout/SpacingContainer";
 
 import {
   IconWithLabelProps,
   MapSizeToIconHeight,
   MapSizeToTextFontSize
-} from "<molecules>/__typings__/IconWithLabel.d.ts";
+} from "molecules/__typings__/IconWithLabel";
 
-import { Spacing } from "<styles>/variables/__typings__/variables.d.ts";
+import { Spacing } from "styles/variables/__typings__/variables";
 
 export const mapSizeToIconHeight: MapSizeToIconHeight = {
   large: "spacing40",

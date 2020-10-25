@@ -1,7 +1,7 @@
 import { useLayoutEffect } from "react";
 import ShuffleText, { ShuffleTextType } from "shuffle-text";
 
-import { UseShuffleText } from "<hooks>/__typings__/useShuffleText.d.ts";
+import { UseShuffleText } from "hooks/__typings__/useShuffleText";
 
 export default function useShuffleText({
   duration = 600,

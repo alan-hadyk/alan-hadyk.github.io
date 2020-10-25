@@ -1,9 +1,9 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import DashboardSectionMobile from "<pages>/Home/sections/dashboard/DashboardSection/DashboardSectionMobile";
+import DashboardSectionMobile from "pages/Home/sections/dashboard/DashboardSection/DashboardSectionMobile";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
 describe("pages / Home / sections / dashboard / DashboardSection / DashboardSectionMobile", () => {
   test("should have correct structure", () => {

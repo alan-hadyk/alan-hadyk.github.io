@@ -1,4 +1,4 @@
-import capitalize from "<helpers>/strings/capitalize";
+import capitalize from "helpers/strings/capitalize";
 
 describe("helpers / string / capitalize", () => {
   test("should be able to capitalize string", () => {

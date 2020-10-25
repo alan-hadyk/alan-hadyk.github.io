@@ -1,3 +1,3 @@
-import HexagonWithDescription from "<molecules>/HexagonWithDescription/HexagonWithDescription";
+import HexagonWithDescription from "molecules/HexagonWithDescription/HexagonWithDescription";
 
 export default HexagonWithDescription;

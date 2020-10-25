@@ -1,13 +1,13 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import SideMenu from "<organisms>/SideMenu";
+import SideMenu from "organisms/SideMenu";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { SideMenuProps } from "<organisms>/__typings__/SideMenu.d.ts";
+import { SideMenuProps } from "organisms/__typings__/SideMenu";
 
-jest.mock("<hooks>/useIntersectionObserver");
+jest.mock("hooks/useIntersectionObserver");
 
 describe("organisms / SideMenu", () => {
   test("should have correct structure", () => {

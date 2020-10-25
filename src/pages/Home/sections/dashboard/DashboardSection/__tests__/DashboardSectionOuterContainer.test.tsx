@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import DashboardSectionOuterContainer from "<pages>/Home/sections/dashboard/DashboardSection/DashboardSectionOuterContainer";
+import DashboardSectionOuterContainer from "pages/Home/sections/dashboard/DashboardSection/DashboardSectionOuterContainer";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { DashboardSectionOuterContainerProps } from "<pages>/Home/sections/dashboard/DashboardSection/__typings__/DashboardSectionOuterContainer.d.ts";
+import { DashboardSectionOuterContainerProps } from "pages/Home/sections/dashboard/DashboardSection/__typings__/DashboardSectionOuterContainer";
 
 describe("pages / Home / sections / dashboard / DashboardSection / DashboardSectionOuterContainer", () => {
   test("should have correct structure", () => {

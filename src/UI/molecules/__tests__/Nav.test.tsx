@@ -1,17 +1,17 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import Nav from "<molecules>/Nav";
+import Nav from "molecules/Nav";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { NavProps } from "<molecules>/__typings__/Nav.d.ts";
+import { NavProps } from "molecules/__typings__/Nav";
 
-jest.mock("<hooks>/useIntersectionObserver");
+jest.mock("hooks/useIntersectionObserver");
 
-import useIntersectionObserver from "<hooks>/useIntersectionObserver";
+import useIntersectionObserver from "hooks/useIntersectionObserver";
 
-import { UseIntersectionObserver } from "<hooks>/__typings__/useIntersectionObserver.d.ts";
+import { UseIntersectionObserver } from "hooks/__typings__/useIntersectionObserver";
 
 describe("molecules / Nav", () => {
   test("should have correct structure", () => {

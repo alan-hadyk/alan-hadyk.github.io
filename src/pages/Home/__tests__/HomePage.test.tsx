@@ -1,18 +1,18 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import HomePage from "<pages>/Home/HomePage";
+import HomePage from "pages/Home/HomePage";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-jest.mock("<hooks>/useIntersectionObserver");
+jest.mock("hooks/useIntersectionObserver");
 
 jest.mock("ip", () => ({
   address: (): string => "127.0.0.1"
 }));
 
 jest.mock(
-  "<state>/withCommitsState",
+  "state/withCommitsState",
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   () => (WrappedComponent: React.FunctionComponent<any>) => (
     props: unknown

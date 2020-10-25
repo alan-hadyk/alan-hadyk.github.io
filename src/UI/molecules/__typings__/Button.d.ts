@@ -1,4 +1,4 @@
-import { ColorPalette } from "<styles>/variables/__typings__/variables.d.ts";
+import { ColorPalette } from "styles/variables/__typings__/variables";
 
 export interface ButtonContainerProps {
   backgroundColor?: ColorPalette | "transparent";

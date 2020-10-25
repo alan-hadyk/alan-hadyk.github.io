@@ -1,4 +1,4 @@
-import { Spacing } from "<styles>/variables/__typings__/variables.d.ts";
+import { Spacing } from "styles/variables/__typings__/variables";
 
 export interface SpacingContainerProps {
   children: JSX.Element | JSX.Element[] | string;

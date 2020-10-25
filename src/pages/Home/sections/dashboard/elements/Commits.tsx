@@ -1,11 +1,11 @@
 import React, { memo } from "react";
 
-import withCommitsState from "<state>/withCommitsState";
+import withCommitsState from "state/withCommitsState";
 
-import DashboardElement from "<molecules>/DashboardElement";
-import ListOfCommits from "<molecules>/ListOfCommits";
+import DashboardElement from "molecules/DashboardElement";
+import ListOfCommits from "molecules/ListOfCommits";
 
-import { ListOfCommitsProps } from "<molecules>/__typings__/ListOfCommits.d.ts";
+import { ListOfCommitsProps } from "molecules/__typings__/ListOfCommits";
 
 export const Commits = ({
   commitsList,

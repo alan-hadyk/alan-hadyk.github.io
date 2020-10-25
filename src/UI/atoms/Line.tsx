@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import { LineProps } from "<atoms>/__typings__/Line.d.ts";
+import { LineProps } from "atoms/__typings__/Line";
 
 const Line = ({ direction, isActive = false }: LineProps): JSX.Element => (
   <Line.Container

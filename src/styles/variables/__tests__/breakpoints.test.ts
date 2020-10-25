@@ -1,4 +1,4 @@
-import breakpoints from "<styles>/variables/breakpoints";
+import breakpoints from "styles/variables/breakpoints";
 
 describe("styles / variables / breakpoints", () => {
   test("should have correct breakpoints", () => {

@@ -4,7 +4,7 @@
 import { renderHook } from "@testing-library/react-hooks";
 import { JSDOM } from "jsdom";
 
-import useIntersectionObserver from "<hooks>/useIntersectionObserver";
+import useIntersectionObserver from "hooks/useIntersectionObserver";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let windowSpy;

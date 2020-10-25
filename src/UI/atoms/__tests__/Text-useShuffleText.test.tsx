@@ -1,15 +1,15 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import Text from "<atoms>/Text";
+import Text from "atoms/Text";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { TextProps } from "<atoms>/__typings__/Text.d.ts";
+import { TextProps } from "atoms/__typings__/Text";
 
-jest.mock("<hooks>/useShuffleText");
+jest.mock("hooks/useShuffleText");
 
-import useShuffleText from "<hooks>/useShuffleText";
+import useShuffleText from "hooks/useShuffleText";
 
 describe("atoms / Text", () => {
   describe("should fire useShuffleText", () => {

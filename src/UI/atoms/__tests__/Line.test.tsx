@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import Line from "<atoms>/Line";
+import Line from "atoms/Line";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { LineProps } from "<atoms>/__typings__/Line.d.ts";
+import { LineProps } from "atoms/__typings__/Line";
 
 describe("atoms / Line", () => {
   describe("Styles", () => {

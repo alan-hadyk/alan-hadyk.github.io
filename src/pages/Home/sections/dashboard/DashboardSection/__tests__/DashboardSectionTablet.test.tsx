@@ -1,12 +1,12 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import DashboardSectionTablet from "<pages>/Home/sections/dashboard/DashboardSection/DashboardSectionTablet";
+import DashboardSectionTablet from "pages/Home/sections/dashboard/DashboardSection/DashboardSectionTablet";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
 jest.mock(
-  "<state>/withCommitsState",
+  "state/withCommitsState",
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   () => (WrappedComponent: React.FunctionComponent<any>) => (
     props: unknown

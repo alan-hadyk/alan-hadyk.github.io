@@ -1,11 +1,11 @@
-import breakpoints from "<styles>/variables/breakpoints";
-import colorPalette from "<styles>/variables/colorPalette";
-import fontSizes from "<styles>/variables/fontSizes";
-import fontWeights from "<styles>/variables/fontWeights";
-import fontFamilies from "<styles>/variables/fontFamilies";
-import spacing from "<styles>/variables/spacing";
-import transitionTimes from "<styles>/variables/transitionTimes";
-import zIndex from "<styles>/variables/zIndex";
+import breakpoints from "styles/variables/breakpoints";
+import colorPalette from "styles/variables/colorPalette";
+import fontSizes from "styles/variables/fontSizes";
+import fontWeights from "styles/variables/fontWeights";
+import fontFamilies from "styles/variables/fontFamilies";
+import spacing from "styles/variables/spacing";
+import transitionTimes from "styles/variables/transitionTimes";
+import zIndex from "styles/variables/zIndex";
 
 export type Breakpoints = keyof typeof breakpoints;
 export type ColorPalette = keyof typeof colorPalette;

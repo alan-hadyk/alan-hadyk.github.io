@@ -2,14 +2,11 @@ import React from "react";
 
 import { renderHook, RenderHookResult } from "@testing-library/react-hooks";
 
-import useShuffleText from "<hooks>/useShuffleText";
+import useShuffleText from "hooks/useShuffleText";
 
 import ShuffleText from "shuffle-text";
 
-import {
-  ShuffleState,
-  UseShuffleText
-} from "<hooks>/__typings__/useShuffleText.d.ts";
+import { ShuffleState, UseShuffleText } from "hooks/__typings__/useShuffleText";
 
 interface RefElement {
   current: HTMLElement | null;

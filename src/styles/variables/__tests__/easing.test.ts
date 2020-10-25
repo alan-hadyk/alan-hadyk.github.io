@@ -1,4 +1,4 @@
-import easing from "<styles>/variables/easing";
+import easing from "styles/variables/easing";
 
 describe("styles / variables / easing", () => {
   test("should have correct easings", () => {

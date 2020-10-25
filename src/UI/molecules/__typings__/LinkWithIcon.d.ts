@@ -1,5 +1,5 @@
-import { IconProps } from "<atoms>/__typings__/Icon.d.ts";
-import { Spacing } from "<styles>/variables/__typings__/variables.d.ts";
+import { IconProps } from "atoms/__typings__/Icon";
+import { Spacing } from "styles/variables/__typings__/variables";
 
 export interface LinkWithIconProps {
   dataCy?: string;

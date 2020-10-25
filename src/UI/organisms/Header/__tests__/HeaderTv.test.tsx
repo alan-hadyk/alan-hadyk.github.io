@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import HeaderTv from "<organisms>/Header/HeaderTv";
+import HeaderTv from "organisms/Header/HeaderTv";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-jest.mock("<hooks>/useIntersectionObserver");
+jest.mock("hooks/useIntersectionObserver");
 
 describe("organisms / HeaderTv", () => {
   test("should have correct structure", () => {

@@ -2,9 +2,9 @@ import {
   ColorPalette,
   FontSizes,
   Spacing
-} from "<styles>/variables/__typings__/variables.d.ts";
+} from "styles/variables/__typings__/variables";
 
-import { IconProps } from "<atoms>/__typings__/Icon.d.ts";
+import { IconProps } from "atoms/__typings__/Icon";
 
 export interface IconWithLabelProps {
   iconName: IconProps["iconName"];

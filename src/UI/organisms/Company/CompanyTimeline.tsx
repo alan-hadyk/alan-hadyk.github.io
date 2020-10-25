@@ -1,10 +1,10 @@
 import React from "react";
 
-import Timeline from "<molecules>/Timeline";
+import Timeline from "molecules/Timeline";
 
-import PositionContainer from "<layout>/PositionContainer";
+import PositionContainer from "layout/PositionContainer";
 
-import { CompanyTimelineProps } from "<organisms>/Company/__typings__/CompanyTimeline.d.ts";
+import { CompanyTimelineProps } from "organisms/Company/__typings__/CompanyTimeline";
 
 const CompanyTimeline = ({
   timelineBottom = "negativeSpacing16"

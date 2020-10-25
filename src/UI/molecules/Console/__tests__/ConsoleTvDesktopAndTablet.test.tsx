@@ -1,9 +1,9 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import ConsoleTvDesktopAndTablet from "<molecules>/Console/ConsoleTvDesktopAndTablet";
+import ConsoleTvDesktopAndTablet from "molecules/Console/ConsoleTvDesktopAndTablet";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
 describe("molecules / ConsoleTvDesktopAndTablet", () => {
   test("should have correct structure", () => {

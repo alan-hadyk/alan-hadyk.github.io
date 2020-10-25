@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import ConsoleText from "<atoms>/ConsoleText";
+import ConsoleText from "atoms/ConsoleText";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { ConsoleTextProps } from "<atoms>/__typings__/ConsoleText.d.ts";
+import { ConsoleTextProps } from "atoms/__typings__/ConsoleText";
 
 describe("atoms / ConsoleText", () => {
   describe("Styles", () => {

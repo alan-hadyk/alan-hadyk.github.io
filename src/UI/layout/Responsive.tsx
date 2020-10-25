@@ -1,13 +1,13 @@
 import React, { Fragment } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import capitalize from "<helpers>/strings/capitalize";
+import capitalize from "helpers/strings/capitalize";
 
 import {
   Device,
   ResponsiveContainerProps,
   ResponsiveProps
-} from "<layout>/__typings__/Responsive.d.ts";
+} from "layout/__typings__/Responsive";
 
 function Responsive(props: ResponsiveProps): JSX.Element {
   const {

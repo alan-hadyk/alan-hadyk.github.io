@@ -1,10 +1,10 @@
 import React from "react";
 
-import Icon from "<atoms>/Icon";
+import Icon from "atoms/Icon";
 
-import Hexagon from "<molecules>/Hexagon";
+import Hexagon from "molecules/Hexagon";
 
-import { ProjectImageProps } from "<organisms>/Project/__typings__/ProjectImage.d.ts";
+import { ProjectImageProps } from "organisms/Project/__typings__/ProjectImage";
 
 const ProjectImage = ({ projectIcon }: ProjectImageProps): JSX.Element => (
   <Hexagon dataCy="ProjectImage" dataTestId="ProjectImage" fill="pattern">

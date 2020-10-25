@@ -2,11 +2,11 @@ import React from "react";
 import { act, fireEvent, RenderResult } from "@testing-library/react";
 import ShuffleText from "shuffle-text";
 
-import Text from "<atoms>/Text";
+import Text from "atoms/Text";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { TextProps } from "<atoms>/__typings__/Text.d.ts";
+import { TextProps } from "atoms/__typings__/Text";
 
 describe("atoms / Text", () => {
   test("should render children (string)", () => {

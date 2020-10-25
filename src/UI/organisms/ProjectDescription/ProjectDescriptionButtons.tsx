@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-import SpacingContainer from "<layout>/SpacingContainer";
+import SpacingContainer from "layout/SpacingContainer";
 
-import Button from "<molecules>/Button";
+import Button from "molecules/Button";
 
-import { ProjectDescriptionButtonsProps } from "<organisms>/ProjectDescription/__typings__/ProjectDescriptionButtons.d.ts";
+import { ProjectDescriptionButtonsProps } from "organisms/ProjectDescription/__typings__/ProjectDescriptionButtons";
 
 const ProjectDescriptionButtons = ({
   size = "medium"

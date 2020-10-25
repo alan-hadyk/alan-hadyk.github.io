@@ -4,7 +4,7 @@ import {
   FontSizes,
   FontWeights,
   Spacing
-} from "<styles>/variables/__typings__/variables.d.ts";
+} from "styles/variables/__typings__/variables";
 
 export interface TextProps {
   children: string | number | JSX.Element;

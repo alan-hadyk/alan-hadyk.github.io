@@ -1,4 +1,4 @@
-import globalStyle from "<styles>/globalStyle";
+import globalStyle from "styles/globalStyle";
 
 describe("styles / globalStyle", () => {
   test("should have correct global styling", () => {

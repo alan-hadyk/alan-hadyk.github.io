@@ -1,13 +1,13 @@
 import React, { memo } from "react";
 
-import SpacingContainer from "<layout>/SpacingContainer";
-import Text from "<atoms>/Text";
+import SpacingContainer from "layout/SpacingContainer";
+import Text from "atoms/Text";
 
 import {
   ButtonTextProps,
   MapSizeToButtonTextProps,
   TextProps
-} from "<molecules>/__typings__/ButtonText.d.ts";
+} from "molecules/__typings__/ButtonText";
 
 const mapSizeToButtonTextProps: MapSizeToButtonTextProps = {
   large: { fontSize: "font28" },

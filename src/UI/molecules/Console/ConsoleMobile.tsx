@@ -2,9 +2,9 @@ import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize } from "polished";
 
-import ConsoleText from "<atoms>/ConsoleText";
+import ConsoleText from "atoms/ConsoleText";
 
-import SpacingContainer from "<layout>/SpacingContainer";
+import SpacingContainer from "layout/SpacingContainer";
 
 const ConsoleMobile = (): JSX.Element => (
   <SpacingContainer

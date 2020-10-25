@@ -1,9 +1,9 @@
 import React from "react";
 
-import Icon from "<atoms>/Icon";
-import FlexContainer from "<layout>/FlexContainer";
+import Icon from "atoms/Icon";
+import FlexContainer from "layout/FlexContainer";
 
-import { CompanyLogoProps } from "<molecules>/__typings__/CompanyLogo.d.ts";
+import { CompanyLogoProps } from "molecules/__typings__/CompanyLogo";
 
 const CompanyLogo = ({ logo }: CompanyLogoProps): JSX.Element => (
   <FlexContainer

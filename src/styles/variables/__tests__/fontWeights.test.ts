@@ -1,4 +1,4 @@
-import fontWeights from "<styles>/variables/fontWeights";
+import fontWeights from "styles/variables/fontWeights";
 
 describe("styles / variables / fontWeights", () => {
   test("should have correct font weights", () => {

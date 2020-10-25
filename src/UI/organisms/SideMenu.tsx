@@ -1,20 +1,20 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import Button from "<molecules>/Button";
-import MenuIcons from "<molecules>/MenuIcons";
-import Nav from "<molecules>/Nav";
+import Button from "molecules/Button";
+import MenuIcons from "molecules/MenuIcons";
+import Nav from "molecules/Nav";
 
-import SpacingContainer from "<layout>/SpacingContainer";
-import FlexContainer from "<layout>/FlexContainer";
-import Responsive from "<layout>/Responsive";
+import SpacingContainer from "layout/SpacingContainer";
+import FlexContainer from "layout/FlexContainer";
+import Responsive from "layout/Responsive";
 
 import { transparentize } from "polished";
 
 import {
   SideMenuContainerProps,
   SideMenuProps
-} from "<organisms>/__typings__/SideMenu.d.ts";
+} from "organisms/__typings__/SideMenu";
 
 const SideMenu = ({ isExpanded = false }: SideMenuProps): JSX.Element => (
   <SideMenu.Container

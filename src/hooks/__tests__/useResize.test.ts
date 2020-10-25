@@ -1,8 +1,8 @@
 import { renderHook, RenderHookResult } from "@testing-library/react-hooks";
 
-import useResize from "<hooks>/useResize";
+import useResize from "hooks/useResize";
 
-import { UseResizeArgs } from "<hooks>/__typings__/useResize.d.ts";
+import { UseResizeArgs } from "hooks/__typings__/useResize";
 
 describe("hooks / useResize", () => {
   test("should fire callback only when window.innerWidth is larger than or equal to given breakpoint", () => {

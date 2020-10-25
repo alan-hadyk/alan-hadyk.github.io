@@ -1,4 +1,4 @@
-import { IconProps } from "<atoms>/__typings__/Icon.d.ts";
+import { IconProps } from "atoms/__typings__/Icon";
 
 export interface CompanyLogoProps {
   logo: IconProps["iconName"];

@@ -1,7 +1,7 @@
 import React from "react";
 
-import DashboardElement from "<molecules>/DashboardElement";
-import ReactLogo from "<molecules>/ReactLogo";
+import DashboardElement from "molecules/DashboardElement";
+import ReactLogo from "molecules/ReactLogo";
 
 const PoweredBy = (): JSX.Element => (
   <DashboardElement

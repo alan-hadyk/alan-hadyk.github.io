@@ -1,10 +1,10 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import ListItem from "<atoms>/ListItem";
+import ListItem from "atoms/ListItem";
 
-import { UnorderedListProps } from "<molecules>/__typings__/UnorderedList.d.ts";
-import { ListItemProps } from "<atoms>/__typings__/ListItem.d.ts";
+import { UnorderedListProps } from "molecules/__typings__/UnorderedList";
+import { ListItemProps } from "atoms/__typings__/ListItem";
 
 const UnorderedList = ({ items }: UnorderedListProps): JSX.Element => (
   <UnorderedList.Container data-cy="UnorderedList" data-testid="UnorderedList">

@@ -1,9 +1,9 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import Ip from "<pages>/Home/sections/dashboard/elements/Ip";
+import Ip from "pages/Home/sections/dashboard/elements/Ip";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
 jest.mock("ip", () => ({
   address: (): string => "127.0.0.1"

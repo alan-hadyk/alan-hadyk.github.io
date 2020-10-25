@@ -1,9 +1,9 @@
 import React from "react";
 
-import FlexContainer from "<layout>/FlexContainer";
-import SpacingContainer from "<layout>/SpacingContainer";
+import FlexContainer from "layout/FlexContainer";
+import SpacingContainer from "layout/SpacingContainer";
 
-import Icon from "<atoms>/Icon";
+import Icon from "atoms/Icon";
 
 const Earth = (): JSX.Element => (
   <SpacingContainer

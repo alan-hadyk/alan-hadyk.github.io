@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import { FlexItemProps } from "<layout>/__typings__/FlexItem.d.ts";
+import { FlexItemProps } from "layout/__typings__/FlexItem";
 
 const FlexItem = ({
   alignSelf = "auto",

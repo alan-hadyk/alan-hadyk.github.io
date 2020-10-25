@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import ListItem from "<atoms>/ListItem";
+import ListItem from "atoms/ListItem";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { ListItemProps } from "<atoms>/__typings__/ListItem.d.ts";
+import { ListItemProps } from "atoms/__typings__/ListItem";
 
 describe("atoms / ListItem", () => {
   test("should render children", () => {

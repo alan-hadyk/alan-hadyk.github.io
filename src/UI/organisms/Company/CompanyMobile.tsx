@@ -1,12 +1,12 @@
 import React from "react";
 
-import CompanyLogo from "<molecules>/CompanyLogo";
+import CompanyLogo from "molecules/CompanyLogo";
 
-import CompanyDescription from "<organisms>/CompanyDescription";
-import FlexContainer from "<layout>/FlexContainer";
-import Responsive from "<layout>/Responsive";
+import CompanyDescription from "organisms/CompanyDescription";
+import FlexContainer from "layout/FlexContainer";
+import Responsive from "layout/Responsive";
 
-import { CompanyProps } from "<organisms>/Company/__typings__/Company.d.ts";
+import { CompanyProps } from "organisms/Company/__typings__/Company";
 
 const CompanyMobile = ({
   date,

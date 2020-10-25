@@ -1,7 +1,7 @@
 import React from "react";
 
-import DashboardElement from "<molecules>/DashboardElement";
-import AnimatedIcons from "<molecules>/AnimatedIcons";
+import DashboardElement from "molecules/DashboardElement";
+import AnimatedIcons from "molecules/AnimatedIcons";
 
 const TechStack = (): JSX.Element => (
   <DashboardElement

@@ -1,6 +1,6 @@
-import { IconWithLabelProps } from "<molecules>/__typings__/IconWithLabel.d.ts";
+import { IconWithLabelProps } from "molecules/__typings__/IconWithLabel";
 
-import { ButtonProps } from "<molecules>/__typings__/Button.d.ts";
+import { ButtonProps } from "molecules/__typings__/Button";
 
 export interface ProjectDescriptionProps {
   codeSandboxLink?: string;

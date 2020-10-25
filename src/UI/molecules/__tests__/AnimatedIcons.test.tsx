@@ -1,9 +1,9 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import AnimatedIcons from "<molecules>/AnimatedIcons";
+import AnimatedIcons from "molecules/AnimatedIcons";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
 describe("molecules / AnimatedIcons", () => {
   test("should have correct structure", () => {

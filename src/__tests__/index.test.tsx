@@ -1,6 +1,6 @@
 import React from "react";
 
-import { polyfills, renderApp } from "<src>/index";
+import { polyfills, renderApp } from "../index";
 
 jest.mock("intersection-observer", () => "mockIntersectionObserver");
 
@@ -13,7 +13,7 @@ import { render } from "react-dom";
 function MockApp(): JSX.Element {
   return <div />;
 }
-jest.mock("<src>/App", () => MockApp);
+jest.mock("./App", () => MockApp);
 
 describe("index", () => {
   test("renderApp fn should call ReactDOM.render", () => {

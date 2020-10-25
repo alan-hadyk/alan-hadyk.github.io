@@ -1,11 +1,11 @@
 import React from "react";
 
-import Icon from "<atoms>/Icon";
-import FlexContainer from "<layout>/FlexContainer";
-import PositionContainer from "<layout>/PositionContainer";
-import SpacingContainer from "<layout>/SpacingContainer";
+import Icon from "atoms/Icon";
+import FlexContainer from "layout/FlexContainer";
+import PositionContainer from "layout/PositionContainer";
+import SpacingContainer from "layout/SpacingContainer";
 
-import { IconProps } from "<atoms>/__typings__/Icon.d.ts";
+import { IconProps } from "atoms/__typings__/Icon";
 
 const animatedIcons: IconProps["iconName"][] = [
   "react",

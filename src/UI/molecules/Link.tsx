@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import Line from "<atoms>/Line";
+import Line from "atoms/Line";
 
-import PositionContainer from "<layout>/PositionContainer";
+import PositionContainer from "layout/PositionContainer";
 
-import { LinkProps } from "<molecules>/__typings__/Link.d.ts";
+import { LinkProps } from "molecules/__typings__/Link";
 
 const Link = ({
   children,

@@ -2,19 +2,19 @@ import React, { memo, useState } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize } from "polished";
 
-import LinkWithIcon from "<molecules>/LinkWithIcon";
+import LinkWithIcon from "molecules/LinkWithIcon";
 
-import HeaderTv from "<organisms>/Header/HeaderTv";
-import HeaderDesktop from "<organisms>/Header/HeaderDesktop";
-import HeaderTabletAndMobile from "<organisms>/Header/HeaderTabletAndMobile";
+import HeaderTv from "organisms/Header/HeaderTv";
+import HeaderDesktop from "organisms/Header/HeaderDesktop";
+import HeaderTabletAndMobile from "organisms/Header/HeaderTabletAndMobile";
 
-import PositionContainer from "<layout>/PositionContainer";
-import FlexContainer from "<layout>/FlexContainer";
-import Responsive from "<layout>/Responsive";
+import PositionContainer from "layout/PositionContainer";
+import FlexContainer from "layout/FlexContainer";
+import Responsive from "layout/Responsive";
 
-import useResize from "<hooks>/useResize";
+import useResize from "hooks/useResize";
 
-import { HeaderProps } from "<organisms>/Header/__typings__/Header.d.ts";
+import { HeaderProps } from "organisms/Header/__typings__/Header";
 
 function Header({ zIndex = "layer1" }: HeaderProps): JSX.Element {
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false);
