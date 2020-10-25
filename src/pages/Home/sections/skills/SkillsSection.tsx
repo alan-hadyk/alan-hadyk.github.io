@@ -1,10 +1,10 @@
 import React, { memo } from "react";
 import { Masonry } from "masonic";
 
-import Section from "molecules/Section";
-import SkillsItem from "molecules/SkillsItem";
-import Responsive from "layout/Responsive";
-import SpacingContainer from "layout/SpacingContainer";
+import Section from "UI/molecules/Section";
+import SkillsItem from "UI/molecules/SkillsItem";
+import Responsive from "UI/layout/Responsive";
+import SpacingContainer from "UI/layout/SpacingContainer";
 
 import languagesCategory from "pages/Home/sections/skills/categories/languagesCategory";
 import frameworksCategory from "pages/Home/sections/skills/categories/frameworksCategory";
@@ -18,7 +18,7 @@ import bundlersCategory from "pages/Home/sections/skills/categories/bundlersCate
 import taskManagementCategory from "pages/Home/sections/skills/categories/taskManagementCategory";
 import designToolsCategory from "pages/Home/sections/skills/categories/designToolsCategory";
 
-import { Data } from "molecules/__typings__/SkillsItem";
+import { Data } from "UI/molecules/__typings__/SkillsItem";
 
 const items: Data[] = [
   languagesCategory,

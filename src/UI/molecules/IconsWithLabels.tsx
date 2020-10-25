@@ -1,19 +1,19 @@
 import React from "react";
 
-import IconWithLabel from "molecules/IconWithLabel";
+import IconWithLabel from "UI/molecules/IconWithLabel";
 
-import VerticalIconsWithLabels from "molecules/VerticalIconsWithLabels";
+import VerticalIconsWithLabels from "UI/molecules/VerticalIconsWithLabels";
 
-import FlexContainer from "layout/FlexContainer";
+import FlexContainer from "UI/layout/FlexContainer";
 
-import { IconWithLabelProps } from "molecules/__typings__/IconWithLabel";
+import { IconWithLabelProps } from "UI/molecules/__typings__/IconWithLabel";
 
 import {
   IconsWithLabelsProps,
   MapSizeToFlexContainerGap
-} from "molecules/__typings__/IconsWithLabels";
+} from "UI/molecules/__typings__/IconsWithLabels";
 
-import { FlexContainerProps } from "layout/__typings__/FlexContainer";
+import { FlexContainerProps } from "UI/layout/__typings__/FlexContainer";
 
 const mapSizeToFlexContainerGap: MapSizeToFlexContainerGap = {
   large: "spacing28",

@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import ProjectImage from "organisms/Project/ProjectImage";
+import ProjectImage from "UI/organisms/Project/ProjectImage";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { ProjectImageProps } from "organisms/Project/__typings__/ProjectImage";
+import { ProjectImageProps } from "UI/organisms/Project/__typings__/ProjectImage";
 
 describe("organisms / ProjectImage", () => {
   test("should have correct structure", () => {

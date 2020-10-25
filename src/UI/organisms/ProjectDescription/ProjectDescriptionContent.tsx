@@ -1,14 +1,14 @@
 import React, { useCallback } from "react";
 import styled from "styled-components";
 
-import SpacingContainer from "layout/SpacingContainer";
+import SpacingContainer from "UI/layout/SpacingContainer";
 
-import Text from "atoms/Text";
+import Text from "UI/atoms/Text";
 
 import {
   MapSizeToProjectDescriptionContentProps,
   ProjectDescriptionContentProps
-} from "organisms/ProjectDescription/__typings__/ProjectDescriptionContent";
+} from "UI/organisms/ProjectDescription/__typings__/ProjectDescriptionContent";
 
 const mapSizeToProjectDescriptionTitleProps: MapSizeToProjectDescriptionContentProps = {
   large: {

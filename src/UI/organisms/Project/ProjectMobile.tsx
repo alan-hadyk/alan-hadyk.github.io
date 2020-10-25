@@ -1,12 +1,12 @@
 import React from "react";
 
-import SpacingContainer from "layout/SpacingContainer";
-import Responsive from "layout/Responsive";
+import SpacingContainer from "UI/layout/SpacingContainer";
+import Responsive from "UI/layout/Responsive";
 
-import ProjectDescription from "organisms/ProjectDescription";
-import ProjectImage from "organisms/Project/ProjectImage";
+import ProjectDescription from "UI/organisms/ProjectDescription";
+import ProjectImage from "UI/organisms/Project/ProjectImage";
 
-import { ProjectProps } from "organisms/Project/__typings__/Project";
+import { ProjectProps } from "UI/organisms/Project/__typings__/Project";
 
 const ProjectMobile = ({
   description,

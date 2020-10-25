@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 
-import LinkWithIcon from "molecules/LinkWithIcon";
+import LinkWithIcon from "UI/molecules/LinkWithIcon";
 
-import { LinkWithIconProps } from "molecules/__typings__/LinkWithIcon";
+import { LinkWithIconProps } from "UI/molecules/__typings__/LinkWithIcon";
 
 const icons: LinkWithIconProps[] = [
   {

@@ -1,11 +1,11 @@
 import React from "react";
 
-import SpacingContainer from "layout/SpacingContainer";
-import Responsive from "layout/Responsive";
+import SpacingContainer from "UI/layout/SpacingContainer";
+import Responsive from "UI/layout/Responsive";
 
-import HexagonWithDescriptionContent from "molecules/HexagonWithDescription/HexagonWithDescriptionContent";
+import HexagonWithDescriptionContent from "UI/molecules/HexagonWithDescription/HexagonWithDescriptionContent";
 
-import { HexagonWithDescriptionProps } from "molecules/HexagonWithDescription/__typings__/HexagonWithDescription";
+import { HexagonWithDescriptionProps } from "UI/molecules/HexagonWithDescription/__typings__/HexagonWithDescription";
 
 const HexagonWithDescription = ({
   children,

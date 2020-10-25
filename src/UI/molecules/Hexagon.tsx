@@ -1,12 +1,12 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import Icon from "atoms/Icon";
+import Icon from "UI/atoms/Icon";
 
 import {
   HexagonInnerContainerProps,
   HexagonProps
-} from "molecules/__typings__/Hexagon";
+} from "UI/molecules/__typings__/Hexagon";
 
 const Hexagon = ({
   children,

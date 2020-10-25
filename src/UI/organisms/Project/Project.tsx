@@ -1,12 +1,12 @@
 import React from "react";
 
-import SpacingContainer from "layout/SpacingContainer";
+import SpacingContainer from "UI/layout/SpacingContainer";
 
-import { ProjectProps } from "organisms/Project/__typings__/Project";
+import { ProjectProps } from "UI/organisms/Project/__typings__/Project";
 
-import ProjectTvAndDesktop from "organisms/Project/ProjectTvAndDesktop";
-import ProjectTablet from "organisms/Project/ProjectTablet";
-import ProjectMobile from "organisms/Project/ProjectMobile";
+import ProjectTvAndDesktop from "UI/organisms/Project/ProjectTvAndDesktop";
+import ProjectTablet from "UI/organisms/Project/ProjectTablet";
+import ProjectMobile from "UI/organisms/Project/ProjectMobile";
 
 const Project = ({
   description,

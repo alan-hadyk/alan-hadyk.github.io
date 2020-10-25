@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import PageTemplate from "templates/PageTemplate";
+import PageTemplate from "UI/templates/PageTemplate";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { PageTemplateProps } from "templates/__typings__/PageTemplate";
+import { PageTemplateProps } from "UI/templates/__typings__/PageTemplate";
 
 describe("templates / PageTemplate", () => {
   test("should render children", () => {

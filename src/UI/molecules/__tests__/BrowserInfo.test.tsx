@@ -1,7 +1,7 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import BrowserInfo from "molecules/BrowserInfo";
+import BrowserInfo from "UI/molecules/BrowserInfo";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 

@@ -1,13 +1,16 @@
 import React, { memo, useRef, useState } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import Line from "atoms/Line";
+import Line from "UI/atoms/Line";
 
-import PositionContainer from "layout/PositionContainer";
+import PositionContainer from "UI/layout/PositionContainer";
 
 import useShuffleText from "hooks/useShuffleText";
 
-import { NavItemProps, NavItemLinkProps } from "molecules/__typings__/NavItem";
+import {
+  NavItemProps,
+  NavItemLinkProps
+} from "UI/molecules/__typings__/NavItem";
 import { ShuffleState } from "hooks/__typings__/useShuffleText";
 
 function NavItem({ href, isActive = false, title }: NavItemProps): JSX.Element {

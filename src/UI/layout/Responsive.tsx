@@ -7,7 +7,7 @@ import {
   Device,
   ResponsiveContainerProps,
   ResponsiveProps
-} from "layout/__typings__/Responsive";
+} from "UI/layout/__typings__/Responsive";
 
 function Responsive(props: ResponsiveProps): JSX.Element {
   const {

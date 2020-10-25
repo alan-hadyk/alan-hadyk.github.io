@@ -6,7 +6,7 @@ import useInterval from "hooks/useInterval";
 
 import transitionTimes from "styles/variables/transitionTimes";
 
-import { TextProps } from "atoms/__typings__/Text";
+import { TextProps } from "UI/atoms/__typings__/Text";
 import { ShuffleState } from "hooks/__typings__/useShuffleText";
 
 function Text(

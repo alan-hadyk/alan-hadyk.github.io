@@ -7,8 +7,8 @@ import SkillsSection from "pages/Home/sections/skills/SkillsSection";
 import AboutMeSection from "pages/Home/sections/about/AboutMeSection";
 import ContactSection from "pages/Home/sections/contact/ContactSection";
 
-import Header from "organisms/Header";
-import PageTemplate from "templates/PageTemplate";
+import Header from "UI/organisms/Header";
+import PageTemplate from "UI/templates/PageTemplate";
 
 const HomePage = (): JSX.Element => (
   <PageTemplate>

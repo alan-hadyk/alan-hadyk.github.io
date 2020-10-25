@@ -6,7 +6,7 @@ import spacing from "styles/variables/spacing";
 import {
   CalculateGap,
   FlexContainerProps
-} from "layout/__typings__/FlexContainer";
+} from "UI/layout/__typings__/FlexContainer";
 
 const FlexContainer = ({
   alignItems = "center",

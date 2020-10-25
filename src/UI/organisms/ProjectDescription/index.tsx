@@ -1,3 +1,3 @@
-import ProjectDescription from "organisms/ProjectDescription/ProjectDescription";
+import ProjectDescription from "UI/organisms/ProjectDescription/ProjectDescription";
 
 export default ProjectDescription;

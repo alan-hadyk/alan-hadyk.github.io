@@ -5,7 +5,7 @@ import { Commits } from "pages/Home/sections/dashboard/elements/Commits";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { ListOfCommitsProps } from "molecules/__typings__/ListOfCommits";
+import { ListOfCommitsProps } from "UI/molecules/__typings__/ListOfCommits";
 
 describe("pages / Home / sections / dashboard / elements / Commits", () => {
   test("should have correct structure if has no error", () => {

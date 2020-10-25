@@ -1,8 +1,8 @@
 import React from "react";
 
-import Company from "organisms/Company";
+import Company from "UI/organisms/Company";
 
-import { CompanyProps } from "organisms/Company/__typings__/Company";
+import { CompanyProps } from "UI/organisms/Company/__typings__/Company";
 
 const iconsWithLabels: CompanyProps["iconsWithLabels"] = [
   {

@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import Responsive from "layout/Responsive";
+import Responsive from "UI/layout/Responsive";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { ResponsiveProps } from "layout/__typings__/Responsive";
+import { ResponsiveProps } from "UI/layout/__typings__/Responsive";
 
 describe("layout / Responsive", () => {
   describe("children", () => {

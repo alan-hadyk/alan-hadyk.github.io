@@ -1,8 +1,8 @@
 import React, { memo } from "react";
 
-import Icon from "atoms/Icon";
-import Section from "molecules/Section";
-import HexagonWithDescription from "molecules/HexagonWithDescription";
+import Icon from "UI/atoms/Icon";
+import Section from "UI/molecules/Section";
+import HexagonWithDescription from "UI/molecules/HexagonWithDescription";
 
 function AboutMeSection(): JSX.Element {
   return (

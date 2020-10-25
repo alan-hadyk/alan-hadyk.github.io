@@ -88,7 +88,7 @@ import {
   IconContainerProps,
   IconProps,
   SVGIcon
-} from "atoms/__typings__/Icon";
+} from "UI/atoms/__typings__/Icon";
 
 function Icon({
   animationDelay = "0ms",

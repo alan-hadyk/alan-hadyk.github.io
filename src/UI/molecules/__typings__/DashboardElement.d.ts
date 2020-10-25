@@ -1,4 +1,4 @@
-import { FlexItemProps } from "layout/__typings__/FlexItem";
+import { FlexItemProps } from "UI/layout/__typings__/FlexItem";
 
 export interface DashboardElementProps extends FlexItemProps {
   dataCy?: string;

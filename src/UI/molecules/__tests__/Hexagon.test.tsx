@@ -1,8 +1,8 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import Hexagon from "molecules/Hexagon";
-import { HexagonProps } from "molecules/__typings__/Hexagon";
+import Hexagon from "UI/molecules/Hexagon";
+import { HexagonProps } from "UI/molecules/__typings__/Hexagon";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 

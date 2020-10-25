@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import { ConsoleTextProps } from "atoms/__typings__/ConsoleText";
+import { ConsoleTextProps } from "UI/atoms/__typings__/ConsoleText";
 
 export const hero =
   "Vision driven change agent with career-long record of front-end user strategy and UI development";

@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult, act, fireEvent } from "@testing-library/react";
 
-import HeaderTabletAndMobile from "organisms/Header/HeaderTabletAndMobile";
+import HeaderTabletAndMobile from "UI/organisms/Header/HeaderTabletAndMobile";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { HeaderMobileProps } from "organisms/Header/__typings__/HeaderMobile";
+import { HeaderMobileProps } from "UI/organisms/Header/__typings__/HeaderMobile";
 
 jest.mock("hooks/useIntersectionObserver");
 

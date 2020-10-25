@@ -1,11 +1,11 @@
 import React from "react";
 
-import IconsWithLabels from "molecules/IconsWithLabels";
-import DashboardElement from "molecules/DashboardElement";
+import IconsWithLabels from "UI/molecules/IconsWithLabels";
+import DashboardElement from "UI/molecules/DashboardElement";
 
-import SpacingContainer from "layout/SpacingContainer";
+import SpacingContainer from "UI/layout/SpacingContainer";
 
-import { SkillsItemProps } from "molecules/__typings__/SkillsItem";
+import { SkillsItemProps } from "UI/molecules/__typings__/SkillsItem";
 
 function SkillsItem({
   data: { iconsWithLabels, title }

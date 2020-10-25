@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import Icon from "atoms/Icon";
+import Icon from "UI/atoms/Icon";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { IconProps } from "atoms/__typings__/Icon";
+import { IconProps } from "UI/atoms/__typings__/Icon";
 
 describe("atoms / Icon", () => {
   describe("Styles", () => {

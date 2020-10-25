@@ -1,9 +1,9 @@
 import React from "react";
 
-import Link from "molecules/Link";
-import Icon from "atoms/Icon";
+import Link from "UI/molecules/Link";
+import Icon from "UI/atoms/Icon";
 
-import { LinkWithIconProps } from "molecules/__typings__/LinkWithIcon";
+import { LinkWithIconProps } from "UI/molecules/__typings__/LinkWithIcon";
 
 const LinkWithIcon = ({
   dataCy,

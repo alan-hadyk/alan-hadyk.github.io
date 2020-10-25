@@ -1,13 +1,13 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import SkillsItem from "molecules/SkillsItem";
+import SkillsItem from "UI/molecules/SkillsItem";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { SkillsItemProps } from "molecules/__typings__/SkillsItem";
+import { SkillsItemProps } from "UI/molecules/__typings__/SkillsItem";
 
-import { IconWithLabelProps } from "molecules/__typings__/IconWithLabel";
+import { IconWithLabelProps } from "UI/molecules/__typings__/IconWithLabel";
 
 describe("molecules / SkillsItem", () => {
   test("should have correct structure", () => {

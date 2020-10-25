@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import Text from "atoms/Text";
+import Text from "UI/atoms/Text";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { TextProps } from "atoms/__typings__/Text";
+import { TextProps } from "UI/atoms/__typings__/Text";
 
 jest.mock("hooks/useShuffleText");
 

@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import { BackdropProps } from "atoms/__typings__/Backdrop";
+import { BackdropProps } from "UI/atoms/__typings__/Backdrop";
 
 const Backdrop = ({ onClick }: BackdropProps): JSX.Element => (
   <Backdrop.Container data-testid="Backdrop" onClick={onClick} />

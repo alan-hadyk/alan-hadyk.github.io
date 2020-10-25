@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 
-import Corner from "atoms/Corner";
+import Corner from "UI/atoms/Corner";
 
-import { CornerProps } from "atoms/__typings__/Corner";
-import { CornersProps } from "molecules/__typings__/Corners";
+import { CornerProps } from "UI/atoms/__typings__/Corner";
+import { CornersProps } from "UI/molecules/__typings__/Corners";
 
 const positions: CornerProps[] = [
   {

@@ -1,7 +1,7 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import FlowChart from "molecules/FlowChart";
+import FlowChart from "UI/molecules/FlowChart";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import HeaderTv from "organisms/Header/HeaderTv";
+import HeaderTv from "UI/organisms/Header/HeaderTv";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 

@@ -7,7 +7,7 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 import {
   CommitProps,
   ListOfCommitsProps
-} from "molecules/__typings__/ListOfCommits";
+} from "UI/molecules/__typings__/ListOfCommits";
 
 jest.mock("node-fetch");
 

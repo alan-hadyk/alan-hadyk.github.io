@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import fetch, { Response } from "node-fetch";
 
-import { CommitProps } from "molecules/__typings__/Commit";
+import { CommitProps } from "UI/molecules/__typings__/Commit";
 import { ComponentWithCommitsType } from "state/__typings__/withCommitsState";
 
 const withCommitsState = (

@@ -1,13 +1,13 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import ProjectTvAndDesktop from "organisms/Project/ProjectTvAndDesktop";
+import ProjectTvAndDesktop from "UI/organisms/Project/ProjectTvAndDesktop";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { IconWithLabelProps } from "molecules/__typings__/IconWithLabel";
+import { IconWithLabelProps } from "UI/molecules/__typings__/IconWithLabel";
 
-import { ProjectProps } from "organisms/Project/__typings__/Project";
+import { ProjectProps } from "UI/organisms/Project/__typings__/Project";
 
 describe("organisms / ProjectTvAndDesktop", () => {
   test("should have correct structure", () => {

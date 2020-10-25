@@ -1,7 +1,7 @@
-import { IconWithLabelProps } from "molecules/__typings__/IconWithLabel";
-import { UnorderedListProps } from "molecules/__typings__/UnorderedList";
+import { IconWithLabelProps } from "UI/molecules/__typings__/IconWithLabel";
+import { UnorderedListProps } from "UI/molecules/__typings__/UnorderedList";
 
-import { TextProps } from "atoms/__typings__/Text";
+import { TextProps } from "UI/atoms/__typings__/Text";
 import { Spacing } from "styles/variables/__typings__/variables";
 
 export interface CompanyDescriptionProps {

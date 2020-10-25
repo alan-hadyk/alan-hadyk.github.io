@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import PositionContainer from "layout/PositionContainer";
+import PositionContainer from "UI/layout/PositionContainer";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { PositionContainerProps } from "layout/__typings__/PositionContainer";
+import { PositionContainerProps } from "UI/layout/__typings__/PositionContainer";
 
 describe("layout / PositionContainer", () => {
   test("should render children", () => {

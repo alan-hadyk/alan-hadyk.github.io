@@ -1,16 +1,16 @@
 import React from "react";
 
-import Icon from "atoms/Icon";
-import Text from "atoms/Text";
+import Icon from "UI/atoms/Icon";
+import Text from "UI/atoms/Text";
 
-import FlexContainer from "layout/FlexContainer";
-import SpacingContainer from "layout/SpacingContainer";
+import FlexContainer from "UI/layout/FlexContainer";
+import SpacingContainer from "UI/layout/SpacingContainer";
 
 import {
   IconWithLabelProps,
   MapSizeToIconHeight,
   MapSizeToTextFontSize
-} from "molecules/__typings__/IconWithLabel";
+} from "UI/molecules/__typings__/IconWithLabel";
 
 import { Spacing } from "styles/variables/__typings__/variables";
 

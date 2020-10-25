@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 
-import ConsoleTvDesktopAndTablet from "molecules/Console/ConsoleTvDesktopAndTablet";
+import ConsoleTvDesktopAndTablet from "UI/molecules/Console/ConsoleTvDesktopAndTablet";
 
 import DashboardSectionInnerContainer from "pages/Home/sections/dashboard/DashboardSection/DashboardSectionInnerContainer";
 import DashboardSectionOuterContainer from "pages/Home/sections/dashboard/DashboardSection/DashboardSectionOuterContainer";
@@ -12,7 +12,7 @@ import Ip from "pages/Home/sections/dashboard/elements/Ip";
 import UserAgent from "pages/Home/sections/dashboard/elements/UserAgent";
 import PoweredBy from "pages/Home/sections/dashboard/elements/PoweredBy";
 
-import Responsive from "layout/Responsive";
+import Responsive from "UI/layout/Responsive";
 
 import spacing from "styles/variables/spacing";
 

@@ -1,12 +1,12 @@
 import React from "react";
 
-import Button from "molecules/Button";
-import MenuIcons from "molecules/MenuIcons";
-import Nav from "molecules/Nav";
+import Button from "UI/molecules/Button";
+import MenuIcons from "UI/molecules/MenuIcons";
+import Nav from "UI/molecules/Nav";
 
-import Responsive from "layout/Responsive";
-import FlexContainer from "layout/FlexContainer";
-import SpacingContainer from "layout/SpacingContainer";
+import Responsive from "UI/layout/Responsive";
+import FlexContainer from "UI/layout/FlexContainer";
+import SpacingContainer from "UI/layout/SpacingContainer";
 
 const HeaderTv = (): JSX.Element => (
   <Responsive dataTestTvId="HeaderTv" devices={["tv"]}>

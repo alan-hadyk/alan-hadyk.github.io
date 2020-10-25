@@ -3,11 +3,11 @@ import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize, radialGradient } from "polished";
 import { isMobile } from "react-device-detect";
 
-import SpacingContainer from "layout/SpacingContainer";
-import FlexContainer from "layout/FlexContainer";
-import Icon from "atoms/Icon";
-import ButtonText from "molecules/ButtonText";
-import Corners from "molecules/Corners";
+import SpacingContainer from "UI/layout/SpacingContainer";
+import FlexContainer from "UI/layout/FlexContainer";
+import Icon from "UI/atoms/Icon";
+import ButtonText from "UI/molecules/ButtonText";
+import Corners from "UI/molecules/Corners";
 
 import colorPalette from "styles/variables/colorPalette";
 import transitionTimes from "styles/variables/transitionTimes";
@@ -22,7 +22,7 @@ import {
   ButtonProps,
   MapSizeToButtonContainerProps,
   MapTypeToButtonContainerProps
-} from "molecules/__typings__/Button";
+} from "UI/molecules/__typings__/Button";
 
 const mapTypeToButtonContainerProps: MapTypeToButtonContainerProps = {
   primary: {

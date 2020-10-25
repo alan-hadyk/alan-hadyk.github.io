@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import SideMenu from "organisms/SideMenu";
+import SideMenu from "UI/organisms/SideMenu";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { SideMenuProps } from "organisms/__typings__/SideMenu";
+import { SideMenuProps } from "UI/organisms/__typings__/SideMenu";
 
 jest.mock("hooks/useIntersectionObserver");
 

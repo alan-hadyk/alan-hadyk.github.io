@@ -1,14 +1,14 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import NavItem, { arePropsEqual } from "molecules/NavItem";
+import NavItem, { arePropsEqual } from "UI/molecules/NavItem";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
 jest.mock("hooks/useShuffleText");
 import useShuffleText from "hooks/useShuffleText";
 
-import { NavItemProps } from "molecules/__typings__/NavItem";
+import { NavItemProps } from "UI/molecules/__typings__/NavItem";
 
 const defaultProps: NavItemProps = {
   href: "#element",

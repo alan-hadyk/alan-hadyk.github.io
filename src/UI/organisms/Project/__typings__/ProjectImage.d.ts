@@ -1,4 +1,4 @@
-import { IconProps } from "atoms/__typings__/Icon";
+import { IconProps } from "UI/atoms/__typings__/Icon";
 
 export interface ProjectImageProps {
   projectIcon: IconProps["iconName"];

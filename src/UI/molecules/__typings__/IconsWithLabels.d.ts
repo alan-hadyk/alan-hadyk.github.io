@@ -1,6 +1,6 @@
 import { ColorPalette, Spacing } from "styles/variables/__typings__/variables";
 
-import { IconWithLabelProps } from "molecules/__typings__/IconWithLabel";
+import { IconWithLabelProps } from "UI/molecules/__typings__/IconWithLabel";
 
 export interface IconsWithLabelsProps {
   iconsWithLabels: IconWithLabelProps[];

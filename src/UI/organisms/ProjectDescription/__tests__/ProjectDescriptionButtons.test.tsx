@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import ProjectDescriptionButtons from "organisms/ProjectDescription/ProjectDescriptionButtons";
+import ProjectDescriptionButtons from "UI/organisms/ProjectDescription/ProjectDescriptionButtons";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { ProjectDescriptionButtonsProps } from "organisms/ProjectDescription/__typings__/ProjectDescriptionButtons";
+import { ProjectDescriptionButtonsProps } from "UI/organisms/ProjectDescription/__typings__/ProjectDescriptionButtons";
 
 describe("organisms / ProjectDescriptionButtons", () => {
   test("should have correct structure", () => {

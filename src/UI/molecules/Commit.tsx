@@ -1,13 +1,13 @@
 import React, { memo } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import Text from "atoms/Text";
-import Link from "molecules/Link";
-import FlexContainer from "layout/FlexContainer";
-import SpacingContainer from "layout/SpacingContainer";
-import FlexItem from "layout/FlexItem";
+import Text from "UI/atoms/Text";
+import Link from "UI/molecules/Link";
+import FlexContainer from "UI/layout/FlexContainer";
+import SpacingContainer from "UI/layout/SpacingContainer";
+import FlexItem from "UI/layout/FlexItem";
 
-import { CommitProps } from "molecules/__typings__/Commit";
+import { CommitProps } from "UI/molecules/__typings__/Commit";
 
 const Commit = ({ date, delay, htmlUrl, sha }: CommitProps): JSX.Element => (
   <Commit.Container data-testid="Commit">

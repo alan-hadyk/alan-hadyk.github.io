@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import { SpacingContainerProps } from "layout/__typings__/SpacingContainer";
+import { SpacingContainerProps } from "UI/layout/__typings__/SpacingContainer";
 
 const SpacingContainer = ({
   children,

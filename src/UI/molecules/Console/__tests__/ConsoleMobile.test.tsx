@@ -1,7 +1,7 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import ConsoleMobile from "molecules/Console/ConsoleMobile";
+import ConsoleMobile from "UI/molecules/Console/ConsoleMobile";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 

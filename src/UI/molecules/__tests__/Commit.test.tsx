@@ -2,11 +2,11 @@ import React from "react";
 import { RenderResult } from "@testing-library/react";
 import ShuffleText from "shuffle-text";
 
-import Commit from "molecules/Commit";
+import Commit from "UI/molecules/Commit";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { CommitProps } from "molecules/__typings__/Commit";
+import { CommitProps } from "UI/molecules/__typings__/Commit";
 
 describe("molecules / Commit", () => {
   test("should have correct structure", () => {

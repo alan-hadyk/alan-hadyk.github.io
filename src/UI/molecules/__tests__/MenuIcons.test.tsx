@@ -1,7 +1,7 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import MenuIcons from "molecules/MenuIcons";
+import MenuIcons from "UI/molecules/MenuIcons";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 

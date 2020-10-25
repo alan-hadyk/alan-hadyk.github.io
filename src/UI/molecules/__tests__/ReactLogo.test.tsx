@@ -1,7 +1,7 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import ReactLogo from "molecules/ReactLogo";
+import ReactLogo from "UI/molecules/ReactLogo";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 

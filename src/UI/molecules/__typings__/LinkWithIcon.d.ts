@@ -1,4 +1,4 @@
-import { IconProps } from "atoms/__typings__/Icon";
+import { IconProps } from "UI/atoms/__typings__/Icon";
 import { Spacing } from "styles/variables/__typings__/variables";
 
 export interface LinkWithIconProps {

@@ -1,17 +1,17 @@
 import React, { useCallback } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import Text from "atoms/Text";
-import Corners from "molecules/Corners";
-import PositionContainer from "layout/PositionContainer";
-import FlexItem from "layout/FlexItem";
-import SpacingContainer from "layout/SpacingContainer";
+import Text from "UI/atoms/Text";
+import Corners from "UI/molecules/Corners";
+import PositionContainer from "UI/layout/PositionContainer";
+import FlexItem from "UI/layout/FlexItem";
+import SpacingContainer from "UI/layout/SpacingContainer";
 
 import Cross from "assets/svg/Cross.svg";
 
 import spacing from "styles/variables/spacing";
 
-import { DashboardElementProps } from "molecules/__typings__/DashboardElement";
+import { DashboardElementProps } from "UI/molecules/__typings__/DashboardElement";
 
 function DashboardElement({
   alignSelf = "auto",

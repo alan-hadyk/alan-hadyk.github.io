@@ -5,12 +5,9 @@ import DashboardSectionTablet from "pages/Home/sections/dashboard/DashboardSecti
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
-jest.mock(
-  "state/withCommitsState",
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  () => (WrappedComponent: React.FunctionComponent<any>) => (
-    props: unknown
-  ): JSX.Element => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function mockWithCommitsState(WrappedComponent: React.FunctionComponent<any>) {
+  return (props: Record<string, unknown>): JSX.Element => {
     const commitsList = [
       {
         commit: {
@@ -37,8 +34,10 @@ jest.mock(
     return (
       <WrappedComponent commitsList={commitsList} hasError={false} {...props} />
     );
-  }
-);
+  };
+}
+
+jest.mock("state/withCommitsState", () => mockWithCommitsState);
 
 describe("pages / Home / sections / dashboard / DashboardSection / DashboardSectionTablet", () => {
   test("should have correct structure", () => {

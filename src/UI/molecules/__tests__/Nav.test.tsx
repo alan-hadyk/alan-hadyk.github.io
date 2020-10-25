@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import Nav from "molecules/Nav";
+import Nav from "UI/molecules/Nav";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { NavProps } from "molecules/__typings__/Nav";
+import { NavProps } from "UI/molecules/__typings__/Nav";
 
 jest.mock("hooks/useIntersectionObserver");
 

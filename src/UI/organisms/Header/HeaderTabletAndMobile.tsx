@@ -1,13 +1,13 @@
 import React from "react";
 
-import MenuButton from "atoms/MenuButton";
-import Backdrop from "atoms/Backdrop";
+import MenuButton from "UI/atoms/MenuButton";
+import Backdrop from "UI/atoms/Backdrop";
 
-import SideMenu from "organisms/SideMenu";
+import SideMenu from "UI/organisms/SideMenu";
 
-import Responsive from "layout/Responsive";
+import Responsive from "UI/layout/Responsive";
 
-import { HeaderMobileProps } from "organisms/Header/__typings__/HeaderMobile";
+import { HeaderMobileProps } from "UI/organisms/Header/__typings__/HeaderMobile";
 
 const HeaderTabletAndMobile = ({
   isMenuVisible,

@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import PositionContainer from "layout/PositionContainer";
+import PositionContainer from "UI/layout/PositionContainer";
 
 import useInterval from "hooks/useInterval";
 

@@ -4,7 +4,7 @@ import DashboardSectionTvAndDesktop from "pages/Home/sections/dashboard/Dashboar
 import DashboardSectionTablet from "pages/Home/sections/dashboard/DashboardSection/DashboardSectionTablet";
 import DashboardSectionMobile from "pages/Home/sections/dashboard/DashboardSection/DashboardSectionMobile";
 
-import Section from "molecules/Section";
+import Section from "UI/molecules/Section";
 
 const DashboardSection = (): JSX.Element => (
   <Section

@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import ButtonText from "molecules/ButtonText";
+import ButtonText from "UI/molecules/ButtonText";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { ButtonTextProps } from "molecules/__typings__/ButtonText";
+import { ButtonTextProps } from "UI/molecules/__typings__/ButtonText";
 
 describe("molecules / ButtonText", () => {
   test("should have correct structure", () => {

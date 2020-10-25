@@ -1,14 +1,14 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import FlexContainer from "layout/FlexContainer";
-import SpacingContainer from "layout/SpacingContainer";
+import FlexContainer from "UI/layout/FlexContainer";
+import SpacingContainer from "UI/layout/SpacingContainer";
 
-import Text from "atoms/Text";
+import Text from "UI/atoms/Text";
 
 import { ReactComponent as IconWarning } from "assets/svg/Icon-Warning.svg";
 
-import { ErrorProps } from "molecules/__typings__/Error";
+import { ErrorProps } from "UI/molecules/__typings__/Error";
 
 const Error = ({ title, description }: ErrorProps): JSX.Element => (
   <SpacingContainer

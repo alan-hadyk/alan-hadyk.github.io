@@ -2,14 +2,14 @@ import React from "react";
 import { RenderResult } from "@testing-library/react";
 import ShuffleText from "shuffle-text";
 
-import ListOfCommits, { arePropsEqual } from "molecules/ListOfCommits";
+import ListOfCommits, { arePropsEqual } from "UI/molecules/ListOfCommits";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
 import {
   ListOfCommitsProps,
   CommitProps
-} from "molecules/__typings__/ListOfCommits";
+} from "UI/molecules/__typings__/ListOfCommits";
 
 const defaultProps: ListOfCommitsProps = {
   commitsList: [

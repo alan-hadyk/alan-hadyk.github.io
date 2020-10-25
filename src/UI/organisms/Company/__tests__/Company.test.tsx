@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import Company from "organisms/Company";
+import Company from "UI/organisms/Company";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { CompanyProps } from "organisms/Company/__typings__/Company";
+import { CompanyProps } from "UI/organisms/Company/__typings__/Company";
 
 describe("organisms / Company", () => {
   test("should have correct structure", () => {

@@ -1,7 +1,7 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import AnimatedIcons from "molecules/AnimatedIcons";
+import AnimatedIcons from "UI/molecules/AnimatedIcons";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 

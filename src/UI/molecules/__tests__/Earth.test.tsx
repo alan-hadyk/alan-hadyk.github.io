@@ -1,7 +1,7 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import Earth from "molecules/Earth";
+import Earth from "UI/molecules/Earth";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 

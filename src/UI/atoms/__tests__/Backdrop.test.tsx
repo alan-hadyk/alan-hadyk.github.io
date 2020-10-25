@@ -1,11 +1,11 @@
 import React from "react";
 import { act, fireEvent, RenderResult } from "@testing-library/react";
 
-import Backdrop from "atoms/Backdrop";
+import Backdrop from "UI/atoms/Backdrop";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { BackdropProps } from "atoms/__typings__/Backdrop";
+import { BackdropProps } from "UI/atoms/__typings__/Backdrop";
 
 describe("atoms / Backdrop", () => {
   describe("Styles", () => {

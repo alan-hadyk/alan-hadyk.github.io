@@ -1,6 +1,6 @@
-import { CompanyDescriptionProps } from "organisms/__typings__/CompanyDescription";
+import { CompanyDescriptionProps } from "UI/organisms/__typings__/CompanyDescription";
 
-import { IconProps } from "atoms/__typings__/Icon";
+import { IconProps } from "UI/atoms/__typings__/Icon";
 import { Spacing } from "styles/variables/__typings__/variables";
 
 export interface CompanyProps extends CompanyDescriptionProps {

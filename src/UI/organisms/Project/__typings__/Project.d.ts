@@ -1,5 +1,5 @@
-import { IconProps } from "atoms/__typings__/Icon";
-import { IconWithLabelProps } from "molecules/__typings__/IconWithLabel";
+import { IconProps } from "UI/atoms/__typings__/Icon";
+import { IconWithLabelProps } from "UI/molecules/__typings__/IconWithLabel";
 
 export interface ProjectProps {
   description: string;

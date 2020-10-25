@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-import ProjectDescriptionContent from "organisms/ProjectDescription/ProjectDescriptionContent";
-import ProjectDescriptionButtons from "organisms/ProjectDescription/ProjectDescriptionButtons";
-import ProjectDescriptionTechnologies from "organisms/ProjectDescription/ProjectDescriptionTechnologies";
+import ProjectDescriptionContent from "UI/organisms/ProjectDescription/ProjectDescriptionContent";
+import ProjectDescriptionButtons from "UI/organisms/ProjectDescription/ProjectDescriptionButtons";
+import ProjectDescriptionTechnologies from "UI/organisms/ProjectDescription/ProjectDescriptionTechnologies";
 
-import { ProjectDescriptionProps } from "organisms/ProjectDescription/__typings__/ProjectDescription";
+import { ProjectDescriptionProps } from "UI/organisms/ProjectDescription/__typings__/ProjectDescription";
 
 const ProjectDescription = ({
   // codeSandboxLink = "https://codesandbox.io/u/alan-hadyk",

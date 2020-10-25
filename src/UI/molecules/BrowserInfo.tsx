@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import { detect } from "detect-browser";
 
-import FlexContainer from "layout/FlexContainer";
-import FlexItem from "layout/FlexItem";
-import SpacingContainer from "layout/SpacingContainer";
+import FlexContainer from "UI/layout/FlexContainer";
+import FlexItem from "UI/layout/FlexItem";
+import SpacingContainer from "UI/layout/SpacingContainer";
 
-import Icon from "atoms/Icon";
+import Icon from "UI/atoms/Icon";
 
-import { IconProps } from "atoms/__typings__/Icon";
+import { IconProps } from "UI/atoms/__typings__/Icon";
 
 const BROWSER_ICONS: IconProps["iconName"][] = [
   "chrome",

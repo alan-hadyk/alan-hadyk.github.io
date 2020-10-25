@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import CompanyMobile from "organisms/Company/CompanyMobile";
+import CompanyMobile from "UI/organisms/Company/CompanyMobile";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { CompanyProps } from "organisms/Company/__typings__/Company";
+import { CompanyProps } from "UI/organisms/Company/__typings__/Company";
 
 jest.mock("hooks/useIntersectionObserver");
 

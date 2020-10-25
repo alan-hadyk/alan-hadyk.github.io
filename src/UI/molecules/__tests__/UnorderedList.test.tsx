@@ -1,12 +1,12 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import UnorderedList from "molecules/UnorderedList";
+import UnorderedList from "UI/molecules/UnorderedList";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { ListItemProps } from "atoms/__typings__/ListItem";
-import { UnorderedListProps } from "molecules/__typings__/UnorderedList";
+import { ListItemProps } from "UI/atoms/__typings__/ListItem";
+import { UnorderedListProps } from "UI/molecules/__typings__/UnorderedList";
 
 describe("molecules / UnorderedList", () => {
   test("should render array of ListItems passed via items prop", () => {

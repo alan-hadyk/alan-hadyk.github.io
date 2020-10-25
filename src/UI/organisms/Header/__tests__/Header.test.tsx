@@ -1,7 +1,7 @@
 import React from "react";
 import { act, fireEvent, RenderResult } from "@testing-library/react";
 
-import Header from "organisms/Header";
+import Header from "UI/organisms/Header";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
@@ -11,7 +11,7 @@ jest.mock("hooks/useResize");
 
 import useResize from "hooks/useResize";
 
-import { HeaderProps } from "organisms/Header/__typings__/Header";
+import { HeaderProps } from "UI/organisms/Header/__typings__/Header";
 
 import { UseResizeArgs } from "hooks/__typings__/useResize";
 

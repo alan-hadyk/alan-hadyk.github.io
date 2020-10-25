@@ -1,13 +1,13 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import IconsWithLabels from "molecules/IconsWithLabels";
+import IconsWithLabels from "UI/molecules/IconsWithLabels";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { IconsWithLabelsProps } from "molecules/__typings__/IconsWithLabels";
+import { IconsWithLabelsProps } from "UI/molecules/__typings__/IconsWithLabels";
 
-import { IconWithLabelProps } from "molecules/__typings__/IconWithLabel";
+import { IconWithLabelProps } from "UI/molecules/__typings__/IconWithLabel";
 
 describe("molecules / IconsWithLabels", () => {
   test("should have correct structure when position is vertical", () => {

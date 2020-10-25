@@ -1,8 +1,8 @@
 import React, { memo } from "react";
 import styled from "styled-components";
 
-import FlexContainer from "layout/FlexContainer";
-import SpacingContainer from "layout/SpacingContainer";
+import FlexContainer from "UI/layout/FlexContainer";
+import SpacingContainer from "UI/layout/SpacingContainer";
 
 import { ReactComponent as FluxFlowChart } from "assets/svg/Flux-FlowChart.svg";
 

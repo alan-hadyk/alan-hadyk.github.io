@@ -13,7 +13,7 @@ import { render } from "react-dom";
 function MockApp(): JSX.Element {
   return <div />;
 }
-jest.mock("./App", () => MockApp);
+jest.mock("../App", () => MockApp);
 
 describe("index", () => {
   test("renderApp fn should call ReactDOM.render", () => {
