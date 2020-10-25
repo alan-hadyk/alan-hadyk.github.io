@@ -1156,15 +1156,6 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@craco/craco@^5.7.0":
-  version "5.7.0"
-  resolved "https://registry.yarnpkg.com/@craco/craco/-/craco-5.7.0.tgz#ad6a240e0f85ac948f2935581da12d4223d66366"
-  integrity sha512-HpThSg+JZ8FuXtaRuNxLe/RH4TqRe7f6bZfB8tO5ukDthMrf8sKUNOkSS9vnsRbycVEAAuaOamXw+T6LPmqlIg==
-  dependencies:
-    cross-spawn "^7.0.0"
-    lodash "^4.17.15"
-    webpack-merge "^4.2.2"
-
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
@@ -3821,11 +3812,6 @@ cosmiconfig@^7.0.0:
     parse-json "^5.0.0"
     path-type "^4.0.0"
     yaml "^1.10.0"
-
-craco-alias@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/craco-alias/-/craco-alias-2.1.1.tgz#c9c2e9d333c674419591f3002a26cb073ee2094b"
-  integrity sha512-rTYOcHYlcCES0XUOcUgcCOXe6s+FvR1dTupvMYfeLLtQ4NWW143i3KtATXlNegBDyj/dZqtBEv6OieGG3yPZzg==
 
 create-ecdh@^4.0.0:
   version "4.0.4"
@@ -12375,13 +12361,6 @@ webpack-manifest-plugin@2.2.0:
     lodash ">=3.5 <5"
     object.entries "^1.1.0"
     tapable "^1.0.0"
-
-webpack-merge@^4.2.2:
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/webpack-merge/-/webpack-merge-4.2.2.tgz#a27c52ea783d1398afd2087f547d7b9d2f43634d"
-  integrity sha512-TUE1UGoTX2Cd42j3krGYqObZbOD+xF7u28WB7tfUordytSjbWTIjK/8V0amkBfTYN4/pB/GIDlJZZ657BGG19g==
-  dependencies:
-    lodash "^4.17.15"
 
 webpack-sources@^1.1.0, webpack-sources@^1.4.0, webpack-sources@^1.4.1, webpack-sources@^1.4.3:
   version "1.4.3"
