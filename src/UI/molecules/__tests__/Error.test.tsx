@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import Error from "<molecules>/Error";
+import Error from "UI/molecules/Error";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { ErrorProps } from "<molecules>/__typings__/Error.d.ts";
+import { ErrorProps } from "UI/molecules/__typings__/Error";
 
 describe("molecules / Error", () => {
   test("should have correct structure", () => {

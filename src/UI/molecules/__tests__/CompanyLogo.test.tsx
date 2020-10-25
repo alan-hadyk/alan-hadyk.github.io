@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import CompanyLogo from "<molecules>/CompanyLogo";
+import CompanyLogo from "UI/molecules/CompanyLogo";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { CompanyLogoProps } from "<molecules>/__typings__/CompanyLogo.d.ts";
+import { CompanyLogoProps } from "UI/molecules/__typings__/CompanyLogo";
 
 describe("molecules / CompanyLogo", () => {
   test("should have correct structure", () => {

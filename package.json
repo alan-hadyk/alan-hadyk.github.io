@@ -13,7 +13,6 @@
     ]
   },
   "dependencies": {
-    "@craco/craco": "^5.7.0",
     "detect-browser": "^5.1.1",
     "intersection-observer": "^0.11.0",
     "ip": "^1.1.5",
@@ -22,10 +21,10 @@
     "node-fetch": "^2.6.1",
     "polished": "^4.0.3",
     "prop-types": "^15.7.2",
-    "react": "^16.13.1",
+    "react": "^17.0.0",
     "react-device-detect": "^1.14.0",
-    "react-dom": "^16.13.1",
-    "react-scripts": "^3.4.3",
+    "react-dom": "^17.0.0",
+    "react-scripts": "^4.0.0",
     "shuffle-text": "^0.3.1",
     "styled-components": "^5.2.0",
     "typescript": "^4.0.3"
@@ -33,9 +32,8 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.3",
     "@testing-library/react": "^11.0.4",
-    "@testing-library/user-event": "^12.1.7",
     "@testing-library/react-hooks": "^3.4.2",
-    "jest-styled-components": "^7.0.2",
+    "@testing-library/user-event": "^12.1.7",
     "@types/detect-browser": "^4.0.0",
     "@types/ip": "^1.1.0",
     "@types/jest": "^26.0.14",
@@ -48,7 +46,6 @@
     "@typescript-eslint/eslint-plugin": "^4.4.1",
     "@typescript-eslint/parser": "^4.4.1",
     "canvas": "^2.6.1",
-    "craco-alias": "^2.1.1",
     "cypress": "5.2.0",
     "eslint-plugin-better-styled-components": "^1.1.2",
     "eslint-plugin-react": "^7.21.3",
@@ -57,10 +54,12 @@
     "gh-pages": "^3.1.0",
     "husky": "^4.3.0",
     "jest-environment-jsdom-sixteen": "^1.0.3",
+    "jest-styled-components": "^7.0.2",
     "jsdom": "^16.4.0",
     "lint-staged": "^10.4.2",
     "prettier": "^2.1.2",
-    "react-test-renderer": "^16.13.1"
+    "react-test-renderer": "^16.13.1",
+    "serve": "^11.3.2"
   },
   "engines": {
     "node": ">=14.11.0"
@@ -68,7 +67,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "http://alan-hadyk.github.io/portfolio",
+  "homepage": ".",
   "husky": {
     "hooks": {
       "post-commit": "git update-index --again",
@@ -76,24 +75,7 @@
     }
   },
   "jest": {
-    "clearMocks": true,
-    "moduleNameMapper": {
-      "^<assets>/(.*)$": "<rootDir>/src/assets/$1",
-      "^<atoms>/(.*)$": "<rootDir>/src/UI/atoms/$1",
-      "^<helpers>/(.*)$": "<rootDir>/src/helpers/$1",
-      "^<hooks>/(.*)$": "<rootDir>/src/hooks/$1",
-      "^<layout>/(.*)$": "<rootDir>/src/UI/layout/$1",
-      "^<molecules>/(.*)$": "<rootDir>/src/UI/molecules/$1",
-      "^<organisms>/(.*)$": "<rootDir>/src/UI/organisms/$1",
-      "^<pages>/(.*)$": "<rootDir>/src/pages/$1",
-      "^<src>/(.*)$": "<rootDir>/src/$1",
-      "^<state>/(.*)$": "<rootDir>/src/state/$1",
-      "^<styles>/(.*)$": "<rootDir>/src/styles/$1",
-      "^<templates>/(.*)$": "<rootDir>/src/UI/templates/$1",
-      "roots": [
-        "./src"
-      ]
-    }
+    "clearMocks": true
   },
   "license": "UNLICENSED",
   "lint-staged": {
@@ -106,7 +88,7 @@
   "name": "portfolio",
   "private": false,
   "scripts": {
-    "build": "craco build",
+    "build": "react-scripts build",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "deploy": "gh-pages -d build",
@@ -114,9 +96,10 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --fix --ext .js,.jsx,.ts,.tsx",
     "predeploy": "yarn build",
-    "start": "craco start",
-    "test": "craco test --passWithNoTests --env=jest-environment-jsdom-sixteen",
-    "test:coverage": "craco test --passWithNoTests --env=jest-environment-jsdom-sixteen --coverage --watchAll=false"
+    "start": "PORT=5000 FAST_REFRESH=true react-scripts start react-scripts start",
+    "start:ci-e2e": "npm run build && serve -s build -l 5000",
+    "test": "react-scripts test --passWithNoTests --env=jest-environment-jsdom-sixteen",
+    "test:coverage": "react-scripts test --passWithNoTests --env=jest-environment-jsdom-sixteen --coverage --watchAll=false"
   },
   "version": "0.1.0"
 }

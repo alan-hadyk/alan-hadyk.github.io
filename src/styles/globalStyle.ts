@@ -1,5 +1,5 @@
-import colorPalette from "<styles>/variables/colorPalette";
-import fontFamilies from "<styles>/variables/fontFamilies";
+import colorPalette from "styles/variables/colorPalette";
+import fontFamilies from "styles/variables/fontFamilies";
 
 export default `
   html, body, div, span, applet, object, iframe,

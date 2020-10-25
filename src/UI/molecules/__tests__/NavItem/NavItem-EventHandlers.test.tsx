@@ -3,11 +3,11 @@ import ShuffleText from "shuffle-text";
 import { Fragment } from "react";
 import React from "react";
 
-import NavItem from "<molecules>/NavItem";
+import NavItem from "UI/molecules/NavItem";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { NavItemProps } from "<molecules>/__typings__/NavItem.d.ts";
+import { NavItemProps } from "UI/molecules/__typings__/NavItem";
 
 describe("molecules / NavItem", () => {
   describe("NavItem.Link", () => {

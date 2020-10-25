@@ -1,9 +1,9 @@
 import React, { memo } from "react";
 
-import Text from "<atoms>/Text";
-import Link from "<molecules>/Link";
-import Section from "<molecules>/Section";
-import FlexContainer from "<layout>/FlexContainer";
+import Text from "UI/atoms/Text";
+import Link from "UI/molecules/Link";
+import Section from "UI/molecules/Section";
+import FlexContainer from "UI/layout/FlexContainer";
 
 const ContactSection = (): JSX.Element => (
   <Section

@@ -1,26 +1,24 @@
 import React, { memo } from "react";
 import { Masonry } from "masonic";
 
-import Section from "<molecules>/Section";
-import SkillsItem from "<molecules>/SkillsItem";
-import Responsive from "<layout>/Responsive";
-import SpacingContainer from "<layout>/SpacingContainer";
+import Section from "UI/molecules/Section";
+import SkillsItem from "UI/molecules/SkillsItem";
+import Responsive from "UI/layout/Responsive";
+import SpacingContainer from "UI/layout/SpacingContainer";
 
-import languagesCategory from "<pages>/Home/sections/skills/categories/languagesCategory";
-import frameworksCategory from "<pages>/Home/sections/skills/categories/frameworksCategory";
-import stateManagementCategory from "<pages>/Home/sections/skills/categories/stateManagementCategory";
-import webApisCategory from "<pages>/Home/sections/skills/categories/webApisCategory";
-import webTechnologiesCategory from "<pages>/Home/sections/skills/categories/webTechnologiesCategory";
-import cssToolsCategory from "<pages>/Home/sections/skills/categories/cssToolsCategory";
-import testingCategory from "<pages>/Home/sections/skills/categories/testingCategory";
-import cicdCategory from "<pages>/Home/sections/skills/categories/cicdCategory";
-import bundlersCategory from "<pages>/Home/sections/skills/categories/bundlersCategory";
-import taskManagementCategory from "<pages>/Home/sections/skills/categories/taskManagementCategory";
-import designToolsCategory from "<pages>/Home/sections/skills/categories/designToolsCategory";
+import languagesCategory from "pages/Home/sections/skills/categories/languagesCategory";
+import frameworksCategory from "pages/Home/sections/skills/categories/frameworksCategory";
+import stateManagementCategory from "pages/Home/sections/skills/categories/stateManagementCategory";
+import webApisCategory from "pages/Home/sections/skills/categories/webApisCategory";
+import webTechnologiesCategory from "pages/Home/sections/skills/categories/webTechnologiesCategory";
+import cssToolsCategory from "pages/Home/sections/skills/categories/cssToolsCategory";
+import testingCategory from "pages/Home/sections/skills/categories/testingCategory";
+import cicdCategory from "pages/Home/sections/skills/categories/cicdCategory";
+import bundlersCategory from "pages/Home/sections/skills/categories/bundlersCategory";
+import taskManagementCategory from "pages/Home/sections/skills/categories/taskManagementCategory";
+import designToolsCategory from "pages/Home/sections/skills/categories/designToolsCategory";
 
-import {
-  Data
-} from "<molecules>/__typings__/SkillsItem.d.ts";
+import { Data } from "UI/molecules/__typings__/SkillsItem";
 
 const items: Data[] = [
   languagesCategory,
@@ -43,7 +41,7 @@ const SkillsSection = (): JSX.Element => (
     id="skills"
     title="Skills"
   >
-    <Responsive 
+    <Responsive
       dataTestDesktopId="SkillsResponsiveDesktop"
       dataTestTabletId="SkillsResponsiveTablet"
       dataTestTvId="SkillsResponsiveTv"
@@ -56,10 +54,7 @@ const SkillsSection = (): JSX.Element => (
         render={SkillsItem}
       />
     </Responsive>
-    <Responsive 
-      dataTestMobileId="SkillsResponsiveMobile"
-      devices={["mobile"]}
-    >
+    <Responsive dataTestMobileId="SkillsResponsiveMobile" devices={["mobile"]}>
       {items.map((data: Data) => (
         <SpacingContainer
           dataTestId="ItemSpacingContainer"

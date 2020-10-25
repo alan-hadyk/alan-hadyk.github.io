@@ -1,4 +1,4 @@
-import { FontSizes } from "<styles>/variables/__typings__/variables.d.ts";
+import { FontSizes } from "styles/variables/__typings__/variables";
 
 export interface ButtonTextProps {
   buttonText: string;

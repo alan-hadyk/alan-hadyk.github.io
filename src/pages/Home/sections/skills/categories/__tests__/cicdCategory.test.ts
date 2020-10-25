@@ -1,4 +1,4 @@
-import cicdCategory from "<pages>/Home/sections/skills/categories/cicdCategory";
+import cicdCategory from "pages/Home/sections/skills/categories/cicdCategory";
 
 describe("pages / Home / sections / skills / categories / cicdCategory", () => {
   test("should have correct content", () => {

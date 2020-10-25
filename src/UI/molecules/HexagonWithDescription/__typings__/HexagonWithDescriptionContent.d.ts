@@ -1,5 +1,5 @@
-import { FlexContainerProps } from "<layout>/__typings__/FlexContainer.d.ts";
-import { Spacing } from "<styles>/variables/__typings__/variables.d.ts";
+import { FlexContainerProps } from "UI/layout/__typings__/FlexContainer";
+import { Spacing } from "styles/variables/__typings__/variables";
 export interface HexagonWithDescriptionContentProps {
   children: JSX.Element;
   description: JSX.Element;

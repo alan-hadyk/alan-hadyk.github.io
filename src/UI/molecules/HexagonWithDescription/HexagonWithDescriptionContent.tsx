@@ -1,13 +1,13 @@
 import React from "react";
 
-import Text from "<atoms>/Text";
-import Hexagon from "<molecules>/Hexagon";
+import Text from "UI/atoms/Text";
+import Hexagon from "UI/molecules/Hexagon";
 
-import FlexContainer from "<layout>/FlexContainer";
-import SpacingContainer from "<layout>/SpacingContainer";
-import FlexItem from "<layout>/FlexItem";
+import FlexContainer from "UI/layout/FlexContainer";
+import SpacingContainer from "UI/layout/SpacingContainer";
+import FlexItem from "UI/layout/FlexItem";
 
-import { HexagonWithDescriptionContentProps } from "<molecules>/HexagonWithDescription/__typings__/HexagonWithDescriptionContent.d.ts";
+import { HexagonWithDescriptionContentProps } from "UI/molecules/HexagonWithDescription/__typings__/HexagonWithDescriptionContent";
 
 const HexagonWithDescriptionContent = ({
   children,

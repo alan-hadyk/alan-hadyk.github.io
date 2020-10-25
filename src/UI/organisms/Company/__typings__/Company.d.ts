@@ -1,7 +1,7 @@
-import { CompanyDescriptionProps } from "<organisms>/__typings__/CompanyDescription.d.ts";
+import { CompanyDescriptionProps } from "UI/organisms/__typings__/CompanyDescription";
 
-import { IconProps } from "<atoms>/__typings__/Icon.d.ts";
-import { Spacing } from "<styles>/variables/__typings__/variables.d.ts";
+import { IconProps } from "UI/atoms/__typings__/Icon";
+import { Spacing } from "styles/variables/__typings__/variables";
 
 export interface CompanyProps extends CompanyDescriptionProps {
   companyMobilePaddingBottom?: Spacing;

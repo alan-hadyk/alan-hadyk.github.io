@@ -1,17 +1,17 @@
 import React from "react";
 import { render, RenderResult } from "@testing-library/react";
 
-import App from "<src>/App";
+import App from "../App";
 
-jest.mock("<hooks>/useIntersectionObserver");
+jest.mock("hooks/useIntersectionObserver");
 
 function mockHomePage(): JSX.Element {
   return <div data-testid="Home" />;
 }
-jest.mock("<pages>/Home/HomePage", () => mockHomePage);
+jest.mock("pages/Home/HomePage", () => mockHomePage);
 
 describe("App", () => {
-  test("should render <pages>/Home/HomePage", () => {
+  test("should render pages/Home/HomePage", () => {
     const { Home } = setup();
 
     expect(Home).toBeTruthy();

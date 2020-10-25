@@ -1,9 +1,9 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import TechStack from "<pages>/Home/sections/dashboard/elements/TechStack";
+import TechStack from "pages/Home/sections/dashboard/elements/TechStack";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
 describe("pages / Home / sections / dashboard / elements / TechStack", () => {
   test("should have correct structure", () => {

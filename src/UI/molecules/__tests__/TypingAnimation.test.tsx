@@ -1,9 +1,9 @@
 import React from "react";
 import { act, RenderResult } from "@testing-library/react";
 
-import TypingAnimation, { CODE } from "<molecules>/TypingAnimation";
+import TypingAnimation, { CODE } from "UI/molecules/TypingAnimation";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
 describe("molecules / TypingAnimation", () => {
   afterEach(() => {

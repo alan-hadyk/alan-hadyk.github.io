@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 
 import fetch, { Response } from "node-fetch";
 
-import { CommitProps } from "<molecules>/__typings__/Commit.d.ts";
-import { ComponentWithCommitsType } from "<state>/__typings__/withCommitsState.d.ts";
+import { CommitProps } from "UI/molecules/__typings__/Commit";
+import { ComponentWithCommitsType } from "state/__typings__/withCommitsState";
 
 const withCommitsState = (
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -3,17 +3,17 @@ import PropTypes from "prop-types";
 import isEmpty from "lodash/isEmpty";
 import isEqual from "lodash/isEqual";
 
-import Commit from "<molecules>/Commit";
-import Error from "<molecules>/Error";
+import Commit from "UI/molecules/Commit";
+import Error from "UI/molecules/Error";
 
-import transitionTimes from "<styles>/variables/transitionTimes";
+import transitionTimes from "styles/variables/transitionTimes";
 
-import FlexContainer from "<layout>/FlexContainer";
+import FlexContainer from "UI/layout/FlexContainer";
 
 import {
   ListOfCommitsProps,
   CommitProps
-} from "<molecules>/__typings__/ListOfCommits.d.ts";
+} from "UI/molecules/__typings__/ListOfCommits";
 
 function ListOfCommits({
   commitsList,

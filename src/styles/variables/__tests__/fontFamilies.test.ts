@@ -1,4 +1,4 @@
-import fontFamilies from "<styles>/variables/fontFamilies";
+import fontFamilies from "styles/variables/fontFamilies";
 
 describe("styles / variables / fontFamilies", () => {
   test("should have correct font families", () => {

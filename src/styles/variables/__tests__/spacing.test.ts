@@ -1,4 +1,4 @@
-import spacing from "<styles>/variables/spacing";
+import spacing from "styles/variables/spacing";
 
 describe("styles / variables / spacing", () => {
   test("should have correct spacings", () => {

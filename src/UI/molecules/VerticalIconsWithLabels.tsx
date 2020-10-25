@@ -3,20 +3,20 @@ import React from "react";
 import {
   mapSizeToIconHeight,
   mapSizeToTextFontSize
-} from "<molecules>/IconWithLabel";
+} from "UI/molecules/IconWithLabel";
 
-import { IconWithLabelProps } from "<molecules>/__typings__/IconWithLabel.d.ts";
+import { IconWithLabelProps } from "UI/molecules/__typings__/IconWithLabel";
 
-import FlexItem from "<layout>/FlexItem";
-import FlexContainer from "<layout>/FlexContainer";
-import SpacingContainer from "<layout>/SpacingContainer";
+import FlexItem from "UI/layout/FlexItem";
+import FlexContainer from "UI/layout/FlexContainer";
+import SpacingContainer from "UI/layout/SpacingContainer";
 
-import Icon from "<atoms>/Icon";
-import Text from "<atoms>/Text";
+import Icon from "UI/atoms/Icon";
+import Text from "UI/atoms/Text";
 
-import { VerticalIconsWithLabelsProps } from "<molecules>/__typings__/VerticalIconsWithLabels.d.ts";
+import { VerticalIconsWithLabelsProps } from "UI/molecules/__typings__/VerticalIconsWithLabels";
 
-import spacing from "<styles>/variables/spacing";
+import spacing from "styles/variables/spacing";
 
 const VerticalIconsWithLabels = ({
   iconsWithLabels,

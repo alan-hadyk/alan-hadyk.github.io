@@ -1,13 +1,13 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import CompanyDescription from "<organisms>/CompanyDescription";
+import CompanyDescription from "UI/organisms/CompanyDescription";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { CompanyDescriptionProps } from "<organisms>/__typings__/CompanyDescription.d.ts";
+import { CompanyDescriptionProps } from "UI/organisms/__typings__/CompanyDescription";
 
-import { IconWithLabelProps } from "<molecules>/__typings__/IconWithLabel.d.ts";
+import { IconWithLabelProps } from "UI/molecules/__typings__/IconWithLabel";
 
 describe("organisms / CompanyDescription", () => {
   test("should have correct structure", () => {

@@ -1,4 +1,4 @@
-import colorPalette from "<styles>/variables/colorPalette";
+import colorPalette from "styles/variables/colorPalette";
 
 describe("styles / variables / colorPalette", () => {
   test("should have correct colors", () => {

@@ -1,4 +1,4 @@
-import stateManagementCategory from "<pages>/Home/sections/skills/categories/stateManagementCategory";
+import stateManagementCategory from "pages/Home/sections/skills/categories/stateManagementCategory";
 
 describe("pages / Home / sections / skills / categories / languagesCategory", () => {
   test("should have correct content", () => {

@@ -1,5 +1,5 @@
 {
-  "baseUrl": "http://localhost:3000/portfolio",
+  "baseUrl": "http://localhost:5000",
   "animationDistanceThreshold": 5,
   "chromeWebSecurity": false,
   "defaultCommandTimeout": 20000,

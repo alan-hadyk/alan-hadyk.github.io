@@ -1,12 +1,12 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import spacing from "<styles>/variables/spacing";
+import spacing from "styles/variables/spacing";
 
 import {
   CalculateGap,
   FlexContainerProps
-} from "<layout>/__typings__/FlexContainer.d.ts";
+} from "UI/layout/__typings__/FlexContainer";
 
 const FlexContainer = ({
   alignItems = "center",

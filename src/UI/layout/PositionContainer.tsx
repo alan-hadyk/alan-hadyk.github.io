@@ -1,7 +1,7 @@
 import React, { forwardRef, Ref } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import { PositionContainerProps } from "<layout>/__typings__/PositionContainer.d.ts";
+import { PositionContainerProps } from "UI/layout/__typings__/PositionContainer";
 
 const PositionContainer = (
   {

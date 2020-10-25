@@ -1,12 +1,12 @@
 import React from "react";
 
-import CompanyTvDesktopAndTablet from "<organisms>/Company/CompanyTvDesktopAndTablet";
-import CompanyMobile from "<organisms>/Company/CompanyMobile";
+import CompanyTvDesktopAndTablet from "UI/organisms/Company/CompanyTvDesktopAndTablet";
+import CompanyMobile from "UI/organisms/Company/CompanyMobile";
 
-import FlexContainer from "<layout>/FlexContainer";
-import PositionContainer from "<layout>/PositionContainer";
+import FlexContainer from "UI/layout/FlexContainer";
+import PositionContainer from "UI/layout/PositionContainer";
 
-import { CompanyProps } from "<organisms>/Company/__typings__/Company.d.ts";
+import { CompanyProps } from "UI/organisms/Company/__typings__/Company";
 
 const Company = ({
   companyMobilePaddingBottom,

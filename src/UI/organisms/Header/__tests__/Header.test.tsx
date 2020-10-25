@@ -1,19 +1,19 @@
 import React from "react";
 import { act, fireEvent, RenderResult } from "@testing-library/react";
 
-import Header from "<organisms>/Header";
+import Header from "UI/organisms/Header";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-jest.mock("<hooks>/useIntersectionObserver");
+jest.mock("hooks/useIntersectionObserver");
 
-jest.mock("<hooks>/useResize");
+jest.mock("hooks/useResize");
 
-import useResize from "<hooks>/useResize";
+import useResize from "hooks/useResize";
 
-import { HeaderProps } from "<organisms>/Header/__typings__/Header.d.ts";
+import { HeaderProps } from "UI/organisms/Header/__typings__/Header";
 
-import { UseResizeArgs } from "<hooks>/__typings__/useResize.d.ts";
+import { UseResizeArgs } from "hooks/__typings__/useResize";
 
 describe("organisms / Header", () => {
   test("should have correct structure", () => {

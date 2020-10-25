@@ -1,3 +1,3 @@
-import Header from "<organisms>/Header/Header";
+import Header from "UI/organisms/Header/Header";
 
 export default Header;

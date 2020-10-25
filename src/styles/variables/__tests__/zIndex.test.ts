@@ -1,4 +1,4 @@
-import zIndex from "<styles>/variables/zIndex";
+import zIndex from "styles/variables/zIndex";
 
 describe("styles / variables / zIndex", () => {
   test("should have correct layering", () => {

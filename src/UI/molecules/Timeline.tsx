@@ -1,8 +1,8 @@
 import React, { memo } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import Hexagon from "<molecules>/Hexagon";
-import PositionContainer from "<layout>/PositionContainer";
+import Hexagon from "UI/molecules/Hexagon";
+import PositionContainer from "UI/layout/PositionContainer";
 
 const Timeline = (): JSX.Element => (
   <PositionContainer

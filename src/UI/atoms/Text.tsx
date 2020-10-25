@@ -1,13 +1,13 @@
 import React, { forwardRef, useState, useRef, Ref } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import useShuffleText from "<hooks>/useShuffleText";
-import useInterval from "<hooks>/useInterval";
+import useShuffleText from "hooks/useShuffleText";
+import useInterval from "hooks/useInterval";
 
-import transitionTimes from "<styles>/variables/transitionTimes";
+import transitionTimes from "styles/variables/transitionTimes";
 
-import { TextProps } from "<atoms>/__typings__/Text.d.ts";
-import { ShuffleState } from "<hooks>/__typings__/useShuffleText.d.ts";
+import { TextProps } from "UI/atoms/__typings__/Text";
+import { ShuffleState } from "hooks/__typings__/useShuffleText";
 
 function Text(
   {

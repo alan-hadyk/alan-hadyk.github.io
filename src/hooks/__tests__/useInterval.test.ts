@@ -1,6 +1,6 @@
 import { renderHook, RenderHookResult } from "@testing-library/react-hooks";
 
-import useInterval from "<hooks>/useInterval";
+import useInterval from "hooks/useInterval";
 
 describe("hooks / useInterval", () => {
   describe("setText", () => {

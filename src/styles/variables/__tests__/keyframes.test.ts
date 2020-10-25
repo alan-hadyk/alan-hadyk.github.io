@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import keyframes from "<styles>/variables/keyframes";
+import keyframes from "styles/variables/keyframes";
 
 interface KeyframesVariables {
   blink: any;

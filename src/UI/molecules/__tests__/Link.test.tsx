@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import Link from "<molecules>/Link";
+import Link from "UI/molecules/Link";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { LinkProps } from "<molecules>/__typings__/Link.d.ts";
+import { LinkProps } from "UI/molecules/__typings__/Link";
 
 describe("molecules / Link", () => {
   test("should have correct structure if it is hovered", () => {

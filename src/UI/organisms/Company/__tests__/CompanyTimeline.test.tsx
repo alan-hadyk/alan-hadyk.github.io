@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import CompanyTimeline from "<organisms>/Company/CompanyTimeline";
+import CompanyTimeline from "UI/organisms/Company/CompanyTimeline";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { CompanyTimelineProps } from "<organisms>/Company/__typings__/CompanyTimeline.d.ts";
+import { CompanyTimelineProps } from "UI/organisms/Company/__typings__/CompanyTimeline";
 
 describe("molecules / CompanyTimeline", () => {
   test("should have correct structure", () => {

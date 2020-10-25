@@ -3,7 +3,7 @@ import { FunctionComponent, SVGProps } from "react";
 import {
   Spacing,
   TransitionTimes
-} from "<styles>/variables/__typings__/variables.d.ts";
+} from "styles/variables/__typings__/variables";
 
 export interface IconProps {
   animationDelay?: string;

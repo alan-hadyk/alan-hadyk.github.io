@@ -1,11 +1,11 @@
 import React from "react";
 import { act, fireEvent, RenderResult } from "@testing-library/react";
 
-import MenuButton from "<atoms>/MenuButton";
+import MenuButton from "UI/atoms/MenuButton";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { MenuButtonProps } from "<atoms>/__typings__/MenuButton.d.ts";
+import { MenuButtonProps } from "UI/atoms/__typings__/MenuButton";
 
 describe("atoms / MenuButton", () => {
   test("should have correct structure", () => {

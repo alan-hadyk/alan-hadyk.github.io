@@ -1,9 +1,9 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import SkillsSection from "<pages>/Home/sections/skills/SkillsSection";
+import SkillsSection from "pages/Home/sections/skills/SkillsSection";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
 describe("pages / Home / sections / skills / SkillsSection", () => {
   test("should have correct structure", () => {

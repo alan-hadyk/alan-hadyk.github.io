@@ -1,9 +1,9 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import CompanyDiH from "<pages>/Home/sections/experience/companies/CompanyDiH";
+import CompanyDiH from "pages/Home/sections/experience/companies/CompanyDiH";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
 describe("pages / Home / sections / experience / companies / CompanyDiH", () => {
   describe("Props", () => {

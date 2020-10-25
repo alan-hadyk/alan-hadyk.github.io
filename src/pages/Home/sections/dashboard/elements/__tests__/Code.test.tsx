@@ -1,9 +1,9 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import Code from "<pages>/Home/sections/dashboard/elements/Code";
+import Code from "pages/Home/sections/dashboard/elements/Code";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
 describe("pages / Home / sections / dashboard / elements / Code", () => {
   test("should have correct structure", () => {

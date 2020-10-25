@@ -1,9 +1,9 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import ContactSection from "<pages>/Home/sections/contact/ContactSection";
+import ContactSection from "pages/Home/sections/contact/ContactSection";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
 describe("pages / Home / sections / contact / ContactSection", () => {
   test("should have correct structure", () => {

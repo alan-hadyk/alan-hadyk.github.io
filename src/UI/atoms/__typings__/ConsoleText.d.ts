@@ -1,7 +1,4 @@
-import {
-  FontSizes,
-  Spacing
-} from "<styles>/variables/__typings__/variables.d.ts";
+import { FontSizes, Spacing } from "styles/variables/__typings__/variables";
 
 export interface ConsoleTextProps {
   dataTestId?: string;

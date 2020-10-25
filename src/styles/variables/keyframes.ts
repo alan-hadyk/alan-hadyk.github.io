@@ -1,7 +1,7 @@
 import { keyframes } from "styled-components";
 
-import colorPalette from "<styles>/variables/colorPalette";
-import spacing from "<styles>/variables/spacing";
+import colorPalette from "styles/variables/colorPalette";
+import spacing from "styles/variables/spacing";
 
 export default {
   blink: keyframes`

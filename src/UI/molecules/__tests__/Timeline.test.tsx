@@ -1,9 +1,9 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import Timeline from "<molecules>/Timeline";
+import Timeline from "UI/molecules/Timeline";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
 describe("molecules / Timeline", () => {
   test("should have correct structure", () => {

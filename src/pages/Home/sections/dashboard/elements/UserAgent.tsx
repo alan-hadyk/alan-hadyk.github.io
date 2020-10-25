@@ -1,7 +1,7 @@
 import React from "react";
 
-import DashboardElement from "<molecules>/DashboardElement";
-import BrowserInfo from "<molecules>/BrowserInfo";
+import DashboardElement from "UI/molecules/DashboardElement";
+import BrowserInfo from "UI/molecules/BrowserInfo";
 
 export const UserAgent = (): JSX.Element => (
   <DashboardElement

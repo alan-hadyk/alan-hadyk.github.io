@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import FlexItem from "<layout>/FlexItem";
+import FlexItem from "UI/layout/FlexItem";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { FlexItemProps } from "<layout>/__typings__/FlexItem.d.ts";
+import { FlexItemProps } from "UI/layout/__typings__/FlexItem";
 
 describe("layout / FlexItem", () => {
   test("should render children", () => {

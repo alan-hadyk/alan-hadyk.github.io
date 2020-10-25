@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import { ListItemProps } from "<atoms>/__typings__/ListItem.d.ts";
+import { ListItemProps } from "UI/atoms/__typings__/ListItem";
 
 const ListItem = ({ children }: ListItemProps): JSX.Element => (
   <ListItem.Container data-cy="ListItem" data-testid="ListItem">

@@ -1,15 +1,15 @@
 import React, { useCallback } from "react";
 
-import CompanyLogo from "<molecules>/CompanyLogo";
+import CompanyLogo from "UI/molecules/CompanyLogo";
 
-import CompanyDescription from "<organisms>/CompanyDescription";
-import CompanyTimeline from "<organisms>/Company/CompanyTimeline";
+import CompanyDescription from "UI/organisms/CompanyDescription";
+import CompanyTimeline from "UI/organisms/Company/CompanyTimeline";
 
-import FlexContainer from "<layout>/FlexContainer";
-import FlexItem from "<layout>/FlexItem";
-import Responsive from "<layout>/Responsive";
+import FlexContainer from "UI/layout/FlexContainer";
+import FlexItem from "UI/layout/FlexItem";
+import Responsive from "UI/layout/Responsive";
 
-import { CompanyProps } from "<organisms>/Company/__typings__/Company.d.ts";
+import { CompanyProps } from "UI/organisms/Company/__typings__/Company";
 
 function CompanyTvDesktopAndTablet({
   date,

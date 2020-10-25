@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import ProjectDescriptionContent from "<organisms>/ProjectDescription/ProjectDescriptionContent";
+import ProjectDescriptionContent from "UI/organisms/ProjectDescription/ProjectDescriptionContent";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { ProjectDescriptionContentProps } from "<organisms>/ProjectDescription/__typings__/ProjectDescriptionContent.d.ts";
+import { ProjectDescriptionContentProps } from "UI/organisms/ProjectDescription/__typings__/ProjectDescriptionContent";
 
 describe("organisms / ProjectDescriptionContent", () => {
   test("should have correct structure", () => {

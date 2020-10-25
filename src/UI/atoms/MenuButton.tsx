@@ -6,7 +6,7 @@ import { transparentize } from "polished";
 import {
   MenuButtonLineProps,
   MenuButtonProps
-} from "<atoms>/__typings__/MenuButton.d.ts";
+} from "UI/atoms/__typings__/MenuButton";
 
 const MenuButton = ({
   isOpen = false,

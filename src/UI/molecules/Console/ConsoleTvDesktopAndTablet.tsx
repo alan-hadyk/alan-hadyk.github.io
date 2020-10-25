@@ -2,10 +2,10 @@ import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize } from "polished";
 
-import ConsoleText from "<atoms>/ConsoleText";
-import Text from "<atoms>/Text";
+import ConsoleText from "UI/atoms/ConsoleText";
+import Text from "UI/atoms/Text";
 
-import PositionContainer from "<layout>/PositionContainer";
+import PositionContainer from "UI/layout/PositionContainer";
 
 const ConsoleTvDesktopAndTablet = (): JSX.Element => (
   <PositionContainer

@@ -1,9 +1,9 @@
 import React, { memo } from "react";
 
-import Section from "<molecules>/Section";
-import Project from "<organisms>/Project";
+import Section from "UI/molecules/Section";
+import Project from "UI/organisms/Project";
 
-import { IconWithLabelProps } from "<molecules>/__typings__/IconWithLabel.d.ts";
+import { IconWithLabelProps } from "UI/molecules/__typings__/IconWithLabel";
 
 const iconsWithLabels: IconWithLabelProps[] = [
   {

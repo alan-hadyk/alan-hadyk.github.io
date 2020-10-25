@@ -1,11 +1,11 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import Section from "<molecules>/Section";
+import Section from "UI/molecules/Section";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { SectionProps } from "<molecules>/__typings__/Section.d.ts";
+import { SectionProps } from "UI/molecules/__typings__/Section";
 
 describe("molecules / Section", () => {
   test("should have correct structure", () => {

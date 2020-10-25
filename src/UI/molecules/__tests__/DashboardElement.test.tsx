@@ -1,10 +1,10 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import DashboardElement from "<molecules>/DashboardElement";
-import { DashboardElementProps } from "<molecules>/__typings__/DashboardElement.d.ts";
+import DashboardElement from "UI/molecules/DashboardElement";
+import { DashboardElementProps } from "UI/molecules/__typings__/DashboardElement";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
 describe("molecules / DashboardElement", () => {
   test("should have correct structure if there's no description", () => {

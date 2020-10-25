@@ -1,9 +1,9 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import PoweredBy from "<pages>/Home/sections/dashboard/elements/PoweredBy";
+import PoweredBy from "pages/Home/sections/dashboard/elements/PoweredBy";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
 describe("pages / Home / sections / dashboard / elements / PoweredBy", () => {
   test("should have correct structure", () => {

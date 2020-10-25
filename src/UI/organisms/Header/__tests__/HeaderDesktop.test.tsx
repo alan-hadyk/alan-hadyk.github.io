@@ -1,13 +1,13 @@
 import React from "react";
 import { RenderResult, act, fireEvent } from "@testing-library/react";
 
-import HeaderDesktop from "<organisms>/Header/HeaderDesktop";
+import HeaderDesktop from "UI/organisms/Header/HeaderDesktop";
 
-import renderWithTheme from "<helpers>/tests/renderWithTheme";
+import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { HeaderMobileProps } from "<organisms>/Header/__typings__/HeaderMobile.d.ts";
+import { HeaderMobileProps } from "UI/organisms/Header/__typings__/HeaderMobile";
 
-jest.mock("<hooks>/useIntersectionObserver");
+jest.mock("hooks/useIntersectionObserver");
 
 describe("organisms / HeaderDesktop", () => {
   test("should have correct structure if isMenuVisible is true", () => {

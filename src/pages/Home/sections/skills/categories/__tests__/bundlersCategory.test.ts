@@ -1,4 +1,4 @@
-import bundlersCategory from "<pages>/Home/sections/skills/categories/bundlersCategory";
+import bundlersCategory from "pages/Home/sections/skills/categories/bundlersCategory";
 
 describe("pages / Home / sections / skills / categories / bundlersCategory", () => {
   test("should have correct content", () => {

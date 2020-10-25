@@ -1,4 +1,4 @@
-import fontSizes from "<styles>/variables/fontSizes";
+import fontSizes from "styles/variables/fontSizes";
 
 describe("styles / variables / fontSizes", () => {
   test("should have correct font sizes", () => {
