@@ -10,3 +10,5 @@ export interface LinkProps {
   isExternal?: boolean;
   isHoverable?: boolean;
 }
+
+export type LinkContainerProps = Partial<LinkProps>;

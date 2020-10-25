@@ -1,28 +1,18 @@
 import React from "react";
-import {
-  createGlobalStyle,
-  DefaultTheme,
-  GlobalStyleComponent,
-  ThemeProvider
-} from "styled-components";
+import { Switch, Route } from "react-router-dom";
 
 import HomePage from "pages/Home/HomePage";
-
-import theme from "styles/theme";
-import globalStyle from "styles/globalStyle";
-
-const GlobalStyle: GlobalStyleComponent<
-  unknown,
-  DefaultTheme
-> = createGlobalStyle`
-  ${globalStyle}
-`;
+import NoMatchPage from "pages/NoMatch/NoMatchPage";
 
 const App = (): JSX.Element => (
-  <ThemeProvider theme={theme}>
-    <HomePage />
-    <GlobalStyle />
-  </ThemeProvider>
+  <Switch>
+    <Route exact path="/">
+      <HomePage />
+    </Route>
+    <Route path="*">
+      <NoMatchPage />
+    </Route>
+  </Switch>
 );
 
 export default App;
