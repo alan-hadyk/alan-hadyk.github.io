@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import { RenderResult } from "@testing-library/react";
+// import { createMemoryHistory } from "history";
+// import { Router } from "react-router-dom";
 
 import Link from "UI/molecules/Link";
 
@@ -8,32 +10,42 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 
 import { LinkProps } from "UI/molecules/__typings__/Link";
 
-// jest.mock("react-router/lib/Link", () => <a></a>);
+interface MockLinkProps {
+  children: unknown;
+  to: string;
+}
 
-// jest.mock("react-router-dom", () => ({
-//   Link: ({ children, to }) => (<a href={to}>{children}</a>)
-// }));
+function MockLink({ to, children, ...props }: MockLinkProps) {
+  return (
+    <a href={to} {...props}>
+      {children}
+    </a>
+  );
+}
 
-// jest.mock("react-router-dom", () => ({
-//   Link: "Link",
-//   Route: ({ children, path }) => children({ match: path === "/somewhere" })
-// }));
+jest.mock("react-router-dom", () => ({
+  Link: () => MockLink
+}));
 
 describe("molecules / Link", () => {
-  test("should have correct structure if it is hovered and is external link", () => {
+  test("should have correct structure if it's hoverable and is external link", () => {
     const { ExternalLink, Lines, PositionContainers } = setup({
+      isExternal: true,
       isHoverable: true
     });
 
-    expect(ExternalLink.children[1]).toEqual(PositionContainer[0]);
+    expect(ExternalLink.children[1]).toEqual(PositionContainers[0]);
     expect(PositionContainers[0].children[0]).toEqual(Lines[0]);
     expect(PositionContainers[0].children[1]).toEqual(Lines[1]);
   });
 
-  test("should have correct structure if it is hovered and is internal link", () => {
-    const { Lines, PositionContainers, RouterLink } = setup({
+  test("should have correct structure if it's hoverable and is internal link", () => {
+    const { debug, Lines, PositionContainers, RouterLink } = setup({
+      isExternal: false,
       isHoverable: true
     });
+
+    debug();
 
     expect(RouterLink.children[0].children[1]).toEqual(PositionContainers[1]);
     expect(PositionContainers[1].children[0]).toEqual(Lines[2]);
@@ -374,13 +386,12 @@ function setup(additionalProps?: LinkTestProps): Setup {
   const props: LinkProps = {
     children: <div>Link</div>,
     href: "/",
+    isExternal: true,
     isHoverable: true,
     ...additionalProps
   };
 
-  const utils: RenderResult = renderWithTheme(
-    <Link {...props}>{props.children}</Link>
-  );
+  const utils: RenderResult = renderWithTheme(<Link {...props} />);
 
   const { queryByTestId, queryAllByTestId }: RenderResult = utils;
 

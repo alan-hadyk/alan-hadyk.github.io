@@ -1,5 +1,7 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
+import { createMemoryHistory } from "history";
+import { Router } from "react-router-dom";
 
 import LinkWithIcon from "UI/molecules/LinkWithIcon";
 
@@ -8,6 +10,22 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 import { LinkWithIconProps } from "UI/molecules/__typings__/LinkWithIcon";
 
 describe("molecules / LinkWithIcon", () => {
+  test("should have correct structure - isExternal: false", () => {
+    const { IconContainer, Link } = setup({
+      isExternal: false
+    });
+
+    expect(Link.children[0].children[0]).toEqual(IconContainer);
+  });
+
+  test("should have correct structure - isExternal: true", () => {
+    const { IconContainer, Link } = setup({
+      isExternal: true
+    });
+
+    expect(Link.children[0]).toEqual(IconContainer);
+  });
+
   describe("Icon", () => {
     describe("Props", () => {
       describe("animationTime", () => {
@@ -69,11 +87,9 @@ describe("molecules / LinkWithIcon", () => {
           );
         });
       });
-    });
 
-    describe("Props", () => {
-      describe("should render correct icon", () => {
-        test("logo", () => {
+      describe("iconName", () => {
+        test("should render correct icon - logo", () => {
           const { Icon } = setup({
             iconName: "logo"
           });
@@ -81,7 +97,7 @@ describe("molecules / LinkWithIcon", () => {
           expect(Icon.textContent).toEqual("Icon-Logo.svg");
         });
 
-        test("codeSandbox", () => {
+        test("should render correct icon - codeSandbox", () => {
           const { Icon } = setup({
             iconName: "codeSandbox"
           });
@@ -89,7 +105,7 @@ describe("molecules / LinkWithIcon", () => {
           expect(Icon.textContent).toEqual("Icon-CodeSandbox.svg");
         });
 
-        test("gitHub", () => {
+        test("should render correct icon - gitHub", () => {
           const { Icon } = setup({
             iconName: "gitHub"
           });
@@ -97,7 +113,7 @@ describe("molecules / LinkWithIcon", () => {
           expect(Icon.textContent).toEqual("Icon-GitHub.svg");
         });
 
-        test("linkedIn", () => {
+        test("should render correct icon - linkedIn", () => {
           const { Icon } = setup({
             iconName: "linkedIn"
           });
@@ -134,21 +150,13 @@ describe("molecules / LinkWithIcon", () => {
         });
       });
 
-      describe("target", () => {
-        test("should have _self if isExternal prop is false", () => {
+      describe("isExternal", () => {
+        test("should render RouterLink as a Link child if isExternal prop is false", () => {
           const { Link } = setup({
             isExternal: false
           });
 
-          expect(Link.getAttribute("target")).toEqual("_self");
-        });
-
-        test("should have _blank if isExternal prop is true", () => {
-          const { Link } = setup({
-            isExternal: true
-          });
-
-          expect(Link.getAttribute("target")).toEqual("_blank");
+          expect(Link.children[0].getAttribute("href")).toEqual("/");
         });
       });
 
@@ -168,7 +176,7 @@ describe("molecules / LinkWithIcon", () => {
 interface Setup extends RenderResult {
   Icon: SVGSVGElement;
   IconContainer: Element;
-  Link: HTMLElement;
+  Link: Element;
 }
 
 type LinkWithIconTestProps = Partial<LinkWithIconProps>;
@@ -178,17 +186,28 @@ function setup(additionalProps?: LinkWithIconTestProps): Setup {
     height: "spacing48",
     href: "/",
     iconName: "logo",
+    isExternal: true,
     ...additionalProps
   };
 
-  const utils: RenderResult = renderWithTheme(<LinkWithIcon {...props} />);
+  const history = createMemoryHistory();
+
+  const utils: RenderResult = renderWithTheme(
+    <Router history={history}>
+      <LinkWithIcon {...props} />
+    </Router>
+  );
 
   const { queryByTestId }: RenderResult = utils;
 
+  const Link: Element = queryByTestId("LinkWithIcon");
+  const Icon: SVGSVGElement = document.querySelector("svg");
+  const IconContainer: Element = queryByTestId("IconContainer");
+
   return {
     ...utils,
-    Icon: document.querySelector("svg"),
-    IconContainer: queryByTestId("IconContainer"),
-    Link: document.querySelector("a")
+    Icon,
+    IconContainer,
+    Link
   };
 }

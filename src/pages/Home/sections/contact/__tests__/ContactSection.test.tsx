@@ -191,7 +191,7 @@ function setup(): Setup {
     "ContactSection"
   )[0];
   const FlexContainer: Element = queryAllByTestId("FlexContainer")[0];
-  const Link: Element = queryAllByTestId("Link")[0];
+  const Link: Element = queryAllByTestId("ExternalLink")[0];
   const Text: Element = queryAllByTestId("EmailText")[0];
 
   return {

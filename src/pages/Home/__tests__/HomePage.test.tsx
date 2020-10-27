@@ -11,6 +11,19 @@ jest.mock("ip", () => ({
   address: (): string => "127.0.0.1"
 }));
 
+interface MockLinkProps {
+  children: unknown;
+  to: string;
+}
+
+function MockLink({ to, children }: MockLinkProps) {
+  return <a href={to}>{children}</a>;
+}
+
+jest.mock("react-router-dom", () => ({
+  Link: MockLink
+}));
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function mockWithCommitsState(WrappedComponent: React.FunctionComponent<any>) {
   return (props: Record<string, unknown>): JSX.Element => {

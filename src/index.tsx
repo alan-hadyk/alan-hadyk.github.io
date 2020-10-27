@@ -24,7 +24,7 @@ if (typeof window.IntersectionObserver === "undefined") {
   );
 }
 
-const GlobalStyle: GlobalStyleComponent<
+export const GlobalStyle: GlobalStyleComponent<
   unknown,
   DefaultTheme
 > = createGlobalStyle`
