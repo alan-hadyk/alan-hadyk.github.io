@@ -594,6 +594,22 @@ describe("molecules / Button", () => {
   });
 
   describe("Icon", () => {
+    test("should render icon if iconName is passed", () => {
+      const { Icon } = setup({
+        iconName: "btnCodeSandbox"
+      });
+
+      expect(Icon).toBeTruthy();
+    });
+
+    test("should not render icon if iconName is not passed", () => {
+      const { Icon } = setup({
+        iconName: "btnCodeSandbox"
+      });
+
+      expect(Icon).toBeFalsy();
+    });
+
     describe("Props", () => {
       describe("iconName", () => {
         test("should render correct icon for codesandbox", () => {

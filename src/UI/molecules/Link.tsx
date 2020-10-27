@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
-import { Link as RouterLink } from "react-router-dom";
+// import { Link as RouterLink } from "react-router-dom";
 
 import Line from "UI/atoms/Line";
 
@@ -17,12 +17,12 @@ const Link = ({
   href,
   isExternal = false,
   isHoverable = false,
-  width
+  width = "unset"
 }: LinkProps): JSX.Element =>
   isExternal ? (
     <Link.ExternalLink
       data-cy={dataCy}
-      data-testid={dataTestId || "Link"}
+      data-testid={dataTestId || "ExternalLink"}
       display={display}
       height={height}
       href={href}
@@ -42,23 +42,23 @@ const Link = ({
   ) : (
     <Link.RouterLink
       data-cy={dataCy}
-      data-testid={dataTestId || "Link"}
+      data-testid={dataTestId || "RouterLink"}
       display={display}
       height={height}
       width={width}
     >
-      <RouterLink to={href}>
-        <Fragment>
-          {children}
+      <Fragment>
+        {/* <RouterLink to={href}> */}
+        {children}
 
-          {isHoverable && (
-            <PositionContainer position="relative">
-              <Line direction="left" />
-              <Line direction="right" />
-            </PositionContainer>
-          )}
-        </Fragment>
-      </RouterLink>
+        {isHoverable && (
+          <PositionContainer position="relative">
+            <Line direction="left" />
+            <Line direction="right" />
+          </PositionContainer>
+        )}
+        {/* </RouterLink> */}
+      </Fragment>
     </Link.RouterLink>
   );
 

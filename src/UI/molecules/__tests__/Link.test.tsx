@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
@@ -7,177 +8,352 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 
 import { LinkProps } from "UI/molecules/__typings__/Link";
 
+// jest.mock("react-router/lib/Link", () => <a></a>);
+
+// jest.mock("react-router-dom", () => ({
+//   Link: ({ children, to }) => (<a href={to}>{children}</a>)
+// }));
+
+// jest.mock("react-router-dom", () => ({
+//   Link: "Link",
+//   Route: ({ children, path }) => children({ match: path === "/somewhere" })
+// }));
+
 describe("molecules / Link", () => {
-  test("should have correct structure if it is hovered", () => {
-    const { Lines, LinkContainer, PositionContainer } = setup({
+  test("should have correct structure if it is hovered and is external link", () => {
+    const { ExternalLink, Lines, PositionContainers } = setup({
       isHoverable: true
     });
 
-    expect(LinkContainer.children[1]).toEqual(PositionContainer);
-    expect(PositionContainer.children[0]).toEqual(Lines[0]);
-    expect(PositionContainer.children[1]).toEqual(Lines[1]);
+    expect(ExternalLink.children[1]).toEqual(PositionContainer[0]);
+    expect(PositionContainers[0].children[0]).toEqual(Lines[0]);
+    expect(PositionContainers[0].children[1]).toEqual(Lines[1]);
   });
 
-  test("should render children", () => {
-    const { LinkContainer } = setup({
+  test("should have correct structure if it is hovered and is internal link", () => {
+    const { Lines, PositionContainers, RouterLink } = setup({
+      isHoverable: true
+    });
+
+    expect(RouterLink.children[0].children[1]).toEqual(PositionContainers[1]);
+    expect(PositionContainers[1].children[0]).toEqual(Lines[2]);
+    expect(PositionContainers[1].children[1]).toEqual(Lines[3]);
+  });
+
+  test("ExternalLink should render children", () => {
+    const { ExternalLink } = setup({
       children: <div>Custom children</div>
     });
 
-    expect(LinkContainer.textContent).toEqual("Custom children");
+    expect(ExternalLink.textContent).toEqual("Custom children");
   });
 
-  describe("Styles", () => {
-    describe("display", () => {
-      test("should have inline by default", () => {
-        const { LinkContainer } = setup();
-
-        expect(LinkContainer).toHaveStyleRule("display", "inline");
-      });
-
-      test("should have block passed via display prop", () => {
-        const { LinkContainer } = setup({
-          display: "block"
-        });
-
-        expect(LinkContainer).toHaveStyleRule("display", "block");
-      });
+  test("RouterLink should render children", () => {
+    const { RouterLink } = setup({
+      children: <div>Custom children</div>
     });
 
-    describe("height", () => {
-      test("should have unset by default", () => {
-        const { LinkContainer } = setup();
+    expect(RouterLink.textContent).toEqual("Custom children");
+  });
 
-        expect(LinkContainer).toHaveStyleRule("height", "unset");
-      });
+  describe("ExternalLink", () => {
+    describe("Styles", () => {
+      describe("display", () => {
+        test("should have inline by default", () => {
+          const { ExternalLink } = setup();
 
-      test("should have correct value passed via height prop", () => {
-        const { LinkContainer } = setup({
-          height: "spacing48"
+          expect(ExternalLink).toHaveStyleRule("display", "inline");
         });
 
-        expect(LinkContainer).toHaveStyleRule("height", "4.8rem");
+        test("should have block passed via display prop", () => {
+          const { ExternalLink } = setup({
+            display: "block"
+          });
+
+          expect(ExternalLink).toHaveStyleRule("display", "block");
+        });
       });
 
-      test("should have 50% passed via height prop", () => {
-        const { LinkContainer } = setup({
-          height: "50%"
+      describe("height", () => {
+        test("should have unset by default", () => {
+          const { ExternalLink } = setup();
+
+          expect(ExternalLink).toHaveStyleRule("height", "unset");
         });
 
-        expect(LinkContainer).toHaveStyleRule("height", "50%");
-      });
+        test("should have correct value passed via height prop", () => {
+          const { ExternalLink } = setup({
+            height: "spacing48"
+          });
 
-      test("should have 100% passed via height prop", () => {
-        const { LinkContainer } = setup({
-          height: "100%"
+          expect(ExternalLink).toHaveStyleRule("height", "4.8rem");
         });
 
-        expect(LinkContainer).toHaveStyleRule("height", "100%");
+        test("should have 50% passed via height prop", () => {
+          const { ExternalLink } = setup({
+            height: "50%"
+          });
+
+          expect(ExternalLink).toHaveStyleRule("height", "50%");
+        });
+
+        test("should have 100% passed via height prop", () => {
+          const { ExternalLink } = setup({
+            height: "100%"
+          });
+
+          expect(ExternalLink).toHaveStyleRule("height", "100%");
+        });
       });
-    });
 
-    describe("line-height", () => {
-      test("should have 1", () => {
-        const { LinkContainer } = setup();
-
-        expect(LinkContainer).toHaveStyleRule("line-height", "1");
-      });
-    });
-
-    describe(":hover .Line", () => {
-      describe("opacity", () => {
+      describe("line-height", () => {
         test("should have 1", () => {
-          const { LinkContainer } = setup();
+          const { ExternalLink } = setup();
 
-          expect(LinkContainer).toHaveStyleRule("opacity", "1", {
-            modifier: "&:hover .line"
-          });
+          expect(ExternalLink).toHaveStyleRule("line-height", "1");
         });
       });
 
-      describe("visibility", () => {
-        test("should have visible", () => {
-          const { LinkContainer } = setup();
+      describe(":hover .line", () => {
+        describe("opacity", () => {
+          test("should have 1", () => {
+            const { ExternalLink } = setup();
 
-          expect(LinkContainer).toHaveStyleRule("visibility", "visible", {
-            modifier: "&:hover .line"
+            expect(ExternalLink).toHaveStyleRule("opacity", "1", {
+              modifier: "&:hover .line"
+            });
           });
+        });
+
+        describe("visibility", () => {
+          test("should have visible", () => {
+            const { ExternalLink } = setup();
+
+            expect(ExternalLink).toHaveStyleRule("visibility", "visible", {
+              modifier: "&:hover .line"
+            });
+          });
+        });
+
+        describe("width", () => {
+          test("should have 50%", () => {
+            const { ExternalLink } = setup();
+
+            expect(ExternalLink).toHaveStyleRule("width", "50%", {
+              modifier: "&:hover .line"
+            });
+          });
+        });
+      });
+    });
+
+    describe("Props", () => {
+      describe("href", () => {
+        test("should have correct value passed via href prop", () => {
+          const { ExternalLink } = setup({
+            href: "http://google.com"
+          });
+
+          expect(ExternalLink.getAttribute("href")).toEqual(
+            "http://google.com"
+          );
+        });
+      });
+
+      describe("target", () => {
+        test("should have '_blank'", () => {
+          const { ExternalLink } = setup({
+            isExternal: true
+          });
+
+          expect(ExternalLink.getAttribute("target")).toEqual("_blank");
+        });
+      });
+    });
+  });
+
+  describe("RouterLink", () => {
+    describe("Styles", () => {
+      describe("display", () => {
+        test("should have inline by default", () => {
+          const { RouterLink } = setup();
+
+          expect(RouterLink).toHaveStyleRule("display", "inline");
+        });
+
+        test("should have block passed via display prop", () => {
+          const { RouterLink } = setup({
+            display: "block"
+          });
+
+          expect(RouterLink).toHaveStyleRule("display", "block");
+        });
+      });
+
+      describe("height", () => {
+        test("should have unset by default", () => {
+          const { RouterLink } = setup();
+
+          expect(RouterLink).toHaveStyleRule("height", "unset");
+        });
+
+        test("should have correct value passed via height prop", () => {
+          const { RouterLink } = setup({
+            height: "spacing48"
+          });
+
+          expect(RouterLink).toHaveStyleRule("height", "4.8rem");
+        });
+
+        test("should have 50% passed via height prop", () => {
+          const { RouterLink } = setup({
+            height: "50%"
+          });
+
+          expect(RouterLink).toHaveStyleRule("height", "50%");
+        });
+
+        test("should have 100% passed via height prop", () => {
+          const { RouterLink } = setup({
+            height: "100%"
+          });
+
+          expect(RouterLink).toHaveStyleRule("height", "100%");
+        });
+      });
+
+      describe("line-height", () => {
+        test("should have 1", () => {
+          const { RouterLink } = setup();
+
+          expect(RouterLink).toHaveStyleRule("line-height", "1");
         });
       });
 
       describe("width", () => {
-        test("should have 50%", () => {
-          const { LinkContainer } = setup();
+        test("should have unset by default", () => {
+          const { RouterLink } = setup();
 
-          expect(LinkContainer).toHaveStyleRule("width", "50%", {
-            modifier: "&:hover .line"
+          expect(RouterLink).toHaveStyleRule("width", "unset");
+        });
+
+        test("should have correct value passed via width prop", () => {
+          const { RouterLink } = setup({
+            width: "spacing48"
+          });
+
+          expect(RouterLink).toHaveStyleRule("width", "4.8rem");
+        });
+
+        test("should have 50% passed via width prop", () => {
+          const { RouterLink } = setup({
+            width: "50%"
+          });
+
+          expect(RouterLink).toHaveStyleRule("width", "50%");
+        });
+
+        test("should have 100% passed via width prop", () => {
+          const { RouterLink } = setup({
+            width: "100%"
+          });
+
+          expect(RouterLink).toHaveStyleRule("width", "100%");
+        });
+      });
+
+      describe(":hover .line", () => {
+        describe("opacity", () => {
+          test("should have 1", () => {
+            const { RouterLink } = setup();
+
+            expect(RouterLink).toHaveStyleRule("opacity", "1", {
+              modifier: "&:hover .line"
+            });
+          });
+        });
+
+        describe("visibility", () => {
+          test("should have visible", () => {
+            const { RouterLink } = setup();
+
+            expect(RouterLink).toHaveStyleRule("visibility", "visible", {
+              modifier: "&:hover .line"
+            });
+          });
+        });
+
+        describe("width", () => {
+          test("should have 50%", () => {
+            const { RouterLink } = setup();
+
+            expect(RouterLink).toHaveStyleRule("width", "50%", {
+              modifier: "&:hover .line"
+            });
           });
         });
       });
     });
-  });
 
-  describe("Props", () => {
-    describe("href", () => {
-      test("should have correct value passed via href prop", () => {
-        const { LinkContainer } = setup({
-          href: "http://google.com"
+    describe("Props", () => {
+      describe("href", () => {
+        test("should have correct value passed via href prop", () => {
+          const { RouterLink } = setup({
+            href: "http://google.com"
+          });
+
+          expect(RouterLink.getAttribute("href")).toEqual("http://google.com");
         });
-
-        expect(LinkContainer.getAttribute("href")).toEqual("http://google.com");
-      });
-    });
-
-    describe("target", () => {
-      test("should have '_blank' when isExternal: true", () => {
-        const { LinkContainer } = setup({
-          isExternal: true
-        });
-
-        expect(LinkContainer.getAttribute("target")).toEqual("_blank");
       });
 
-      test("should have '_self' when isExternal: false", () => {
-        const { LinkContainer } = setup({
-          isExternal: false
-        });
+      describe("target", () => {
+        test("should have '_blank'", () => {
+          const { RouterLink } = setup({
+            isExternal: true
+          });
 
-        expect(LinkContainer.getAttribute("target")).toEqual("_self");
+          expect(RouterLink.getAttribute("target")).toEqual("_blank");
+        });
       });
     });
   });
 
-  describe("PositionContainer", () => {
+  describe("PositionContainers", () => {
     describe("Props", () => {
       describe("position", () => {
         test("should be relative", () => {
-          const { PositionContainer } = setup();
+          const { PositionContainers } = setup();
 
-          expect(PositionContainer).toHaveStyleRule("position", "relative");
+          PositionContainers.forEach((PositionContainer: Element) => {
+            expect(PositionContainer).toHaveStyleRule("position", "relative");
+          });
         });
       });
     });
   });
 
   describe("Lines", () => {
-    describe("Line[0]", () => {
+    describe("Line[0], Line[2]", () => {
       describe("Props", () => {
         describe("direction", () => {
           test("should be left", () => {
             const { Lines } = setup();
 
             expect(Lines[0]).toHaveStyleRule("left", "50%");
+            expect(Lines[2]).toHaveStyleRule("left", "50%");
           });
         });
       });
     });
 
-    describe("Line[1]", () => {
+    describe("Line[1], Line[3]", () => {
       describe("Props", () => {
         describe("direction", () => {
           test("should be right", () => {
             const { Lines } = setup();
 
             expect(Lines[1]).toHaveStyleRule("right", "50%");
+            expect(Lines[3]).toHaveStyleRule("right", "50%");
           });
         });
       });
@@ -186,9 +362,10 @@ describe("molecules / Link", () => {
 });
 
 interface Setup extends RenderResult {
+  ExternalLink: Element;
   Lines: Element[];
-  LinkContainer: Element;
-  PositionContainer: Element;
+  PositionContainers: Element[];
+  RouterLink: Element;
 }
 
 type LinkTestProps = Partial<LinkProps>;
@@ -207,14 +384,16 @@ function setup(additionalProps?: LinkTestProps): Setup {
 
   const { queryByTestId, queryAllByTestId }: RenderResult = utils;
 
+  const ExternalLink: Element = queryByTestId("ExternalLink");
   const Lines: Element[] = queryAllByTestId("Line");
-  const LinkContainer: Element = queryByTestId("Link");
-  const PositionContainer: Element = queryByTestId("PositionContainer");
+  const PositionContainers: Element[] = queryAllByTestId("PositionContainer");
+  const RouterLink: Element = queryByTestId("RouterLink");
 
   return {
     ...utils,
+    ExternalLink,
     Lines,
-    LinkContainer,
-    PositionContainer
+    PositionContainers,
+    RouterLink
   };
 }

@@ -243,6 +243,14 @@ describe("molecules / Error", () => {
         });
       });
 
+      describe("textAlign", () => {
+        test("should have center", () => {
+          const { Description } = setup();
+
+          expect(Description).toHaveStyleRule("text-align", "center");
+        });
+      });
+
       describe("textTransform", () => {
         test("should have uppercase", () => {
           const { Description } = setup();
