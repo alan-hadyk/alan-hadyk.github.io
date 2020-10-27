@@ -89,11 +89,11 @@ const linkStyles: FlattenInterpolation<ThemedStyledProps<
 `;
 
 Link.ExternalLink = styled.a<LinkContainerProps>`
-  ${linkStyles}
+  ${linkStyles};
 `;
 
 Link.RouterLink = styled.span<LinkContainerProps>`
-  ${linkStyles}
+  ${linkStyles};
 `;
 
 export default Link;
