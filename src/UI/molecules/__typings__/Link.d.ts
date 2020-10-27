@@ -9,6 +9,7 @@ export interface LinkProps {
   href: string;
   isExternal?: boolean;
   isHoverable?: boolean;
+  width?: string | Spacing;
 }
 
 export type LinkContainerProps = Partial<LinkProps>;

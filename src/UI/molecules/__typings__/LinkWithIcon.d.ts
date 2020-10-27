@@ -8,5 +8,6 @@ export interface LinkWithIconProps {
   href: string;
   iconName: IconProps["iconName"];
   isExternal?: boolean;
+  linkWidth?: string | Spacing;
   width?: string | Spacing;
 }

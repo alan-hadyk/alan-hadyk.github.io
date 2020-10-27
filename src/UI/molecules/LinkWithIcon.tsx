@@ -12,6 +12,7 @@ const LinkWithIcon = ({
   href,
   iconName,
   isExternal = false,
+  linkWidth,
   width = "auto"
 }: LinkWithIconProps): JSX.Element => (
   <Link
@@ -21,6 +22,7 @@ const LinkWithIcon = ({
     height={height}
     href={href}
     isExternal={isExternal}
+    width={linkWidth}
   >
     <Icon
       animationTime="fast"

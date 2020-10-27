@@ -35,7 +35,12 @@ const Error = ({ title, description }: ErrorProps): JSX.Element => (
       >
         {title}
       </Text>
-      <Text fontSize="font16" lineHeight="spacing24" textTransform="uppercase">
+      <Text
+        fontSize="font16"
+        lineHeight="spacing24"
+        textAlign="center"
+        textTransform="uppercase"
+      >
         {description}
       </Text>
     </FlexContainer>

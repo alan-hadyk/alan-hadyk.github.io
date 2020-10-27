@@ -16,7 +16,8 @@ const Link = ({
   height = "unset",
   href,
   isExternal = false,
-  isHoverable = false
+  isHoverable = false,
+  width
 }: LinkProps): JSX.Element =>
   isExternal ? (
     <Link.ExternalLink
@@ -39,13 +40,14 @@ const Link = ({
       </Fragment>
     </Link.ExternalLink>
   ) : (
-    <RouterLink to={href}>
-      <Link.RouterLink
-        data-cy={dataCy}
-        data-testid={dataTestId || "Link"}
-        display={display}
-        height={height}
-      >
+    <Link.RouterLink
+      data-cy={dataCy}
+      data-testid={dataTestId || "Link"}
+      display={display}
+      height={height}
+      width={width}
+    >
+      <RouterLink to={href}>
         <Fragment>
           {children}
 
@@ -56,8 +58,8 @@ const Link = ({
             </PositionContainer>
           )}
         </Fragment>
-      </Link.RouterLink>
-    </RouterLink>
+      </RouterLink>
+    </Link.RouterLink>
   );
 
 Link.ExternalLink = styled.a<LinkContainerProps>`
@@ -82,11 +84,13 @@ Link.RouterLink = styled.span<LinkContainerProps>`
   ${({
     display,
     height,
-    theme: { spacing }
+    theme: { spacing },
+    width
   }): FlattenSimpleInterpolation => css`
     display: ${display};
     height: ${(height in spacing && spacing[height]) || height};
     line-height: 1;
+    width: ${(width in spacing && spacing[width]) || width};
 
     &:hover .line {
       opacity: 1;

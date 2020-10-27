@@ -52,6 +52,7 @@ function Button({
   buttonText,
   dataTestId,
   iconName,
+  onClick,
   size = "medium",
   type = "primary",
   width = "auto"
@@ -87,11 +88,15 @@ function Button({
         >
           <FlexContainer flexFlow="row wrap">
             <ButtonText buttonText={buttonText} size={size} />
-            <Icon
-              height={size === "small" ? spacing.spacing12 : spacing.spacing24}
-              iconName={iconName}
-              isHeightResponsive
-            />
+            {iconName && (
+              <Icon
+                height={
+                  size === "small" ? spacing.spacing12 : spacing.spacing24
+                }
+                iconName={iconName}
+                isHeightResponsive
+              />
+            )}
           </FlexContainer>
         </SpacingContainer>
       </Button.InnerContainer>
@@ -115,6 +120,8 @@ function Button({
   function handleButtonClick(event: React.MouseEvent<HTMLButtonElement>): void {
     !isMobile && setIsActive(false);
     event.preventDefault();
+
+    onClick && onClick();
 
     if (buttonInnerContainerRef.current) {
       const { clientX, clientY }: React.MouseEvent = event;

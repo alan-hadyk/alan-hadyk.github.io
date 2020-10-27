@@ -20,6 +20,7 @@ NoMatchPageTemplate.Container = styled.main`
   }): FlattenSimpleInterpolation => css`
     align-items: center;
     display: flex;
+    flex-flow: column nowrap;
     justify-content: center;
     margin: 0 auto;
     max-width: ${breakpoint1920};
