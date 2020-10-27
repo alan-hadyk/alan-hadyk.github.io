@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
-// import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 
 import Line from "UI/atoms/Line";
 
@@ -47,8 +47,7 @@ const Link = ({
       height={height}
       width={width}
     >
-      <Fragment>
-        {/* <RouterLink to={href}> */}
+      <RouterLink to={href}>
         {children}
 
         {isHoverable && (
@@ -57,8 +56,7 @@ const Link = ({
             <Line direction="right" />
           </PositionContainer>
         )}
-        {/* </RouterLink> */}
-      </Fragment>
+      </RouterLink>
     </Link.RouterLink>
   );
 

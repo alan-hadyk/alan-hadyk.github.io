@@ -3,6 +3,7 @@ import { FontSizes } from "styles/variables/__typings__/variables";
 export interface ButtonTextProps {
   buttonText: string;
   dataTestId?: string;
+  hasMargin?: boolean;
   size: "small" | "medium" | "large";
 }
 

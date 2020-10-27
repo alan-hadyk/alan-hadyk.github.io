@@ -86,8 +86,12 @@ function Button({
           paddingLeft={buttonPadding}
           width="100%"
         >
-          <FlexContainer flexFlow="row wrap">
-            <ButtonText buttonText={buttonText} size={size} />
+          <FlexContainer flexFlow="row nowrap">
+            <ButtonText
+              buttonText={buttonText}
+              hasMargin={!!iconName}
+              size={size}
+            />
             {iconName && (
               <Icon
                 height={

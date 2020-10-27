@@ -8,59 +8,48 @@ import DashboardElement from "UI/molecules/DashboardElement";
 
 import NoMatchPageTemplate from "UI/templates/NoMatchPageTemplate";
 
-import FlexContainer from "UI/layout/FlexContainer";
 import SpacingContainer from "UI/layout/SpacingContainer";
 import Button from "UI/molecules/Button";
-import Responsive from "UI/layout/Responsive";
 
-const NoMatchPage = (): JSX.Element => {
+function NoMatchPage(): JSX.Element {
   const history = useHistory();
 
   return (
     <NoMatchPageTemplate>
-      <FlexContainer flexFlow="column nowrap" height="100%">
-        <LinkWithIcon
-          dataCy="SiteLogo"
-          href="/"
-          height="spacing48"
-          iconName="logo"
-          linkWidth="100%"
-          width="100%"
-        />
-        <SpacingContainer paddingTop="spacing64" width="100%">
-          <DashboardElement
-            dataCy="NoMatchPageDashboardElement"
-            dataTestId="NoMatchPageDashboardElement"
-            flex="1 1 100%"
-            shouldDisplayCorners
-            title=""
-          >
-            <Error title="Error" description="Page not found" />
-          </DashboardElement>
-        </SpacingContainer>
-        <SpacingContainer paddingTop="spacing64">
-          <Responsive devices={["mobile"]}>
-            <Button
-              buttonText="Portfolio"
-              onClick={handleButtonClick}
-              size="small"
-            />
-          </Responsive>
-          <Responsive devices={["tv", "desktop", "tablet"]}>
-            <Button
-              buttonText="Return to Portfolio"
-              onClick={handleButtonClick}
-              size="small"
-            />
-          </Responsive>
-        </SpacingContainer>
-      </FlexContainer>
+      <LinkWithIcon
+        dataCy="SiteLogo"
+        href="/"
+        height="auto"
+        iconName="logo"
+        width="100%"
+      />
+      <SpacingContainer
+        marginBottom="spacing32"
+        marginTop="spacing32"
+        width="100%"
+      >
+        <DashboardElement
+          dataCy="NoMatchPageDashboardElement"
+          dataTestId="NoMatchPageDashboardElement"
+          flex="1 1 100%"
+          shouldDisplayCorners
+          title=""
+        >
+          <Error title="Error" description="Page not found" />
+        </DashboardElement>
+      </SpacingContainer>
+      <Button
+        buttonText="Return to Portfolio"
+        onClick={handleButtonClick}
+        size="small"
+        width="100%"
+      />
     </NoMatchPageTemplate>
   );
 
   function handleButtonClick() {
     history.push("/");
   }
-};
+}
 
 export default memo(NoMatchPage);

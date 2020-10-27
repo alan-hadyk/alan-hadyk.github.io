@@ -85,6 +85,7 @@ declare module "styled-components" {
       spacing88: string;
       spacing96: string;
       spacing248: string;
+      spacing356: string;
       spacing1056: string;
     };
 

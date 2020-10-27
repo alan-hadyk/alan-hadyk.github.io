@@ -5,7 +5,7 @@ export interface LinkProps {
   dataCy?: string;
   dataTestId?: string;
   display?: "block" | "inline";
-  height?: Spacing | "unset" | "50%" | "100%";
+  height?: Spacing | "unset" | "50%" | "100%" | "auto";
   href: string;
   isExternal?: boolean;
   isHoverable?: boolean;
