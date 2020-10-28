@@ -21,18 +21,17 @@ function MockLinkWithIcon({
   width
 }: MockLinkWithIconProps) {
   return (
-    <div
-      data-href={href}
+    <a
       data-height={height}
+      data-href={href}
       data-iconname={iconName}
       data-width={width}
+      className="LinkWithIcon"
     />
   );
 }
 
-jest.mock("UI/molecules/LinkWithIcon", () => ({
-  LinkWithIcon: () => MockLinkWithIcon
-}));
+jest.mock("UI/molecules/LinkWithIcon", () => MockLinkWithIcon);
 
 describe("pages / NoMatch / NoMatchPage", () => {
   test("should have correct structure", () => {
@@ -43,47 +42,50 @@ describe("pages / NoMatch / NoMatchPage", () => {
       LinkWithIcon,
       NoMatchPageTemplate,
       SpacingContainer
-    } = setup("/no-match-page");
+    } = setup();
 
     expect(NoMatchPageTemplate.children[0]).toEqual(LinkWithIcon);
     expect(NoMatchPageTemplate.children[1]).toEqual(SpacingContainer);
     expect(NoMatchPageTemplate.children[2]).toEqual(Button);
 
     expect(SpacingContainer.children[0]).toEqual(DashboardElement);
-    expect(DashboardElement.children[0]).toEqual(Error);
+    expect(
+      DashboardElement.children[0].children[0].children[4].children[0]
+        .children[0]
+    ).toEqual(Error);
   });
 
   describe("LinkWithIcon", () => {
     describe("Props", () => {
       describe("href", () => {
         test("should have '/'", () => {
-          const { LinkWithIcon } = setup("/no-match-page");
+          const { LinkWithIcon } = setup();
 
-          expect(LinkWithIcon.children[0].getAttribute("href")).toEqual("/");
+          expect(LinkWithIcon.getAttribute("data-href")).toEqual("/");
         });
       });
 
       describe("height", () => {
         test("should have auto", () => {
-          const { LinkWithIcon } = setup("/no-match-page");
+          const { LinkWithIcon } = setup();
 
-          expect(LinkWithIcon).toHaveStyleRule("height", "auto");
+          expect(LinkWithIcon.getAttribute("data-height")).toEqual("auto");
         });
       });
 
       describe("iconName", () => {
         test("should have logo", () => {
-          const { LinkWithIcon } = setup("/no-match-page");
+          const { LinkWithIcon } = setup();
 
-          expect(LinkWithIcon.textContent).toEqual("Icon-Logo.svg");
+          expect(LinkWithIcon.getAttribute("data-iconname")).toEqual("logo");
         });
       });
 
       describe("width", () => {
         test("should have 100%", () => {
-          const { LinkWithIcon } = setup("/no-match-page");
+          const { LinkWithIcon } = setup();
 
-          expect(LinkWithIcon).toHaveStyleRule("width", "100%");
+          expect(LinkWithIcon.getAttribute("data-width")).toEqual("100%");
         });
       });
     });
@@ -93,7 +95,7 @@ describe("pages / NoMatch / NoMatchPage", () => {
     describe("Props", () => {
       describe("marginBottom", () => {
         test("should have 3.2rem", () => {
-          const { SpacingContainer } = setup("/no-match-page");
+          const { SpacingContainer } = setup();
 
           expect(SpacingContainer).toHaveStyleRule("margin-bottom", "3.2rem");
         });
@@ -101,7 +103,7 @@ describe("pages / NoMatch / NoMatchPage", () => {
 
       describe("marginTop", () => {
         test("should have 3.2rem", () => {
-          const { SpacingContainer } = setup("/no-match-page");
+          const { SpacingContainer } = setup();
 
           expect(SpacingContainer).toHaveStyleRule("margin-top", "3.2rem");
         });
@@ -109,7 +111,7 @@ describe("pages / NoMatch / NoMatchPage", () => {
 
       describe("width", () => {
         test("should have 100%", () => {
-          const { SpacingContainer } = setup("/no-match-page");
+          const { SpacingContainer } = setup();
 
           expect(SpacingContainer).toHaveStyleRule("width", "100%");
         });
@@ -121,7 +123,7 @@ describe("pages / NoMatch / NoMatchPage", () => {
     describe("Props", () => {
       describe("flex", () => {
         test("should have 1 1 100%", () => {
-          const { DashboardElement } = setup("/no-match-page");
+          const { DashboardElement } = setup();
 
           expect(DashboardElement).toHaveStyleRule("flex", "1 1 100%");
         });
@@ -129,38 +131,38 @@ describe("pages / NoMatch / NoMatchPage", () => {
 
       describe("shouldDisplayCorners", () => {
         test("should render corners", () => {
-          const { Corners, DashboardElement } = setup("/no-match-page");
+          const { Corners, DashboardElement } = setup();
 
-          expect(DashboardElement.children[1].children[0].children[0]).toEqual(
+          expect(DashboardElement.children[0].children[0].children[0]).toEqual(
             Corners[0]
           );
-          expect(DashboardElement.children[1].children[0].children[1]).toEqual(
+          expect(DashboardElement.children[0].children[0].children[1]).toEqual(
             Corners[1]
           );
-          expect(DashboardElement.children[1].children[0].children[2]).toEqual(
+          expect(DashboardElement.children[0].children[0].children[2]).toEqual(
             Corners[2]
           );
-          expect(DashboardElement.children[1].children[0].children[3]).toEqual(
+          expect(DashboardElement.children[0].children[0].children[3]).toEqual(
             Corners[3]
           );
-        });
-      });
-
-      describe("title", () => {
-        test("should have undefined", () => {
-          const { DashboardElement } = setup("/no-match-page");
-
-          expect(DashboardElement).toHaveStyleRule("title", "undefined");
         });
       });
     });
   });
 
   describe("Error", () => {
+    test("should render correct SVG - Icon-Warning", () => {
+      const { Error } = setup();
+
+      expect(Error.children[0].children[0].textContent).toEqual(
+        "Icon-Warning.svg"
+      );
+    });
+
     describe("Props", () => {
       describe("title", () => {
         test("should have Error", () => {
-          const { Error } = setup("/no-match-page");
+          const { Error } = setup();
 
           expect(Error.children[0].children[1].textContent).toEqual("Error");
         });
@@ -168,22 +170,12 @@ describe("pages / NoMatch / NoMatchPage", () => {
 
       describe("description", () => {
         test("should have Page not found", () => {
-          const { Error } = setup("/no-match-page");
+          const { Error } = setup();
 
           expect(Error.children[0].children[2].textContent).toEqual(
             "Page not found"
           );
         });
-      });
-    });
-
-    describe("IconWarning", () => {
-      test("should render correct SVG", () => {
-        const { Error } = setup("/no-match-page");
-
-        expect(Error.children[0].children[0].textContent).toEqual(
-          "Icon-Warning.svg"
-        );
       });
     });
   });
@@ -192,7 +184,7 @@ describe("pages / NoMatch / NoMatchPage", () => {
     describe("Props", () => {
       describe("buttonText", () => {
         test("should have Return to Portfolio", () => {
-          const { Button } = setup("/no-match-page");
+          const { Button } = setup();
 
           const buttonText = Button.querySelector("[font-family=\"Exan\"]");
 
@@ -203,10 +195,10 @@ describe("pages / NoMatch / NoMatchPage", () => {
       describe("size", () => {
         describe("should have small", () => {
           describe("height", () => {
-            test("should have 2.4rem", () => {
-              const { Button } = setup("/no-match-page");
+            test("should have 4rem", () => {
+              const { Button } = setup();
 
-              expect(Button).toHaveStyleRule("height", "2.4rem");
+              expect(Button).toHaveStyleRule("height", "4rem");
             });
           });
         });
@@ -214,7 +206,7 @@ describe("pages / NoMatch / NoMatchPage", () => {
 
       describe("width", () => {
         describe("should have 100%", () => {
-          const { Button } = setup("/no-match-page");
+          const { Button } = setup();
 
           expect(Button).toHaveStyleRule("width", "100%");
         });
@@ -233,9 +225,8 @@ interface Setup extends RenderResult {
   SpacingContainer: Element;
 }
 
-function setup(route: string): Setup {
+function setup(): Setup {
   const history = createMemoryHistory();
-  history.push(route);
 
   const utils: RenderResult = renderWithTheme(
     <Router history={history}>
@@ -251,7 +242,7 @@ function setup(route: string): Setup {
     "NoMatchPageDashboardElement"
   )[0];
   const Error: Element = queryAllByTestId("Error")[0];
-  const LinkWithIcon: Element = queryAllByTestId("LinkWithIcon")[0];
+  const LinkWithIcon: Element = document.querySelectorAll(".LinkWithIcon")[0];
   const NoMatchPageTemplate: Element = queryAllByTestId(
     "NoMatchPageTemplate"
   )[0];

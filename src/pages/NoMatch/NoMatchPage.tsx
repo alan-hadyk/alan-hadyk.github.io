@@ -18,11 +18,12 @@ function NoMatchPage(): JSX.Element {
     <NoMatchPageTemplate>
       <LinkWithIcon
         dataCy="SiteLogo"
-        href="/"
         height="auto"
+        href="/"
         iconName="logo"
         width="100%"
       />
+
       <SpacingContainer
         marginBottom="spacing32"
         marginTop="spacing32"
@@ -33,11 +34,11 @@ function NoMatchPage(): JSX.Element {
           dataTestId="NoMatchPageDashboardElement"
           flex="1 1 100%"
           shouldDisplayCorners
-          title=""
         >
           <Error title="Error" description="Page not found" />
         </DashboardElement>
       </SpacingContainer>
+
       <Button
         buttonText="Return to Portfolio"
         onClick={handleButtonClick}
