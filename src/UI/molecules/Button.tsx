@@ -82,6 +82,7 @@ function Button({
         data-testid="ButtonInnerContainer"
       >
         <SpacingContainer
+          dataTestId="ButtonSpacingContainer"
           paddingRight={buttonPadding}
           paddingLeft={buttonPadding}
           width="100%"

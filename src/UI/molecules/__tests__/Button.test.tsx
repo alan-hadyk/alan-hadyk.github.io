@@ -548,10 +548,10 @@ describe("molecules / Button", () => {
   describe("FlexContainer", () => {
     describe("Props", () => {
       describe("flexFlow", () => {
-        test("should have row wrap", () => {
+        test("should have row nowrap", () => {
           const { FlexContainer } = setup();
 
-          expect(FlexContainer).toHaveStyleRule("flex-flow", "row wrap");
+          expect(FlexContainer).toHaveStyleRule("flex-flow", "row nowrap");
         });
       });
     });
@@ -565,6 +565,43 @@ describe("molecules / Button", () => {
     });
 
     describe("Props", () => {
+      describe("hasMargin", () => {
+        test("should have margin-right 0 when iconName is not passed", () => {
+          const { ButtonText } = setup({
+            iconName: undefined
+          });
+
+          expect(ButtonText).toHaveStyleRule("margin-right", "0");
+        });
+
+        test("should have margin-right .8rem when iconName is passed and size is small", () => {
+          const { ButtonText } = setup({
+            iconName: "btnCodeSandbox",
+            size: "small"
+          });
+
+          expect(ButtonText).toHaveStyleRule("margin-right", ".8rem");
+        });
+
+        test("should have margin-right 1.6rem when iconName is passed and size is medium", () => {
+          const { ButtonText } = setup({
+            iconName: "btnCodeSandbox",
+            size: "medium"
+          });
+
+          expect(ButtonText).toHaveStyleRule("margin-right", "1.6rem");
+        });
+
+        test("should have margin-right 1.6rem when iconName is passed and size is large", () => {
+          const { ButtonText } = setup({
+            iconName: "btnCodeSandbox",
+            size: "large"
+          });
+
+          expect(ButtonText).toHaveStyleRule("margin-right", "1.6rem");
+        });
+      });
+
       describe("fontSize", () => {
         test("should have 20px when size is small", () => {
           const { ButtonText } = setup({
@@ -808,12 +845,12 @@ function setup(additionalProps?: ButtonTestProps): Setup {
 
   const ButtonContainer: Element = document.querySelector("button");
   const ButtonInnerContainer: Element = queryByTestId("ButtonInnerContainer");
+  const ButtonText: Element = queryByTestId("ButtonText");
   const Corners: Element[] = queryAllByTestId("Corner");
-  const SpacingContainer: Element = ButtonInnerContainer.children[0];
-  const FlexContainer: Element = SpacingContainer.children[0];
-  const ButtonText: Element = FlexContainer.children[0].children[0];
-  const IconContainer: Element = queryByTestId("IconContainer");
+  const FlexContainer: Element = queryByTestId("FlexContainer");
   const Icon: Element = document.querySelector("svg");
+  const IconContainer: Element = queryByTestId("IconContainer");
+  const SpacingContainer: Element = queryByTestId("ButtonSpacingContainer");
 
   return {
     ...utils,

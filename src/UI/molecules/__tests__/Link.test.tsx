@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 // import { createMemoryHistory } from "history";
@@ -11,11 +10,12 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 import { LinkProps } from "UI/molecules/__typings__/Link";
 
 interface MockLinkProps {
-  children: unknown;
+  children: JSX.Element | string;
   to: string;
 }
 
-function MockLink({ to, children, ...props }: MockLinkProps) {
+function MockRouterLink({ to, children, ...props }: MockLinkProps) {
+  console.log("props", props);
   return (
     <a href={to} {...props}>
       {children}
@@ -24,7 +24,7 @@ function MockLink({ to, children, ...props }: MockLinkProps) {
 }
 
 jest.mock("react-router-dom", () => ({
-  Link: () => MockLink
+  Link: () => MockRouterLink
 }));
 
 describe("molecules / Link", () => {

@@ -91,6 +91,15 @@ describe("pages / Home / sections / contact / ContactSection", () => {
           });
         });
       });
+
+      describe("isExternal", () => {
+        test("should have true", () => {
+          const { Link } = setup();
+
+          expect(Link.classList.contains("ExternalLink")).toBeTruthy();
+          expect(Link.classList.contains("RouterLink")).toBeFalsy();
+        });
+      });
     });
   });
 

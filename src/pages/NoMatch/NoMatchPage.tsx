@@ -11,7 +11,7 @@ import NoMatchPageTemplate from "UI/templates/NoMatchPageTemplate";
 import SpacingContainer from "UI/layout/SpacingContainer";
 import Button from "UI/molecules/Button";
 
-function NoMatchPage(): JSX.Element {
+export function NoMatchPage(): JSX.Element {
   const history = useHistory();
 
   return (

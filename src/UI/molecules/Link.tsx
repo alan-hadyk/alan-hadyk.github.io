@@ -33,6 +33,7 @@ function Link({
 
   return (
     <LinkComponent
+      className={getComponentType()}
       data-cy={dataCy}
       data-testid={dataTestId || getComponentType()}
       display={display}

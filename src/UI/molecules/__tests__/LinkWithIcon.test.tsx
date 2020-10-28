@@ -127,10 +127,10 @@ describe("molecules / LinkWithIcon", () => {
   describe("Link", () => {
     describe("Props", () => {
       describe("height", () => {
-        test("should have spacing48", () => {
+        test("should have spacing48 by default", () => {
           const { Link } = setup();
 
-          expect(Link.getAttribute("height")).toEqual("spacing48");
+          expect(Link).toHaveStyleRule("height", "spacing48");
         });
 
         test("should have correct value passed via height prop", () => {
@@ -146,27 +146,52 @@ describe("molecules / LinkWithIcon", () => {
         test("should have block", () => {
           const { Link } = setup();
 
-          expect(Link.getAttribute("display")).toEqual("block");
+          expect(Link).toHaveStyleRule("display", "block");
         });
       });
 
       describe("isExternal", () => {
-        test("should render RouterLink as a Link child if isExternal prop is false", () => {
+        test("should have false by default", () => {
+          const { Link } = setup();
+
+          expect(Link.classList.contains("RouterLink")).toBeTruthy();
+          expect(Link.classList.contains("ExternalLink")).toBeFalsy();
+        });
+
+        test("should have true passed via isExternal prop", () => {
           const { Link } = setup({
-            isExternal: false
+            isExternal: true
           });
 
-          expect(Link.children[0].getAttribute("href")).toEqual("/");
+          expect(Link.classList.contains("ExternalLink")).toBeTruthy();
+          expect(Link.classList.contains("RouterLink")).toBeFalsy();
         });
       });
 
       describe("href", () => {
         test("should have correct value passed via href prop", () => {
           const { Link } = setup({
-            href: "http://google.com"
+            href: "http://google.com",
+            isExternal: true
           });
 
           expect(Link.getAttribute("href")).toEqual("http://google.com");
+        });
+      });
+
+      describe("width", () => {
+        test("should have auto by default", () => {
+          const { Link } = setup();
+
+          expect(Link).toHaveStyleRule("width", "auto");
+        });
+
+        test("should have correct value passed via width prop", () => {
+          const { Link } = setup({
+            width: "spacing72"
+          });
+
+          expect(Link).toHaveStyleRule("width", "7.2rem");
         });
       });
     });
@@ -186,7 +211,6 @@ function setup(additionalProps?: LinkWithIconTestProps): Setup {
     height: "spacing48",
     href: "/",
     iconName: "logo",
-    isExternal: true,
     ...additionalProps
   };
 
