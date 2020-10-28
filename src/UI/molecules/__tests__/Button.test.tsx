@@ -39,7 +39,7 @@ describe("molecules / Button", () => {
     expect(ButtonContainer.children[4]).toEqual(ButtonInnerContainer);
     expect(ButtonInnerContainer.children[0]).toEqual(SpacingContainer);
     expect(SpacingContainer.children[0]).toEqual(FlexContainer);
-    expect(FlexContainer.children[0].children[0]).toEqual(ButtonText);
+    expect(FlexContainer.children[0]).toEqual(ButtonText);
     expect(FlexContainer.children[1]).toEqual(IconContainer);
   });
 
@@ -602,29 +602,31 @@ describe("molecules / Button", () => {
         });
       });
 
-      describe("fontSize", () => {
-        test("should have 20px when size is small", () => {
-          const { ButtonText } = setup({
-            size: "small"
+      describe("size", () => {
+        describe("fontSize", () => {
+          test("should have 20px when size is small", () => {
+            const { ButtonText } = setup({
+              size: "small"
+            });
+
+            expect(ButtonText.children[0]).toHaveStyleRule("font-size", "20px");
           });
 
-          expect(ButtonText).toHaveStyleRule("font-size", "20px");
-        });
+          test("should have 24px when size is medium", () => {
+            const { ButtonText } = setup({
+              size: "medium"
+            });
 
-        test("should have 24px when size is medium", () => {
-          const { ButtonText } = setup({
-            size: "medium"
+            expect(ButtonText.children[0]).toHaveStyleRule("font-size", "24px");
           });
 
-          expect(ButtonText).toHaveStyleRule("font-size", "24px");
-        });
+          test("should have 28px when size is large", () => {
+            const { ButtonText } = setup({
+              size: "large"
+            });
 
-        test("should have 28px when size is large", () => {
-          const { ButtonText } = setup({
-            size: "large"
+            expect(ButtonText.children[0]).toHaveStyleRule("font-size", "28px");
           });
-
-          expect(ButtonText).toHaveStyleRule("font-size", "28px");
         });
       });
     });
@@ -641,7 +643,7 @@ describe("molecules / Button", () => {
 
     test("should not render icon if iconName is not passed", () => {
       const { Icon } = setup({
-        iconName: "btnCodeSandbox"
+        iconName: undefined
       });
 
       expect(Icon).toBeFalsy();
