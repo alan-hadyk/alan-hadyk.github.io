@@ -1,6 +1,6 @@
 import React from "react";
-import { RenderResult } from "@testing-library/react";
-import { createMemoryHistory } from "history";
+import { act, fireEvent, RenderResult } from "@testing-library/react";
+import { createMemoryHistory, MemoryHistory } from "history";
 import { Router } from "react-router-dom";
 
 import NoMatchPage from "pages/NoMatch/NoMatchPage";
@@ -205,10 +205,29 @@ describe("pages / NoMatch / NoMatchPage", () => {
       });
 
       describe("width", () => {
-        describe("should have 100%", () => {
+        test("should have 100%", () => {
           const { Button } = setup();
 
           expect(Button).toHaveStyleRule("width", "100%");
+        });
+      });
+    });
+
+    describe("Event handlers", () => {
+      describe("onClick", () => {
+        test("onClick", () => {
+          const pushSpy = jest.fn();
+          const { Button } = setup({
+            push: (args: unknown) => pushSpy(args)
+          });
+
+          expect(pushSpy).toHaveBeenCalledTimes(0);
+
+          act(() => {
+            fireEvent.mouseUp(Button);
+          });
+
+          expect(pushSpy).toHaveBeenNthCalledWith(1, "/");
         });
       });
     });
@@ -223,10 +242,14 @@ interface Setup extends RenderResult {
   LinkWithIcon: Element;
   NoMatchPageTemplate: Element;
   SpacingContainer: Element;
+  history: MemoryHistory<unknown>;
 }
 
-function setup(): Setup {
-  const history = createMemoryHistory();
+function setup(historyMock?: Record<string, unknown>): Setup {
+  const history: MemoryHistory<unknown> = {
+    ...createMemoryHistory(),
+    ...historyMock
+  };
 
   const utils: RenderResult = renderWithTheme(
     <Router history={history}>
@@ -256,6 +279,7 @@ function setup(): Setup {
     Error,
     LinkWithIcon,
     NoMatchPageTemplate,
-    SpacingContainer
+    SpacingContainer,
+    history
   };
 }

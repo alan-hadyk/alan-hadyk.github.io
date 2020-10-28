@@ -10,16 +10,19 @@ import { CommitProps } from "UI/molecules/__typings__/Commit";
 
 interface MockLinkProps {
   children: unknown;
-  to: string;
+  href: string;
+  isExternal: boolean;
 }
 
-function MockLink({ to, children }: MockLinkProps) {
-  return <a href={to}>{children}</a>;
+function MockLink({ children, href, isExternal }: MockLinkProps) {
+  return (
+    <a data-isexternal={isExternal} data-testid="Link" href={href}>
+      {children}
+    </a>
+  );
 }
 
-jest.mock("react-router-dom", () => ({
-  Link: () => MockLink
-}));
+jest.mock("UI/molecules/Link", () => MockLink);
 
 describe("molecules / Commit", () => {
   test("should have correct structure", () => {
@@ -451,30 +454,6 @@ describe("molecules / Commit", () => {
 
   describe("Link", () => {
     describe("Props", () => {
-      describe("display", () => {
-        test("should have inline", () => {
-          const { Link } = setup();
-
-          expect(Link).toHaveStyleRule("display", "inline");
-        });
-      });
-
-      describe("height", () => {
-        test("should have unset", () => {
-          const { Link } = setup();
-
-          expect(Link).toHaveStyleRule("height", "unset");
-        });
-      });
-
-      describe("target", () => {
-        test("should have _blank", () => {
-          const { Link } = setup();
-
-          expect(Link.getAttribute("target")).toEqual("_blank");
-        });
-      });
-
       describe("href", () => {
         test("should have value equal to htmlUrl prop", () => {
           const { Link } = setup({
@@ -485,6 +464,14 @@ describe("molecules / Commit", () => {
           expect(Link.getAttribute("href")).toEqual(
             "https://github.com/alan-hadyk/portfolio/commit/4380d5d391eee216e651d34700a331ec501c2964"
           );
+        });
+      });
+
+      describe("isExternal", () => {
+        test("should have true", () => {
+          const { Link } = setup();
+
+          expect(Link.getAttribute("data-isexternal")).toEqual("true");
         });
       });
     });
