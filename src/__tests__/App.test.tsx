@@ -7,18 +7,6 @@ import App from "../App";
 
 jest.mock("hooks/useIntersectionObserver");
 
-// interface ReactRouterComponentProps {
-//   children: JSX.Element | JSX.Element[];
-// }
-
-// jest.mock("react-router-dom", () => ({
-//   Switch: ({ children }: ReactRouterComponentProps) => {
-//     const MockSwitch = () => <div>{children}</div>;
-
-//     return MockSwitch;
-//   }
-// }));
-
 function mockHomePage(): JSX.Element {
   return <div data-testid="Home" />;
 }

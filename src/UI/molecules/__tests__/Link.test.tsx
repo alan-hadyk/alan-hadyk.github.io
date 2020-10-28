@@ -1,7 +1,5 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
-// import { createMemoryHistory } from "history";
-// import { Router } from "react-router-dom";
 
 import Link from "UI/molecules/Link";
 

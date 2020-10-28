@@ -4,11 +4,14 @@ import useResize from "hooks/useResize";
 
 import { UseResizeArgs } from "hooks/__typings__/useResize";
 
+interface Map {
+  resize?: () => void;
+}
+
 describe("hooks / useResize", () => {
   test("should fire callback only when window.innerWidth is larger than or equal to given breakpoint", () => {
     const callback = jest.fn();
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const map: any = {};
+    const map: Map = {};
     global.addEventListener = jest.fn((event, cb) => {
       map[event] = cb;
     });
