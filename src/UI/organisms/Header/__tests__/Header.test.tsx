@@ -523,7 +523,7 @@ interface Setup extends RenderResult {
 
 type HeaderTestProps = Partial<HeaderProps>;
 
-function setup(additionalProps?: HeaderTestProps, route?: string): Setup {
+function setup(additionalProps?: HeaderTestProps, route = "/"): Setup {
   const history = createMemoryHistory();
   history.push(route);
 

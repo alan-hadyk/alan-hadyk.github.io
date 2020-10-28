@@ -3,27 +3,14 @@ import { RenderResult } from "@testing-library/react";
 import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
 
-import { NoMatchPage } from "pages/NoMatch/NoMatchPage";
+import NoMatchPage from "pages/NoMatch/NoMatchPage";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
-// interface MockLinkProps {
-//   children: unknown;
-//   to: string;
-// }
-
-// function MockLink({ to, children }: MockLinkProps) {
-//   return <a href={to}>{children}</a>;
-// }
-
-// jest.mock("react-router-dom", () => ({
-//   Link: () => MockLink
-// }));
-
 interface MockLinkWithIconProps {
   height?: string;
-  href: string;
-  iconName: string;
+  href?: string;
+  iconName?: string;
   width?: string;
 }
 
@@ -160,10 +147,10 @@ describe("pages / NoMatch / NoMatchPage", () => {
       });
 
       describe("title", () => {
-        test("should have ''", () => {
+        test("should have undefined", () => {
           const { DashboardElement } = setup("/no-match-page");
 
-          expect(DashboardElement).toHaveStyleRule("title", "''");
+          expect(DashboardElement).toHaveStyleRule("title", "undefined");
         });
       });
     });
@@ -180,11 +167,11 @@ describe("pages / NoMatch / NoMatchPage", () => {
       });
 
       describe("description", () => {
-        test("should have Github API is offline", () => {
+        test("should have Page not found", () => {
           const { Error } = setup("/no-match-page");
 
           expect(Error.children[0].children[2].textContent).toEqual(
-            "Github API is offline"
+            "Page not found"
           );
         });
       });

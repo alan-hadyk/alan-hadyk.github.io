@@ -8,6 +8,19 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 
 import { CommitProps } from "UI/molecules/__typings__/Commit";
 
+interface MockLinkProps {
+  children: unknown;
+  to: string;
+}
+
+function MockLink({ to, children }: MockLinkProps) {
+  return <a href={to}>{children}</a>;
+}
+
+jest.mock("react-router-dom", () => ({
+  Link: () => MockLink
+}));
+
 describe("molecules / Commit", () => {
   test("should have correct structure", () => {
     const {
