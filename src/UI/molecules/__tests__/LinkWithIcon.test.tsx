@@ -127,10 +127,10 @@ describe("molecules / LinkWithIcon", () => {
   describe("Link", () => {
     describe("Props", () => {
       describe("height", () => {
-        test("should have spacing48 by default", () => {
+        test("should have 4.8rem by default", () => {
           const { Link } = setup();
 
-          expect(Link).toHaveStyleRule("height", "spacing48");
+          expect(Link).toHaveStyleRule("height", "4.8rem");
         });
 
         test("should have correct value passed via height prop", () => {

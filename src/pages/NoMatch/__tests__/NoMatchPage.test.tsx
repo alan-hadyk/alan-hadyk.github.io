@@ -72,7 +72,7 @@ describe("pages / NoMatch / NoMatchPage", () => {
         test("should have '/'", () => {
           const { LinkWithIcon } = setup("/no-match-page");
 
-          expect(LinkWithIcon.getAttribute("href")).toEqual("/");
+          expect(LinkWithIcon.children[0].getAttribute("href")).toEqual("/");
         });
       });
 
