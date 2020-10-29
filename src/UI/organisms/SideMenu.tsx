@@ -31,46 +31,40 @@ const SideMenu = ({ isExpanded = false }: SideMenuProps): JSX.Element => (
       paddingTop="spacing8"
     >
       <Responsive devices={["mobile", "tablet"]}>
-        <FlexContainer
-          dataTestId="SideMenuMobileFlexContainer"
-          flexFlow="row wrap"
-          justifyContent="flex-end"
-        >
-          <SpacingContainer
-            dataTestId="SideMenuMobileSpacingContainer"
-            marginBottom="spacing24"
+        <SpacingContainer marginBottom="spacing24">
+          <FlexContainer
+            dataTestId="SideMenuMobileFlexContainer"
+            flexFlow="row wrap"
+            justifyContent="flex-end"
           >
-            <Nav position="vertical" />
-          </SpacingContainer>
-        </FlexContainer>
+            <SpacingContainer
+              dataTestId="SideMenuMobileSpacingContainer"
+              marginBottom="spacing24"
+            >
+              <Nav position="vertical" />
+            </SpacingContainer>
+          </FlexContainer>
+          <Button
+            buttonText="cv"
+            iconName="btnDownload"
+            size="medium"
+            width="100%"
+          />
+        </SpacingContainer>
       </Responsive>
 
-      <FlexContainer
-        dataTestId="SideMenuOuterFlexContainer"
-        flexFlow="column nowrap"
-        justifyContent="center"
+      <SpacingContainer
+        dataTestId="SideMenuInnerSpacingContainer"
+        marginBottom="spacing24"
       >
-        <Button
-          buttonText="resume"
-          iconName="btnDownload"
-          size="medium"
-          width="100%"
-        />
-
-        <SpacingContainer
-          dataTestId="SideMenuInnerSpacingContainer"
-          paddingBottom="spacing24"
-          paddingTop="spacing24"
+        <FlexContainer
+          dataTestId="SideMenuInnerFlexContainer"
+          flexFlow="row nowrap"
+          gap="spacing24"
         >
-          <FlexContainer
-            dataTestId="SideMenuInnerFlexContainer"
-            flexFlow="row nowrap"
-            gap="spacing24"
-          >
-            <MenuIcons />
-          </FlexContainer>
-        </SpacingContainer>
-      </FlexContainer>
+          <MenuIcons />
+        </FlexContainer>
+      </SpacingContainer>
     </SpacingContainer>
   </SideMenu.Container>
 );

@@ -8,27 +8,37 @@ import Responsive from "UI/layout/Responsive";
 import FlexContainer from "UI/layout/FlexContainer";
 import SpacingContainer from "UI/layout/SpacingContainer";
 
-const HeaderTv = (): JSX.Element => (
-  <Responsive dataTestTvId="HeaderTv" devices={["tv"]}>
-    <FlexContainer
-      dataTestId="HeaderTvFlexContainer"
-      flexFlow="row nowrap"
-      height="spacing48"
-      gap="spacing24"
-      justifyContent="flex-start"
-    >
-      <SpacingContainer
-        dataTestId="HeaderTvSpacingContainer"
-        paddingRight="spacing24"
+function HeaderTv(): JSX.Element {
+  return (
+    <Responsive dataTestTvId="HeaderTv" devices={["tv"]}>
+      <FlexContainer
+        dataTestId="HeaderTvFlexContainer"
+        flexFlow="row nowrap"
+        height="spacing48"
+        gap="spacing24"
+        justifyContent="flex-start"
       >
-        <Nav />
-      </SpacingContainer>
+        <SpacingContainer
+          dataTestId="HeaderTvSpacingContainer"
+          paddingRight="spacing24"
+        >
+          <Nav />
+        </SpacingContainer>
 
-      <Button buttonText="resume" iconName="btnDownload" size="medium" />
+        <Button
+          buttonText="cv"
+          iconName="btnDownload"
+          onClick={handleButtonClick}
+          size="medium"
+        />
+        <MenuIcons />
+      </FlexContainer>
+    </Responsive>
+  );
 
-      <MenuIcons />
-    </FlexContainer>
-  </Responsive>
-);
+  function handleButtonClick() {
+    window.open("/pdf/Alan_Hadyk_CV_2020.pdf", "_blank");
+  }
+}
 
 export default HeaderTv;

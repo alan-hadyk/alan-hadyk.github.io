@@ -1,7 +1,10 @@
 import React from "react";
 
 import MenuButton from "UI/atoms/MenuButton";
+
+import Button from "UI/molecules/Button";
 import Nav from "UI/molecules/Nav";
+
 import SideMenu from "UI/organisms/SideMenu";
 
 import Responsive from "UI/layout/Responsive";
@@ -23,6 +26,8 @@ const HeaderDesktop = ({
       justifyContent="flex-start"
     >
       <Nav />
+
+      <Button buttonText="cv" iconName="btnDownload" size="medium" />
 
       <MenuButton isOpen={isMenuVisible} onClick={onClick} />
 

@@ -52,6 +52,7 @@ function Button({
   buttonText,
   dataTestId,
   iconName,
+  onClick,
   size = "medium",
   type = "primary",
   width = "auto"
@@ -115,6 +116,8 @@ function Button({
   function handleButtonClick(event: React.MouseEvent<HTMLButtonElement>): void {
     !isMobile && setIsActive(false);
     event.preventDefault();
+
+    onClick && onClick();
 
     if (buttonInnerContainerRef.current) {
       const { clientX, clientY }: React.MouseEvent = event;

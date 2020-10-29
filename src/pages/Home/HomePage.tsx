@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 
 import DashboardSection from "pages/Home/sections/dashboard/DashboardSection";
-import PortfolioSection from "pages/Home/sections/portfolio/PortfolioSection";
+// import PortfolioSection from "pages/Home/sections/portfolio/PortfolioSection";
 import ExperienceSection from "pages/Home/sections/experience/ExperienceSection";
 import SkillsSection from "pages/Home/sections/skills/SkillsSection";
 import AboutMeSection from "pages/Home/sections/about/AboutMeSection";
@@ -15,7 +15,7 @@ const HomePage = (): JSX.Element => (
     <Header zIndex="layer2" />
 
     <DashboardSection />
-    <PortfolioSection />
+    {/* <PortfolioSection /> */}
     <ExperienceSection />
     <SkillsSection />
     <AboutMeSection />
