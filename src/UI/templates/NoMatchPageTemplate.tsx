@@ -4,9 +4,13 @@ import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { NoMatchPageTemplateProps } from "UI/templates/__typings__/NoMatchPageTemplate";
 
 const NoMatchPageTemplate = ({
-  children
+  children,
+  dataCy
 }: NoMatchPageTemplateProps): JSX.Element => (
-  <NoMatchPageTemplate.Container data-testid="NoMatchPageTemplate">
+  <NoMatchPageTemplate.Container
+    data-cy={dataCy}
+    data-testid="NoMatchPageTemplate"
+  >
     {children}
   </NoMatchPageTemplate.Container>
 );

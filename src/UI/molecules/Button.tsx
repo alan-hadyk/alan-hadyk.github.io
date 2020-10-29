@@ -50,6 +50,7 @@ const mapSizeToButtonContainerProps: MapSizeToButtonContainerProps = {
 
 function Button({
   buttonText,
+  dataCy,
   dataTestId,
   iconName,
   onClick,
@@ -65,7 +66,7 @@ function Button({
 
   return (
     <Button.Container
-      data-cy="Button"
+      data-cy={dataCy || "Button"}
       data-testid={dataTestId || "Button"}
       {...mapSizeToButtonContainerProps[size]}
       {...mapTypeToButtonContainerProps[type]}

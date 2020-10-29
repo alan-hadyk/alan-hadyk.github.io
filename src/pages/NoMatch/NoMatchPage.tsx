@@ -15,7 +15,7 @@ function NoMatchPage(): JSX.Element {
   const history = useHistory();
 
   return (
-    <NoMatchPageTemplate>
+    <NoMatchPageTemplate dataCy="NoMatchPage">
       <LinkWithIcon
         dataCy="SiteLogo"
         height="auto"
@@ -35,12 +35,17 @@ function NoMatchPage(): JSX.Element {
           flex="1 1 100%"
           shouldDisplayCorners
         >
-          <Error title="Error" description="Page not found" />
+          <Error
+            dataCy="NoMatchPageError"
+            title="Error"
+            description="Page not found"
+          />
         </DashboardElement>
       </SpacingContainer>
 
       <Button
         buttonText="Return to Portfolio"
+        dataCy="NoMatchPageButton"
         onClick={handleButtonClick}
         size="small"
         width="100%"
