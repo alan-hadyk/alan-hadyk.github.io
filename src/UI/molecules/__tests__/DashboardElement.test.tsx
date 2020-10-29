@@ -7,44 +7,6 @@ import { DashboardElementProps } from "UI/molecules/__typings__/DashboardElement
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
 describe("molecules / DashboardElement", () => {
-  test("should have correct structure if there's no description and there is title", () => {
-    const {
-      Corners,
-      DashboardElementInnerSpacingContainer,
-      DashboardElementOuterSpacingContainer,
-      DashboardElementContainer,
-      DashboardElementInnerContainer,
-      DashboardElementTitleText,
-      PositionContainer
-    } = setup({
-      description: undefined,
-      shouldDisplayCorners: true,
-      title: "Code"
-    });
-
-    expect(DashboardElementContainer.children[0]).toEqual(
-      DashboardElementTitleText
-    );
-    expect(DashboardElementContainer.children[1]).toEqual(
-      DashboardElementOuterSpacingContainer
-    );
-    expect(DashboardElementOuterSpacingContainer.children[0]).toEqual(
-      PositionContainer
-    );
-
-    expect(PositionContainer.children[0]).toEqual(Corners[0]);
-    expect(PositionContainer.children[1]).toEqual(Corners[1]);
-    expect(PositionContainer.children[2]).toEqual(Corners[2]);
-    expect(PositionContainer.children[3]).toEqual(Corners[3]);
-
-    expect(PositionContainer.children[4]).toEqual(
-      DashboardElementInnerContainer
-    );
-    expect(DashboardElementInnerContainer.children[0]).toEqual(
-      DashboardElementInnerSpacingContainer
-    );
-  });
-
   test("should have correct structure if there's description and title", () => {
     const {
       Corners,
@@ -84,6 +46,44 @@ describe("molecules / DashboardElement", () => {
     expect(PositionContainer.children[1]).toEqual(Corners[1]);
     expect(PositionContainer.children[2]).toEqual(Corners[2]);
     expect(PositionContainer.children[3]).toEqual(Corners[3]);
+    expect(PositionContainer.children[4]).toEqual(
+      DashboardElementInnerContainer
+    );
+    expect(DashboardElementInnerContainer.children[0]).toEqual(
+      DashboardElementInnerSpacingContainer
+    );
+  });
+
+  test("should have correct structure if there's no description and there is title", () => {
+    const {
+      Corners,
+      DashboardElementInnerSpacingContainer,
+      DashboardElementOuterSpacingContainer,
+      DashboardElementContainer,
+      DashboardElementInnerContainer,
+      DashboardElementTitleText,
+      PositionContainer
+    } = setup({
+      description: undefined,
+      shouldDisplayCorners: true,
+      title: "Code"
+    });
+
+    expect(DashboardElementContainer.children[0]).toEqual(
+      DashboardElementTitleText
+    );
+    expect(DashboardElementContainer.children[1]).toEqual(
+      DashboardElementOuterSpacingContainer
+    );
+    expect(DashboardElementOuterSpacingContainer.children[0]).toEqual(
+      PositionContainer
+    );
+
+    expect(PositionContainer.children[0]).toEqual(Corners[0]);
+    expect(PositionContainer.children[1]).toEqual(Corners[1]);
+    expect(PositionContainer.children[2]).toEqual(Corners[2]);
+    expect(PositionContainer.children[3]).toEqual(Corners[3]);
+
     expect(PositionContainer.children[4]).toEqual(
       DashboardElementInnerContainer
     );
