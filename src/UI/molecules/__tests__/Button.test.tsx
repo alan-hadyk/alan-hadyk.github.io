@@ -435,21 +435,19 @@ describe("molecules / Button", () => {
         expect(document.querySelector(".ripple")).toBeFalsy();
       });
 
-      describe("onClick", () => {
-        test("onClick", () => {
-          const onClick = jest.fn();
-          const { ButtonContainer } = setup({
-            onClick
-          });
-
-          expect(onClick).toHaveBeenCalledTimes(0);
-
-          act(() => {
-            fireEvent.mouseUp(ButtonContainer);
-          });
-
-          expect(onClick).toHaveBeenCalledTimes(1);
+      test("should fire onClick prop when ButtonContainer is clicked", () => {
+        const onClick = jest.fn();
+        const { ButtonContainer } = setup({
+          onClick
         });
+
+        expect(onClick).toHaveBeenCalledTimes(0);
+
+        act(() => {
+          fireEvent.mouseUp(ButtonContainer);
+        });
+
+        expect(onClick).toHaveBeenCalledTimes(1);
       });
     });
   });
