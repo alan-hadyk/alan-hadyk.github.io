@@ -16,6 +16,18 @@ export default {
     }
   `,
 
+  color: keyframes`
+    0% {
+      background-color: ${colorPalette.white};
+    }
+    50% {
+      background-color: ${colorPalette.blue100};
+    }
+    100% {
+      background-color: ${colorPalette.blue100};
+    }
+  `,
+
   glow: keyframes`
     0% {
       filter: drop-shadow(0px 0px 0px ${colorPalette.blue100});
