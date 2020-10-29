@@ -57,19 +57,19 @@ describe("pages / NoMatch / NoMatchPage", () => {
 
   describe("LinkWithIcon", () => {
     describe("Props", () => {
-      describe("href", () => {
-        test("should have '/'", () => {
-          const { LinkWithIcon } = setup();
-
-          expect(LinkWithIcon.getAttribute("data-href")).toEqual("/");
-        });
-      });
-
       describe("height", () => {
         test("should have auto", () => {
           const { LinkWithIcon } = setup();
 
           expect(LinkWithIcon.getAttribute("data-height")).toEqual("auto");
+        });
+      });
+
+      describe("href", () => {
+        test("should have '/'", () => {
+          const { LinkWithIcon } = setup();
+
+          expect(LinkWithIcon.getAttribute("data-href")).toEqual("/");
         });
       });
 

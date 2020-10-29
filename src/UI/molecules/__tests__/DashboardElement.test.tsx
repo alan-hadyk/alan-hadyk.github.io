@@ -720,6 +720,22 @@ describe("molecules / DashboardElement", () => {
 
   describe("Texts", () => {
     describe("DashboardElementTitleText", () => {
+      test("should render if title prop is passed", () => {
+        const { DashboardElementTitleText } = setup({
+          title: "Tech Stack"
+        });
+
+        expect(DashboardElementTitleText).toBeTruthy();
+      });
+
+      test("should not render if title prop is not passed", () => {
+        const { DashboardElementTitleText } = setup({
+          title: undefined
+        });
+
+        expect(DashboardElementTitleText).toBeFalsy();
+      });
+
       test("should render correct content passed via title prop", () => {
         const { DashboardElementTitleText } = setup({
           title: "Tech Stack"

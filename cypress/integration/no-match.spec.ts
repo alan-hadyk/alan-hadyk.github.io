@@ -32,6 +32,8 @@ describe("NoMatchPage", () => {
 
   describe("NoMatchPageError", () => {
     it("should contain correct title, description and icon", () => {
+      cy.dataCy("NoMatchPageDashboardElement").should("be.visible");
+
       cy.dataCy("NoMatchPageError").within(() => {
         cy.dataCy("ErrorTitle").should("be.visible").should("contain", "Error");
       });
