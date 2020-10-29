@@ -107,14 +107,6 @@ describe("molecules / ReactLogo", () => {
     });
 
     describe("Props", () => {
-      describe.skip("animationTime", () => {
-        test("should have 3600ms", () => {
-          const { IconContainer } = setup();
-
-          expect(IconContainer).toHaveStyleRule("animation-duration", "3600ms");
-        });
-      });
-
       describe("height", () => {
         test("should have 100%", () => {
           const { IconContainer } = setup();
@@ -141,95 +133,6 @@ describe("molecules / ReactLogo", () => {
             expect(IconContainer).toHaveStyleRule("width", "100%", {
               modifier: "svg"
             });
-          });
-        });
-      });
-
-      describe.skip("shouldDisplayGlowAnimation", () => {
-        describe("animation-delay", () => {
-          test("should have 3600ms", () => {
-            const { IconContainer } = setup();
-
-            expect(IconContainer).toHaveStyleRule("animation-delay", "0ms", {
-              modifier: "svg"
-            });
-          });
-        });
-
-        describe("animation-duration", () => {
-          test("should have 3600ms", () => {
-            const { IconContainer } = setup();
-
-            expect(IconContainer).toHaveStyleRule(
-              "animation-duration",
-              "3600ms",
-              {
-                modifier: "svg"
-              }
-            );
-          });
-        });
-
-        describe("animation-iteration-count", () => {
-          test("should have infinite", () => {
-            const { IconContainer } = setup();
-
-            expect(IconContainer).toHaveStyleRule(
-              "animation-iteration-count",
-              "infinite",
-              {
-                modifier: "svg"
-              }
-            );
-          });
-        });
-
-        describe("animation-timing-function", () => {
-          test("should have ease-in-out", () => {
-            const { IconContainer } = setup();
-
-            expect(IconContainer).toHaveStyleRule(
-              "animation-timing-function",
-              "ease-in-out",
-              {
-                modifier: "svg"
-              }
-            );
-          });
-        });
-      });
-
-      describe.skip("shouldRotate", () => {
-        describe("animation-duration", () => {
-          test("should have 3600ms", () => {
-            const { IconContainer } = setup();
-
-            expect(IconContainer).toHaveStyleRule(
-              "animation-duration",
-              "3600ms"
-            );
-          });
-        });
-
-        describe("animation-iteration-count", () => {
-          test("should have infinite", () => {
-            const { IconContainer } = setup();
-
-            expect(IconContainer).toHaveStyleRule(
-              "animation-iteration-count",
-              "infinite"
-            );
-          });
-        });
-
-        describe("animation-timing-function", () => {
-          test("should have linear", () => {
-            const { IconContainer } = setup();
-
-            expect(IconContainer).toHaveStyleRule(
-              "animation-timing-function",
-              "linear"
-            );
           });
         });
       });

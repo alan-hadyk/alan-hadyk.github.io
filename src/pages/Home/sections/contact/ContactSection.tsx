@@ -13,7 +13,12 @@ const ContactSection = (): JSX.Element => (
     title="Contact"
   >
     <FlexContainer justifyContent="center">
-      <Link dataCy="EmailLink" href="mailto:alan.hadyk@gmail.com" isHoverable>
+      <Link
+        dataCy="EmailLink"
+        href="mailto:alan.hadyk@gmail.com"
+        isExternal
+        isHoverable
+      >
         <Text
           color="blue300"
           dataTestId="EmailText"

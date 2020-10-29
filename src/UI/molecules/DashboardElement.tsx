@@ -43,17 +43,19 @@ function DashboardElement({
       order={order}
       overflow={titleOverflow}
     >
-      <Text
-        color={titleFontSize === "font28" ? "blue100" : "blue300"}
-        dataTestId="DashboardElementTitleText"
-        ellipsis
-        fontFamily="AnonymousPro"
-        fontSize={titleFontSize}
-        lineHeight="spacing36"
-        textTransform="uppercase"
-      >
-        {title}
-      </Text>
+      {title && (
+        <Text
+          color={titleFontSize === "font28" ? "blue100" : "blue300"}
+          dataTestId="DashboardElementTitleText"
+          ellipsis
+          fontFamily="AnonymousPro"
+          fontSize={titleFontSize}
+          lineHeight="spacing36"
+          textTransform="uppercase"
+        >
+          {title}
+        </Text>
+      )}
 
       {description && (
         <SpacingContainer

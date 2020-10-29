@@ -1,6 +1,10 @@
 import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
 
-import { polyfills, renderApp } from "../index";
+import { GlobalStyle, polyfills, renderApp } from "../index";
+
+import theme from "styles/theme";
 
 jest.mock("intersection-observer", () => "mockIntersectionObserver");
 
@@ -25,8 +29,16 @@ describe("index", () => {
 
     renderApp();
 
-    // eslint-disable-next-line react/jsx-key
-    expect(renderSpy).toHaveBeenNthCalledWith(1, [<MockApp />, null]);
+    const mockCall = renderSpy.mock.calls[0][0][0];
+
+    expect(mockCall).toEqual(
+      <ThemeProvider theme={theme}>
+        <Router>
+          <MockApp />
+        </Router>
+        <GlobalStyle />
+      </ThemeProvider>
+    );
   });
 
   test("Promise.all(polyfills) should contain intersection-observer", async () => {

@@ -39,7 +39,7 @@ describe("molecules / Button", () => {
     expect(ButtonContainer.children[4]).toEqual(ButtonInnerContainer);
     expect(ButtonInnerContainer.children[0]).toEqual(SpacingContainer);
     expect(SpacingContainer.children[0]).toEqual(FlexContainer);
-    expect(FlexContainer.children[0].children[0]).toEqual(ButtonText);
+    expect(FlexContainer.children[0]).toEqual(ButtonText);
     expect(FlexContainer.children[1]).toEqual(IconContainer);
   });
 
@@ -434,6 +434,21 @@ describe("molecules / Button", () => {
 
         expect(document.querySelector(".ripple")).toBeFalsy();
       });
+
+      test("should fire onClick prop when ButtonContainer is clicked", () => {
+        const onClick = jest.fn();
+        const { ButtonContainer } = setup({
+          onClick
+        });
+
+        expect(onClick).toHaveBeenCalledTimes(0);
+
+        act(() => {
+          fireEvent.mouseUp(ButtonContainer);
+        });
+
+        expect(onClick).toHaveBeenCalledTimes(1);
+      });
     });
   });
 
@@ -548,10 +563,10 @@ describe("molecules / Button", () => {
   describe("FlexContainer", () => {
     describe("Props", () => {
       describe("flexFlow", () => {
-        test("should have row wrap", () => {
+        test("should have row nowrap", () => {
           const { FlexContainer } = setup();
 
-          expect(FlexContainer).toHaveStyleRule("flex-flow", "row wrap");
+          expect(FlexContainer).toHaveStyleRule("flex-flow", "row nowrap");
         });
       });
     });
@@ -565,35 +580,90 @@ describe("molecules / Button", () => {
     });
 
     describe("Props", () => {
-      describe("fontSize", () => {
-        test("should have 20px when size is small", () => {
+      describe("hasMargin", () => {
+        test("should have margin-right 0 when iconName is not passed", () => {
           const { ButtonText } = setup({
+            iconName: undefined
+          });
+
+          expect(ButtonText).toHaveStyleRule("margin-right", "0");
+        });
+
+        test("should have margin-right .8rem when iconName is passed and size is small", () => {
+          const { ButtonText } = setup({
+            iconName: "btnCodeSandbox",
             size: "small"
           });
 
-          expect(ButtonText).toHaveStyleRule("font-size", "20px");
+          expect(ButtonText).toHaveStyleRule("margin-right", ".8rem");
         });
 
-        test("should have 24px when size is medium", () => {
+        test("should have margin-right 1.6rem when iconName is passed and size is medium", () => {
           const { ButtonText } = setup({
+            iconName: "btnCodeSandbox",
             size: "medium"
           });
 
-          expect(ButtonText).toHaveStyleRule("font-size", "24px");
+          expect(ButtonText).toHaveStyleRule("margin-right", "1.6rem");
         });
 
-        test("should have 28px when size is large", () => {
+        test("should have margin-right 1.6rem when iconName is passed and size is large", () => {
           const { ButtonText } = setup({
+            iconName: "btnCodeSandbox",
             size: "large"
           });
 
-          expect(ButtonText).toHaveStyleRule("font-size", "28px");
+          expect(ButtonText).toHaveStyleRule("margin-right", "1.6rem");
+        });
+      });
+
+      describe("size", () => {
+        describe("fontSize", () => {
+          test("should have 20px when size is small", () => {
+            const { ButtonText } = setup({
+              size: "small"
+            });
+
+            expect(ButtonText.children[0]).toHaveStyleRule("font-size", "20px");
+          });
+
+          test("should have 24px when size is medium", () => {
+            const { ButtonText } = setup({
+              size: "medium"
+            });
+
+            expect(ButtonText.children[0]).toHaveStyleRule("font-size", "24px");
+          });
+
+          test("should have 28px when size is large", () => {
+            const { ButtonText } = setup({
+              size: "large"
+            });
+
+            expect(ButtonText.children[0]).toHaveStyleRule("font-size", "28px");
+          });
         });
       });
     });
   });
 
   describe("Icon", () => {
+    test("should render icon if iconName is passed", () => {
+      const { Icon } = setup({
+        iconName: "btnCodeSandbox"
+      });
+
+      expect(Icon).toBeTruthy();
+    });
+
+    test("should not render icon if iconName is not passed", () => {
+      const { Icon } = setup({
+        iconName: undefined
+      });
+
+      expect(Icon).toBeFalsy();
+    });
+
     describe("Props", () => {
       describe("iconName", () => {
         test("should render correct icon for codesandbox", () => {
@@ -792,12 +862,12 @@ function setup(additionalProps?: ButtonTestProps): Setup {
 
   const ButtonContainer: Element = document.querySelector("button");
   const ButtonInnerContainer: Element = queryByTestId("ButtonInnerContainer");
+  const ButtonText: Element = queryByTestId("ButtonText");
   const Corners: Element[] = queryAllByTestId("Corner");
-  const SpacingContainer: Element = ButtonInnerContainer.children[0];
-  const FlexContainer: Element = SpacingContainer.children[0];
-  const ButtonText: Element = FlexContainer.children[0].children[0];
-  const IconContainer: Element = queryByTestId("IconContainer");
+  const FlexContainer: Element = queryByTestId("FlexContainer");
   const Icon: Element = document.querySelector("svg");
+  const IconContainer: Element = queryByTestId("IconContainer");
+  const SpacingContainer: Element = queryByTestId("ButtonSpacingContainer");
 
   return {
     ...utils,

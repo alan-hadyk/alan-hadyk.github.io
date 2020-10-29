@@ -1,5 +1,7 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
+import { createMemoryHistory } from "history";
+import { Router } from "react-router-dom";
 
 import LinkWithIcon from "UI/molecules/LinkWithIcon";
 
@@ -8,6 +10,22 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 import { LinkWithIconProps } from "UI/molecules/__typings__/LinkWithIcon";
 
 describe("molecules / LinkWithIcon", () => {
+  test("should have correct structure - isExternal: false", () => {
+    const { IconContainer, Link } = setup({
+      isExternal: false
+    });
+
+    expect(Link.children[0].children[0]).toEqual(IconContainer);
+  });
+
+  test("should have correct structure - isExternal: true", () => {
+    const { IconContainer, Link } = setup({
+      isExternal: true
+    });
+
+    expect(Link.children[0]).toEqual(IconContainer);
+  });
+
   describe("Icon", () => {
     describe("Props", () => {
       describe("animationTime", () => {
@@ -69,11 +87,9 @@ describe("molecules / LinkWithIcon", () => {
           );
         });
       });
-    });
 
-    describe("Props", () => {
-      describe("should render correct icon", () => {
-        test("logo", () => {
+      describe("iconName", () => {
+        test("should render correct icon - logo", () => {
           const { Icon } = setup({
             iconName: "logo"
           });
@@ -81,7 +97,7 @@ describe("molecules / LinkWithIcon", () => {
           expect(Icon.textContent).toEqual("Icon-Logo.svg");
         });
 
-        test("codeSandbox", () => {
+        test("should render correct icon - codeSandbox", () => {
           const { Icon } = setup({
             iconName: "codeSandbox"
           });
@@ -89,7 +105,7 @@ describe("molecules / LinkWithIcon", () => {
           expect(Icon.textContent).toEqual("Icon-CodeSandbox.svg");
         });
 
-        test("gitHub", () => {
+        test("should render correct icon - gitHub", () => {
           const { Icon } = setup({
             iconName: "gitHub"
           });
@@ -97,7 +113,7 @@ describe("molecules / LinkWithIcon", () => {
           expect(Icon.textContent).toEqual("Icon-GitHub.svg");
         });
 
-        test("linkedIn", () => {
+        test("should render correct icon - linkedIn", () => {
           const { Icon } = setup({
             iconName: "linkedIn"
           });
@@ -111,10 +127,10 @@ describe("molecules / LinkWithIcon", () => {
   describe("Link", () => {
     describe("Props", () => {
       describe("height", () => {
-        test("should have spacing48", () => {
+        test("should have 4.8rem by default", () => {
           const { Link } = setup();
 
-          expect(Link.getAttribute("height")).toEqual("spacing48");
+          expect(Link).toHaveStyleRule("height", "4.8rem");
         });
 
         test("should have correct value passed via height prop", () => {
@@ -130,35 +146,52 @@ describe("molecules / LinkWithIcon", () => {
         test("should have block", () => {
           const { Link } = setup();
 
-          expect(Link.getAttribute("display")).toEqual("block");
+          expect(Link).toHaveStyleRule("display", "block");
         });
       });
 
-      describe("target", () => {
-        test("should have _self if isExternal prop is false", () => {
-          const { Link } = setup({
-            isExternal: false
-          });
+      describe("isExternal", () => {
+        test("should have false by default", () => {
+          const { Link } = setup();
 
-          expect(Link.getAttribute("target")).toEqual("_self");
+          expect(Link.classList.contains("RouterLink")).toBeTruthy();
+          expect(Link.classList.contains("ExternalLink")).toBeFalsy();
         });
 
-        test("should have _blank if isExternal prop is true", () => {
+        test("should have true passed via isExternal prop", () => {
           const { Link } = setup({
             isExternal: true
           });
 
-          expect(Link.getAttribute("target")).toEqual("_blank");
+          expect(Link.classList.contains("ExternalLink")).toBeTruthy();
+          expect(Link.classList.contains("RouterLink")).toBeFalsy();
         });
       });
 
       describe("href", () => {
         test("should have correct value passed via href prop", () => {
           const { Link } = setup({
-            href: "http://google.com"
+            href: "http://google.com",
+            isExternal: true
           });
 
           expect(Link.getAttribute("href")).toEqual("http://google.com");
+        });
+      });
+
+      describe("width", () => {
+        test("should have auto by default", () => {
+          const { Link } = setup();
+
+          expect(Link).toHaveStyleRule("width", "auto");
+        });
+
+        test("should have correct value passed via width prop", () => {
+          const { Link } = setup({
+            width: "spacing72"
+          });
+
+          expect(Link).toHaveStyleRule("width", "7.2rem");
         });
       });
     });
@@ -168,7 +201,7 @@ describe("molecules / LinkWithIcon", () => {
 interface Setup extends RenderResult {
   Icon: SVGSVGElement;
   IconContainer: Element;
-  Link: HTMLElement;
+  Link: Element;
 }
 
 type LinkWithIconTestProps = Partial<LinkWithIconProps>;
@@ -181,14 +214,24 @@ function setup(additionalProps?: LinkWithIconTestProps): Setup {
     ...additionalProps
   };
 
-  const utils: RenderResult = renderWithTheme(<LinkWithIcon {...props} />);
+  const history = createMemoryHistory();
+
+  const utils: RenderResult = renderWithTheme(
+    <Router history={history}>
+      <LinkWithIcon {...props} />
+    </Router>
+  );
 
   const { queryByTestId }: RenderResult = utils;
 
+  const Link: Element = queryByTestId("LinkWithIcon");
+  const Icon: SVGSVGElement = document.querySelector("svg");
+  const IconContainer: Element = queryByTestId("IconContainer");
+
   return {
     ...utils,
-    Icon: document.querySelector("svg"),
-    IconContainer: queryByTestId("IconContainer"),
-    Link: document.querySelector("a")
+    Icon,
+    IconContainer,
+    Link
   };
 }

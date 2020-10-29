@@ -50,8 +50,10 @@ const mapSizeToButtonContainerProps: MapSizeToButtonContainerProps = {
 
 function Button({
   buttonText,
+  dataCy,
   dataTestId,
   iconName,
+  onClick,
   size = "medium",
   type = "primary",
   width = "auto"
@@ -64,7 +66,7 @@ function Button({
 
   return (
     <Button.Container
-      data-cy="Button"
+      data-cy={dataCy || "Button"}
       data-testid={dataTestId || "Button"}
       {...mapSizeToButtonContainerProps[size]}
       {...mapTypeToButtonContainerProps[type]}
@@ -81,17 +83,26 @@ function Button({
         data-testid="ButtonInnerContainer"
       >
         <SpacingContainer
+          dataTestId="ButtonSpacingContainer"
           paddingRight={buttonPadding}
           paddingLeft={buttonPadding}
           width="100%"
         >
-          <FlexContainer flexFlow="row wrap">
-            <ButtonText buttonText={buttonText} size={size} />
-            <Icon
-              height={size === "small" ? spacing.spacing12 : spacing.spacing24}
-              iconName={iconName}
-              isHeightResponsive
+          <FlexContainer flexFlow="row nowrap">
+            <ButtonText
+              buttonText={buttonText}
+              hasMargin={!!iconName}
+              size={size}
             />
+            {iconName && (
+              <Icon
+                height={
+                  size === "small" ? spacing.spacing12 : spacing.spacing24
+                }
+                iconName={iconName}
+                isHeightResponsive
+              />
+            )}
           </FlexContainer>
         </SpacingContainer>
       </Button.InnerContainer>
@@ -115,6 +126,8 @@ function Button({
   function handleButtonClick(event: React.MouseEvent<HTMLButtonElement>): void {
     !isMobile && setIsActive(false);
     event.preventDefault();
+
+    onClick && onClick();
 
     if (buttonInnerContainerRef.current) {
       const { clientX, clientY }: React.MouseEvent = event;
