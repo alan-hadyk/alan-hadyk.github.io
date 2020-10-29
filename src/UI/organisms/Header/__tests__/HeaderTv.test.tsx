@@ -122,7 +122,7 @@ describe("organisms / HeaderTv", () => {
       const buttonText = Button.querySelector("[font-family=\"Exan\"]");
       const buttonIcon = Button.querySelector("svg");
 
-      expect(buttonText.textContent).toEqual("resume");
+      expect(buttonText.textContent).toEqual("cv");
       expect(buttonIcon.textContent).toEqual("Btn-Download.svg");
     });
 

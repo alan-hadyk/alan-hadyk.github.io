@@ -21,7 +21,7 @@ describe("molecules / Nav", () => {
     expect(FlexContainer.children[1]).toEqual(NavItems[1].parentNode);
     expect(FlexContainer.children[2]).toEqual(NavItems[2].parentNode);
     expect(FlexContainer.children[3]).toEqual(NavItems[3].parentNode);
-    expect(FlexContainer.children[4]).toEqual(NavItems[4].parentNode);
+    // expect(FlexContainer.children[4]).toEqual(NavItems[4].parentNode);
   });
 
   describe("useIntersectionObserver", () => {
@@ -45,7 +45,7 @@ describe("molecules / Nav", () => {
       ).toEqual(
         JSON.stringify({
           selectors: [
-            "#portfolio",
+            // "#portfolio",
             "#experience",
             "#skills",
             "#about-me",
@@ -134,17 +134,17 @@ describe("molecules / Nav", () => {
     test("there should be 5 elements", () => {
       const { NavItems } = setup();
 
-      expect(NavItems.length).toEqual(5);
+      expect(NavItems.length).toEqual(4);
     });
 
     test("each NavItem should have correct content", () => {
       const { NavItems } = setup();
 
-      expect(NavItems[0].textContent).toEqual("Portfolio");
-      expect(NavItems[1].textContent).toEqual("Experience");
-      expect(NavItems[2].textContent).toEqual("Skills");
-      expect(NavItems[3].textContent).toEqual("About me");
-      expect(NavItems[4].textContent).toEqual("Contact");
+      // expect(NavItems[0].textContent).toEqual("Portfolio");
+      expect(NavItems[0].textContent).toEqual("Experience");
+      expect(NavItems[1].textContent).toEqual("Skills");
+      expect(NavItems[2].textContent).toEqual("About me");
+      expect(NavItems[3].textContent).toEqual("Contact");
     });
   });
 });

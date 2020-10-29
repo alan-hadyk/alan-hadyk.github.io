@@ -62,17 +62,17 @@ describe("pages / Home / HomePage", () => {
       ExperienceSection,
       HeaderPositionContainer,
       PageTemplate,
-      PortfolioSection,
+      // PortfolioSection,
       SkillsSection
     } = setup();
 
     expect(PageTemplate.children[0]).toEqual(HeaderPositionContainer);
     expect(PageTemplate.children[1]).toEqual(DashboardSection);
-    expect(PageTemplate.children[2]).toEqual(PortfolioSection);
-    expect(PageTemplate.children[3]).toEqual(ExperienceSection);
-    expect(PageTemplate.children[4]).toEqual(SkillsSection);
-    expect(PageTemplate.children[5]).toEqual(AboutMeSection);
-    expect(PageTemplate.children[6]).toEqual(ContactSection);
+    // expect(PageTemplate.children[2]).toEqual(PortfolioSection);
+    expect(PageTemplate.children[2]).toEqual(ExperienceSection);
+    expect(PageTemplate.children[3]).toEqual(SkillsSection);
+    expect(PageTemplate.children[4]).toEqual(AboutMeSection);
+    expect(PageTemplate.children[5]).toEqual(ContactSection);
   });
 
   describe("Header", () => {
@@ -95,7 +95,7 @@ interface Setup extends RenderResult {
   ExperienceSection: Element;
   HeaderPositionContainer: Element;
   PageTemplate: Element;
-  PortfolioSection: Element;
+  // PortfolioSection: Element;
   SkillsSection: Element;
 }
 
@@ -112,7 +112,7 @@ function setup(): Setup {
     "HeaderPositionContainer"
   );
   const PageTemplate: Element = queryByTestId("PageTemplate");
-  const PortfolioSection: Element = queryByTestId("PortfolioSection");
+  // const PortfolioSection: Element = queryByTestId("PortfolioSection");
   const SkillsSection: Element = queryByTestId("SkillsSection");
 
   return {
@@ -123,7 +123,7 @@ function setup(): Setup {
     ExperienceSection,
     HeaderPositionContainer,
     PageTemplate,
-    PortfolioSection,
+    // PortfolioSection,
     SkillsSection
   };
 }

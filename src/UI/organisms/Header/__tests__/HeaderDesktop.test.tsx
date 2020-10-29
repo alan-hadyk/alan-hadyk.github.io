@@ -13,6 +13,7 @@ describe("organisms / HeaderDesktop", () => {
   test("should have correct structure if isMenuVisible is true", () => {
     const {
       Backdrop,
+      Button,
       HeaderDesktopContainer,
       HeaderDesktopFlexContainer,
       MenuButton,
@@ -27,13 +28,15 @@ describe("organisms / HeaderDesktop", () => {
     );
 
     expect(HeaderDesktopFlexContainer.children[0]).toEqual(Nav);
-    expect(HeaderDesktopFlexContainer.children[1]).toEqual(MenuButton);
-    expect(HeaderDesktopFlexContainer.children[2]).toEqual(Backdrop);
-    expect(HeaderDesktopFlexContainer.children[3]).toEqual(SideMenu);
+    expect(HeaderDesktopFlexContainer.children[1]).toEqual(Button);
+    expect(HeaderDesktopFlexContainer.children[2]).toEqual(MenuButton);
+    expect(HeaderDesktopFlexContainer.children[3]).toEqual(Backdrop);
+    expect(HeaderDesktopFlexContainer.children[4]).toEqual(SideMenu);
   });
 
   test("should have correct structure if isMenuVisible is false", () => {
     const {
+      Button,
       HeaderDesktopContainer,
       HeaderDesktopFlexContainer,
       MenuButton,
@@ -48,8 +51,9 @@ describe("organisms / HeaderDesktop", () => {
     );
 
     expect(HeaderDesktopFlexContainer.children[0]).toEqual(Nav);
-    expect(HeaderDesktopFlexContainer.children[1]).toEqual(MenuButton);
-    expect(HeaderDesktopFlexContainer.children[2]).toEqual(SideMenu);
+    expect(HeaderDesktopFlexContainer.children[1]).toEqual(Button);
+    expect(HeaderDesktopFlexContainer.children[2]).toEqual(MenuButton);
+    expect(HeaderDesktopFlexContainer.children[3]).toEqual(SideMenu);
   });
 
   describe("HeaderDesktop", () => {
@@ -132,6 +136,59 @@ describe("organisms / HeaderDesktop", () => {
       const { Nav } = setup();
 
       expect(Nav).toBeTruthy();
+    });
+  });
+
+  describe("Button", () => {
+    test("should have correct icon and text", () => {
+      const { Button } = setup();
+
+      const buttonText = Button.querySelector("[font-family=\"Exan\"]");
+      const buttonIcon = Button.querySelector("svg");
+
+      expect(buttonText.textContent).toEqual("cv");
+      expect(buttonIcon.textContent).toEqual("Btn-Download.svg");
+    });
+
+    describe("Props", () => {
+      describe("size", () => {
+        describe("height", () => {
+          test("should have 4.8rem", () => {
+            const { Button } = setup();
+
+            expect(Button).toHaveStyleRule("height", "4.8rem");
+          });
+        });
+
+        describe("width", () => {
+          test("should have auto", () => {
+            const { Button } = setup();
+
+            expect(Button).toHaveStyleRule("width", "auto");
+          });
+        });
+
+        describe("padding", () => {
+          test("should have 2.4rem", () => {
+            const { Button } = setup();
+
+            expect(Button.children[4].children[0]).toHaveStyleRule(
+              "padding-right",
+              "2.4rem"
+            );
+          });
+        });
+
+        describe("icon height", () => {
+          test("should have 2.4rem", () => {
+            const { Button } = setup();
+
+            expect(
+              Button.children[4].children[0].children[0].children[1]
+            ).toHaveStyleRule("height", "2.4rem");
+          });
+        });
+      });
     });
   });
 
@@ -415,6 +472,7 @@ describe("organisms / HeaderDesktop", () => {
 
 interface Setup extends RenderResult {
   Backdrop: Element;
+  Button: Element;
   HeaderDesktopContainer: Element;
   HeaderDesktopFlexContainer: Element;
   MenuButton: Element;
@@ -437,6 +495,7 @@ function setup(additionalProps?: HeaderTabletTestProps): Setup {
   const { queryByTestId, queryAllByTestId } = utils || {};
 
   const Backdrop: Element = queryByTestId("Backdrop");
+  const Button: Element = queryAllByTestId("Button")[0];
   const HeaderDesktopContainer: Element = queryByTestId("HeaderDesktop");
   const HeaderDesktopFlexContainer: Element = queryByTestId(
     "HeaderDesktopFlexContainer"
@@ -449,6 +508,7 @@ function setup(additionalProps?: HeaderTabletTestProps): Setup {
   return {
     ...utils,
     Backdrop,
+    Button,
     HeaderDesktopContainer,
     HeaderDesktopFlexContainer,
     MenuButton,

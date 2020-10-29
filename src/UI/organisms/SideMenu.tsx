@@ -31,14 +31,17 @@ const SideMenu = ({ isExpanded = false }: SideMenuProps): JSX.Element => (
       paddingTop="spacing8"
     >
       <Responsive devices={["mobile", "tablet"]}>
-        <SpacingContainer marginBottom="spacing24">
+        <SpacingContainer
+          dataTestId="SideMenuMobileSpacingContainer"
+          marginBottom="spacing24"
+        >
           <FlexContainer
             dataTestId="SideMenuMobileFlexContainer"
             flexFlow="row wrap"
             justifyContent="flex-end"
           >
             <SpacingContainer
-              dataTestId="SideMenuMobileSpacingContainer"
+              dataTestId="SideMenuNavSpacingContainer"
               marginBottom="spacing24"
             >
               <Nav position="vertical" />
