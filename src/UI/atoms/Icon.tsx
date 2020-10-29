@@ -239,17 +239,17 @@ Icon.Container = styled.div<IconContainerProps>`
     overflow: ${overflow};
     width: ${(width in spacing && spacing[width]) || width};
 
-    ${shouldRotate &&
-    css`
-      animation-duration: ${transitionTimes.verySlow};
-      animation-iteration-count: infinite;
-      animation-name: ${rotate};
-      animation-timing-function: ${linear};
-    `}
-
     svg {
       height: ${isResponsive || isHeightResponsive ? "100%" : "auto"};
       width: ${isResponsive && !isHeightResponsive ? "100%" : "auto"};
+
+      ${shouldRotate &&
+      css`
+        animation-duration: ${transitionTimes.verySlow};
+        animation-iteration-count: infinite;
+        animation-name: ${rotate};
+        animation-timing-function: ${linear};
+      `}
 
       ${isActive &&
       css`

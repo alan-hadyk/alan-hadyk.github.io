@@ -49,11 +49,11 @@ export default {
 
   rotate: keyframes`
     from {
-      transform: rotateY(0deg);
+      transform: rotate(0deg);
       opacity: 0.99;
     }
     to {
-      transform: rotateY(360deg);
+      transform: rotate(360deg);
       opacity: 1;
     }
   `

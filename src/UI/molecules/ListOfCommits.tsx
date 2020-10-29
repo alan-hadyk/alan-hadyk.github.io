@@ -9,6 +9,7 @@ import Error from "UI/molecules/Error";
 import transitionTimes from "styles/variables/transitionTimes";
 
 import FlexContainer from "UI/layout/FlexContainer";
+import Loader from "UI/atoms/Loader";
 
 import {
   ListOfCommitsProps,
@@ -19,6 +20,7 @@ function ListOfCommits({
   commitsList,
   hasError
 }: ListOfCommitsProps): JSX.Element {
+  return <Loader />;
   return hasError ? (
     <Error title="Error" description="Github API is offline" />
   ) : (
