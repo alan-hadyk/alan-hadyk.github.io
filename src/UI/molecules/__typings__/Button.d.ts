@@ -15,6 +15,7 @@ export interface ButtonInnnerContainerPositions {
 
 export interface ButtonProps {
   buttonText: string;
+  dataCy?: string;
   dataTestId?: string;
   iconName: "btnCodeSandbox" | "btnDownload" | "btnExternalLink";
   onClick?: () => unknown;

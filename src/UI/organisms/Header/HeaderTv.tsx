@@ -20,13 +20,14 @@ function HeaderTv(): JSX.Element {
       >
         <SpacingContainer
           dataTestId="HeaderTvSpacingContainer"
-          paddingRight="spacing24"
+          marginRight="spacing24"
         >
           <Nav />
         </SpacingContainer>
 
         <Button
           buttonText="cv"
+          dataCy="CvButton"
           iconName="btnDownload"
           onClick={handleButtonClick}
           size="medium"

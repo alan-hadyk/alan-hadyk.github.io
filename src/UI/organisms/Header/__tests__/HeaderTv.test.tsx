@@ -94,12 +94,12 @@ describe("organisms / HeaderTv", () => {
 
   describe("SpacingContainer", () => {
     describe("Props", () => {
-      describe("paddingRight", () => {
+      describe("marginRight", () => {
         test("should have 2.4rem", () => {
           const { HeaderTvSpacingContainer } = setup();
 
           expect(HeaderTvSpacingContainer).toHaveStyleRule(
-            "padding-right",
+            "margin-right",
             "2.4rem"
           );
         });

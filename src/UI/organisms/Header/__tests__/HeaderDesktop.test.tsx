@@ -16,6 +16,7 @@ describe("organisms / HeaderDesktop", () => {
       Button,
       HeaderDesktopContainer,
       HeaderDesktopFlexContainer,
+      HeaderDesktopSpacingContainer,
       MenuButton,
       Nav,
       SideMenu
@@ -27,7 +28,10 @@ describe("organisms / HeaderDesktop", () => {
       HeaderDesktopFlexContainer
     );
 
-    expect(HeaderDesktopFlexContainer.children[0]).toEqual(Nav);
+    expect(HeaderDesktopFlexContainer.children[0]).toEqual(
+      HeaderDesktopSpacingContainer
+    );
+    expect(HeaderDesktopSpacingContainer.children[0]).toEqual(Nav);
     expect(HeaderDesktopFlexContainer.children[1]).toEqual(Button);
     expect(HeaderDesktopFlexContainer.children[2]).toEqual(MenuButton);
     expect(HeaderDesktopFlexContainer.children[3]).toEqual(Backdrop);
@@ -86,12 +90,12 @@ describe("organisms / HeaderDesktop", () => {
       });
 
       describe("gap", () => {
-        test("should have margin-left: 4.8rem for all children (except first)", () => {
+        test("should have margin-left: 2.4rem for all children (except first)", () => {
           const { HeaderDesktopFlexContainer } = setup();
 
           expect(HeaderDesktopFlexContainer).toHaveStyleRule(
             "margin-left",
-            "4.8rem",
+            "2.4rem",
             {
               modifier: "& > *"
             }
@@ -125,6 +129,21 @@ describe("organisms / HeaderDesktop", () => {
           expect(HeaderDesktopFlexContainer).toHaveStyleRule(
             "justify-content",
             "flex-start"
+          );
+        });
+      });
+    });
+  });
+
+  describe("SpacingContainer", () => {
+    describe("Props", () => {
+      describe("marginRight", () => {
+        test("should have 2.4rem", () => {
+          const { HeaderDesktopSpacingContainer } = setup();
+
+          expect(HeaderDesktopSpacingContainer).toHaveStyleRule(
+            "margin-right",
+            "2.4rem"
           );
         });
       });
@@ -475,6 +494,7 @@ interface Setup extends RenderResult {
   Button: Element;
   HeaderDesktopContainer: Element;
   HeaderDesktopFlexContainer: Element;
+  HeaderDesktopSpacingContainer: Element;
   MenuButton: Element;
   MenuButtonLines: Element[];
   Nav: Element;
@@ -500,6 +520,9 @@ function setup(additionalProps?: HeaderTabletTestProps): Setup {
   const HeaderDesktopFlexContainer: Element = queryByTestId(
     "HeaderDesktopFlexContainer"
   );
+  const HeaderDesktopSpacingContainer: Element = queryAllByTestId(
+    "HeaderDesktopSpacingContainer"
+  )[0];
   const MenuButton: Element = queryByTestId("MenuButtonContainer");
   const MenuButtonLines: Element[] = queryAllByTestId("MenuButtonLine");
   const Nav: Element = queryAllByTestId("Nav")[0];
@@ -511,6 +534,7 @@ function setup(additionalProps?: HeaderTabletTestProps): Setup {
     Button,
     HeaderDesktopContainer,
     HeaderDesktopFlexContainer,
+    HeaderDesktopSpacingContainer,
     MenuButton,
     MenuButtonLines,
     Nav,
