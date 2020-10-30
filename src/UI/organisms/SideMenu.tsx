@@ -16,7 +16,10 @@ import {
   SideMenuProps
 } from "UI/organisms/__typings__/SideMenu";
 
-const SideMenu = ({ isExpanded = false }: SideMenuProps): JSX.Element => (
+const SideMenu = ({
+  isExpanded = false,
+  onCVButtonClick
+}: SideMenuProps): JSX.Element => (
   <SideMenu.Container
     data-cy="SideMenu"
     data-testid="SideMenu"
@@ -31,46 +34,45 @@ const SideMenu = ({ isExpanded = false }: SideMenuProps): JSX.Element => (
       paddingTop="spacing8"
     >
       <Responsive devices={["mobile", "tablet"]}>
-        <FlexContainer
-          dataTestId="SideMenuMobileFlexContainer"
-          flexFlow="row wrap"
-          justifyContent="flex-end"
-        >
-          <SpacingContainer
-            dataTestId="SideMenuMobileSpacingContainer"
-            marginBottom="spacing24"
-          >
-            <Nav position="vertical" />
-          </SpacingContainer>
-        </FlexContainer>
-      </Responsive>
-
-      <FlexContainer
-        dataTestId="SideMenuOuterFlexContainer"
-        flexFlow="column nowrap"
-        justifyContent="center"
-      >
-        <Button
-          buttonText="resume"
-          iconName="btnDownload"
-          size="medium"
-          width="100%"
-        />
-
         <SpacingContainer
-          dataTestId="SideMenuInnerSpacingContainer"
-          paddingBottom="spacing24"
-          paddingTop="spacing24"
+          dataTestId="SideMenuMobileSpacingContainer"
+          marginBottom="spacing24"
         >
           <FlexContainer
-            dataTestId="SideMenuInnerFlexContainer"
-            flexFlow="row nowrap"
-            gap="spacing24"
+            dataTestId="SideMenuMobileFlexContainer"
+            flexFlow="row wrap"
+            justifyContent="flex-end"
           >
-            <MenuIcons />
+            <SpacingContainer
+              dataTestId="SideMenuNavSpacingContainer"
+              marginBottom="spacing24"
+            >
+              <Nav position="vertical" />
+            </SpacingContainer>
           </FlexContainer>
+          <Button
+            buttonText="cv"
+            dataCy="CvButton"
+            iconName="btnDownload"
+            onClick={onCVButtonClick}
+            size="medium"
+            width="100%"
+          />
         </SpacingContainer>
-      </FlexContainer>
+      </Responsive>
+
+      <SpacingContainer
+        dataTestId="SideMenuInnerSpacingContainer"
+        marginBottom="spacing24"
+      >
+        <FlexContainer
+          dataTestId="SideMenuInnerFlexContainer"
+          flexFlow="row nowrap"
+          gap="spacing24"
+        >
+          <MenuIcons />
+        </FlexContainer>
+      </SpacingContainer>
     </SpacingContainer>
   </SideMenu.Container>
 );

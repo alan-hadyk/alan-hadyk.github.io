@@ -371,11 +371,36 @@ describe("organisms / HeaderTabletAndMobileProps", () => {
         });
       });
     });
+
+    describe("Event handlers", () => {
+      describe("onCVButtonClick", () => {
+        test("should fire onCVButtonClick", () => {
+          const onCVButtonClick = jest.fn();
+
+          const { Buttons } = setup({ onCVButtonClick });
+
+          expect(onCVButtonClick).toHaveBeenCalledTimes(0);
+
+          act(() => {
+            fireEvent.mouseUp(Buttons[0]);
+          });
+
+          expect(onCVButtonClick).toHaveBeenCalledTimes(1);
+
+          act(() => {
+            fireEvent.mouseUp(Buttons[1]);
+          });
+
+          expect(onCVButtonClick).toHaveBeenCalledTimes(2);
+        });
+      });
+    });
   });
 });
 
 interface Setup extends RenderResult {
   Backdrop: Element[];
+  Buttons: Element[];
   HeaderMobileContainer: Element;
   HeaderTabletContainer: Element;
   MenuButtonLines: Element[];
@@ -388,6 +413,7 @@ type HeaderMobileTestProps = Partial<HeaderMobileProps>;
 function setup(additionalProps?: HeaderMobileTestProps): Setup {
   const props: HeaderMobileProps = {
     isMenuVisible: false,
+    onCVButtonClick: jest.fn(),
     onClick: jest.fn(),
     ...additionalProps
   };
@@ -399,6 +425,7 @@ function setup(additionalProps?: HeaderMobileTestProps): Setup {
   const { queryAllByTestId, queryByTestId } = utils || {};
 
   const Backdrop: Element[] = queryAllByTestId("Backdrop");
+  const Buttons: Element[] = queryAllByTestId("Button");
   const HeaderMobileContainer: Element = queryByTestId("HeaderMobile");
   const HeaderTabletContainer: Element = queryByTestId("HeaderTablet");
   const MenuButtonLines: Element[] = queryAllByTestId("MenuButtonLine");
@@ -408,6 +435,7 @@ function setup(additionalProps?: HeaderMobileTestProps): Setup {
   return {
     ...utils,
     Backdrop,
+    Buttons,
     HeaderMobileContainer,
     HeaderTabletContainer,
     MenuButtonLines,

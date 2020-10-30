@@ -1,9 +1,11 @@
 import React from "react";
-import { RenderResult } from "@testing-library/react";
+import { act, fireEvent, RenderResult } from "@testing-library/react";
 
 import HeaderTv from "UI/organisms/Header/HeaderTv";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
+
+import { HeaderTvProps } from "UI/organisms/Header/__typings__/HeaderTv";
 
 jest.mock("hooks/useIntersectionObserver");
 
@@ -94,12 +96,12 @@ describe("organisms / HeaderTv", () => {
 
   describe("SpacingContainer", () => {
     describe("Props", () => {
-      describe("paddingRight", () => {
+      describe("marginRight", () => {
         test("should have 2.4rem", () => {
           const { HeaderTvSpacingContainer } = setup();
 
           expect(HeaderTvSpacingContainer).toHaveStyleRule(
-            "padding-right",
+            "margin-right",
             "2.4rem"
           );
         });
@@ -122,7 +124,7 @@ describe("organisms / HeaderTv", () => {
       const buttonText = Button.querySelector("[font-family=\"Exan\"]");
       const buttonIcon = Button.querySelector("svg");
 
-      expect(buttonText.textContent).toEqual("resume");
+      expect(buttonText.textContent).toEqual("cv");
       expect(buttonIcon.textContent).toEqual("Btn-Download.svg");
     });
 
@@ -166,6 +168,24 @@ describe("organisms / HeaderTv", () => {
         });
       });
     });
+
+    describe("Event handlers", () => {
+      describe("onClick", () => {
+        test("should fire onCVButtonClick", () => {
+          const onCVButtonClick = jest.fn();
+
+          const { Button } = setup({ onCVButtonClick });
+
+          expect(onCVButtonClick).toHaveBeenCalledTimes(0);
+
+          act(() => {
+            fireEvent.mouseUp(Button);
+          });
+
+          expect(onCVButtonClick).toHaveBeenCalledTimes(1);
+        });
+      });
+    });
   });
 
   describe("MenuIcons", () => {
@@ -186,8 +206,15 @@ interface Setup extends RenderResult {
   Nav: Element;
 }
 
-function setup(): Setup {
-  const utils: RenderResult = renderWithTheme(<HeaderTv />);
+type HeaderTvTestProps = Partial<HeaderTvProps>;
+
+function setup(additionalProps?: HeaderTvTestProps): Setup {
+  const props: HeaderTvProps = {
+    onCVButtonClick: jest.fn(),
+    ...additionalProps
+  };
+
+  const utils: RenderResult = renderWithTheme(<HeaderTv {...props} />);
 
   const { queryAllByTestId } = utils || {};
 
