@@ -10,8 +10,9 @@ import { ReactComponent as IconWarning } from "assets/svg/Icon-Warning.svg";
 
 import { ErrorProps } from "UI/molecules/__typings__/Error";
 
-const Error = ({ title, description }: ErrorProps): JSX.Element => (
+const Error = ({ dataCy, description, title }: ErrorProps): JSX.Element => (
   <SpacingContainer
+    dataCy={dataCy}
     dataTestId="Error"
     paddingBottom="spacing8"
     paddingLeft="spacing8"
@@ -27,6 +28,7 @@ const Error = ({ title, description }: ErrorProps): JSX.Element => (
     >
       <Error.Icon data-testid="ErrorIcon" />
       <Text
+        dataCy="ErrorTitle"
         fontSize="font24"
         fontWeight="bold"
         lineHeight="spacing24"
@@ -35,7 +37,13 @@ const Error = ({ title, description }: ErrorProps): JSX.Element => (
       >
         {title}
       </Text>
-      <Text fontSize="font16" lineHeight="spacing24" textTransform="uppercase">
+      <Text
+        dataCy="ErrorDescription"
+        fontSize="font16"
+        lineHeight="spacing24"
+        textAlign="center"
+        textTransform="uppercase"
+      >
         {description}
       </Text>
     </FlexContainer>

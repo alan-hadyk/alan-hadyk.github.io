@@ -21,6 +21,7 @@ const LinkWithIcon = ({
     height={height}
     href={href}
     isExternal={isExternal}
+    width={width}
   >
     <Icon
       animationTime="fast"

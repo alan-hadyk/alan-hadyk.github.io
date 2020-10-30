@@ -1,5 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import {
+  createGlobalStyle,
+  DefaultTheme,
+  GlobalStyleComponent,
+  ThemeProvider
+} from "styled-components";
+
+import theme from "styles/theme";
+import globalStyle from "styles/globalStyle";
 
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
@@ -14,8 +24,23 @@ if (typeof window.IntersectionObserver === "undefined") {
   );
 }
 
+export const GlobalStyle: GlobalStyleComponent<
+  unknown,
+  DefaultTheme
+> = createGlobalStyle`
+  ${globalStyle}
+`;
+
 export function renderApp(): void {
-  ReactDOM.render(<App />, document.getElementById("root"));
+  ReactDOM.render(
+    <ThemeProvider theme={theme}>
+      <Router>
+        <App />
+      </Router>
+      <GlobalStyle />
+    </ThemeProvider>,
+    document.getElementById("root")
+  );
 }
 
 Promise.all(polyfills)

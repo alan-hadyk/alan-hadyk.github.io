@@ -83,17 +83,26 @@ function Button({
         data-testid="ButtonInnerContainer"
       >
         <SpacingContainer
+          dataTestId="ButtonSpacingContainer"
           paddingRight={buttonPadding}
           paddingLeft={buttonPadding}
           width="100%"
         >
-          <FlexContainer flexFlow="row wrap">
-            <ButtonText buttonText={buttonText} size={size} />
-            <Icon
-              height={size === "small" ? spacing.spacing12 : spacing.spacing24}
-              iconName={iconName}
-              isHeightResponsive
+          <FlexContainer flexFlow="row nowrap">
+            <ButtonText
+              buttonText={buttonText}
+              hasMargin={!!iconName}
+              size={size}
             />
+            {iconName && (
+              <Icon
+                height={
+                  size === "small" ? spacing.spacing12 : spacing.spacing24
+                }
+                iconName={iconName}
+                isHeightResponsive
+              />
+            )}
           </FlexContainer>
         </SpacingContainer>
       </Button.InnerContainer>

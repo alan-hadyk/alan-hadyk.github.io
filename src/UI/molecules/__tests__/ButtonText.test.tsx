@@ -15,26 +15,37 @@ describe("molecules / ButtonText", () => {
   });
 
   describe("SpacingContainer", () => {
-    describe("Styles", () => {
-      describe("margin-right", () => {
-        test("should have .8rem when size is small", () => {
+    describe("Props", () => {
+      describe("marginRight", () => {
+        test("should have 0 when hasMargin is false", () => {
           const { SpacingContainer } = setup({
+            hasMargin: false
+          });
+
+          expect(SpacingContainer).toHaveStyleRule("margin-right", "0");
+        });
+
+        test("should have .8rem when hasMargin is true and size is small", () => {
+          const { SpacingContainer } = setup({
+            hasMargin: true,
             size: "small"
           });
 
           expect(SpacingContainer).toHaveStyleRule("margin-right", ".8rem");
         });
 
-        test("should have 1.6rem when size is medium", () => {
+        test("should have 1.6rem when hasMargin is true and size is medium", () => {
           const { SpacingContainer } = setup({
+            hasMargin: true,
             size: "medium"
           });
 
           expect(SpacingContainer).toHaveStyleRule("margin-right", "1.6rem");
         });
 
-        test("should have 1.6rem when size is large", () => {
+        test("should have 1.6rem when hasMargin is true and size is large", () => {
           const { SpacingContainer } = setup({
+            hasMargin: true,
             size: "large"
           });
 
@@ -53,8 +64,16 @@ describe("molecules / ButtonText", () => {
       expect(Text.textContent).toEqual("Button text");
     });
 
-    describe("Styles", () => {
-      describe("font-size", () => {
+    describe("Props", () => {
+      describe("color", () => {
+        test("should have #fff", () => {
+          const { Text } = setup();
+
+          expect(Text).toHaveStyleRule("color", "#fff");
+        });
+      });
+
+      describe("fontSize", () => {
         test("should have 20px when size is small", () => {
           const { Text } = setup();
 
@@ -78,8 +97,8 @@ describe("molecules / ButtonText", () => {
         });
       });
 
-      describe("font-family", () => {
-        test("should have font family Exan", () => {
+      describe("fontFamily", () => {
+        test("should have Exan", () => {
           const { Text } = setup();
 
           expect(Text).toHaveStyleRule(

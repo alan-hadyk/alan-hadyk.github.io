@@ -1,13 +1,20 @@
-import React, { Fragment } from "react";
-import styled, { css, FlattenSimpleInterpolation } from "styled-components";
+import React, { Fragment, useCallback } from "react";
+import styled, {
+  css,
+  DefaultTheme,
+  FlattenInterpolation,
+  FlattenSimpleInterpolation,
+  ThemedStyledProps
+} from "styled-components";
+import { Link as RouterLink } from "react-router-dom";
 
 import Line from "UI/atoms/Line";
 
 import PositionContainer from "UI/layout/PositionContainer";
 
-import { LinkProps } from "UI/molecules/__typings__/Link";
+import { LinkProps, LinkContainerProps } from "UI/molecules/__typings__/Link";
 
-const Link = ({
+function Link({
   children,
   dataCy,
   dataTestId,
@@ -15,38 +22,64 @@ const Link = ({
   height = "unset",
   href,
   isExternal = false,
-  isHoverable = false
-}: LinkProps): JSX.Element => (
-  <Link.Container
-    data-cy={dataCy}
-    data-testid={dataTestId || "Link"}
-    display={display}
-    height={height}
-    href={href}
-    target={isExternal ? "_blank" : "_self"}
-  >
-    <Fragment>
-      {children}
+  isHoverable = false,
+  width = "unset"
+}: LinkProps): JSX.Element {
+  const getComponentType = useCallback(
+    () => (isExternal ? "ExternalLink" : "RouterLink"),
+    [isExternal]
+  );
+  const LinkComponent = Link[getComponentType()];
 
-      {isHoverable && (
-        <PositionContainer position="relative">
-          <Line direction="left" />
-          <Line direction="right" />
-        </PositionContainer>
+  return (
+    <LinkComponent
+      className={getComponentType()}
+      data-cy={dataCy}
+      data-testid={dataTestId || getComponentType()}
+      display={display}
+      height={height}
+      href={isExternal ? href : ""}
+      target={isExternal ? "_blank" : "_self"}
+      width={width}
+    >
+      {isExternal ? (
+        renderChildren()
+      ) : (
+        <RouterLink to={href}>{renderChildren()}</RouterLink>
       )}
-    </Fragment>
-  </Link.Container>
-);
+    </LinkComponent>
+  );
 
-Link.Container = styled.a<LinkProps>`
+  function renderChildren() {
+    return (
+      <Fragment>
+        {children}
+
+        {isHoverable && (
+          <PositionContainer position="relative">
+            <Line direction="left" />
+            <Line direction="right" />
+          </PositionContainer>
+        )}
+      </Fragment>
+    );
+  }
+}
+
+const linkStyles: FlattenInterpolation<ThemedStyledProps<
+  Partial<LinkProps>,
+  DefaultTheme
+>> = css<LinkContainerProps>`
   ${({
     display,
     height,
-    theme: { spacing }
+    theme: { spacing },
+    width
   }): FlattenSimpleInterpolation => css`
     display: ${display};
     height: ${(height in spacing && spacing[height]) || height};
     line-height: 1;
+    width: ${(width in spacing && spacing[width]) || width};
 
     &:hover .line {
       opacity: 1;
@@ -54,6 +87,14 @@ Link.Container = styled.a<LinkProps>`
       width: 50%;
     }
   `};
+`;
+
+Link.ExternalLink = styled.a<LinkContainerProps>`
+  ${linkStyles};
+`;
+
+Link.RouterLink = styled.span<LinkContainerProps>`
+  ${linkStyles};
 `;
 
 export default Link;

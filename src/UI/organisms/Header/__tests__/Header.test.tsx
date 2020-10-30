@@ -1,5 +1,7 @@
 import React from "react";
 import { act, fireEvent, RenderResult } from "@testing-library/react";
+import { createMemoryHistory } from "history";
+import { Router } from "react-router-dom";
 
 import Header from "UI/organisms/Header";
 
@@ -256,8 +258,8 @@ describe("organisms / Header", () => {
           test("should have correct value", () => {
             const { LinksWithIcons } = setup();
 
-            expect(LinksWithIcons[0].getAttribute("href")).toEqual(
-              "http://localhost/"
+            expect(LinksWithIcons[0].children[0].getAttribute("href")).toEqual(
+              "/"
             );
           });
         });
@@ -282,10 +284,7 @@ describe("organisms / Header", () => {
           test("should have 24.8rem", () => {
             const { LinksWithIcons } = setup();
 
-            expect(LinksWithIcons[0].children[0]).toHaveStyleRule(
-              "width",
-              "24.8rem"
-            );
+            expect(LinksWithIcons[0]).toHaveStyleRule("width", "24.8rem");
           });
         });
       });
@@ -297,8 +296,8 @@ describe("organisms / Header", () => {
           test("should have correct value", () => {
             const { LinksWithIcons } = setup();
 
-            expect(LinksWithIcons[1].getAttribute("href")).toEqual(
-              "http://localhost/"
+            expect(LinksWithIcons[1].children[0].getAttribute("href")).toEqual(
+              "/"
             );
           });
         });
@@ -323,10 +322,7 @@ describe("organisms / Header", () => {
           test("should have 24.8rem", () => {
             const { LinksWithIcons } = setup();
 
-            expect(LinksWithIcons[1].children[0]).toHaveStyleRule(
-              "width",
-              "24.8rem"
-            );
+            expect(LinksWithIcons[1]).toHaveStyleRule("width", "24.8rem");
           });
         });
       });
@@ -338,8 +334,8 @@ describe("organisms / Header", () => {
           test("should have correct value", () => {
             const { LinksWithIcons } = setup();
 
-            expect(LinksWithIcons[2].getAttribute("href")).toEqual(
-              "http://localhost/"
+            expect(LinksWithIcons[2].children[0].getAttribute("href")).toEqual(
+              "/"
             );
           });
         });
@@ -364,10 +360,7 @@ describe("organisms / Header", () => {
           test("should have 24.8rem", () => {
             const { LinksWithIcons } = setup();
 
-            expect(LinksWithIcons[2].children[0]).toHaveStyleRule(
-              "width",
-              "24.8rem"
-            );
+            expect(LinksWithIcons[2]).toHaveStyleRule("width", "24.8rem");
           });
         });
       });
@@ -379,8 +372,8 @@ describe("organisms / Header", () => {
           test("should have correct value", () => {
             const { LinksWithIcons } = setup();
 
-            expect(LinksWithIcons[3].getAttribute("href")).toEqual(
-              "http://localhost/"
+            expect(LinksWithIcons[3].children[0].getAttribute("href")).toEqual(
+              "/"
             );
           });
         });
@@ -399,10 +392,7 @@ describe("organisms / Header", () => {
           test("should have 6.4rem", () => {
             const { LinksWithIcons } = setup();
 
-            expect(LinksWithIcons[3].children[0]).toHaveStyleRule(
-              "width",
-              "6.4rem"
-            );
+            expect(LinksWithIcons[3]).toHaveStyleRule("width", "6.4rem");
           });
         });
       });
@@ -533,12 +523,19 @@ interface Setup extends RenderResult {
 
 type HeaderTestProps = Partial<HeaderProps>;
 
-function setup(additionalProps?: HeaderTestProps): Setup {
+function setup(additionalProps?: HeaderTestProps, route = "/"): Setup {
+  const history = createMemoryHistory();
+  history.push(route);
+
   const props: HeaderProps = {
     ...additionalProps
   };
 
-  const utils: RenderResult = renderWithTheme(<Header {...props} />);
+  const utils: RenderResult = renderWithTheme(
+    <Router history={history}>
+      <Header {...props} />
+    </Router>
+  );
 
   const { queryAllByTestId } = utils || {};
 
