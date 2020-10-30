@@ -3,7 +3,7 @@ import { act, fireEvent, RenderResult } from "@testing-library/react";
 import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
 
-import Header from "UI/organisms/Header";
+import Header, { downloadCV } from "UI/organisms/Header";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
@@ -77,6 +77,22 @@ describe("organisms / Header", () => {
       );
 
       expect(spyUseResize.mock.calls[0][0]["breakpoint"]).toEqual("1680px");
+    });
+  });
+
+  describe("downloadCV", () => {
+    test("should fire window.open(\"/pdf/Alan_Hadyk_CV_2020.pdf\", \"_blank\")", () => {
+      const spyWindowOpen = jest.fn();
+      global.open = spyWindowOpen;
+
+      expect(spyWindowOpen).toHaveBeenCalledTimes(0);
+
+      downloadCV();
+
+      expect(spyWindowOpen).toHaveBeenCalledWith(
+        "/pdf/Alan_Hadyk_CV_2020.pdf",
+        "_blank"
+      );
     });
   });
 
