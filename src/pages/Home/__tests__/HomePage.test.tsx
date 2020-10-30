@@ -75,7 +75,6 @@ describe("pages / Home / HomePage", () => {
       ExperienceSection,
       HeaderPositionContainer,
       PageTemplate,
-      // PortfolioSection,
       SkillsSection
     } = setup();
 
