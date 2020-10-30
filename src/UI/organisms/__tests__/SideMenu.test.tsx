@@ -384,7 +384,7 @@ describe("organisms / SideMenu", () => {
   describe("Buttons", () => {
     describe("Props", () => {
       describe("buttonText", () => {
-        test("should have resume", () => {
+        test("should have cv", () => {
           const { Buttons } = setup();
 
           const firstButtonText = Buttons[0].querySelector(
