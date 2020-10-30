@@ -1,5 +1,5 @@
 import React from "react";
-import { RenderResult } from "@testing-library/react";
+import { act, fireEvent, RenderResult } from "@testing-library/react";
 
 import HeaderTv from "UI/organisms/Header/HeaderTv";
 
@@ -163,6 +163,28 @@ describe("organisms / HeaderTv", () => {
               Button.children[4].children[0].children[0].children[1]
             ).toHaveStyleRule("height", "2.4rem");
           });
+        });
+      });
+    });
+
+    describe("Event handlers", () => {
+      describe("onClick", () => {
+        test("should open correct location", () => {
+          const windowSpy = jest.fn();
+          global.open = windowSpy;
+
+          const { Button } = setup();
+
+          expect(windowSpy).toHaveBeenCalledTimes(0);
+
+          act(() => {
+            fireEvent.mouseUp(Button);
+          });
+
+          expect(windowSpy).toHaveBeenCalledWith(
+            "/pdf/Alan_Hadyk_CV_2020.pdf",
+            "_blank"
+          );
         });
       });
     });

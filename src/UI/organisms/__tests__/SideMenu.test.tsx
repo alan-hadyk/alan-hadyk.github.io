@@ -1,5 +1,5 @@
 import React from "react";
-import { RenderResult } from "@testing-library/react";
+import { RenderResult, act, fireEvent } from "@testing-library/react";
 
 import SideMenu from "UI/organisms/SideMenu";
 
@@ -432,6 +432,39 @@ describe("organisms / SideMenu", () => {
           Buttons.forEach((Button) => {
             expect(Button).toHaveStyleRule("width", "100%");
           });
+        });
+      });
+    });
+
+    describe("Event handlers", () => {
+      describe("onClick", () => {
+        test("should open correct location", () => {
+          const windowSpy = jest.fn();
+          global.open = windowSpy;
+
+          const { Buttons } = setup();
+
+          expect(windowSpy).toHaveBeenCalledTimes(0);
+
+          act(() => {
+            fireEvent.mouseUp(Buttons[0]);
+          });
+
+          expect(windowSpy).toHaveBeenNthCalledWith(
+            1,
+            "/pdf/Alan_Hadyk_CV_2020.pdf",
+            "_blank"
+          );
+
+          act(() => {
+            fireEvent.mouseUp(Buttons[1]);
+          });
+
+          expect(windowSpy).toHaveBeenNthCalledWith(
+            2,
+            "/pdf/Alan_Hadyk_CV_2020.pdf",
+            "_blank"
+          );
         });
       });
     });

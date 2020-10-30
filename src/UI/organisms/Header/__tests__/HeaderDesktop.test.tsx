@@ -43,6 +43,7 @@ describe("organisms / HeaderDesktop", () => {
       Button,
       HeaderDesktopContainer,
       HeaderDesktopFlexContainer,
+      HeaderDesktopSpacingContainer,
       MenuButton,
       Nav,
       SideMenu
@@ -54,7 +55,11 @@ describe("organisms / HeaderDesktop", () => {
       HeaderDesktopFlexContainer
     );
 
-    expect(HeaderDesktopFlexContainer.children[0]).toEqual(Nav);
+    expect(HeaderDesktopFlexContainer.children[0]).toEqual(
+      HeaderDesktopSpacingContainer
+    );
+
+    expect(HeaderDesktopSpacingContainer.children[0]).toEqual(Nav);
     expect(HeaderDesktopFlexContainer.children[1]).toEqual(Button);
     expect(HeaderDesktopFlexContainer.children[2]).toEqual(MenuButton);
     expect(HeaderDesktopFlexContainer.children[3]).toEqual(SideMenu);
@@ -206,6 +211,28 @@ describe("organisms / HeaderDesktop", () => {
               Button.children[4].children[0].children[0].children[1]
             ).toHaveStyleRule("height", "2.4rem");
           });
+        });
+      });
+    });
+
+    describe("Event handlers", () => {
+      describe("onClick", () => {
+        test("should open correct location", () => {
+          const windowSpy = jest.fn();
+          global.open = windowSpy;
+
+          const { Button } = setup();
+
+          expect(windowSpy).toHaveBeenCalledTimes(0);
+
+          act(() => {
+            fireEvent.mouseUp(Button);
+          });
+
+          expect(windowSpy).toHaveBeenCalledWith(
+            "/pdf/Alan_Hadyk_CV_2020.pdf",
+            "_blank"
+          );
         });
       });
     });
