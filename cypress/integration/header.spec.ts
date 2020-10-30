@@ -12,17 +12,8 @@ describe("Header", () => {
         cy.wrap(link).should("have.attr", "data-isactive", "false");
       })
       .spread((experience, skills, aboutMe, contact) => {
-        // cy.get("#portfolio").scrollIntoView();
-
-        // cy.get(portfolio).should("have.attr", "data-isactive", "true");
-        // cy.get(experience).should("have.attr", "data-isactive", "false");
-        // cy.get(skills).should("have.attr", "data-isactive", "false");
-        // cy.get(aboutMe).should("have.attr", "data-isactive", "false");
-        // cy.get(contact).should("have.attr", "data-isactive", "false");
-
         cy.get("#experience").scrollIntoView();
 
-        // cy.get(portfolio).should("have.attr", "data-isactive", "false");
         cy.get(experience).should("have.attr", "data-isactive", "true");
         cy.get(skills).should("have.attr", "data-isactive", "false");
         cy.get(aboutMe).should("have.attr", "data-isactive", "false");
@@ -30,7 +21,6 @@ describe("Header", () => {
 
         cy.get("#skills").scrollIntoView();
 
-        // cy.get(portfolio).should("have.attr", "data-isactive", "false");
         cy.get(experience).should("have.attr", "data-isactive", "false");
         cy.get(skills).should("have.attr", "data-isactive", "true");
         cy.get(aboutMe).should("have.attr", "data-isactive", "false");
@@ -38,7 +28,6 @@ describe("Header", () => {
 
         cy.get("#about-me").scrollIntoView();
 
-        // cy.get(portfolio).should("have.attr", "data-isactive", "false");
         cy.get(experience).should("have.attr", "data-isactive", "false");
         cy.get(skills).should("have.attr", "data-isactive", "false");
         cy.get(aboutMe).should("have.attr", "data-isactive", "true");
@@ -46,7 +35,6 @@ describe("Header", () => {
 
         cy.get("#contact").scrollIntoView();
 
-        // cy.get(portfolio).should("have.attr", "data-isactive", "false");
         cy.get(experience).should("have.attr", "data-isactive", "false");
         cy.get(skills).should("have.attr", "data-isactive", "false");
         cy.get(aboutMe).should("have.attr", "data-isactive", "false");
@@ -73,9 +61,6 @@ describe("Header", () => {
               cy.wrap(link).should("be.visible").should("not.be.disabled");
             })
             .spread((experience, skills, aboutMe, contact) => {
-              // cy.get(portfolio)
-              //   .should("contain", "Portfolio");
-
               cy.get(experience).should("contain", "Experience");
 
               cy.get(skills).should("contain", "Skills");
@@ -131,9 +116,6 @@ describe("Header", () => {
               cy.wrap(link).should("be.visible").should("not.be.disabled");
             })
             .spread((experience, skills, aboutMe, contact) => {
-              // cy.get(portfolio)
-              //   .should("contain", "Portfolio");
-
               cy.get(experience).should("contain", "Experience");
 
               cy.get(skills).should("contain", "Skills");
@@ -231,9 +213,6 @@ describe("Header", () => {
               cy.wrap(link).should("be.visible").should("not.be.disabled");
             })
             .spread((experience, skills, aboutMe, contact) => {
-              // cy.get(portfolio)
-              //   .should("contain", "Portfolio");
-
               cy.get(experience).should("contain", "Experience");
 
               cy.get(skills).should("contain", "Skills");
@@ -247,8 +226,6 @@ describe("Header", () => {
             .should("be.visible")
             .should("not.be.disabled")
             .should("contain", "cv");
-
-          // cy.contains("cv").should("be.visible").should("not.be.disabled");
 
           cy.dataCy("gitHub")
             .should("be.visible")
@@ -319,9 +296,6 @@ describe("Header", () => {
               cy.wrap(link).should("be.visible").should("not.be.disabled");
             })
             .spread((experience, skills, aboutMe, contact) => {
-              // cy.get(portfolio)
-              //   .should("contain", "Portfolio");
-
               cy.get(experience).should("contain", "Experience");
 
               cy.get(skills).should("contain", "Skills");

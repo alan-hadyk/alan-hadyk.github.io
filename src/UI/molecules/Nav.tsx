@@ -10,10 +10,6 @@ import { NavItemProps } from "UI/molecules/__typings__/NavItem";
 import { NavProps } from "UI/molecules/__typings__/Nav";
 
 const navItems: NavItemProps[] = [
-  // {
-  //   href: "#portfolio",
-  //   title: "Portfolio"
-  // },
   {
     href: "#experience",
     title: "Experience"

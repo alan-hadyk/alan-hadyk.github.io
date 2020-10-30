@@ -16,69 +16,66 @@ import {
   SideMenuProps
 } from "UI/organisms/__typings__/SideMenu";
 
-function SideMenu({ isExpanded = false }: SideMenuProps): JSX.Element {
-  return (
-    <SideMenu.Container
-      data-cy="SideMenu"
-      data-testid="SideMenu"
-      isExpanded={isExpanded}
+const SideMenu = ({
+  isExpanded = false,
+  onCVButtonClick
+}: SideMenuProps): JSX.Element => (
+  <SideMenu.Container
+    data-cy="SideMenu"
+    data-testid="SideMenu"
+    isExpanded={isExpanded}
+  >
+    <SpacingContainer
+      dataTestId="SideMenuOuterSpacingContainer"
+      height="100%"
+      overflowY="auto"
+      paddingLeft="spacing48"
+      paddingRight="spacing48"
+      paddingTop="spacing8"
     >
-      <SpacingContainer
-        dataTestId="SideMenuOuterSpacingContainer"
-        height="100%"
-        overflowY="auto"
-        paddingLeft="spacing48"
-        paddingRight="spacing48"
-        paddingTop="spacing8"
-      >
-        <Responsive devices={["mobile", "tablet"]}>
-          <SpacingContainer
-            dataTestId="SideMenuMobileSpacingContainer"
-            marginBottom="spacing24"
-          >
-            <FlexContainer
-              dataTestId="SideMenuMobileFlexContainer"
-              flexFlow="row wrap"
-              justifyContent="flex-end"
-            >
-              <SpacingContainer
-                dataTestId="SideMenuNavSpacingContainer"
-                marginBottom="spacing24"
-              >
-                <Nav position="vertical" />
-              </SpacingContainer>
-            </FlexContainer>
-            <Button
-              buttonText="cv"
-              dataCy="CvButton"
-              iconName="btnDownload"
-              onClick={handleButtonClick}
-              size="medium"
-              width="100%"
-            />
-          </SpacingContainer>
-        </Responsive>
-
+      <Responsive devices={["mobile", "tablet"]}>
         <SpacingContainer
-          dataTestId="SideMenuInnerSpacingContainer"
+          dataTestId="SideMenuMobileSpacingContainer"
           marginBottom="spacing24"
         >
           <FlexContainer
-            dataTestId="SideMenuInnerFlexContainer"
-            flexFlow="row nowrap"
-            gap="spacing24"
+            dataTestId="SideMenuMobileFlexContainer"
+            flexFlow="row wrap"
+            justifyContent="flex-end"
           >
-            <MenuIcons />
+            <SpacingContainer
+              dataTestId="SideMenuNavSpacingContainer"
+              marginBottom="spacing24"
+            >
+              <Nav position="vertical" />
+            </SpacingContainer>
           </FlexContainer>
+          <Button
+            buttonText="cv"
+            dataCy="CvButton"
+            iconName="btnDownload"
+            onClick={onCVButtonClick}
+            size="medium"
+            width="100%"
+          />
         </SpacingContainer>
-      </SpacingContainer>
-    </SideMenu.Container>
-  );
+      </Responsive>
 
-  function handleButtonClick() {
-    window.open("/pdf/Alan_Hadyk_CV_2020.pdf", "_blank");
-  }
-}
+      <SpacingContainer
+        dataTestId="SideMenuInnerSpacingContainer"
+        marginBottom="spacing24"
+      >
+        <FlexContainer
+          dataTestId="SideMenuInnerFlexContainer"
+          flexFlow="row nowrap"
+          gap="spacing24"
+        >
+          <MenuIcons />
+        </FlexContainer>
+      </SpacingContainer>
+    </SpacingContainer>
+  </SideMenu.Container>
+);
 
 SideMenu.Container = styled.div<SideMenuContainerProps>`
   ${({

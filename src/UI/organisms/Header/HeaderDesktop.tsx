@@ -14,46 +14,41 @@ import SpacingContainer from "UI/layout/SpacingContainer";
 import Backdrop from "UI/atoms/Backdrop";
 import { HeaderMobileProps } from "UI/organisms/Header/__typings__/HeaderMobile";
 
-function HeaderDesktop({
+const HeaderDesktop = ({
   isMenuVisible,
+  onCVButtonClick,
   onClick
-}: HeaderMobileProps): JSX.Element {
-  return (
-    <Responsive dataTestDesktopId="HeaderDesktop" devices={["desktop"]}>
-      <FlexContainer
-        dataTestId="HeaderDesktopFlexContainer"
-        flexFlow="row nowrap"
-        height="spacing48"
-        gap="spacing24"
-        justifyContent="flex-start"
+}: HeaderMobileProps): JSX.Element => (
+  <Responsive dataTestDesktopId="HeaderDesktop" devices={["desktop"]}>
+    <FlexContainer
+      dataTestId="HeaderDesktopFlexContainer"
+      flexFlow="row nowrap"
+      height="spacing48"
+      gap="spacing24"
+      justifyContent="flex-start"
+    >
+      <SpacingContainer
+        dataTestId="HeaderDesktopSpacingContainer"
+        marginRight="spacing24"
       >
-        <SpacingContainer
-          dataTestId="HeaderDesktopSpacingContainer"
-          marginRight="spacing24"
-        >
-          <Nav />
-        </SpacingContainer>
+        <Nav />
+      </SpacingContainer>
 
-        <Button
-          buttonText="cv"
-          dataCy="CvButton"
-          iconName="btnDownload"
-          onClick={handleButtonClick}
-          size="medium"
-        />
+      <Button
+        buttonText="cv"
+        dataCy="CvButton"
+        iconName="btnDownload"
+        onClick={onCVButtonClick}
+        size="medium"
+      />
 
-        <MenuButton isOpen={isMenuVisible} onClick={onClick} />
+      <MenuButton isOpen={isMenuVisible} onClick={onClick} />
 
-        {isMenuVisible && <Backdrop onClick={onClick} />}
+      {isMenuVisible && <Backdrop onClick={onClick} />}
 
-        <SideMenu isExpanded={isMenuVisible} />
-      </FlexContainer>
-    </Responsive>
-  );
-
-  function handleButtonClick() {
-    window.open("/pdf/Alan_Hadyk_CV_2020.pdf", "_blank");
-  }
-}
+      <SideMenu isExpanded={isMenuVisible} />
+    </FlexContainer>
+  </Responsive>
+);
 
 export default HeaderDesktop;

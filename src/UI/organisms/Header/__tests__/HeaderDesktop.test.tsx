@@ -217,22 +217,18 @@ describe("organisms / HeaderDesktop", () => {
 
     describe("Event handlers", () => {
       describe("onClick", () => {
-        test("should open correct location", () => {
-          const windowSpy = jest.fn();
-          global.open = windowSpy;
+        test("should fire onCVButtonClick", () => {
+          const onCVButtonClick = jest.fn();
 
-          const { Button } = setup();
+          const { Button } = setup({ onCVButtonClick });
 
-          expect(windowSpy).toHaveBeenCalledTimes(0);
+          expect(onCVButtonClick).toHaveBeenCalledTimes(0);
 
           act(() => {
             fireEvent.mouseUp(Button);
           });
 
-          expect(windowSpy).toHaveBeenCalledWith(
-            "/pdf/Alan_Hadyk_CV_2020.pdf",
-            "_blank"
-          );
+          expect(onCVButtonClick).toHaveBeenCalledTimes(1);
         });
       });
     });
@@ -533,6 +529,7 @@ type HeaderTabletTestProps = Partial<HeaderMobileProps>;
 function setup(additionalProps?: HeaderTabletTestProps): Setup {
   const props: HeaderMobileProps = {
     isMenuVisible: false,
+    onCVButtonClick: jest.fn(),
     onClick: jest.fn(),
     ...additionalProps
   };

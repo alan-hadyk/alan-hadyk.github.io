@@ -16,6 +16,9 @@ import useResize from "hooks/useResize";
 
 import { HeaderProps } from "UI/organisms/Header/__typings__/Header";
 
+const downloadCV = (): Window =>
+  window.open("/pdf/Alan_Hadyk_CV_2020.pdf", "_blank");
+
 function Header({ zIndex = "layer1" }: HeaderProps): JSX.Element {
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false);
 
@@ -72,15 +75,17 @@ function Header({ zIndex = "layer1" }: HeaderProps): JSX.Element {
             />
           </Responsive>
 
-          <HeaderTv />
+          <HeaderTv onCVButtonClick={downloadCV} />
 
           <HeaderDesktop
             isMenuVisible={isMenuVisible}
+            onCVButtonClick={downloadCV}
             onClick={handleMenuButtonClick}
           />
 
           <HeaderTabletAndMobile
             isMenuVisible={isMenuVisible}
+            onCVButtonClick={downloadCV}
             onClick={handleMenuButtonClick}
           />
         </FlexContainer>
@@ -118,5 +123,7 @@ Header.InnerContainer = styled.div`
     width: 100%;
   `};
 `;
+
+export { downloadCV };
 
 export default memo(Header);

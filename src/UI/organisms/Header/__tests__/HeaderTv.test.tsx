@@ -5,6 +5,8 @@ import HeaderTv from "UI/organisms/Header/HeaderTv";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+import { HeaderTvProps } from "UI/organisms/Header/__typings__/HeaderTv";
+
 jest.mock("hooks/useIntersectionObserver");
 
 describe("organisms / HeaderTv", () => {
@@ -169,22 +171,18 @@ describe("organisms / HeaderTv", () => {
 
     describe("Event handlers", () => {
       describe("onClick", () => {
-        test("should open correct location", () => {
-          const windowSpy = jest.fn();
-          global.open = windowSpy;
+        test("should fire onCVButtonClick", () => {
+          const onCVButtonClick = jest.fn();
 
-          const { Button } = setup();
+          const { Button } = setup({ onCVButtonClick });
 
-          expect(windowSpy).toHaveBeenCalledTimes(0);
+          expect(onCVButtonClick).toHaveBeenCalledTimes(0);
 
           act(() => {
             fireEvent.mouseUp(Button);
           });
 
-          expect(windowSpy).toHaveBeenCalledWith(
-            "/pdf/Alan_Hadyk_CV_2020.pdf",
-            "_blank"
-          );
+          expect(onCVButtonClick).toHaveBeenCalledTimes(1);
         });
       });
     });
@@ -208,8 +206,15 @@ interface Setup extends RenderResult {
   Nav: Element;
 }
 
-function setup(): Setup {
-  const utils: RenderResult = renderWithTheme(<HeaderTv />);
+type HeaderTvTestProps = Partial<HeaderTvProps>;
+
+function setup(additionalProps?: HeaderTvTestProps): Setup {
+  const props: HeaderTvProps = {
+    onCVButtonClick: jest.fn(),
+    ...additionalProps
+  };
+
+  const utils: RenderResult = renderWithTheme(<HeaderTv {...props} />);
 
   const { queryAllByTestId } = utils || {};
 

@@ -8,38 +8,35 @@ import Responsive from "UI/layout/Responsive";
 import FlexContainer from "UI/layout/FlexContainer";
 import SpacingContainer from "UI/layout/SpacingContainer";
 
-function HeaderTv(): JSX.Element {
-  return (
-    <Responsive dataTestTvId="HeaderTv" devices={["tv"]}>
-      <FlexContainer
-        dataTestId="HeaderTvFlexContainer"
-        flexFlow="row nowrap"
-        height="spacing48"
-        gap="spacing24"
-        justifyContent="flex-start"
+import { HeaderTvProps } from "UI/organisms/Header/__typings__/HeaderTv";
+
+const HeaderTv = ({ onCVButtonClick }: HeaderTvProps): JSX.Element => (
+  <Responsive dataTestTvId="HeaderTv" devices={["tv"]}>
+    <FlexContainer
+      dataTestId="HeaderTvFlexContainer"
+      flexFlow="row nowrap"
+      height="spacing48"
+      gap="spacing24"
+      justifyContent="flex-start"
+    >
+      <SpacingContainer
+        dataTestId="HeaderTvSpacingContainer"
+        marginRight="spacing24"
       >
-        <SpacingContainer
-          dataTestId="HeaderTvSpacingContainer"
-          marginRight="spacing24"
-        >
-          <Nav />
-        </SpacingContainer>
+        <Nav />
+      </SpacingContainer>
 
-        <Button
-          buttonText="cv"
-          dataCy="CvButton"
-          iconName="btnDownload"
-          onClick={handleButtonClick}
-          size="medium"
-        />
-        <MenuIcons />
-      </FlexContainer>
-    </Responsive>
-  );
+      <Button
+        buttonText="cv"
+        dataCy="CvButton"
+        iconName="btnDownload"
+        onClick={onCVButtonClick}
+        size="medium"
+      />
 
-  function handleButtonClick() {
-    window.open("/pdf/Alan_Hadyk_CV_2020.pdf", "_blank");
-  }
-}
+      <MenuIcons />
+    </FlexContainer>
+  </Responsive>
+);
 
 export default HeaderTv;
