@@ -54,6 +54,7 @@ declare module "styled-components" {
 
     keyframes: {
       blink: Keyframes;
+      drop: Keyframes;
       glow: Keyframes;
       ripple: Keyframes;
       rotate: Keyframes;

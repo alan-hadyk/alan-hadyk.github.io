@@ -3,13 +3,12 @@ import PropTypes from "prop-types";
 import isEmpty from "lodash/isEmpty";
 import isEqual from "lodash/isEqual";
 
+import Loader from "UI/atoms/Loader";
 import Commit from "UI/molecules/Commit";
 import Error from "UI/molecules/Error";
+import FlexContainer from "UI/layout/FlexContainer";
 
 import transitionTimes from "styles/variables/transitionTimes";
-
-import FlexContainer from "UI/layout/FlexContainer";
-import Loader from "UI/atoms/Loader";
 
 import {
   ListOfCommitsProps,
@@ -20,12 +19,11 @@ function ListOfCommits({
   commitsList,
   hasError
 }: ListOfCommitsProps): JSX.Element {
-  return <Loader />;
-  return hasError ? (
-    <Error title="Error" description="Github API is offline" />
-  ) : (
-    renderCommits()
-  );
+  if (hasError) {
+    return <Error title="Error" description="Github API is offline" />;
+  } else {
+    return isEmpty(commitsList) ? <Loader /> : renderCommits();
+  }
 
   function renderCommits(): JSX.Element {
     return (

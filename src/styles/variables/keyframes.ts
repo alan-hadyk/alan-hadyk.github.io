@@ -16,15 +16,24 @@ export default {
     }
   `,
 
-  color: keyframes`
-    0% {
-      background-color: ${colorPalette.white};
+  drop: keyframes`
+    10% {
+      opacity: 0.5;
     }
-    50% {
-      background-color: ${colorPalette.blue100};
+    20% {
+      opacity: 1;
+      transform: translateY(200%) rotateX(-360deg);
+    }
+    80% {
+      opacity: 1;
+      transform: translateY(200%) rotateX(-360deg);
+    }
+    90% {
+      opacity: 0.5;
     }
     100% {
-      background-color: ${colorPalette.blue100};
+      opacity: 0;
+      transform: translateY(400%);
     }
   `,
 
