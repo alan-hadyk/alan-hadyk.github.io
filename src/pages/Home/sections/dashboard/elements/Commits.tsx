@@ -1,5 +1,4 @@
 import React from "react";
-import isEmpty from "lodash/isEmpty";
 
 import withCommitsState from "state/withCommitsState";
 
@@ -16,7 +15,7 @@ export const Commits = ({
     dataCy="Commits"
     dataTestId="Commits"
     flex="1 0 20%"
-    shouldDisplayCorners={hasError || isEmpty(commitsList)}
+    shouldDisplayCorners={hasError}
     title="Commits"
     titleOverflow="hidden"
   >

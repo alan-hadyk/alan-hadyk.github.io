@@ -45,12 +45,8 @@ export default `
   }
 
   body {
-    background-color: ${colorPalette.blue700};
     color: ${colorPalette.blue300};
     line-height: 1;
-    min-height: 100vh;
-    overflow-x: hidden;
-    position: relative;
     scroll-behavior: smooth;
   }
 

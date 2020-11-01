@@ -46,6 +46,10 @@ export function renderApp(): void {
 Promise.all(polyfills)
   .then(() => {
     renderApp();
+
+    window.setTimeout(() => {
+      document.querySelector(".loader").remove();
+    }, 900);
   })
   .catch((error) => {
     console.error("Failed fetching polyfills", error);
