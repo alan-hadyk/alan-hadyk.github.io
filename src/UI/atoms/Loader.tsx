@@ -3,8 +3,6 @@ import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize } from "polished";
 
 import { LoaderLetterProps } from "UI/atoms/__typings__/Loader";
-// import Icon from "UI/atoms/Icon";
-// import Hexagon from "UI/molecules/Hexagon";
 
 const Loader = (): JSX.Element => (
   <Loader.Wrapper>
