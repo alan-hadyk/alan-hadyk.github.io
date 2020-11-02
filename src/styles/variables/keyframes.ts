@@ -66,16 +66,5 @@ export default {
       opacity: 0;
       transform: scale(10);
     }
-  `,
-
-  rotate: keyframes`
-    from {
-      transform: rotate(0deg);
-      opacity: 0.99;
-    }
-    to {
-      transform: rotate(360deg);
-      opacity: 1;
-    }
   `
 };
