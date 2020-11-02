@@ -5,6 +5,8 @@ import FlexContainer from "UI/layout/FlexContainer";
 
 import { CompanyLogoProps } from "UI/molecules/__typings__/CompanyLogo";
 
+import isIE11 from "helpers/browser/isIE11";
+
 const CompanyLogo = ({ logo }: CompanyLogoProps): JSX.Element => (
   <FlexContainer
     alignItems="flex-start"
@@ -17,6 +19,7 @@ const CompanyLogo = ({ logo }: CompanyLogoProps): JSX.Element => (
       height="spacing48"
       iconName={logo}
       isHeightResponsive
+      overflow={isIE11() ? "hidden" : "visible"}
     />
   </FlexContainer>
 );

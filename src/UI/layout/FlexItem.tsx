@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import { FlexItemProps } from "UI/layout/__typings__/FlexItem";
+
+import isIE11 from "helpers/browser/isIE11";
 
 const FlexItem = ({
   alignSelf = "auto",
@@ -15,22 +17,29 @@ const FlexItem = ({
   overflow = "auto",
   paddingBottom = "spacing0",
   paddingTop = "spacing0"
-}: FlexItemProps): JSX.Element => (
-  <FlexItem.Container
-    alignSelf={alignSelf}
-    className={className}
-    data-cy={dataCy}
-    data-testid={dataTestId || "FlexItem"}
-    flex={flex}
-    height={height}
-    order={order}
-    overflow={overflow}
-    paddingBottom={paddingBottom}
-    paddingTop={paddingTop}
-  >
-    {children}
-  </FlexItem.Container>
-);
+}: FlexItemProps): JSX.Element => {
+  const getWidth: () => string = useCallback((): string => {
+    return flex.split(" ").splice(-1)[0];
+  }, [flex]);
+
+  return (
+    <FlexItem.Container
+      alignSelf={alignSelf}
+      className={className}
+      data-cy={dataCy}
+      data-testid={dataTestId || "FlexItem"}
+      flex={flex}
+      height={height}
+      order={order}
+      overflow={isIE11() ? "hidden" : overflow}
+      paddingBottom={paddingBottom}
+      paddingTop={paddingTop}
+      width={getWidth()}
+    >
+      {children}
+    </FlexItem.Container>
+  );
+};
 
 FlexItem.Container = styled.div<FlexItemProps>`
   ${({
@@ -41,7 +50,8 @@ FlexItem.Container = styled.div<FlexItemProps>`
     overflow,
     paddingBottom,
     paddingTop,
-    theme: { spacing }
+    theme: { spacing },
+    width
   }): FlattenSimpleInterpolation => css`
     align-self: ${alignSelf};
     flex: ${flex};
@@ -52,6 +62,12 @@ FlexItem.Container = styled.div<FlexItemProps>`
     paddingBottom};
     padding-top: ${(paddingTop in spacing && spacing[paddingTop]) ||
     paddingTop};
+
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      /* IE10+ CSS */
+      flex: none;
+      width: ${width};
+    }
   `};
 `;
 

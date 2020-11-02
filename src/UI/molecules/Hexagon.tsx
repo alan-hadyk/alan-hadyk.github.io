@@ -8,6 +8,8 @@ import {
   HexagonProps
 } from "UI/molecules/__typings__/Hexagon";
 
+import isIE11 from "helpers/browser/isIE11";
+
 const Hexagon = ({
   children,
   contentWidth = "100%",
@@ -19,7 +21,12 @@ const Hexagon = ({
     {fill === "pattern" ? (
       <Icon iconName="hexagonWithPattern" />
     ) : (
-      <Icon iconName="hexagon" isActive={fill === "solid"} shouldGlow />
+      <Icon
+        height={isIE11() && "spacing16"}
+        iconName="hexagon"
+        isActive={fill === "solid"}
+        shouldGlow
+      />
     )}
 
     {children && (

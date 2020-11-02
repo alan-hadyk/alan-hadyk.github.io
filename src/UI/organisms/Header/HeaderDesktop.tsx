@@ -14,6 +14,10 @@ import SpacingContainer from "UI/layout/SpacingContainer";
 import Backdrop from "UI/atoms/Backdrop";
 import { HeaderMobileProps } from "UI/organisms/Header/__typings__/HeaderMobile";
 
+import spacing from "styles/variables/spacing";
+
+import isIE11 from "helpers/browser/isIE11";
+
 const HeaderDesktop = ({
   isMenuVisible,
   onCVButtonClick,
@@ -38,6 +42,7 @@ const HeaderDesktop = ({
         buttonText="cv"
         dataCy="CvButton"
         iconName="btnDownload"
+        iconWidth={isIE11() && `${spacing.spacing24}`}
         onClick={onCVButtonClick}
         size="medium"
       />

@@ -34,7 +34,7 @@ const MenuIcons = (): JSX.Element => (
         iconName={iconName}
         isExternal
         key={iconName}
-        width={isIE11 && `${spacing.spacing48}`}
+        width={isIE11() && `${spacing.spacing48}`}
       />
     ))}
   </Fragment>

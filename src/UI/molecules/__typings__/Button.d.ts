@@ -8,6 +8,10 @@ export interface ButtonContainerProps {
   width?: "auto" | "100%";
 }
 
+export interface ButtonInnerContainerProps {
+  size?: "small" | "medium" | "large";
+}
+
 export interface ButtonInnnerContainerPositions {
   x: number;
   y: number;
@@ -18,6 +22,7 @@ export interface ButtonProps {
   dataCy?: string;
   dataTestId?: string;
   iconName?: "btnCodeSandbox" | "btnDownload" | "btnExternalLink";
+  iconWidth?: string;
   onClick?: () => unknown;
   size?: "small" | "medium" | "large";
   type?: "primary" | "secondary";

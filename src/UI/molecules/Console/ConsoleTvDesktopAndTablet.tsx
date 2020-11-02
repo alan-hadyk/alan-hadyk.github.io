@@ -65,6 +65,15 @@ ConsoleTvDesktopAndTablet.Container = styled.div`
     padding: 1.11vh 0.62vw;
     position: relative;
     width: 100%;
+
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      /* IE10+ CSS */
+      &:after {
+        content: "";
+        font-size: 0;
+        min-height: inherit;
+      }
+    }
   `};
 `;
 

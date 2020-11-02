@@ -10,6 +10,9 @@ import FlexContainer from "UI/layout/FlexContainer";
 import Responsive from "UI/layout/Responsive";
 
 import { transparentize } from "polished";
+import spacing from "styles/variables/spacing";
+
+import isIE11 from "helpers/browser/isIE11";
 
 import {
   SideMenuContainerProps,
@@ -54,6 +57,7 @@ const SideMenu = ({
             buttonText="cv"
             dataCy="CvButton"
             iconName="btnDownload"
+            iconWidth={isIE11() && `${spacing.spacing24}`}
             onClick={onCVButtonClick}
             size="medium"
             width="100%"

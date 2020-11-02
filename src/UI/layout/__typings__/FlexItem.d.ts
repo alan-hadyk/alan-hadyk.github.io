@@ -16,4 +16,5 @@ export interface FlexItemProps {
   overflow?: string;
   paddingBottom?: Spacing | string;
   paddingTop?: Spacing | string;
+  width?: string;
 }

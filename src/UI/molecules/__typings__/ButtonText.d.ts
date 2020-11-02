@@ -1,10 +1,15 @@
-import { FontSizes } from "styles/variables/__typings__/variables";
+import {
+  FontFamilies,
+  FontSizes
+} from "styles/variables/__typings__/variables";
 
 export interface ButtonTextProps {
   buttonText: string;
   dataTestId?: string;
+  fontFamily?: FontFamilies;
   hasMargin?: boolean;
   size: "small" | "medium" | "large";
+  textTransform?: "none" | "lowercase" | "uppercase" | "capitalize";
 }
 
 export interface TextProps {

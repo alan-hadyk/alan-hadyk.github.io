@@ -10,6 +10,10 @@ import SpacingContainer from "UI/layout/SpacingContainer";
 
 import { HeaderTvProps } from "UI/organisms/Header/__typings__/HeaderTv";
 
+import spacing from "styles/variables/spacing";
+
+import isIE11 from "helpers/browser/isIE11";
+
 const HeaderTv = ({ onCVButtonClick }: HeaderTvProps): JSX.Element => (
   <Responsive dataTestTvId="HeaderTv" devices={["tv"]}>
     <FlexContainer
@@ -30,6 +34,7 @@ const HeaderTv = ({ onCVButtonClick }: HeaderTvProps): JSX.Element => (
         buttonText="cv"
         dataCy="CvButton"
         iconName="btnDownload"
+        iconWidth={isIE11() && `${spacing.spacing24}`}
         onClick={onCVButtonClick}
         size="medium"
       />

@@ -14,6 +14,10 @@ import {
 
 import { Spacing } from "styles/variables/__typings__/variables";
 
+import spacing from "styles/variables/spacing";
+
+import isIE11 from "helpers/browser/isIE11";
+
 export const mapSizeToIconHeight: MapSizeToIconHeight = {
   large: "spacing40",
   medium: "spacing32",
@@ -50,6 +54,7 @@ function IconWithLabel({
         <Icon
           height={mapSizeToIconHeight[size]}
           iconName={iconName}
+          width={isIE11() && `${spacing.spacing28}`}
           isHeightResponsive
         />
       </SpacingContainer>

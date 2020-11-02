@@ -18,8 +18,10 @@ const mapSizeToButtonTextProps: MapSizeToButtonTextProps = {
 function ButtonText({
   buttonText,
   dataTestId,
+  fontFamily,
   hasMargin = true,
-  size
+  size,
+  textTransform
 }: ButtonTextProps): JSX.Element {
   const buttonTextProps: TextProps = mapSizeToButtonTextProps[size];
   const getMarginRight: () => string = useCallback((): string => {
@@ -35,7 +37,12 @@ function ButtonText({
       dataTestId={dataTestId || "ButtonText"}
       marginRight={getMarginRight()}
     >
-      <Text {...buttonTextProps} fontFamily="Exan" color="white">
+      <Text
+        {...buttonTextProps}
+        fontFamily={fontFamily}
+        color="white"
+        textTransform={textTransform}
+      >
         {buttonText}
       </Text>
     </SpacingContainer>
