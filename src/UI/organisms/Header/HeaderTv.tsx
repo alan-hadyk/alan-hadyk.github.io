@@ -8,7 +8,9 @@ import Responsive from "UI/layout/Responsive";
 import FlexContainer from "UI/layout/FlexContainer";
 import SpacingContainer from "UI/layout/SpacingContainer";
 
-const HeaderTv = (): JSX.Element => (
+import { HeaderTvProps } from "UI/organisms/Header/__typings__/HeaderTv";
+
+const HeaderTv = ({ onCVButtonClick }: HeaderTvProps): JSX.Element => (
   <Responsive dataTestTvId="HeaderTv" devices={["tv"]}>
     <FlexContainer
       dataTestId="HeaderTvFlexContainer"
@@ -19,12 +21,18 @@ const HeaderTv = (): JSX.Element => (
     >
       <SpacingContainer
         dataTestId="HeaderTvSpacingContainer"
-        paddingRight="spacing24"
+        marginRight="spacing24"
       >
         <Nav />
       </SpacingContainer>
 
-      <Button buttonText="resume" iconName="btnDownload" size="medium" />
+      <Button
+        buttonText="cv"
+        dataCy="CvButton"
+        iconName="btnDownload"
+        onClick={onCVButtonClick}
+        size="medium"
+      />
 
       <MenuIcons />
     </FlexContainer>

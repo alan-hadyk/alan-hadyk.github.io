@@ -1,5 +1,5 @@
 import React from "react";
-import { RenderResult } from "@testing-library/react";
+import { RenderResult, act, fireEvent } from "@testing-library/react";
 
 import SideMenu from "UI/organisms/SideMenu";
 
@@ -12,7 +12,7 @@ jest.mock("hooks/useIntersectionObserver");
 describe("organisms / SideMenu", () => {
   test("should have correct structure", () => {
     const {
-      Button,
+      Buttons,
       MenuIcons,
       Navs,
       ResponsiveMobile,
@@ -22,7 +22,7 @@ describe("organisms / SideMenu", () => {
       SideMenuInnerSpacingContainer,
       SideMenuMobileFlexContainers,
       SideMenuMobileSpacingContainers,
-      SideMenuOuterFlexContainer,
+      SideMenuNavSpacingContainers,
       SideMenuOuterSpacingContainer
     } = setup();
 
@@ -33,28 +33,37 @@ describe("organisms / SideMenu", () => {
     // Mobile
     expect(SideMenuOuterSpacingContainer.children[0]).toEqual(ResponsiveMobile);
     expect(ResponsiveMobile.children[0]).toEqual(
-      SideMenuMobileFlexContainers[0]
-    );
-    expect(SideMenuMobileFlexContainers[0].children[0]).toEqual(
       SideMenuMobileSpacingContainers[0]
     );
-    expect(SideMenuMobileSpacingContainers[0].children[0]).toEqual(Navs[0]);
+
+    expect(SideMenuMobileSpacingContainers[0].children[0]).toEqual(
+      SideMenuMobileFlexContainers[0]
+    );
+
+    expect(SideMenuMobileSpacingContainers[0].children[1]).toEqual(Buttons[0]);
+
+    expect(SideMenuMobileFlexContainers[0].children[0]).toEqual(
+      SideMenuNavSpacingContainers[0]
+    );
+    expect(SideMenuNavSpacingContainers[0].children[0]).toEqual(Navs[0]);
 
     // Tablet
     expect(SideMenuOuterSpacingContainer.children[1]).toEqual(ResponsiveTablet);
     expect(ResponsiveTablet.children[0]).toEqual(
-      SideMenuMobileFlexContainers[1]
-    );
-    expect(SideMenuMobileFlexContainers[1].children[0]).toEqual(
       SideMenuMobileSpacingContainers[1]
     );
-    expect(SideMenuMobileSpacingContainers[1].children[0]).toEqual(Navs[1]);
+    expect(SideMenuMobileSpacingContainers[1].children[0]).toEqual(
+      SideMenuMobileFlexContainers[1]
+    );
+
+    expect(SideMenuMobileSpacingContainers[1].children[1]).toEqual(Buttons[1]);
+
+    expect(SideMenuMobileFlexContainers[1].children[0]).toEqual(
+      SideMenuNavSpacingContainers[1]
+    );
+    expect(SideMenuNavSpacingContainers[1].children[0]).toEqual(Navs[1]);
 
     expect(SideMenuOuterSpacingContainer.children[2]).toEqual(
-      SideMenuOuterFlexContainer
-    );
-    expect(SideMenuOuterFlexContainer.children[0]).toEqual(Button);
-    expect(SideMenuOuterFlexContainer.children[1]).toEqual(
       SideMenuInnerSpacingContainer
     );
     expect(SideMenuInnerSpacingContainer.children[0]).toEqual(
@@ -251,25 +260,33 @@ describe("organisms / SideMenu", () => {
       });
     });
 
-    describe("SideMenuInnerSpacingContainer", () => {
+    describe("SideMenuNavSpacingContainers", () => {
       describe("Props", () => {
-        describe("paddingBottom", () => {
+        describe("marginBottom", () => {
           test("should have 2.4rem", () => {
-            const { SideMenuInnerSpacingContainer } = setup();
+            const { SideMenuNavSpacingContainers } = setup();
 
-            expect(SideMenuInnerSpacingContainer).toHaveStyleRule(
-              "padding-bottom",
-              "2.4rem"
+            SideMenuNavSpacingContainers.forEach(
+              (SideMenuNavSpacingContainer) => {
+                expect(SideMenuNavSpacingContainer).toHaveStyleRule(
+                  "margin-bottom",
+                  "2.4rem"
+                );
+              }
             );
           });
         });
+      });
+    });
 
-        describe("paddingTop", () => {
+    describe("SideMenuInnerSpacingContainer", () => {
+      describe("Props", () => {
+        describe("marginBottom", () => {
           test("should have 2.4rem", () => {
             const { SideMenuInnerSpacingContainer } = setup();
 
             expect(SideMenuInnerSpacingContainer).toHaveStyleRule(
-              "padding-top",
+              "margin-bottom",
               "2.4rem"
             );
           });
@@ -307,32 +324,6 @@ describe("organisms / SideMenu", () => {
                   "flex-end"
                 );
               }
-            );
-          });
-        });
-      });
-    });
-
-    describe("SideMenuOuterFlexContainer", () => {
-      describe("Props", () => {
-        describe("flexFlow", () => {
-          test("should have column nowrap", () => {
-            const { SideMenuOuterFlexContainer } = setup();
-
-            expect(SideMenuOuterFlexContainer).toHaveStyleRule(
-              "flex-flow",
-              "column nowrap"
-            );
-          });
-        });
-
-        describe("justifyContent", () => {
-          test("should have center", () => {
-            const { SideMenuOuterFlexContainer } = setup();
-
-            expect(SideMenuOuterFlexContainer).toHaveStyleRule(
-              "justify-content",
-              "center"
             );
           });
         });
@@ -390,25 +381,33 @@ describe("organisms / SideMenu", () => {
     });
   });
 
-  describe("Button", () => {
+  describe("Buttons", () => {
     describe("Props", () => {
       describe("buttonText", () => {
-        test("should have resume", () => {
-          const { Button } = setup();
+        test("should have cv", () => {
+          const { Buttons } = setup();
 
-          const buttonText = Button.querySelector("[font-family=\"Exan\"]");
+          const firstButtonText = Buttons[0].querySelector(
+            "[font-family=\"Exan\"]"
+          );
+          const secondButtonText = Buttons[1].querySelector(
+            "[font-family=\"Exan\"]"
+          );
 
-          expect(buttonText.textContent).toEqual("resume");
+          expect(firstButtonText.textContent).toEqual("cv");
+          expect(secondButtonText.textContent).toEqual("cv");
         });
       });
 
       describe("iconName", () => {
         test("should have Btn-Download.svg", () => {
-          const { Button } = setup();
+          const { Buttons } = setup();
 
-          const buttonIcon = Button.querySelector("svg");
+          const firstButtonIcon = Buttons[0].querySelector("svg");
+          const secondButtonIcon = Buttons[1].querySelector("svg");
 
-          expect(buttonIcon.textContent).toEqual("Btn-Download.svg");
+          expect(firstButtonIcon.textContent).toEqual("Btn-Download.svg");
+          expect(secondButtonIcon.textContent).toEqual("Btn-Download.svg");
         });
       });
 
@@ -416,9 +415,11 @@ describe("organisms / SideMenu", () => {
         describe("should have medium", () => {
           describe("height", () => {
             test("should have 4.8rem", () => {
-              const { Button } = setup();
+              const { Buttons } = setup();
 
-              expect(Button).toHaveStyleRule("height", "4.8rem");
+              Buttons.forEach((Button) => {
+                expect(Button).toHaveStyleRule("height", "4.8rem");
+              });
             });
           });
         });
@@ -426,9 +427,35 @@ describe("organisms / SideMenu", () => {
 
       describe("width", () => {
         describe("should have 100%", () => {
-          const { Button } = setup();
+          const { Buttons } = setup();
 
-          expect(Button).toHaveStyleRule("width", "100%");
+          Buttons.forEach((Button) => {
+            expect(Button).toHaveStyleRule("width", "100%");
+          });
+        });
+      });
+    });
+
+    describe("Event handlers", () => {
+      describe("onClick", () => {
+        test("should fire onCVButtonClick", () => {
+          const onCVButtonClick = jest.fn();
+
+          const { Buttons } = setup({ onCVButtonClick });
+
+          expect(onCVButtonClick).toHaveBeenCalledTimes(0);
+
+          act(() => {
+            fireEvent.mouseUp(Buttons[0]);
+          });
+
+          expect(onCVButtonClick).toHaveBeenCalledTimes(1);
+
+          act(() => {
+            fireEvent.mouseUp(Buttons[1]);
+          });
+
+          expect(onCVButtonClick).toHaveBeenCalledTimes(2);
         });
       });
     });
@@ -454,7 +481,7 @@ describe("organisms / SideMenu", () => {
 });
 
 interface Setup extends RenderResult {
-  Button: Element;
+  Buttons: Element[];
   MenuIcons: Element[];
   Navs: Element[];
   ResponsiveMobile: Element;
@@ -464,22 +491,18 @@ interface Setup extends RenderResult {
   SideMenuInnerSpacingContainer: Element;
   SideMenuMobileFlexContainers: Element[];
   SideMenuMobileSpacingContainers: Element[];
-  SideMenuOuterFlexContainer: Element;
+  SideMenuNavSpacingContainers: Element[];
   SideMenuOuterSpacingContainer: Element;
 }
 
 type SideMenuTestProps = Partial<SideMenuProps>;
 
-function setup(additionalProps?: SideMenuTestProps): Setup {
-  const props: SideMenuProps = {
-    ...additionalProps
-  };
-
+function setup(props?: SideMenuTestProps): Setup {
   const utils: RenderResult = renderWithTheme(<SideMenu {...props} />);
 
   const { queryAllByTestId }: RenderResult = utils;
 
-  const Button: Element = queryAllByTestId("Button")[0];
+  const Buttons: Element[] = queryAllByTestId("Button");
   const MenuIcons: Element[] = queryAllByTestId("MenuIcons");
   const Navs: Element[] = queryAllByTestId("Nav");
   const ResponsiveMobile: Element = queryAllByTestId("ResponsiveMobile")[0];
@@ -497,16 +520,16 @@ function setup(additionalProps?: SideMenuTestProps): Setup {
   const SideMenuMobileSpacingContainers: Element[] = queryAllByTestId(
     "SideMenuMobileSpacingContainer"
   );
-  const SideMenuOuterFlexContainer: Element = queryAllByTestId(
-    "SideMenuOuterFlexContainer"
-  )[0];
+  const SideMenuNavSpacingContainers: Element[] = queryAllByTestId(
+    "SideMenuNavSpacingContainer"
+  );
   const SideMenuOuterSpacingContainer: Element = queryAllByTestId(
     "SideMenuOuterSpacingContainer"
   )[0];
 
   return {
     ...utils,
-    Button,
+    Buttons,
     MenuIcons,
     Navs,
     ResponsiveMobile,
@@ -516,7 +539,7 @@ function setup(additionalProps?: SideMenuTestProps): Setup {
     SideMenuInnerSpacingContainer,
     SideMenuMobileFlexContainers,
     SideMenuMobileSpacingContainers,
-    SideMenuOuterFlexContainer,
+    SideMenuNavSpacingContainers,
     SideMenuOuterSpacingContainer
   };
 }

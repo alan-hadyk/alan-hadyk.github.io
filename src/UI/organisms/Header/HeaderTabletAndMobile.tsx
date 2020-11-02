@@ -11,6 +11,7 @@ import { HeaderMobileProps } from "UI/organisms/Header/__typings__/HeaderMobile"
 
 const HeaderTabletAndMobile = ({
   isMenuVisible,
+  onCVButtonClick,
   onClick
 }: HeaderMobileProps): JSX.Element => (
   <Responsive
@@ -22,7 +23,7 @@ const HeaderTabletAndMobile = ({
 
     {isMenuVisible && <Backdrop onClick={onClick} />}
 
-    <SideMenu isExpanded={isMenuVisible} />
+    <SideMenu isExpanded={isMenuVisible} onCVButtonClick={onCVButtonClick} />
   </Responsive>
 );
 
