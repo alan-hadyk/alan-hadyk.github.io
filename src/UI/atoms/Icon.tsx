@@ -103,7 +103,6 @@ function Icon({
   shouldDisplayGlowAnimation = false,
   shouldGlow = false,
   shouldGlowOnHover = false,
-  shouldRotate = false,
   width = "auto"
 }: IconProps): JSX.Element {
   const iconComponents: IconComponents = {
@@ -205,7 +204,6 @@ function Icon({
       shouldDisplayGlowAnimation={shouldDisplayGlowAnimation}
       shouldGlow={shouldGlow}
       shouldGlowOnHover={shouldGlowOnHover}
-      shouldRotate={shouldRotate}
       width={width}
     >
       <IconComponent />
@@ -225,11 +223,10 @@ Icon.Container = styled.div<IconContainerProps>`
     shouldDisplayGlowAnimation,
     shouldGlow,
     shouldGlowOnHover,
-    shouldRotate,
     theme: {
       colorPalette: { blue300, white },
-      easing: { easeInOut, linear },
-      keyframes: { glow, rotate },
+      easing: { easeInOut },
+      keyframes: { glow },
       spacing,
       transitionTimes
     },
@@ -242,14 +239,6 @@ Icon.Container = styled.div<IconContainerProps>`
     svg {
       height: ${isResponsive || isHeightResponsive ? "100%" : "auto"};
       width: ${isResponsive && !isHeightResponsive ? "100%" : "auto"};
-
-      ${shouldRotate &&
-      css`
-        animation-duration: ${transitionTimes.verySlow};
-        animation-iteration-count: infinite;
-        animation-name: ${rotate};
-        animation-timing-function: ${linear};
-      `}
 
       ${isActive &&
       css`
