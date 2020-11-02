@@ -15,7 +15,7 @@ const NoMatchPageTemplate = ({
   </NoMatchPageTemplate.Container>
 );
 
-NoMatchPageTemplate.Container = styled.main`
+NoMatchPageTemplate.Container = styled.div`
   ${({
     theme: {
       breakpoints: { breakpoint640, breakpoint641, breakpoint1280 },

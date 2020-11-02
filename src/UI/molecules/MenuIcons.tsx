@@ -4,6 +4,10 @@ import LinkWithIcon from "UI/molecules/LinkWithIcon";
 
 import { LinkWithIconProps } from "UI/molecules/__typings__/LinkWithIcon";
 
+import spacing from "styles/variables/spacing";
+
+import isIE11 from "helpers/browser/isIE11";
+
 const icons: LinkWithIconProps[] = [
   {
     href: "https://github.com/alan-hadyk",
@@ -26,10 +30,11 @@ const MenuIcons = (): JSX.Element => (
         dataCy={iconName}
         dataTestId="MenuIcons"
         height="spacing48"
-        key={iconName}
         href={href}
         iconName={iconName}
         isExternal
+        key={iconName}
+        width={isIE11 && `${spacing.spacing48}`}
       />
     ))}
   </Fragment>

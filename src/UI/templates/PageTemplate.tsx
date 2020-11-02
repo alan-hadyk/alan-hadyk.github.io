@@ -9,7 +9,7 @@ const PageTemplate = ({ children }: PageTemplateProps): JSX.Element => (
   </PageTemplate.Container>
 );
 
-PageTemplate.Container = styled.main`
+PageTemplate.Container = styled.div`
   ${({
     theme: {
       breakpoints: { breakpoint640, breakpoint1920 },

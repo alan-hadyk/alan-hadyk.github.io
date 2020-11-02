@@ -96,6 +96,11 @@ SideMenu.Container = styled.div<SideMenuContainerProps>`
     transform: ${isExpanded ? "translateX(0)" : "translateX(100%)"};
     transition: all ${fast} ${easeInOut};
     z-index: ${layer10};
+
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      /* IE10+ CSS */
+      max-width: 300px;
+    }
   `};
 `;
 
