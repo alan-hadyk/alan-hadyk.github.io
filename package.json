@@ -38,7 +38,7 @@
     "@types/detect-browser": "^4.0.0",
     "@types/ip": "^1.1.0",
     "@types/jest": "^26.0.14",
-    "@types/lodash": "^4.14.162",
+    "@types/lodash": "^4.14.164",
     "@types/node": "^14.11.2",
     "@types/node-fetch": "^2.5.7",
     "@types/react": "^16.9.53",
