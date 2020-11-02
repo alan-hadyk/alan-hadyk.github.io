@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import isEmpty from "lodash/isEmpty";
 import isEqual from "lodash/isEqual";
 
-import Loader from "UI/atoms/Loader";
+import Loader from "UI/molecules/Loader";
 import Commit from "UI/molecules/Commit";
 import Error from "UI/molecules/Error";
 import FlexContainer from "UI/layout/FlexContainer";

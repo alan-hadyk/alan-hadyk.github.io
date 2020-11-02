@@ -2,18 +2,28 @@ import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize } from "polished";
 
-import { LoaderLetterProps } from "UI/atoms/__typings__/Loader";
+import FlexContainer from "UI/layout/FlexContainer";
+import PositionContainer from "UI/layout/PositionContainer";
+
+import { LoaderLetterProps } from "UI/molecules/__typings__/Loader";
 
 const Loader = (): JSX.Element => (
-  <Loader.Wrapper>
-    <Loader.Letter animationDelay="1.2s">L</Loader.Letter>
-    <Loader.Letter animationDelay="1.3s">o</Loader.Letter>
-    <Loader.Letter animationDelay="1.4s">a</Loader.Letter>
-    <Loader.Letter animationDelay="1.5s">d</Loader.Letter>
-    <Loader.Letter animationDelay="1.6s">i</Loader.Letter>
-    <Loader.Letter animationDelay="1.7s">n</Loader.Letter>
-    <Loader.Letter animationDelay="1.8s">g</Loader.Letter>
-  </Loader.Wrapper>
+  <PositionContainer height="100%" position="relative">
+    <FlexContainer
+      alignItems="flex-start"
+      flexFlow="row nowrap"
+      height="100%"
+      justifyContent="center"
+    >
+      <Loader.Letter animationDelay="1.2s">L</Loader.Letter>
+      <Loader.Letter animationDelay="1.3s">o</Loader.Letter>
+      <Loader.Letter animationDelay="1.4s">a</Loader.Letter>
+      <Loader.Letter animationDelay="1.5s">d</Loader.Letter>
+      <Loader.Letter animationDelay="1.6s">i</Loader.Letter>
+      <Loader.Letter animationDelay="1.7s">n</Loader.Letter>
+      <Loader.Letter animationDelay="1.8s">g</Loader.Letter>
+    </FlexContainer>
+  </PositionContainer>
 );
 
 Loader.Wrapper = styled.div`
