@@ -30,6 +30,8 @@ const withCommitsState = (
         const data: Response = await fetch(
           "https://api.github.com/repos/alan-hadyk/portfolio/commits"
         );
+
+        console.log("data", data);
         const json: CommitProps[] = await data.json();
 
         if (!data.ok || !Array.isArray(json)) {

@@ -57,7 +57,6 @@ declare module "styled-components" {
       drop: Keyframes;
       glow: Keyframes;
       ripple: Keyframes;
-      rotate: Keyframes;
     };
 
     spacing: {

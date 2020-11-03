@@ -8,31 +8,36 @@ import PositionContainer from "UI/layout/PositionContainer";
 import { LoaderLetterProps } from "UI/molecules/__typings__/Loader";
 
 const Loader = (): JSX.Element => (
-  <PositionContainer height="100%" position="relative">
+  <PositionContainer dataTestId="Loader" height="100%" position="relative">
     <FlexContainer
-      alignItems="flex-start"
+      alignItems="center"
       flexFlow="row nowrap"
       height="100%"
       justifyContent="center"
     >
-      <Loader.Letter animationDelay="1.2s">L</Loader.Letter>
-      <Loader.Letter animationDelay="1.3s">o</Loader.Letter>
-      <Loader.Letter animationDelay="1.4s">a</Loader.Letter>
-      <Loader.Letter animationDelay="1.5s">d</Loader.Letter>
-      <Loader.Letter animationDelay="1.6s">i</Loader.Letter>
-      <Loader.Letter animationDelay="1.7s">n</Loader.Letter>
-      <Loader.Letter animationDelay="1.8s">g</Loader.Letter>
+      <Loader.Spinner />
     </FlexContainer>
   </PositionContainer>
 );
 
-Loader.Wrapper = styled.div`
-  align-items: flex-start;
-  display: flex;
-  flex-flow: row nowrap;
-  height: 100%;
-  justify-content: center;
-  position: relative;
+Loader.Spinner = styled.div`
+  animation: rotation 900ms linear infinite;
+  border: 0.75vh solid;
+  border-color: #78b0b5 transparent;
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 12vh;
+  width: 12vh;
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 `;
 
 Loader.Letter = styled.span<LoaderLetterProps>`

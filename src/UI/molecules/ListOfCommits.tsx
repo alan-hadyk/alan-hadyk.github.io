@@ -19,6 +19,7 @@ function ListOfCommits({
   commitsList,
   hasError
 }: ListOfCommitsProps): JSX.Element {
+  return <Loader />;
   if (hasError) {
     return <Error title="Error" description="Github API is offline" />;
   } else {
