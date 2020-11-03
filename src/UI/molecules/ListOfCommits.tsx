@@ -1,7 +1,6 @@
-import React, { memo } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import isEmpty from "lodash/isEmpty";
-import isEqual from "lodash/isEqual";
 
 import Loader from "UI/molecules/Loader";
 import Commit from "UI/molecules/Commit";
@@ -17,13 +16,17 @@ import {
 
 function ListOfCommits({
   commitsList,
-  hasError
+  commitsState
 }: ListOfCommitsProps): JSX.Element {
-  return <Loader />;
-  if (hasError) {
+  switch (commitsState) {
+  case "error":
     return <Error title="Error" description="Github API is offline" />;
-  } else {
-    return isEmpty(commitsList) ? <Loader /> : renderCommits();
+
+  case "loaded":
+    return renderCommits();
+
+  default:
+    return <Loader />;
   }
 
   function renderCommits(): JSX.Element {
@@ -72,14 +75,8 @@ ListOfCommits.propTypes = {
       sha: PropTypes.string
     })
   ).isRequired,
-  hasError: PropTypes.bool.isRequired
+  commitsState: PropTypes.oneOf(["error", "idle", "loaded", "loading"])
+    .isRequired
 };
 
-export const arePropsEqual = (
-  prevProps: ListOfCommitsProps,
-  nextProps: ListOfCommitsProps
-): boolean =>
-  isEqual(prevProps.commitsList, nextProps.commitsList) &&
-  prevProps.hasError === nextProps.hasError;
-
-export default memo(ListOfCommits, arePropsEqual);
+export default ListOfCommits;

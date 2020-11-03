@@ -2539,6 +2539,11 @@ acorn@^7.1.1:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.4.0.tgz#e1ad486e6c54501634c6c397c5c121daa383607c"
   integrity sha512-+G7P8jJmCHr+S+cLfQxygbWhXy+8YTVGzAkpEbcLo2mLoL7tij/VG41QSHACSf5QgYRhMZYHuNc6drJaO0Da+w==
 
+add@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/add/-/add-2.0.6.tgz#248f0a9f6e5a528ef2295dbeec30532130ae2235"
+  integrity sha1-JI8Kn25aUo7yKV2+7DBTITCuIjU=
+
 address@1.1.2, address@^1.0.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/address/-/address-1.1.2.tgz#bf1116c9c758c51b7a933d296b72c221ed9428b6"
@@ -10666,6 +10671,13 @@ react-refresh@^0.8.3:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
 
+react-robot@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/react-robot/-/react-robot-0.2.1.tgz#5615a13a9c5bddd663fbd5973790ba3e408368b0"
+  integrity sha512-ULQC0wRqOpScl8wUVs/q9fv7skMFPx3Wm1uq1qjeLJs6+CTbhNS4+yq+2TbI43nbkPC3zYMX80CQcXeV4XW4rw==
+  dependencies:
+    robot-hooks "^0.3.1"
+
 react-router-dom@^5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-5.2.0.tgz#9e65a4d0c45e13289e66c7b17c7e175d0ea15662"
@@ -11231,6 +11243,16 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
   dependencies:
     hash-base "^3.0.0"
     inherits "^2.0.1"
+
+robot-hooks@^0.3.1:
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/robot-hooks/-/robot-hooks-0.3.5.tgz#605e766e1da09317a3f7b94eec0137436209ef21"
+  integrity sha512-25FYYtdofIsmH7Ybo+8x6DltGksYSiaC3gbrbeQ8BFqYzfq12KlKIK0wTHHcc8DM7tkZeEMN7yRVOgPAQqt1RA==
+
+robot3@^0.2.18:
+  version "0.2.18"
+  resolved "https://registry.yarnpkg.com/robot3/-/robot3-0.2.18.tgz#bc920db22b91abb044c4e95289baa877fc3d8288"
+  integrity sha512-0P3HfHVJfPKObpoIciglMefFYhMtdGMRjh5KE5U+NydwrheOnbA3GqlB84Wcy5h6UMseb77MpedUDyKZVIkiug==
 
 rollup-plugin-babel@^4.3.3:
   version "4.4.0"
@@ -13522,6 +13544,11 @@ yargs@^15.4.1:
     which-module "^2.0.0"
     y18n "^4.0.0"
     yargs-parser "^18.1.2"
+
+yarn@^1.22.10:
+  version "1.22.10"
+  resolved "https://registry.yarnpkg.com/yarn/-/yarn-1.22.10.tgz#c99daa06257c80f8fa2c3f1490724e394c26b18c"
+  integrity sha512-IanQGI9RRPAN87VGTF7zs2uxkSyQSrSPsju0COgbsKQOOXr5LtcVPeyXWgwVa0ywG3d8dg6kSYKGBuYK021qeA==
 
 yauzl@^2.10.0:
   version "2.10.0"
