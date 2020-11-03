@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   createMachine,
   immediate,
@@ -7,8 +7,8 @@ import {
   transition,
   reduce
 } from "robot3";
-import { useMachine } from "react-robot";
 import fetch, { Response } from "node-fetch";
+import { createUseMachine } from "robot-hooks";
 
 import { CommitProps } from "UI/molecules/__typings__/Commit";
 import {
@@ -18,20 +18,16 @@ import {
 } from "state/__typings__/withCommitsState";
 
 async function fetchCommits(): Promise<CommitProps[] | Error> {
-  try {
-    const commits: Response = await fetch(
-      "https://api.github.com/repos/alan-hadyk/portfolio/commits"
-    );
+  const commits: Response = await fetch(
+    "https://api.github.com/repos/alan-hadyk/portfolio/commits"
+  );
 
-    const commitsJson: CommitProps[] = await commits.json();
+  const commitsJson: Record<string, unknown> = await commits.json();
 
-    if (!commits.ok || !Array.isArray(commitsJson)) {
-      throw new Error();
-    } else {
-      return commitsJson;
-    }
-  } catch (err) {
-    throw new Error();
+  if (!commits.ok || !Array.isArray(commitsJson)) {
+    throw new Error(JSON.stringify(commitsJson));
+  } else {
+    return commitsJson;
   }
 }
 
@@ -64,6 +60,8 @@ const commitsMachine: CommitsMachine = createMachine(
   })
 );
 
+const useMachine = createUseMachine(useEffect, useState);
+
 const withCommitsState = (
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   WrappedComponent: React.FunctionComponent<any>
@@ -84,5 +82,7 @@ const withCommitsState = (
 
   return ComponentWithCommits;
 };
+
+export { fetchCommits, fetchCommitsPromise, commitsMachine };
 
 export default withCommitsState;
