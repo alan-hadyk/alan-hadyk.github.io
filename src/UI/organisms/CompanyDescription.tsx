@@ -120,6 +120,11 @@ function CompanyDescription({
   }
 }
 
-CompanyDescription.Container = styled.div``;
+CompanyDescription.Container = styled.div`
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    /* IE10+ CSS */
+    width: 100%;
+  }
+`;
 
 export default CompanyDescription;

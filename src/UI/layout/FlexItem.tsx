@@ -16,7 +16,10 @@ const FlexItem = ({
   order = 0,
   overflow = "auto",
   paddingBottom = "spacing0",
-  paddingTop = "spacing0"
+  paddingLeft = "spacing0",
+  paddingRight = "spacing0",
+  paddingTop = "spacing0",
+  shouldApplyWidth = false
 }: FlexItemProps): JSX.Element => {
   const getWidth: () => string = useCallback((): string => {
     return flex.split(" ").splice(-1)[0];
@@ -33,7 +36,10 @@ const FlexItem = ({
       order={order}
       overflow={isIE11() ? "hidden" : overflow}
       paddingBottom={paddingBottom}
+      paddingLeft={paddingLeft}
+      paddingRight={paddingRight}
       paddingTop={paddingTop}
+      shouldApplyWidth={shouldApplyWidth}
       width={getWidth()}
     >
       {children}
@@ -49,8 +55,11 @@ FlexItem.Container = styled.div<FlexItemProps>`
     order,
     overflow,
     paddingBottom,
+    paddingLeft,
+    paddingRight,
     paddingTop,
     theme: { spacing },
+    shouldApplyWidth,
     width
   }): FlattenSimpleInterpolation => css`
     align-self: ${alignSelf};
@@ -60,14 +69,20 @@ FlexItem.Container = styled.div<FlexItemProps>`
     overflow: ${overflow};
     padding-bottom: ${(paddingBottom in spacing && spacing[paddingBottom]) ||
     paddingBottom};
+    padding-left: ${(paddingLeft in spacing && spacing[paddingLeft]) ||
+    paddingLeft};
+    padding-right: ${(paddingRight in spacing && spacing[paddingRight]) ||
+    paddingRight};
     padding-top: ${(paddingTop in spacing && spacing[paddingTop]) ||
     paddingTop};
 
-    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-      /* IE10+ CSS */
-      flex: none;
-      width: ${width};
-    }
+    ${shouldApplyWidth &&
+    `
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        /* IE10+ CSS */
+        flex: none;
+        width: ${width};
+      }`}
   `};
 `;
 

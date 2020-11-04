@@ -9,10 +9,12 @@ export interface FlexContainerProps {
   gap?: Spacing | string;
   height?: Spacing | "unset" | "50%" | "100%";
   justifyContent?: "flex-start" | "flex-end" | "center" | "space-between";
+  margin?: Spacing | string;
   maxWidth?: Spacing | "unset";
 }
 
 export interface CalculateGap {
   flexFlow: FlexContainerProps["flexFlow"];
   gap: FlexContainerProps["gap"];
+  shouldConvertGapToPadding?: boolean;
 }

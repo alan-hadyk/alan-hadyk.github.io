@@ -1,4 +1,5 @@
 import React, { useCallback } from "react";
+// import styled from "styled-components";
 
 import CompanyLogo from "UI/molecules/CompanyLogo";
 
@@ -10,6 +11,7 @@ import FlexItem from "UI/layout/FlexItem";
 import Responsive from "UI/layout/Responsive";
 
 import { CompanyProps } from "UI/organisms/Company/__typings__/Company";
+import isIE11 from "helpers/browser/isIE11";
 
 function CompanyTvDesktopAndTablet({
   date,
@@ -26,7 +28,11 @@ function CompanyTvDesktopAndTablet({
 
   const renderCompanyLogo = useCallback(
     () => (
-      <FlexItem flex="0 0 50%">
+      <FlexItem
+        flex="0 0 50%"
+        paddingRight="spacing40"
+        shouldApplyWidth={isIE11()}
+      >
         <CompanyLogo logo={logo} />
       </FlexItem>
     ),
@@ -35,18 +41,23 @@ function CompanyTvDesktopAndTablet({
 
   return (
     <Responsive devices={["tv", "desktop", "tablet"]}>
+      {/* <CompanyTvDesktopAndTablet.Container> */}
       {renderCompanyTimeline()}
 
       <FlexContainer
         alignItems="flex-start"
         dataTestId="CompanyTvDesktopAndTabletFlexContainer"
         flexFlow="row nowrap"
-        gap="spacing88"
+        margin="0 auto"
         maxWidth="spacing1056"
       >
         {renderCompanyLogo()}
 
-        <FlexItem flex="0 0 50%">
+        <FlexItem
+          flex="0 0 50%"
+          paddingLeft="spacing40"
+          shouldApplyWidth={isIE11()}
+        >
           <CompanyDescription
             date={date}
             iconsWithLabels={iconsWithLabels}
@@ -55,8 +66,15 @@ function CompanyTvDesktopAndTablet({
           />
         </FlexItem>
       </FlexContainer>
+      {/* </CompanyTvDesktopAndTablet.Container> */}
     </Responsive>
   );
 }
+
+// CompanyTvDesktopAndTablet.Container = styled.div`
+//   margin: 0 auto;
+//   max-width: 1056px;
+//   width: 100%;
+// `;
 
 export default CompanyTvDesktopAndTablet;

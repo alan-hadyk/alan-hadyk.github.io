@@ -7,6 +7,8 @@ import { CompanyLogoProps } from "UI/molecules/__typings__/CompanyLogo";
 
 import isIE11 from "helpers/browser/isIE11";
 
+import spacing from "styles/variables/spacing";
+
 const CompanyLogo = ({ logo }: CompanyLogoProps): JSX.Element => (
   <FlexContainer
     alignItems="flex-start"
@@ -20,6 +22,7 @@ const CompanyLogo = ({ logo }: CompanyLogoProps): JSX.Element => (
       iconName={logo}
       isHeightResponsive
       overflow={isIE11() ? "hidden" : "visible"}
+      width={isIE11() && `${spacing.spacing48}`}
     />
   </FlexContainer>
 );
