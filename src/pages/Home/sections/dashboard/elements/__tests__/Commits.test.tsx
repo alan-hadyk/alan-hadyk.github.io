@@ -8,21 +8,45 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 import { ListOfCommitsProps } from "UI/molecules/__typings__/ListOfCommits";
 
 describe("pages / Home / sections / dashboard / elements / Commits", () => {
-  test("should have correct structure if has no error", () => {
-    const { DashboardElement, ListOfCommits } = setup();
+  test("should have correct structure if commitsState is loaded", () => {
+    const { DashboardElement, ListOfCommits } = setup({
+      commitsState: "loaded"
+    });
 
     expect(
       DashboardElement.children[1].children[0].children[0].children[0]
     ).toEqual(ListOfCommits);
   });
 
-  test("should have correct structure if has an error", () => {
-    const { Error, DashboardElement } = setup({ hasError: true });
+  test("should have correct structure if commitsState is error", () => {
+    const { Error, DashboardElement } = setup({
+      commitsState: "error"
+    });
 
     expect(
       DashboardElement.children[1].children[0].children[4].children[0]
         .children[0]
     ).toEqual(Error);
+  });
+
+  test("should have correct structure if commitsState is idle", () => {
+    const { Loader, DashboardElement } = setup({
+      commitsState: "idle"
+    });
+
+    expect(
+      DashboardElement.children[1].children[0].children[0].children[0]
+    ).toEqual(Loader);
+  });
+
+  test("should have correct structure if commitsState is loading", () => {
+    const { Loader, DashboardElement } = setup({
+      commitsState: "loading"
+    });
+
+    expect(
+      DashboardElement.children[1].children[0].children[0].children[0]
+    ).toEqual(Loader);
   });
 
   describe("DashboardElement", () => {
@@ -47,9 +71,9 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
       });
 
       describe("shouldDisplayCorners", () => {
-        test("should render corners if has an error", () => {
+        test("should render corners if commitsState is error", () => {
           const { Corners, DashboardElement } = setup({
-            hasError: true
+            commitsState: "error"
           });
 
           expect(DashboardElement.children[1].children[0].children[0]).toEqual(
@@ -66,9 +90,31 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
           );
         });
 
-        test("should not render corners if has no error", () => {
+        test("should not render corners if commitsState is idle", () => {
           const { Corners } = setup({
-            hasError: false
+            commitsState: "idle"
+          });
+
+          expect(Corners[0]).toBeFalsy();
+          expect(Corners[1]).toBeFalsy();
+          expect(Corners[2]).toBeFalsy();
+          expect(Corners[3]).toBeFalsy();
+        });
+
+        test("should not render corners if commitsState is loaded", () => {
+          const { Corners } = setup({
+            commitsState: "loaded"
+          });
+
+          expect(Corners[0]).toBeFalsy();
+          expect(Corners[1]).toBeFalsy();
+          expect(Corners[2]).toBeFalsy();
+          expect(Corners[3]).toBeFalsy();
+        });
+
+        test("should not render corners if commitsState is loading", () => {
+          const { Corners } = setup({
+            commitsState: "loading"
           });
 
           expect(Corners[0]).toBeFalsy();
@@ -297,9 +343,9 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
       });
 
       describe("hasError", () => {
-        test("should render Error if hasError is true", () => {
+        test("should render Error if commitsState is error", () => {
           const { Error, DashboardElement } = setup({
-            hasError: true
+            commitsState: "error"
           });
 
           expect(
@@ -308,9 +354,25 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
           ).toEqual(Error);
         });
 
-        test("should not render Error if hasError is false", () => {
+        test("should not render Error if commitsState is idle", () => {
           const { Error } = setup({
-            hasError: false
+            commitsState: "idle"
+          });
+
+          expect(Error).toBeFalsy();
+        });
+
+        test("should not render Error if commitsState is loaded", () => {
+          const { Error } = setup({
+            commitsState: "loaded"
+          });
+
+          expect(Error).toBeFalsy();
+        });
+
+        test("should not render Error if commitsState is loading", () => {
+          const { Error } = setup({
+            commitsState: "loading"
           });
 
           expect(Error).toBeFalsy();
@@ -325,6 +387,7 @@ interface Setup extends RenderResult {
   DashboardElement: Element;
   Error: Element;
   ListOfCommits: Element;
+  Loader: Element;
 }
 
 type ListOfCommitsTestProps = Partial<ListOfCommitsProps>;
@@ -343,7 +406,7 @@ function setup(additionalProps?: ListOfCommitsTestProps): Setup {
         sha: "4380d5d391eee216e651d34700a331ec501c2964"
       }
     ],
-    hasError: false
+    commitsState: "loaded"
   };
 
   const props: ListOfCommitsProps = { ...defaultProps, ...additionalProps };
@@ -356,12 +419,14 @@ function setup(additionalProps?: ListOfCommitsTestProps): Setup {
   const DashboardElement: Element = queryByTestId("Commits");
   const Error: Element = queryByTestId("Error");
   const ListOfCommits: Element = queryByTestId("ListOfCommits");
+  const Loader: Element = queryAllByTestId("Loader")[0];
 
   return {
     ...utils,
     Corners,
     DashboardElement,
     Error,
-    ListOfCommits
+    ListOfCommits,
+    Loader
   };
 }

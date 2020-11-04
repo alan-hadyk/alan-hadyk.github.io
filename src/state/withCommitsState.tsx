@@ -7,8 +7,9 @@ import {
   transition,
   reduce
 } from "robot3";
-import fetch, { Response } from "node-fetch";
 import { createUseMachine } from "robot-hooks";
+
+import { fetchCommits } from "api";
 
 import { CommitProps } from "UI/molecules/__typings__/Commit";
 import {
@@ -16,20 +17,6 @@ import {
   ComponentWithCommitsType,
   CreateMachineContext
 } from "state/__typings__/withCommitsState";
-
-async function fetchCommits(): Promise<CommitProps[] | Error> {
-  const commits: Response = await fetch(
-    "https://api.github.com/repos/alan-hadyk/portfolio/commits"
-  );
-
-  const commitsJson: Record<string, unknown> = await commits.json();
-
-  if (!commits.ok || !Array.isArray(commitsJson)) {
-    throw new Error(JSON.stringify(commitsJson));
-  } else {
-    return commitsJson;
-  }
-}
 
 const fetchCommitsPromise = (): Promise<CommitProps[] | Error> =>
   fetchCommits();
@@ -83,6 +70,6 @@ const withCommitsState = (
   return ComponentWithCommits;
 };
 
-export { fetchCommits, fetchCommitsPromise, commitsMachine };
+export { commitsMachine };
 
 export default withCommitsState;

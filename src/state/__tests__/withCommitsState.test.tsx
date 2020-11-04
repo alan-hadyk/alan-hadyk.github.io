@@ -1,10 +1,7 @@
 import React from "react";
 import { act, RenderResult } from "@testing-library/react";
 
-import withCommitsState, {
-  fetchCommits,
-  commitsMachine
-} from "state/withCommitsState";
+import withCommitsState, { commitsMachine } from "state/withCommitsState";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 import {
@@ -44,61 +41,6 @@ afterEach(() => {
 });
 
 describe("state / withCommitsState", () => {
-  describe("fetchCommits", () => {
-    test("should return an array of commits if GitHub API call's status is 200", async () => {
-      const spyFetch = jest.fn();
-      const mockFetch = (fetch as unknown) as jest.Mock;
-
-      mockFetch.mockImplementation((args) => {
-        spyFetch(args);
-
-        return new Response(JSON.stringify(commitsList), {
-          status: 200
-        });
-      });
-
-      const fetchCommitsResult = await fetchCommits();
-
-      expect(spyFetch).toHaveBeenCalledWith(
-        "https://api.github.com/repos/alan-hadyk/portfolio/commits"
-      );
-      expect(fetchCommitsResult).toEqual(commitsList);
-    });
-
-    test("should return an error if GitHub API call fails", async () => {
-      const mockFetch = (fetch as unknown) as jest.Mock;
-
-      mockFetch.mockImplementation(() => {
-        return new Response(
-          JSON.stringify({
-            documentation_url:
-              "https://docs.github.com/rest/reference/repos#list-commits",
-            message: "Not Found"
-          }),
-          {
-            status: 404
-          }
-        );
-      });
-
-      try {
-        await fetchCommits();
-
-        expect(true).toBe(false);
-      } catch (error) {
-        expect(error).toEqual(
-          new Error(
-            JSON.stringify({
-              documentation_url:
-                "https://docs.github.com/rest/reference/repos#list-commits",
-              message: "Not Found"
-            })
-          )
-        );
-      }
-    });
-  });
-
   describe("commitsMachine", () => {
     test("should return CommitsMachine", () => {
       expect(typeof commitsMachine.context).toEqual("function");
