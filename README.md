@@ -1,5 +1,7 @@
 # Alan Hadyk's portfolio
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/bae1837e-2a9b-4ccc-8701-c06585a1e169/deploy-status)](https://app.netlify.com/sites/musing-dijkstra-a44ab4/deploys)
+
 ![Portfolio - design](https://raw.githubusercontent.com/alan-hadyk/portfolio/master/portfolio-design.png)
 
 ## Available Scripts

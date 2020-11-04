@@ -1,21 +1,21 @@
 {
-  "name": "Alan Hadyk - portfolio",
-  "short_name": "Alan Hadyk - portfolio",
+  "name": "Alan Hadyk",
+  "short_name": "Alan Hadyk",
   "icons": [
     {
-      "src": "/portfolio/android-chrome-192x192.png",
+      "src": "/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/portfolio/android-chrome-512x512.png",
+      "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
   "theme_color": "#22272a",
   "background_color": "#22272a",
-  "start_url": "https://alan-hadyk.github.io/portfolio",
+  "start_url": "https://alan-hadyk.github.io",
   "display": "standalone",
   "orientation": "portrait"
 }
