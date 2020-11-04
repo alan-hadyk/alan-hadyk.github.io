@@ -1,11 +1,8 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
-import { transparentize } from "polished";
 
 import FlexContainer from "UI/layout/FlexContainer";
 import PositionContainer from "UI/layout/PositionContainer";
-
-import { LoaderLetterProps } from "UI/molecules/__typings__/Loader";
 
 const Loader = (): JSX.Element => (
   <PositionContainer dataTestId="Loader" height="100%" position="relative">
@@ -21,53 +18,27 @@ const Loader = (): JSX.Element => (
 );
 
 Loader.Spinner = styled.div`
-  animation: rotation 900ms linear infinite;
-  border: 0.75vh solid;
-  border-color: #78b0b5 transparent;
-  border-radius: 50%;
-  box-sizing: border-box;
-  display: inline-block;
-  height: 12vh;
-  width: 12vh;
-
-  @keyframes rotation {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-`;
-
-Loader.Letter = styled.span<LoaderLetterProps>`
   ${({
-    animationDelay,
     theme: {
-      colorPalette: { blue300, white },
-      easing: { easeInOut },
-      fontFamilies: { AnonymousPro },
-      keyframes: { drop },
-      spacing: { spacing4 },
+      colorPalette: { blue300 },
+      easing: { linear },
+      keyframes: { rotation },
       transitionTimes
     }
   }): FlattenSimpleInterpolation => css`
-    animation-delay: ${animationDelay};
+    animation: rotation 900ms linear infinite;
     animation-duration: calc(
       ${transitionTimes.default} + ${transitionTimes.slow}
     );
     animation-iteration-count: infinite;
-    animation-name: ${drop};
-    animation-timing-function: ${easeInOut};
-    color: ${blue300};
+    animation-name: ${rotation};
+    animation-timing-function: ${linear};
+    border: 0.75vh solid;
+    border-color: ${blue300} transparent;
+    border-radius: 50%;
     display: inline-block;
-    font-family: ${AnonymousPro};
-    font-size: 4vh;
-    opacity: 0;
-    position: relative;
-    text-shadow: 0px 0px ${spacing4} ${transparentize(0.5, white)};
-    text-transform: uppercase;
-    transform: rotateX(-90deg);
+    height: 12vh;
+    width: 12vh;
   `}
 `;
 
