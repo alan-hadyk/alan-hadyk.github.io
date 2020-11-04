@@ -41,15 +41,16 @@ export function renderApp(): void {
     </ThemeProvider>,
     document.getElementById("root")
   );
+
+  window.setTimeout(() => {
+    const loader = document.querySelector(".loader");
+    loader?.remove();
+  }, 900);
 }
 
 Promise.all(polyfills)
   .then(() => {
     renderApp();
-
-    window.setTimeout(() => {
-      document.querySelector(".loader").remove();
-    }, 900);
   })
   .catch((error) => {
     console.error("Failed fetching polyfills", error);
