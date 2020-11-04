@@ -50,6 +50,7 @@ describe("index", () => {
     jest.useFakeTimers();
     const spyQuerySelector = jest.fn();
     const spyRemove = jest.fn();
+    const style = {};
     const dom = new JSDOM();
     global.document = dom.window.document;
 
@@ -58,7 +59,8 @@ describe("index", () => {
         spyQuerySelector(selector);
 
         return {
-          remove: spyRemove
+          remove: spyRemove,
+          style
         };
       }
     });
@@ -67,10 +69,16 @@ describe("index", () => {
 
     expect(spyQuerySelector).toHaveBeenCalledTimes(0);
     expect(spyRemove).toHaveBeenCalledTimes(0);
+    expect(style).toEqual({});
 
-    jest.advanceTimersByTime(900);
+    jest.advanceTimersByTime(600);
 
     expect(spyQuerySelector).toHaveBeenNthCalledWith(1, ".loader");
+    expect(spyRemove).toHaveBeenCalledTimes(0);
+    expect(style).toEqual({ opacity: "0" });
+
+    jest.advanceTimersByTime(300);
+
     expect(spyRemove).toHaveBeenCalledTimes(1);
 
     jest.clearAllTimers();

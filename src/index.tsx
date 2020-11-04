@@ -43,9 +43,14 @@ export function renderApp(): void {
   );
 
   window.setTimeout(() => {
-    const loader = document.querySelector(".loader");
-    loader?.remove();
-  }, 900);
+    const loader: HTMLElement = document.querySelector(".loader");
+
+    loader.style.opacity = "0";
+
+    window.setTimeout(() => {
+      loader?.remove();
+    }, 300);
+  }, 600);
 }
 
 Promise.all(polyfills)

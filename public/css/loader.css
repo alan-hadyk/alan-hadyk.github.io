@@ -2,17 +2,22 @@ body {
   background-color: #1e2224;
   min-height: 100vh;
   overflow-x: hidden;
+  overflow-y: scroll;
   position: relative;
 }
 
 .loader {
-  animation: fadeOut 300ms ease-in-out 600ms 1;
+  align-items: center;
   background-color: #1e2224;
+  display: flex;
   height: 100vh;
+  justify-content: center;
   left: 0;
-  position: absolute;
+  opacity: 1;
+  position: fixed;
   right: 0;
   top: 0;
+  transition: opacity 300ms ease-in-out;
   z-index: 9999;
 }
 
@@ -24,12 +29,26 @@ body {
   width: 50vw;
 }
 
-@keyframes fadeOut {
+.loader__spinner {
+  animation-duration: 900ms;
+  animation-iteration-count: infinite;
+  animation-name: rotation;
+  animation-timing-function: linear;
+  border: 0.75vh solid;
+  border-color: #78b0b5 transparent;
+  border-radius: 50%;
+  display: inline-block;
+  height: 25vh;
+  transform: translateX(-50%) translateY(-50%);
+  width: 25vh;
+}
+
+@keyframes rotation {
   0% {
-    opacity: 1;
+    transform: rotate(0deg);
   }
-  
+
   100% {
-    opacity: 0;
+    transform: rotate(360deg);
   }
 }
