@@ -342,7 +342,7 @@ describe("pages / Home / sections / dashboard / elements / Commits", () => {
         });
       });
 
-      describe("hasError", () => {
+      describe("commitsState", () => {
         test("should render Error if commitsState is error", () => {
           const { Error, DashboardElement } = setup({
             commitsState: "error"
