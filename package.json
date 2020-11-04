@@ -72,7 +72,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "https://alan-hadyk.github.io",
+  "homepage": "https://alanhadyk.dev",
   "husky": {
     "hooks": {
       "post-commit": "git update-index --again",
@@ -90,7 +90,7 @@
       "eslint"
     ]
   },
-  "name": "portfolio",
+  "name": "alan-hadyk.github.io",
   "private": false,
   "scripts": {
     "build": "react-scripts build",
