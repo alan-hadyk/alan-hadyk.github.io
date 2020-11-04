@@ -1,6 +1,6 @@
 export interface ListOfCommitsProps {
   commitsList: CommitProps[];
-  hasError: boolean;
+  commitsState: "error" | "idle" | "loaded" | "loading";
 }
 
 export interface CommitProps {

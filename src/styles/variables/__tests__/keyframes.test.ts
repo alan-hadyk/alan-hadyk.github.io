@@ -3,12 +3,13 @@ import keyframes from "styles/variables/keyframes";
 
 interface KeyframesVariables {
   blink: any;
+  drop: any;
   glow: any;
   ripple: any;
-  rotate: any;
+  rotation: any;
 }
 
-const { blink, glow, ripple, rotate }: KeyframesVariables = keyframes;
+const { blink, drop, glow, ripple, rotation }: KeyframesVariables = keyframes;
 
 describe("styles / variables / keyframes", () => {
   test("should have correct keyframe - blink", () => {
@@ -16,11 +17,40 @@ describe("styles / variables / keyframes", () => {
     0% {
       opacity: 1;
     }
+
     50% {
       opacity: 0;
     }
+    
     100% {
       opacity: 1;
+    }
+  `);
+  });
+
+  test("should have correct keyframe - drop", () => {
+    expect(drop.rules).toEqual(`
+    10% {
+      opacity: 0.5;
+    }
+
+    20% {
+      opacity: 1;
+      transform: translateY(200%) rotateX(-360deg);
+    }
+
+    80% {
+      opacity: 1;
+      transform: translateY(200%) rotateX(-360deg);
+    }
+
+    90% {
+      opacity: 0.5;
+    }
+
+    100% {
+      opacity: 0;
+      transform: translateY(400%);
     }
   `);
   });
@@ -53,6 +83,7 @@ describe("styles / variables / keyframes", () => {
       opacity: 1;
       transform: scale(0);
     }
+
     to {
       opacity: 0;
       transform: scale(10);
@@ -60,15 +91,14 @@ describe("styles / variables / keyframes", () => {
   `);
   });
 
-  test("should have correct keyframe - rotate", () => {
-    expect(rotate.rules).toEqual(`
-    from {
-      transform: rotateY(0deg);
-      opacity: 0.99;
+  test("should have correct keyframe - rotation", () => {
+    expect(rotation.rules).toEqual(`
+    0% {
+      transform: rotate(0deg);
     }
-    to {
-      transform: rotateY(360deg);
-      opacity: 1;
+
+    100% {
+      transform: rotate(360deg);
     }
   `);
   });

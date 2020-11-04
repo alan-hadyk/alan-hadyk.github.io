@@ -47,12 +47,8 @@ describe("styles / globalStyle", () => {
       }
 
       body {
-        background-color: #1e2224;
         color: #78b0b5;
         line-height: 1;
-        min-height: 100vh;
-        overflow-x: hidden;
-        position: relative;
         scroll-behavior: smooth;
       }
 

@@ -1,52 +1,75 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import {
+  createMachine,
+  immediate,
+  invoke,
+  state,
+  transition,
+  reduce
+} from "robot3";
+import { createUseMachine } from "robot-hooks";
 
-import fetch, { Response } from "node-fetch";
+import { fetchCommits } from "api";
 
 import { CommitProps } from "UI/molecules/__typings__/Commit";
-import { ComponentWithCommitsType } from "state/__typings__/withCommitsState";
+import {
+  CommitsMachine,
+  ComponentWithCommitsType,
+  CreateMachineContext
+} from "state/__typings__/withCommitsState";
+
+const fetchCommitsPromise = (): Promise<CommitProps[] | Error> =>
+  fetchCommits();
+
+const commitsMachine: CommitsMachine = createMachine(
+  "idle",
+  {
+    error: state(),
+    idle: state(immediate("loading")),
+    loaded: state(),
+    loading: invoke(
+      fetchCommitsPromise,
+      transition(
+        "done",
+        "loaded",
+        reduce(
+          (ctx: Record<string, unknown>, event: Record<string, unknown>) => ({
+            ...ctx,
+            commits: event.data
+          })
+        )
+      ),
+      transition("error", "error")
+    )
+  },
+  (): CreateMachineContext => ({
+    commits: []
+  })
+);
+
+const useMachine = createUseMachine(useEffect, useState);
 
 const withCommitsState = (
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   WrappedComponent: React.FunctionComponent<any>
 ): ComponentWithCommitsType => {
   const ComponentWithCommits = (props: unknown): JSX.Element => {
-    const [commitsList, setCommitsList] = useState<CommitProps[]>([]);
-    const [hasError, setError] = useState<boolean>(false);
-
-    useEffect(() => {
-      fetchCommits();
-    }, [hasError]);
+    const [current] = useMachine(commitsMachine);
+    const commitsState = current?.name;
+    const { commits } = current?.context;
 
     return (
       <WrappedComponent
-        commitsList={commitsList}
-        hasError={hasError}
+        commitsList={commits}
+        commitsState={commitsState}
         {...props}
       />
     );
-
-    async function fetchCommits(): Promise<void> {
-      try {
-        const data: Response = await fetch(
-          "https://api.github.com/repos/alan-hadyk/portfolio/commits"
-        );
-        const json: CommitProps[] = await data.json();
-
-        if (!data.ok || !Array.isArray(json)) {
-          setCommitsList([]);
-          setError(true);
-        } else {
-          setCommitsList(json);
-          setError(false);
-        }
-      } catch (err) {
-        setCommitsList([]);
-        setError(true);
-      }
-    }
   };
 
   return ComponentWithCommits;
 };
+
+export { commitsMachine };
 
 export default withCommitsState;

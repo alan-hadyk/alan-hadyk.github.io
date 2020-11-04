@@ -98,7 +98,6 @@ export interface IconProps {
   shouldDisplayGlowAnimation?: boolean;
   shouldGlow?: boolean;
   shouldGlowOnHover?: boolean;
-  shouldRotate?: boolean;
   width?: string | Spacing;
 }
 

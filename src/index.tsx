@@ -41,6 +41,16 @@ export function renderApp(): void {
     </ThemeProvider>,
     document.getElementById("root")
   );
+
+  window.setTimeout(() => {
+    const loader: HTMLElement = document.querySelector(".loader");
+
+    loader.style.opacity = "0";
+
+    window.setTimeout(() => {
+      loader?.remove();
+    }, 300);
+  }, 600);
 }
 
 Promise.all(polyfills)
