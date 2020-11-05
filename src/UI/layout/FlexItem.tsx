@@ -11,8 +11,10 @@ const FlexItem = ({
   className,
   dataCy,
   dataTestId,
+  display = "block",
   flex,
   height = "unset",
+  justifyContent = "initial",
   order = 0,
   overflow = "auto",
   paddingBottom = "spacing0",
@@ -31,8 +33,10 @@ const FlexItem = ({
       className={className}
       data-cy={dataCy}
       data-testid={dataTestId || "FlexItem"}
+      display={display}
       flex={flex}
       height={height}
+      justifyContent={justifyContent}
       order={order}
       overflow={isIE11() ? "hidden" : overflow}
       paddingBottom={paddingBottom}
@@ -50,8 +54,10 @@ const FlexItem = ({
 FlexItem.Container = styled.div<FlexItemProps>`
   ${({
     alignSelf,
+    display,
     flex,
     height,
+    justifyContent,
     order,
     overflow,
     paddingBottom,
@@ -63,8 +69,10 @@ FlexItem.Container = styled.div<FlexItemProps>`
     width
   }): FlattenSimpleInterpolation => css`
     align-self: ${alignSelf};
+    display: ${display};
     flex: ${flex};
     height: ${(height in spacing && spacing[height]) || height};
+    justify-content: ${justifyContent};
     order: ${order};
     overflow: ${overflow};
     padding-bottom: ${(paddingBottom in spacing && spacing[paddingBottom]) ||

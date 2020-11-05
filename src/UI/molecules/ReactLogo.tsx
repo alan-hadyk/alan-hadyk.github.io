@@ -1,9 +1,10 @@
 import React from "react";
 
+import Icon from "UI/atoms/Icon";
 import FlexContainer from "UI/layout/FlexContainer";
 import SpacingContainer from "UI/layout/SpacingContainer";
 
-import Icon from "UI/atoms/Icon";
+import isSafari from "helpers/browser/isSafari";
 
 const ReactLogo = (): JSX.Element => (
   <SpacingContainer
@@ -21,7 +22,12 @@ const ReactLogo = (): JSX.Element => (
       height="100%"
       justifyContent="center"
     >
-      <Icon height="100%" iconName="reactLogo" isResponsive width="100%" />
+      <Icon
+        height={isSafari() ? "18vh" : "100%"}
+        iconName="reactLogo"
+        isResponsive
+        width={isSafari() ? "18vh" : "100%"}
+      />
     </FlexContainer>
   </SpacingContainer>
 );

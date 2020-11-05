@@ -2,11 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { detect } from "detect-browser";
 
+import Icon from "UI/atoms/Icon";
 import FlexContainer from "UI/layout/FlexContainer";
 import FlexItem from "UI/layout/FlexItem";
 import SpacingContainer from "UI/layout/SpacingContainer";
 
-import Icon from "UI/atoms/Icon";
+import isSafari from "helpers/browser/isSafari";
 
 import { IconProps } from "UI/atoms/__typings__/Icon";
 
@@ -58,21 +59,23 @@ function BrowserInfo(): JSX.Element {
         return (
           <FlexItem
             className={isActive ? "isActive" : "isInactive"}
+            display={isSafari() ? "flex" : "block"}
             flex="0 1 28%"
             height="50%"
+            justifyContent={isSafari() ? "center" : "initial"}
+            overflow={isSafari() ? "hidden" : "visible"}
             key={icon}
             paddingBottom="4.8%"
             paddingTop="4.8%"
           >
             <Icon
               animationTime="verySlow"
-              height="100%"
+              height={isSafari() ? "4vh" : "100%"}
               iconName={icon}
               isActive={isActive || isUnknown}
               isResponsive
-              overflow="hidden"
-              shouldDisplayGlowAnimation={isActive || isUnknown}
-              width="100%"
+              overflow={isSafari() ? "hidden" : "visible"}
+              width={isSafari() ? "4vh" : "100%"}
             />
           </FlexItem>
         );

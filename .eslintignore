@@ -7,3 +7,4 @@ coverage
 yarn.lock
 README.md
 *.json
+*.svg

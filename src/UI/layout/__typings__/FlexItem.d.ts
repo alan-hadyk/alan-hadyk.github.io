@@ -10,8 +10,10 @@ export interface FlexItemProps {
   className?: string;
   dataCy?: string;
   dataTestId?: string;
+  display?: "block" | "flex";
   flex?: string;
   height?: Spacing | string;
+  justifyContent?: "initial" | "center" | "flex-start" | "flex-end";
   order?: number;
   overflow?: string;
   paddingBottom?: Spacing | string;
