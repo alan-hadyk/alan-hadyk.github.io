@@ -34,7 +34,7 @@ const HeaderTv = ({ onCVButtonClick }: HeaderTvProps): JSX.Element => (
         buttonText="cv"
         dataCy="CvButton"
         iconName="btnDownload"
-        iconWidth={isIE11() && `${spacing.spacing24}`}
+        iconWidth={isIE11() ? `${spacing.spacing24}` : "auto"}
         onClick={onCVButtonClick}
         size="medium"
       />

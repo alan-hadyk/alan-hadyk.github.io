@@ -23,6 +23,7 @@ const HexagonWithDescription = ({
         description={description}
         flexFlow="row nowrap"
         marginRight="spacing48"
+        textWidth="50%"
         width="50%"
       >
         {children}
@@ -34,6 +35,7 @@ const HexagonWithDescription = ({
         description={description}
         flexFlow="column nowrap"
         marginBottom="spacing48"
+        textWidth="80%"
         width="60%"
       >
         {children}
@@ -46,7 +48,6 @@ const HexagonWithDescription = ({
         flexFlow="column nowrap"
         lineHeight="spacing28"
         marginBottom="spacing48"
-        width="100%"
       >
         {children}
       </HexagonWithDescriptionContent>

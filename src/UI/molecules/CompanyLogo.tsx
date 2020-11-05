@@ -22,7 +22,7 @@ const CompanyLogo = ({ logo }: CompanyLogoProps): JSX.Element => (
       iconName={logo}
       isHeightResponsive
       overflow={isIE11() ? "hidden" : "visible"}
-      width={isIE11() && `${spacing.spacing48}`}
+      width={isIE11() ? `${spacing.spacing48}` : "auto"}
     />
   </FlexContainer>
 );

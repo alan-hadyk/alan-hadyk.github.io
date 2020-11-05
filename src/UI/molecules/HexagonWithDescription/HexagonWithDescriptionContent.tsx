@@ -5,7 +5,6 @@ import Hexagon from "UI/molecules/Hexagon";
 
 import FlexContainer from "UI/layout/FlexContainer";
 import SpacingContainer from "UI/layout/SpacingContainer";
-import FlexItem from "UI/layout/FlexItem";
 
 import { HexagonWithDescriptionContentProps } from "UI/molecules/HexagonWithDescription/__typings__/HexagonWithDescriptionContent";
 
@@ -16,7 +15,8 @@ const HexagonWithDescriptionContent = ({
   lineHeight = "spacing36",
   marginBottom = "spacing0",
   marginRight = "spacing0",
-  width
+  textWidth = "100%",
+  width = "100%"
 }: HexagonWithDescriptionContentProps): JSX.Element => (
   <FlexContainer
     alignItems="center"
@@ -32,16 +32,15 @@ const HexagonWithDescriptionContent = ({
       <Hexagon contentWidth="75%">{children}</Hexagon>
     </SpacingContainer>
 
-    <FlexItem flex="0 1 50%">
-      <Text
-        color="blue300"
-        fontFamily="AnonymousPro"
-        fontSize="font20"
-        lineHeight={lineHeight}
-      >
-        {description}
-      </Text>
-    </FlexItem>
+    <Text
+      color="blue300"
+      fontFamily="AnonymousPro"
+      fontSize="font20"
+      lineHeight={lineHeight}
+      width={textWidth}
+    >
+      {description}
+    </Text>
   </FlexContainer>
 );
 

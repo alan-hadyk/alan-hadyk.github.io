@@ -22,7 +22,7 @@ const Hexagon = ({
       <Icon iconName="hexagonWithPattern" />
     ) : (
       <Icon
-        height={isIE11() && "spacing16"}
+        height={fill === "solid" && isIE11() ? "spacing16" : "auto"}
         iconName="hexagon"
         isActive={fill === "solid"}
         shouldGlow
