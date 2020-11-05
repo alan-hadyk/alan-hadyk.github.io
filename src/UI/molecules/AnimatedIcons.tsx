@@ -36,6 +36,7 @@ function AnimatedIcons(): JSX.Element {
         flexFlow="row nowrap"
         height="100%"
         justifyContent="center"
+        maxWidth="100%"
       >
         {renderIcons()}
       </FlexContainer>
@@ -51,7 +52,12 @@ function AnimatedIcons(): JSX.Element {
           position="relative"
           width={`${100 / animatedIcons.length}%`}
         >
-          <Icon height="100%" iconName={icon} isResponsive width="100%" />
+          <Icon
+            height={isSafari() ? "8vh" : "100%"}
+            iconName={icon}
+            isResponsive
+            width={isSafari() ? "8vh" : "100%"}
+          />
         </PositionContainer>
       )
     );
