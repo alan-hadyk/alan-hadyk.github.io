@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { forwardRef, LegacyRef } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize } from "polished";
 
@@ -90,22 +90,25 @@ import {
   SVGIcon
 } from "UI/atoms/__typings__/Icon";
 
-function Icon({
-  animationDelay = "0ms",
-  animationTime = "slow",
-  dataTestId,
-  height = "auto",
-  iconName,
-  isActive = false,
-  isHeightResponsive = false,
-  isResponsive = false,
-  overflow = "visible",
-  shouldDisplayGlowAnimation = false,
-  shouldGlow = false,
-  shouldGlowOnHover = false,
-  shouldRotate = false,
-  width = "auto"
-}: IconProps): JSX.Element {
+function Icon(
+  {
+    animationDelay = "0ms",
+    animationTime = "slow",
+    dataTestId,
+    height = "auto",
+    iconName,
+    isActive = false,
+    isHeightResponsive = false,
+    isResponsive = false,
+    overflow = "visible",
+    shouldDisplayGlowAnimation = false,
+    shouldGlow = false,
+    shouldGlowOnHover = false,
+    shouldRotate = false,
+    width = "auto"
+  }: IconProps,
+  ref: LegacyRef<SVGSVGElement>
+): JSX.Element {
   const iconComponents: IconComponents = {
     apollo: IconApollo,
     brandAfterEffects: BrandAfterEffects,
@@ -208,7 +211,7 @@ function Icon({
       shouldRotate={shouldRotate}
       width={width}
     >
-      <IconComponent />
+      <IconComponent ref={ref} />
     </Icon.Container>
   );
 }
@@ -292,4 +295,4 @@ Icon.Container = styled.div<IconContainerProps>`
   `};
 `;
 
-export default memo(Icon);
+export default forwardRef(Icon);

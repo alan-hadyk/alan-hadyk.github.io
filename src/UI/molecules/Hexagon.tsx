@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import Icon from "UI/atoms/Icon";
@@ -16,29 +16,63 @@ const Hexagon = ({
   dataCy,
   dataTestId,
   fill = "none"
-}: HexagonProps): JSX.Element => (
-  <Hexagon.Container data-cy={dataCy} data-testid={dataTestId || "Hexagon"}>
-    {fill === "pattern" ? (
-      <Icon iconName="hexagonWithPattern" />
-    ) : (
-      <Icon
-        height={fill === "solid" && isIE11() ? "spacing16" : "auto"}
-        iconName="hexagon"
-        isActive={fill === "solid"}
-        shouldGlow
-      />
-    )}
+}: HexagonProps): JSX.Element => {
+  const [iconWidth, setIconWidth] = useState<string>("");
+  const [iconHeight, setIconHeight] = useState<string>("");
+  const iconRef = useRef(null);
 
-    {children && (
-      <Hexagon.InnerContainer
-        data-testid="HexagonInnerContainer"
-        width={contentWidth}
-      >
-        {children}
-      </Hexagon.InnerContainer>
-    )}
-  </Hexagon.Container>
-);
+  useEffect(() => {
+    const viewBox = iconRef?.current?.attributes?.viewBox.value;
+    const viewBoxWidth = viewBox?.split(" ")[2];
+    const viewBoxHeight = viewBox?.split(" ")[3];
+
+    if (isIE11()) {
+      setIconWidth(`${viewBoxWidth}px`);
+      setIconHeight(`${viewBoxHeight}px`);
+    }
+  }, []);
+
+  return (
+    <Hexagon.Container data-cy={dataCy} data-testid={dataTestId || "Hexagon"}>
+      {renderIcon()}
+
+      {children && (
+        <Hexagon.InnerContainer
+          data-testid="HexagonInnerContainer"
+          width={contentWidth}
+        >
+          {children}
+        </Hexagon.InnerContainer>
+      )}
+    </Hexagon.Container>
+  );
+
+  function renderIcon(): JSX.Element {
+    switch (fill) {
+    case "pattern":
+      return <Icon iconName="hexagonWithPattern" />;
+    case "solid":
+      return (
+        <Icon
+          height={isIE11() ? "spacing16" : "auto"}
+          iconName="hexagon"
+          isActive
+          shouldGlow
+        />
+      );
+    case "none":
+      return (
+        <Icon
+          height={iconHeight}
+          iconName="hexagon"
+          ref={iconRef}
+          shouldGlow
+          width={iconWidth}
+        />
+      );
+    }
+  }
+};
 
 Hexagon.Container = styled.div`
   position: relative;

@@ -7,6 +7,8 @@ import HexagonWithDescriptionContent from "UI/molecules/HexagonWithDescription/H
 
 import { HexagonWithDescriptionProps } from "UI/molecules/HexagonWithDescription/__typings__/HexagonWithDescription";
 
+import isIE11 from "helpers/browser/isIE11";
+
 const HexagonWithDescription = ({
   children,
   description
@@ -36,7 +38,7 @@ const HexagonWithDescription = ({
         flexFlow="column nowrap"
         marginBottom="spacing48"
         textWidth="80%"
-        width="60%"
+        width={isIE11() ? "auto" : "60%"}
       >
         {children}
       </HexagonWithDescriptionContent>
@@ -48,6 +50,7 @@ const HexagonWithDescription = ({
         flexFlow="column nowrap"
         lineHeight="spacing28"
         marginBottom="spacing48"
+        width={isIE11() ? "auto" : "100%"}
       >
         {children}
       </HexagonWithDescriptionContent>
