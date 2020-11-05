@@ -45,11 +45,7 @@ function NavItem({ href, isActive = false, title }: NavItemProps): JSX.Element {
   function handleClick(): void {
     const element: HTMLElement = document.querySelector(href);
 
-    element &&
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
+    element && element.scrollIntoView(true);
   }
 
   function handleMouseOver(): void {
