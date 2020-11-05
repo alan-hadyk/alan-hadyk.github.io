@@ -31,7 +31,7 @@ const CompanyLogo = ({ logo }: CompanyLogoProps): JSX.Element => {
         height="spacing48"
         iconName={logo}
         isHeightResponsive
-        overflow={isIE11() ? "hidden" : "visible"}
+        overflow="hidden"
         ref={iconRef}
         width={iconWidth}
       />
