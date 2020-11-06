@@ -83,8 +83,6 @@ import { ReactComponent as IconOpera } from "assets/svg/Icon-Opera.svg";
 import { ReactComponent as IconSafari } from "assets/svg/Icon-Safari.svg";
 import { ReactComponent as IconUnknown } from "assets/svg/Icon-Unknown.svg";
 
-import isFirefox from "helpers/browser/isFirefox";
-
 import {
   IconComponents,
   IconContainerProps,
@@ -259,10 +257,10 @@ Icon.Container = styled.div<IconContainerProps>`
       ${isActive &&
       css`
         mask {
-          fill: ${isFirefox() ? white : blue300};
+          fill: ${blue300};
         }
         path {
-          fill: ${isFirefox() ? white : blue300};
+          fill: ${blue300};
         }
       `}
 
