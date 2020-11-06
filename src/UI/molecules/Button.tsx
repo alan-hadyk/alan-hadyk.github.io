@@ -80,7 +80,7 @@ function Button({
       onTouchStart={handleMouseEnter}
       width={width}
     >
-      <Corners isActive={isActive} />
+      {!isIE11() && <Corners isActive={isActive} />}
       <Button.InnerContainer
         ref={buttonInnerContainerRef}
         data-testid="ButtonInnerContainer"
