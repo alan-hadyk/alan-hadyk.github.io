@@ -29,7 +29,7 @@ const HexagonWithDescriptionContent = ({
       marginRight={marginRight}
       width={width}
     >
-      <Hexagon contentWidth="75%">{children}</Hexagon>
+      <Hexagon>{children}</Hexagon>
     </SpacingContainer>
 
     <FlexItem flex="0 1 50%">

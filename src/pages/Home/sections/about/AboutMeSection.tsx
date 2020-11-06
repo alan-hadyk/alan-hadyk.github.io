@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 
-import Icon from "UI/atoms/Icon";
+import Image from "UI/atoms/Image";
 import Section from "UI/molecules/Section";
 import HexagonWithDescription from "UI/molecules/HexagonWithDescription";
 
@@ -13,7 +13,7 @@ function AboutMeSection(): JSX.Element {
       title="About me"
     >
       <HexagonWithDescription description={renderDescription()}>
-        <Icon iconName="companySAP" />
+        <Image src="/images/alan.png" />
       </HexagonWithDescription>
     </Section>
   );
