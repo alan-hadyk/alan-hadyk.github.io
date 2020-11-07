@@ -36,7 +36,11 @@ function mockWithCommitsState(WrappedComponent: React.FunctionComponent<any>) {
     ];
 
     return (
-      <WrappedComponent commitsList={commitsList} hasError={false} {...props} />
+      <WrappedComponent
+        commitsList={commitsList}
+        commitsState="loaded"
+        {...props}
+      />
     );
   };
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
+import { JSDOM } from "jsdom";
 
 import { GlobalStyle, polyfills, renderApp } from "../index";
 
@@ -20,6 +21,10 @@ function MockApp(): JSX.Element {
 jest.mock("../App", () => MockApp);
 
 describe("index", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   test("renderApp fn should call ReactDOM.render", () => {
     const renderSpy = jest.fn();
     const renderFn = (render as unknown) as jest.Mock;
@@ -39,6 +44,44 @@ describe("index", () => {
         <GlobalStyle />
       </ThemeProvider>
     );
+  });
+
+  test("renderApp fn should call document.querySelector and document.querySelector.remove after 900ms", async () => {
+    jest.useFakeTimers();
+    const spyQuerySelector = jest.fn();
+    const spyRemove = jest.fn();
+    const style = {};
+    const dom = new JSDOM();
+    global.document = dom.window.document;
+
+    Object.defineProperty(global.document, "querySelector", {
+      value: (selector: string) => {
+        spyQuerySelector(selector);
+
+        return {
+          remove: spyRemove,
+          style
+        };
+      }
+    });
+
+    renderApp();
+
+    expect(spyQuerySelector).toHaveBeenCalledTimes(0);
+    expect(spyRemove).toHaveBeenCalledTimes(0);
+    expect(style).toEqual({});
+
+    jest.advanceTimersByTime(600);
+
+    expect(spyQuerySelector).toHaveBeenNthCalledWith(1, ".loader");
+    expect(spyRemove).toHaveBeenCalledTimes(0);
+    expect(style).toEqual({ opacity: "0" });
+
+    jest.advanceTimersByTime(300);
+
+    expect(spyRemove).toHaveBeenCalledTimes(1);
+
+    jest.clearAllTimers();
   });
 
   test("Promise.all(polyfills) should contain intersection-observer", async () => {

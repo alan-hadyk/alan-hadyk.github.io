@@ -104,7 +104,6 @@ function Icon(
     shouldDisplayGlowAnimation = false,
     shouldGlow = false,
     shouldGlowOnHover = false,
-    shouldRotate = false,
     width = "auto"
   }: IconProps,
   ref: LegacyRef<SVGSVGElement>
@@ -208,7 +207,6 @@ function Icon(
       shouldDisplayGlowAnimation={shouldDisplayGlowAnimation}
       shouldGlow={shouldGlow}
       shouldGlowOnHover={shouldGlowOnHover}
-      shouldRotate={shouldRotate}
       width={width}
     >
       <IconComponent ref={ref} />
@@ -228,11 +226,10 @@ Icon.Container = styled.div<IconContainerProps>`
     shouldDisplayGlowAnimation,
     shouldGlow,
     shouldGlowOnHover,
-    shouldRotate,
     theme: {
       colorPalette: { blue300, white },
-      easing: { easeInOut, linear },
-      keyframes: { glow, rotate },
+      easing: { easeInOut },
+      keyframes: { glow },
       spacing,
       transitionTimes
     },
@@ -241,14 +238,6 @@ Icon.Container = styled.div<IconContainerProps>`
     height: ${(height in spacing && spacing[height]) || height};
     overflow: ${overflow};
     width: ${(width in spacing && spacing[width]) || width};
-
-    ${shouldRotate &&
-    css`
-      animation-duration: ${transitionTimes.verySlow};
-      animation-iteration-count: infinite;
-      animation-name: ${rotate};
-      animation-timing-function: ${linear};
-    `}
 
     svg {
       height: ${isResponsive || isHeightResponsive ? "100%" : "auto"};

@@ -8,11 +8,38 @@ export default {
     0% {
       opacity: 1;
     }
+
     50% {
       opacity: 0;
     }
+    
     100% {
       opacity: 1;
+    }
+  `,
+
+  drop: keyframes`
+    10% {
+      opacity: 0.5;
+    }
+
+    20% {
+      opacity: 1;
+      transform: translateY(200%) rotateX(-360deg);
+    }
+
+    80% {
+      opacity: 1;
+      transform: translateY(200%) rotateX(-360deg);
+    }
+
+    90% {
+      opacity: 0.5;
+    }
+
+    100% {
+      opacity: 0;
+      transform: translateY(400%);
     }
   `,
 
@@ -41,20 +68,20 @@ export default {
       opacity: 1;
       transform: scale(0);
     }
+
     to {
       opacity: 0;
       transform: scale(10);
     }
   `,
 
-  rotate: keyframes`
-    from {
-      transform: rotateY(0deg);
-      opacity: 0.99;
+  rotation: keyframes`
+    0% {
+      transform: rotate(0deg);
     }
-    to {
-      transform: rotateY(360deg);
-      opacity: 1;
+
+    100% {
+      transform: rotate(360deg);
     }
   `
 };

@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 
 import withCommitsState from "state/withCommitsState";
 
@@ -9,18 +9,18 @@ import { ListOfCommitsProps } from "UI/molecules/__typings__/ListOfCommits";
 
 export const Commits = ({
   commitsList,
-  hasError
+  commitsState
 }: ListOfCommitsProps): JSX.Element => (
   <DashboardElement
     dataCy="Commits"
     dataTestId="Commits"
     flex="1 0 20%"
-    shouldDisplayCorners={hasError}
+    shouldDisplayCorners={commitsState === "error"}
     title="Commits"
     titleOverflow="hidden"
   >
-    <ListOfCommits commitsList={commitsList} hasError={hasError} />
+    <ListOfCommits commitsList={commitsList} commitsState={commitsState} />
   </DashboardElement>
 );
 
-export default withCommitsState(memo(Commits));
+export default withCommitsState(Commits);
