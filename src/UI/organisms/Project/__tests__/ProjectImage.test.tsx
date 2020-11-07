@@ -7,6 +7,14 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 
 import { ProjectImageProps } from "UI/organisms/Project/__typings__/ProjectImage";
 
+interface Detect {
+  name: string;
+}
+
+jest.mock("detect-browser", () => ({
+  detect: (): Detect => ({ name: "chrome" })
+}));
+
 describe("organisms / ProjectImage", () => {
   test("should have correct structure", () => {
     const { Hexagon, Icon, IconContainer } = setup();

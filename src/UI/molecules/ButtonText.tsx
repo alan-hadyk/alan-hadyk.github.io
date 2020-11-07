@@ -18,7 +18,7 @@ const mapSizeToButtonTextProps: MapSizeToButtonTextProps = {
 function ButtonText({
   buttonText,
   dataTestId,
-  fontFamily,
+  fontFamily = "Exan",
   hasMargin = true,
   size,
   textTransform

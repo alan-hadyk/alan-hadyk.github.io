@@ -12,7 +12,7 @@ const CompanyLogo = ({ logo }: CompanyLogoProps): JSX.Element => {
   const iconRef = useRef(null);
 
   useEffect(() => {
-    const viewBox = iconRef?.current?.attributes?.viewBox.value.split(" ")[2];
+    const viewBox = iconRef?.current?.attributes?.viewBox?.value.split(" ")[2];
 
     if (isIE11()) {
       setIconWidth(`${viewBox}px`);

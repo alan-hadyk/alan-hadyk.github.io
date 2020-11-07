@@ -98,12 +98,23 @@ describe("molecules / ButtonText", () => {
       });
 
       describe("fontFamily", () => {
-        test("should have Exan", () => {
+        test("should have Exan by default", () => {
           const { Text } = setup();
 
           expect(Text).toHaveStyleRule(
             "font-family",
             "ExanModifiedRegular,monospace"
+          );
+        });
+
+        test("should have AnonymousPro when fontFamily prop has AnonymousPro value", () => {
+          const { Text } = setup({
+            fontFamily: "AnonymousPro"
+          });
+
+          expect(Text).toHaveStyleRule(
+            "font-family",
+            "'Anonymous Pro',monospace"
           );
         });
       });
