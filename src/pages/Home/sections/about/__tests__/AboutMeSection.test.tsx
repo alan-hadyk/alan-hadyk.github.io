@@ -11,16 +11,21 @@ describe("pages / Home / sections / about / AboutMeSection", () => {
       AboutMeSectionContainer,
       HexagonWithDescription,
       HexagonWithDescriptionContents,
-      IconContainer
+      Images
     } = setup();
 
     expect(AboutMeSectionContainer.children[4]).toEqual(HexagonWithDescription);
 
     HexagonWithDescriptionContents.forEach(
-      (HexagonWithDescriptionContent: Element) => {
+      (HexagonWithDescriptionContent: Element, index: number) => {
+        expect(HexagonWithDescription.children[index].children[0]).toEqual(
+          HexagonWithDescriptionContent
+        );
+
         expect(
-          HexagonWithDescriptionContent.children[0].children[0].children[0]
-        ).toEqual(IconContainer);
+          HexagonWithDescriptionContent.children[0].children[0].children[1]
+            .children[0]
+        ).toEqual(Images[index]);
       }
     );
   });
@@ -53,16 +58,11 @@ describe("pages / Home / sections / about / AboutMeSection", () => {
     describe("Props", () => {
       describe("children", () => {
         test("should render correct image", () => {
-          const { HexagonWithDescriptionContents } = setup();
+          const { Images } = setup();
 
-          HexagonWithDescriptionContents.forEach(
-            (HexagonWithDescriptionContent: Element) => {
-              expect(
-                HexagonWithDescriptionContent.children[0].children[0]
-                  .children[1].textContent
-              ).toEqual("Company-SAP.svg");
-            }
-          );
+          Images.forEach((Image: Element) => {
+            expect(Image.getAttribute("src")).toEqual("/images/alan.png");
+          });
         });
       });
 
@@ -90,7 +90,7 @@ interface Setup extends RenderResult {
   AboutMeSectionContainer: Element;
   HexagonWithDescription: Element;
   HexagonWithDescriptionContents: Element[];
-  IconContainer: Element;
+  Images: Element[];
 }
 
 function setup(): Setup {
@@ -107,13 +107,13 @@ function setup(): Setup {
   const HexagonWithDescriptionContents: Element[] = queryAllByTestId(
     "HexagonWithDescriptionContent"
   );
-  const IconContainer: Element = queryAllByTestId("IconContainer")[0];
+  const Images: Element[] = queryAllByTestId("AboutMeImage");
 
   return {
     ...utils,
     AboutMeSectionContainer,
     HexagonWithDescription,
     HexagonWithDescriptionContents,
-    IconContainer
+    Images
   };
 }
