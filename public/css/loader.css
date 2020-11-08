@@ -21,26 +21,18 @@ body {
   z-index: 9999;
 }
 
-.loader__image {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  width: 50vw;
-}
-
 .loader__spinner {
   animation-duration: 900ms;
   animation-iteration-count: infinite;
   animation-name: rotation;
   animation-timing-function: linear;
-  border: 0.75vh solid;
+  border: 0.25rem solid;
   border-color: #78b0b5 transparent;
   border-radius: 50%;
   display: inline-block;
-  height: 25vh;
+  height: 10rem;
   transform: translateX(-50%) translateY(-50%);
-  width: 25vh;
+  width: 10rem;
 }
 
 @keyframes rotation {
