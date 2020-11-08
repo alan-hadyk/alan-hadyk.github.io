@@ -12,7 +12,11 @@ const AboutMeSection = (): JSX.Element => (
     title="About me"
   >
     <HexagonWithDescription description={renderDescription()}>
-      <Image data-testid="AboutMeImage" src="/images/alan.png" />
+      <Image
+        data-cy="AboutMeImage"
+        data-testid="AboutMeImage"
+        src="/images/alan.png"
+      />
     </HexagonWithDescription>
   </Section>
 );
