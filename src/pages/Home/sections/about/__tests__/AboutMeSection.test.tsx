@@ -15,21 +15,13 @@ describe("pages / Home / sections / about / AboutMeSection", () => {
     } = setup();
 
     expect(AboutMeSectionContainer.children[4]).toEqual(HexagonWithDescription);
-    expect(HexagonWithDescription.children[0].children[0]).toEqual(
-      HexagonWithDescriptionContents[0]
-    );
-    expect(HexagonWithDescription.children[1].children[0]).toEqual(
-      HexagonWithDescriptionContents[1]
-    );
-    expect(HexagonWithDescription.children[2].children[0]).toEqual(
-      HexagonWithDescriptionContents[2]
-    );
-    expect(HexagonWithDescription.children[3].children[0]).toEqual(
-      HexagonWithDescriptionContents[3]
-    );
 
     HexagonWithDescriptionContents.forEach(
       (HexagonWithDescriptionContent: Element, index: number) => {
+        expect(HexagonWithDescription.children[index].children[0]).toEqual(
+          HexagonWithDescriptionContent
+        );
+
         expect(
           HexagonWithDescriptionContent.children[0].children[0].children[1]
             .children[0]
