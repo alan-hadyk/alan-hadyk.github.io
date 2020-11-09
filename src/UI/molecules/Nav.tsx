@@ -1,4 +1,4 @@
-import React, { memo, useState } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import NavItem from "UI/molecules/NavItem";
@@ -67,4 +67,4 @@ Nav.propTypes = {
   position: PropTypes.oneOf(["horizontal", "vertical"])
 };
 
-export default memo(Nav);
+export default Nav;
