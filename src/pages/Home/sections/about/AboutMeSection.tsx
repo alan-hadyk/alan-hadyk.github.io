@@ -15,7 +15,9 @@ const AboutMeSection = (): JSX.Element => (
       <Image
         data-cy="AboutMeImage"
         data-testid="AboutMeImage"
+        height="700"
         src="/images/alan.png"
+        width="700"
       />
     </HexagonWithDescription>
   </Section>
