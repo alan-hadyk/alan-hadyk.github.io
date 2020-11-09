@@ -62,19 +62,19 @@ describe("Skills", () => {
 
           cy.dataCy("SkillsLanguages").within(() => {
             cy.dataCy("VerticalIcon")
-              .should("have.length", 3)
+              .should("have.length", 4)
               .each((icon: string) => {
                 cy.wrap(icon).should("be.visible");
               });
 
             cy.dataCy("VerticalLabel")
-              .should("have.length", 3)
+              .should("have.length", 4)
               .each((label: string) => {
                 cy.wrap(label).should("be.visible");
               });
 
             cy.dataCy("VerticalIcon").spread(
-              (javascript, typescript, coffeeScript) => {
+              (javascript, typescript, coffeeScript, ruby) => {
                 cy.get(javascript)
                   .find("[data-cy='brandJS']")
                   .should("be.visible");
@@ -86,11 +86,13 @@ describe("Skills", () => {
                 cy.get(coffeeScript)
                   .find("[data-cy='brandCoffeeScript']")
                   .should("be.visible");
+
+                cy.get(ruby).find("[data-cy='brandRuby']").should("be.visible");
               }
             );
 
             cy.dataCy("VerticalLabel").spread(
-              (javascript, typescript, coffeeScript) => {
+              (javascript, typescript, coffeeScript, ruby) => {
                 cy.get(javascript)
                   .find("[data-testid='LabelText']")
                   .should("contain", "JavaScript");
@@ -102,6 +104,10 @@ describe("Skills", () => {
                 cy.get(coffeeScript)
                   .find("[data-testid='LabelText']")
                   .should("contain", "CoffeeScript");
+
+                cy.get(ruby)
+                  .find("[data-testid='LabelText']")
+                  .should("contain", "Ruby");
               }
             );
           });
@@ -118,13 +124,13 @@ describe("Skills", () => {
 
           cy.dataCy("SkillsFrameworks").within(() => {
             cy.dataCy("VerticalIcon")
-              .should("have.length", 7)
+              .should("have.length", 9)
               .each((icon: string) => {
                 cy.wrap(icon).should("be.visible");
               });
 
             cy.dataCy("VerticalLabel")
-              .should("have.length", 7)
+              .should("have.length", 9)
               .each((label: string) => {
                 cy.wrap(label).should("be.visible");
               });
@@ -137,7 +143,9 @@ describe("Skills", () => {
                 express,
                 ember,
                 prestaShop,
-                jQuery
+                jQuery,
+                rails,
+                sinatra
               ) => {
                 cy.get(react)
                   .find("[data-cy='brandReact']")
@@ -164,6 +172,14 @@ describe("Skills", () => {
                 cy.get(jQuery)
                   .find("[data-cy='brandJQuery']")
                   .should("be.visible");
+
+                cy.get(rails)
+                  .find("[data-cy='brandRails']")
+                  .should("be.visible");
+
+                cy.get(sinatra)
+                  .find("[data-cy='brandSinatra']")
+                  .should("be.visible");
               }
             );
 
@@ -175,7 +191,9 @@ describe("Skills", () => {
                 express,
                 ember,
                 prestaShop,
-                jQuery
+                jQuery,
+                rails,
+                sinatra
               ) => {
                 cy.get(react)
                   .find("[data-testid='LabelText']")
@@ -204,6 +222,14 @@ describe("Skills", () => {
                 cy.get(jQuery)
                   .find("[data-testid='LabelText']")
                   .should("contain", "jQuery");
+
+                cy.get(rails)
+                  .find("[data-testid='LabelText']")
+                  .should("contain", "Ruby on Rails");
+
+                cy.get(sinatra)
+                  .find("[data-testid='LabelText']")
+                  .should("contain", "Sinatra");
               }
             );
           });

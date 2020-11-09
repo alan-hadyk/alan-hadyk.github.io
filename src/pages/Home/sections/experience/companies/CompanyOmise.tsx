@@ -10,8 +10,20 @@ const iconsWithLabels: CompanyProps["iconsWithLabels"] = [
     label: "Javascript"
   },
   {
+    iconName: "brandRuby",
+    label: "Ruby"
+  },
+  {
     iconName: "brandReact",
     label: "React"
+  },
+  {
+    iconName: "brandRails",
+    label: "Ruby on Rails"
+  },
+  {
+    iconName: "brandSinatra",
+    label: "Sinatra"
   },
   {
     iconName: "brandStyledComponents",

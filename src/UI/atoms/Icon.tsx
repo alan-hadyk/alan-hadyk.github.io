@@ -39,10 +39,13 @@ import { ReactComponent as BrandPrestaShop } from "assets/svg/Brand-PrestaShop.s
 import { ReactComponent as BrandQuire } from "assets/svg/Brand-Quire.svg";
 import { ReactComponent as BrandQunit } from "assets/svg/Brand-Qunit.svg";
 import { ReactComponent as BrandREST } from "assets/svg/Brand-REST.svg";
+import { ReactComponent as BrandRails } from "assets/svg/Brand-Rails.svg";
 import { ReactComponent as BrandReact } from "assets/svg/Brand-React.svg";
 import { ReactComponent as BrandRedmine } from "assets/svg/Brand-Redmine.svg";
 import { ReactComponent as BrandRedux } from "assets/svg/Brand-Redux.svg";
+import { ReactComponent as BrandRuby } from "assets/svg/Brand-Ruby.svg";
 import { ReactComponent as BrandSass } from "assets/svg/Brand-Sass.svg";
+import { ReactComponent as BrandSinatra } from "assets/svg/Brand-Sinatra.svg";
 import { ReactComponent as BrandSketch } from "assets/svg/Brand-Sketch.svg";
 import { ReactComponent as BrandStash } from "assets/svg/Brand-Stash.svg";
 import { ReactComponent as BrandStyledComponents } from "assets/svg/Brand-StyledComponents.svg";
@@ -131,10 +134,13 @@ export const iconComponents: IconComponents = {
   brandQuire: BrandQuire,
   brandQunit: BrandQunit,
   brandREST: BrandREST,
+  brandRails: BrandRails,
   brandReact: BrandReact,
   brandRedmine: BrandRedmine,
   brandRedux: BrandRedux,
+  brandRuby: BrandRuby,
   brandSass: BrandSass,
+  brandSinatra: BrandSinatra,
   brandSketch: BrandSketch,
   brandStash: BrandStash,
   brandStyledComponents: BrandStyledComponents,

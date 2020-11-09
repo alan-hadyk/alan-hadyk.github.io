@@ -15,6 +15,10 @@ describe("pages / Home / sections / skills / categories / languagesCategory", ()
         {
           iconName: "brandCoffeeScript",
           label: "CoffeeScript"
+        },
+        {
+          iconName: "brandRuby",
+          label: "Ruby"
         }
       ],
       title: "Languages"
