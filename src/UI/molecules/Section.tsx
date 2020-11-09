@@ -17,29 +17,23 @@ function Section({
   title
 }: SectionProps): JSX.Element {
   const renderTitle = useCallback(
-    ({ fontSize, marginBottom }: RenderTitle): JSX.Element => {
-      if (!title) {
-        return;
-      }
-
-      return (
-        <SpacingContainer
-          dataTestId="TitleSpacingContainer"
-          marginBottom={marginBottom}
+    ({ fontSize, marginBottom }: RenderTitle): JSX.Element => (
+      <SpacingContainer
+        dataTestId="TitleSpacingContainer"
+        marginBottom={marginBottom}
+      >
+        <Text
+          color="blue100"
+          fontFamily="Exan"
+          fontSize={fontSize}
+          lineHeight="spacing80"
+          textAlign="center"
+          textTransform="lowercase"
         >
-          <Text
-            color="blue100"
-            fontFamily="Exan"
-            fontSize={fontSize}
-            lineHeight="spacing80"
-            textAlign="center"
-            textTransform="lowercase"
-          >
-            {title}
-          </Text>
-        </SpacingContainer>
-      );
-    },
+          {title}
+        </Text>
+      </SpacingContainer>
+    ),
     [title]
   );
 
@@ -52,19 +46,23 @@ function Section({
       minHeight={minHeight}
       paddingTop={title ? "spacing96" : "spacing0"}
     >
-      <Responsive devices={["tv", "desktop", "tablet"]}>
-        {renderTitle({
-          fontSize: "font72",
-          marginBottom: "spacing96"
-        })}
-      </Responsive>
+      {title && (
+        <Fragment>
+          <Responsive devices={["tv", "desktop", "tablet"]}>
+            {renderTitle({
+              fontSize: "font72",
+              marginBottom: "spacing96"
+            })}
+          </Responsive>
 
-      <Responsive devices={["mobile"]}>
-        {renderTitle({
-          fontSize: "font48",
-          marginBottom: "spacing48"
-        })}
-      </Responsive>
+          <Responsive devices={["mobile"]}>
+            {renderTitle({
+              fontSize: "font48",
+              marginBottom: "spacing48"
+            })}
+          </Responsive>
+        </Fragment>
+      )}
 
       <Fragment>{children}</Fragment>
     </SpacingContainer>
