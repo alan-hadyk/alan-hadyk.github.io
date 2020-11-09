@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import MenuButton from "UI/atoms/MenuButton";
 
@@ -50,5 +51,11 @@ const HeaderDesktop = ({
     </FlexContainer>
   </Responsive>
 );
+
+HeaderDesktop.propTypes = {
+  isMenuVisible: PropTypes.bool.isRequired,
+  onCVButtonClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired
+};
 
 export default HeaderDesktop;

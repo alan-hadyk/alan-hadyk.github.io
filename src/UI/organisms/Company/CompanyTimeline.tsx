@@ -1,8 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import Timeline from "UI/molecules/Timeline";
-
 import PositionContainer from "UI/layout/PositionContainer";
+
+import spacing from "styles/variables/spacing";
 
 import { CompanyTimelineProps } from "UI/organisms/Company/__typings__/CompanyTimeline";
 
@@ -20,5 +22,9 @@ const CompanyTimeline = ({
     <Timeline />
   </PositionContainer>
 );
+
+CompanyTimeline.propTypes = {
+  timelineBottom: PropTypes.oneOf([...Object.keys(spacing)])
+};
 
 export default CompanyTimeline;

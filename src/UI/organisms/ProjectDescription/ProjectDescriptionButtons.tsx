@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 import SpacingContainer from "UI/layout/SpacingContainer";
 
@@ -7,10 +8,12 @@ import Button from "UI/molecules/Button";
 
 import { ProjectDescriptionButtonsProps } from "UI/organisms/ProjectDescription/__typings__/ProjectDescriptionButtons";
 
+const ProjectDescriptionButtonsContainer = styled.div``;
+
 const ProjectDescriptionButtons = ({
   size = "medium"
 }: ProjectDescriptionButtonsProps): JSX.Element => (
-  <ProjectDescriptionButtons.Container
+  <ProjectDescriptionButtonsContainer
     data-cy="ProjectDescriptionButtons"
     data-testid="ProjectDescriptionButtons"
   >
@@ -32,9 +35,11 @@ const ProjectDescriptionButtons = ({
         width="100%"
       />
     </SpacingContainer>
-  </ProjectDescriptionButtons.Container>
+  </ProjectDescriptionButtonsContainer>
 );
 
-ProjectDescriptionButtons.Container = styled.div``;
+ProjectDescriptionButtons.propTypes = {
+  size: PropTypes.oneOf(["small", "medium", "large"])
+};
 
 export default ProjectDescriptionButtons;

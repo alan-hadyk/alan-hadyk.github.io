@@ -1,3 +1,3 @@
 export interface ListItemProps {
-  children: string | HTMLElement;
+  children: string | HTMLElement | JSX.Element;
 }

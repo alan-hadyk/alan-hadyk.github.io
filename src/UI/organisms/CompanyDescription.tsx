@@ -1,13 +1,20 @@
 import React, { useCallback, Fragment } from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
+import { iconComponents } from "UI/atoms/Icon";
 import Text from "UI/atoms/Text";
 import IconsWithLabels from "UI/molecules/IconsWithLabels";
 import IconWithLabel from "UI/molecules/IconWithLabel";
 import UnorderedList from "UI/molecules/UnorderedList";
 import SpacingContainer from "UI/layout/SpacingContainer";
 
+import colorPalette from "styles/variables/colorPalette";
+import spacing from "styles/variables/spacing";
+
 import { CompanyDescriptionProps } from "UI/organisms/__typings__/CompanyDescription";
+
+const CompanyDescriptionContainer = styled.div``;
 
 function CompanyDescription({
   date,
@@ -50,13 +57,13 @@ function CompanyDescription({
   );
 
   return (
-    <CompanyDescription.Container data-testid="CompanyDescription">
+    <CompanyDescriptionContainer data-testid="CompanyDescription">
       {renderTitleAndDate()}
 
       {renderTechStack()}
 
       {renderResponsibilities()}
-    </CompanyDescription.Container>
+    </CompanyDescriptionContainer>
   );
 
   function renderTechStack(): JSX.Element {
@@ -120,6 +127,26 @@ function CompanyDescription({
   }
 }
 
-CompanyDescription.Container = styled.div``;
+CompanyDescription.propTypes = {
+  date: PropTypes.string.isRequired,
+  iconsWithLabels: PropTypes.arrayOf(
+    PropTypes.shape({
+      iconName: PropTypes.oneOf([...Object.keys(iconComponents)]).isRequired,
+      label: PropTypes.string.isRequired,
+      labelColor: PropTypes.oneOf([...Object.keys(colorPalette)]),
+      size: PropTypes.oneOf(["small", "medium", "large"])
+    })
+  ).isRequired,
+  responsibilities: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node,
+      PropTypes.string
+    ])
+  ).isRequired,
+  responsibilitiesPaddingBottom: PropTypes.oneOf([...Object.keys(spacing)]),
+  textAlign: PropTypes.oneOf(["left", "center", "right"]),
+  title: PropTypes.string.isRequired
+};
 
 export default CompanyDescription;
