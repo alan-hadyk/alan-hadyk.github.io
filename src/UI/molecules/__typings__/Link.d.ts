@@ -13,3 +13,8 @@ export interface LinkProps {
 }
 
 export type LinkContainerProps = Partial<LinkProps>;
+
+export interface RenderChildrenArgs {
+  children: LinkProps["children"];
+  isHoverable?: LinkProps["isHoverable"];
+}

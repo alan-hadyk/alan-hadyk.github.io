@@ -18,21 +18,19 @@ const ProjectDescription = ({
   iconsWithLabels,
   size,
   title
-}: ProjectDescriptionProps): JSX.Element => {
-  return (
-    <ProjectDescriptionContainer data-testid="ProjectDescription">
-      <ProjectDescriptionContent
-        description={description}
-        size={size === "small" ? size : "large"}
-        title={title}
-      />
+}: ProjectDescriptionProps): JSX.Element => (
+  <ProjectDescriptionContainer data-testid="ProjectDescription">
+    <ProjectDescriptionContent
+      description={description}
+      size={size === "small" ? size : "large"}
+      title={title}
+    />
 
-      <ProjectDescriptionTechnologies iconsWithLabels={iconsWithLabels} />
+    <ProjectDescriptionTechnologies iconsWithLabels={iconsWithLabels} />
 
-      <ProjectDescriptionButtons size={size} />
-    </ProjectDescriptionContainer>
-  );
-};
+    <ProjectDescriptionButtons size={size} />
+  </ProjectDescriptionContainer>
+);
 
 ProjectDescription.propTypes = {
   description: PropTypes.string.isRequired,

@@ -12,7 +12,10 @@ import SpacingContainer from "UI/layout/SpacingContainer";
 import colorPalette from "styles/variables/colorPalette";
 import spacing from "styles/variables/spacing";
 
-import { CompanyDescriptionProps } from "UI/organisms/__typings__/CompanyDescription";
+import {
+  CompanyDescriptionProps,
+  RenderResponsibilitiesArgs
+} from "UI/organisms/__typings__/CompanyDescription";
 
 const CompanyDescriptionContainer = styled.div``;
 
@@ -62,7 +65,10 @@ function CompanyDescription({
 
       {renderTechStack()}
 
-      {renderResponsibilities()}
+      {renderResponsibilities({
+        responsibilities,
+        responsibilitiesPaddingBottom
+      })}
     </CompanyDescriptionContainer>
   );
 
@@ -97,34 +103,37 @@ function CompanyDescription({
       </SpacingContainer>
     );
   }
+}
 
-  function renderResponsibilities(): JSX.Element {
-    return (
-      <SpacingContainer
-        dataCy="CompanyResponsibilities"
-        dataTestId="ResponsibilitiesSpacingContainer"
-        paddingBottom={responsibilitiesPaddingBottom}
+function renderResponsibilities({
+  responsibilities,
+  responsibilitiesPaddingBottom
+}: RenderResponsibilitiesArgs): JSX.Element {
+  return (
+    <SpacingContainer
+      dataCy="CompanyResponsibilities"
+      dataTestId="ResponsibilitiesSpacingContainer"
+      paddingBottom={responsibilitiesPaddingBottom}
+    >
+      <Text
+        color="blue100"
+        dataTestId="ResponsibilitiesTitle"
+        fontFamily="AnonymousPro"
+        fontSize="font24"
+        fontWeight="bold"
+        lineHeight="spacing32"
       >
-        <Text
-          color="blue100"
-          dataTestId="ResponsibilitiesTitle"
-          fontFamily="AnonymousPro"
-          fontSize="font24"
-          fontWeight="bold"
-          lineHeight="spacing32"
-        >
-          Responsibilities
-        </Text>
-        <SpacingContainer
-          dataTestId="ResponsibilitiesListSpacingContainer"
-          marginLeft="spacing16"
-          marginTop="spacing16"
-        >
-          <UnorderedList items={responsibilities} />
-        </SpacingContainer>
+        Responsibilities
+      </Text>
+      <SpacingContainer
+        dataTestId="ResponsibilitiesListSpacingContainer"
+        marginLeft="spacing16"
+        marginTop="spacing16"
+      >
+        <UnorderedList items={responsibilities} />
       </SpacingContainer>
-    );
-  }
+    </SpacingContainer>
+  );
 }
 
 CompanyDescription.propTypes = {

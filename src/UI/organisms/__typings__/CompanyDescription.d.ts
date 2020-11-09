@@ -12,3 +12,8 @@ export interface CompanyDescriptionProps {
   textAlign?: TextProps["textAlign"];
   title: string;
 }
+
+export interface RenderResponsibilitiesArgs {
+  responsibilities: UnorderedListProps["items"];
+  responsibilitiesPaddingBottom?: Spacing;
+}

@@ -14,7 +14,11 @@ import PositionContainer from "UI/layout/PositionContainer";
 
 import spacing from "styles/variables/spacing";
 
-import { LinkProps, LinkContainerProps } from "UI/molecules/__typings__/Link";
+import {
+  LinkProps,
+  LinkContainerProps,
+  RenderChildrenArgs
+} from "UI/molecules/__typings__/Link";
 
 const linkStyles: FlattenInterpolation<ThemedStyledProps<
   Partial<LinkProps>,
@@ -76,27 +80,32 @@ function Link({
       width={width}
     >
       {isExternal ? (
-        renderChildren()
+        renderChildren({ children, isHoverable })
       ) : (
-        <RouterLink to={href}>{renderChildren()}</RouterLink>
+        <RouterLink to={href}>
+          {renderChildren({ children, isHoverable })}
+        </RouterLink>
       )}
     </LinkComponent>
   );
+}
 
-  function renderChildren() {
-    return (
-      <Fragment>
-        {children}
+function renderChildren({
+  children,
+  isHoverable
+}: RenderChildrenArgs): JSX.Element {
+  return (
+    <Fragment>
+      {children}
 
-        {isHoverable && (
-          <PositionContainer position="relative">
-            <Line direction="left" />
-            <Line direction="right" />
-          </PositionContainer>
-        )}
-      </Fragment>
-    );
-  }
+      {isHoverable && (
+        <PositionContainer position="relative">
+          <Line direction="left" />
+          <Line direction="right" />
+        </PositionContainer>
+      )}
+    </Fragment>
+  );
 }
 
 Link.propTypes = {
