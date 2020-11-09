@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
+import PropTypes from "prop-types";
 
 import { transparentize } from "polished";
 
@@ -8,23 +9,7 @@ import {
   MenuButtonProps
 } from "UI/atoms/__typings__/MenuButton";
 
-const MenuButton = ({
-  isOpen = false,
-  onClick
-}: MenuButtonProps): JSX.Element => (
-  <MenuButton.Container
-    data-cy="MenuButton"
-    data-testid="MenuButtonContainer"
-    onClick={onClick}
-  >
-    <MenuButton.Line data-testid="MenuButtonLine" isOpen={isOpen} />
-    <MenuButton.Line data-testid="MenuButtonLine" isOpen={isOpen} />
-    <MenuButton.Line data-testid="MenuButtonLine" isOpen={isOpen} />
-    <MenuButton.Line data-testid="MenuButtonLine" isOpen={isOpen} />
-  </MenuButton.Container>
-);
-
-MenuButton.Container = styled.button`
+const MenuButtonContainer = styled.button`
   ${({
     theme: {
       colorPalette: { white },
@@ -48,7 +33,7 @@ MenuButton.Container = styled.button`
   `};
 `;
 
-MenuButton.Line = styled.span<MenuButtonLineProps>`
+const MenuButtonLine = styled.span<MenuButtonLineProps>`
   ${({
     isOpen,
     theme: {
@@ -102,5 +87,26 @@ MenuButton.Line = styled.span<MenuButtonLineProps>`
     `};
   `};
 `;
+
+const MenuButton = ({
+  isOpen = false,
+  onClick
+}: MenuButtonProps): JSX.Element => (
+  <MenuButtonContainer
+    data-cy="MenuButton"
+    data-testid="MenuButtonContainer"
+    onClick={onClick}
+  >
+    <MenuButtonLine data-testid="MenuButtonLine" isOpen={isOpen} />
+    <MenuButtonLine data-testid="MenuButtonLine" isOpen={isOpen} />
+    <MenuButtonLine data-testid="MenuButtonLine" isOpen={isOpen} />
+    <MenuButtonLine data-testid="MenuButtonLine" isOpen={isOpen} />
+  </MenuButtonContainer>
+);
+
+MenuButton.propTypes = {
+  isOpen: PropTypes.bool,
+  onClick: PropTypes.func.isRequired
+};
 
 export default MenuButton;
