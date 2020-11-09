@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
 import styled from "styled-components";
-
-import SpacingContainer from "UI/layout/SpacingContainer";
+import PropTypes from "prop-types";
 
 import Text from "UI/atoms/Text";
+import SpacingContainer from "UI/layout/SpacingContainer";
 
 import {
   MapSizeToProjectDescriptionContentProps,
@@ -31,6 +31,8 @@ const mapSizeToProjectDescriptionContentProps: MapSizeToProjectDescriptionConten
     lineHeight: "spacing24"
   }
 };
+
+const ProjectDescriptionContentContainer = styled.div``;
 
 function ProjectDescriptionContent({
   description,
@@ -72,14 +74,18 @@ function ProjectDescriptionContent({
   );
 
   return (
-    <ProjectDescriptionContent.Container data-testid="ProjectDescriptionContent">
+    <ProjectDescriptionContentContainer data-testid="ProjectDescriptionContent">
       {renderTitle()}
 
       {renderDescription()}
-    </ProjectDescriptionContent.Container>
+    </ProjectDescriptionContentContainer>
   );
 }
 
-ProjectDescriptionContent.Container = styled.div``;
+ProjectDescriptionContent.propTypes = {
+  description: PropTypes.string.isRequired,
+  size: PropTypes.oneOf(["small", "medium", "large"]),
+  title: PropTypes.string.isRequired
+};
 
 export default ProjectDescriptionContent;

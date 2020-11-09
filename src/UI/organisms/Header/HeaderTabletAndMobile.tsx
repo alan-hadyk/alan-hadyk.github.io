@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import MenuButton from "UI/atoms/MenuButton";
 import Backdrop from "UI/atoms/Backdrop";
@@ -26,5 +27,11 @@ const HeaderTabletAndMobile = ({
     <SideMenu isExpanded={isMenuVisible} onCVButtonClick={onCVButtonClick} />
   </Responsive>
 );
+
+HeaderTabletAndMobile.propTypes = {
+  isMenuVisible: PropTypes.bool.isRequired,
+  onCVButtonClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired
+};
 
 export default HeaderTabletAndMobile;

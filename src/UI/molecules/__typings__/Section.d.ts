@@ -4,7 +4,6 @@ export interface SectionProps {
   children: JSX.Element | JSX.Element[] | string;
   dataCy?: string;
   dataTestId?: string;
-  dataTestId?: string;
   id: string;
   marginBottom?: Spacing;
   minHeight?: Spacing | "100vh";

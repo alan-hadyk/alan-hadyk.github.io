@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
+import PropTypes from "prop-types";
 
 import FlexContainer from "UI/layout/FlexContainer";
 import SpacingContainer from "UI/layout/SpacingContainer";
@@ -9,6 +10,21 @@ import Text from "UI/atoms/Text";
 import { ReactComponent as IconWarning } from "assets/svg/Icon-Warning.svg";
 
 import { ErrorProps } from "UI/molecules/__typings__/Error";
+
+const ErrorIcon = styled(IconWarning)`
+  ${({
+    theme: {
+      easing: { easeInOut },
+      keyframes: { glow },
+      transitionTimes
+    }
+  }): FlattenSimpleInterpolation => css`
+    animation-duration: ${transitionTimes.verySlow};
+    animation-iteration-count: infinite;
+    animation-name: ${glow};
+    animation-timing-function: ${easeInOut};
+  `};
+`;
 
 const Error = ({ dataCy, description, title }: ErrorProps): JSX.Element => (
   <SpacingContainer
@@ -26,7 +42,7 @@ const Error = ({ dataCy, description, title }: ErrorProps): JSX.Element => (
       flexFlow="column nowrap"
       justifyContent="center"
     >
-      <Error.Icon data-testid="ErrorIcon" />
+      <ErrorIcon data-testid="ErrorIcon" />
       <Text
         dataCy="ErrorTitle"
         fontSize="font24"
@@ -50,19 +66,10 @@ const Error = ({ dataCy, description, title }: ErrorProps): JSX.Element => (
   </SpacingContainer>
 );
 
-Error.Icon = styled(IconWarning)`
-  ${({
-    theme: {
-      easing: { easeInOut },
-      keyframes: { glow },
-      transitionTimes
-    }
-  }): FlattenSimpleInterpolation => css`
-    animation-duration: ${transitionTimes.verySlow};
-    animation-iteration-count: infinite;
-    animation-name: ${glow};
-    animation-timing-function: ${easeInOut};
-  `};
-`;
+Error.propTypes = {
+  dataCy: PropTypes.string,
+  description: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
+};
 
 export default Error;

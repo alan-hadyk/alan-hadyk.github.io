@@ -1,13 +1,10 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
+import PropTypes from "prop-types";
 
 import { BackdropProps } from "UI/atoms/__typings__/Backdrop";
 
-const Backdrop = ({ onClick }: BackdropProps): JSX.Element => (
-  <Backdrop.Container data-testid="Backdrop" onClick={onClick} />
-);
-
-Backdrop.Container = styled.div`
+const BackdropContainer = styled.div`
   ${({
     theme: {
       zIndex: { layer9 }
@@ -22,5 +19,13 @@ Backdrop.Container = styled.div`
     z-index: ${layer9};
   `};
 `;
+
+const Backdrop = ({ onClick }: BackdropProps): JSX.Element => (
+  <BackdropContainer data-testid="Backdrop" onClick={onClick} />
+);
+
+Backdrop.propTypes = {
+  onClick: PropTypes.func.isRequired
+};
 
 export default Backdrop;

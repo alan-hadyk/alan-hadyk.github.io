@@ -9,88 +9,7 @@ import transitionTimes from "styles/variables/transitionTimes";
 import { TextProps } from "UI/atoms/__typings__/Text";
 import { ShuffleState } from "hooks/__typings__/useShuffleText";
 
-function Text(
-  {
-    children,
-    color = "blue300",
-    dataCy,
-    dataTestId,
-    ellipsis = false,
-    fontFamily = "AnonymousPro",
-    fontSize = "font20",
-    fontWeight = "normal",
-    isHoverable = false,
-    lineHeight = "1",
-    maxHeight,
-    overflow = "visible",
-    paddingBottom = "spacing0",
-    paddingLeft = "spacing0",
-    paddingRight = "spacing0",
-    paddingTop = "spacing0",
-    shouldShuffle = false,
-    shouldShuffleOnHover = false,
-    shuffleDelay = 0,
-    shuffleInterval = parseInt(transitionTimes.verySlow),
-    textAlign = "left",
-    textTransform = "none"
-  }: TextProps,
-  ref?: Ref<HTMLDivElement>
-): JSX.Element {
-  const [shuffleText, setShuffleText] = useState<ShuffleState | undefined>();
-  const textElementRef = useRef<HTMLDivElement>(null);
-
-  useShuffleText({
-    onShuffleReady: setShuffleText,
-    ref: textElementRef,
-    shouldInitialize: shouldShuffleOnHover || shouldShuffle,
-    shuffleDelay,
-    shuffleState: shuffleText,
-    text: children
-  });
-
-  useInterval(() => {
-    if (!textElementRef.current || !shouldShuffle) {
-      return;
-    }
-    shuffleText && shuffleText.start();
-  }, shuffleInterval);
-
-  return (
-    <Text.Container
-      color={color}
-      data-cy={dataCy}
-      data-testid={dataTestId || "Text"}
-      ellipsis={ellipsis}
-      fontFamily={fontFamily}
-      fontSize={fontSize}
-      fontWeight={fontWeight}
-      isHoverable={isHoverable}
-      lineHeight={lineHeight}
-      maxHeight={maxHeight}
-      onMouseOver={handleMouseOver}
-      overflow={overflow}
-      paddingBottom={paddingBottom}
-      paddingLeft={paddingLeft}
-      paddingRight={paddingRight}
-      paddingTop={paddingTop}
-      ref={ref || textElementRef}
-      textAlign={textAlign}
-      textTransform={textTransform}
-    >
-      {children}
-    </Text.Container>
-  );
-
-  function handleMouseOver(): void {
-    if (!textElementRef.current || !shouldShuffleOnHover) {
-      return;
-    }
-
-    shuffleText && shuffleText.start();
-  }
-}
-
-Text.Container = styled.div<TextProps>`
+const TextContainer = styled.div<TextProps>`
   ${({
     color,
     ellipsis,
@@ -155,5 +74,86 @@ Text.Container = styled.div<TextProps>`
     `}
   `};
 `;
+
+function Text(
+  {
+    children,
+    color = "blue300",
+    dataCy,
+    dataTestId,
+    ellipsis = false,
+    fontFamily = "AnonymousPro",
+    fontSize = "font20",
+    fontWeight = "normal",
+    isHoverable = false,
+    lineHeight = "1",
+    maxHeight,
+    overflow = "visible",
+    paddingBottom = "spacing0",
+    paddingLeft = "spacing0",
+    paddingRight = "spacing0",
+    paddingTop = "spacing0",
+    shouldShuffle = false,
+    shouldShuffleOnHover = false,
+    shuffleDelay = 0,
+    shuffleInterval = parseInt(transitionTimes.verySlow),
+    textAlign = "left",
+    textTransform = "none"
+  }: TextProps,
+  ref?: Ref<HTMLDivElement>
+): JSX.Element {
+  const [shuffleText, setShuffleText] = useState<ShuffleState | undefined>();
+  const textElementRef = useRef<HTMLDivElement>(null);
+
+  useShuffleText({
+    onShuffleReady: setShuffleText,
+    ref: textElementRef,
+    shouldInitialize: shouldShuffleOnHover || shouldShuffle,
+    shuffleDelay,
+    shuffleState: shuffleText,
+    text: children
+  });
+
+  useInterval(() => {
+    if (!textElementRef.current || !shouldShuffle) {
+      return;
+    }
+    shuffleText && shuffleText.start();
+  }, shuffleInterval);
+
+  return (
+    <TextContainer
+      color={color}
+      data-cy={dataCy}
+      data-testid={dataTestId || "Text"}
+      ellipsis={ellipsis}
+      fontFamily={fontFamily}
+      fontSize={fontSize}
+      fontWeight={fontWeight}
+      isHoverable={isHoverable}
+      lineHeight={lineHeight}
+      maxHeight={maxHeight}
+      onMouseOver={handleMouseOver}
+      overflow={overflow}
+      paddingBottom={paddingBottom}
+      paddingLeft={paddingLeft}
+      paddingRight={paddingRight}
+      paddingTop={paddingTop}
+      ref={ref || textElementRef}
+      textAlign={textAlign}
+      textTransform={textTransform}
+    >
+      {children}
+    </TextContainer>
+  );
+
+  function handleMouseOver(): void {
+    if (!textElementRef.current || !shouldShuffleOnHover) {
+      return;
+    }
+
+    shuffleText && shuffleText.start();
+  }
+}
 
 export default forwardRef(Text);

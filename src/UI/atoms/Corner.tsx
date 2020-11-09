@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
+import PropTypes from "prop-types";
 
 import {
   CornerContainerProps,
@@ -32,18 +33,7 @@ const mapPositionToCornerProps = (
   }
 });
 
-function Corner({ isActive = false, position }: CornerProps): JSX.Element {
-  const cornerProps: CornerContainerProps = mapPositionToCornerProps(isActive)[
-    position
-  ];
-  const opacity: CornerContainerProps["opacity"] = isActive ? 1 : 0.5;
-
-  return (
-    <Corner.Container {...cornerProps} opacity={opacity} data-testid="Corner" />
-  );
-}
-
-Corner.Container = styled.div<CornerContainerProps>`
+const CornerContainer = styled.div<CornerContainerProps>`
   ${({
     top,
     left,
@@ -68,5 +58,26 @@ Corner.Container = styled.div<CornerContainerProps>`
     width: ${spacing8};
   `};
 `;
+
+function Corner({ isActive = false, position }: CornerProps): JSX.Element {
+  const cornerProps: CornerContainerProps = mapPositionToCornerProps(isActive)[
+    position
+  ];
+  const opacity: CornerContainerProps["opacity"] = isActive ? 1 : 0.5;
+
+  return (
+    <CornerContainer {...cornerProps} opacity={opacity} data-testid="Corner" />
+  );
+}
+
+Corner.propTypes = {
+  isActive: PropTypes.bool,
+  position: PropTypes.oneOf([
+    "topLeft",
+    "topRight",
+    "bottomLeft",
+    "bottomRight"
+  ]).isRequired
+};
 
 export default Corner;
