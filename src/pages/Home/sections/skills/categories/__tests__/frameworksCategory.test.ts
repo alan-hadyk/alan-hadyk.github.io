@@ -31,6 +31,14 @@ describe("pages / Home / sections / skills / categories / frameworksCategory", (
         {
           iconName: "brandJQuery",
           label: "jQuery"
+        },
+        {
+          iconName: "brandRails",
+          label: "Ruby on Rails"
+        },
+        {
+          iconName: "brandSinatra",
+          label: "Sinatra"
         }
       ],
       title: "Frameworks"

@@ -28,6 +28,14 @@ const iconsWithLabels: IconWithLabelProps[] = [
   {
     iconName: "brandJQuery",
     label: "jQuery"
+  },
+  {
+    iconName: "brandRails",
+    label: "Ruby on Rails"
+  },
+  {
+    iconName: "brandSinatra",
+    label: "Sinatra"
   }
 ];
 

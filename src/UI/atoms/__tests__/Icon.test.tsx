@@ -739,6 +739,14 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Brand-REST.svg");
       });
 
+      test("should render correct icon for brandRails", () => {
+        const { IconComponent } = setup({
+          iconName: "brandRails"
+        });
+
+        expect(IconComponent.textContent).toEqual("Brand-Rails.svg");
+      });
+
       test("should render correct icon for brandReact", () => {
         const { IconComponent } = setup({
           iconName: "brandReact"
@@ -763,12 +771,28 @@ describe("atoms / Icon", () => {
         expect(IconComponent.textContent).toEqual("Brand-Redux.svg");
       });
 
+      test("should render correct icon for brandRuby", () => {
+        const { IconComponent } = setup({
+          iconName: "brandRuby"
+        });
+
+        expect(IconComponent.textContent).toEqual("Brand-Ruby.svg");
+      });
+
       test("should render correct icon for brandSass", () => {
         const { IconComponent } = setup({
           iconName: "brandSass"
         });
 
         expect(IconComponent.textContent).toEqual("Brand-Sass.svg");
+      });
+
+      test("should render correct icon for brandSinatra", () => {
+        const { IconComponent } = setup({
+          iconName: "brandSinatra"
+        });
+
+        expect(IconComponent.textContent).toEqual("Brand-Sinatra.svg");
       });
 
       test("should render correct icon for brandSketch", () => {
