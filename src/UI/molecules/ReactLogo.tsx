@@ -1,9 +1,8 @@
 import React from "react";
 
+import Icon from "UI/atoms/Icon";
 import FlexContainer from "UI/layout/FlexContainer";
 import SpacingContainer from "UI/layout/SpacingContainer";
-
-import Icon from "UI/atoms/Icon";
 
 const ReactLogo = (): JSX.Element => (
   <SpacingContainer

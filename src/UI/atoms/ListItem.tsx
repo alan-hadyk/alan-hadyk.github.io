@@ -1,15 +1,10 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
+import PropTypes from "prop-types";
 
 import { ListItemProps } from "UI/atoms/__typings__/ListItem";
 
-const ListItem = ({ children }: ListItemProps): JSX.Element => (
-  <ListItem.Container data-cy="ListItem" data-testid="ListItem">
-    {children}
-  </ListItem.Container>
-);
-
-ListItem.Container = styled.li`
+const ListItemContainer = styled.li`
   ${({
     theme: {
       colorPalette: { blue100, blue300 },
@@ -26,5 +21,18 @@ ListItem.Container = styled.li`
     }
   `};
 `;
+
+const ListItem = ({ children }: ListItemProps): JSX.Element => (
+  <ListItemContainer data-cy="ListItem" data-testid="ListItem">
+    {children}
+  </ListItemContainer>
+);
+
+ListItem.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
+};
 
 export default ListItem;

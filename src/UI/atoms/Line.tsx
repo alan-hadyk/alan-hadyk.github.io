@@ -1,18 +1,10 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
+import PropTypes from "prop-types";
 
 import { LineProps } from "UI/atoms/__typings__/Line";
 
-const Line = ({ direction, isActive = false }: LineProps): JSX.Element => (
-  <Line.Container
-    className="line"
-    data-testid="Line"
-    direction={direction}
-    isActive={isActive}
-  />
-);
-
-Line.Container = styled.div<LineProps>`
+const LineContainer = styled.div<LineProps>`
   ${({
     direction,
     isActive,
@@ -40,5 +32,19 @@ Line.Container = styled.div<LineProps>`
     "right: 50%;"};
   `};
 `;
+
+const Line = ({ direction, isActive = false }: LineProps): JSX.Element => (
+  <LineContainer
+    className="line"
+    data-testid="Line"
+    direction={direction}
+    isActive={isActive}
+  />
+);
+
+Line.propTypes = {
+  direction: PropTypes.oneOf(["left", "right"]).isRequired,
+  isActive: PropTypes.bool
+};
 
 export default Line;

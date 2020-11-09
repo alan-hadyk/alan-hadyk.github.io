@@ -1,21 +1,10 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
+import PropTypes from "prop-types";
 
 import { NoMatchPageTemplateProps } from "UI/templates/__typings__/NoMatchPageTemplate";
 
-const NoMatchPageTemplate = ({
-  children,
-  dataCy
-}: NoMatchPageTemplateProps): JSX.Element => (
-  <NoMatchPageTemplate.Container
-    data-cy={dataCy}
-    data-testid="NoMatchPageTemplate"
-  >
-    {children}
-  </NoMatchPageTemplate.Container>
-);
-
-NoMatchPageTemplate.Container = styled.main`
+const NoMatchPageTemplateContainer = styled.div`
   ${({
     theme: {
       breakpoints: { breakpoint640, breakpoint641, breakpoint1280 },
@@ -42,5 +31,25 @@ NoMatchPageTemplate.Container = styled.main`
     }
   `};
 `;
+
+const NoMatchPageTemplate = ({
+  children,
+  dataCy = "NoMatchPageTemplate"
+}: NoMatchPageTemplateProps): JSX.Element => (
+  <NoMatchPageTemplateContainer
+    data-cy={dataCy}
+    data-testid="NoMatchPageTemplate"
+  >
+    {children}
+  </NoMatchPageTemplateContainer>
+);
+
+NoMatchPageTemplate.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired,
+  dataCy: PropTypes.string
+};
 
 export default NoMatchPageTemplate;

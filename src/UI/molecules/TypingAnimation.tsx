@@ -41,45 +41,9 @@ export default function useIntersectionObserver({
     return (): void => observer.disconnect();
   }, [onElementVisible, selectors]);`;
 
-function TypingAnimation(): JSX.Element {
-  const codeContainerRef = useRef<HTMLDivElement>(null);
-  const currentChar = useRef<number>(0);
+const TypingAnimationPre = styled.pre``;
 
-  useInterval(() => {
-    updateText();
-  }, 50);
-
-  return (
-    <PositionContainer
-      dataTestId="TypingAnimation"
-      height="100%"
-      position="relative"
-    >
-      <TypingAnimation.Pre data-testid="TypingAnimationPre">
-        <TypingAnimation.Code
-          data-testid="TypingAnimationCode"
-          ref={codeContainerRef}
-        />
-      </TypingAnimation.Pre>
-    </PositionContainer>
-  );
-
-  function updateText(): void {
-    if (currentChar.current <= CODE.length) {
-      codeContainerRef.current.innerHTML += CODE.charAt(currentChar.current);
-
-      currentChar.current++;
-    } else {
-      codeContainerRef.current.innerHTML = "";
-
-      currentChar.current = 0;
-    }
-  }
-}
-
-TypingAnimation.Pre = styled.pre``;
-
-TypingAnimation.Code = styled.code`
+const TypingAnimationCode = styled.code`
   ${({
     theme: {
       colorPalette: { blue100, blue300 },
@@ -116,5 +80,41 @@ TypingAnimation.Code = styled.code`
     }
   `};
 `;
+
+function TypingAnimation(): JSX.Element {
+  const codeContainerRef = useRef<HTMLDivElement>(null);
+  const currentChar = useRef<number>(0);
+
+  useInterval(() => {
+    updateText();
+  }, 50);
+
+  return (
+    <PositionContainer
+      dataTestId="TypingAnimation"
+      height="100%"
+      position="relative"
+    >
+      <TypingAnimationPre data-testid="TypingAnimationPre">
+        <TypingAnimationCode
+          data-testid="TypingAnimationCode"
+          ref={codeContainerRef}
+        />
+      </TypingAnimationPre>
+    </PositionContainer>
+  );
+
+  function updateText(): void {
+    if (currentChar.current <= CODE.length) {
+      codeContainerRef.current.innerHTML += CODE.charAt(currentChar.current);
+
+      currentChar.current++;
+    } else {
+      codeContainerRef.current.innerHTML = "";
+
+      currentChar.current = 0;
+    }
+  }
+}
 
 export default TypingAnimation;

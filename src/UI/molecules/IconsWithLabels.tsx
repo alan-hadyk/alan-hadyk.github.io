@@ -1,18 +1,18 @@
 import React from "react";
+import PropTypes from "prop-types";
 
+import { iconComponents } from "UI/atoms/Icon";
 import IconWithLabel from "UI/molecules/IconWithLabel";
-
 import VerticalIconsWithLabels from "UI/molecules/VerticalIconsWithLabels";
-
 import FlexContainer from "UI/layout/FlexContainer";
 
-import { IconWithLabelProps } from "UI/molecules/__typings__/IconWithLabel";
+import colorPalette from "styles/variables/colorPalette";
 
+import { IconWithLabelProps } from "UI/molecules/__typings__/IconWithLabel";
 import {
   IconsWithLabelsProps,
   MapSizeToFlexContainerGap
 } from "UI/molecules/__typings__/IconsWithLabels";
-
 import { FlexContainerProps } from "UI/layout/__typings__/FlexContainer";
 
 const mapSizeToFlexContainerGap: MapSizeToFlexContainerGap = {
@@ -64,5 +64,19 @@ function IconsWithLabels({
     </FlexContainer>
   );
 }
+
+IconsWithLabels.propTypes = {
+  iconsWithLabels: PropTypes.arrayOf(
+    PropTypes.shape({
+      iconName: PropTypes.oneOf([...Object.keys(iconComponents)]).isRequired,
+      label: PropTypes.string.isRequired,
+      labelColor: PropTypes.oneOf([...Object.keys(colorPalette)]),
+      size: PropTypes.oneOf(["small", "medium", "large"])
+    })
+  ).isRequired,
+  labelColor: PropTypes.oneOf([...Object.keys(colorPalette)]),
+  position: PropTypes.oneOf(["vertical", "horizontal"]),
+  size: PropTypes.oneOf(["small", "medium", "large"])
+};
 
 export default IconsWithLabels;

@@ -11,16 +11,21 @@ describe("pages / Home / sections / about / AboutMeSection", () => {
       AboutMeSectionContainer,
       HexagonWithDescription,
       HexagonWithDescriptionContents,
-      IconContainer
+      Images
     } = setup();
 
     expect(AboutMeSectionContainer.children[4]).toEqual(HexagonWithDescription);
 
     HexagonWithDescriptionContents.forEach(
-      (HexagonWithDescriptionContent: Element) => {
+      (HexagonWithDescriptionContent: Element, index: number) => {
+        expect(HexagonWithDescription.children[index].children[0]).toEqual(
+          HexagonWithDescriptionContent
+        );
+
         expect(
-          HexagonWithDescriptionContent.children[0].children[0].children[0]
-        ).toEqual(IconContainer);
+          HexagonWithDescriptionContent.children[0].children[0].children[1]
+            .children[0]
+        ).toEqual(Images[index]);
       }
     );
   });
@@ -51,21 +56,6 @@ describe("pages / Home / sections / about / AboutMeSection", () => {
 
   describe("HexagonWithDescription", () => {
     describe("Props", () => {
-      describe("children", () => {
-        test("should render correct image", () => {
-          const { HexagonWithDescriptionContents } = setup();
-
-          HexagonWithDescriptionContents.forEach(
-            (HexagonWithDescriptionContent: Element) => {
-              expect(
-                HexagonWithDescriptionContent.children[0].children[0]
-                  .children[1].textContent
-              ).toEqual("Company-SAP.svg");
-            }
-          );
-        });
-      });
-
       describe("description", () => {
         test("should have correct description", () => {
           const { HexagonWithDescriptionContents } = setup();
@@ -84,13 +74,47 @@ describe("pages / Home / sections / about / AboutMeSection", () => {
       });
     });
   });
+
+  describe("Image", () => {
+    describe("Props", () => {
+      describe("height", () => {
+        test("should have 700", () => {
+          const { Images } = setup();
+
+          Images.forEach((Image: Element) => {
+            expect(Image.getAttribute("height")).toEqual("700");
+          });
+        });
+      });
+
+      describe("src", () => {
+        test("should have /images/alan.png", () => {
+          const { Images } = setup();
+
+          Images.forEach((Image: Element) => {
+            expect(Image.getAttribute("src")).toEqual("/images/alan.png");
+          });
+        });
+      });
+
+      describe("width", () => {
+        test("should have 700", () => {
+          const { Images } = setup();
+
+          Images.forEach((Image: Element) => {
+            expect(Image.getAttribute("width")).toEqual("700");
+          });
+        });
+      });
+    });
+  });
 });
 
 interface Setup extends RenderResult {
   AboutMeSectionContainer: Element;
   HexagonWithDescription: Element;
   HexagonWithDescriptionContents: Element[];
-  IconContainer: Element;
+  Images: Element[];
 }
 
 function setup(): Setup {
@@ -107,13 +131,13 @@ function setup(): Setup {
   const HexagonWithDescriptionContents: Element[] = queryAllByTestId(
     "HexagonWithDescriptionContent"
   );
-  const IconContainer: Element = queryAllByTestId("IconContainer")[0];
+  const Images: Element[] = queryAllByTestId("AboutMeImage");
 
   return {
     ...utils,
     AboutMeSectionContainer,
     HexagonWithDescription,
     HexagonWithDescriptionContents,
-    IconContainer
+    Images
   };
 }

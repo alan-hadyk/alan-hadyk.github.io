@@ -27,23 +27,6 @@ export default `
     display: block;
   }
 
-  html {
-    font-size: 62.5%;
-  }
-
-  * {
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  *, 
-  *:after, 
-  *:before, 
-  *::before, 
-  *::after {
-    box-sizing: border-box;
-    outline: 0;
-  }
-
   body {
     color: ${colorPalette.blue300};
     line-height: 1;

@@ -1,7 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 
+import Icon, { iconComponents } from "UI/atoms/Icon";
 import Link from "UI/molecules/Link";
-import Icon from "UI/atoms/Icon";
+
+import spacing from "styles/variables/spacing";
 
 import { LinkWithIconProps } from "UI/molecules/__typings__/LinkWithIcon";
 
@@ -32,5 +35,21 @@ const LinkWithIcon = ({
     />
   </Link>
 );
+
+LinkWithIcon.propTypes = {
+  dataCy: PropTypes.string,
+  dataTestId: PropTypes.string,
+  height: PropTypes.oneOf([
+    ...Object.keys(spacing),
+    "unset",
+    "50%",
+    "100%",
+    "auto"
+  ]),
+  href: PropTypes.string.isRequired,
+  iconName: PropTypes.oneOf([...Object.keys(iconComponents)]).isRequired,
+  isExternal: PropTypes.bool,
+  width: PropTypes.string
+};
 
 export default LinkWithIcon;

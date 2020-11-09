@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
+import PropTypes from "prop-types";
 
 import Button from "UI/molecules/Button";
 import MenuIcons from "UI/molecules/MenuIcons";
@@ -16,11 +17,35 @@ import {
   SideMenuProps
 } from "UI/organisms/__typings__/SideMenu";
 
+const SideMenuContainer = styled.div<SideMenuContainerProps>`
+  ${({
+    isExpanded,
+    theme: {
+      colorPalette: { blue300, blue600 },
+      easing: { easeInOut },
+      spacing: { spacing88 },
+      transitionTimes: { fast },
+      zIndex: { layer10 }
+    }
+  }): FlattenSimpleInterpolation => css`
+    background: ${transparentize(0.125, blue600)};
+    border-left: 1px solid ${transparentize(0.25, blue300)};
+    height: 100%;
+    padding-top: ${spacing88};
+    position: fixed;
+    right: 0;
+    top: 0;
+    transform: ${isExpanded ? "translateX(0)" : "translateX(100%)"};
+    transition: all ${fast} ${easeInOut};
+    z-index: ${layer10};
+  `};
+`;
+
 const SideMenu = ({
   isExpanded = false,
   onCVButtonClick
 }: SideMenuProps): JSX.Element => (
-  <SideMenu.Container
+  <SideMenuContainer
     data-cy="SideMenu"
     data-testid="SideMenu"
     isExpanded={isExpanded}
@@ -74,31 +99,12 @@ const SideMenu = ({
         </FlexContainer>
       </SpacingContainer>
     </SpacingContainer>
-  </SideMenu.Container>
+  </SideMenuContainer>
 );
 
-SideMenu.Container = styled.div<SideMenuContainerProps>`
-  ${({
-    isExpanded,
-    theme: {
-      colorPalette: { blue300, blue600 },
-      easing: { easeInOut },
-      spacing: { spacing88 },
-      transitionTimes: { fast },
-      zIndex: { layer10 }
-    }
-  }): FlattenSimpleInterpolation => css`
-    background: ${transparentize(0.125, blue600)};
-    border-left: 1px solid ${transparentize(0.25, blue300)};
-    height: 100%;
-    padding-top: ${spacing88};
-    position: fixed;
-    right: 0;
-    top: 0;
-    transform: ${isExpanded ? "translateX(0)" : "translateX(100%)"};
-    transition: all ${fast} ${easeInOut};
-    z-index: ${layer10};
-  `};
-`;
+SideMenu.propTypes = {
+  isExpanded: PropTypes.bool,
+  onCVButtonClick: PropTypes.func
+};
 
 export default SideMenu;

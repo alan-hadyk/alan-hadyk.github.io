@@ -1,4 +1,5 @@
-import React, { memo, useCallback } from "react";
+import React, { useCallback } from "react";
+import PropTypes from "prop-types";
 
 import SpacingContainer from "UI/layout/SpacingContainer";
 import Text from "UI/atoms/Text";
@@ -42,4 +43,11 @@ function ButtonText({
   );
 }
 
-export default memo(ButtonText);
+ButtonText.propTypes = {
+  buttonText: PropTypes.string.isRequired,
+  dataTestId: PropTypes.string,
+  hasMargin: PropTypes.bool,
+  size: PropTypes.oneOf(["small", "medium", "large"])
+};
+
+export default ButtonText;

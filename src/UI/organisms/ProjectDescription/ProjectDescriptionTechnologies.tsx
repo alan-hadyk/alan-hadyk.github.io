@@ -1,10 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 
+import { iconComponents } from "UI/atoms/Icon";
+import Text from "UI/atoms/Text";
+import IconsWithLabels from "UI/molecules/IconsWithLabels";
 import SpacingContainer from "UI/layout/SpacingContainer";
 
-import Text from "UI/atoms/Text";
-
-import IconsWithLabels from "UI/molecules/IconsWithLabels";
+import colorPalette from "styles/variables/colorPalette";
 
 import { ProjectDescriptionTechnologiesProps } from "UI/organisms/ProjectDescription/__typings__/ProjectDescriptionTechnologies";
 
@@ -37,5 +39,16 @@ const ProjectDescriptionTechnologies = ({
     </SpacingContainer>
   </SpacingContainer>
 );
+
+ProjectDescriptionTechnologies.propTypes = {
+  iconsWithLabels: PropTypes.arrayOf(
+    PropTypes.shape({
+      iconName: PropTypes.oneOf([...Object.keys(iconComponents)]).isRequired,
+      label: PropTypes.string.isRequired,
+      labelColor: PropTypes.oneOf([...Object.keys(colorPalette)]),
+      size: PropTypes.oneOf(["small", "medium", "large"])
+    })
+  ).isRequired
+};
 
 export default ProjectDescriptionTechnologies;

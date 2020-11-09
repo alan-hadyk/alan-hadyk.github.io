@@ -1,22 +1,13 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
+import PropTypes from "prop-types";
 
 import ListItem from "UI/atoms/ListItem";
 
 import { UnorderedListProps } from "UI/molecules/__typings__/UnorderedList";
 import { ListItemProps } from "UI/atoms/__typings__/ListItem";
 
-const UnorderedList = ({ items }: UnorderedListProps): JSX.Element => (
-  <UnorderedList.Container data-cy="UnorderedList" data-testid="UnorderedList">
-    {items.map(
-      (item: ListItemProps["children"], index: number): JSX.Element => (
-        <ListItem key={index}>{item}</ListItem>
-      )
-    )}
-  </UnorderedList.Container>
-);
-
-UnorderedList.Container = styled.ul`
+const UnorderedListContainer = styled.ul`
   ${({
     theme: {
       colorPalette: { blue100 },
@@ -45,5 +36,25 @@ UnorderedList.Container = styled.ul`
     }
   `};
 `;
+
+const UnorderedList = ({ items }: UnorderedListProps): JSX.Element => (
+  <UnorderedListContainer data-cy="UnorderedList" data-testid="UnorderedList">
+    {items.map(
+      (item: ListItemProps["children"], index: number): JSX.Element => (
+        <ListItem key={index}>{item}</ListItem>
+      )
+    )}
+  </UnorderedListContainer>
+);
+
+UnorderedList.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node,
+      PropTypes.string
+    ])
+  ).isRequired
+};
 
 export default UnorderedList;

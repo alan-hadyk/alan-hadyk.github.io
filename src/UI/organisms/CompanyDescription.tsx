@@ -1,13 +1,23 @@
 import React, { useCallback, Fragment } from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
+import { iconComponents } from "UI/atoms/Icon";
 import Text from "UI/atoms/Text";
 import IconsWithLabels from "UI/molecules/IconsWithLabels";
 import IconWithLabel from "UI/molecules/IconWithLabel";
 import UnorderedList from "UI/molecules/UnorderedList";
 import SpacingContainer from "UI/layout/SpacingContainer";
 
-import { CompanyDescriptionProps } from "UI/organisms/__typings__/CompanyDescription";
+import colorPalette from "styles/variables/colorPalette";
+import spacing from "styles/variables/spacing";
+
+import {
+  CompanyDescriptionProps,
+  RenderResponsibilitiesArgs
+} from "UI/organisms/__typings__/CompanyDescription";
+
+const CompanyDescriptionContainer = styled.div``;
 
 function CompanyDescription({
   date,
@@ -50,13 +60,16 @@ function CompanyDescription({
   );
 
   return (
-    <CompanyDescription.Container data-testid="CompanyDescription">
+    <CompanyDescriptionContainer data-testid="CompanyDescription">
       {renderTitleAndDate()}
 
       {renderTechStack()}
 
-      {renderResponsibilities()}
-    </CompanyDescription.Container>
+      {renderResponsibilities({
+        responsibilities,
+        responsibilitiesPaddingBottom
+      })}
+    </CompanyDescriptionContainer>
   );
 
   function renderTechStack(): JSX.Element {
@@ -90,36 +103,59 @@ function CompanyDescription({
       </SpacingContainer>
     );
   }
-
-  function renderResponsibilities(): JSX.Element {
-    return (
-      <SpacingContainer
-        dataCy="CompanyResponsibilities"
-        dataTestId="ResponsibilitiesSpacingContainer"
-        paddingBottom={responsibilitiesPaddingBottom}
-      >
-        <Text
-          color="blue100"
-          dataTestId="ResponsibilitiesTitle"
-          fontFamily="AnonymousPro"
-          fontSize="font24"
-          fontWeight="bold"
-          lineHeight="spacing32"
-        >
-          Responsibilities
-        </Text>
-        <SpacingContainer
-          dataTestId="ResponsibilitiesListSpacingContainer"
-          marginLeft="spacing16"
-          marginTop="spacing16"
-        >
-          <UnorderedList items={responsibilities} />
-        </SpacingContainer>
-      </SpacingContainer>
-    );
-  }
 }
 
-CompanyDescription.Container = styled.div``;
+function renderResponsibilities({
+  responsibilities,
+  responsibilitiesPaddingBottom
+}: RenderResponsibilitiesArgs): JSX.Element {
+  return (
+    <SpacingContainer
+      dataCy="CompanyResponsibilities"
+      dataTestId="ResponsibilitiesSpacingContainer"
+      paddingBottom={responsibilitiesPaddingBottom}
+    >
+      <Text
+        color="blue100"
+        dataTestId="ResponsibilitiesTitle"
+        fontFamily="AnonymousPro"
+        fontSize="font24"
+        fontWeight="bold"
+        lineHeight="spacing32"
+      >
+        Responsibilities
+      </Text>
+      <SpacingContainer
+        dataTestId="ResponsibilitiesListSpacingContainer"
+        marginLeft="spacing16"
+        marginTop="spacing16"
+      >
+        <UnorderedList items={responsibilities} />
+      </SpacingContainer>
+    </SpacingContainer>
+  );
+}
+
+CompanyDescription.propTypes = {
+  date: PropTypes.string.isRequired,
+  iconsWithLabels: PropTypes.arrayOf(
+    PropTypes.shape({
+      iconName: PropTypes.oneOf([...Object.keys(iconComponents)]).isRequired,
+      label: PropTypes.string.isRequired,
+      labelColor: PropTypes.oneOf([...Object.keys(colorPalette)]),
+      size: PropTypes.oneOf(["small", "medium", "large"])
+    })
+  ).isRequired,
+  responsibilities: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node,
+      PropTypes.string
+    ])
+  ).isRequired,
+  responsibilitiesPaddingBottom: PropTypes.oneOf([...Object.keys(spacing)]),
+  textAlign: PropTypes.oneOf(["left", "center", "right"]),
+  title: PropTypes.string.isRequired
+};
 
 export default CompanyDescription;

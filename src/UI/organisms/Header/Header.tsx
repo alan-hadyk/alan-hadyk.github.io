@@ -1,6 +1,7 @@
 import React, { memo, useState } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize } from "polished";
+import PropTypes from "prop-types";
 
 import LinkWithIcon from "UI/molecules/LinkWithIcon";
 
@@ -12,12 +13,40 @@ import PositionContainer from "UI/layout/PositionContainer";
 import FlexContainer from "UI/layout/FlexContainer";
 import Responsive from "UI/layout/Responsive";
 
+import zIndex from "styles/variables/zIndex";
+
 import useResize from "hooks/useResize";
 
 import { HeaderProps } from "UI/organisms/Header/__typings__/Header";
 
 const downloadCV = (): Window =>
   window.open("/pdf/Alan_Hadyk_CV_2020.pdf", "_blank");
+
+const HeaderContainer = styled.header`
+  ${({
+    theme: {
+      colorPalette: { blue300, blue600 },
+      spacing: { spacing96 }
+    }
+  }): FlattenSimpleInterpolation => css`
+    background-color: ${transparentize(0.25, blue600)};
+    border-bottom: 1px solid ${transparentize(0.5, blue300)};
+    height: ${spacing96};
+  `};
+`;
+
+const HeaderInnerContainer = styled.div`
+  ${({
+    theme: {
+      breakpoints: { breakpoint1920 },
+      spacing: { spacing24, spacing48 }
+    }
+  }): FlattenSimpleInterpolation => css`
+    max-width: ${breakpoint1920};
+    padding: ${spacing24} ${spacing48};
+    width: 100%;
+  `};
+`;
 
 function Header({ zIndex = "layer1" }: HeaderProps): JSX.Element {
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false);
@@ -36,20 +65,20 @@ function Header({ zIndex = "layer1" }: HeaderProps): JSX.Element {
       top="spacing0"
       zIndex={zIndex}
     >
-      <Header.Container data-cy="Header" data-testid="HeaderContainer">
+      <HeaderContainer data-cy="Header" data-testid="HeaderContainer">
         <FlexContainer
           dataTestId="HeaderOuterFlexContainer"
           flexFlow="row nowrap"
         >
           {renderHeaderInnerContainer()}
         </FlexContainer>
-      </Header.Container>
+      </HeaderContainer>
     </PositionContainer>
   );
 
   function renderHeaderInnerContainer(): JSX.Element {
     return (
-      <Header.InnerContainer data-testid="HeaderInnerContainer">
+      <HeaderInnerContainer data-testid="HeaderInnerContainer">
         <FlexContainer
           dataTestId="HeaderInnerFlexContainer"
           flexFlow="row nowrap"
@@ -89,7 +118,7 @@ function Header({ zIndex = "layer1" }: HeaderProps): JSX.Element {
             onClick={handleMenuButtonClick}
           />
         </FlexContainer>
-      </Header.InnerContainer>
+      </HeaderInnerContainer>
     );
   }
 
@@ -98,31 +127,9 @@ function Header({ zIndex = "layer1" }: HeaderProps): JSX.Element {
   }
 }
 
-Header.Container = styled.header`
-  ${({
-    theme: {
-      colorPalette: { blue300, blue600 },
-      spacing: { spacing96 }
-    }
-  }): FlattenSimpleInterpolation => css`
-    background-color: ${transparentize(0.25, blue600)};
-    border-bottom: 1px solid ${transparentize(0.5, blue300)};
-    height: ${spacing96};
-  `};
-`;
-
-Header.InnerContainer = styled.div`
-  ${({
-    theme: {
-      breakpoints: { breakpoint1920 },
-      spacing: { spacing24, spacing48 }
-    }
-  }): FlattenSimpleInterpolation => css`
-    max-width: ${breakpoint1920};
-    padding: ${spacing24} ${spacing48};
-    width: 100%;
-  `};
-`;
+Header.propTypes = {
+  zIndex: PropTypes.oneOf([...Object.keys(zIndex)])
+};
 
 export { downloadCV };
 
