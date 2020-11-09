@@ -41,9 +41,14 @@ describe("AboutMe", () => {
             );
 
           cy.get("[data-testid='HexagonWithDescriptionContent']")
-            .find("[data-testid='Hexagon']")
-            .find("[data-cy='companySAP']")
+            .find("[data-cy='AboutMeImage']")
             .should("be.visible");
+
+          cy.dataCy("AboutMeImage").should(
+            "have.attr",
+            "src",
+            "/images/alan.png"
+          );
         });
     });
   });

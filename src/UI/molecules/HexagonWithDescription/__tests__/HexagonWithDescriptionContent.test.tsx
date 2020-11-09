@@ -136,10 +136,10 @@ describe("molecules / HexagonWithDescription", () => {
 
     describe("Props", () => {
       describe("width", () => {
-        test("should have 75%", () => {
+        test("should have 100%", () => {
           const { Hexagon } = setup();
 
-          expect(Hexagon.children[1]).toHaveStyleRule("width", "75%");
+          expect(Hexagon.children[1]).toHaveStyleRule("width", "100%");
         });
       });
     });
