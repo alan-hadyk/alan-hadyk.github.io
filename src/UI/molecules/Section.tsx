@@ -1,9 +1,11 @@
 import React, { Fragment, useCallback } from "react";
+import PropTypes from "prop-types";
 
 import Text from "UI/atoms/Text";
-
 import SpacingContainer from "UI/layout/SpacingContainer";
 import Responsive from "UI/layout/Responsive";
+
+import spacing from "styles/variables/spacing";
 
 import { RenderTitle, SectionProps } from "UI/molecules/__typings__/Section";
 
@@ -68,5 +70,19 @@ function Section({
     </SpacingContainer>
   );
 }
+
+Section.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+    PropTypes.string
+  ]).isRequired,
+  dataCy: PropTypes.string,
+  dataTestId: PropTypes.string,
+  id: PropTypes.string.isRequired,
+  marginBottom: PropTypes.oneOf([...Object.keys(spacing)]),
+  minHeight: PropTypes.oneOf([...Object.keys(spacing), "100vh"]),
+  title: PropTypes.string
+};
 
 export default Section;

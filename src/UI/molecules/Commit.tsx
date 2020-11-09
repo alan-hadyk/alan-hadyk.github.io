@@ -1,5 +1,6 @@
-import React, { memo } from "react";
+import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
+import PropTypes from "prop-types";
 
 import Text from "UI/atoms/Text";
 import Link from "UI/molecules/Link";
@@ -9,45 +10,7 @@ import FlexItem from "UI/layout/FlexItem";
 
 import { CommitProps } from "UI/molecules/__typings__/Commit";
 
-const Commit = ({ date, delay, htmlUrl, sha }: CommitProps): JSX.Element => (
-  <Commit.Container data-testid="Commit">
-    <SpacingContainer
-      dataTestId="CommitSpacingContainer"
-      paddingTop="spacing4"
-      paddingBottom="spacing4"
-      width="100%"
-    >
-      <FlexContainer
-        alignItems="center"
-        dataTestId="CommitFlexContainer"
-        flexFlow="row nowrap"
-        justifyContent="space-between"
-      >
-        <FlexItem flex="0 0 60.97%" overflow="hidden">
-          <Link href={htmlUrl} isExternal>
-            <Text
-              color="blue100"
-              ellipsis
-              fontSize="font8"
-              shouldShuffle
-              shuffleDelay={delay}
-              textTransform="uppercase"
-            >
-              {sha}
-            </Text>
-          </Link>
-        </FlexItem>
-        <FlexItem flex="0 0 30.66%">
-          <Text fontSize="font8" ellipsis>
-            {date}
-          </Text>
-        </FlexItem>
-      </FlexContainer>
-    </SpacingContainer>
-  </Commit.Container>
-);
-
-Commit.Container = styled.div`
+const CommitContainer = styled.div`
   ${({
     theme: {
       colorPalette: { blue400 }
@@ -88,4 +51,49 @@ Commit.Container = styled.div`
   `};
 `;
 
-export default memo(Commit);
+const Commit = ({ date, delay, htmlUrl, sha }: CommitProps): JSX.Element => (
+  <CommitContainer data-testid="Commit">
+    <SpacingContainer
+      dataTestId="CommitSpacingContainer"
+      paddingTop="spacing4"
+      paddingBottom="spacing4"
+      width="100%"
+    >
+      <FlexContainer
+        alignItems="center"
+        dataTestId="CommitFlexContainer"
+        flexFlow="row nowrap"
+        justifyContent="space-between"
+      >
+        <FlexItem flex="0 0 60.97%" overflow="hidden">
+          <Link href={htmlUrl} isExternal>
+            <Text
+              color="blue100"
+              ellipsis
+              fontSize="font8"
+              shouldShuffle
+              shuffleDelay={delay}
+              textTransform="uppercase"
+            >
+              {sha}
+            </Text>
+          </Link>
+        </FlexItem>
+        <FlexItem flex="0 0 30.66%">
+          <Text fontSize="font8" ellipsis>
+            {date}
+          </Text>
+        </FlexItem>
+      </FlexContainer>
+    </SpacingContainer>
+  </CommitContainer>
+);
+
+Commit.propTypes = {
+  date: PropTypes.string.isRequired,
+  delay: PropTypes.number.isRequired,
+  htmlUrl: PropTypes.string.isRequired,
+  sha: PropTypes.string.isRequired
+};
+
+export default Commit;

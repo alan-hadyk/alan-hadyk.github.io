@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import PropTypes from "prop-types";
 
 import Corner from "UI/atoms/Corner";
 
@@ -29,5 +30,9 @@ const Corners = ({ isActive = false }: CornersProps): JSX.Element => (
     )}
   </Fragment>
 );
+
+Corners.propTypes = {
+  isActive: PropTypes.bool
+};
 
 export default Corners;

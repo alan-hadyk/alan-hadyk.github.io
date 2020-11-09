@@ -1,10 +1,17 @@
-import React, { memo } from "react";
+import React from "react";
 import styled from "styled-components";
 
 import FlexContainer from "UI/layout/FlexContainer";
 import SpacingContainer from "UI/layout/SpacingContainer";
 
 import { ReactComponent as FluxFlowChart } from "assets/svg/Flux-FlowChart.svg";
+
+const FlowChartIcon = styled(FluxFlowChart)`
+  display: block;
+  height: 100%;
+  margin: 0 auto;
+  width: 100%;
+`;
 
 const FlowChart = (): JSX.Element => (
   <FlexContainer
@@ -22,16 +29,9 @@ const FlowChart = (): JSX.Element => (
       paddingTop="spacing8"
       width="100%"
     >
-      <FlowChart.Icon id="flow-chart" />
+      <FlowChartIcon id="flow-chart" />
     </SpacingContainer>
   </FlexContainer>
 );
 
-FlowChart.Icon = styled(FluxFlowChart)`
-  display: block;
-  height: 100%;
-  margin: 0 auto;
-  width: 100%;
-`;
-
-export default memo(FlowChart);
+export default FlowChart;

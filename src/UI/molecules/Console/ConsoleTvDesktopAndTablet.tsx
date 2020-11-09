@@ -7,6 +7,27 @@ import Text from "UI/atoms/Text";
 
 import PositionContainer from "UI/layout/PositionContainer";
 
+const ConsoleTvDesktopAndTabletContainer = styled.div`
+  ${({
+    theme: {
+      colorPalette: { blue100, blue300, blue700 },
+      spacing: { spacing8 }
+    }
+  }): FlattenSimpleInterpolation => css`
+    align-items: center;
+    background-color: ${transparentize(0.25, blue700)};
+    border: 1px solid ${blue300};
+    box-shadow: 0px 0px ${spacing8} 0px ${blue100};
+    display: flex;
+    height: 26.6%;
+    justify-content: center;
+    min-height: 26.6vh;
+    padding: 1.11vh 0.62vw;
+    position: relative;
+    width: 100%;
+  `};
+`;
+
 const ConsoleTvDesktopAndTablet = (): JSX.Element => (
   <PositionContainer
     dataCy="ConsoleTvDesktopAndTablet"
@@ -18,7 +39,7 @@ const ConsoleTvDesktopAndTablet = (): JSX.Element => (
     transform="translateY(-50%)"
     zIndex="layer3"
   >
-    <ConsoleTvDesktopAndTablet.Container data-testid="ConsoleTvDesktopAndTabletContainer">
+    <ConsoleTvDesktopAndTabletContainer data-testid="ConsoleTvDesktopAndTabletContainer">
       <PositionContainer
         dataTestId="ConsoleTvDesktopAndTabletInnerPositionContainer"
         left="spacing0"
@@ -43,29 +64,8 @@ const ConsoleTvDesktopAndTablet = (): JSX.Element => (
         transform="translateY(1vh)"
         width="3vh"
       />
-    </ConsoleTvDesktopAndTablet.Container>
+    </ConsoleTvDesktopAndTabletContainer>
   </PositionContainer>
 );
-
-ConsoleTvDesktopAndTablet.Container = styled.div`
-  ${({
-    theme: {
-      colorPalette: { blue100, blue300, blue700 },
-      spacing: { spacing8 }
-    }
-  }): FlattenSimpleInterpolation => css`
-    align-items: center;
-    background-color: ${transparentize(0.25, blue700)};
-    border: 1px solid ${blue300};
-    box-shadow: 0px 0px ${spacing8} 0px ${blue100};
-    display: flex;
-    height: 26.6%;
-    justify-content: center;
-    min-height: 26.6vh;
-    padding: 1.11vh 0.62vw;
-    position: relative;
-    width: 100%;
-  `};
-`;
 
 export default ConsoleTvDesktopAndTablet;

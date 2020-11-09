@@ -93,7 +93,7 @@ import {
   SVGIcon
 } from "UI/atoms/__typings__/Icon";
 
-const iconComponents: IconComponents = {
+export const iconComponents: IconComponents = {
   apollo: IconApollo,
   brandAfterEffects: BrandAfterEffects,
   brandAirbnb: BrandAirbnb,
