@@ -1,7 +1,7 @@
 import React from "react";
 import { RenderResult } from "@testing-library/react";
 
-import NavItem, { arePropsEqual } from "UI/molecules/NavItem";
+import NavItem from "UI/molecules/NavItem";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
@@ -310,53 +310,6 @@ describe("molecules / NavItem", () => {
           });
         });
       });
-    });
-  });
-
-  describe("arePropsEqual", () => {
-    test("should return true if prevProps.isActive === nextProps.isActive", () => {
-      expect(
-        arePropsEqual(
-          {
-            ...defaultProps,
-            isActive: true
-          },
-          {
-            ...defaultProps,
-            isActive: true
-          }
-        )
-      ).toEqual(true);
-    });
-
-    test("should return false if prevProps.isActive !== nextProps.isActive - test 1", () => {
-      expect(
-        arePropsEqual(
-          {
-            ...defaultProps,
-            isActive: false
-          },
-          {
-            ...defaultProps,
-            isActive: true
-          }
-        )
-      ).toEqual(false);
-    });
-
-    test("should return false if prevProps.isActive !== nextProps.isActive - test 1", () => {
-      expect(
-        arePropsEqual(
-          {
-            ...defaultProps,
-            isActive: true
-          },
-          {
-            ...defaultProps,
-            isActive: false
-          }
-        )
-      ).toEqual(false);
     });
   });
 });

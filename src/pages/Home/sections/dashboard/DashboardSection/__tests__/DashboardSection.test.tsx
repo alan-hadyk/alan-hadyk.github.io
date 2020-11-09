@@ -65,10 +65,10 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
       Section
     } = setup();
 
-    expect(Section.children[4]).toEqual(DashboardSectionTv);
-    expect(Section.children[5]).toEqual(DashboardSectionDesktop);
-    expect(Section.children[6]).toEqual(DashboardSectionTablet);
-    expect(Section.children[7]).toEqual(DashboardSectionMobile);
+    expect(Section.children[0]).toEqual(DashboardSectionTv);
+    expect(Section.children[1]).toEqual(DashboardSectionDesktop);
+    expect(Section.children[2]).toEqual(DashboardSectionTablet);
+    expect(Section.children[3]).toEqual(DashboardSectionMobile);
   });
 
   describe("Section", () => {
