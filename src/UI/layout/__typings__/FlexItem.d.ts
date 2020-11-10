@@ -21,11 +21,8 @@ export interface FlexItemProps {
   paddingRight?: Spacing | string;
   paddingTop?: Spacing | string;
   shouldApplyWidth?: boolean;
-  width?: string;
 }
 
 export interface FlexItemContainerProps extends FlexItemProps {
-  flexBasis?: string;
-  flexGrow?: string;
-  flexShrink?: string;
+  width?: string;
 }

@@ -1,6 +1,8 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
+import { transparentize } from "polished";
+
 import Button from "UI/molecules/Button";
 import MenuIcons from "UI/molecules/MenuIcons";
 import Nav from "UI/molecules/Nav";
@@ -9,7 +11,6 @@ import SpacingContainer from "UI/layout/SpacingContainer";
 import FlexContainer from "UI/layout/FlexContainer";
 import Responsive from "UI/layout/Responsive";
 
-import { transparentize } from "polished";
 import spacing from "styles/variables/spacing";
 
 import isIE11 from "helpers/browser/isIE11";

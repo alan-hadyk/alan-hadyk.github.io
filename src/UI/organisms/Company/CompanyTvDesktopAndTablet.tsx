@@ -1,5 +1,4 @@
 import React, { useCallback } from "react";
-// import styled from "styled-components";
 
 import CompanyLogo from "UI/molecules/CompanyLogo";
 
@@ -10,8 +9,9 @@ import FlexContainer from "UI/layout/FlexContainer";
 import FlexItem from "UI/layout/FlexItem";
 import Responsive from "UI/layout/Responsive";
 
-import { CompanyProps } from "UI/organisms/Company/__typings__/Company";
 import isIE11 from "helpers/browser/isIE11";
+
+import { CompanyProps } from "UI/organisms/Company/__typings__/Company";
 
 function CompanyTvDesktopAndTablet({
   date,
@@ -41,7 +41,6 @@ function CompanyTvDesktopAndTablet({
 
   return (
     <Responsive devices={["tv", "desktop", "tablet"]}>
-      {/* <CompanyTvDesktopAndTablet.Container> */}
       {renderCompanyTimeline()}
 
       <FlexContainer
@@ -66,15 +65,8 @@ function CompanyTvDesktopAndTablet({
           />
         </FlexItem>
       </FlexContainer>
-      {/* </CompanyTvDesktopAndTablet.Container> */}
     </Responsive>
   );
 }
-
-// CompanyTvDesktopAndTablet.Container = styled.div`
-//   margin: 0 auto;
-//   max-width: 1056px;
-//   width: 100%;
-// `;
 
 export default CompanyTvDesktopAndTablet;

@@ -7,7 +7,7 @@ import { CompanyLogoProps } from "UI/molecules/__typings__/CompanyLogo";
 
 import isIE11 from "helpers/browser/isIE11";
 
-const CompanyLogo = ({ logo }: CompanyLogoProps): JSX.Element => {
+function CompanyLogo({ logo }: CompanyLogoProps): JSX.Element {
   const [iconWidth, setIconWidth] = useState<string>("");
   const iconRef = useRef(null);
 
@@ -37,6 +37,6 @@ const CompanyLogo = ({ logo }: CompanyLogoProps): JSX.Element => {
       />
     </FlexContainer>
   );
-};
+}
 
 export default CompanyLogo;

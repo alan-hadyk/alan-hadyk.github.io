@@ -16,5 +16,4 @@ export interface FlexContainerProps {
 export interface CalculateGap {
   flexFlow: FlexContainerProps["flexFlow"];
   gap: FlexContainerProps["gap"];
-  shouldConvertGapToPadding?: boolean;
 }

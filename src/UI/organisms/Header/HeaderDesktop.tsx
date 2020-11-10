@@ -12,11 +12,12 @@ import FlexContainer from "UI/layout/FlexContainer";
 import SpacingContainer from "UI/layout/SpacingContainer";
 
 import Backdrop from "UI/atoms/Backdrop";
-import { HeaderMobileProps } from "UI/organisms/Header/__typings__/HeaderMobile";
 
 import spacing from "styles/variables/spacing";
 
 import isIE11 from "helpers/browser/isIE11";
+
+import { HeaderMobileProps } from "UI/organisms/Header/__typings__/HeaderMobile";
 
 const HeaderDesktop = ({
   isMenuVisible,

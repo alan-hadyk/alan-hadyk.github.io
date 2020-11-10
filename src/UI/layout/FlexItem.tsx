@@ -1,11 +1,14 @@
 import React, { useCallback } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
-import { FlexItemProps } from "UI/layout/__typings__/FlexItem";
-
 import isIE11 from "helpers/browser/isIE11";
 
-const FlexItem = ({
+import {
+  FlexItemContainerProps,
+  FlexItemProps
+} from "UI/layout/__typings__/FlexItem";
+
+function FlexItem({
   alignSelf = "auto",
   children,
   className,
@@ -22,7 +25,7 @@ const FlexItem = ({
   paddingRight = "spacing0",
   paddingTop = "spacing0",
   shouldApplyWidth = false
-}: FlexItemProps): JSX.Element => {
+}: FlexItemProps): JSX.Element {
   const getWidth: () => string = useCallback((): string => {
     return flex.split(" ").splice(-1)[0];
   }, [flex]);
@@ -49,9 +52,9 @@ const FlexItem = ({
       {children}
     </FlexItem.Container>
   );
-};
+}
 
-FlexItem.Container = styled.div<FlexItemProps>`
+FlexItem.Container = styled.div<FlexItemContainerProps>`
   ${({
     alignSelf,
     display,

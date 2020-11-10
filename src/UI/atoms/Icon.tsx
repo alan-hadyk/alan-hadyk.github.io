@@ -1,4 +1,4 @@
-import React, { forwardRef, LegacyRef } from "react";
+import React, { forwardRef, Ref } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize } from "polished";
 
@@ -106,7 +106,7 @@ function Icon(
     shouldGlowOnHover = false,
     width = "auto"
   }: IconProps,
-  ref: LegacyRef<SVGSVGElement>
+  ref: Ref<SVGSVGElement>
 ): JSX.Element {
   const iconComponents: IconComponents = {
     apollo: IconApollo,

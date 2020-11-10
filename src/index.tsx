@@ -51,7 +51,7 @@ export function renderApp(): void {
     loader.style.opacity = "0";
 
     window.setTimeout(() => {
-      loader?.remove();
+      loader?.parentNode.removeChild(loader);
     }, 300);
   }, 600);
 }

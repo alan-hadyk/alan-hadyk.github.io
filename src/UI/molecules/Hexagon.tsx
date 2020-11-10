@@ -3,32 +3,37 @@ import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import Icon from "UI/atoms/Icon";
 
-import {
-  HexagonInnerContainerProps,
-  HexagonProps
-} from "UI/molecules/__typings__/Hexagon";
-
 import isIE11 from "helpers/browser/isIE11";
 
-const Hexagon = ({
+import {
+  HexagonInnerContainerProps,
+  HexagonProps,
+  IconDimensionsProps
+} from "UI/molecules/__typings__/Hexagon";
+
+function Hexagon({
   children,
   contentWidth = "100%",
   dataCy,
   dataTestId,
   fill = "none"
-}: HexagonProps): JSX.Element => {
-  const [iconWidth, setIconWidth] = useState<string>("");
-  const [iconHeight, setIconHeight] = useState<string>("");
+}: HexagonProps): JSX.Element {
+  const [iconDimensions, setIconDimensions] = useState<IconDimensionsProps>({
+    height: "",
+    width: ""
+  });
   const iconRef = useRef(null);
 
   useEffect(() => {
     const viewBox = iconRef?.current?.attributes?.viewBox.value;
-    const viewBoxWidth = viewBox?.split(" ")[2];
-    const viewBoxHeight = viewBox?.split(" ")[3];
+    const height = viewBox?.split(" ")[3];
+    const width = viewBox?.split(" ")[2];
 
     if (isIE11()) {
-      setIconWidth(`${viewBoxWidth}px`);
-      setIconHeight(`${viewBoxHeight}px`);
+      setIconDimensions({
+        height: `${height}px`,
+        width: `${width}px`
+      });
     }
   }, []);
 
@@ -63,28 +68,43 @@ const Hexagon = ({
     case "none":
       return (
         <Icon
-          height={iconHeight}
+          height={iconDimensions.height}
           iconName="hexagon"
           ref={iconRef}
           shouldGlow
-          width={iconWidth}
+          width={iconDimensions.width}
         />
       );
     }
   }
-};
+}
 
 Hexagon.Container = styled.div`
   position: relative;
 `;
 
 Hexagon.InnerContainer = styled.div<HexagonInnerContainerProps>`
-  ${({ width }): FlattenSimpleInterpolation => css`
+  ${({
+    theme: {
+      breakpoints: { breakpoint1281 }
+    },
+    width
+  }): FlattenSimpleInterpolation => css`
     left: 50%;
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
     width: ${width};
+
+    ${isIE11() &&
+    css`
+      @media all and (min-width: ${breakpoint1281}) {
+        left: 48%;
+        top: 53%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+      }
+    `}
   `};
 `;
 

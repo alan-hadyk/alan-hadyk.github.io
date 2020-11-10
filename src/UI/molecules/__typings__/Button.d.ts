@@ -8,10 +8,6 @@ export interface ButtonContainerProps {
   width?: "auto" | "100%";
 }
 
-export interface ButtonInnerContainerProps {
-  size?: "small" | "medium" | "large";
-}
-
 export interface ButtonInnnerContainerPositions {
   x: number;
   y: number;

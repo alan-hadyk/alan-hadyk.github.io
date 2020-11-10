@@ -9,3 +9,8 @@ export interface HexagonProps {
 export interface HexagonInnerContainerProps {
   width?: string;
 }
+
+export interface IconDimensionsProps {
+  height?: string;
+  width?: string;
+}

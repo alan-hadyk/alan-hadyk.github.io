@@ -7,6 +7,10 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 
 import { ConsoleTextProps } from "UI/atoms/__typings__/ConsoleText";
 
+import isIE11 from "helpers/browser/isIE11";
+
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("atoms / ConsoleText", () => {
   describe("Styles", () => {
     describe("color", () => {
@@ -18,12 +22,23 @@ describe("atoms / ConsoleText", () => {
     });
 
     describe("font-family", () => {
-      test("should have ExanModifiedRegular,monospace", () => {
+      test("should have ExanModifiedRegular,monospace for all browsers except IE", () => {
         const { ConsoleTextContainer } = setup();
 
         expect(ConsoleTextContainer).toHaveStyleRule(
           "font-family",
           "ExanModifiedRegular,monospace"
+        );
+      });
+
+      test("should have AnonymousPro,monospace for IE", () => {
+        const { ConsoleTextContainer } = setup();
+        const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+        mockisIE11.mockImplementation(() => false);
+
+        expect(ConsoleTextContainer).toHaveStyleRule(
+          "font-family",
+          "AnonymousPro,monospace"
         );
       });
     });

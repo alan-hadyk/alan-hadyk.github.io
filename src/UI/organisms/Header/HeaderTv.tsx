@@ -8,11 +8,11 @@ import Responsive from "UI/layout/Responsive";
 import FlexContainer from "UI/layout/FlexContainer";
 import SpacingContainer from "UI/layout/SpacingContainer";
 
-import { HeaderTvProps } from "UI/organisms/Header/__typings__/HeaderTv";
-
 import spacing from "styles/variables/spacing";
 
 import isIE11 from "helpers/browser/isIE11";
+
+import { HeaderTvProps } from "UI/organisms/Header/__typings__/HeaderTv";
 
 const HeaderTv = ({ onCVButtonClick }: HeaderTvProps): JSX.Element => (
   <Responsive dataTestTvId="HeaderTv" devices={["tv"]}>
