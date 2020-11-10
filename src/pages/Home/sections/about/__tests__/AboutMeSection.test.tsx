@@ -56,16 +56,6 @@ describe("pages / Home / sections / about / AboutMeSection", () => {
 
   describe("HexagonWithDescription", () => {
     describe("Props", () => {
-      describe("children", () => {
-        test("should render correct image", () => {
-          const { Images } = setup();
-
-          Images.forEach((Image: Element) => {
-            expect(Image.getAttribute("src")).toEqual("/images/alan.png");
-          });
-        });
-      });
-
       describe("description", () => {
         test("should have correct description", () => {
           const { HexagonWithDescriptionContents } = setup();
@@ -80,6 +70,40 @@ describe("pages / Home / sections / about / AboutMeSection", () => {
               );
             }
           );
+        });
+      });
+    });
+  });
+
+  describe("Image", () => {
+    describe("Props", () => {
+      describe("height", () => {
+        test("should have 700", () => {
+          const { Images } = setup();
+
+          Images.forEach((Image: Element) => {
+            expect(Image.getAttribute("height")).toEqual("700");
+          });
+        });
+      });
+
+      describe("src", () => {
+        test("should have /images/alan.png", () => {
+          const { Images } = setup();
+
+          Images.forEach((Image: Element) => {
+            expect(Image.getAttribute("src")).toEqual("/images/alan.png");
+          });
+        });
+      });
+
+      describe("width", () => {
+        test("should have 700", () => {
+          const { Images } = setup();
+
+          Images.forEach((Image: Element) => {
+            expect(Image.getAttribute("width")).toEqual("700");
+          });
         });
       });
     });

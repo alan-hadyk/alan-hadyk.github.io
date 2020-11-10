@@ -19,49 +19,46 @@ const animatedIcons: IconProps["iconName"][] = [
   "graphql"
 ];
 
-function AnimatedIcons(): JSX.Element {
-  return (
-    <SpacingContainer
-      dataTestId="AnimatedIcons"
+const AnimatedIcons = (): JSX.Element => (
+  <SpacingContainer
+    dataTestId="AnimatedIcons"
+    height="100%"
+    paddingBottom="spacing8"
+    paddingLeft="spacing8"
+    paddingRight="spacing8"
+    paddingTop="spacing8"
+    width="100%"
+  >
+    <FlexContainer
+      alignItems="center"
+      dataTestId="AnimatedIconsFlexContainer"
+      flexFlow="row nowrap"
       height="100%"
-      paddingBottom="spacing8"
-      paddingLeft="spacing8"
-      paddingRight="spacing8"
-      paddingTop="spacing8"
-      width="100%"
+      justifyContent="center"
     >
-      <FlexContainer
-        alignItems="center"
-        dataTestId="AnimatedIconsFlexContainer"
-        flexFlow="row nowrap"
-        height="100%"
-        justifyContent="center"
-        maxWidth="100%"
-      >
-        {renderIcons()}
-      </FlexContainer>
-    </SpacingContainer>
-  );
+      {renderIcons()}
+    </FlexContainer>
+  </SpacingContainer>
+);
 
-  function renderIcons(): JSX.Element[] {
-    return animatedIcons.map(
-      (icon: IconProps["iconName"]): JSX.Element => (
-        <PositionContainer
-          height={isSafari() ? "auto" : "100%"}
-          key={icon}
-          position="relative"
-          width={`${100 / animatedIcons.length}%`}
-        >
-          <Icon
-            height={isSafari() ? "8vh" : "100%"}
-            iconName={icon}
-            isResponsive
-            width={isSafari() ? "8vh" : "100%"}
-          />
-        </PositionContainer>
-      )
-    );
-  }
+function renderIcons(): JSX.Element[] {
+  return animatedIcons.map(
+    (icon: IconProps["iconName"]): JSX.Element => (
+      <PositionContainer
+        height={isSafari() ? "auto" : "100%"}
+        key={icon}
+        position="relative"
+        width={`${100 / animatedIcons.length}%`}
+      >
+        <Icon
+          height={isSafari() ? "8vh" : "100%"}
+          iconName={icon}
+          isResponsive
+          width={isSafari() ? "8vh" : "100%"}
+        />
+      </PositionContainer>
+    )
+  );
 }
 
 export default AnimatedIcons;

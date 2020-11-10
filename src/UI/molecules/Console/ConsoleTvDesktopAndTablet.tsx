@@ -7,47 +7,7 @@ import Text from "UI/atoms/Text";
 
 import PositionContainer from "UI/layout/PositionContainer";
 
-const ConsoleTvDesktopAndTablet = (): JSX.Element => (
-  <PositionContainer
-    dataCy="ConsoleTvDesktopAndTablet"
-    dataTestId="ConsoleTvDesktopAndTabletOuterPositionContainer"
-    left="spacing0"
-    position="absolute"
-    right="spacing0"
-    top="50%"
-    transform="translateY(-50%)"
-    zIndex="layer3"
-  >
-    <ConsoleTvDesktopAndTablet.Container data-testid="ConsoleTvDesktopAndTabletContainer">
-      <PositionContainer
-        dataTestId="ConsoleTvDesktopAndTabletInnerPositionContainer"
-        left="spacing0"
-        position="absolute"
-        top="spacing0"
-        transform="translateY(-100%)"
-      >
-        <Text
-          fontSize="font12"
-          lineHeight="spacing28"
-          textTransform="uppercase"
-        >
-          GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin19)
-        </Text>
-      </PositionContainer>
-
-      <ConsoleText
-        dataTestId="ConsoleTvDesktopAndTabletText"
-        fontSize="6vh"
-        height="6vh"
-        lineHeight="7.4vh"
-        transform="translateY(1vh)"
-        width="3vh"
-      />
-    </ConsoleTvDesktopAndTablet.Container>
-  </PositionContainer>
-);
-
-ConsoleTvDesktopAndTablet.Container = styled.div`
+const ConsoleTvDesktopAndTabletContainer = styled.div`
   ${({
     theme: {
       colorPalette: { blue100, blue300, blue700 },
@@ -76,5 +36,45 @@ ConsoleTvDesktopAndTablet.Container = styled.div`
     }
   `};
 `;
+
+const ConsoleTvDesktopAndTablet = (): JSX.Element => (
+  <PositionContainer
+    dataCy="ConsoleTvDesktopAndTablet"
+    dataTestId="ConsoleTvDesktopAndTabletOuterPositionContainer"
+    left="spacing0"
+    position="absolute"
+    right="spacing0"
+    top="50%"
+    transform="translateY(-50%)"
+    zIndex="layer3"
+  >
+    <ConsoleTvDesktopAndTabletContainer data-testid="ConsoleTvDesktopAndTabletContainer">
+      <PositionContainer
+        dataTestId="ConsoleTvDesktopAndTabletInnerPositionContainer"
+        left="spacing0"
+        position="absolute"
+        top="spacing0"
+        transform="translateY(-100%)"
+      >
+        <Text
+          fontSize="font12"
+          lineHeight="spacing28"
+          textTransform="uppercase"
+        >
+          GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin19)
+        </Text>
+      </PositionContainer>
+
+      <ConsoleText
+        dataTestId="ConsoleTvDesktopAndTabletText"
+        fontSize="6vh"
+        height="6vh"
+        lineHeight="7.4vh"
+        transform="translateY(1vh)"
+        width="3vh"
+      />
+    </ConsoleTvDesktopAndTabletContainer>
+  </PositionContainer>
+);
 
 export default ConsoleTvDesktopAndTablet;

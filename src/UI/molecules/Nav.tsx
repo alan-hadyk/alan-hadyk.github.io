@@ -1,4 +1,5 @@
-import React, { memo, useState } from "react";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 import NavItem from "UI/molecules/NavItem";
 import FlexContainer from "UI/layout/FlexContainer";
@@ -44,22 +45,26 @@ function Nav({ position = "horizontal" }: NavProps): JSX.Element {
       gap={position === "horizontal" ? "spacing24" : "spacing12"}
       justifyContent="center"
     >
-      {renderNavItems()}
+      {renderNavItems(activeNavItem)}
     </FlexContainer>
   );
-
-  function renderNavItems(): JSX.Element[] {
-    return navItems.map(
-      ({ href, title }: NavItemProps, index: number): JSX.Element => (
-        <NavItem
-          key={index}
-          href={href}
-          isActive={activeNavItem === href}
-          title={title}
-        />
-      )
-    );
-  }
 }
 
-export default memo(Nav);
+function renderNavItems(activeNavItem: NavItemProps["href"]): JSX.Element[] {
+  return navItems.map(
+    ({ href, title }: NavItemProps, index: number): JSX.Element => (
+      <NavItem
+        key={index}
+        href={href}
+        isActive={activeNavItem === href}
+        title={title}
+      />
+    )
+  );
+}
+
+Nav.propTypes = {
+  position: PropTypes.oneOf(["horizontal", "vertical"])
+};
+
+export default Nav;

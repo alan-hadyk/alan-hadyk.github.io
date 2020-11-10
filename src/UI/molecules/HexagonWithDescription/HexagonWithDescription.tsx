@@ -1,9 +1,9 @@
 import React from "react";
-
-import SpacingContainer from "UI/layout/SpacingContainer";
-import Responsive from "UI/layout/Responsive";
+import PropTypes from "prop-types";
 
 import HexagonWithDescriptionContent from "UI/molecules/HexagonWithDescription/HexagonWithDescriptionContent";
+import SpacingContainer from "UI/layout/SpacingContainer";
+import Responsive from "UI/layout/Responsive";
 
 import { HexagonWithDescriptionProps } from "UI/molecules/HexagonWithDescription/__typings__/HexagonWithDescription";
 
@@ -57,5 +57,16 @@ const HexagonWithDescription = ({
     </Responsive>
   </SpacingContainer>
 );
+
+HexagonWithDescription.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired,
+  description: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
+};
 
 export default HexagonWithDescription;

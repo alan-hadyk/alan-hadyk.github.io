@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import Button from "UI/molecules/Button";
 import MenuIcons from "UI/molecules/MenuIcons";
@@ -43,5 +44,9 @@ const HeaderTv = ({ onCVButtonClick }: HeaderTvProps): JSX.Element => (
     </FlexContainer>
   </Responsive>
 );
+
+HeaderTv.propTypes = {
+  onCVButtonClick: PropTypes.func.isRequired
+};
 
 export default HeaderTv;

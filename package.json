@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "@babel/runtime": "^7.12.5",
     "detect-browser": "^5.2.0",
     "intersection-observer": "^0.11.0",
     "ip": "^1.1.5",

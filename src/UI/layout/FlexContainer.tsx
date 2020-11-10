@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
+import PropTypes from "prop-types";
 
 import spacing from "styles/variables/spacing";
 
@@ -8,34 +9,7 @@ import {
   FlexContainerProps
 } from "UI/layout/__typings__/FlexContainer";
 
-const FlexContainer = ({
-  alignItems = "center",
-  dataCy,
-  dataTestId,
-  children,
-  flexFlow = "row wrap",
-  gap = "spacing0",
-  height = "unset",
-  justifyContent = "center",
-  margin = "spacing0",
-  maxWidth = "unset"
-}: FlexContainerProps): JSX.Element => (
-  <FlexContainer.Container
-    alignItems={alignItems}
-    data-cy={dataCy}
-    data-testid={dataTestId || "FlexContainer"}
-    flexFlow={flexFlow}
-    gap={gap}
-    height={height}
-    justifyContent={justifyContent}
-    maxWidth={maxWidth}
-    margin={margin}
-  >
-    {children}
-  </FlexContainer.Container>
-);
-
-FlexContainer.Container = styled.div<FlexContainerProps>`
+const FlexContainerWrapper = styled.div<FlexContainerProps>`
   ${({
     alignItems,
     flexFlow,
@@ -62,6 +36,33 @@ FlexContainer.Container = styled.div<FlexContainerProps>`
     `};
   `};
 `;
+
+const FlexContainer = ({
+  alignItems = "center",
+  dataCy,
+  dataTestId,
+  children,
+  flexFlow = "row wrap",
+  gap = "spacing0",
+  height = "unset",
+  justifyContent = "center",
+  margin = "spacing0",
+  maxWidth = "unset"
+}: FlexContainerProps): JSX.Element => (
+  <FlexContainerWrapper
+    alignItems={alignItems}
+    data-cy={dataCy}
+    data-testid={dataTestId || "FlexContainer"}
+    flexFlow={flexFlow}
+    gap={gap}
+    height={height}
+    justifyContent={justifyContent}
+    margin={margin}
+    maxWidth={maxWidth}
+  >
+    {children}
+  </FlexContainerWrapper>
+);
 
 function calculateGap({ flexFlow, gap }: CalculateGap): string {
   switch (flexFlow) {
@@ -91,5 +92,36 @@ function calculateGap({ flexFlow, gap }: CalculateGap): string {
     `;
   }
 }
+
+FlexContainer.propTypes = {
+  alignItems: PropTypes.oneOf([
+    "stretch",
+    "flex-start",
+    "flex-end",
+    "center",
+    "baseline"
+  ]),
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired,
+  dataCy: PropTypes.string,
+  dataTestId: PropTypes.string,
+  flexFlow: PropTypes.oneOf([
+    "row wrap",
+    "row nowrap",
+    "column wrap",
+    "column nowrap"
+  ]),
+  gap: PropTypes.string,
+  height: PropTypes.oneOf([...Object.keys(spacing), "unset", "50%", "100%"]),
+  justifyContent: PropTypes.oneOf([
+    "flex-start",
+    "flex-end",
+    "center",
+    "space-between"
+  ]),
+  maxWidth: PropTypes.oneOf([...Object.keys(spacing), "unset"])
+};
 
 export default FlexContainer;

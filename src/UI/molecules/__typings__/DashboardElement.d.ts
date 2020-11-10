@@ -11,3 +11,7 @@ export interface DashboardElementProps extends FlexItemProps {
   titleFontSize?: "font16" | "font28";
   titleOverflow?: "visible" | "hidden";
 }
+
+export type DashboardElementInnerContainerProps = Partial<
+  DashboardElementProps
+>;

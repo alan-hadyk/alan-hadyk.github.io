@@ -1,8 +1,25 @@
-import React, { memo } from "react";
+import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import Hexagon from "UI/molecules/Hexagon";
 import PositionContainer from "UI/layout/PositionContainer";
+
+const TimelineLine = styled.div`
+  ${({
+    theme: {
+      colorPalette: { blue300 },
+      spacing: { spacing0, spacing2 }
+    }
+  }): FlattenSimpleInterpolation => css`
+    background-color: ${blue300};
+    bottom: ${spacing0};
+    left: 50%;
+    position: absolute;
+    top: ${spacing0};
+    transform: translateX(-50%);
+    width: ${spacing2};
+  `};
+`;
 
 const Timeline = (): JSX.Element => (
   <PositionContainer
@@ -21,25 +38,8 @@ const Timeline = (): JSX.Element => (
     >
       <Hexagon fill="solid" />
     </PositionContainer>
-    <Timeline.Line data-testid="TimelineLine" />
+    <TimelineLine data-testid="TimelineLine" />
   </PositionContainer>
 );
 
-Timeline.Line = styled.div`
-  ${({
-    theme: {
-      colorPalette: { blue300 },
-      spacing: { spacing0, spacing2 }
-    }
-  }): FlattenSimpleInterpolation => css`
-    background-color: ${blue300};
-    bottom: ${spacing0};
-    left: 50%;
-    position: absolute;
-    top: ${spacing0};
-    transform: translateX(-50%);
-    width: ${spacing2};
-  `};
-`;
-
-export default memo(Timeline);
+export default Timeline;

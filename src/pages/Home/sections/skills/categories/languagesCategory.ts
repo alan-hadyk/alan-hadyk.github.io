@@ -12,6 +12,10 @@ const iconsWithLabels: IconWithLabelProps[] = [
   {
     iconName: "brandCoffeeScript",
     label: "CoffeeScript"
+  },
+  {
+    iconName: "brandRuby",
+    label: "Ruby"
   }
 ];
 

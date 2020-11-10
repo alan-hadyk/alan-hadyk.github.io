@@ -95,9 +95,11 @@ describe("pages / Home / sections / skills / SkillsSection", () => {
               /.svg/gi,
               ".svg, "
             )
-          ).toEqual("Brand-JS.svg, Brand-TS.svg, Brand-CoffeeScript.svg, ");
+          ).toEqual(
+            "Brand-JS.svg, Brand-TS.svg, Brand-CoffeeScript.svg, Brand-Ruby.svg, "
+          );
           expect(VerticalIconsWithLabels[0].children[1].textContent).toEqual(
-            "JavaScriptTypeScriptCoffeeScript"
+            "JavaScriptTypeScriptCoffeeScriptRuby"
           );
 
           expect(SkillsItems[1].children[0].textContent).toEqual("Frameworks");
@@ -107,10 +109,10 @@ describe("pages / Home / sections / skills / SkillsSection", () => {
               ".svg, "
             )
           ).toEqual(
-            "Brand-React.svg, Brand-React.svg, Brand-Node.svg, Brand-Node.svg, Brand-Ember.svg, Brand-PrestaShop.svg, Brand-jQuery.svg, "
+            "Brand-React.svg, Brand-React.svg, Brand-Node.svg, Brand-Node.svg, Brand-Ember.svg, Brand-PrestaShop.svg, Brand-jQuery.svg, Brand-Rails.svg, Brand-Sinatra.svg, "
           );
           expect(VerticalIconsWithLabels[1].children[1].textContent).toEqual(
-            "ReactReact NativeNode.jsExpressEmberPrestaShopjQuery"
+            "ReactReact NativeNode.jsExpressEmberPrestaShopjQueryRuby on RailsSinatra"
           );
 
           expect(SkillsItems[2].children[0].textContent).toEqual(

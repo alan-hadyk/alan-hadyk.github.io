@@ -3,42 +3,7 @@ import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 
 import { PositionContainerProps } from "UI/layout/__typings__/PositionContainer";
 
-const PositionContainer = (
-  {
-    bottom = "unset",
-    children,
-    dataCy,
-    dataTestId,
-    height = "unset",
-    left = "unset",
-    position = "relative",
-    right = "unset",
-    top = "unset",
-    transform = "none",
-    width = "auto",
-    zIndex = "layer1"
-  }: PositionContainerProps,
-  ref: Ref<HTMLDivElement>
-): JSX.Element => (
-  <PositionContainer.Container
-    bottom={bottom}
-    data-cy={dataCy}
-    data-testid={dataTestId || "PositionContainer"}
-    height={height}
-    left={left}
-    position={position}
-    ref={ref}
-    right={right}
-    top={top}
-    transform={transform}
-    width={width}
-    zIndex={zIndex}
-  >
-    {children}
-  </PositionContainer.Container>
-);
-
-PositionContainer.Container = styled.div<PositionContainerProps>`
+const PositionContainerWrapper = styled.div<PositionContainerProps>`
   ${({
     bottom,
     height,
@@ -62,5 +27,40 @@ PositionContainer.Container = styled.div<PositionContainerProps>`
     z-index: ${zIndex in zIndexVariables && zIndexVariables[zIndex]};
   `};
 `;
+
+const PositionContainer = (
+  {
+    bottom = "unset",
+    children,
+    dataCy,
+    dataTestId,
+    height = "unset",
+    left = "unset",
+    position = "relative",
+    right = "unset",
+    top = "unset",
+    transform = "none",
+    width = "auto",
+    zIndex = "layer1"
+  }: PositionContainerProps,
+  ref: Ref<HTMLDivElement>
+): JSX.Element => (
+  <PositionContainerWrapper
+    bottom={bottom}
+    data-cy={dataCy}
+    data-testid={dataTestId || "PositionContainer"}
+    height={height}
+    left={left}
+    position={position}
+    ref={ref}
+    right={right}
+    top={top}
+    transform={transform}
+    width={width}
+    zIndex={zIndex}
+  >
+    {children}
+  </PositionContainerWrapper>
+);
 
 export default forwardRef(PositionContainer);

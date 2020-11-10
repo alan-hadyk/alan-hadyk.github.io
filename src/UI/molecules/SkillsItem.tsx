@@ -2,7 +2,6 @@ import React from "react";
 
 import IconsWithLabels from "UI/molecules/IconsWithLabels";
 import DashboardElement from "UI/molecules/DashboardElement";
-
 import SpacingContainer from "UI/layout/SpacingContainer";
 
 import { SkillsItemProps } from "UI/molecules/__typings__/SkillsItem";

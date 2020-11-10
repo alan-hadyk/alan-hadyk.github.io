@@ -1,8 +1,8 @@
-import React, { memo, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
+import PropTypes from "prop-types";
 
 import Line from "UI/atoms/Line";
-
 import PositionContainer from "UI/layout/PositionContainer";
 
 import useShuffleText from "hooks/useShuffleText";
@@ -13,49 +13,7 @@ import {
 } from "UI/molecules/__typings__/NavItem";
 import { ShuffleState } from "hooks/__typings__/useShuffleText";
 
-function NavItem({ href, isActive = false, title }: NavItemProps): JSX.Element {
-  const [shuffleText, setShuffleText] = useState<ShuffleState | undefined>();
-  const navItemElementRef = useRef<HTMLAnchorElement>(null);
-
-  useShuffleText({
-    onShuffleReady: setShuffleText,
-    ref: navItemElementRef,
-    shuffleState: shuffleText,
-    text: title
-  });
-
-  return (
-    <PositionContainer dataTestId="NavItem" position="relative">
-      <NavItem.Link
-        data-cy="NavItemLink"
-        data-testid="NavItemLink"
-        data-isactive={isActive}
-        isActive={isActive}
-        onMouseUp={handleClick}
-        onMouseOver={handleMouseOver}
-        ref={navItemElementRef}
-      >
-        {title}
-      </NavItem.Link>
-      <Line direction="left" isActive={isActive} />
-      <Line direction="right" isActive={isActive} />
-    </PositionContainer>
-  );
-
-  function handleClick(): void {
-    const element: HTMLElement = document.querySelector(href);
-
-    element && element.scrollIntoView(true);
-  }
-
-  function handleMouseOver(): void {
-    if (navItemElementRef.current) {
-      shuffleText.start();
-    }
-  }
-}
-
-NavItem.Link = styled.a<NavItemLinkProps>`
+const NavItemLink = styled.a<NavItemLinkProps>`
   ${({
     isActive,
     theme: {
@@ -88,9 +46,52 @@ NavItem.Link = styled.a<NavItemLinkProps>`
   `};
 `;
 
-export const arePropsEqual = (
-  prevProps: NavItemProps,
-  nextProps: NavItemProps
-): boolean => prevProps.isActive === nextProps.isActive;
+function NavItem({ href, isActive = false, title }: NavItemProps): JSX.Element {
+  const [shuffleText, setShuffleText] = useState<ShuffleState | undefined>();
+  const navItemElementRef = useRef<HTMLAnchorElement>(null);
 
-export default memo(NavItem, arePropsEqual);
+  useShuffleText({
+    onShuffleReady: setShuffleText,
+    ref: navItemElementRef,
+    shuffleState: shuffleText,
+    text: title
+  });
+
+  return (
+    <PositionContainer dataTestId="NavItem" position="relative">
+      <NavItemLink
+        data-cy="NavItemLink"
+        data-testid="NavItemLink"
+        data-isactive={isActive}
+        isActive={isActive}
+        onMouseUp={handleClick}
+        onMouseOver={handleMouseOver}
+        ref={navItemElementRef}
+      >
+        {title}
+      </NavItemLink>
+      <Line direction="left" isActive={isActive} />
+      <Line direction="right" isActive={isActive} />
+    </PositionContainer>
+  );
+
+  function handleClick(): void {
+    const element: HTMLElement = document.querySelector(href);
+
+    element && element.scrollIntoView(true);
+  }
+
+  function handleMouseOver(): void {
+    if (navItemElementRef.current) {
+      shuffleText.start();
+    }
+  }
+}
+
+NavItem.propTypes = {
+  href: PropTypes.string.isRequired,
+  isActive: PropTypes.bool,
+  title: PropTypes.string.isRequired
+};
+
+export default NavItem;

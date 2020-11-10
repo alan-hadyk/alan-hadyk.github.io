@@ -1,32 +1,13 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
+import PropTypes from "prop-types";
 
 import { ConsoleTextProps } from "UI/atoms/__typings__/ConsoleText";
 
 export const hero =
   "Vision driven change agent with career-long record of front-end user strategy and UI development";
 
-const ConsoleText = ({
-  dataTestId,
-  fontSize,
-  height,
-  lineHeight,
-  transform,
-  width
-}: ConsoleTextProps): JSX.Element => (
-  <ConsoleText.Container
-    data-testid={dataTestId || "ConsoleText"}
-    fontSize={fontSize}
-    height={height}
-    lineHeight={lineHeight}
-    transform={transform}
-    width={width}
-  >
-    {hero}
-  </ConsoleText.Container>
-);
-
-ConsoleText.Container = styled.div<ConsoleTextProps>`
+const ConsoleTextContainer = styled.div<ConsoleTextProps>`
   ${({
     fontSize,
     height,
@@ -72,5 +53,34 @@ ConsoleText.Container = styled.div<ConsoleTextProps>`
     }
   `};
 `;
+
+const ConsoleText = ({
+  dataTestId,
+  fontSize,
+  height,
+  lineHeight,
+  transform,
+  width
+}: ConsoleTextProps): JSX.Element => (
+  <ConsoleTextContainer
+    data-testid={dataTestId || "ConsoleText"}
+    fontSize={fontSize}
+    height={height}
+    lineHeight={lineHeight}
+    transform={transform}
+    width={width}
+  >
+    {hero}
+  </ConsoleTextContainer>
+);
+
+ConsoleText.propTypes = {
+  dataTestId: PropTypes.string,
+  fontSize: PropTypes.string.isRequired,
+  height: PropTypes.string.isRequired,
+  lineHeight: PropTypes.string.isRequired,
+  transform: PropTypes.string.isRequired,
+  width: PropTypes.string.isRequired
+};
 
 export default ConsoleText;

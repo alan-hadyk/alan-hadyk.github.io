@@ -1,10 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-import Icon from "UI/atoms/Icon";
+import Icon, { iconComponents } from "UI/atoms/Icon";
 import Text from "UI/atoms/Text";
 
 import FlexContainer from "UI/layout/FlexContainer";
 import SpacingContainer from "UI/layout/SpacingContainer";
+
+import colorPalette from "styles/variables/colorPalette";
 
 import {
   IconWithLabelProps,
@@ -68,5 +71,12 @@ function IconWithLabel({
     </FlexContainer>
   );
 }
+
+IconWithLabel.propTypes = {
+  iconName: PropTypes.oneOf([...Object.keys(iconComponents)]).isRequired,
+  label: PropTypes.string.isRequired,
+  labelColor: PropTypes.oneOf([...Object.keys(colorPalette)]),
+  size: PropTypes.oneOf(["small", "medium", "large"])
+};
 
 export default IconWithLabel;

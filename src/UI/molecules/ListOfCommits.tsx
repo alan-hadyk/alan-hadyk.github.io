@@ -23,44 +23,46 @@ function ListOfCommits({
     return <Error title="Error" description="Github API is offline" />;
 
   case "loaded":
-    return renderCommits();
+    return renderCommits(commitsList);
 
   default:
     return <Loader />;
   }
+}
 
-  function renderCommits(): JSX.Element {
-    return (
-      <FlexContainer
-        alignItems="flex-start"
-        dataTestId="ListOfCommits"
-        flexFlow="column nowrap"
-        justifyContent="flex-start"
-      >
-        {!isEmpty(commitsList) &&
-          commitsList.map(
-            (
-              { commit, html_url, sha }: CommitProps,
-              index: number
-            ): JSX.Element => {
-              const { author } = commit || {};
-              const { date } = author || {};
-              const delay = index * parseInt(transitionTimes.default);
+function renderCommits(
+  commitsList: ListOfCommitsProps["commitsList"]
+): JSX.Element {
+  return (
+    <FlexContainer
+      alignItems="flex-start"
+      dataTestId="ListOfCommits"
+      flexFlow="column nowrap"
+      justifyContent="flex-start"
+    >
+      {!isEmpty(commitsList) &&
+        commitsList.map(
+          (
+            { commit, html_url, sha }: CommitProps,
+            index: number
+          ): JSX.Element => {
+            const { author } = commit || {};
+            const { date } = author || {};
+            const delay = index * parseInt(transitionTimes.default);
 
-              return (
-                <Commit
-                  date={date}
-                  delay={delay}
-                  htmlUrl={html_url}
-                  key={sha}
-                  sha={sha}
-                />
-              );
-            }
-          )}
-      </FlexContainer>
-    );
-  }
+            return (
+              <Commit
+                date={date}
+                delay={delay}
+                htmlUrl={html_url}
+                key={sha}
+                sha={sha}
+              />
+            );
+          }
+        )}
+    </FlexContainer>
+  );
 }
 
 ListOfCommits.propTypes = {

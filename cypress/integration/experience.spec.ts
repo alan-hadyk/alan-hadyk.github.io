@@ -8,7 +8,10 @@ describe("Experience", () => {
     cy.visit("/", {
       onBeforeLoad: (win) => {
         cy.stub(win, "fetch")
-          .withArgs("https://api.github.com/repos/alan-hadyk/portfolio/commits")
+          .withArgs(
+            "https://api.github.com/repos/alan-hadyk/portfolio/commits",
+            Cypress.sinon.match.has("method", "GET")
+          )
           .resolves({
             json: () => commits,
             ok: true
@@ -76,7 +79,7 @@ describe("Experience", () => {
               .should("be.visible")
               .within(() => {
                 cy.dataCy("IconWithLabel")
-                  .should("have.length", 17)
+                  .should("have.length", 20)
                   .each((iconWithLabel) => {
                     cy.wrap(iconWithLabel).should("be.visible");
                   });
@@ -84,7 +87,10 @@ describe("Experience", () => {
                 cy.dataCy("IconWithLabel").spread(
                   (
                     javascript,
+                    ruby,
                     react,
+                    rubyOnRails,
+                    sinatra,
                     styledComponents,
                     webpack,
                     jest,
@@ -109,12 +115,36 @@ describe("Experience", () => {
                       .find("[data-cy='brandJS']")
                       .should("be.visible");
 
+                    cy.get(ruby)
+                      .find("[data-testid='LabelText']")
+                      .should("contain", "Ruby");
+
+                    cy.get(ruby)
+                      .find("[data-cy='brandRuby']")
+                      .should("be.visible");
+
                     cy.get(react)
                       .find("[data-testid='LabelText']")
                       .should("contain", "React");
 
                     cy.get(react)
                       .find("[data-cy='brandReact']")
+                      .should("be.visible");
+
+                    cy.get(rubyOnRails)
+                      .find("[data-testid='LabelText']")
+                      .should("contain", "Ruby on Rails");
+
+                    cy.get(rubyOnRails)
+                      .find("[data-cy='brandRails']")
+                      .should("be.visible");
+
+                    cy.get(sinatra)
+                      .find("[data-testid='LabelText']")
+                      .should("contain", "Sinatra");
+
+                    cy.get(sinatra)
+                      .find("[data-cy='brandSinatra']")
                       .should("be.visible");
 
                     cy.get(styledComponents)

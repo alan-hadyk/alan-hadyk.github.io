@@ -1,12 +1,15 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-import SpacingContainer from "UI/layout/SpacingContainer";
-
-import { ProjectProps } from "UI/organisms/Project/__typings__/Project";
-
+import { iconComponents } from "UI/atoms/Icon";
 import ProjectTvAndDesktop from "UI/organisms/Project/ProjectTvAndDesktop";
 import ProjectTablet from "UI/organisms/Project/ProjectTablet";
 import ProjectMobile from "UI/organisms/Project/ProjectMobile";
+import SpacingContainer from "UI/layout/SpacingContainer";
+
+import colorPalette from "styles/variables/colorPalette";
+
+import { ProjectProps } from "UI/organisms/Project/__typings__/Project";
 
 const Project = ({
   description,
@@ -43,5 +46,19 @@ const Project = ({
     />
   </SpacingContainer>
 );
+
+Project.propTypes = {
+  description: PropTypes.string.isRequired,
+  iconsWithLabels: PropTypes.arrayOf(
+    PropTypes.shape({
+      iconName: PropTypes.oneOf([...Object.keys(iconComponents)]).isRequired,
+      label: PropTypes.string.isRequired,
+      labelColor: PropTypes.oneOf([...Object.keys(colorPalette)]),
+      size: PropTypes.oneOf(["small", "medium", "large"])
+    })
+  ).isRequired,
+  projectIcon: PropTypes.oneOf([...Object.keys(iconComponents)]).isRequired,
+  title: PropTypes.string.isRequired
+};
 
 export default Project;

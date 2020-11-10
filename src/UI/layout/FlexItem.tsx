@@ -1,12 +1,52 @@
 import React, { useCallback } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
-
-import isIE11 from "helpers/browser/isIE11";
+import PropTypes from "prop-types";
 
 import {
   FlexItemContainerProps,
   FlexItemProps
 } from "UI/layout/__typings__/FlexItem";
+
+import isIE11 from "helpers/browser/isIE11";
+
+const FlexItemContainer = styled.div<FlexItemContainerProps>`
+  ${({
+    alignSelf,
+    flex,
+    height,
+    order,
+    overflow,
+    paddingBottom,
+    paddingLeft,
+    paddingRight,
+    paddingTop,
+    shouldApplyWidth,
+    theme: { spacing },
+    width
+  }): FlattenSimpleInterpolation => css`
+    align-self: ${alignSelf};
+    flex: ${flex};
+    height: ${(height in spacing && spacing[height]) || height};
+    order: ${order};
+    overflow: ${overflow};
+    padding-bottom: ${(paddingBottom in spacing && spacing[paddingBottom]) ||
+    paddingBottom};
+    padding-left: ${(paddingLeft in spacing && spacing[paddingLeft]) ||
+    paddingLeft};
+    padding-right: ${(paddingRight in spacing && spacing[paddingRight]) ||
+    paddingRight};
+    padding-top: ${(paddingTop in spacing && spacing[paddingTop]) ||
+    paddingTop};
+
+    ${shouldApplyWidth &&
+    `
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        /* IE10+ CSS */
+        flex: none;
+        width: ${width};
+      }`}
+  `};
+`;
 
 function FlexItem({
   alignSelf = "auto",
@@ -31,7 +71,7 @@ function FlexItem({
   }, [flex]);
 
   return (
-    <FlexItem.Container
+    <FlexItemContainer
       alignSelf={alignSelf}
       className={className}
       data-cy={dataCy}
@@ -50,51 +90,32 @@ function FlexItem({
       width={getWidth()}
     >
       {children}
-    </FlexItem.Container>
+    </FlexItemContainer>
   );
 }
 
-FlexItem.Container = styled.div<FlexItemContainerProps>`
-  ${({
-    alignSelf,
-    display,
-    flex,
-    height,
-    justifyContent,
-    order,
-    overflow,
-    paddingBottom,
-    paddingLeft,
-    paddingRight,
-    paddingTop,
-    theme: { spacing },
-    shouldApplyWidth,
-    width
-  }): FlattenSimpleInterpolation => css`
-    align-self: ${alignSelf};
-    display: ${display};
-    flex: ${flex};
-    height: ${(height in spacing && spacing[height]) || height};
-    justify-content: ${justifyContent};
-    order: ${order};
-    overflow: ${overflow};
-    padding-bottom: ${(paddingBottom in spacing && spacing[paddingBottom]) ||
-    paddingBottom};
-    padding-left: ${(paddingLeft in spacing && spacing[paddingLeft]) ||
-    paddingLeft};
-    padding-right: ${(paddingRight in spacing && spacing[paddingRight]) ||
-    paddingRight};
-    padding-top: ${(paddingTop in spacing && spacing[paddingTop]) ||
-    paddingTop};
-
-    ${shouldApplyWidth &&
-    `
-      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-        /* IE10+ CSS */
-        flex: none;
-        width: ${width};
-      }`}
-  `};
-`;
+FlexItem.propTypes = {
+  alignSelf: PropTypes.oneOf([
+    "auto",
+    "flex-start",
+    "flex-end",
+    "center",
+    "baseline",
+    "stretch"
+  ]),
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired,
+  className: PropTypes.string,
+  dataCy: PropTypes.string,
+  dataTestId: PropTypes.string,
+  flex: PropTypes.string.isRequired,
+  height: PropTypes.string,
+  order: PropTypes.number,
+  overflow: PropTypes.string,
+  paddingBottom: PropTypes.string,
+  paddingTop: PropTypes.string
+};
 
 export default FlexItem;

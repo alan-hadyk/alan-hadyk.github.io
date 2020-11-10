@@ -1,22 +1,21 @@
 import React from "react";
+import PropTypes from "prop-types";
 
+import Icon, { iconComponents } from "UI/atoms/Icon";
+import Text from "UI/atoms/Text";
 import {
   mapSizeToIconHeight,
   mapSizeToTextFontSize
 } from "UI/molecules/IconWithLabel";
-
-import { IconWithLabelProps } from "UI/molecules/__typings__/IconWithLabel";
-
 import FlexItem from "UI/layout/FlexItem";
 import FlexContainer from "UI/layout/FlexContainer";
 import SpacingContainer from "UI/layout/SpacingContainer";
 
-import Icon from "UI/atoms/Icon";
-import Text from "UI/atoms/Text";
+import spacing from "styles/variables/spacing";
+import colorPalette from "styles/variables/colorPalette";
 
 import { VerticalIconsWithLabelsProps } from "UI/molecules/__typings__/VerticalIconsWithLabels";
-
-import spacing from "styles/variables/spacing";
+import { IconWithLabelProps } from "UI/molecules/__typings__/IconWithLabel";
 
 const VerticalIconsWithLabels = ({
   iconsWithLabels,
@@ -74,5 +73,18 @@ const VerticalIconsWithLabels = ({
     </FlexItem>
   </FlexContainer>
 );
+
+VerticalIconsWithLabels.propTypes = {
+  iconsWithLabels: PropTypes.arrayOf(
+    PropTypes.shape({
+      iconName: PropTypes.oneOf([...Object.keys(iconComponents)]).isRequired,
+      label: PropTypes.string.isRequired,
+      labelColor: PropTypes.oneOf([...Object.keys(colorPalette)]),
+      size: PropTypes.oneOf(["small", "medium", "large"])
+    })
+  ).isRequired,
+  labelColor: PropTypes.oneOf([...Object.keys(colorPalette)]),
+  size: PropTypes.oneOf(["small", "medium", "large"])
+};
 
 export default VerticalIconsWithLabels;

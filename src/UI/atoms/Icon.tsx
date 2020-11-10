@@ -38,10 +38,13 @@ import { ReactComponent as BrandPrestaShop } from "assets/svg/Brand-PrestaShop.s
 import { ReactComponent as BrandQuire } from "assets/svg/Brand-Quire.svg";
 import { ReactComponent as BrandQunit } from "assets/svg/Brand-Qunit.svg";
 import { ReactComponent as BrandREST } from "assets/svg/Brand-REST.svg";
+import { ReactComponent as BrandRails } from "assets/svg/Brand-Rails.svg";
 import { ReactComponent as BrandReact } from "assets/svg/Brand-React.svg";
 import { ReactComponent as BrandRedmine } from "assets/svg/Brand-Redmine.svg";
 import { ReactComponent as BrandRedux } from "assets/svg/Brand-Redux.svg";
+import { ReactComponent as BrandRuby } from "assets/svg/Brand-Ruby.svg";
 import { ReactComponent as BrandSass } from "assets/svg/Brand-Sass.svg";
+import { ReactComponent as BrandSinatra } from "assets/svg/Brand-Sinatra.svg";
 import { ReactComponent as BrandSketch } from "assets/svg/Brand-Sketch.svg";
 import { ReactComponent as BrandStash } from "assets/svg/Brand-Stash.svg";
 import { ReactComponent as BrandStyledComponents } from "assets/svg/Brand-StyledComponents.svg";
@@ -90,131 +93,93 @@ import {
   SVGIcon
 } from "UI/atoms/__typings__/Icon";
 
-function Icon(
-  {
-    animationDelay = "0ms",
-    animationTime = "slow",
-    dataTestId,
-    height = "auto",
-    iconName,
-    isActive = false,
-    isHeightResponsive = false,
-    isResponsive = false,
-    overflow = "visible",
-    shouldDisplayGlowAnimation = false,
-    shouldGlow = false,
-    shouldGlowOnHover = false,
-    width = "auto"
-  }: IconProps,
-  ref: Ref<SVGSVGElement>
-): JSX.Element {
-  const iconComponents: IconComponents = {
-    apollo: IconApollo,
-    brandAfterEffects: BrandAfterEffects,
-    brandAirbnb: BrandAirbnb,
-    brandApollo: BrandApollo,
-    brandBamboo: BrandBamboo,
-    brandBasecamp: BrandBasecamp,
-    brandBuildkite: BrandBuildkite,
-    brandCSS: BrandCSS,
-    brandCSSModules: BrandCSSModules,
-    brandCoffeeScript: BrandCoffeeScript,
-    brandCorel: BrandCorel,
-    brandCypress: BrandCypress,
-    brandDocker: BrandDocker,
-    brandDocpad: BrandDocpad,
-    brandEmber: BrandEmber,
-    brandExpress: BrandExpress,
-    brandFigma: BrandFigma,
-    brandGallery: BrandGallery,
-    brandGithub: BrandGithub,
-    brandGitlab: BrandGitlab,
-    brandGraphQL: BrandGraphQL,
-    brandGrunt: BrandGrunt,
-    brandGulp: BrandGulp,
-    brandHTML: BrandHTML,
-    brandJEST: BrandJEST,
-    brandJIRA: BrandJIRA,
-    brandJQuery: BrandJQuery,
-    brandJS: BrandJS,
-    brandJenkins: BrandJenkins,
-    brandLESS: BrandLESS,
-    brandNode: BrandNode,
-    brandPhabricator: BrandPhabricator,
-    brandPhotoshop: BrandPhotoshop,
-    brandPrestaShop: BrandPrestaShop,
-    brandQuire: BrandQuire,
-    brandQunit: BrandQunit,
-    brandREST: BrandREST,
-    brandReact: BrandReact,
-    brandRedmine: BrandRedmine,
-    brandRedux: BrandRedux,
-    brandSass: BrandSass,
-    brandSketch: BrandSketch,
-    brandStash: BrandStash,
-    brandStyledComponents: BrandStyledComponents,
-    brandTS: BrandTS,
-    brandTaskade: BrandTaskade,
-    brandTestingLibrary: BrandTestingLibrary,
-    brandTrello: BrandTrello,
-    brandWebpack: BrandWebpack,
-    brandWebsocket: BrandWebsocket,
-    brandZeplin: BrandZeplin,
-    btnCodeSandbox: BtnCodeSandbox,
-    btnDownload: BtnDownload,
-    btnExternalLink: BtnExternalLink,
-    calendar: IconCalendar,
-    chrome: IconChrome,
-    codeSandbox: IconCodeSandbox,
-    companyDIH: CompanyDIH,
-    companyOmise: CompanyOmise,
-    companySAP: CompanySAP,
-    companyShiji: CompanyShiji,
-    earth: IconEarth,
-    firefox: IconFirefox,
-    gitHub: IconGitHub,
-    graphql: IconGraphql,
-    hexagon: Hexagon,
-    hexagonWithPattern: HexagonWithPattern,
-    ie: IconIE,
-    javascript: IconJavascript,
-    linkedIn: IconLinkedIn,
-    logo: IconLogo,
-    logoShortcut: IconLogoShortcut,
-    node: IconNode,
-    opera: IconOpera,
-    react: IconReact,
-    reactLogo: IconReactLogo,
-    safari: IconSafari,
-    typescript: IconTypescript,
-    unknown: IconUnknown,
-    webpack: IconWebpack
-  };
+export const iconComponents: IconComponents = {
+  apollo: IconApollo,
+  brandAfterEffects: BrandAfterEffects,
+  brandAirbnb: BrandAirbnb,
+  brandApollo: BrandApollo,
+  brandBamboo: BrandBamboo,
+  brandBasecamp: BrandBasecamp,
+  brandBuildkite: BrandBuildkite,
+  brandCSS: BrandCSS,
+  brandCSSModules: BrandCSSModules,
+  brandCoffeeScript: BrandCoffeeScript,
+  brandCorel: BrandCorel,
+  brandCypress: BrandCypress,
+  brandDocker: BrandDocker,
+  brandDocpad: BrandDocpad,
+  brandEmber: BrandEmber,
+  brandExpress: BrandExpress,
+  brandFigma: BrandFigma,
+  brandGallery: BrandGallery,
+  brandGithub: BrandGithub,
+  brandGitlab: BrandGitlab,
+  brandGraphQL: BrandGraphQL,
+  brandGrunt: BrandGrunt,
+  brandGulp: BrandGulp,
+  brandHTML: BrandHTML,
+  brandJEST: BrandJEST,
+  brandJIRA: BrandJIRA,
+  brandJQuery: BrandJQuery,
+  brandJS: BrandJS,
+  brandJenkins: BrandJenkins,
+  brandLESS: BrandLESS,
+  brandNode: BrandNode,
+  brandPhabricator: BrandPhabricator,
+  brandPhotoshop: BrandPhotoshop,
+  brandPrestaShop: BrandPrestaShop,
+  brandQuire: BrandQuire,
+  brandQunit: BrandQunit,
+  brandREST: BrandREST,
+  brandRails: BrandRails,
+  brandReact: BrandReact,
+  brandRedmine: BrandRedmine,
+  brandRedux: BrandRedux,
+  brandRuby: BrandRuby,
+  brandSass: BrandSass,
+  brandSinatra: BrandSinatra,
+  brandSketch: BrandSketch,
+  brandStash: BrandStash,
+  brandStyledComponents: BrandStyledComponents,
+  brandTS: BrandTS,
+  brandTaskade: BrandTaskade,
+  brandTestingLibrary: BrandTestingLibrary,
+  brandTrello: BrandTrello,
+  brandWebpack: BrandWebpack,
+  brandWebsocket: BrandWebsocket,
+  brandZeplin: BrandZeplin,
+  btnCodeSandbox: BtnCodeSandbox,
+  btnDownload: BtnDownload,
+  btnExternalLink: BtnExternalLink,
+  calendar: IconCalendar,
+  chrome: IconChrome,
+  codeSandbox: IconCodeSandbox,
+  companyDIH: CompanyDIH,
+  companyOmise: CompanyOmise,
+  companySAP: CompanySAP,
+  companyShiji: CompanyShiji,
+  earth: IconEarth,
+  firefox: IconFirefox,
+  gitHub: IconGitHub,
+  graphql: IconGraphql,
+  hexagon: Hexagon,
+  hexagonWithPattern: HexagonWithPattern,
+  ie: IconIE,
+  javascript: IconJavascript,
+  linkedIn: IconLinkedIn,
+  logo: IconLogo,
+  logoShortcut: IconLogoShortcut,
+  node: IconNode,
+  opera: IconOpera,
+  react: IconReact,
+  reactLogo: IconReactLogo,
+  safari: IconSafari,
+  typescript: IconTypescript,
+  unknown: IconUnknown,
+  webpack: IconWebpack
+};
 
-  const IconComponent: SVGIcon = iconComponents[iconName];
-
-  return (
-    <Icon.Container
-      data-cy={iconName}
-      data-testid={dataTestId || "IconContainer"}
-      animationDelay={animationDelay}
-      animationTime={animationTime}
-      height={height}
-      isActive={isActive}
-      isHeightResponsive={isHeightResponsive}
-      isResponsive={isResponsive}
-      overflow={overflow}
-      shouldDisplayGlowAnimation={shouldDisplayGlowAnimation}
-      shouldGlow={shouldGlow}
-      shouldGlowOnHover={shouldGlowOnHover}
-      width={width}
-    >
-      <IconComponent ref={ref} />
-    </Icon.Container>
-  );
-}
-
-Icon.Container = styled.div<IconContainerProps>`
+const IconContainer = styled.div<IconContainerProps>`
   ${({
     animationDelay,
     animationTime,
@@ -286,5 +251,46 @@ Icon.Container = styled.div<IconContainerProps>`
     }
   `};
 `;
+
+function Icon(
+  {
+    animationDelay = "0ms",
+    animationTime = "slow",
+    dataTestId,
+    height = "auto",
+    iconName,
+    isActive = false,
+    isHeightResponsive = false,
+    isResponsive = false,
+    overflow = "visible",
+    shouldDisplayGlowAnimation = false,
+    shouldGlow = false,
+    shouldGlowOnHover = false,
+    width = "auto"
+  }: IconProps,
+  ref: Ref<SVGSVGElement>
+): JSX.Element {
+  const IconComponent: SVGIcon = iconComponents[iconName];
+
+  return (
+    <IconContainer
+      data-cy={iconName}
+      data-testid={dataTestId || "IconContainer"}
+      animationDelay={animationDelay}
+      animationTime={animationTime}
+      height={height}
+      isActive={isActive}
+      isHeightResponsive={isHeightResponsive}
+      isResponsive={isResponsive}
+      overflow={overflow}
+      shouldDisplayGlowAnimation={shouldDisplayGlowAnimation}
+      shouldGlow={shouldGlow}
+      shouldGlowOnHover={shouldGlowOnHover}
+      width={width}
+    >
+      <IconComponent ref={ref} />
+    </IconContainer>
+  );
+}
 
 export default forwardRef(Icon);

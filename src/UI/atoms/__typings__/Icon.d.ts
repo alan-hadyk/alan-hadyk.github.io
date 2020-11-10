@@ -47,11 +47,14 @@ export interface IconProps {
     | "brandPrestaShop"
     | "brandQuire"
     | "brandQunit"
+    | "brandRails"
     | "brandREST"
     | "brandReact"
     | "brandRedmine"
     | "brandRedux"
+    | "brandRuby"
     | "brandSass"
+    | "brandSinatra"
     | "brandSketch"
     | "brandStash"
     | "brandStyledComponents"
@@ -139,10 +142,13 @@ export interface IconComponents {
   brandQuire: SVGIcon;
   brandQunit: SVGIcon;
   brandREST: SVGIcon;
+  brandRails: SVGIcon;
   brandReact: SVGIcon;
   brandRedmine: SVGIcon;
   brandRedux: SVGIcon;
+  brandRuby: SVGIcon;
   brandSass: SVGIcon;
+  brandSinatra: SVGIcon;
   brandSketch: SVGIcon;
   brandStash: SVGIcon;
   brandStyledComponents: SVGIcon;
