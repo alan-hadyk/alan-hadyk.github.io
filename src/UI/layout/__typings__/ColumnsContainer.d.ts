@@ -1,4 +1,4 @@
-// import { Spacing } from "styles/variables/__typings__/variables";
+import { Spacing } from "styles/variables/__typings__/variables";
 
 export interface ColumnsContainerProps {
   children: JSX.Element | JSX.Element[];
