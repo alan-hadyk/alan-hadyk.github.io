@@ -121,7 +121,14 @@ FlexContainer.propTypes = {
     "center",
     "space-between"
   ]),
-  maxWidth: PropTypes.oneOf([...Object.keys(spacing), "unset", "100%"])
+  maxWidth: PropTypes.oneOf([...Object.keys(spacing), "unset", "100%"]),
+  width: PropTypes.oneOf([
+    ...Object.keys(spacing),
+    "unset",
+    "100%",
+    "50%",
+    "auto"
+  ])
 };
 
 export default FlexContainer;
