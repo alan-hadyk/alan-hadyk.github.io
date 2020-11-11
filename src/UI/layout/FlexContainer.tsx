@@ -17,6 +17,7 @@ const FlexContainerWrapper = styled.div<FlexContainerProps>`
     height,
     justifyContent,
     maxWidth,
+    width,
     theme: { spacing }
   }): FlattenSimpleInterpolation => css`
     align-items: ${alignItems};
@@ -25,6 +26,7 @@ const FlexContainerWrapper = styled.div<FlexContainerProps>`
     height: ${(height in spacing && spacing[height]) || height};
     justify-content: ${justifyContent};
     max-width: ${(maxWidth in spacing && spacing[maxWidth]) || maxWidth};
+    width: ${(width in spacing && spacing[width]) || width};
 
     ${gap !== "spacing0" &&
     `
@@ -44,7 +46,8 @@ const FlexContainer = ({
   gap = "spacing0",
   height = "unset",
   justifyContent = "center",
-  maxWidth = "unset"
+  maxWidth = "unset",
+  width = "unset"
 }: FlexContainerProps): JSX.Element => (
   <FlexContainerWrapper
     alignItems={alignItems}
@@ -55,6 +58,7 @@ const FlexContainer = ({
     height={height}
     justifyContent={justifyContent}
     maxWidth={maxWidth}
+    width={width}
   >
     {children}
   </FlexContainerWrapper>

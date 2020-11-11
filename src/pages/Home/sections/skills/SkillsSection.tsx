@@ -1,9 +1,10 @@
 import React, { memo } from "react";
-import { Masonry } from "masonic";
+// import { Masonry } from "masonic";
 
 import Section from "UI/molecules/Section";
 import SkillsItem from "UI/molecules/SkillsItem";
 import Responsive from "UI/layout/Responsive";
+import ColumnsContainer from "UI/layout/ColumnsContainer";
 import SpacingContainer from "UI/layout/SpacingContainer";
 
 import languagesCategory from "pages/Home/sections/skills/categories/languagesCategory";
@@ -41,18 +42,47 @@ const SkillsSection = (): JSX.Element => (
     id="skills"
     title="Skills"
   >
+    <Responsive dataTestTvId="SkillsResponsiveTv" devices={["tv"]}>
+      <ColumnsContainer columnCount={5} columnGap="spacing32">
+        {items.map((data: Data) => (
+          <SpacingContainer
+            dataTestId="ItemSpacingContainer"
+            key={data?.title}
+            marginBottom="spacing32"
+          >
+            <SkillsItem key={data?.title} data={data} />
+          </SpacingContainer>
+        ))}
+      </ColumnsContainer>
+    </Responsive>
     <Responsive
       dataTestDesktopId="SkillsResponsiveDesktop"
-      dataTestTabletId="SkillsResponsiveTablet"
-      dataTestTvId="SkillsResponsiveTv"
-      devices={["tv", "desktop", "tablet"]}
+      devices={["desktop"]}
     >
-      <Masonry
-        columnGutter={48}
-        columnWidth={300}
-        items={items}
-        render={SkillsItem}
-      />
+      <ColumnsContainer columnCount={3} columnGap="spacing32">
+        {items.map((data: Data) => (
+          <SpacingContainer
+            dataTestId="ItemSpacingContainer"
+            key={data?.title}
+            marginBottom="spacing32"
+          >
+            <SkillsItem key={data?.title} data={data} />
+          </SpacingContainer>
+        ))}
+      </ColumnsContainer>
+    </Responsive>
+    <Responsive dataTestTabletId="SkillsResponsiveTablet" devices={["tablet"]}>
+      <ColumnsContainer columnCount={2} columnGap="spacing32">
+        {items.map((data: Data) => (
+          <SpacingContainer
+            dataTestId="ItemSpacingContainer"
+            key={data?.title}
+            marginBottom="spacing32"
+          >
+            <SkillsItem key={data?.title} data={data} />
+          </SpacingContainer>
+        ))}
+      </ColumnsContainer>
     </Responsive>
     <Responsive dataTestMobileId="SkillsResponsiveMobile" devices={["mobile"]}>
       {items.map((data: Data) => (

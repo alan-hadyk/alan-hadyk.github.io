@@ -28,6 +28,7 @@ const VerticalIconsWithLabels = ({
     flexFlow="row nowrap"
     height="100%"
     justifyContent="center"
+    width="100%"
   >
     <FlexItem flex={`0 0 ${spacing.spacing72}`}>
       {iconsWithLabels.map(
@@ -47,7 +48,7 @@ const VerticalIconsWithLabels = ({
         )
       )}
     </FlexItem>
-    <FlexItem flex="0 1 auto">
+    <FlexItem flex="0 0 75%">
       {iconsWithLabels.map(
         ({ label }: IconWithLabelProps): JSX.Element => (
           <SpacingContainer
