@@ -1,44 +1,23 @@
-import React, { Suspense, memo, lazy } from "react";
+import React, { memo } from "react";
 
-const DashboardSection = lazy(
-  () => import("pages/Home/sections/dashboard/DashboardSection")
-);
-const ExperienceSection = lazy(
-  () => import("pages/Home/sections/experience/ExperienceSection")
-);
-const SkillsSection = lazy(
-  () => import("pages/Home/sections/skills/SkillsSection")
-);
-const AboutMeSection = lazy(
-  () => import("pages/Home/sections/about/AboutMeSection")
-);
-const ContactSection = lazy(
-  () => import("pages/Home/sections/contact/ContactSection")
-);
+import DashboardSection from "pages/Home/sections/dashboard/DashboardSection";
+import ExperienceSection from "pages/Home/sections/experience/ExperienceSection";
+import SkillsSection from "pages/Home/sections/skills/SkillsSection";
+import AboutMeSection from "pages/Home/sections/about/AboutMeSection";
+import ContactSection from "pages/Home/sections/contact/ContactSection";
 
-const Header = lazy(() => import("UI/organisms/Header"));
+import Header from "UI/organisms/Header";
 import PageTemplate from "UI/templates/PageTemplate";
 
 const HomePage = (): JSX.Element => (
   <PageTemplate>
-    <Suspense fallback={<div />}>
-      <DashboardSection />
-    </Suspense>
-    <Suspense fallback={<div />}>
-      <ExperienceSection />
-    </Suspense>
-    <Suspense fallback={<div />}>
-      <SkillsSection />
-    </Suspense>
-    <Suspense fallback={<div />}>
-      <AboutMeSection />
-    </Suspense>
-    <Suspense fallback={<div />}>
-      <ContactSection />
-    </Suspense>
-    <Suspense fallback={<div />}>
-      <Header zIndex="layer2" />
-    </Suspense>
+    <Header zIndex="layer2" />
+
+    <DashboardSection />
+    <ExperienceSection />
+    <SkillsSection />
+    <AboutMeSection />
+    <ContactSection />
   </PageTemplate>
 );
 
