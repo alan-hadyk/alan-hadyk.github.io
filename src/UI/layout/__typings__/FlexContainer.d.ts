@@ -9,7 +9,7 @@ export interface FlexContainerProps {
   gap?: Spacing | string;
   height?: Spacing | "unset" | "50%" | "100%";
   justifyContent?: "flex-start" | "flex-end" | "center" | "space-between";
-  maxWidth?: Spacing | "unset" | "100%";
+  maxWidth?: "100%" | Spacing | "unset";
   width?: Spacing | "unset" | "100%" | "50%" | "auto";
 }
 

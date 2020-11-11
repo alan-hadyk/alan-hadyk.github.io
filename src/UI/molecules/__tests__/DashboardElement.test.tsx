@@ -626,19 +626,6 @@ describe("molecules / DashboardElement", () => {
             );
           });
         });
-
-        describe("box-shadow", () => {
-          test("should have 0px 0px .8rem 0px #bcd8db", () => {
-            const { DashboardElementInnerContainer } = setup({
-              shouldDisplayBorder: true
-            });
-
-            expect(DashboardElementInnerContainer).toHaveStyleRule(
-              "box-shadow",
-              "0px 0px .8rem 0px #bcd8db"
-            );
-          });
-        });
       });
     });
   });

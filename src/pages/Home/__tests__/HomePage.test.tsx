@@ -7,6 +7,11 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 
 jest.mock("hooks/useIntersectionObserver");
 
+function MockIconsWithLabels() {
+  return <div />;
+}
+jest.mock("UI/molecules/IconsWithLabels", () => MockIconsWithLabels);
+
 jest.mock("ip", () => ({
   address: (): string => "127.0.0.1"
 }));
