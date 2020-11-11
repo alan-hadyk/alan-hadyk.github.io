@@ -10,6 +10,7 @@
         url('../fonts/anonymous-pro-v13-latin-regular.woff') format('woff'), /* Modern Browsers */
         url('../fonts/anonymous-pro-v13-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
         url('../fonts/anonymous-pro-v13-latin-regular.svg#AnonymousPro') format('svg'); /* Legacy iOS */
+    font-display: swap;
   }
 
   /* Anonymous Pro - bold */
@@ -24,8 +25,9 @@
         url('../fonts/anonymous-pro-v13-latin-700.woff') format('woff'), /* Modern Browsers */
         url('../fonts/anonymous-pro-v13-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
         url('../fonts/anonymous-pro-v13-latin-700.svg#AnonymousPro') format('svg'); /* Legacy iOS */
+    font-display: swap;
   }
-
+    
   /* Exan */
   @font-face {
     font-family: 'ExanModifiedRegular';
@@ -37,4 +39,6 @@
          url('../fonts/ExanModifiedRegular.woff') format('woff'), /* Modern Browsers */
          url('../fonts/ExanModifiedRegular.ttf')  format('truetype'), /* Safari, Android, iOS */
          url('../fonts/ExanModifiedRegular.svg#ExanModifiedRegular') format('svg'); /* Legacy iOS */
-  }  
+    font-display: swap;
+  }
+      
