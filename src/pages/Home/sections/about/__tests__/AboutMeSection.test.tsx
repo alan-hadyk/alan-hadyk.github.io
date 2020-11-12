@@ -5,6 +5,8 @@ import AboutMeSection from "pages/Home/sections/about/AboutMeSection";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("pages / Home / sections / about / AboutMeSection", () => {
   test("should have correct structure", () => {
     const {

@@ -164,6 +164,30 @@ describe("layout / FlexContainer", () => {
       });
     });
 
+    describe("margin", () => {
+      test("should have 0 by default", () => {
+        const { FlexContainer } = setup();
+
+        expect(FlexContainer).toHaveStyleRule("margin", "0");
+      });
+
+      test("should have 2.4rem passed via margin prop", () => {
+        const { FlexContainer } = setup({
+          margin: "spacing24"
+        });
+
+        expect(FlexContainer).toHaveStyleRule("margin", "2.4rem");
+      });
+
+      test("should have 4.8rem passed via margin prop", () => {
+        const { FlexContainer } = setup({
+          margin: "spacing48"
+        });
+
+        expect(FlexContainer).toHaveStyleRule("margin", "4.8rem");
+      });
+    });
+
     describe("max-width", () => {
       test("should have unset by default", () => {
         const { FlexContainer } = setup();

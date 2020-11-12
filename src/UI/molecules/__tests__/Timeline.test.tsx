@@ -5,6 +5,8 @@ import Timeline from "UI/molecules/Timeline";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("molecules / Timeline", () => {
   test("should have correct structure", () => {
     const {

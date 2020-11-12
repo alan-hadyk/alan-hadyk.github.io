@@ -5,6 +5,10 @@ import AnimatedIcons from "UI/molecules/AnimatedIcons";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+import isSafari from "helpers/browser/isSafari";
+
+jest.mock("helpers/browser/isSafari", () => jest.fn());
+
 describe("molecules / AnimatedIcons", () => {
   test("should have correct structure", () => {
     const {
@@ -109,23 +113,45 @@ describe("molecules / AnimatedIcons", () => {
           expect(FlexContainer).toHaveStyleRule("justify-content", "center");
         });
       });
+
+      describe("maxWidth", () => {
+        test("should have 100%", () => {
+          const { FlexContainer } = setup();
+
+          expect(FlexContainer).toHaveStyleRule("max-width", "100%");
+        });
+      });
     });
   });
 
   describe("PositionContainer", () => {
     describe("Props", () => {
       describe("height", () => {
-        test("should be 100%", () => {
+        test("should have 100% if isSafari returns false", () => {
           const { PositionContainers } = setup();
+
+          const mockisSafari = (isSafari as unknown) as jest.Mock;
+          mockisSafari.mockImplementation(() => false);
 
           PositionContainers.forEach((PositionContainer) => {
             expect(PositionContainer).toHaveStyleRule("height", "100%");
           });
         });
+
+        test("should have auto if isSafari returns true", () => {
+          const { PositionContainers } = setup();
+
+          const mockisSafari = (isSafari as unknown) as jest.Mock;
+          mockisSafari.mockImplementation(() => true);
+
+          PositionContainers.forEach((PositionContainer) => {
+            expect(PositionContainer).toHaveStyleRule("height", "auto");
+          });
+        });
       });
 
       describe("position", () => {
-        test("should be relative", () => {
+        test("should have relative", () => {
           const { PositionContainers } = setup();
 
           PositionContainers.forEach((PositionContainer) => {
@@ -170,11 +196,23 @@ describe("molecules / AnimatedIcons", () => {
 
     describe("Props", () => {
       describe("height", () => {
-        test("should have 100%", () => {
+        test("should have 100% if isSafari returns false", () => {
           const { IconContainers } = setup();
+          const mockisSafari = (isSafari as unknown) as jest.Mock;
+          mockisSafari.mockImplementation(() => false);
 
           IconContainers.forEach((IconContainer) => {
             expect(IconContainer).toHaveStyleRule("height", "100%");
+          });
+        });
+
+        test("should have 8vh if isSafari returns true", () => {
+          const { IconContainers } = setup();
+          const mockisSafari = (isSafari as unknown) as jest.Mock;
+          mockisSafari.mockImplementation(() => true);
+
+          IconContainers.forEach((IconContainer) => {
+            expect(IconContainer).toHaveStyleRule("height", "8vh");
           });
         });
       });
@@ -206,11 +244,23 @@ describe("molecules / AnimatedIcons", () => {
       });
 
       describe("width", () => {
-        test("should have 100%", () => {
+        test("should have 100% if isSafari returns false", () => {
           const { IconContainers } = setup();
+          const mockisSafari = (isSafari as unknown) as jest.Mock;
+          mockisSafari.mockImplementation(() => false);
 
           IconContainers.forEach((IconContainer) => {
             expect(IconContainer).toHaveStyleRule("width", "100%");
+          });
+        });
+
+        test("should have 8vh if isSafari returns true", () => {
+          const { IconContainers } = setup();
+          const mockisSafari = (isSafari as unknown) as jest.Mock;
+          mockisSafari.mockImplementation(() => true);
+
+          IconContainers.forEach((IconContainer) => {
+            expect(IconContainer).toHaveStyleRule("width", "8vh");
           });
         });
       });

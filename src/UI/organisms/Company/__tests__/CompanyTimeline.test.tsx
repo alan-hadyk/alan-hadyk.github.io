@@ -7,6 +7,8 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 
 import { CompanyTimelineProps } from "UI/organisms/Company/__typings__/CompanyTimeline";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("molecules / CompanyTimeline", () => {
   test("should have correct structure", () => {
     const { CompanyTimelineContainer, Timeline } = setup();

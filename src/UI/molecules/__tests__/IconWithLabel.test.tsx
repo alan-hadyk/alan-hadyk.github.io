@@ -7,6 +7,10 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 
 import { IconWithLabelProps } from "UI/molecules/__typings__/IconWithLabel";
 
+import isIE11 from "helpers/browser/isIE11";
+
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("molecules / IconWithLabel", () => {
   test("should have correct structure", () => {
     const {
@@ -144,6 +148,26 @@ describe("molecules / IconWithLabel", () => {
                 modifier: "svg"
               });
             });
+          });
+        });
+
+        describe("width", () => {
+          test("should have 4.8rem if isIE11 is true", () => {
+            const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+            mockisIE11.mockImplementation(() => true);
+
+            const { IconContainer } = setup();
+
+            expect(IconContainer).toHaveStyleRule("width", "3.2rem");
+          });
+
+          test("should have auto if isIE11 is false", () => {
+            const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+            mockisIE11.mockImplementation(() => false);
+
+            const { IconContainer } = setup();
+
+            expect(IconContainer).toHaveStyleRule("width", "auto");
           });
         });
       });

@@ -7,6 +7,10 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 
 import { SideMenuProps } from "UI/organisms/__typings__/SideMenu";
 
+import isIE11 from "helpers/browser/isIE11";
+
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 jest.mock("hooks/useIntersectionObserver");
 
 describe("organisms / SideMenu", () => {
@@ -176,6 +180,17 @@ describe("organisms / SideMenu", () => {
           const { SideMenuContainer } = setup();
 
           expect(SideMenuContainer).toHaveStyleRule("z-index", "1000");
+        });
+      });
+
+      describe("max-width", () => {
+        test("should have 300px", () => {
+          const { SideMenuContainer } = setup();
+
+          expect(SideMenuContainer).toHaveStyleRule("max-width", "300px", {
+            media:
+              "all and (-ms-high-contrast: none), (-ms-high-contrast: active)"
+          });
         });
       });
     });
@@ -408,6 +423,30 @@ describe("organisms / SideMenu", () => {
 
           expect(firstButtonIcon.textContent).toEqual("Btn-Download.svg");
           expect(secondButtonIcon.textContent).toEqual("Btn-Download.svg");
+        });
+      });
+
+      describe("iconWidth", () => {
+        test("should have 2.4rem if isIE11 returns false", () => {
+          const { Buttons } = setup();
+
+          const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+          mockisIE11.mockImplementation(() => false);
+
+          Buttons.forEach((Button) => {
+            expect(Button).toHaveStyleRule("height", "2.4rem");
+          });
+        });
+
+        test("should have auto if isIE11 returns true", () => {
+          const { Buttons } = setup();
+
+          const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+          mockisIE11.mockImplementation(() => true);
+
+          Buttons.forEach((Button) => {
+            expect(Button).toHaveStyleRule("height", "auto");
+          });
         });
       });
 

@@ -9,6 +9,8 @@ import { CompanyDescriptionProps } from "UI/organisms/__typings__/CompanyDescrip
 
 import { IconWithLabelProps } from "UI/molecules/__typings__/IconWithLabel";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("organisms / CompanyDescription", () => {
   test("should have correct structure", () => {
     const {
@@ -56,6 +58,21 @@ describe("organisms / CompanyDescription", () => {
     expect(ResponsibilitiesListSpacingContainer.children[0]).toEqual(
       UnorderedList
     );
+  });
+
+  describe("CompanyDescriptionContainer", () => {
+    describe("styles", () => {
+      describe("width", () => {
+        test("should have 100% if browser is IE", () => {
+          const { CompanyDescriptionContainer } = setup();
+
+          expect(CompanyDescriptionContainer).toHaveStyleRule("width", "100%", {
+            media:
+              "all and (-ms-high-contrast: none), (-ms-high-contrast: active)"
+          });
+        });
+      });
+    });
   });
 
   describe("Titles", () => {

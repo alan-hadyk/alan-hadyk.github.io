@@ -12,8 +12,10 @@ import isIE11 from "helpers/browser/isIE11";
 const FlexItemContainer = styled.div<FlexItemContainerProps>`
   ${({
     alignSelf,
+    display,
     flex,
     height,
+    justifyContent,
     order,
     overflow,
     paddingBottom,
@@ -25,8 +27,10 @@ const FlexItemContainer = styled.div<FlexItemContainerProps>`
     width
   }): FlattenSimpleInterpolation => css`
     align-self: ${alignSelf};
+    display: ${display};
     flex: ${flex};
     height: ${(height in spacing && spacing[height]) || height};
+    justify-content: ${justifyContent};
     order: ${order};
     overflow: ${overflow};
     padding-bottom: ${(paddingBottom in spacing && spacing[paddingBottom]) ||

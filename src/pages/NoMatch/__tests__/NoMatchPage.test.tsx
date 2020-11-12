@@ -7,6 +7,8 @@ import NoMatchPage from "pages/NoMatch/NoMatchPage";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 interface MockLinkWithIconProps {
   height?: string;
   href?: string;

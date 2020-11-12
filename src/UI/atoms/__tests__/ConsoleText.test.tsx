@@ -22,8 +22,10 @@ describe("atoms / ConsoleText", () => {
     });
 
     describe("font-family", () => {
-      test("should have ExanModifiedRegular,monospace for all browsers except IE", () => {
+      test("should have ExanModifiedRegular,monospace if isIE11 returns false", () => {
         const { ConsoleTextContainer } = setup();
+        const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+        mockisIE11.mockImplementation(() => false);
 
         expect(ConsoleTextContainer).toHaveStyleRule(
           "font-family",
@@ -31,14 +33,14 @@ describe("atoms / ConsoleText", () => {
         );
       });
 
-      test("should have AnonymousPro,monospace for IE", () => {
+      test("should have AnonymousPro,monospace if isIE11 returns true", () => {
         const { ConsoleTextContainer } = setup();
         const mockisIE11 = (isIE11 as unknown) as jest.Mock;
-        mockisIE11.mockImplementation(() => false);
+        mockisIE11.mockImplementation(() => true);
 
         expect(ConsoleTextContainer).toHaveStyleRule(
           "font-family",
-          "AnonymousPro,monospace"
+          "'Anonymous Pro',monospace"
         );
       });
     });
@@ -94,6 +96,17 @@ describe("atoms / ConsoleText", () => {
         expect(ConsoleTextContainer).toHaveStyleRule(
           "text-transform",
           "lowercase"
+        );
+      });
+
+      test("should have uppercase for IE", () => {
+        const { ConsoleTextContainer } = setup();
+        const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+        mockisIE11.mockImplementation(() => true);
+
+        expect(ConsoleTextContainer).toHaveStyleRule(
+          "text-transform",
+          "uppercase"
         );
       });
     });

@@ -5,6 +5,8 @@ import SkillsSection from "pages/Home/sections/skills/SkillsSection";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("pages / Home / sections / skills / SkillsSection", () => {
   test("should have correct structure", () => {
     const {

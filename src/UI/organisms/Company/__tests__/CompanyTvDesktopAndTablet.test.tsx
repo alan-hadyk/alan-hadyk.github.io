@@ -7,6 +7,10 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 
 import { CompanyProps } from "UI/organisms/Company/__typings__/Company";
 
+import isIE11 from "helpers/browser/isIE11";
+
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 jest.mock("hooks/useIntersectionObserver");
 
 describe("organisms / CompanyTvDesktopAndTablet", () => {
@@ -117,18 +121,12 @@ describe("organisms / CompanyTvDesktopAndTablet", () => {
         });
       });
 
-      describe("gap", () => {
-        test("should have margin-left: 8.8rem for all children (except first)", () => {
+      describe("margin", () => {
+        test("should have 0 auto", () => {
           const { FlexContainers } = setup();
 
           FlexContainers.forEach((FlexContainer: Element) => {
-            expect(FlexContainer).toHaveStyleRule("margin-left", "8.8rem", {
-              modifier: "& > *"
-            });
-
-            expect(FlexContainer).toHaveStyleRule("margin-left", "0", {
-              modifier: "& > *:first-child"
-            });
+            expect(FlexContainer).toHaveStyleRule("margin", "0 auto");
           });
         });
       });
@@ -154,6 +152,48 @@ describe("organisms / CompanyTvDesktopAndTablet", () => {
           FlexItems.forEach((FlexItem: Element) => {
             expect(FlexItem).toHaveStyleRule("flex", "0 0 50%");
           });
+        });
+      });
+
+      describe("shouldApplyWidth", () => {
+        test("should have not width if isIE11 returns false", () => {
+          const { FlexItems } = setup();
+          const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+          mockisIE11.mockImplementation(() => false);
+
+          FlexItems.forEach((FlexItem: Element) => {
+            expect(FlexItem).not.toHaveStyleRule("width");
+          });
+        });
+
+        test("should have width equal to the last value of flex if isIE11 returns true", () => {
+          const { FlexItems } = setup();
+          const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+          mockisIE11.mockImplementation(() => true);
+
+          FlexItems.forEach((FlexItem: Element) => {
+            expect(FlexItem).toHaveStyleRule("width", "50%");
+          });
+        });
+      });
+    });
+
+    describe("FlexItems[0]", () => {
+      describe("paddingRight", () => {
+        test("should have 4rem", () => {
+          const { FlexItems } = setup();
+
+          expect(FlexItems[0]).toHaveStyleRule("padding-right", "4rem");
+        });
+      });
+    });
+
+    describe("FlexItems[1]", () => {
+      describe("paddingLeft", () => {
+        test("should have 4rem", () => {
+          const { FlexItems } = setup();
+
+          expect(FlexItems[1]).toHaveStyleRule("padding-left", "4rem");
         });
       });
     });

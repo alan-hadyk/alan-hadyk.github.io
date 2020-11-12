@@ -213,6 +213,56 @@ describe("molecules / ConsoleTvDesktopAndTablet", () => {
           );
         });
       });
+
+      describe("&:after", () => {
+        describe("content", () => {
+          test("should have ''", () => {
+            const { ConsoleTvDesktopAndTabletContainer } = setup();
+
+            expect(ConsoleTvDesktopAndTabletContainer).toHaveStyleRule(
+              "content",
+              "''",
+              {
+                media:
+                  "all and (-ms-high-contrast: none), (-ms-high-contrast: active)",
+                modifier: "&::after"
+              }
+            );
+          });
+        });
+
+        describe("font-size", () => {
+          test("should have 0", () => {
+            const { ConsoleTvDesktopAndTabletContainer } = setup();
+
+            expect(ConsoleTvDesktopAndTabletContainer).toHaveStyleRule(
+              "font-size",
+              "0",
+              {
+                media:
+                  "all and (-ms-high-contrast: none), (-ms-high-contrast: active)",
+                modifier: "&::after"
+              }
+            );
+          });
+        });
+
+        describe("min-height", () => {
+          test("should have inherit", () => {
+            const { ConsoleTvDesktopAndTabletContainer } = setup();
+
+            expect(ConsoleTvDesktopAndTabletContainer).toHaveStyleRule(
+              "min-height",
+              "inherit",
+              {
+                media:
+                  "all and (-ms-high-contrast: none), (-ms-high-contrast: active)",
+                modifier: "&::after"
+              }
+            );
+          });
+        });
+      });
     });
   });
 

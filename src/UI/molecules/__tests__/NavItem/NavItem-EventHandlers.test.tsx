@@ -22,10 +22,7 @@ describe("molecules / NavItem", () => {
           fireEvent.mouseUp(NavItemLink);
         });
 
-        expect(mockScrollIntoView).toHaveBeenCalledWith({
-          behavior: "smooth",
-          block: "start"
-        });
+        expect(mockScrollIntoView).toHaveBeenCalledWith(true);
       });
 
       test("should fire shuffleText.start onMouseOver", () => {

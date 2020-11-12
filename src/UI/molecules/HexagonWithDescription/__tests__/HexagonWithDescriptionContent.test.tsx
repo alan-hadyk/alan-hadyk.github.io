@@ -7,6 +7,8 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 
 import { HexagonWithDescriptionContentProps } from "UI/molecules/HexagonWithDescription/__typings__/HexagonWithDescriptionContent";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("molecules / HexagonWithDescription", () => {
   test("should have correct structure", () => {
     const {
@@ -196,6 +198,22 @@ describe("molecules / HexagonWithDescription", () => {
           });
 
           expect(Text).toHaveStyleRule("line-height", "4rem");
+        });
+      });
+
+      describe("width", () => {
+        test("should have 100% by default", () => {
+          const { Text } = setup();
+
+          expect(Text).toHaveStyleRule("width", "100%");
+        });
+
+        test("should have correct value passed via textWidth prop", () => {
+          const { Text } = setup({
+            textWidth: "spacing24"
+          });
+
+          expect(Text).toHaveStyleRule("width", "2.4rem");
         });
       });
     });

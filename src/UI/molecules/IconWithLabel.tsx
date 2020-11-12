@@ -57,8 +57,8 @@ function IconWithLabel({
         <Icon
           height={mapSizeToIconHeight[size]}
           iconName={iconName}
-          width={isIE11() ? `${spacing.spacing32}` : "auto"}
           isHeightResponsive
+          width={isIE11() ? `${spacing.spacing32}` : "auto"}
         />
       </SpacingContainer>
       <Text

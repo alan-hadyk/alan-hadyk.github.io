@@ -5,6 +5,8 @@ import ContactSection from "pages/Home/sections/contact/ContactSection";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("pages / Home / sections / contact / ContactSection", () => {
   test("should have correct structure", () => {
     const { ContactSectionContainer, FlexContainer, Link, Text } = setup();

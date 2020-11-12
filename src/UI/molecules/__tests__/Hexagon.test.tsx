@@ -6,6 +6,8 @@ import { HexagonProps } from "UI/molecules/__typings__/Hexagon";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("molecules / Hexagon", () => {
   test("should have correct structure", () => {
     const {

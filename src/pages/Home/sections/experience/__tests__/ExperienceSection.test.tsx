@@ -5,6 +5,8 @@ import ExperienceSection from "pages/Home/sections/experience/ExperienceSection"
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("pages / Home / sections / experience / ExperienceSection", () => {
   test("should have correct structure", () => {
     const {

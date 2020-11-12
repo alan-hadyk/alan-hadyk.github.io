@@ -101,6 +101,22 @@ describe("molecules / CompanyLogo", () => {
           });
         });
       });
+
+      describe("overflow", () => {
+        test("should have hidden", () => {
+          const { Logo } = setup();
+
+          expect(Logo).toHaveStyleRule("overflow", "hidden");
+        });
+      });
+
+      describe("width", () => {
+        test("should have correct value", () => {
+          const { Logo } = setup();
+
+          expect(Logo).toHaveStyleRule("width", "auto");
+        });
+      });
     });
   });
 });
