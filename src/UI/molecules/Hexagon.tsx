@@ -32,7 +32,7 @@ const HexagonInnerContainer = styled.div<HexagonInnerContainerProps>`
 
     ${isIE11() &&
     css`
-      @media all and (min-width: ${breakpoint1281}) {
+      @media (min-width: ${breakpoint1281}) {
         left: 48%;
         top: 53%;
         transform: translate(-50%, -50%);
@@ -56,7 +56,7 @@ function Hexagon({
   const iconRef = useRef(null);
 
   useEffect(() => {
-    const viewBox = iconRef?.current?.attributes?.viewBox.value;
+    const viewBox = iconRef?.current?.attributes?.viewBox?.value;
     const height = viewBox?.split(" ")[3];
     const width = viewBox?.split(" ")[2];
 
@@ -84,7 +84,7 @@ function Hexagon({
   );
 }
 
-function renderIcon({
+export function renderIcon({
   fill,
   iconDimensions,
   iconRef

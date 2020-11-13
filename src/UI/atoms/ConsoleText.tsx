@@ -32,7 +32,13 @@ const ConsoleTextContainer = styled.div<ConsoleTextProps>`
     text-align: center;
     text-transform: lowercase;
 
-    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @media (-ms-high-contrast: none) {
+      /* IE10+ CSS */
+      font-family: ${AnonymousPro};
+      text-transform: uppercase;
+    }
+
+    @media (-ms-high-contrast: active) {
       /* IE10+ CSS */
       font-family: ${AnonymousPro};
       text-transform: uppercase;

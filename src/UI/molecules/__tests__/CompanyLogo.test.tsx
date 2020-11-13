@@ -75,24 +75,7 @@ describe("molecules / CompanyLogo", () => {
         });
 
         describe("width", () => {
-          test("should have auto if isIE11 returns false", () => {
-            const mockisIE11 = (isIE11 as unknown) as jest.Mock;
-            mockisIE11.mockImplementation(() => false);
-
-            const { Logo } = setup();
-
-            expect(Logo).toHaveStyleRule("width", "auto", {
-              modifier: "svg"
-            });
-          });
-
-          test("should have value if isIE11 returns true", () => {
-            // TODO: Fix this test
-            expect(true).toBeFalsy();
-
-            const mockisIE11 = (isIE11 as unknown) as jest.Mock;
-            mockisIE11.mockImplementation(() => true);
-
+          test("should have auto", () => {
             const { Logo } = setup();
 
             expect(Logo).toHaveStyleRule("width", "auto", {
@@ -111,10 +94,22 @@ describe("molecules / CompanyLogo", () => {
       });
 
       describe("width", () => {
-        test("should have correct value", () => {
+        test("should have auto if isIE11 returns false", () => {
+          const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+          mockisIE11.mockImplementation(() => false);
+
           const { Logo } = setup();
 
           expect(Logo).toHaveStyleRule("width", "auto");
+        });
+
+        test("should not have auto if isIE11 returns true", () => {
+          const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+          mockisIE11.mockImplementation(() => true);
+
+          const { Logo } = setup();
+
+          expect(Logo).not.toHaveStyleRule("width", "auto");
         });
       });
     });

@@ -34,7 +34,7 @@ function CompanyLogo({ logo }: CompanyLogoProps): JSX.Element {
         isHeightResponsive
         overflow="hidden"
         ref={iconRef}
-        width={iconWidth}
+        width={isIE11() ? iconWidth : "auto"}
       />
     </FlexContainer>
   );

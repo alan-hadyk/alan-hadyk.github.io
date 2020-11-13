@@ -7,10 +7,6 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 
 import { ConsoleTextProps } from "UI/atoms/__typings__/ConsoleText";
 
-import isIE11 from "helpers/browser/isIE11";
-
-jest.mock("helpers/browser/isIE11", () => jest.fn());
-
 describe("atoms / ConsoleText", () => {
   describe("Styles", () => {
     describe("color", () => {
@@ -22,10 +18,8 @@ describe("atoms / ConsoleText", () => {
     });
 
     describe("font-family", () => {
-      test("should have ExanModifiedRegular,monospace if isIE11 returns false", () => {
+      test("should have ExanModifiedRegular,monospace by default", () => {
         const { ConsoleTextContainer } = setup();
-        const mockisIE11 = (isIE11 as unknown) as jest.Mock;
-        mockisIE11.mockImplementation(() => false);
 
         expect(ConsoleTextContainer).toHaveStyleRule(
           "font-family",
@@ -33,14 +27,22 @@ describe("atoms / ConsoleText", () => {
         );
       });
 
-      test("should have AnonymousPro,monospace if isIE11 returns true", () => {
+      test("should have AnonymousPro,monospace for IE11", () => {
         const { ConsoleTextContainer } = setup();
-        const mockisIE11 = (isIE11 as unknown) as jest.Mock;
-        mockisIE11.mockImplementation(() => true);
 
         expect(ConsoleTextContainer).toHaveStyleRule(
           "font-family",
-          "'Anonymous Pro',monospace"
+          "'Anonymous Pro',monospace",
+          {
+            media: "(-ms-high-contrast: none)"
+          }
+        );
+        expect(ConsoleTextContainer).toHaveStyleRule(
+          "font-family",
+          "'Anonymous Pro',monospace",
+          {
+            media: "(-ms-high-contrast: active)"
+          }
         );
       });
     });
@@ -90,7 +92,7 @@ describe("atoms / ConsoleText", () => {
     });
 
     describe("text-transform", () => {
-      test("should have lowercase", () => {
+      test("should have lowercase by default", () => {
         const { ConsoleTextContainer } = setup();
 
         expect(ConsoleTextContainer).toHaveStyleRule(
@@ -99,14 +101,22 @@ describe("atoms / ConsoleText", () => {
         );
       });
 
-      test("should have uppercase for IE", () => {
+      test("should have uppercase for IE11", () => {
         const { ConsoleTextContainer } = setup();
-        const mockisIE11 = (isIE11 as unknown) as jest.Mock;
-        mockisIE11.mockImplementation(() => true);
 
         expect(ConsoleTextContainer).toHaveStyleRule(
           "text-transform",
-          "uppercase"
+          "uppercase",
+          {
+            media: "(-ms-high-contrast: none)"
+          }
+        );
+        expect(ConsoleTextContainer).toHaveStyleRule(
+          "text-transform",
+          "uppercase",
+          {
+            media: "(-ms-high-contrast: active)"
+          }
         );
       });
     });

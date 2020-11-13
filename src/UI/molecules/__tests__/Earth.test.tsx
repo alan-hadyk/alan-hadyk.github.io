@@ -113,19 +113,19 @@ describe("molecules / Earth", () => {
     describe("Props", () => {
       describe("height", () => {
         test("should have 100% if isSafari returns false", () => {
-          const { IconContainer } = setup();
-
           const mockisSafari = (isSafari as unknown) as jest.Mock;
           mockisSafari.mockImplementation(() => false);
+
+          const { IconContainer } = setup();
 
           expect(IconContainer).toHaveStyleRule("height", "100%");
         });
 
         test("should have 18vh if isSafari returns true", () => {
-          const { IconContainer } = setup();
-
           const mockisSafari = (isSafari as unknown) as jest.Mock;
           mockisSafari.mockImplementation(() => true);
+
+          const { IconContainer } = setup();
 
           expect(IconContainer).toHaveStyleRule("height", "18vh");
         });
@@ -155,19 +155,19 @@ describe("molecules / Earth", () => {
 
       describe("width", () => {
         test("should have 100% if isSafari returns false", () => {
-          const { IconContainer } = setup();
-
           const mockisSafari = (isSafari as unknown) as jest.Mock;
           mockisSafari.mockImplementation(() => false);
+
+          const { IconContainer } = setup();
 
           expect(IconContainer).toHaveStyleRule("width", "100%");
         });
 
         test("should have 18vh if isSafari returns true", () => {
-          const { IconContainer } = setup();
-
           const mockisSafari = (isSafari as unknown) as jest.Mock;
           mockisSafari.mockImplementation(() => true);
+
+          const { IconContainer } = setup();
 
           expect(IconContainer).toHaveStyleRule("width", "18vh");
         });

@@ -44,11 +44,18 @@ const FlexItemContainer = styled.div<FlexItemContainerProps>`
 
     ${shouldApplyWidth &&
     `
-      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      @media (-ms-high-contrast: none) {
         /* IE10+ CSS */
         flex: none;
         width: ${width};
-      }`}
+      }
+
+      @media (-ms-high-contrast: active) {
+        /* IE10+ CSS */
+        flex: none;
+        width: ${width};
+      }
+    `}
   `};
 `;
 

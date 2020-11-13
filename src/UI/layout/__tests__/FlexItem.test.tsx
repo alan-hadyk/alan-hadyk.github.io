@@ -106,8 +106,11 @@ describe("layout / FlexItem", () => {
         });
 
         expect(FlexItem).toHaveStyleRule("flex", "none", {
-          media:
-            "all and (-ms-high-contrast: none), (-ms-high-contrast: active)"
+          media: "(-ms-high-contrast: none)"
+        });
+
+        expect(FlexItem).toHaveStyleRule("flex", "none", {
+          media: "(-ms-high-contrast: active)"
         });
       });
     });
@@ -263,7 +266,13 @@ describe("layout / FlexItem", () => {
           shouldApplyWidth: true
         });
 
-        expect(FlexItem).toHaveStyleRule("width", "15%");
+        expect(FlexItem).toHaveStyleRule("width", "15%", {
+          media: "(-ms-high-contrast: none)"
+        });
+
+        expect(FlexItem).toHaveStyleRule("width", "15%", {
+          media: "(-ms-high-contrast: active)"
+        });
       });
     });
   });
