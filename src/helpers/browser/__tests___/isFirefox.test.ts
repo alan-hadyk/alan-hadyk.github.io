@@ -5,6 +5,7 @@ interface Detect {
 }
 
 jest.mock("detect-browser", () => ({
+  __esModule: true,
   detect: (): Detect => ({ name: "chrome" })
 }));
 

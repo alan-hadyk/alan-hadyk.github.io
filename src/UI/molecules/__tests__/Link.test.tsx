@@ -122,14 +122,6 @@ describe("molecules / Link", () => {
           expect(ExternalLink).toHaveStyleRule("height", "50%");
         });
 
-        test("should have 100% passed via height prop", () => {
-          const { ExternalLink } = setup({
-            height: "100%"
-          });
-
-          expect(ExternalLink).toHaveStyleRule("height", "100%");
-        });
-
         test("should have auto passed via height prop", () => {
           const { ExternalLink } = setup({
             height: "auto"
@@ -291,15 +283,6 @@ describe("molecules / Link", () => {
           });
 
           expect(RouterLink).toHaveStyleRule("height", "50%");
-        });
-
-        test("should have 100% passed via height prop", () => {
-          const { RouterLink } = setup({
-            height: "100%",
-            isExternal: false
-          });
-
-          expect(RouterLink).toHaveStyleRule("height", "100%");
         });
 
         test("should have auto passed via height prop", () => {
