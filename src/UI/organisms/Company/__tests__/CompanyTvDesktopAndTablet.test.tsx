@@ -171,7 +171,8 @@ describe("organisms / CompanyTvDesktopAndTablet", () => {
           const mockisIE11 = (isIE11 as unknown) as jest.Mock;
           mockisIE11.mockImplementation(() => true);
 
-          const { FlexItems } = setup();
+          const { FlexItems, debug } = setup();
+          debug(FlexItems[0]);
 
           expect(FlexItems[0]).toHaveStyleRule("width", "50%");
           expect(FlexItems[1]).toHaveStyleRule("width", "50%");

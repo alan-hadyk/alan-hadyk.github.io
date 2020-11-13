@@ -134,6 +134,7 @@ describe("molecules / BrowserInfo", () => {
       describe("display", () => {
         test("should have block if isSafari returns false", () => {
           const mockisSafari = (isSafari as unknown) as jest.Mock;
+          console.log("isSafari", isSafari);
           mockisSafari.mockImplementation(() => false);
 
           const { FlexItems } = setup();
