@@ -26,9 +26,17 @@ const ConsoleTvDesktopAndTabletContainer = styled.div`
     position: relative;
     width: 100%;
 
-    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-      /* IE10+ CSS */
-      &:after {
+    /* IE10+ CSS */
+    @media (-ms-high-contrast: none) {
+      &::after {
+        content: "";
+        font-size: 0;
+        min-height: inherit;
+      }
+    }
+
+    @media (-ms-high-contrast: active) {
+      &::after {
         content: "";
         font-size: 0;
         min-height: inherit;

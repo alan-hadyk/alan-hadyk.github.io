@@ -209,26 +209,13 @@ describe("molecules / HexagonWithDescription", () => {
       });
 
       describe("lineHeight", () => {
-        test("should have 3.6rem for first and second and third element", () => {
-          const { HexagonWithDescriptionContents } = setup();
-
-          expect(
-            HexagonWithDescriptionContents[0].children[1].children[0]
-          ).toHaveStyleRule("line-height", "3.6rem");
-          expect(
-            HexagonWithDescriptionContents[1].children[1].children[0]
-          ).toHaveStyleRule("line-height", "3.6rem");
-          expect(
-            HexagonWithDescriptionContents[2].children[1].children[0]
-          ).toHaveStyleRule("line-height", "3.6rem");
-        });
-
         test("should have 2.8rem for fourth element", () => {
           const { HexagonWithDescriptionContents } = setup();
 
-          expect(
-            HexagonWithDescriptionContents[3].children[1].children[0]
-          ).toHaveStyleRule("line-height", "2.8rem");
+          expect(HexagonWithDescriptionContents[3].children[1]).toHaveStyleRule(
+            "line-height",
+            "2.8rem"
+          );
         });
       });
 
@@ -327,10 +314,10 @@ describe("molecules / HexagonWithDescription", () => {
         });
 
         test("should have 60% for third element if isIE11 returns false", () => {
-          const { HexagonWithDescriptionContents } = setup();
-
           const mocksiIE11 = (isIE11 as unknown) as jest.Mock;
           mocksiIE11.mockImplementation(() => false);
+
+          const { HexagonWithDescriptionContents } = setup();
 
           expect(HexagonWithDescriptionContents[2].children[0]).toHaveStyleRule(
             "width",
@@ -339,10 +326,10 @@ describe("molecules / HexagonWithDescription", () => {
         });
 
         test("should have 100% for fourth element if isIE11 returns false", () => {
-          const { HexagonWithDescriptionContents } = setup();
-
           const mocksiIE11 = (isIE11 as unknown) as jest.Mock;
           mocksiIE11.mockImplementation(() => false);
+
+          const { HexagonWithDescriptionContents } = setup();
 
           expect(HexagonWithDescriptionContents[3].children[0]).toHaveStyleRule(
             "width",
@@ -351,10 +338,10 @@ describe("molecules / HexagonWithDescription", () => {
         });
 
         test("should have auto for third and fourth element if isIE11 returns true", () => {
-          const { HexagonWithDescriptionContents } = setup();
-
           const mocksiIE11 = (isIE11 as unknown) as jest.Mock;
           mocksiIE11.mockImplementation(() => true);
+
+          const { HexagonWithDescriptionContents } = setup();
 
           expect(HexagonWithDescriptionContents[2].children[0]).toHaveStyleRule(
             "width",

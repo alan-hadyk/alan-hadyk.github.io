@@ -188,8 +188,10 @@ describe("organisms / SideMenu", () => {
           const { SideMenuContainer } = setup();
 
           expect(SideMenuContainer).toHaveStyleRule("max-width", "300px", {
-            media:
-              "all and (-ms-high-contrast: none), (-ms-high-contrast: active)"
+            media: "(-ms-high-contrast: none)"
+          });
+          expect(SideMenuContainer).toHaveStyleRule("max-width", "300px", {
+            media: "(-ms-high-contrast: active)"
           });
         });
       });
@@ -428,24 +430,28 @@ describe("organisms / SideMenu", () => {
 
       describe("iconWidth", () => {
         test("should have 2.4rem if isIE11 returns false", () => {
-          const { Buttons } = setup();
-
           const mockisIE11 = (isIE11 as unknown) as jest.Mock;
           mockisIE11.mockImplementation(() => false);
 
+          const { Buttons } = setup();
+
           Buttons.forEach((Button) => {
-            expect(Button).toHaveStyleRule("height", "2.4rem");
+            expect(
+              Button.children[4].children[0].children[0].children[1]
+            ).toHaveStyleRule("width", "auto");
           });
         });
 
         test("should have auto if isIE11 returns true", () => {
-          const { Buttons } = setup();
-
           const mockisIE11 = (isIE11 as unknown) as jest.Mock;
           mockisIE11.mockImplementation(() => true);
 
+          const { Buttons } = setup();
+
           Buttons.forEach((Button) => {
-            expect(Button).toHaveStyleRule("height", "auto");
+            expect(
+              Button.children[0].children[0].children[0].children[1]
+            ).toHaveStyleRule("width", "2.4rem");
           });
         });
       });

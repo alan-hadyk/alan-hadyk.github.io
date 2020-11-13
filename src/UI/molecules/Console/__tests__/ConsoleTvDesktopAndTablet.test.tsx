@@ -5,6 +5,10 @@ import ConsoleTvDesktopAndTablet from "UI/molecules/Console/ConsoleTvDesktopAndT
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+import isIE11 from "helpers/browser/isIE11";
+
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("molecules / ConsoleTvDesktopAndTablet", () => {
   test("should have correct structure", () => {
     const {
@@ -217,14 +221,25 @@ describe("molecules / ConsoleTvDesktopAndTablet", () => {
       describe("&:after", () => {
         describe("content", () => {
           test("should have ''", () => {
+            const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+            mockisIE11.mockImplementation(() => true);
+
             const { ConsoleTvDesktopAndTabletContainer } = setup();
 
             expect(ConsoleTvDesktopAndTabletContainer).toHaveStyleRule(
               "content",
               "''",
               {
-                media:
-                  "all and (-ms-high-contrast: none), (-ms-high-contrast: active)",
+                media: "(-ms-high-contrast: none)",
+                modifier: "&::after"
+              }
+            );
+
+            expect(ConsoleTvDesktopAndTabletContainer).toHaveStyleRule(
+              "content",
+              "''",
+              {
+                media: "(-ms-high-contrast: active)",
                 modifier: "&::after"
               }
             );
@@ -233,14 +248,25 @@ describe("molecules / ConsoleTvDesktopAndTablet", () => {
 
         describe("font-size", () => {
           test("should have 0", () => {
+            const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+            mockisIE11.mockImplementation(() => true);
+
             const { ConsoleTvDesktopAndTabletContainer } = setup();
 
             expect(ConsoleTvDesktopAndTabletContainer).toHaveStyleRule(
               "font-size",
               "0",
               {
-                media:
-                  "all and (-ms-high-contrast: none), (-ms-high-contrast: active)",
+                media: "(-ms-high-contrast: none)",
+                modifier: "&::after"
+              }
+            );
+
+            expect(ConsoleTvDesktopAndTabletContainer).toHaveStyleRule(
+              "font-size",
+              "0",
+              {
+                media: "(-ms-high-contrast: active)",
                 modifier: "&::after"
               }
             );
@@ -249,14 +275,25 @@ describe("molecules / ConsoleTvDesktopAndTablet", () => {
 
         describe("min-height", () => {
           test("should have inherit", () => {
+            const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+            mockisIE11.mockImplementation(() => true);
+
             const { ConsoleTvDesktopAndTabletContainer } = setup();
 
             expect(ConsoleTvDesktopAndTabletContainer).toHaveStyleRule(
               "min-height",
               "inherit",
               {
-                media:
-                  "all and (-ms-high-contrast: none), (-ms-high-contrast: active)",
+                media: "(-ms-high-contrast: none)",
+                modifier: "&::after"
+              }
+            );
+
+            expect(ConsoleTvDesktopAndTabletContainer).toHaveStyleRule(
+              "min-height",
+              "inherit",
+              {
+                media: "(-ms-high-contrast: active)",
                 modifier: "&::after"
               }
             );

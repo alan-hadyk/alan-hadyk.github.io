@@ -133,10 +133,10 @@ describe("molecules / BrowserInfo", () => {
     describe("Props", () => {
       describe("display", () => {
         test("should have block if isSafari returns false", () => {
-          const { FlexItems } = setup();
-
           const mockisSafari = (isSafari as unknown) as jest.Mock;
           mockisSafari.mockImplementation(() => false);
+
+          const { FlexItems } = setup();
 
           FlexItems.forEach((FlexItem) => {
             expect(FlexItem).toHaveStyleRule("display", "block");
@@ -144,10 +144,10 @@ describe("molecules / BrowserInfo", () => {
         });
 
         test("should have flex if isSafari returns true", () => {
-          const { FlexItems } = setup();
-
           const mockisSafari = (isSafari as unknown) as jest.Mock;
           mockisSafari.mockImplementation(() => true);
+
+          const { FlexItems } = setup();
 
           FlexItems.forEach((FlexItem) => {
             expect(FlexItem).toHaveStyleRule("display", "flex");
@@ -177,10 +177,10 @@ describe("molecules / BrowserInfo", () => {
 
       describe("justifyContent", () => {
         test("should have initial if isSafari returns false", () => {
-          const { FlexItems } = setup();
-
           const mockisSafari = (isSafari as unknown) as jest.Mock;
           mockisSafari.mockImplementation(() => false);
+
+          const { FlexItems } = setup();
 
           FlexItems.forEach((FlexItem) => {
             expect(FlexItem).toHaveStyleRule("justify-content", "initial");
@@ -188,10 +188,10 @@ describe("molecules / BrowserInfo", () => {
         });
 
         test("should have center if isSafari returns true", () => {
-          const { FlexItems } = setup();
-
           const mockisSafari = (isSafari as unknown) as jest.Mock;
           mockisSafari.mockImplementation(() => true);
+
+          const { FlexItems } = setup();
 
           FlexItems.forEach((FlexItem) => {
             expect(FlexItem).toHaveStyleRule("justify-content", "center");
@@ -200,25 +200,25 @@ describe("molecules / BrowserInfo", () => {
       });
 
       describe("overflow", () => {
-        test("should have 100% if isSafari returns false", () => {
-          const { FlexItems } = setup();
-
+        test("should have visible if isSafari returns false", () => {
           const mockisSafari = (isSafari as unknown) as jest.Mock;
           mockisSafari.mockImplementation(() => false);
 
+          const { FlexItems } = setup();
+
           FlexItems.forEach((FlexItem) => {
-            expect(FlexItem).toHaveStyleRule("overflow", "100%");
+            expect(FlexItem).toHaveStyleRule("overflow", "visible");
           });
         });
 
-        test("should have 4vh if isSafari returns true", () => {
-          const { FlexItems } = setup();
-
+        test("should have hidden if isSafari returns true", () => {
           const mockisSafari = (isSafari as unknown) as jest.Mock;
           mockisSafari.mockImplementation(() => true);
 
+          const { FlexItems } = setup();
+
           FlexItems.forEach((FlexItem) => {
-            expect(FlexItem).toHaveStyleRule("overflow", "4vh");
+            expect(FlexItem).toHaveStyleRule("overflow", "hidden");
           });
         });
       });
@@ -266,10 +266,10 @@ describe("molecules / BrowserInfo", () => {
     describe("Props", () => {
       describe("height", () => {
         test("should have 100% if isSafari returns false", () => {
-          const { IconContainers } = setup();
-
           const mockisSafari = (isSafari as unknown) as jest.Mock;
           mockisSafari.mockImplementation(() => false);
+
+          const { IconContainers } = setup();
 
           IconContainers.forEach((IconContainer) => {
             expect(IconContainer).toHaveStyleRule("height", "100%");
@@ -277,13 +277,13 @@ describe("molecules / BrowserInfo", () => {
         });
 
         test("should have 4vh if isSafari returns true", () => {
-          const { FlexItems } = setup();
-
           const mockisSafari = (isSafari as unknown) as jest.Mock;
           mockisSafari.mockImplementation(() => true);
 
-          FlexItems.forEach((FlexItem) => {
-            expect(FlexItem).toHaveStyleRule("height", "4vh");
+          const { IconContainers } = setup();
+
+          IconContainers.forEach((IconContainer) => {
+            expect(IconContainer).toHaveStyleRule("height", "4vh");
           });
         });
       });
@@ -354,10 +354,10 @@ describe("molecules / BrowserInfo", () => {
 
       describe("overflow", () => {
         test("should have visible if isSafari returns false", () => {
-          const { IconContainers } = setup();
-
           const mockisSafari = (isSafari as unknown) as jest.Mock;
           mockisSafari.mockImplementation(() => false);
+
+          const { IconContainers } = setup();
 
           IconContainers.forEach((IconContainer) => {
             expect(IconContainer).toHaveStyleRule("overflow", "visible");
@@ -365,10 +365,10 @@ describe("molecules / BrowserInfo", () => {
         });
 
         test("should have hidden if isSafari returns true", () => {
-          const { IconContainers } = setup();
-
           const mockisSafari = (isSafari as unknown) as jest.Mock;
           mockisSafari.mockImplementation(() => true);
+
+          const { IconContainers } = setup();
 
           IconContainers.forEach((IconContainer) => {
             expect(IconContainer).toHaveStyleRule("overflow", "hidden");
@@ -378,10 +378,10 @@ describe("molecules / BrowserInfo", () => {
 
       describe("width", () => {
         test("should have 100% if isSafari returns false", () => {
-          const { IconContainers } = setup();
-
           const mockisSafari = (isSafari as unknown) as jest.Mock;
           mockisSafari.mockImplementation(() => false);
+
+          const { IconContainers } = setup();
 
           IconContainers.forEach((IconContainer) => {
             expect(IconContainer).toHaveStyleRule("width", "100%");
@@ -389,10 +389,10 @@ describe("molecules / BrowserInfo", () => {
         });
 
         test("should have 4vh if isSafari returns true", () => {
-          const { IconContainers } = setup();
-
           const mockisSafari = (isSafari as unknown) as jest.Mock;
           mockisSafari.mockImplementation(() => true);
+
+          const { IconContainers } = setup();
 
           IconContainers.forEach((IconContainer) => {
             expect(IconContainer).toHaveStyleRule("width", "4vh");

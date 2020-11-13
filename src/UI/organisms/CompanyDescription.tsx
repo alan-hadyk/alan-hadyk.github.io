@@ -18,7 +18,12 @@ import {
 } from "UI/organisms/__typings__/CompanyDescription";
 
 const CompanyDescriptionContainer = styled.div`
-  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  @media (-ms-high-contrast: none) {
+    /* IE10+ CSS */
+    width: 100%;
+  }
+
+  @media (-ms-high-contrast: active) {
     /* IE10+ CSS */
     width: 100%;
   }

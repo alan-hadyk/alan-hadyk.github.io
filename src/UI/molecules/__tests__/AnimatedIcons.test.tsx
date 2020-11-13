@@ -113,15 +113,6 @@ describe("molecules / AnimatedIcons", () => {
           expect(FlexContainer).toHaveStyleRule("justify-content", "center");
         });
       });
-
-      // TODO: Verify / fix this test
-      describe("maxWidth", () => {
-        test("should have 100%", () => {
-          const { FlexContainer } = setup();
-
-          expect(FlexContainer).toHaveStyleRule("max-width", "100%");
-        });
-      });
     });
   });
 

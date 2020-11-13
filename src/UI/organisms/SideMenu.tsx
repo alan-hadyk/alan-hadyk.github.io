@@ -43,7 +43,12 @@ const SideMenuContainer = styled.div<SideMenuContainerProps>`
     transition: all ${fast} ${easeInOut};
     z-index: ${layer10};
 
-    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @media (-ms-high-contrast: none) {
+      /* IE10+ CSS */
+      max-width: 300px;
+    }
+
+    @media (-ms-high-contrast: active) {
       /* IE10+ CSS */
       max-width: 300px;
     }

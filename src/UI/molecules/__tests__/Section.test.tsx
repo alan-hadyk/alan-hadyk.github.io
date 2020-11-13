@@ -183,9 +183,10 @@ describe("molecules / Section", () => {
 
       describe("fontFamily", () => {
         test("should have ExanModifiedRegular,monospace if isIE11 returns false", () => {
-          const { Texts } = setup();
           const mockisIE11 = (isIE11 as unknown) as jest.Mock;
           mockisIE11.mockImplementation(() => false);
+
+          const { Texts } = setup();
 
           Texts.forEach((Text: Element) => {
             expect(Text).toHaveStyleRule(
@@ -196,9 +197,10 @@ describe("molecules / Section", () => {
         });
 
         test("should have AnonymousPro,monospace if isIE11 returns true", () => {
-          const { Texts } = setup();
           const mockisIE11 = (isIE11 as unknown) as jest.Mock;
           mockisIE11.mockImplementation(() => true);
+
+          const { Texts } = setup();
 
           Texts.forEach((Text: Element) => {
             expect(Text).toHaveStyleRule(

@@ -134,22 +134,26 @@ describe("organisms / HeaderTv", () => {
 
     describe("Props", () => {
       describe("iconWidth", () => {
-        test("should have 2.4rem if isIE11 returns false", () => {
-          const { Button } = setup();
-
+        test("should have auto if isIE11 returns false", () => {
           const mockisIE11 = (isIE11 as unknown) as jest.Mock;
           mockisIE11.mockImplementation(() => false);
 
-          expect(Button).toHaveStyleRule("height", "2.4rem");
-        });
-
-        test("should have auto if isIE11 returns true", () => {
           const { Button } = setup();
 
+          expect(
+            Button.children[4].children[0].children[0].children[1]
+          ).toHaveStyleRule("width", "auto");
+        });
+
+        test("should have 2.4rem if isIE11 returns true", () => {
           const mockisIE11 = (isIE11 as unknown) as jest.Mock;
           mockisIE11.mockImplementation(() => true);
 
-          expect(Button).toHaveStyleRule("height", "auto");
+          const { Button } = setup();
+
+          expect(
+            Button.children[0].children[0].children[0].children[1]
+          ).toHaveStyleRule("width", "2.4rem");
         });
       });
 

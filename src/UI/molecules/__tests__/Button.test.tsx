@@ -585,23 +585,25 @@ describe("molecules / Button", () => {
 
     describe("Props", () => {
       describe("fontFamily", () => {
-        test("should have ExanModifiedRegular,monospace for all browsers except IE", () => {
-          const { ButtonText } = setup();
+        test("should have ExanModifiedRegular,monospace if isIE11 is false", () => {
           const mockisIE11 = (isIE11 as unknown) as jest.Mock;
           mockisIE11.mockImplementation(() => false);
 
-          expect(ButtonText).toHaveStyleRule(
+          const { ButtonText } = setup();
+
+          expect(ButtonText.children[0]).toHaveStyleRule(
             "font-family",
             "ExanModifiedRegular,monospace"
           );
         });
 
-        test("should have AnonymousPro,monospace for IE", () => {
-          const { ButtonText } = setup();
+        test("should have 'Anonymous Pro',monospace if isIE11 is true", () => {
           const mockisIE11 = (isIE11 as unknown) as jest.Mock;
           mockisIE11.mockImplementation(() => true);
 
-          expect(ButtonText).toHaveStyleRule(
+          const { ButtonText } = setup();
+
+          expect(ButtonText.children[0]).toHaveStyleRule(
             "font-family",
             "'Anonymous Pro',monospace"
           );
@@ -674,20 +676,28 @@ describe("molecules / Button", () => {
       });
 
       describe("textTransform", () => {
-        test("should have lowercase for all browsers except IE", () => {
-          const { ButtonText } = setup();
+        test("should have lowercase if isIE11 is false", () => {
           const mockisIE11 = (isIE11 as unknown) as jest.Mock;
           mockisIE11.mockImplementation(() => false);
 
-          expect(ButtonText).toHaveStyleRule("text-transform", "lowercase");
+          const { ButtonText } = setup();
+
+          expect(ButtonText.children[0]).toHaveStyleRule(
+            "text-transform",
+            "lowercase"
+          );
         });
 
-        test("should have uppercase for IE", () => {
-          const { ButtonText } = setup();
+        test("should have uppercase if isIE11 is true", () => {
           const mockisIE11 = (isIE11 as unknown) as jest.Mock;
           mockisIE11.mockImplementation(() => true);
 
-          expect(ButtonText).toHaveStyleRule("text-transform", "uppercase");
+          const { ButtonText } = setup();
+
+          expect(ButtonText.children[0]).toHaveStyleRule(
+            "text-transform",
+            "uppercase"
+          );
         });
       });
     });
@@ -779,17 +789,17 @@ describe("molecules / Button", () => {
 
       describe("width", () => {
         test("should have auto by default", () => {
-          const { ButtonText } = setup();
+          const { IconContainer } = setup();
 
-          expect(ButtonText).toHaveStyleRule("width", "auto");
+          expect(IconContainer).toHaveStyleRule("width", "auto");
         });
 
         test("should have correct value passed via iconWidth prop", () => {
-          const { ButtonText } = setup({
+          const { IconContainer } = setup({
             iconWidth: "spacing24"
           });
 
-          expect(ButtonText).toHaveStyleRule("width", "24px");
+          expect(IconContainer).toHaveStyleRule("width", "2.4rem");
         });
       });
     });

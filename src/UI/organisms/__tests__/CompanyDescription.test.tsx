@@ -67,8 +67,10 @@ describe("organisms / CompanyDescription", () => {
           const { CompanyDescriptionContainer } = setup();
 
           expect(CompanyDescriptionContainer).toHaveStyleRule("width", "100%", {
-            media:
-              "all and (-ms-high-contrast: none), (-ms-high-contrast: active)"
+            media: "(-ms-high-contrast: none)"
+          });
+          expect(CompanyDescriptionContainer).toHaveStyleRule("width", "100%", {
+            media: "(-ms-high-contrast: active)"
           });
         });
       });

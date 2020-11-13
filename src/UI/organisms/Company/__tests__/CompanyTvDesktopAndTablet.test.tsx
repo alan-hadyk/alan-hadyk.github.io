@@ -157,23 +157,24 @@ describe("organisms / CompanyTvDesktopAndTablet", () => {
 
       describe("shouldApplyWidth", () => {
         test("should have not width if isIE11 returns false", () => {
-          const { FlexItems } = setup();
           const mockisIE11 = (isIE11 as unknown) as jest.Mock;
           mockisIE11.mockImplementation(() => false);
+
+          const { FlexItems } = setup();
 
           FlexItems.forEach((FlexItem: Element) => {
             expect(FlexItem).not.toHaveStyleRule("width");
           });
         });
 
-        test("should have width equal to the last value of flex if isIE11 returns true", () => {
-          const { FlexItems } = setup();
+        test("should have 50% if isIE11 returns true", () => {
           const mockisIE11 = (isIE11 as unknown) as jest.Mock;
           mockisIE11.mockImplementation(() => true);
 
-          FlexItems.forEach((FlexItem: Element) => {
-            expect(FlexItem).toHaveStyleRule("width", "50%");
-          });
+          const { FlexItems } = setup();
+
+          expect(FlexItems[0]).toHaveStyleRule("width", "50%");
+          expect(FlexItems[1]).toHaveStyleRule("width", "50%");
         });
       });
     });
