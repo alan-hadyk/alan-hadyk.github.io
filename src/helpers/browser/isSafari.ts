@@ -1,7 +1,9 @@
 import { detect } from "detect-browser";
 
-const { name } = detect();
+function isSafari(): boolean {
+  const { name } = detect();
 
-const isSafari = (): boolean => name === "safari";
+  return name === "safari";
+}
 
 export default isSafari;

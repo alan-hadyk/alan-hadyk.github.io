@@ -163,18 +163,33 @@ describe("organisms / CompanyTvDesktopAndTablet", () => {
           const { FlexItems } = setup();
 
           FlexItems.forEach((FlexItem: Element) => {
-            expect(FlexItem).not.toHaveStyleRule("width");
+            expect(FlexItem).not.toHaveStyleRule("width", {
+              media: "(-ms-high-contrast: none)"
+            });
+            expect(FlexItem).not.toHaveStyleRule("width", {
+              media: "(-ms-high-contrast: active)"
+            });
           });
         });
 
-        test.skip("should have 50% if isIE11 returns true", () => {
+        test("should have 50% if isIE11 returns true", () => {
           const mockisIE11 = (isIE11 as unknown) as jest.Mock;
           mockisIE11.mockImplementation(() => true);
 
           const { FlexItems } = setup();
 
-          expect(FlexItems[0]).toHaveStyleRule("width", "50%");
-          expect(FlexItems[1]).toHaveStyleRule("width", "50%");
+          expect(FlexItems[0]).toHaveStyleRule("width", "50%", {
+            media: "(-ms-high-contrast: none)"
+          });
+          expect(FlexItems[0]).toHaveStyleRule("width", "50%", {
+            media: "(-ms-high-contrast: active)"
+          });
+          expect(FlexItems[1]).toHaveStyleRule("width", "50%", {
+            media: "(-ms-high-contrast: none)"
+          });
+          expect(FlexItems[1]).toHaveStyleRule("width", "50%", {
+            media: "(-ms-high-contrast: active)"
+          });
         });
       });
     });

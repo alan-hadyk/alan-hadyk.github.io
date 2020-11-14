@@ -1,7 +1,9 @@
 import { detect } from "detect-browser";
 
-const { name } = detect();
+function isIE11(): boolean {
+  const { name } = detect();
 
-const isIE11 = (): boolean => name === "ie";
+  return name === "ie";
+}
 
 export default isIE11;
