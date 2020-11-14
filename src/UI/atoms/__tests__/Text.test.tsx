@@ -356,6 +356,38 @@ describe("atoms / Text", () => {
         );
       });
     });
+
+    describe("width", () => {
+      test("should have auto by default", () => {
+        const { TextContainer } = setup();
+
+        expect(TextContainer).toHaveStyleRule("width", "auto");
+      });
+
+      test("should have correct value passed via width prop", () => {
+        const { TextContainer } = setup({
+          width: "spacing48"
+        });
+
+        expect(TextContainer).toHaveStyleRule("width", "4.8rem");
+      });
+
+      test("should have 50% passed via width prop", () => {
+        const { TextContainer } = setup({
+          width: "50%"
+        });
+
+        expect(TextContainer).toHaveStyleRule("width", "50%");
+      });
+
+      test("should have 100% passed via width prop", () => {
+        const { TextContainer } = setup({
+          width: "100%"
+        });
+
+        expect(TextContainer).toHaveStyleRule("width", "100%");
+      });
+    });
   });
 
   describe("Event handlers", () => {

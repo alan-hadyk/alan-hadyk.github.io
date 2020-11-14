@@ -7,6 +7,10 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 
 import { SectionProps } from "UI/molecules/__typings__/Section";
 
+import isIE11 from "helpers/browser/isIE11";
+
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("molecules / Section", () => {
   test("should have correct structure", () => {
     const {
@@ -178,13 +182,30 @@ describe("molecules / Section", () => {
       });
 
       describe("fontFamily", () => {
-        test("should have ExanModifiedRegular,monospace", () => {
+        test("should have ExanModifiedRegular,monospace if isIE11 returns false", () => {
+          const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+          mockisIE11.mockImplementation(() => false);
+
           const { Texts } = setup();
 
           Texts.forEach((Text: Element) => {
             expect(Text).toHaveStyleRule(
               "font-family",
               "ExanModifiedRegular,monospace"
+            );
+          });
+        });
+
+        test("should have AnonymousPro,monospace if isIE11 returns true", () => {
+          const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+          mockisIE11.mockImplementation(() => true);
+
+          const { Texts } = setup();
+
+          Texts.forEach((Text: Element) => {
+            expect(Text).toHaveStyleRule(
+              "font-family",
+              "'Anonymous Pro',monospace"
             );
           });
         });
@@ -227,11 +248,25 @@ describe("molecules / Section", () => {
       });
 
       describe("textTransform", () => {
-        test("should have lowercase", () => {
+        test("should have lowercase if isIE11 returns false", () => {
+          const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+          mockisIE11.mockImplementation(() => false);
+
           const { Texts } = setup();
 
           Texts.forEach((Text: Element) => {
             expect(Text).toHaveStyleRule("text-transform", "lowercase");
+          });
+        });
+
+        test("should have uppercase if isIE11 returns true", () => {
+          const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+          mockisIE11.mockImplementation(() => true);
+
+          const { Texts } = setup();
+
+          Texts.forEach((Text: Element) => {
+            expect(Text).toHaveStyleRule("text-transform", "uppercase");
           });
         });
       });

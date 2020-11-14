@@ -7,6 +7,8 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 
 import { FlexItemProps } from "UI/layout/__typings__/FlexItem";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("layout / FlexItem", () => {
   test("should render children", () => {
     const { FlexItem } = setup({
@@ -65,6 +67,22 @@ describe("layout / FlexItem", () => {
       });
     });
 
+    describe("display", () => {
+      test("should have block by default", () => {
+        const { FlexItem } = setup();
+
+        expect(FlexItem).toHaveStyleRule("display", "block");
+      });
+
+      test("should have flex passed via display prop", () => {
+        const { FlexItem } = setup({
+          display: "flex"
+        });
+
+        expect(FlexItem).toHaveStyleRule("display", "flex");
+      });
+    });
+
     describe("flex", () => {
       test("should have 1 0 15% passed via flex prop", () => {
         const { FlexItem } = setup({
@@ -81,6 +99,20 @@ describe("layout / FlexItem", () => {
 
         expect(FlexItem).toHaveStyleRule("flex", "0 1 50%");
       });
+
+      test("should have none when shouldApplyWidth is true and browser is IE", () => {
+        const { FlexItem } = setup({
+          shouldApplyWidth: true
+        });
+
+        expect(FlexItem).toHaveStyleRule("flex", "none", {
+          media: "(-ms-high-contrast: none)"
+        });
+
+        expect(FlexItem).toHaveStyleRule("flex", "none", {
+          media: "(-ms-high-contrast: active)"
+        });
+      });
     });
 
     describe("height", () => {
@@ -96,6 +128,38 @@ describe("layout / FlexItem", () => {
         });
 
         expect(FlexItem).toHaveStyleRule("height", "2.4rem");
+      });
+    });
+
+    describe("justify-content", () => {
+      test("should have initial by default", () => {
+        const { FlexItem } = setup();
+
+        expect(FlexItem).toHaveStyleRule("justify-content", "initial");
+      });
+
+      test("should have center passed via justifyContent prop", () => {
+        const { FlexItem } = setup({
+          justifyContent: "center"
+        });
+
+        expect(FlexItem).toHaveStyleRule("justify-content", "center");
+      });
+
+      test("should have flex-start passed via justifyContent prop", () => {
+        const { FlexItem } = setup({
+          justifyContent: "flex-start"
+        });
+
+        expect(FlexItem).toHaveStyleRule("justify-content", "flex-start");
+      });
+
+      test("should have flex-end passed via justifyContent prop", () => {
+        const { FlexItem } = setup({
+          justifyContent: "flex-end"
+        });
+
+        expect(FlexItem).toHaveStyleRule("justify-content", "flex-end");
       });
     });
 
@@ -147,6 +211,38 @@ describe("layout / FlexItem", () => {
       });
     });
 
+    describe("padding-left", () => {
+      test("should have 0 by default", () => {
+        const { FlexItem } = setup();
+
+        expect(FlexItem).toHaveStyleRule("padding-left", "0");
+      });
+
+      test("should have correct value passed via paddingleft prop", () => {
+        const { FlexItem } = setup({
+          paddingLeft: "spacing24"
+        });
+
+        expect(FlexItem).toHaveStyleRule("padding-left", "2.4rem");
+      });
+    });
+
+    describe("padding-right", () => {
+      test("should have 0 by default", () => {
+        const { FlexItem } = setup();
+
+        expect(FlexItem).toHaveStyleRule("padding-right", "0");
+      });
+
+      test("should have correct value passed via paddingRight prop", () => {
+        const { FlexItem } = setup({
+          paddingRight: "spacing24"
+        });
+
+        expect(FlexItem).toHaveStyleRule("padding-right", "2.4rem");
+      });
+    });
+
     describe("padding-top", () => {
       test("should have 0 by default", () => {
         const { FlexItem } = setup();
@@ -160,6 +256,23 @@ describe("layout / FlexItem", () => {
         });
 
         expect(FlexItem).toHaveStyleRule("padding-top", "2.4rem");
+      });
+    });
+
+    describe("width", () => {
+      test("should have correct value when shouldApplyWidth is true and browser is IE", () => {
+        const { FlexItem } = setup({
+          flex: "0 0 15%",
+          shouldApplyWidth: true
+        });
+
+        expect(FlexItem).toHaveStyleRule("width", "15%", {
+          media: "(-ms-high-contrast: none)"
+        });
+
+        expect(FlexItem).toHaveStyleRule("width", "15%", {
+          media: "(-ms-high-contrast: active)"
+        });
       });
     });
   });

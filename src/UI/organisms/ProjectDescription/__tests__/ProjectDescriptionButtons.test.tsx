@@ -7,6 +7,8 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 
 import { ProjectDescriptionButtonsProps } from "UI/organisms/ProjectDescription/__typings__/ProjectDescriptionButtons";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("organisms / ProjectDescriptionButtons", () => {
   test("should have correct structure", () => {
     const {

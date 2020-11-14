@@ -7,6 +7,10 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 
 import { CompanyLogoProps } from "UI/molecules/__typings__/CompanyLogo";
 
+import isIE11 from "helpers/browser/isIE11";
+
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("molecules / CompanyLogo", () => {
   test("should have correct structure", () => {
     const { CompanyLogoFlexContainer, Icon, Logo } = setup();
@@ -78,6 +82,34 @@ describe("molecules / CompanyLogo", () => {
               modifier: "svg"
             });
           });
+        });
+      });
+
+      describe("overflow", () => {
+        test("should have hidden", () => {
+          const { Logo } = setup();
+
+          expect(Logo).toHaveStyleRule("overflow", "hidden");
+        });
+      });
+
+      describe("width", () => {
+        test("should have auto if isIE11 returns false", () => {
+          const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+          mockisIE11.mockImplementation(() => false);
+
+          const { Logo } = setup();
+
+          expect(Logo).toHaveStyleRule("width", "auto");
+        });
+
+        test("should not have auto if isIE11 returns true", () => {
+          const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+          mockisIE11.mockImplementation(() => true);
+
+          const { Logo } = setup();
+
+          expect(Logo).not.toHaveStyleRule("width", "auto");
         });
       });
     });

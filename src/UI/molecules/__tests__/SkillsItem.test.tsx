@@ -9,6 +9,8 @@ import { SkillsItemProps } from "UI/molecules/__typings__/SkillsItem";
 
 import { IconWithLabelProps } from "UI/molecules/__typings__/IconWithLabel";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("molecules / SkillsItem", () => {
   test("should have correct structure", () => {
     const {
@@ -61,18 +63,6 @@ describe("molecules / SkillsItem", () => {
             expect(
               SkillsItemContainer.children[1].children[0].children[0]
             ).toHaveStyleRule("border", "thin solid #78b0b5");
-          });
-        });
-
-        describe("box-shadow", () => {
-          test("should have 0px 0px .8rem 0px #bcd8db", () => {
-            const { SkillsItemContainer } = setup({
-              data
-            });
-
-            expect(
-              SkillsItemContainer.children[1].children[0].children[0]
-            ).toHaveStyleRule("box-shadow", "0px 0px .8rem 0px #bcd8db");
           });
         });
       });

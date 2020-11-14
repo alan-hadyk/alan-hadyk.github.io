@@ -16,7 +16,9 @@ const FlexContainerWrapper = styled.div<FlexContainerProps>`
     gap,
     height,
     justifyContent,
+    margin,
     maxWidth,
+    width,
     theme: { spacing }
   }): FlattenSimpleInterpolation => css`
     align-items: ${alignItems};
@@ -24,7 +26,9 @@ const FlexContainerWrapper = styled.div<FlexContainerProps>`
     flex-flow: ${flexFlow};
     height: ${(height in spacing && spacing[height]) || height};
     justify-content: ${justifyContent};
+    margin: ${(margin in spacing && spacing[margin]) || margin};
     max-width: ${(maxWidth in spacing && spacing[maxWidth]) || maxWidth};
+    width: ${(width in spacing && spacing[width]) || width};
 
     ${gap !== "spacing0" &&
     `
@@ -44,7 +48,9 @@ const FlexContainer = ({
   gap = "spacing0",
   height = "unset",
   justifyContent = "center",
-  maxWidth = "unset"
+  margin = "spacing0",
+  maxWidth = "unset",
+  width = "unset"
 }: FlexContainerProps): JSX.Element => (
   <FlexContainerWrapper
     alignItems={alignItems}
@@ -54,7 +60,9 @@ const FlexContainer = ({
     gap={gap}
     height={height}
     justifyContent={justifyContent}
+    margin={margin}
     maxWidth={maxWidth}
+    width={width}
   >
     {children}
   </FlexContainerWrapper>
@@ -117,7 +125,14 @@ FlexContainer.propTypes = {
     "center",
     "space-between"
   ]),
-  maxWidth: PropTypes.oneOf([...Object.keys(spacing), "unset"])
+  maxWidth: PropTypes.oneOf([...Object.keys(spacing), "unset", "100%"]),
+  width: PropTypes.oneOf([
+    ...Object.keys(spacing),
+    "unset",
+    "100%",
+    "50%",
+    "auto"
+  ])
 };
 
 export default FlexContainer;

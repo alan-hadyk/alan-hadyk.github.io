@@ -9,6 +9,8 @@ import FlexContainer from "UI/layout/FlexContainer";
 import FlexItem from "UI/layout/FlexItem";
 import Responsive from "UI/layout/Responsive";
 
+import isIE11 from "helpers/browser/isIE11";
+
 import colorPalette from "styles/variables/colorPalette";
 import spacing from "styles/variables/spacing";
 
@@ -29,7 +31,11 @@ function CompanyTvDesktopAndTablet({
 
   const renderCompanyLogo = useCallback(
     () => (
-      <FlexItem flex="0 0 50%">
+      <FlexItem
+        flex="0 0 50%"
+        paddingRight="spacing40"
+        shouldApplyWidth={isIE11()}
+      >
         <CompanyLogo logo={logo} />
       </FlexItem>
     ),
@@ -44,12 +50,16 @@ function CompanyTvDesktopAndTablet({
         alignItems="flex-start"
         dataTestId="CompanyTvDesktopAndTabletFlexContainer"
         flexFlow="row nowrap"
-        gap="spacing88"
+        margin="0 auto"
         maxWidth="spacing1056"
       >
         {renderCompanyLogo()}
 
-        <FlexItem flex="0 0 50%">
+        <FlexItem
+          flex="0 0 50%"
+          paddingLeft="spacing40"
+          shouldApplyWidth={isIE11()}
+        >
           <CompanyDescription
             date={date}
             iconsWithLabels={iconsWithLabels}

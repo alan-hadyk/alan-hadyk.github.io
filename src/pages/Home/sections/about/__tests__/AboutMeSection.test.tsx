@@ -5,6 +5,8 @@ import AboutMeSection from "pages/Home/sections/about/AboutMeSection";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("pages / Home / sections / about / AboutMeSection", () => {
   test("should have correct structure", () => {
     const {
@@ -64,7 +66,7 @@ describe("pages / Home / sections / about / AboutMeSection", () => {
             (HexagonWithDescriptionContent: Element) => {
               expect(
                 HexagonWithDescriptionContent.children[1].children[0]
-                  .children[0].textContent
+                  .textContent
               ).toEqual(
                 "Proven talent for aligning software development strategy and objectives with established user interface implementation and technology management paradigms to achieve maximum operational impacts with minimum resource expenditures. Growth-focused thought leader with expertise spanning application layering, polygot language coding expertise, best practice compliance, agile methodology, cross-functional team leadership, REST & GraphQL architectural styles, comprehensive components, and project management. Exceptionally dedicated technical professional with keen organizational skills."
               );

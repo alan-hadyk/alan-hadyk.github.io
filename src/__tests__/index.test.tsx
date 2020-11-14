@@ -46,10 +46,10 @@ describe("index", () => {
     );
   });
 
-  test("renderApp fn should call document.querySelector and document.querySelector.remove after 900ms", async () => {
+  test("renderApp fn should call document.querySelector and document.querySelector.parentNode.removeChild after 900ms", async () => {
     jest.useFakeTimers();
     const spyQuerySelector = jest.fn();
-    const spyRemove = jest.fn();
+    const spyRemoveChild = jest.fn();
     const style = {};
     const dom = new JSDOM();
     global.document = dom.window.document;
@@ -59,7 +59,9 @@ describe("index", () => {
         spyQuerySelector(selector);
 
         return {
-          remove: spyRemove,
+          parentNode: {
+            removeChild: spyRemoveChild
+          },
           style
         };
       }
@@ -68,18 +70,24 @@ describe("index", () => {
     renderApp();
 
     expect(spyQuerySelector).toHaveBeenCalledTimes(0);
-    expect(spyRemove).toHaveBeenCalledTimes(0);
+    expect(spyRemoveChild).toHaveBeenCalledTimes(0);
     expect(style).toEqual({});
 
     jest.advanceTimersByTime(600);
 
     expect(spyQuerySelector).toHaveBeenNthCalledWith(1, ".loader");
-    expect(spyRemove).toHaveBeenCalledTimes(0);
+    expect(spyRemoveChild).toHaveBeenCalledTimes(0);
     expect(style).toEqual({ opacity: "0" });
 
     jest.advanceTimersByTime(300);
 
-    expect(spyRemove).toHaveBeenCalledTimes(1);
+    expect(spyQuerySelector).toHaveBeenNthCalledWith(1, ".loader");
+    expect(spyRemoveChild).toHaveBeenNthCalledWith(1, {
+      parentNode: {
+        removeChild: spyRemoveChild
+      },
+      style
+    });
 
     jest.clearAllTimers();
   });

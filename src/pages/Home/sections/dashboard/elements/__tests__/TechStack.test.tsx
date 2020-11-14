@@ -5,6 +5,9 @@ import TechStack from "pages/Home/sections/dashboard/elements/TechStack";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+jest.mock("helpers/browser/isSafari", () => jest.fn());
+
 describe("pages / Home / sections / dashboard / elements / TechStack", () => {
   test("should have correct structure", () => {
     const { AnimatedIcons, DashboardElement } = setup();

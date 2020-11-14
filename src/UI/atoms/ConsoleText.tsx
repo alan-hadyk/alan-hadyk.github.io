@@ -16,7 +16,7 @@ const ConsoleTextContainer = styled.div<ConsoleTextProps>`
       colorPalette: { blue100, white },
       easing: { easeInOut },
       fontSizes,
-      fontFamilies: { Exan },
+      fontFamilies: { AnonymousPro, Exan },
       keyframes: { blink },
       spacing,
       transitionTimes
@@ -31,6 +31,18 @@ const ConsoleTextContainer = styled.div<ConsoleTextProps>`
     lineHeight};
     text-align: center;
     text-transform: lowercase;
+
+    @media (-ms-high-contrast: none) {
+      /* IE10+ CSS */
+      font-family: ${AnonymousPro};
+      text-transform: uppercase;
+    }
+
+    @media (-ms-high-contrast: active) {
+      /* IE10+ CSS */
+      font-family: ${AnonymousPro};
+      text-transform: uppercase;
+    }
 
     &::after {
       animation-duration: ${transitionTimes.slow};

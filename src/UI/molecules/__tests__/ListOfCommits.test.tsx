@@ -11,6 +11,8 @@ import {
   CommitProps
 } from "UI/molecules/__typings__/ListOfCommits";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 const defaultProps: ListOfCommitsProps = {
   commitsList: [
     {

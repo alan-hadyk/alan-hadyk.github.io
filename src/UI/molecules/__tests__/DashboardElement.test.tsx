@@ -6,6 +6,8 @@ import { DashboardElementProps } from "UI/molecules/__typings__/DashboardElement
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("molecules / DashboardElement", () => {
   test("should have correct structure if there's description and title", () => {
     const {
@@ -623,19 +625,6 @@ describe("molecules / DashboardElement", () => {
             expect(DashboardElementInnerContainer).toHaveStyleRule(
               "border",
               "thin solid #78b0b5"
-            );
-          });
-        });
-
-        describe("box-shadow", () => {
-          test("should have 0px 0px .8rem 0px #bcd8db", () => {
-            const { DashboardElementInnerContainer } = setup({
-              shouldDisplayBorder: true
-            });
-
-            expect(DashboardElementInnerContainer).toHaveStyleRule(
-              "box-shadow",
-              "0px 0px .8rem 0px #bcd8db"
             );
           });
         });

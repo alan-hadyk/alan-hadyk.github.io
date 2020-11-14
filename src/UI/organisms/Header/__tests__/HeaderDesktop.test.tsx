@@ -7,6 +7,10 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 
 import { HeaderMobileProps } from "UI/organisms/Header/__typings__/HeaderMobile";
 
+import isIE11 from "helpers/browser/isIE11";
+
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 jest.mock("hooks/useIntersectionObserver");
 
 describe("organisms / HeaderDesktop", () => {
@@ -175,6 +179,30 @@ describe("organisms / HeaderDesktop", () => {
     });
 
     describe("Props", () => {
+      describe("iconWidth", () => {
+        test("should have auto if isIE11 returns false", () => {
+          const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+          mockisIE11.mockImplementation(() => false);
+
+          const { Button } = setup();
+
+          expect(
+            Button.children[4].children[0].children[0].children[1]
+          ).toHaveStyleRule("width", "auto");
+        });
+
+        test("should have 2.4rem if isIE11 returns true", () => {
+          const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+          mockisIE11.mockImplementation(() => true);
+
+          const { Button } = setup();
+
+          expect(
+            Button.children[0].children[0].children[0].children[1]
+          ).toHaveStyleRule("width", "2.4rem");
+        });
+      });
+
       describe("size", () => {
         describe("height", () => {
           test("should have 4.8rem", () => {

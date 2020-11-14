@@ -18,6 +18,7 @@ export interface ButtonProps {
   dataCy?: string;
   dataTestId?: string;
   iconName?: "btnCodeSandbox" | "btnDownload" | "btnExternalLink";
+  iconWidth?: string;
   onClick?: () => unknown;
   size?: "small" | "medium" | "large";
   type?: "primary" | "secondary";

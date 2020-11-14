@@ -9,6 +9,8 @@ import { IconWithLabelProps } from "UI/molecules/__typings__/IconWithLabel";
 
 import { VerticalIconsWithLabelsProps } from "UI/molecules/__typings__/VerticalIconsWithLabels";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("molecules / VerticalIconsWithLabels", () => {
   test("should have correct structure", () => {
     const {
@@ -92,10 +94,10 @@ describe("molecules / VerticalIconsWithLabels", () => {
     describe("FlexItems[1]", () => {
       describe("Props", () => {
         describe("flex", () => {
-          test("should have 0 1 auto", () => {
+          test("should have 0 0 75%", () => {
             const { FlexItems } = setup();
 
-            expect(FlexItems[1]).toHaveStyleRule("flex", "0 1 auto");
+            expect(FlexItems[1]).toHaveStyleRule("flex", "0 0 75%");
           });
         });
       });

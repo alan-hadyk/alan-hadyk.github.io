@@ -15,7 +15,7 @@ const Spinner = styled.div`
     animation-iteration-count: infinite;
     animation-name: ${rotation};
     animation-timing-function: ${linear};
-    border: 0.75vh solid;
+    border: 0.25vh solid;
     border-color: ${blue300} transparent;
     border-radius: 50%;
     display: inline-block;

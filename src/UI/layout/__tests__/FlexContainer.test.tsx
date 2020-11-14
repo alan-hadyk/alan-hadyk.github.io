@@ -164,6 +164,30 @@ describe("layout / FlexContainer", () => {
       });
     });
 
+    describe("margin", () => {
+      test("should have 0 by default", () => {
+        const { FlexContainer } = setup();
+
+        expect(FlexContainer).toHaveStyleRule("margin", "0");
+      });
+
+      test("should have 2.4rem passed via margin prop", () => {
+        const { FlexContainer } = setup({
+          margin: "spacing24"
+        });
+
+        expect(FlexContainer).toHaveStyleRule("margin", "2.4rem");
+      });
+
+      test("should have 4.8rem passed via margin prop", () => {
+        const { FlexContainer } = setup({
+          margin: "spacing48"
+        });
+
+        expect(FlexContainer).toHaveStyleRule("margin", "4.8rem");
+      });
+    });
+
     describe("max-width", () => {
       test("should have unset by default", () => {
         const { FlexContainer } = setup();
@@ -185,6 +209,54 @@ describe("layout / FlexContainer", () => {
         });
 
         expect(FlexContainer).toHaveStyleRule("max-width", "4.8rem");
+      });
+
+      test("should have 100% passed via maxWidth prop", () => {
+        const { FlexContainer } = setup({
+          maxWidth: "100%"
+        });
+
+        expect(FlexContainer).toHaveStyleRule("max-width", "100%");
+      });
+    });
+
+    describe("width", () => {
+      test("should have unset by default", () => {
+        const { FlexContainer } = setup();
+
+        expect(FlexContainer).toHaveStyleRule("width", "unset");
+      });
+
+      test("should have 2.4rem passed via width prop", () => {
+        const { FlexContainer } = setup({
+          width: "spacing24"
+        });
+
+        expect(FlexContainer).toHaveStyleRule("width", "2.4rem");
+      });
+
+      test("should have 100% passed via width prop", () => {
+        const { FlexContainer } = setup({
+          width: "100%"
+        });
+
+        expect(FlexContainer).toHaveStyleRule("width", "100%");
+      });
+
+      test("should have 50% passed via width prop", () => {
+        const { FlexContainer } = setup({
+          width: "50%"
+        });
+
+        expect(FlexContainer).toHaveStyleRule("width", "50%");
+      });
+
+      test("should have auto passed via width prop", () => {
+        const { FlexContainer } = setup({
+          width: "auto"
+        });
+
+        expect(FlexContainer).toHaveStyleRule("width", "auto");
       });
     });
   });

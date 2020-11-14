@@ -9,6 +9,8 @@ import { IconWithLabelProps } from "UI/molecules/__typings__/IconWithLabel";
 
 import { ProjectProps } from "UI/organisms/Project/__typings__/Project";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("organisms / ProjectTvAndDesktop", () => {
   test("should have correct structure", () => {
     const {

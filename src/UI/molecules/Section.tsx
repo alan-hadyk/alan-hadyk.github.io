@@ -7,6 +7,8 @@ import Responsive from "UI/layout/Responsive";
 
 import spacing from "styles/variables/spacing";
 
+import isIE11 from "helpers/browser/isIE11";
+
 import { RenderTitle, SectionProps } from "UI/molecules/__typings__/Section";
 
 function Section({
@@ -26,11 +28,11 @@ function Section({
       >
         <Text
           color="blue100"
-          fontFamily="Exan"
+          fontFamily={isIE11() ? "AnonymousPro" : "Exan"}
           fontSize={fontSize}
           lineHeight="spacing80"
           textAlign="center"
-          textTransform="lowercase"
+          textTransform={isIE11() ? "uppercase" : "lowercase"}
         >
           {title}
         </Text>

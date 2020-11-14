@@ -5,6 +5,9 @@ import CompanyOmise from "pages/Home/sections/experience/companies/CompanyOmise"
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+jest.mock("helpers/browser/isSafari", () => jest.fn());
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("pages / Home / sections / experience / companies / CompanyOmise", () => {
   describe("Props", () => {
     describe("date", () => {

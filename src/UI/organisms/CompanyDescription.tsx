@@ -12,12 +12,24 @@ import SpacingContainer from "UI/layout/SpacingContainer";
 import colorPalette from "styles/variables/colorPalette";
 import spacing from "styles/variables/spacing";
 
+import isIE11 from "helpers/browser/isIE11";
+
 import {
   CompanyDescriptionProps,
   RenderResponsibilitiesArgs
 } from "UI/organisms/__typings__/CompanyDescription";
 
-const CompanyDescriptionContainer = styled.div``;
+const CompanyDescriptionContainer = styled.div`
+  @media (-ms-high-contrast: none) {
+    /* IE10+ CSS */
+    width: 100%;
+  }
+
+  @media (-ms-high-contrast: active) {
+    /* IE10+ CSS */
+    width: 100%;
+  }
+`;
 
 function CompanyDescription({
   date,
@@ -34,7 +46,7 @@ function CompanyDescription({
           color="white"
           dataCy="CompanyDescriptionMainTitle"
           dataTestId="MainTitle"
-          fontFamily="Exan"
+          fontFamily={isIE11() ? "AnonymousPro" : "Exan"}
           fontSize="font36"
           lineHeight="spacing48"
           textAlign={textAlign}
@@ -63,7 +75,7 @@ function CompanyDescription({
     <CompanyDescriptionContainer data-testid="CompanyDescription">
       {renderTitleAndDate()}
 
-      {renderTechStack()}
+      {renderTechStack(iconsWithLabels)}
 
       {renderResponsibilities({
         responsibilities,
@@ -71,38 +83,40 @@ function CompanyDescription({
       })}
     </CompanyDescriptionContainer>
   );
+}
 
-  function renderTechStack(): JSX.Element {
-    return (
-      <SpacingContainer
-        dataCy="CompanyTechStack"
-        dataTestId="TechStackSpacingContainer"
-        marginBottom="spacing16"
+function renderTechStack(
+  iconsWithLabels: CompanyDescriptionProps["iconsWithLabels"]
+): JSX.Element {
+  return (
+    <SpacingContainer
+      dataCy="CompanyTechStack"
+      dataTestId="TechStackSpacingContainer"
+      marginBottom="spacing16"
+    >
+      <Text
+        color="blue100"
+        dataTestId="TechStackTitle"
+        fontFamily="AnonymousPro"
+        fontSize="font24"
+        fontWeight="bold"
+        lineHeight="spacing32"
       >
-        <Text
-          color="blue100"
-          dataTestId="TechStackTitle"
-          fontFamily="AnonymousPro"
-          fontSize="font24"
-          fontWeight="bold"
-          lineHeight="spacing32"
-        >
-          Tech stack
-        </Text>
-        <SpacingContainer
-          dataTestId="TechStackIconsWithLabelsSpacingContainer"
-          marginLeft="spacing16"
-          marginTop="spacing16"
-        >
-          <IconsWithLabels
-            iconsWithLabels={iconsWithLabels}
-            position="horizontal"
-            size="small"
-          />
-        </SpacingContainer>
+        Tech stack
+      </Text>
+      <SpacingContainer
+        dataTestId="TechStackIconsWithLabelsSpacingContainer"
+        marginLeft="spacing16"
+        marginTop="spacing16"
+      >
+        <IconsWithLabels
+          iconsWithLabels={iconsWithLabels}
+          position="horizontal"
+          size="small"
+        />
       </SpacingContainer>
-    );
-  }
+    </SpacingContainer>
+  );
 }
 
 function renderResponsibilities({

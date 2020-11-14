@@ -25,8 +25,8 @@ const DashboardElementInnerContainer = styled.div<
     shouldDisplayBorder,
     shouldDisplayCorners,
     theme: {
-      colorPalette: { blue100, blue300 },
-      spacing: { spacing8, spacing32 }
+      colorPalette: { blue300 },
+      spacing: { spacing32 }
     }
   }): FlattenSimpleInterpolation => css`
     height: 100%;
@@ -35,8 +35,9 @@ const DashboardElementInnerContainer = styled.div<
     ${shouldDisplayBorder &&
     `
       border: thin solid ${blue300};
-      box-shadow: 0px 0px ${spacing8} 0px ${blue100};
-    `} ${(shouldDisplayCorners || shouldDisplayBorder) &&
+    `}
+
+    ${(shouldDisplayCorners || shouldDisplayBorder) &&
     `
       background: url(${Cross});
       background-position: center;

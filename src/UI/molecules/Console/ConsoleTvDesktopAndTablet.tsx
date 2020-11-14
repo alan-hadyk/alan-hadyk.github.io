@@ -25,6 +25,23 @@ const ConsoleTvDesktopAndTabletContainer = styled.div`
     padding: 1.11vh 0.62vw;
     position: relative;
     width: 100%;
+
+    /* IE10+ CSS */
+    @media (-ms-high-contrast: none) {
+      &::after {
+        content: "";
+        font-size: 0;
+        min-height: inherit;
+      }
+    }
+
+    @media (-ms-high-contrast: active) {
+      &::after {
+        content: "";
+        font-size: 0;
+        min-height: inherit;
+      }
+    }
   `};
 `;
 
