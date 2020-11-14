@@ -65,18 +65,6 @@ describe("molecules / SkillsItem", () => {
             ).toHaveStyleRule("border", "thin solid #78b0b5");
           });
         });
-
-        describe("box-shadow", () => {
-          test("should have 0px 0px .8rem 0px #bcd8db", () => {
-            const { SkillsItemContainer } = setup({
-              data
-            });
-
-            expect(
-              SkillsItemContainer.children[1].children[0].children[0]
-            ).toHaveStyleRule("box-shadow", "0px 0px .8rem 0px #bcd8db");
-          });
-        });
       });
 
       describe("title", () => {

@@ -1,9 +1,9 @@
 import React, { memo } from "react";
-import { Masonry } from "masonic";
 
 import Section from "UI/molecules/Section";
 import SkillsItem from "UI/molecules/SkillsItem";
 import Responsive from "UI/layout/Responsive";
+import ColumnsContainer from "UI/layout/ColumnsContainer";
 import SpacingContainer from "UI/layout/SpacingContainer";
 
 import languagesCategory from "pages/Home/sections/skills/categories/languagesCategory";
@@ -19,6 +19,7 @@ import taskManagementCategory from "pages/Home/sections/skills/categories/taskMa
 import designToolsCategory from "pages/Home/sections/skills/categories/designToolsCategory";
 
 import { Data } from "UI/molecules/__typings__/SkillsItem";
+import { RenderColumnsArgs } from "pages/Home/sections/skills/__typings__/SkillsSection";
 
 const items: Data[] = [
   languagesCategory,
@@ -41,19 +42,24 @@ const SkillsSection = (): JSX.Element => (
     id="skills"
     title="Skills"
   >
-    <Responsive
-      dataTestDesktopId="SkillsResponsiveDesktop"
-      dataTestTabletId="SkillsResponsiveTablet"
-      dataTestTvId="SkillsResponsiveTv"
-      devices={["tv", "desktop", "tablet"]}
-    >
-      <Masonry
-        columnGutter={48}
-        columnWidth={300}
-        items={items}
-        render={SkillsItem}
-      />
-    </Responsive>
+    {renderColumns({
+      columnCount: 5,
+      dataTestId: "SkillsResponsiveTv",
+      devices: ["tv"]
+    })}
+
+    {renderColumns({
+      columnCount: 3,
+      dataTestId: "SkillsResponsiveDesktop",
+      devices: ["desktop"]
+    })}
+
+    {renderColumns({
+      columnCount: 2,
+      dataTestId: "SkillsResponsiveTablet",
+      devices: ["tablet"]
+    })}
+
     <Responsive dataTestMobileId="SkillsResponsiveMobile" devices={["mobile"]}>
       {items.map((data: Data) => (
         <SpacingContainer
@@ -67,5 +73,27 @@ const SkillsSection = (): JSX.Element => (
     </Responsive>
   </Section>
 );
+
+function renderColumns({
+  columnCount,
+  dataTestId,
+  devices
+}: RenderColumnsArgs): JSX.Element {
+  return (
+    <Responsive dataTestId={dataTestId} devices={devices}>
+      <ColumnsContainer columnCount={columnCount} columnGap="spacing32">
+        {items.map((data: Data) => (
+          <SpacingContainer
+            dataTestId="ItemSpacingContainer"
+            key={data?.title}
+            marginBottom="spacing32"
+          >
+            <SkillsItem key={data?.title} data={data} />
+          </SpacingContainer>
+        ))}
+      </ColumnsContainer>
+    </Responsive>
+  );
+}
 
 export default memo(SkillsSection);

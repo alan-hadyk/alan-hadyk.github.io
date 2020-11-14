@@ -40,6 +40,7 @@ function IconsWithLabels({
       gap={mapSizeToFlexContainerGap[size]}
       height="100%"
       justifyContent={justifyContent}
+      maxWidth={position === "horizontal" ? "unset" : "100%"}
     >
       {position === "horizontal" ? (
         iconsWithLabels &&

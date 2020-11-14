@@ -11,6 +11,7 @@ export interface FlexContainerProps {
   justifyContent?: "flex-start" | "flex-end" | "center" | "space-between";
   margin?: Spacing | string;
   maxWidth?: Spacing | "unset" | "100%";
+  width?: Spacing | "unset" | "100%" | "50%" | "auto";
 }
 
 export interface CalculateGap {

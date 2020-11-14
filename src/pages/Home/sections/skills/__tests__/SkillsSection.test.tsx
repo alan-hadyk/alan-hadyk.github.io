@@ -10,39 +10,55 @@ jest.mock("helpers/browser/isIE11", () => jest.fn());
 describe("pages / Home / sections / skills / SkillsSection", () => {
   test("should have correct structure", () => {
     const {
+      ColumnsContainers,
       ItemSpacingContainers,
-      Masonries,
       SkillsItems,
       SkillsResponsiveDesktop,
       SkillsResponsiveMobile,
       SkillsResponsiveTablet,
       SkillsResponsiveTv,
-      SkillsSectionContainer,
-      VerticalIconsWithLabels
+      SkillsSectionContainer
     } = setup();
 
     expect(SkillsSectionContainer.children[4]).toEqual(SkillsResponsiveTv);
-    expect(SkillsResponsiveTv.children[0]).toEqual(Masonries[0]);
+    expect(SkillsResponsiveTv.children[0]).toEqual(ColumnsContainers[0]);
 
     expect(SkillsSectionContainer.children[5]).toEqual(SkillsResponsiveDesktop);
-    expect(SkillsResponsiveDesktop.children[0]).toEqual(Masonries[1]);
+    expect(SkillsResponsiveDesktop.children[0]).toEqual(ColumnsContainers[1]);
 
     expect(SkillsSectionContainer.children[6]).toEqual(SkillsResponsiveTablet);
-    expect(SkillsResponsiveTablet.children[0]).toEqual(Masonries[2]);
+    expect(SkillsResponsiveTablet.children[0]).toEqual(ColumnsContainers[2]);
 
     expect(SkillsSectionContainer.children[7]).toEqual(SkillsResponsiveMobile);
 
-    Array(11).forEach((_, index: number) => {
-      expect(SkillsResponsiveMobile.children[index]).toEqual(
+    [...Array(11)].forEach((_, index: number) => {
+      expect(SkillsResponsiveTv.children[0].children[index]).toEqual(
         ItemSpacingContainers[index]
       );
       expect(ItemSpacingContainers[index].children[0]).toEqual(
         SkillsItems[index]
       );
-      expect(
-        ItemSpacingContainers[index].children[1].children[0].children[0]
-          .children[0].children[0]
-      ).toEqual(VerticalIconsWithLabels[index]);
+
+      expect(SkillsResponsiveDesktop.children[0].children[index]).toEqual(
+        ItemSpacingContainers[index + 11]
+      );
+      expect(ItemSpacingContainers[index + 11].children[0]).toEqual(
+        SkillsItems[index + 11]
+      );
+
+      expect(SkillsResponsiveTablet.children[0].children[index]).toEqual(
+        ItemSpacingContainers[index + 22]
+      );
+      expect(ItemSpacingContainers[index + 22].children[0]).toEqual(
+        SkillsItems[index + 22]
+      );
+
+      expect(SkillsResponsiveMobile.children[index]).toEqual(
+        ItemSpacingContainers[index + 33]
+      );
+      expect(ItemSpacingContainers[index + 33].children[0]).toEqual(
+        SkillsItems[index + 33]
+      );
     });
   });
 
@@ -242,8 +258,8 @@ describe("pages / Home / sections / skills / SkillsSection", () => {
 });
 
 interface Setup extends RenderResult {
+  ColumnsContainers: Element[];
   ItemSpacingContainers: Element[];
-  Masonries: NodeListOf<Element>;
   SkillsItems: Element[];
   SkillsResponsiveDesktop: Element;
   SkillsResponsiveMobile: Element;
@@ -261,9 +277,7 @@ function setup(): Setup {
   const ItemSpacingContainers: Element[] = queryAllByTestId(
     "ItemSpacingContainer"
   );
-  const Masonries: NodeListOf<Element> = document.querySelectorAll(
-    "[role='grid']"
-  );
+  const ColumnsContainers: Element[] = queryAllByTestId("ColumnsContainer");
   const SkillsItems: Element[] = queryAllByTestId("SkillsItem");
   const SkillsResponsiveDesktop: Element = queryAllByTestId(
     "SkillsResponsiveDesktop"
@@ -282,8 +296,8 @@ function setup(): Setup {
 
   return {
     ...utils,
+    ColumnsContainers,
     ItemSpacingContainers,
-    Masonries,
     SkillsItems,
     SkillsResponsiveDesktop,
     SkillsResponsiveMobile,

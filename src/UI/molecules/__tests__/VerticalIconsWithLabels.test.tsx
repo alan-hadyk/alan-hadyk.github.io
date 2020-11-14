@@ -94,10 +94,10 @@ describe("molecules / VerticalIconsWithLabels", () => {
     describe("FlexItems[1]", () => {
       describe("Props", () => {
         describe("flex", () => {
-          test("should have 0 0 auto", () => {
+          test("should have 0 0 75%", () => {
             const { FlexItems } = setup();
 
-            expect(FlexItems[1]).toHaveStyleRule("flex", "0 0 auto");
+            expect(FlexItems[1]).toHaveStyleRule("flex", "0 0 75%");
           });
         });
       });
