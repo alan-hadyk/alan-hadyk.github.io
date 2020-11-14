@@ -5,6 +5,10 @@ import MenuIcons from "UI/molecules/MenuIcons";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+import isIE11 from "helpers/browser/isIE11";
+
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("molecules / MenuIcons", () => {
   test("should have correct structure", () => {
     const { IconContainers, Icons, MenuIconsContainer } = setup();
@@ -15,7 +19,23 @@ describe("molecules / MenuIcons", () => {
   });
 
   describe("LinkWithIcon", () => {
+    test("there should be 3 icons", () => {
+      const { Icons } = setup();
+
+      expect(Icons.length).toEqual(3);
+    });
+
     describe("Props", () => {
+      describe("height", () => {
+        test("should have 4.8rem", () => {
+          const { IconContainers } = setup();
+
+          IconContainers.forEach((IconContainer) => {
+            expect(IconContainer).toHaveStyleRule("height", "4.8rem");
+          });
+        });
+      });
+
       describe("href", () => {
         test("should have correct href", () => {
           const { MenuIconsContainer } = setup();
@@ -32,6 +52,16 @@ describe("molecules / MenuIcons", () => {
         });
       });
 
+      describe("iconName", () => {
+        test("icons should render correct SVGs", () => {
+          const { Icons } = setup();
+
+          expect(Icons[0].textContent).toEqual("Icon-GitHub.svg");
+          expect(Icons[1].textContent).toEqual("Icon-CodeSandbox.svg");
+          expect(Icons[2].textContent).toEqual("Icon-LinkedIn.svg");
+        });
+      });
+
       describe("isExternal", () => {
         describe("should have isExternal set to true", () => {
           test("target - should have _blank", () => {
@@ -43,31 +73,35 @@ describe("molecules / MenuIcons", () => {
           });
         });
       });
-    });
 
-    describe("Icon", () => {
-      test("there should be 3 icons", () => {
-        const { Icons } = setup();
+      describe("width", () => {
+        test("should have 4.8rem if isIE11 is true", () => {
+          const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+          mockisIE11.mockImplementation(() => true);
 
-        expect(Icons.length).toEqual(3);
-      });
+          const { IconContainers, MenuIconsContainer } = setup();
 
-      test("icons should render correct SVGs", () => {
-        const { Icons } = setup();
+          MenuIconsContainer.forEach((MenuIcon) => {
+            expect(MenuIcon).toHaveStyleRule("width", "4.8rem");
+          });
 
-        expect(Icons[0].textContent).toEqual("Icon-GitHub.svg");
-        expect(Icons[1].textContent).toEqual("Icon-CodeSandbox.svg");
-        expect(Icons[2].textContent).toEqual("Icon-LinkedIn.svg");
-      });
+          IconContainers.forEach((IconContainer) => {
+            expect(IconContainer).toHaveStyleRule("width", "4.8rem");
+          });
+        });
 
-      describe("Props", () => {
-        describe("height", () => {
-          test("should have 4.8rem", () => {
-            const { IconContainers } = setup();
+        test("should have auto if isIE11 is false", () => {
+          const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+          mockisIE11.mockImplementation(() => false);
 
-            IconContainers.forEach((IconContainer) => {
-              expect(IconContainer).toHaveStyleRule("height", "4.8rem");
-            });
+          const { IconContainers, MenuIconsContainer } = setup();
+
+          MenuIconsContainer.forEach((MenuIcon) => {
+            expect(MenuIcon).toHaveStyleRule("width", "auto");
+          });
+
+          IconContainers.forEach((IconContainer) => {
+            expect(IconContainer).toHaveStyleRule("width", "auto");
           });
         });
       });
@@ -88,7 +122,7 @@ function setup(): Setup {
 
   const IconContainers: Element[] = queryAllByTestId("IconContainer");
   const Icons: NodeListOf<SVGSVGElement> = document.querySelectorAll("svg");
-  const MenuIconsContainer = queryAllByTestId("MenuIcons");
+  const MenuIconsContainer: Element[] = queryAllByTestId("MenuIcons");
 
   return {
     ...utils,

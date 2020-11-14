@@ -1,7 +1,6 @@
-import React from "react";
+import React, { forwardRef, Ref } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import { transparentize } from "polished";
-import PropTypes from "prop-types";
 
 import { ReactComponent as BrandAfterEffects } from "assets/svg/Brand-AfterEffects.svg";
 import { ReactComponent as BrandAirbnb } from "assets/svg/Brand-Airbnb.svg";
@@ -86,8 +85,6 @@ import { ReactComponent as IconWebpack } from "assets/svg/Icon-Webpack.svg";
 import { ReactComponent as IconOpera } from "assets/svg/Icon-Opera.svg";
 import { ReactComponent as IconSafari } from "assets/svg/Icon-Safari.svg";
 import { ReactComponent as IconUnknown } from "assets/svg/Icon-Unknown.svg";
-
-import transitionTimes from "styles/variables/transitionTimes";
 
 import {
   IconComponents,
@@ -213,6 +210,9 @@ const IconContainer = styled.div<IconContainerProps>`
 
       ${isActive &&
       css`
+        mask {
+          fill: ${blue300};
+        }
         path {
           fill: ${blue300};
         }
@@ -252,21 +252,24 @@ const IconContainer = styled.div<IconContainerProps>`
   `};
 `;
 
-function Icon({
-  animationDelay = "0ms",
-  animationTime = "slow",
-  dataTestId,
-  height = "auto",
-  iconName,
-  isActive = false,
-  isHeightResponsive = false,
-  isResponsive = false,
-  overflow = "visible",
-  shouldDisplayGlowAnimation = false,
-  shouldGlow = false,
-  shouldGlowOnHover = false,
-  width = "auto"
-}: IconProps): JSX.Element {
+function Icon(
+  {
+    animationDelay = "0ms",
+    animationTime = "slow",
+    dataTestId,
+    height = "auto",
+    iconName,
+    isActive = false,
+    isHeightResponsive = false,
+    isResponsive = false,
+    overflow = "visible",
+    shouldDisplayGlowAnimation = false,
+    shouldGlow = false,
+    shouldGlowOnHover = false,
+    width = "auto"
+  }: IconProps,
+  ref: Ref<SVGSVGElement>
+): JSX.Element {
   const IconComponent: SVGIcon = iconComponents[iconName];
 
   return (
@@ -285,25 +288,9 @@ function Icon({
       shouldGlowOnHover={shouldGlowOnHover}
       width={width}
     >
-      <IconComponent />
+      <IconComponent ref={ref} />
     </IconContainer>
   );
 }
 
-Icon.propTypes = {
-  animationDelay: PropTypes.string,
-  animationTime: PropTypes.oneOf([...Object.keys(transitionTimes)]),
-  dataTestId: PropTypes.string,
-  height: PropTypes.string,
-  iconName: PropTypes.oneOf([...Object.keys(iconComponents)]).isRequired,
-  isActive: PropTypes.bool,
-  isHeightResponsive: PropTypes.bool,
-  isResponsive: PropTypes.bool,
-  overflow: PropTypes.oneOf(["hidden", "visible"]),
-  shouldDisplayGlowAnimation: PropTypes.bool,
-  shouldGlow: PropTypes.bool,
-  shouldGlowOnHover: PropTypes.bool,
-  width: PropTypes.string
-};
-
-export default Icon;
+export default forwardRef(Icon);

@@ -6,6 +6,8 @@ import { DashboardElementProps } from "UI/molecules/__typings__/DashboardElement
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("molecules / DashboardElement", () => {
   test("should have correct structure if there's description and title", () => {
     const {

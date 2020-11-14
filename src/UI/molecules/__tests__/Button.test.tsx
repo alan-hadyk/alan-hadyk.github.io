@@ -11,6 +11,10 @@ import Button from "UI/molecules/Button";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+import isIE11 from "helpers/browser/isIE11";
+
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 jest.mock("react-device-detect", () => ({
   __esModule: true,
   isMobile: false
@@ -21,7 +25,10 @@ import * as reactDeviceDetect from "react-device-detect";
 import { ButtonProps } from "UI/molecules/__typings__/Button";
 
 describe("molecules / Button", () => {
-  test("should have correct structure", () => {
+  test("should have correct structure when isIE11 returns false", () => {
+    const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+    mockisIE11.mockImplementation(() => false);
+
     const {
       ButtonContainer,
       ButtonInnerContainer,
@@ -37,6 +44,29 @@ describe("molecules / Button", () => {
     expect(ButtonContainer.children[2]).toEqual(Corners[2]);
     expect(ButtonContainer.children[3]).toEqual(Corners[3]);
     expect(ButtonContainer.children[4]).toEqual(ButtonInnerContainer);
+    expect(ButtonInnerContainer.children[0]).toEqual(SpacingContainer);
+    expect(SpacingContainer.children[0]).toEqual(FlexContainer);
+    expect(FlexContainer.children[0]).toEqual(ButtonText);
+    expect(FlexContainer.children[1]).toEqual(IconContainer);
+  });
+
+  test("should have correct structure when isIE11 returns true", () => {
+    const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+    mockisIE11.mockImplementation(() => true);
+
+    const {
+      ButtonContainer,
+      ButtonInnerContainer,
+      Corners,
+      FlexContainer,
+      IconContainer,
+      SpacingContainer,
+      ButtonText
+    } = setup();
+
+    expect(Corners.length).toEqual(0);
+
+    expect(ButtonContainer.children[0]).toEqual(ButtonInnerContainer);
     expect(ButtonInnerContainer.children[0]).toEqual(SpacingContainer);
     expect(SpacingContainer.children[0]).toEqual(FlexContainer);
     expect(FlexContainer.children[0]).toEqual(ButtonText);
@@ -580,6 +610,32 @@ describe("molecules / Button", () => {
     });
 
     describe("Props", () => {
+      describe("fontFamily", () => {
+        test("should have ExanModifiedRegular,monospace if isIE11 is false", () => {
+          const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+          mockisIE11.mockImplementation(() => false);
+
+          const { ButtonText } = setup();
+
+          expect(ButtonText.children[0]).toHaveStyleRule(
+            "font-family",
+            "ExanModifiedRegular,monospace"
+          );
+        });
+
+        test("should have 'Anonymous Pro',monospace if isIE11 is true", () => {
+          const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+          mockisIE11.mockImplementation(() => true);
+
+          const { ButtonText } = setup();
+
+          expect(ButtonText.children[0]).toHaveStyleRule(
+            "font-family",
+            "'Anonymous Pro',monospace"
+          );
+        });
+      });
+
       describe("hasMargin", () => {
         test("should have margin-right 0 when iconName is not passed", () => {
           const { ButtonText } = setup({
@@ -642,6 +698,32 @@ describe("molecules / Button", () => {
 
             expect(ButtonText.children[0]).toHaveStyleRule("font-size", "28px");
           });
+        });
+      });
+
+      describe("textTransform", () => {
+        test("should have lowercase if isIE11 is false", () => {
+          const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+          mockisIE11.mockImplementation(() => false);
+
+          const { ButtonText } = setup();
+
+          expect(ButtonText.children[0]).toHaveStyleRule(
+            "text-transform",
+            "lowercase"
+          );
+        });
+
+        test("should have uppercase if isIE11 is true", () => {
+          const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+          mockisIE11.mockImplementation(() => true);
+
+          const { ButtonText } = setup();
+
+          expect(ButtonText.children[0]).toHaveStyleRule(
+            "text-transform",
+            "uppercase"
+          );
         });
       });
     });
@@ -728,6 +810,22 @@ describe("molecules / Button", () => {
               });
             });
           });
+        });
+      });
+
+      describe("width", () => {
+        test("should have auto by default", () => {
+          const { IconContainer } = setup();
+
+          expect(IconContainer).toHaveStyleRule("width", "auto");
+        });
+
+        test("should have correct value passed via iconWidth prop", () => {
+          const { IconContainer } = setup({
+            iconWidth: "spacing24"
+          });
+
+          expect(IconContainer).toHaveStyleRule("width", "2.4rem");
         });
       });
     });

@@ -73,6 +73,30 @@ describe("molecules / ButtonText", () => {
         });
       });
 
+      describe("fontFamily", () => {
+        test("should have ExanModifiedRegular,monospace passed via fontFamily prop", () => {
+          const { Text } = setup({
+            fontFamily: "Exan"
+          });
+
+          expect(Text).toHaveStyleRule(
+            "font-family",
+            "ExanModifiedRegular,monospace"
+          );
+        });
+
+        test("should have AnonymousPro,monospace passed via fontFamily prop", () => {
+          const { Text } = setup({
+            fontFamily: "AnonymousPro"
+          });
+
+          expect(Text).toHaveStyleRule(
+            "font-family",
+            "'Anonymous Pro',monospace"
+          );
+        });
+      });
+
       describe("fontSize", () => {
         test("should have 20px when size is small", () => {
           const { Text } = setup();
@@ -97,14 +121,21 @@ describe("molecules / ButtonText", () => {
         });
       });
 
-      describe("fontFamily", () => {
-        test("should have Exan", () => {
-          const { Text } = setup();
+      describe("textTransform", () => {
+        test("should have uppercase passed via textTransform prop", () => {
+          const { Text } = setup({
+            textTransform: "uppercase"
+          });
 
-          expect(Text).toHaveStyleRule(
-            "font-family",
-            "ExanModifiedRegular,monospace"
-          );
+          expect(Text).toHaveStyleRule("text-transform", "uppercase");
+        });
+
+        test("should have lowercase passed via fontFamily prop", () => {
+          const { Text } = setup({
+            textTransform: "lowercase"
+          });
+
+          expect(Text).toHaveStyleRule("text-transform", "lowercase");
         });
       });
     });

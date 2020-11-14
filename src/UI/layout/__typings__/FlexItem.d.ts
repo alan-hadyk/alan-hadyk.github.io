@@ -10,10 +10,19 @@ export interface FlexItemProps {
   className?: string;
   dataCy?: string;
   dataTestId?: string;
-  flex: string;
+  display?: "block" | "flex";
+  flex?: string;
   height?: Spacing | string;
+  justifyContent?: "initial" | "center" | "flex-start" | "flex-end";
   order?: number;
   overflow?: string;
   paddingBottom?: Spacing | string;
+  paddingLeft?: Spacing | string;
+  paddingRight?: Spacing | string;
   paddingTop?: Spacing | string;
+  shouldApplyWidth?: boolean;
+}
+
+export interface FlexItemContainerProps extends FlexItemProps {
+  width?: string;
 }

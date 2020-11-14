@@ -7,6 +7,8 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 
 import { CompanyProps } from "UI/organisms/Company/__typings__/Company";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("organisms / Company", () => {
   test("should have correct structure", () => {
     const {
@@ -36,6 +38,14 @@ describe("organisms / Company", () => {
             "position",
             "relative"
           );
+        });
+      });
+
+      describe("width", () => {
+        test("should have 100%", () => {
+          const { CompanyPositionContainer } = setup();
+
+          expect(CompanyPositionContainer).toHaveStyleRule("width", "100%");
         });
       });
     });

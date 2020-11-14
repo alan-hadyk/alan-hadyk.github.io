@@ -18,12 +18,31 @@ describe("atoms / ConsoleText", () => {
     });
 
     describe("font-family", () => {
-      test("should have ExanModifiedRegular,monospace", () => {
+      test("should have ExanModifiedRegular,monospace by default", () => {
         const { ConsoleTextContainer } = setup();
 
         expect(ConsoleTextContainer).toHaveStyleRule(
           "font-family",
           "ExanModifiedRegular,monospace"
+        );
+      });
+
+      test("should have AnonymousPro,monospace for IE11", () => {
+        const { ConsoleTextContainer } = setup();
+
+        expect(ConsoleTextContainer).toHaveStyleRule(
+          "font-family",
+          "'Anonymous Pro',monospace",
+          {
+            media: "(-ms-high-contrast: none)"
+          }
+        );
+        expect(ConsoleTextContainer).toHaveStyleRule(
+          "font-family",
+          "'Anonymous Pro',monospace",
+          {
+            media: "(-ms-high-contrast: active)"
+          }
         );
       });
     });
@@ -73,12 +92,31 @@ describe("atoms / ConsoleText", () => {
     });
 
     describe("text-transform", () => {
-      test("should have lowercase", () => {
+      test("should have lowercase by default", () => {
         const { ConsoleTextContainer } = setup();
 
         expect(ConsoleTextContainer).toHaveStyleRule(
           "text-transform",
           "lowercase"
+        );
+      });
+
+      test("should have uppercase for IE11", () => {
+        const { ConsoleTextContainer } = setup();
+
+        expect(ConsoleTextContainer).toHaveStyleRule(
+          "text-transform",
+          "uppercase",
+          {
+            media: "(-ms-high-contrast: none)"
+          }
+        );
+        expect(ConsoleTextContainer).toHaveStyleRule(
+          "text-transform",
+          "uppercase",
+          {
+            media: "(-ms-high-contrast: active)"
+          }
         );
       });
     });

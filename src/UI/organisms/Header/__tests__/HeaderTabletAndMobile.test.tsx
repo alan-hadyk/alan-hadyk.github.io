@@ -7,6 +7,8 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 
 import { HeaderMobileProps } from "UI/organisms/Header/__typings__/HeaderMobile";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 jest.mock("hooks/useIntersectionObserver");
 
 describe("organisms / HeaderTabletAndMobileProps", () => {

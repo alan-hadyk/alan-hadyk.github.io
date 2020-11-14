@@ -5,6 +5,8 @@ import Code from "pages/Home/sections/dashboard/elements/Code";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("pages / Home / sections / dashboard / elements / Code", () => {
   test("should have correct structure", () => {
     const { DashboardElement, TypingAnimation } = setup();

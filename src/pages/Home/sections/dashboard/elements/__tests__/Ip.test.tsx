@@ -5,6 +5,9 @@ import Ip from "pages/Home/sections/dashboard/elements/Ip";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+jest.mock("helpers/browser/isSafari", () => jest.fn());
+
 jest.mock("ip", () => ({
   address: (): string => "127.0.0.1"
 }));

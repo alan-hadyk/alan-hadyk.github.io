@@ -7,6 +7,8 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 
 import { CompanyProps } from "UI/organisms/Company/__typings__/Company";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 jest.mock("hooks/useIntersectionObserver");
 
 describe("organisms / CompanyMobile", () => {

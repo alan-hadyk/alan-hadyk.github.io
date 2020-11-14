@@ -13,6 +13,7 @@ const AboutMeSection = (): JSX.Element => (
   >
     <HexagonWithDescription description={renderDescription()}>
       <Image
+        alt="Alan Hadyk"
         data-cy="AboutMeImage"
         data-testid="AboutMeImage"
         height="700"

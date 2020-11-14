@@ -5,6 +5,8 @@ import CompanyShiji from "pages/Home/sections/experience/companies/CompanyShiji"
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("pages / Home / sections / experience / companies / CompanyShiji", () => {
   describe("Props", () => {
     describe("date", () => {

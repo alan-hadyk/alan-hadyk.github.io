@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import PropTypes from "prop-types";
+import { transparentize } from "polished";
 
 import Button from "UI/molecules/Button";
 import MenuIcons from "UI/molecules/MenuIcons";
@@ -10,7 +11,9 @@ import SpacingContainer from "UI/layout/SpacingContainer";
 import FlexContainer from "UI/layout/FlexContainer";
 import Responsive from "UI/layout/Responsive";
 
-import { transparentize } from "polished";
+import spacing from "styles/variables/spacing";
+
+import isIE11 from "helpers/browser/isIE11";
 
 import {
   SideMenuContainerProps,
@@ -38,6 +41,16 @@ const SideMenuContainer = styled.div<SideMenuContainerProps>`
     transform: ${isExpanded ? "translateX(0)" : "translateX(100%)"};
     transition: all ${fast} ${easeInOut};
     z-index: ${layer10};
+
+    @media (-ms-high-contrast: none) {
+      /* IE10+ CSS */
+      max-width: 300px;
+    }
+
+    @media (-ms-high-contrast: active) {
+      /* IE10+ CSS */
+      max-width: 300px;
+    }
   `};
 `;
 
@@ -79,6 +92,7 @@ const SideMenu = ({
             buttonText="cv"
             dataCy="CvButton"
             iconName="btnDownload"
+            iconWidth={isIE11() ? `${spacing.spacing24}` : "auto"}
             onClick={onCVButtonClick}
             size="medium"
             width="100%"

@@ -5,6 +5,8 @@ import Flux from "pages/Home/sections/dashboard/elements/Flux";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("pages / Home / sections / dashboard / elements / Flux", () => {
   test("should have correct structure", () => {
     const { DashboardElement, FlowChart } = setup();
