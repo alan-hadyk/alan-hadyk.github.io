@@ -73,7 +73,7 @@ function CompanyDescription({
     <CompanyDescriptionContainer data-testid="CompanyDescription">
       {renderTitleAndDate()}
 
-      {renderTechStack()}
+      {renderTechStack(iconsWithLabels)}
 
       {renderResponsibilities({
         responsibilities,
@@ -81,38 +81,40 @@ function CompanyDescription({
       })}
     </CompanyDescriptionContainer>
   );
+}
 
-  function renderTechStack(): JSX.Element {
-    return (
-      <SpacingContainer
-        dataCy="CompanyTechStack"
-        dataTestId="TechStackSpacingContainer"
-        marginBottom="spacing16"
+function renderTechStack(
+  iconsWithLabels: CompanyDescriptionProps["iconsWithLabels"]
+): JSX.Element {
+  return (
+    <SpacingContainer
+      dataCy="CompanyTechStack"
+      dataTestId="TechStackSpacingContainer"
+      marginBottom="spacing16"
+    >
+      <Text
+        color="blue100"
+        dataTestId="TechStackTitle"
+        fontFamily="AnonymousPro"
+        fontSize="font24"
+        fontWeight="bold"
+        lineHeight="spacing32"
       >
-        <Text
-          color="blue100"
-          dataTestId="TechStackTitle"
-          fontFamily="AnonymousPro"
-          fontSize="font24"
-          fontWeight="bold"
-          lineHeight="spacing32"
-        >
-          Tech stack
-        </Text>
-        <SpacingContainer
-          dataTestId="TechStackIconsWithLabelsSpacingContainer"
-          marginLeft="spacing16"
-          marginTop="spacing16"
-        >
-          <IconsWithLabels
-            iconsWithLabels={iconsWithLabels}
-            position="horizontal"
-            size="small"
-          />
-        </SpacingContainer>
+        Tech stack
+      </Text>
+      <SpacingContainer
+        dataTestId="TechStackIconsWithLabelsSpacingContainer"
+        marginLeft="spacing16"
+        marginTop="spacing16"
+      >
+        <IconsWithLabels
+          iconsWithLabels={iconsWithLabels}
+          position="horizontal"
+          size="small"
+        />
       </SpacingContainer>
-    );
-  }
+    </SpacingContainer>
+  );
 }
 
 function renderResponsibilities({

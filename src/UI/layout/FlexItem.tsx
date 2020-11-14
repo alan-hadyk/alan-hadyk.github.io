@@ -2,12 +2,12 @@ import React, { useCallback } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import PropTypes from "prop-types";
 
+import isIE11 from "helpers/browser/isIE11";
+
 import {
   FlexItemContainerProps,
   FlexItemProps
 } from "UI/layout/__typings__/FlexItem";
-
-import isIE11 from "helpers/browser/isIE11";
 
 const FlexItemContainer = styled.div<FlexItemContainerProps>`
   ${({

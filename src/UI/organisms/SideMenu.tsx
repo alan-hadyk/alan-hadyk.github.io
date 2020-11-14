@@ -1,7 +1,6 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import PropTypes from "prop-types";
-
 import { transparentize } from "polished";
 
 import Button from "UI/molecules/Button";
