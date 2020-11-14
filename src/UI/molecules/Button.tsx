@@ -140,6 +140,7 @@ function Button({
 
   return (
     <ButtonContainer
+      aria-label={dataCy || dataTestId || "Button"}
       data-cy={dataCy || "Button"}
       data-testid={dataTestId || "Button"}
       {...mapSizeToButtonContainerProps[size]}
