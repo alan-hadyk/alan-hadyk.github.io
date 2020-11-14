@@ -144,6 +144,7 @@ function Button({
       data-testid={dataTestId || "Button"}
       {...mapSizeToButtonContainerProps[size]}
       {...mapTypeToButtonContainerProps[type]}
+      name={dataCy || "Button"}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseUp={handleButtonClick}
