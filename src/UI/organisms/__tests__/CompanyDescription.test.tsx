@@ -9,6 +9,8 @@ import { CompanyDescriptionProps } from "UI/organisms/__typings__/CompanyDescrip
 
 import { IconWithLabelProps } from "UI/molecules/__typings__/IconWithLabel";
 
+import isIE11 from "helpers/browser/isIE11";
+
 jest.mock("helpers/browser/isIE11", () => jest.fn());
 
 describe("organisms / CompanyDescription", () => {
@@ -97,12 +99,27 @@ describe("organisms / CompanyDescription", () => {
         });
 
         describe("fontFamily", () => {
-          test("should have ExanModifiedRegular, monospace", () => {
+          test("should have ExanModifiedRegular, monospace if isIE11 returns false", () => {
+            const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+            mockisIE11.mockImplementation(() => false);
+
             const { MainTitle } = setup();
 
             expect(MainTitle).toHaveStyleRule(
               "font-family",
               "ExanModifiedRegular,monospace"
+            );
+          });
+
+          test("should have 'Anonymous Pro', monospace if isIE11 returns true", () => {
+            const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+            mockisIE11.mockImplementation(() => true);
+
+            const { MainTitle } = setup();
+
+            expect(MainTitle).toHaveStyleRule(
+              "font-family",
+              "'Anonymous Pro',monospace"
             );
           });
         });

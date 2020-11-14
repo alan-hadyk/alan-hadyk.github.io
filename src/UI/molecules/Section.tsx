@@ -7,9 +7,9 @@ import Responsive from "UI/layout/Responsive";
 
 import spacing from "styles/variables/spacing";
 
-import { RenderTitle, SectionProps } from "UI/molecules/__typings__/Section";
-
 import isIE11 from "helpers/browser/isIE11";
+
+import { RenderTitle, SectionProps } from "UI/molecules/__typings__/Section";
 
 function Section({
   children,

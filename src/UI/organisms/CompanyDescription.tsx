@@ -12,6 +12,8 @@ import SpacingContainer from "UI/layout/SpacingContainer";
 import colorPalette from "styles/variables/colorPalette";
 import spacing from "styles/variables/spacing";
 
+import isIE11 from "helpers/browser/isIE11";
+
 import {
   CompanyDescriptionProps,
   RenderResponsibilitiesArgs
@@ -44,7 +46,7 @@ function CompanyDescription({
           color="white"
           dataCy="CompanyDescriptionMainTitle"
           dataTestId="MainTitle"
-          fontFamily="Exan"
+          fontFamily={isIE11() ? "AnonymousPro" : "Exan"}
           fontSize="font36"
           lineHeight="spacing48"
           textAlign={textAlign}
