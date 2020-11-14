@@ -35,7 +35,6 @@ const HexagonInnerContainer = styled.div<HexagonInnerContainerProps>`
       @media (min-width: ${breakpoint1281}) {
         left: 48%;
         top: 53%;
-        transform: translate(-50%, -50%);
         width: 90%;
       }
     `}

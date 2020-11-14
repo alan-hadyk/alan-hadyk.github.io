@@ -25,7 +25,10 @@ import * as reactDeviceDetect from "react-device-detect";
 import { ButtonProps } from "UI/molecules/__typings__/Button";
 
 describe("molecules / Button", () => {
-  test("should have correct structure", () => {
+  test("should have correct structure when isIE11 returns false", () => {
+    const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+    mockisIE11.mockImplementation(() => false);
+
     const {
       ButtonContainer,
       ButtonInnerContainer,
@@ -41,6 +44,29 @@ describe("molecules / Button", () => {
     expect(ButtonContainer.children[2]).toEqual(Corners[2]);
     expect(ButtonContainer.children[3]).toEqual(Corners[3]);
     expect(ButtonContainer.children[4]).toEqual(ButtonInnerContainer);
+    expect(ButtonInnerContainer.children[0]).toEqual(SpacingContainer);
+    expect(SpacingContainer.children[0]).toEqual(FlexContainer);
+    expect(FlexContainer.children[0]).toEqual(ButtonText);
+    expect(FlexContainer.children[1]).toEqual(IconContainer);
+  });
+
+  test("should have correct structure when isIE11 returns true", () => {
+    const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+    mockisIE11.mockImplementation(() => true);
+
+    const {
+      ButtonContainer,
+      ButtonInnerContainer,
+      Corners,
+      FlexContainer,
+      IconContainer,
+      SpacingContainer,
+      ButtonText
+    } = setup();
+
+    expect(Corners.length).toEqual(0);
+
+    expect(ButtonContainer.children[0]).toEqual(ButtonInnerContainer);
     expect(ButtonInnerContainer.children[0]).toEqual(SpacingContainer);
     expect(SpacingContainer.children[0]).toEqual(FlexContainer);
     expect(FlexContainer.children[0]).toEqual(ButtonText);

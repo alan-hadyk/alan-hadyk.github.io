@@ -248,11 +248,25 @@ describe("molecules / Section", () => {
       });
 
       describe("textTransform", () => {
-        test("should have lowercase", () => {
+        test("should have lowercase if isIE11 returns false", () => {
+          const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+          mockisIE11.mockImplementation(() => false);
+
           const { Texts } = setup();
 
           Texts.forEach((Text: Element) => {
             expect(Text).toHaveStyleRule("text-transform", "lowercase");
+          });
+        });
+
+        test("should have uppercase if isIE11 returns true", () => {
+          const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+          mockisIE11.mockImplementation(() => true);
+
+          const { Texts } = setup();
+
+          Texts.forEach((Text: Element) => {
+            expect(Text).toHaveStyleRule("text-transform", "uppercase");
           });
         });
       });

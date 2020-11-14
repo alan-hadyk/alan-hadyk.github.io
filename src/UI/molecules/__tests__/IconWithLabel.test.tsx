@@ -152,7 +152,7 @@ describe("molecules / IconWithLabel", () => {
         });
 
         describe("width", () => {
-          test("should have 4.8rem if isIE11 is true", () => {
+          test("should have 3.2rem if isIE11 is true", () => {
             const mockisIE11 = (isIE11 as unknown) as jest.Mock;
             mockisIE11.mockImplementation(() => true);
 

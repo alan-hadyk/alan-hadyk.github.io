@@ -172,38 +172,6 @@ describe("molecules / Hexagon", () => {
           });
         });
 
-        describe("transform", () => {
-          test("should have translate(-50%, -50%) if isIE11 returns true", () => {
-            const mockisIE11 = (isIE11 as unknown) as jest.Mock;
-            mockisIE11.mockImplementation(() => true);
-
-            const { HexagonInnerContainer } = setup();
-
-            expect(HexagonInnerContainer).toHaveStyleRule(
-              "transform",
-              "translate(-50%,-50%)",
-              {
-                media: "(min-width:1281px)"
-              }
-            );
-          });
-
-          test("should not have translate(-50%, -50%) if isIE11 returns false", () => {
-            const mockisIE11 = (isIE11 as unknown) as jest.Mock;
-            mockisIE11.mockImplementation(() => false);
-
-            const { HexagonInnerContainer } = setup();
-
-            expect(HexagonInnerContainer).not.toHaveStyleRule(
-              "transform",
-              "translate(-50%,-50%)",
-              {
-                media: "(min-width:1281px)"
-              }
-            );
-          });
-        });
-
         describe("width", () => {
           test("should have 90% if isIE11 returns true", () => {
             const mockisIE11 = (isIE11 as unknown) as jest.Mock;
