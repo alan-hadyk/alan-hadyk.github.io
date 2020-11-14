@@ -4,15 +4,18 @@
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 safari version",
+      "ie 11"
     ],
     "production": [
       ">0.2%",
       "not dead",
-      "not op_mini all"
+      "not op_mini all",
+      "ie 11"
     ]
   },
   "dependencies": {
+    "core-js": "^3.6.5",
     "@babel/runtime": "^7.12.5",
     "detect-browser": "^5.2.0",
     "intersection-observer": "^0.11.0",
@@ -23,6 +26,7 @@
     "polished": "^4.0.3",
     "prop-types": "^15.7.2",
     "react": "^17.0.0",
+    "react-app-polyfill": "^2.0.0",
     "react-device-detect": "^1.14.0",
     "react-dom": "^17.0.0",
     "react-robot": "^0.2.1",

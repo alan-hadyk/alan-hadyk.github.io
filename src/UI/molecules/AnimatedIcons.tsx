@@ -5,6 +5,8 @@ import FlexContainer from "UI/layout/FlexContainer";
 import PositionContainer from "UI/layout/PositionContainer";
 import SpacingContainer from "UI/layout/SpacingContainer";
 
+import isSafari from "helpers/browser/isSafari";
+
 import { IconProps } from "UI/atoms/__typings__/Icon";
 
 const animatedIcons: IconProps["iconName"][] = [
@@ -43,12 +45,17 @@ function renderIcons(): JSX.Element[] {
   return animatedIcons.map(
     (icon: IconProps["iconName"]): JSX.Element => (
       <PositionContainer
-        height="100%"
+        height={isSafari() ? "auto" : "100%"}
         key={icon}
         position="relative"
         width={`${100 / animatedIcons.length}%`}
       >
-        <Icon height="100%" iconName={icon} isResponsive width="100%" />
+        <Icon
+          height={isSafari() ? "8vh" : "100%"}
+          iconName={icon}
+          isResponsive
+          width={isSafari() ? "8vh" : "100%"}
+        />
       </PositionContainer>
     )
   );

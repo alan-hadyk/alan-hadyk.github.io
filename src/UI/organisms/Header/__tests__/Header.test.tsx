@@ -7,6 +7,8 @@ import Header, { downloadCV } from "UI/organisms/Header";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 jest.mock("hooks/useIntersectionObserver");
 
 jest.mock("hooks/useResize");

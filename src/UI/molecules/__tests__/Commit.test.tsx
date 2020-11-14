@@ -8,6 +8,8 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 
 import { CommitProps } from "UI/molecules/__typings__/Commit";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 interface MockLinkProps {
   children: unknown;
   href: string;

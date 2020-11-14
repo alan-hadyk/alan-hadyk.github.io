@@ -47,7 +47,7 @@ const VerticalIconsWithLabels = ({
         )
       )}
     </FlexItem>
-    <FlexItem flex="0 1 auto">
+    <FlexItem flex="0 0 auto">
       {iconsWithLabels.map(
         ({ label }: IconWithLabelProps): JSX.Element => (
           <SpacingContainer

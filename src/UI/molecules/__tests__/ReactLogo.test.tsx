@@ -5,6 +5,10 @@ import ReactLogo from "UI/molecules/ReactLogo";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+import isSafari from "helpers/browser/isSafari";
+
+jest.mock("helpers/browser/isSafari", () => jest.fn());
+
 describe("molecules / ReactLogo", () => {
   test("should have correct structure", () => {
     const {
@@ -108,10 +112,22 @@ describe("molecules / ReactLogo", () => {
 
     describe("Props", () => {
       describe("height", () => {
-        test("should have 100%", () => {
+        test("should have 100% if isSafari returns false", () => {
+          const mockisSafari = (isSafari as unknown) as jest.Mock;
+          mockisSafari.mockImplementation(() => false);
+
           const { IconContainer } = setup();
 
           expect(IconContainer).toHaveStyleRule("height", "100%");
+        });
+
+        test("should have 18vh if isSafari returns true", () => {
+          const mockisSafari = (isSafari as unknown) as jest.Mock;
+          mockisSafari.mockImplementation(() => true);
+
+          const { IconContainer } = setup();
+
+          expect(IconContainer).toHaveStyleRule("height", "18vh");
         });
       });
 
@@ -138,10 +154,22 @@ describe("molecules / ReactLogo", () => {
       });
 
       describe("width", () => {
-        test("should have 100%", () => {
+        test("should have 100% if isSafari returns false", () => {
+          const mockisSafari = (isSafari as unknown) as jest.Mock;
+          mockisSafari.mockImplementation(() => false);
+
           const { IconContainer } = setup();
 
           expect(IconContainer).toHaveStyleRule("width", "100%");
+        });
+
+        test("should have 18vh if isSafari returns true", () => {
+          const mockisSafari = (isSafari as unknown) as jest.Mock;
+          mockisSafari.mockImplementation(() => true);
+
+          const { IconContainer } = setup();
+
+          expect(IconContainer).toHaveStyleRule("width", "18vh");
         });
       });
     });

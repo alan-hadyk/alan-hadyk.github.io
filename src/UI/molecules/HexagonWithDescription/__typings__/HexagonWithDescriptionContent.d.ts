@@ -7,5 +7,6 @@ export interface HexagonWithDescriptionContentProps {
   lineHeight?: Spacing;
   marginBottom?: Spacing;
   marginRight?: Spacing;
-  width?: string;
+  textWidth?: Spacing | string;
+  width?: Spacing | string;
 }

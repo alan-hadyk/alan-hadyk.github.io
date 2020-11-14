@@ -9,6 +9,8 @@ import { SkillsItemProps } from "UI/molecules/__typings__/SkillsItem";
 
 import { IconWithLabelProps } from "UI/molecules/__typings__/IconWithLabel";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("molecules / SkillsItem", () => {
   test("should have correct structure", () => {
     const {

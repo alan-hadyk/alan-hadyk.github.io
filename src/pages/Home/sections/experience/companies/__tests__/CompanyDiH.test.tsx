@@ -5,6 +5,9 @@ import CompanyDiH from "pages/Home/sections/experience/companies/CompanyDiH";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+jest.mock("helpers/browser/isSafari", () => jest.fn());
+
 describe("pages / Home / sections / experience / companies / CompanyDiH", () => {
   describe("Props", () => {
     describe("date", () => {

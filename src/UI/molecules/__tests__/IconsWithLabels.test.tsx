@@ -9,6 +9,8 @@ import { IconsWithLabelsProps } from "UI/molecules/__typings__/IconsWithLabels";
 
 import { IconWithLabelProps } from "UI/molecules/__typings__/IconWithLabel";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("molecules / IconsWithLabels", () => {
   test("should have correct structure when position is vertical", () => {
     const {

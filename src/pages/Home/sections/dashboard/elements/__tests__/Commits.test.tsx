@@ -7,6 +7,8 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 
 import { ListOfCommitsProps } from "UI/molecules/__typings__/ListOfCommits";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("pages / Home / sections / dashboard / elements / Commits", () => {
   test("should have correct structure if commitsState is loaded", () => {
     const { DashboardElement, ListOfCommits } = setup({

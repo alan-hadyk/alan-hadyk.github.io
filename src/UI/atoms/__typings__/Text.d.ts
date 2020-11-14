@@ -29,4 +29,5 @@ export interface TextProps {
   shuffleInterval?: number;
   textAlign?: "left" | "center" | "right";
   textTransform?: "none" | "lowercase" | "uppercase" | "capitalize";
+  width?: Spacing | string;
 }

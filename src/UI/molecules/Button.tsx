@@ -25,6 +25,8 @@ import {
   MapTypeToButtonContainerProps
 } from "UI/molecules/__typings__/Button";
 
+import isIE11 from "helpers/browser/isIE11";
+
 const mapTypeToButtonContainerProps: MapTypeToButtonContainerProps = {
   primary: {
     backgroundColor: "blue500",
@@ -124,6 +126,7 @@ function Button({
   dataCy,
   dataTestId,
   iconName,
+  iconWidth,
   onClick,
   size = "medium",
   type = "primary",
@@ -149,7 +152,7 @@ function Button({
       onTouchStart={handleMouseEnter}
       width={width}
     >
-      <Corners isActive={isActive} />
+      {!isIE11() && <Corners isActive={isActive} />}
       <ButtonInnerContainer
         ref={buttonInnerContainerRef}
         data-testid="ButtonInnerContainer"
@@ -163,8 +166,10 @@ function Button({
           <FlexContainer flexFlow="row nowrap">
             <ButtonText
               buttonText={buttonText}
+              fontFamily={isIE11() ? "AnonymousPro" : "Exan"}
               hasMargin={!!iconName}
               size={size}
+              textTransform={isIE11() ? "uppercase" : "lowercase"}
             />
             {iconName && (
               <Icon
@@ -173,6 +178,7 @@ function Button({
                 }
                 iconName={iconName}
                 isHeightResponsive
+                width={iconWidth}
               />
             )}
           </FlexContainer>

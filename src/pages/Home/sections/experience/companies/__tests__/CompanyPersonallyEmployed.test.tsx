@@ -5,6 +5,8 @@ import CompanyPersonallyEmployed from "pages/Home/sections/experience/companies/
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 describe("pages / Home / sections / experience / companies / CompanyPersonallyEmployed", () => {
   describe("Props", () => {
     describe("companyMobilePaddingBottom", () => {

@@ -27,6 +27,7 @@ const Company = ({
     <PositionContainer
       dataTestId="CompanyPositionContainer"
       position="relative"
+      width="100%"
     >
       <CompanyTvDesktopAndTablet
         date={date}

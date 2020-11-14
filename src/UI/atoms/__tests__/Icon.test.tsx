@@ -153,6 +153,32 @@ describe("atoms / Icon", () => {
         });
       });
 
+      describe("mask", () => {
+        describe("fill", () => {
+          describe("when isActive is true", () => {
+            test("should have #78b0b5", () => {
+              const { IconContainer } = setup({
+                isActive: true
+              });
+
+              expect(IconContainer).toHaveStyleRule("fill", "#78b0b5", {
+                modifier: "svg mask"
+              });
+            });
+          });
+
+          test("should not have fill when isActive is false", () => {
+            const { IconContainer } = setup({
+              isActive: false
+            });
+
+            expect(IconContainer).not.toHaveStyleRule("fill", {
+              modifier: "svg mask"
+            });
+          });
+        });
+      });
+
       describe("path", () => {
         describe("fill", () => {
           describe("when isActive is true", () => {

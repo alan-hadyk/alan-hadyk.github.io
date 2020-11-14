@@ -5,6 +5,10 @@ import BrowserInfo from "UI/molecules/BrowserInfo";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+import isSafari from "helpers/browser/isSafari";
+
+jest.mock("helpers/browser/isSafari", () => jest.fn());
+
 interface Detect {
   name: string;
 }
@@ -127,6 +131,30 @@ describe("molecules / BrowserInfo", () => {
 
   describe("FlexItem", () => {
     describe("Props", () => {
+      describe("display", () => {
+        test("should have block if isSafari returns false", () => {
+          const mockisSafari = (isSafari as unknown) as jest.Mock;
+          mockisSafari.mockImplementation(() => false);
+
+          const { FlexItems } = setup();
+
+          FlexItems.forEach((FlexItem) => {
+            expect(FlexItem).toHaveStyleRule("display", "block");
+          });
+        });
+
+        test("should have flex if isSafari returns true", () => {
+          const mockisSafari = (isSafari as unknown) as jest.Mock;
+          mockisSafari.mockImplementation(() => true);
+
+          const { FlexItems } = setup();
+
+          FlexItems.forEach((FlexItem) => {
+            expect(FlexItem).toHaveStyleRule("display", "flex");
+          });
+        });
+      });
+
       describe("flex", () => {
         test("should have 0 1 28%", () => {
           const { FlexItems } = setup();
@@ -143,6 +171,54 @@ describe("molecules / BrowserInfo", () => {
 
           FlexItems.forEach((FlexItem) => {
             expect(FlexItem).toHaveStyleRule("height", "50%");
+          });
+        });
+      });
+
+      describe("justifyContent", () => {
+        test("should have initial if isSafari returns false", () => {
+          const mockisSafari = (isSafari as unknown) as jest.Mock;
+          mockisSafari.mockImplementation(() => false);
+
+          const { FlexItems } = setup();
+
+          FlexItems.forEach((FlexItem) => {
+            expect(FlexItem).toHaveStyleRule("justify-content", "initial");
+          });
+        });
+
+        test("should have center if isSafari returns true", () => {
+          const mockisSafari = (isSafari as unknown) as jest.Mock;
+          mockisSafari.mockImplementation(() => true);
+
+          const { FlexItems } = setup();
+
+          FlexItems.forEach((FlexItem) => {
+            expect(FlexItem).toHaveStyleRule("justify-content", "center");
+          });
+        });
+      });
+
+      describe("overflow", () => {
+        test("should have visible if isSafari returns false", () => {
+          const mockisSafari = (isSafari as unknown) as jest.Mock;
+          mockisSafari.mockImplementation(() => false);
+
+          const { FlexItems } = setup();
+
+          FlexItems.forEach((FlexItem) => {
+            expect(FlexItem).toHaveStyleRule("overflow", "visible");
+          });
+        });
+
+        test("should have hidden if isSafari returns true", () => {
+          const mockisSafari = (isSafari as unknown) as jest.Mock;
+          mockisSafari.mockImplementation(() => true);
+
+          const { FlexItems } = setup();
+
+          FlexItems.forEach((FlexItem) => {
+            expect(FlexItem).toHaveStyleRule("overflow", "hidden");
           });
         });
       });
@@ -189,11 +265,25 @@ describe("molecules / BrowserInfo", () => {
 
     describe("Props", () => {
       describe("height", () => {
-        test("should have 100%", () => {
+        test("should have 100% if isSafari returns false", () => {
+          const mockisSafari = (isSafari as unknown) as jest.Mock;
+          mockisSafari.mockImplementation(() => false);
+
           const { IconContainers } = setup();
 
           IconContainers.forEach((IconContainer) => {
             expect(IconContainer).toHaveStyleRule("height", "100%");
+          });
+        });
+
+        test("should have 4vh if isSafari returns true", () => {
+          const mockisSafari = (isSafari as unknown) as jest.Mock;
+          mockisSafari.mockImplementation(() => true);
+
+          const { IconContainers } = setup();
+
+          IconContainers.forEach((IconContainer) => {
+            expect(IconContainer).toHaveStyleRule("height", "4vh");
           });
         });
       });
@@ -263,7 +353,21 @@ describe("molecules / BrowserInfo", () => {
       });
 
       describe("overflow", () => {
-        test("should have hidden", () => {
+        test("should have visible if isSafari returns false", () => {
+          const mockisSafari = (isSafari as unknown) as jest.Mock;
+          mockisSafari.mockImplementation(() => false);
+
+          const { IconContainers } = setup();
+
+          IconContainers.forEach((IconContainer) => {
+            expect(IconContainer).toHaveStyleRule("overflow", "visible");
+          });
+        });
+
+        test("should have hidden if isSafari returns true", () => {
+          const mockisSafari = (isSafari as unknown) as jest.Mock;
+          mockisSafari.mockImplementation(() => true);
+
           const { IconContainers } = setup();
 
           IconContainers.forEach((IconContainer) => {
@@ -272,142 +376,26 @@ describe("molecules / BrowserInfo", () => {
         });
       });
 
-      describe("shouldDisplayGlowAnimation", () => {
-        describe("if icon is active", () => {
-          describe("animation-delay", () => {
-            test("should have 0ms", () => {
-              const { IconContainers } = setup();
-
-              IconContainers.forEach((IconContainer) => {
-                if (
-                  IconContainer.children[0].textContent === "Icon-Chrome.svg"
-                ) {
-                  expect(IconContainer).toHaveStyleRule(
-                    "animation-delay",
-                    "0ms",
-                    {
-                      modifier: "svg"
-                    }
-                  );
-                }
-              });
-            });
-          });
-
-          describe("animation-duration", () => {
-            test("should have 3600ms", () => {
-              const { IconContainers } = setup();
-
-              IconContainers.forEach((IconContainer) => {
-                if (
-                  IconContainer.children[0].textContent === "Icon-Chrome.svg"
-                ) {
-                  expect(IconContainer).toHaveStyleRule(
-                    "animation-duration",
-                    "3600ms",
-                    {
-                      modifier: "svg"
-                    }
-                  );
-                }
-              });
-            });
-          });
-
-          describe("animation-iteration-count", () => {
-            test("should have infinite", () => {
-              const { IconContainers } = setup();
-
-              IconContainers.forEach((IconContainer) => {
-                if (
-                  IconContainer.children[0].textContent === "Icon-Chrome.svg"
-                ) {
-                  expect(IconContainer).toHaveStyleRule(
-                    "animation-iteration-count",
-                    "infinite",
-                    {
-                      modifier: "svg"
-                    }
-                  );
-                }
-              });
-            });
-          });
-
-          describe("animation-timing-function", () => {
-            test("should have ease-in-out", () => {
-              const { IconContainers } = setup();
-
-              IconContainers.forEach((IconContainer) => {
-                if (
-                  IconContainer.children[0].textContent === "Icon-Chrome.svg"
-                ) {
-                  expect(IconContainer).toHaveStyleRule(
-                    "animation-timing-function",
-                    "ease-in-out",
-                    {
-                      modifier: "svg"
-                    }
-                  );
-                }
-              });
-            });
-          });
-        });
-
-        describe("if icon is not active", () => {
-          describe("animation-duration, animation-iteration-count, animation-timing-function", () => {
-            test("should not have", () => {
-              const { IconContainers } = setup();
-
-              IconContainers.forEach((IconContainer) => {
-                if (
-                  IconContainer.children[0].textContent !== "Icon-Chrome.svg"
-                ) {
-                  expect(IconContainer).not.toHaveStyleRule(
-                    "animation-delay",
-                    "0ms",
-                    {
-                      modifier: "svg"
-                    }
-                  );
-
-                  expect(IconContainer).not.toHaveStyleRule(
-                    "animation-duration",
-                    "3600ms",
-                    {
-                      modifier: "svg"
-                    }
-                  );
-
-                  expect(IconContainer).not.toHaveStyleRule(
-                    "animation-iteration-count",
-                    "infinite",
-                    {
-                      modifier: "svg"
-                    }
-                  );
-
-                  expect(IconContainer).not.toHaveStyleRule(
-                    "animation-timing-function",
-                    "ease-in-out",
-                    {
-                      modifier: "svg"
-                    }
-                  );
-                }
-              });
-            });
-          });
-        });
-      });
-
       describe("width", () => {
-        test("should have 100%", () => {
+        test("should have 100% if isSafari returns false", () => {
+          const mockisSafari = (isSafari as unknown) as jest.Mock;
+          mockisSafari.mockImplementation(() => false);
+
           const { IconContainers } = setup();
 
           IconContainers.forEach((IconContainer) => {
             expect(IconContainer).toHaveStyleRule("width", "100%");
+          });
+        });
+
+        test("should have 4vh if isSafari returns true", () => {
+          const mockisSafari = (isSafari as unknown) as jest.Mock;
+          mockisSafari.mockImplementation(() => true);
+
+          const { IconContainers } = setup();
+
+          IconContainers.forEach((IconContainer) => {
+            expect(IconContainer).toHaveStyleRule("width", "4vh");
           });
         });
       });

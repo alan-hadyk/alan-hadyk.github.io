@@ -5,6 +5,9 @@ import PoweredBy from "pages/Home/sections/dashboard/elements/PoweredBy";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+jest.mock("helpers/browser/isSafari", () => jest.fn());
+
 describe("pages / Home / sections / dashboard / elements / PoweredBy", () => {
   test("should have correct structure", () => {
     const { DashboardElement, ReactLogo } = setup();

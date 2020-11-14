@@ -5,6 +5,9 @@ import DashboardSectionTablet from "pages/Home/sections/dashboard/DashboardSecti
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+jest.mock("helpers/browser/isSafari", () => jest.fn());
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function mockWithCommitsState(WrappedComponent: React.FunctionComponent<any>) {
   return (props: Record<string, unknown>): JSX.Element => {

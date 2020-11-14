@@ -41,8 +41,8 @@ describe("atoms / Spinner", () => {
     });
 
     describe("border", () => {
-      test("should have 0.75vh solid", () => {
-        expect(SpinnerContainer).toHaveStyleRule("border", "0.75vh solid");
+      test("should have 0.25vh solid", () => {
+        expect(SpinnerContainer).toHaveStyleRule("border", "0.25vh solid");
       });
     });
 

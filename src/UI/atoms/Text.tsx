@@ -34,7 +34,8 @@ const TextContainer = styled.div<TextProps>`
       fontWeights,
       spacing,
       transitionTimes: { fast }
-    }
+    },
+    width
   }): FlattenSimpleInterpolation => css`
     color: ${color in colorPalette && colorPalette[color]};
     font-family: ${fontFamily in fontFamilies && fontFamilies[fontFamily]};
@@ -51,6 +52,7 @@ const TextContainer = styled.div<TextProps>`
     text-align: ${textAlign};
     text-transform: ${textTransform};
     transition: all ${fast} ${easeInOut};
+    width: ${(width in spacing && spacing[width]) || width};
 
     ${ellipsis &&
     `
@@ -98,7 +100,8 @@ function Text(
     shuffleDelay = 0,
     shuffleInterval = parseInt(transitionTimes.verySlow),
     textAlign = "left",
-    textTransform = "none"
+    textTransform = "none",
+    width = "auto"
   }: TextProps,
   ref?: Ref<HTMLDivElement>
 ): JSX.Element {
@@ -142,6 +145,7 @@ function Text(
       ref={ref || textElementRef}
       textAlign={textAlign}
       textTransform={textTransform}
+      width={width}
     >
       {children}
     </TextContainer>

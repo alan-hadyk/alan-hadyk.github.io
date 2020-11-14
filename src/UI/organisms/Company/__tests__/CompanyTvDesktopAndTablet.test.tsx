@@ -7,6 +7,10 @@ import renderWithTheme from "helpers/tests/renderWithTheme";
 
 import { CompanyProps } from "UI/organisms/Company/__typings__/Company";
 
+import isIE11 from "helpers/browser/isIE11";
+
+jest.mock("helpers/browser/isIE11", () => jest.fn());
+
 jest.mock("hooks/useIntersectionObserver");
 
 describe("organisms / CompanyTvDesktopAndTablet", () => {
@@ -117,18 +121,12 @@ describe("organisms / CompanyTvDesktopAndTablet", () => {
         });
       });
 
-      describe("gap", () => {
-        test("should have margin-left: 8.8rem for all children (except first)", () => {
+      describe("margin", () => {
+        test("should have 0 auto", () => {
           const { FlexContainers } = setup();
 
           FlexContainers.forEach((FlexContainer: Element) => {
-            expect(FlexContainer).toHaveStyleRule("margin-left", "8.8rem", {
-              modifier: "& > *"
-            });
-
-            expect(FlexContainer).toHaveStyleRule("margin-left", "0", {
-              modifier: "& > *:first-child"
-            });
+            expect(FlexContainer).toHaveStyleRule("margin", "0 auto");
           });
         });
       });
@@ -154,6 +152,60 @@ describe("organisms / CompanyTvDesktopAndTablet", () => {
           FlexItems.forEach((FlexItem: Element) => {
             expect(FlexItem).toHaveStyleRule("flex", "0 0 50%");
           });
+        });
+      });
+
+      describe("shouldApplyWidth", () => {
+        test("should not have width if isIE11 returns false", () => {
+          const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+          mockisIE11.mockImplementation(() => false);
+
+          const { FlexItems } = setup();
+
+          FlexItems.forEach((FlexItem: Element) => {
+            expect(FlexItem).not.toHaveStyleRule("width", {
+              media: "(-ms-high-contrast: none)"
+            });
+            expect(FlexItem).not.toHaveStyleRule("width", {
+              media: "(-ms-high-contrast: active)"
+            });
+          });
+        });
+
+        test("should have 50% if isIE11 returns true", () => {
+          const mockisIE11 = (isIE11 as unknown) as jest.Mock;
+          mockisIE11.mockImplementation(() => true);
+
+          const { FlexItems } = setup();
+
+          FlexItems.forEach((FlexItem: Element) => {
+            expect(FlexItem).toHaveStyleRule("width", "50%", {
+              media: "(-ms-high-contrast: none)"
+            });
+            expect(FlexItem).toHaveStyleRule("width", "50%", {
+              media: "(-ms-high-contrast: active)"
+            });
+          });
+        });
+      });
+    });
+
+    describe("FlexItems[0]", () => {
+      describe("paddingRight", () => {
+        test("should have 4rem", () => {
+          const { FlexItems } = setup();
+
+          expect(FlexItems[0]).toHaveStyleRule("padding-right", "4rem");
+        });
+      });
+    });
+
+    describe("FlexItems[1]", () => {
+      describe("paddingLeft", () => {
+        test("should have 4rem", () => {
+          const { FlexItems } = setup();
+
+          expect(FlexItems[1]).toHaveStyleRule("padding-left", "4rem");
         });
       });
     });
