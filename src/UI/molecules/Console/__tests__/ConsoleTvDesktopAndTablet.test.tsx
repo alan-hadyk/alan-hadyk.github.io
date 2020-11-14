@@ -228,7 +228,7 @@ describe("molecules / ConsoleTvDesktopAndTablet", () => {
 
             expect(ConsoleTvDesktopAndTabletContainer).toHaveStyleRule(
               "content",
-              "''",
+              "\"\"",
               {
                 media: "(-ms-high-contrast: none)",
                 modifier: "&::after"
@@ -237,7 +237,7 @@ describe("molecules / ConsoleTvDesktopAndTablet", () => {
 
             expect(ConsoleTvDesktopAndTabletContainer).toHaveStyleRule(
               "content",
-              "''",
+              "\"\"",
               {
                 media: "(-ms-high-contrast: active)",
                 modifier: "&::after"

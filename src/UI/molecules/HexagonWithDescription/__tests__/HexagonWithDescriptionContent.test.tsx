@@ -14,16 +14,14 @@ describe("molecules / HexagonWithDescription", () => {
     const {
       DescriptionSpacingContainer,
       FlexContainer,
-      FlexItem,
       Hexagon,
       Text
     } = setup();
 
     expect(FlexContainer.children[0]).toEqual(DescriptionSpacingContainer);
-    expect(FlexContainer.children[1]).toEqual(FlexItem);
     expect(DescriptionSpacingContainer.children[0]).toEqual(Hexagon);
 
-    expect(FlexItem.children[0]).toEqual(Text);
+    expect(FlexContainer.children[1]).toEqual(Text);
   });
 
   describe("FlexContainer", () => {
@@ -101,24 +99,18 @@ describe("molecules / HexagonWithDescription", () => {
       });
 
       describe("width", () => {
+        test("should have 100% by default", () => {
+          const { DescriptionSpacingContainer } = setup();
+
+          expect(DescriptionSpacingContainer).toHaveStyleRule("width", "100%");
+        });
+
         test("should have correct value passed via width prop", () => {
           const { DescriptionSpacingContainer } = setup({
             width: "100px"
           });
 
           expect(DescriptionSpacingContainer).toHaveStyleRule("width", "100px");
-        });
-      });
-    });
-  });
-
-  describe("FlexItem", () => {
-    describe("Props", () => {
-      describe("flex", () => {
-        test("should have 0 1 50%", () => {
-          const { FlexItem } = setup();
-
-          expect(FlexItem).toHaveStyleRule("flex", "0 1 50%");
         });
       });
     });
@@ -134,16 +126,6 @@ describe("molecules / HexagonWithDescription", () => {
       expect(Hexagon.children[1].children[0].textContent).toEqual(
         "Custom image"
       );
-    });
-
-    describe("Props", () => {
-      describe("width", () => {
-        test("should have 100%", () => {
-          const { Hexagon } = setup();
-
-          expect(Hexagon.children[1]).toHaveStyleRule("width", "100%");
-        });
-      });
     });
   });
 
@@ -223,7 +205,6 @@ describe("molecules / HexagonWithDescription", () => {
 interface Setup extends RenderResult {
   DescriptionSpacingContainer: Element;
   FlexContainer: Element;
-  FlexItem: Element;
   Hexagon: Element;
   Text: Element;
 }
@@ -252,7 +233,6 @@ function setup(additionalProps?: HexagonWithDescriptionTestProps): Setup {
   const FlexContainer: Element = queryAllByTestId(
     "HexagonWithDescriptionContent"
   )[0];
-  const FlexItem: Element = queryAllByTestId("FlexItem")[0];
   const Hexagon: Element = queryAllByTestId("Hexagon")[0];
   const Text: Element = queryAllByTestId("Text")[0];
 
@@ -260,7 +240,6 @@ function setup(additionalProps?: HexagonWithDescriptionTestProps): Setup {
     ...utils,
     DescriptionSpacingContainer,
     FlexContainer,
-    FlexItem,
     Hexagon,
     Text
   };
