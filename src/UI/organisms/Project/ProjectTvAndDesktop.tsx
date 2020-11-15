@@ -19,11 +19,7 @@ const ProjectTvAndDesktop = ({
   projectIcon,
   title
 }: ProjectProps): JSX.Element => (
-  <Responsive
-    dataTestDesktopId="ProjectDesktop"
-    dataTestTvId="ProjectTv"
-    devices={["tv", "desktop"]}
-  >
+  <Responsive dataTestId="ProjectTvDesktop" devices={["tv", "desktop"]}>
     <FlexContainer
       alignItems="flex-start"
       dataTestId="ProjectTvAndDesktopFlexContainer"

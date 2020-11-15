@@ -20,7 +20,7 @@ const HexagonWithDescription = ({
     marginRight="auto"
     maxWidth="spacing1056"
   >
-    <Responsive devices={["tv", "desktop"]}>
+    <Responsive dataTestId="ResponsiveTvDesktop" devices={["tv", "desktop"]}>
       <HexagonWithDescriptionContent
         description={description}
         flexFlow="row nowrap"
@@ -32,7 +32,7 @@ const HexagonWithDescription = ({
       </HexagonWithDescriptionContent>
     </Responsive>
 
-    <Responsive devices={["tablet"]}>
+    <Responsive dataTestId="ResponsiveTablet" devices={["tablet"]}>
       <HexagonWithDescriptionContent
         description={description}
         flexFlow="column nowrap"
@@ -44,7 +44,7 @@ const HexagonWithDescription = ({
       </HexagonWithDescriptionContent>
     </Responsive>
 
-    <Responsive devices={["mobile"]}>
+    <Responsive dataTestId="ResponsiveMobile" devices={["mobile"]}>
       <HexagonWithDescriptionContent
         description={description}
         flexFlow="column nowrap"

@@ -43,7 +43,10 @@ function CompanyTvDesktopAndTablet({
   );
 
   return (
-    <Responsive devices={["tv", "desktop", "tablet"]}>
+    <Responsive
+      dataTestId="CompanyTvDesktopTablet"
+      devices={["tv", "desktop", "tablet"]}
+    >
       {renderCompanyTimeline()}
 
       <FlexContainer

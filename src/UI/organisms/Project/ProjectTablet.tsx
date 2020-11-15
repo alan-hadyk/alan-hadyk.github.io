@@ -18,7 +18,7 @@ const ProjectTablet = ({
   projectIcon,
   title
 }: ProjectProps): JSX.Element => (
-  <Responsive dataTestTabletId="ProjectTablet" devices={["tablet"]}>
+  <Responsive dataTestId="ProjectTablet" devices={["tablet"]}>
     <FlexContainer
       dataTestId="ProjectTabletFlexContainer"
       alignItems="center"

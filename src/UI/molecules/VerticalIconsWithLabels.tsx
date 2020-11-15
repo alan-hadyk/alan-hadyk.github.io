@@ -39,11 +39,7 @@ const VerticalIconsWithLabels = ({
             key={iconName + index}
             marginBottom="spacing12"
           >
-            <Icon
-              height={mapSizeToIconHeight[size]}
-              iconName={iconName}
-              isResponsive
-            />
+            <Icon height={mapSizeToIconHeight[size]} iconName={iconName} />
           </SpacingContainer>
         )
       )}

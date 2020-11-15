@@ -276,6 +276,7 @@ function Icon(
     return (
       <IconImage
         alt={iconName}
+        data-testid={dataTestId || "IconImage"}
         heightValue={(height in spacing && spacing[height]) || height}
         overflow={overflow}
         src={`/images/svg/${iconName}.svg`}

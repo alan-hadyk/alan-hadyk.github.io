@@ -21,7 +21,7 @@ const CompanyMobile = ({
   responsibilitiesPaddingBottom,
   title
 }: CompanyProps): JSX.Element => (
-  <Responsive devices={["mobile"]}>
+  <Responsive dataTestId="CompanyMobile" devices={["mobile"]}>
     <FlexContainer
       alignItems="center"
       dataTestId="CompanyMobileFlexContainer"

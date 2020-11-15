@@ -12,19 +12,36 @@ import isIE11 from "helpers/browser/isIE11";
 jest.mock("helpers/browser/isIE11", () => jest.fn());
 
 describe("molecules / IconWithLabel", () => {
-  test("should have correct structure", () => {
+  test("should have correct structure - normal icon", () => {
     const {
       FlexContainer,
       Icon,
       IconContainer,
+      IconImage,
       SpacingContainer,
       Text
-    } = setup();
+    } = setup({
+      iconName: "apollo"
+    });
+
+    expect(IconImage).toBeFalsy();
 
     expect(FlexContainer.children[0]).toEqual(SpacingContainer);
     expect(FlexContainer.children[1]).toEqual(Text);
     expect(SpacingContainer.children[0]).toEqual(IconContainer);
     expect(IconContainer.children[0]).toEqual(Icon);
+  });
+
+  test("should have correct structure - brand icon", () => {
+    const { FlexContainer, Icon, IconImage, SpacingContainer, Text } = setup({
+      iconName: "brandGraphQL"
+    });
+
+    expect(Icon).toBeFalsy();
+
+    expect(FlexContainer.children[0]).toEqual(SpacingContainer);
+    expect(FlexContainer.children[1]).toEqual(Text);
+    expect(SpacingContainer.children[0]).toEqual(IconImage);
   });
 
   describe("FlexContainer", () => {
@@ -100,12 +117,12 @@ describe("molecules / IconWithLabel", () => {
     describe("SVG", () => {
       describe("Props", () => {
         describe("iconName", () => {
-          test("should render correct icon passed via iconName prop", () => {
+          test("should render correct icon passed via iconName prop (normal icon)", () => {
             const { Icon } = setup({
-              iconName: "brandJS"
+              iconName: "firefox"
             });
 
-            expect(Icon.textContent).toEqual("Brand-JS.svg");
+            expect(Icon.textContent).toEqual("Icon-Firefox.svg");
           });
         });
       });
@@ -227,6 +244,7 @@ interface Setup extends RenderResult {
   FlexContainer: Element;
   Icon: SVGSVGElement;
   IconContainer: Element;
+  IconImage: Element;
   SpacingContainer: Element;
   Text: Element;
 }
@@ -235,7 +253,7 @@ type IconWithLabelTestProps = Partial<IconWithLabelProps>;
 
 function setup(additionalProps?: IconWithLabelTestProps): Setup {
   const props: IconWithLabelProps = {
-    iconName: "brandJS",
+    iconName: "firefox",
     label: "/",
     ...additionalProps
   };
@@ -247,6 +265,7 @@ function setup(additionalProps?: IconWithLabelTestProps): Setup {
   const FlexContainer: Element = queryByTestId("IconWithLabel");
   const Icon: SVGSVGElement = document.querySelector("svg");
   const IconContainer: Element = queryByTestId("IconContainer");
+  const IconImage: Element = queryByTestId("IconImage");
   const SpacingContainer: Element = queryByTestId(
     "IconWithLabelSpacingContainer"
   );
@@ -257,6 +276,7 @@ function setup(additionalProps?: IconWithLabelTestProps): Setup {
     FlexContainer,
     Icon,
     IconContainer,
+    IconImage,
     SpacingContainer,
     Text
   };

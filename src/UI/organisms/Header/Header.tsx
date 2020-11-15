@@ -85,7 +85,10 @@ function Header({ zIndex = "layer1" }: HeaderProps): JSX.Element {
           height="spacing48"
           justifyContent="space-between"
         >
-          <Responsive devices={["tv", "desktop", "tablet"]}>
+          <Responsive
+            dataTestId="ResponsiveLinkTvDesktopTablet"
+            devices={["tv", "desktop", "tablet"]}
+          >
             <LinkWithIcon
               dataCy="SiteLogo"
               href="/"
@@ -95,7 +98,7 @@ function Header({ zIndex = "layer1" }: HeaderProps): JSX.Element {
             />
           </Responsive>
 
-          <Responsive devices={["mobile"]}>
+          <Responsive dataTestId="ResponsiveLinkMobile" devices={["mobile"]}>
             <LinkWithIcon
               dataCy="SiteLogoMobile"
               href="/"

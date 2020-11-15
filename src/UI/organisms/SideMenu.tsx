@@ -71,7 +71,10 @@ const SideMenu = ({
       paddingRight="spacing48"
       paddingTop="spacing8"
     >
-      <Responsive devices={["mobile", "tablet"]}>
+      <Responsive
+        dataTestId="ResponsiveMobileTablet"
+        devices={["mobile", "tablet"]}
+      >
         <SpacingContainer
           dataTestId="SideMenuMobileSpacingContainer"
           marginBottom="spacing24"

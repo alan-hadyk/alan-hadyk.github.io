@@ -94,12 +94,6 @@ describe("molecules / FlowChart", () => {
   });
 
   describe("FlowChartIcon", () => {
-    test("should render correct SVG", () => {
-      const { FlowChartIcon } = setup();
-
-      expect(FlowChartIcon.textContent).toEqual("Flux-FlowChart.svg");
-    });
-
     describe("Styles", () => {
       describe("display", () => {
         test("should have block", () => {
@@ -142,6 +136,16 @@ describe("molecules / FlowChart", () => {
           expect(FlowChartIcon.getAttribute("id")).toEqual("flow-chart");
         });
       });
+
+      describe("src", () => {
+        test("should have /images/svg/Flux-FlowChart.svg", () => {
+          const { FlowChartIcon } = setup();
+
+          expect(FlowChartIcon.getAttribute("src")).toEqual(
+            "/images/svg/Flux-FlowChart.svg"
+          );
+        });
+      });
     });
   });
 });
@@ -157,7 +161,7 @@ function setup(): Setup {
 
   const { queryByTestId }: RenderResult = utils;
   const FlexContainer: Element = queryByTestId("FlowChart");
-  const FlowChartIcon: SVGSVGElement = document.querySelector("svg");
+  const FlowChartIcon: SVGSVGElement = document.querySelector("img#flow-chart");
   const SpacingContainer: Element = queryByTestId("FlowChartSpacingContainer");
 
   return {

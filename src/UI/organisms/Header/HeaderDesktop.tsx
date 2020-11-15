@@ -25,7 +25,7 @@ const HeaderDesktop = ({
   onCVButtonClick,
   onClick
 }: HeaderMobileProps): JSX.Element => (
-  <Responsive dataTestDesktopId="HeaderDesktop" devices={["desktop"]}>
+  <Responsive dataTestId="HeaderDesktop" devices={["desktop"]}>
     <FlexContainer
       dataTestId="HeaderDesktopFlexContainer"
       flexFlow="row nowrap"

@@ -52,14 +52,17 @@ function Section({
     >
       {title && (
         <Fragment>
-          <Responsive devices={["tv", "desktop", "tablet"]}>
+          <Responsive
+            dataTestId="ResponsiveTitleTvDesktopTablet"
+            devices={["tv", "desktop", "tablet"]}
+          >
             {renderTitle({
               fontSize: "font72",
               marginBottom: "spacing96"
             })}
           </Responsive>
 
-          <Responsive devices={["mobile"]}>
+          <Responsive dataTestId="ResponsiveTitleMobile" devices={["mobile"]}>
             {renderTitle({
               fontSize: "font48",
               marginBottom: "spacing48"

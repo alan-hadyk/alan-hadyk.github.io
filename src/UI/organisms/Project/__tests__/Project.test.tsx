@@ -15,16 +15,14 @@ describe("organisms / Project", () => {
   test("should have correct structure", () => {
     const {
       ProjectContainer,
-      ProjectDesktop,
       ProjectMobile,
       ProjectTablet,
-      ProjectTv
+      ProjectTvDesktop
     } = setup();
 
-    expect(ProjectContainer.children[0]).toEqual(ProjectTv);
-    expect(ProjectContainer.children[1]).toEqual(ProjectDesktop);
-    expect(ProjectContainer.children[2]).toEqual(ProjectTablet);
-    expect(ProjectContainer.children[3]).toEqual(ProjectMobile);
+    expect(ProjectContainer.children[0]).toEqual(ProjectTvDesktop);
+    expect(ProjectContainer.children[1]).toEqual(ProjectTablet);
+    expect(ProjectContainer.children[2]).toEqual(ProjectMobile);
   });
 
   describe("SpacingContainer", () => {
@@ -93,20 +91,22 @@ describe("organisms / Project", () => {
           });
         });
 
-        test("icons should render correct SVGs", () => {
+        test("icons should render correct images", () => {
           const { IconsWithLabels } = setup({
             iconsWithLabels
           });
 
           IconsWithLabels.forEach((IconWithLabel: Element) => {
             expect(
-              IconWithLabel.children[0].children[0].children[0].children[0]
-                .textContent
-            ).toEqual("Brand-JS.svg");
+              IconWithLabel.children[0].children[0].children[0].getAttribute(
+                "src"
+              )
+            ).toEqual("/images/svg/brandJS.svg");
             expect(
-              IconWithLabel.children[1].children[0].children[0].children[0]
-                .textContent
-            ).toEqual("Brand-React.svg");
+              IconWithLabel.children[1].children[0].children[0].getAttribute(
+                "src"
+              )
+            ).toEqual("/images/svg/brandReact.svg");
           });
         });
 
@@ -160,10 +160,9 @@ interface Setup extends RenderResult {
   IconsWithLabels: Element[];
   ProjectContainer: Element;
   ProjectDescriptions: Element[];
-  ProjectDesktop: Element;
   ProjectMobile: Element;
   ProjectTablet: Element;
-  ProjectTv: Element;
+  ProjectTvDesktop: Element;
 }
 
 type ProjectTestProps = Partial<ProjectProps>;
@@ -198,10 +197,9 @@ function setup(additionalProps?: ProjectTestProps): Setup {
   const IconsWithLabels: Element[] = queryAllByTestId("IconsWithLabels");
   const ProjectContainer: Element = queryAllByTestId("Project")[0];
   const ProjectDescriptions: Element[] = queryAllByTestId("ProjectDescription");
-  const ProjectDesktop: Element = queryAllByTestId("ProjectDesktop")[0];
-  const ProjectTv: Element = queryAllByTestId("ProjectTv")[0];
-  const ProjectTablet: Element = queryAllByTestId("ProjectTablet")[0];
   const ProjectMobile: Element = queryAllByTestId("ProjectMobile")[0];
+  const ProjectTablet: Element = queryAllByTestId("ProjectTablet")[0];
+  const ProjectTvDesktop: Element = queryAllByTestId("ProjectTvDesktop")[0];
 
   return {
     ...utils,
@@ -209,9 +207,8 @@ function setup(additionalProps?: ProjectTestProps): Setup {
     IconsWithLabels,
     ProjectContainer,
     ProjectDescriptions,
-    ProjectDesktop,
     ProjectMobile,
     ProjectTablet,
-    ProjectTv
+    ProjectTvDesktop
   };
 }

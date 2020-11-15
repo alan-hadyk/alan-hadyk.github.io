@@ -76,11 +76,7 @@ Responsive.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]).isRequired,
-  dataTestDesktopId: PropTypes.string,
   dataTestId: PropTypes.string,
-  dataTestMobileId: PropTypes.string,
-  dataTestTabletId: PropTypes.string,
-  dataTestTvId: PropTypes.string,
   devices: PropTypes.arrayOf(
     PropTypes.oneOf(["tv", "desktop", "tablet", "mobile"])
   ).isRequired,
