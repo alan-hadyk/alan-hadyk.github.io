@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-import { iconComponents } from "UI/atoms/Icon";
+import { iconNames } from "UI/atoms/Icon";
 import ProjectDescriptionContent from "UI/organisms/ProjectDescription/ProjectDescriptionContent";
 import ProjectDescriptionButtons from "UI/organisms/ProjectDescription/ProjectDescriptionButtons";
 import ProjectDescriptionTechnologies from "UI/organisms/ProjectDescription/ProjectDescriptionTechnologies";
@@ -36,7 +36,7 @@ ProjectDescription.propTypes = {
   description: PropTypes.string.isRequired,
   iconsWithLabels: PropTypes.arrayOf(
     PropTypes.shape({
-      iconName: PropTypes.oneOf([...Object.keys(iconComponents)]).isRequired,
+      iconName: PropTypes.oneOf(iconNames).isRequired,
       label: PropTypes.string.isRequired,
       labelColor: PropTypes.oneOf([...Object.keys(colorPalette)]),
       size: PropTypes.oneOf(["small", "medium", "large"])

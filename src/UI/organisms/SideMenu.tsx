@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import PropTypes from "prop-types";
-import { transparentize } from "polished";
+import transparentize from "polished/lib/color/transparentize";
 
 import Button from "UI/molecules/Button";
 import MenuIcons from "UI/molecules/MenuIcons";
@@ -95,6 +95,7 @@ const SideMenu = ({
             iconWidth={isIE11() ? `${spacing.spacing24}` : "auto"}
             onClick={onCVButtonClick}
             size="medium"
+            tabIndex={0}
             width="100%"
           />
         </SpacingContainer>

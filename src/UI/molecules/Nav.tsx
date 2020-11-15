@@ -57,6 +57,7 @@ function renderNavItems(activeNavItem: NavItemProps["href"]): JSX.Element[] {
         key={index}
         href={href}
         isActive={activeNavItem === href}
+        tabIndex={0}
         title={title}
       />
     )

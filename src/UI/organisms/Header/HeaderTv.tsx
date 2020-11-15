@@ -38,6 +38,7 @@ const HeaderTv = ({ onCVButtonClick }: HeaderTvProps): JSX.Element => (
         iconWidth={isIE11() ? `${spacing.spacing24}` : "auto"}
         onClick={onCVButtonClick}
         size="medium"
+        tabIndex={5}
       />
 
       <MenuIcons />

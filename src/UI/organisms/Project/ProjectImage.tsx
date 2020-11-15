@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Icon, { iconComponents } from "UI/atoms/Icon";
+import Icon, { iconNames } from "UI/atoms/Icon";
 import Hexagon from "UI/molecules/Hexagon";
 
 import { ProjectImageProps } from "UI/organisms/Project/__typings__/ProjectImage";
@@ -13,7 +13,7 @@ const ProjectImage = ({ projectIcon }: ProjectImageProps): JSX.Element => (
 );
 
 ProjectImage.propTypes = {
-  projectIcon: PropTypes.oneOf([...Object.keys(iconComponents)]).isRequired
+  projectIcon: PropTypes.oneOf(iconNames).isRequired
 };
 
 export default ProjectImage;

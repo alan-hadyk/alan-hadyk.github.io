@@ -47,6 +47,7 @@ const HeaderDesktop = ({
         iconWidth={isIE11() ? `${spacing.spacing24}` : "auto"}
         onClick={onCVButtonClick}
         size="medium"
+        tabIndex={0}
       />
 
       <MenuButton isOpen={isMenuVisible} onClick={onClick} />

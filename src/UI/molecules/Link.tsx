@@ -35,7 +35,9 @@ const linkStyles: FlattenInterpolation<ThemedStyledProps<
     line-height: 1;
     width: ${(width in spacing && spacing[width]) || width};
 
-    &:hover .line {
+    &:hover .line,
+    &:focus .line,
+    &:active .line {
       opacity: 1;
       visibility: visible;
       width: 50%;
@@ -70,12 +72,14 @@ function Link({
 
   return (
     <LinkComponent
+      aria-label={dataCy || dataTestId}
       className={getComponentType()}
       data-cy={dataCy}
       data-testid={dataTestId || getComponentType()}
       display={display}
       height={height}
       href={isExternal ? href : ""}
+      tabIndex={0}
       target={isExternal ? "_blank" : "_self"}
       width={width}
     >

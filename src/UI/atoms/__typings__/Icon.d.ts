@@ -106,59 +106,6 @@ export interface IconProps {
 
 export interface IconComponents {
   apollo: SVGIcon;
-  brandAfterEffects: SVGIcon;
-  brandAirbnb: SVGIcon;
-  brandApollo: SVGIcon;
-  brandBamboo: SVGIcon;
-  brandBasecamp: SVGIcon;
-  brandBuildkite: SVGIcon;
-  brandCSS: SVGIcon;
-  brandCSSModules: SVGIcon;
-  brandCoffeeScript: SVGIcon;
-  brandCorel: SVGIcon;
-  brandCypress: SVGIcon;
-  brandDocker: SVGIcon;
-  brandDocpad: SVGIcon;
-  brandEmber: SVGIcon;
-  brandExpress: SVGIcon;
-  brandFigma: SVGIcon;
-  brandGallery: SVGIcon;
-  brandGithub: SVGIcon;
-  brandGitlab: SVGIcon;
-  brandGraphQL: SVGIcon;
-  brandGrunt: SVGIcon;
-  brandGulp: SVGIcon;
-  brandHTML: SVGIcon;
-  brandJEST: SVGIcon;
-  brandJIRA: SVGIcon;
-  brandJQuery: SVGIcon;
-  brandJS: SVGIcon;
-  brandJenkins: SVGIcon;
-  brandLESS: SVGIcon;
-  brandNode: SVGIcon;
-  brandPhabricator: SVGIcon;
-  brandPhotoshop: SVGIcon;
-  brandPrestaShop: SVGIcon;
-  brandQuire: SVGIcon;
-  brandQunit: SVGIcon;
-  brandREST: SVGIcon;
-  brandRails: SVGIcon;
-  brandReact: SVGIcon;
-  brandRedmine: SVGIcon;
-  brandRedux: SVGIcon;
-  brandRuby: SVGIcon;
-  brandSass: SVGIcon;
-  brandSinatra: SVGIcon;
-  brandSketch: SVGIcon;
-  brandStash: SVGIcon;
-  brandStyledComponents: SVGIcon;
-  brandTS: SVGIcon;
-  brandTaskade: SVGIcon;
-  brandTestingLibrary: SVGIcon;
-  brandTrello: SVGIcon;
-  brandWebpack: SVGIcon;
-  brandWebsocket: SVGIcon;
-  brandZeplin: SVGIcon;
   btnCodeSandbox: SVGIcon;
   btnDownload: SVGIcon;
   btnExternalLink: SVGIcon;
@@ -193,3 +140,14 @@ export interface IconComponents {
 type SVGIcon = FunctionComponent<SVGProps<SVGSVGElement> & { title?: string }>;
 
 export type IconContainerProps = Partial<IconProps>;
+
+export interface IconImageProps {
+  heightValue: IconProps["height"];
+  overflow: IconProps["overflow"];
+  widthValue: IconProps["width"];
+}
+
+export interface IconImageAdditionalProps {
+  height?: number;
+  width?: number;
+}

@@ -15,9 +15,3 @@ export interface ResponsiveProps {
   height?: "auto" | "100%";
   width?: "auto" | "100%";
 }
-
-export interface ResponsiveContainerProps {
-  device: Device;
-  height: ResponsiveProps["height"];
-  width: ResponsiveProps["width"];
-}

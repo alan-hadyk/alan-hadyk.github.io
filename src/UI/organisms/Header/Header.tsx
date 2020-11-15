@@ -1,6 +1,6 @@
 import React, { memo, useState } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
-import { transparentize } from "polished";
+import transparentize from "polished/lib/color/transparentize";
 import PropTypes from "prop-types";
 
 import LinkWithIcon from "UI/molecules/LinkWithIcon";

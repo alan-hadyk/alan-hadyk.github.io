@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
 
-import Icon, { iconComponents } from "UI/atoms/Icon";
+import Icon, { iconNames } from "UI/atoms/Icon";
 import FlexContainer from "UI/layout/FlexContainer";
 
 import { CompanyLogoProps } from "UI/molecules/__typings__/CompanyLogo";
@@ -41,7 +41,7 @@ function CompanyLogo({ logo }: CompanyLogoProps): JSX.Element {
 }
 
 CompanyLogo.propTypes = {
-  logo: PropTypes.oneOf([...Object.keys(iconComponents)]).isRequired
+  logo: PropTypes.oneOf(iconNames).isRequired
 };
 
 export default CompanyLogo;

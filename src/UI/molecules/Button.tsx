@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
-import { transparentize, radialGradient } from "polished";
+import { radialGradient } from "polished";
+import transparentize from "polished/lib/color/transparentize";
 import { isMobile } from "react-device-detect";
 import PropTypes from "prop-types";
 
@@ -89,7 +90,9 @@ const ButtonContainer = styled.button<ButtonContainerProps>`
     user-select: none;
     width: ${width};
 
-    &:hover {
+    &:hover,
+    &:active,
+    &:focus {
       box-shadow: inset 0px 0px ${spacing.spacing16} 0px
         ${transparentize(0.5, blue200)};
     }
@@ -129,6 +132,7 @@ function Button({
   iconWidth,
   onClick,
   size = "medium",
+  tabIndex,
   type = "primary",
   width = "auto"
 }: ButtonProps): JSX.Element {
@@ -146,11 +150,13 @@ function Button({
       {...mapSizeToButtonContainerProps[size]}
       {...mapTypeToButtonContainerProps[type]}
       name={dataCy || "Button"}
+      onKeyUp={handleKeyUp}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseUp={handleButtonClick}
       onTouchMove={handleMouseLeave}
       onTouchStart={handleMouseEnter}
+      tabIndex={tabIndex}
       width={width}
     >
       {!isIE11() && <Corners isActive={isActive} />}
@@ -187,6 +193,15 @@ function Button({
       </ButtonInnerContainer>
     </ButtonContainer>
   );
+
+  function handleKeyUp(event: React.KeyboardEvent<HTMLButtonElement>): void {
+    switch (event?.key) {
+    case "Enter":
+    case "Space":
+      onClick && onClick();
+      break;
+    }
+  }
 
   function handleMouseEnter(): void {
     if (!isElementFocused.current) {

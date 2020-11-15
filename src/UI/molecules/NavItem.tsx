@@ -46,7 +46,12 @@ const NavItemLink = styled.a<NavItemLinkProps>`
   `};
 `;
 
-function NavItem({ href, isActive = false, title }: NavItemProps): JSX.Element {
+function NavItem({
+  href,
+  isActive = false,
+  tabIndex,
+  title
+}: NavItemProps): JSX.Element {
   const [shuffleText, setShuffleText] = useState<ShuffleState | undefined>();
   const navItemElementRef = useRef<HTMLAnchorElement>(null);
 
@@ -58,7 +63,12 @@ function NavItem({ href, isActive = false, title }: NavItemProps): JSX.Element {
   });
 
   return (
-    <PositionContainer dataTestId="NavItem" position="relative">
+    <PositionContainer
+      dataTestId="NavItem"
+      onFocus={handleClick}
+      position="relative"
+      tabIndex={tabIndex}
+    >
       <NavItemLink
         data-cy="NavItemLink"
         data-testid="NavItemLink"

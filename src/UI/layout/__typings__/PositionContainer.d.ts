@@ -7,8 +7,10 @@ export interface PositionContainerProps {
   dataTestId?: string;
   height?: Spacing | string;
   left?: Spacing | string;
+  onFocus?: () => void;
   position?: "static" | "relative" | "fixed" | "sticky" | "absolute";
   right?: Spacing | string;
+  tabIndex?: number;
   top?: Spacing | string;
   transform?: string;
   width?: string | Spacing;
