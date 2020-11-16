@@ -32,92 +32,118 @@ describe("pages / Home / sections / experience / companies / CompanySAP", () => 
             CompanyDescriptions.children[2].children[1].children[0];
 
           expect(
-            IconsWithLabels.children[0].children[0].children[0].textContent
-          ).toEqual("Brand-JS.svg");
+            IconsWithLabels.children[0].children[0].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandJS.svg");
           expect(IconsWithLabels.children[0].children[1].textContent).toEqual(
             "Javascript"
           );
 
           expect(
-            IconsWithLabels.children[1].children[0].children[0].textContent
-          ).toEqual("Brand-CoffeeScript.svg");
+            IconsWithLabels.children[1].children[0].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandCoffeeScript.svg");
           expect(IconsWithLabels.children[1].children[1].textContent).toEqual(
             "CoffeeScript"
           );
 
           expect(
-            IconsWithLabels.children[2].children[0].children[0].textContent
-          ).toEqual("Brand-React.svg");
+            IconsWithLabels.children[2].children[0].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandReact.svg");
           expect(IconsWithLabels.children[2].children[1].textContent).toEqual(
             "React"
           );
 
           expect(
-            IconsWithLabels.children[3].children[0].children[0].textContent
-          ).toEqual("Brand-Redux.svg");
+            IconsWithLabels.children[3].children[0].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandRedux.svg");
           expect(IconsWithLabels.children[3].children[1].textContent).toEqual(
             "Redux"
           );
 
           expect(
-            IconsWithLabels.children[4].children[0].children[0].textContent
-          ).toEqual("Brand-CSSModules.svg");
+            IconsWithLabels.children[4].children[0].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandCSSModules.svg");
           expect(IconsWithLabels.children[4].children[1].textContent).toEqual(
             "CSS Modules"
           );
 
           expect(
-            IconsWithLabels.children[5].children[0].children[0].textContent
-          ).toEqual("Brand-Webpack.svg");
+            IconsWithLabels.children[5].children[0].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandWebpack.svg");
           expect(IconsWithLabels.children[5].children[1].textContent).toEqual(
             "Webpack"
           );
 
           expect(
-            IconsWithLabels.children[6].children[0].children[0].textContent
-          ).toEqual("Brand-Node.svg");
+            IconsWithLabels.children[6].children[0].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandNode.svg");
           expect(IconsWithLabels.children[6].children[1].textContent).toEqual(
             "Node.js"
           );
 
           expect(
-            IconsWithLabels.children[7].children[0].children[0].textContent
-          ).toEqual("Brand-Docpad.svg");
+            IconsWithLabels.children[7].children[0].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandDocpad.svg");
           expect(IconsWithLabels.children[7].children[1].textContent).toEqual(
             "DocPad"
           );
 
           expect(
-            IconsWithLabels.children[8].children[0].children[0].textContent
-          ).toEqual("Brand-JEST.svg");
+            IconsWithLabels.children[8].children[0].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandJEST.svg");
           expect(IconsWithLabels.children[8].children[1].textContent).toEqual(
             "JEST"
           );
 
           expect(
-            IconsWithLabels.children[9].children[0].children[0].textContent
-          ).toEqual("Brand-Airbnb.svg");
+            IconsWithLabels.children[9].children[0].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandAirbnb.svg");
           expect(IconsWithLabels.children[9].children[1].textContent).toEqual(
             "Enzyme"
           );
 
           expect(
-            IconsWithLabels.children[10].children[0].children[0].textContent
-          ).toEqual("Brand-JIRA.svg");
+            IconsWithLabels.children[10].children[0].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandJIRA.svg");
           expect(IconsWithLabels.children[10].children[1].textContent).toEqual(
             "JIRA"
           );
 
           expect(
-            IconsWithLabels.children[11].children[0].children[0].textContent
-          ).toEqual("Brand-Stash.svg");
+            IconsWithLabels.children[11].children[0].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandStash.svg");
           expect(IconsWithLabels.children[11].children[1].textContent).toEqual(
             "Stash"
           );
 
           expect(
-            IconsWithLabels.children[12].children[0].children[0].textContent
-          ).toEqual("Brand-Bamboo.svg");
+            IconsWithLabels.children[12].children[0].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandBamboo.svg");
           expect(IconsWithLabels.children[12].children[1].textContent).toEqual(
             "Bamboo"
           );

@@ -58,118 +58,77 @@ jest.mock("detect-browser", () => ({
 describe("pages / Home / sections / dashboard / DashboardSection / DashboardSectionTvAndDesktop", () => {
   test("should have correct structure", () => {
     const {
-      Codes,
-      Commits,
-      ConsolesTvDesktopAndTablet,
+      Code,
+      Commit,
+      ConsoleTvDesktopAndTablet,
       DashboardSectionInnerContainers,
-      DashboardSectionOuterContainers,
-      Fluxes,
-      Ips,
+      DashboardSectionOuterContainer,
+      DashboardSectionTvAndDesktopContainer,
+      Flux,
+      Ip,
       PoweredBy,
-      DashboardSectionDesktop,
-      DashboardSectionTv,
-      TechStacks,
-      UserAgents
+      TechStack,
+      UserAgent
     } = setup();
 
-    expect(DashboardSectionTv.children[0]).toEqual(
-      DashboardSectionOuterContainers[0]
-    );
-    expect(DashboardSectionDesktop.children[0]).toEqual(
-      DashboardSectionOuterContainers[1]
+    expect(DashboardSectionTvAndDesktopContainer.children[0]).toEqual(
+      DashboardSectionOuterContainer
     );
 
     expect(
-      DashboardSectionOuterContainers[0].children[0].children[0].children[0]
+      DashboardSectionOuterContainer.children[0].children[0].children[0]
     ).toEqual(DashboardSectionInnerContainers[0]);
     expect(
-      DashboardSectionOuterContainers[0].children[0].children[0].children[1]
-    ).toEqual(ConsolesTvDesktopAndTablet[0]);
+      DashboardSectionOuterContainer.children[0].children[0].children[1]
+    ).toEqual(ConsoleTvDesktopAndTablet);
     expect(
-      DashboardSectionOuterContainers[0].children[0].children[0].children[2]
+      DashboardSectionOuterContainer.children[0].children[0].children[2]
     ).toEqual(DashboardSectionInnerContainers[1]);
 
-    expect(
-      DashboardSectionOuterContainers[1].children[0].children[0].children[0]
-    ).toEqual(DashboardSectionInnerContainers[2]);
-    expect(
-      DashboardSectionOuterContainers[1].children[0].children[0].children[1]
-    ).toEqual(ConsolesTvDesktopAndTablet[1]);
-    expect(
-      DashboardSectionOuterContainers[1].children[0].children[0].children[2]
-    ).toEqual(DashboardSectionInnerContainers[3]);
-
     expect(DashboardSectionInnerContainers[0].children[0].children[0]).toEqual(
-      TechStacks[0]
+      TechStack
     );
     expect(DashboardSectionInnerContainers[0].children[0].children[1]).toEqual(
-      Fluxes[0]
+      Flux
     );
     expect(DashboardSectionInnerContainers[0].children[0].children[2]).toEqual(
-      Codes[0]
-    );
-
-    expect(DashboardSectionInnerContainers[2].children[0].children[0]).toEqual(
-      TechStacks[1]
-    );
-    expect(DashboardSectionInnerContainers[2].children[0].children[1]).toEqual(
-      Fluxes[1]
-    );
-    expect(DashboardSectionInnerContainers[2].children[0].children[2]).toEqual(
-      Codes[1]
+      Code
     );
 
     expect(DashboardSectionInnerContainers[1].children[0].children[0]).toEqual(
-      Commits[0]
+      Commit
     );
     expect(DashboardSectionInnerContainers[1].children[0].children[1]).toEqual(
-      PoweredBy[0]
+      PoweredBy
     );
     expect(DashboardSectionInnerContainers[1].children[0].children[2]).toEqual(
-      UserAgents[0]
+      UserAgent
     );
     expect(DashboardSectionInnerContainers[1].children[0].children[3]).toEqual(
-      Ips[0]
-    );
-
-    expect(DashboardSectionInnerContainers[3].children[0].children[0]).toEqual(
-      Commits[1]
-    );
-    expect(DashboardSectionInnerContainers[3].children[0].children[1]).toEqual(
-      PoweredBy[1]
-    );
-    expect(DashboardSectionInnerContainers[3].children[0].children[2]).toEqual(
-      UserAgents[1]
-    );
-    expect(DashboardSectionInnerContainers[3].children[0].children[3]).toEqual(
-      Ips[1]
+      Ip
     );
   });
 
-  describe("DashboardSectionTv", () => {
+  describe("DashboardSectionTvAndDesktop", () => {
     describe("Props", () => {
       describe("devices", () => {
         describe("should have tv", () => {
           test("should have display block when min-width is 1681px", () => {
-            const { DashboardSectionTv } = setup();
+            const { DashboardSectionTvAndDesktopContainer } = setup();
 
-            expect(DashboardSectionTv).toHaveStyleRule("display", "block", {
-              media: "(min-width:1681px)"
-            });
+            expect(DashboardSectionTvAndDesktopContainer).toHaveStyleRule(
+              "display",
+              "block",
+              {
+                media: "(min-width:1681px)"
+              }
+            );
           });
-        });
-      });
-    });
-  });
 
-  describe("DashboardSectionDesktop", () => {
-    describe("Props", () => {
-      describe("devices", () => {
-        describe("should have desktop", () => {
           test("should have display block when min-width is 1281px and max-width is 1680px", () => {
-            const { DashboardSectionDesktop } = setup();
+            const { DashboardSectionTvAndDesktopContainer } = setup();
 
-            expect(DashboardSectionDesktop).toHaveStyleRule(
+            expect(DashboardSectionTvAndDesktopContainer).toHaveStyleRule(
               "display",
               "block",
               {
@@ -183,17 +142,13 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
   });
 
   describe("DashboardSectionInnerContainers", () => {
-    describe("DashboardSectionInnerContainer[0] and [2]", () => {
+    describe("DashboardSectionInnerContainer[0]", () => {
       describe("Props", () => {
         describe("height", () => {
           test("should have calc(17vh + 3.6rem)", () => {
             const { DashboardSectionInnerContainers } = setup();
 
             expect(DashboardSectionInnerContainers[0]).toHaveStyleRule(
-              "height",
-              "calc(17vh + 3.6rem)"
-            );
-            expect(DashboardSectionInnerContainers[2]).toHaveStyleRule(
               "height",
               "calc(17vh + 3.6rem)"
             );
@@ -208,26 +163,18 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
               "margin-top",
               "2.22vh"
             );
-            expect(DashboardSectionInnerContainers[2]).toHaveStyleRule(
-              "margin-top",
-              "2.22vh"
-            );
           });
         });
       });
     });
 
-    describe("DashboardSectionInnerContainer[1] and [3]", () => {
+    describe("DashboardSectionInnerContainer[1]", () => {
       describe("Props", () => {
         describe("height", () => {
           test("should have calc(22.6vh + 3.6rem)", () => {
             const { DashboardSectionInnerContainers } = setup();
 
             expect(DashboardSectionInnerContainers[1]).toHaveStyleRule(
-              "height",
-              "calc(22.6vh + 3.6rem)"
-            );
-            expect(DashboardSectionInnerContainers[3]).toHaveStyleRule(
               "height",
               "calc(22.6vh + 3.6rem)"
             );
@@ -242,10 +189,6 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
               "margin-bottom",
               "2.22vh"
             );
-            expect(DashboardSectionInnerContainers[3]).toHaveStyleRule(
-              "margin-bottom",
-              "2.22vh"
-            );
           });
         });
       });
@@ -254,18 +197,17 @@ describe("pages / Home / sections / dashboard / DashboardSection / DashboardSect
 });
 
 interface Setup extends RenderResult {
-  Codes: Element[];
-  Commits: Element[];
-  ConsolesTvDesktopAndTablet: Element[];
-  DashboardSectionDesktop: Element;
+  Code: Element;
+  Commit: Element;
+  ConsoleTvDesktopAndTablet: Element;
   DashboardSectionInnerContainers: Element[];
-  DashboardSectionOuterContainers: Element[];
-  DashboardSectionTv: Element;
-  Fluxes: Element[];
-  Ips: Element[];
-  PoweredBy: Element[];
-  TechStacks: Element[];
-  UserAgents: Element[];
+  DashboardSectionOuterContainer: Element;
+  DashboardSectionTvAndDesktopContainer: Element;
+  Flux: Element;
+  Ip: Element;
+  PoweredBy: Element;
+  TechStack: Element;
+  UserAgent: Element;
 }
 
 function setup(): Setup {
@@ -273,40 +215,38 @@ function setup(): Setup {
 
   const { queryAllByTestId }: RenderResult = utils;
 
-  const Codes: Element[] = queryAllByTestId("Code");
-  const Commits: Element[] = queryAllByTestId("Commits");
-  const ConsolesTvDesktopAndTablet: Element[] = queryAllByTestId(
+  const Code: Element = queryAllByTestId("Code")[0];
+  const Commit: Element = queryAllByTestId("Commits")[0];
+  const ConsoleTvDesktopAndTablet: Element = queryAllByTestId(
     "ConsoleTvDesktopAndTabletOuterPositionContainer"
-  );
-  const DashboardSectionDesktop: Element = queryAllByTestId(
-    "DashboardSectionDesktop"
   )[0];
   const DashboardSectionInnerContainers: Element[] = queryAllByTestId(
     "DashboardSectionInnerContainer"
   );
-  const DashboardSectionOuterContainers: Element[] = queryAllByTestId(
+  const DashboardSectionOuterContainer: Element = queryAllByTestId(
     "DashboardSectionOuterContainer"
-  );
-  const DashboardSectionTv: Element = queryAllByTestId("DashboardSectionTv")[0];
-  const Fluxes: Element[] = queryAllByTestId("Flux");
-  const Ips: Element[] = queryAllByTestId("IP");
-  const PoweredBy: Element[] = queryAllByTestId("PoweredBy");
-  const TechStacks: Element[] = queryAllByTestId("TechStack");
-  const UserAgents: Element[] = queryAllByTestId("UserAgent");
+  )[0];
+  const DashboardSectionTvAndDesktopContainer: Element = queryAllByTestId(
+    "DashboardSectionTvAndDesktop"
+  )[0];
+  const Flux: Element = queryAllByTestId("Flux")[0];
+  const Ip: Element = queryAllByTestId("IP")[0];
+  const PoweredBy: Element = queryAllByTestId("PoweredBy")[0];
+  const TechStack: Element = queryAllByTestId("TechStack")[0];
+  const UserAgent: Element = queryAllByTestId("UserAgent")[0];
 
   return {
     ...utils,
-    Codes,
-    Commits,
-    ConsolesTvDesktopAndTablet,
-    DashboardSectionDesktop,
+    Code,
+    Commit,
+    ConsoleTvDesktopAndTablet,
     DashboardSectionInnerContainers,
-    DashboardSectionOuterContainers,
-    DashboardSectionTv,
-    Fluxes,
-    Ips,
+    DashboardSectionOuterContainer,
+    DashboardSectionTvAndDesktopContainer,
+    Flux,
+    Ip,
     PoweredBy,
-    TechStacks,
-    UserAgents
+    TechStack,
+    UserAgent
   };
 }

@@ -57,8 +57,8 @@ describe("styles / globalStyle", () => {
       }
 
       img {
-        max-width: 100%;
         display: block;
+        max-width: 100%;
       }
 
       a {

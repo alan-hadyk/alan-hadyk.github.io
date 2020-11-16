@@ -11,10 +11,9 @@ describe("pages / Home / sections / experience / companies / CompanyPersonallyEm
   describe("Props", () => {
     describe("companyMobilePaddingBottom", () => {
       test("should have 0", () => {
-        const { ResponsibilitiesSpacingContainers, debug } = setup();
-        debug(ResponsibilitiesSpacingContainers[3]);
+        const { ResponsibilitiesSpacingContainers } = setup();
 
-        expect(ResponsibilitiesSpacingContainers[3]).toHaveStyleRule(
+        expect(ResponsibilitiesSpacingContainers[1]).toHaveStyleRule(
           "padding-bottom",
           "0"
         );
