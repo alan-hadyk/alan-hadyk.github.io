@@ -6,7 +6,7 @@ import Responsive from "UI/layout/Responsive";
 import SpacingContainer from "UI/layout/SpacingContainer";
 
 const DashboardSectionMobile = (): JSX.Element => (
-  <Responsive dataTestMobileId="DashboardSectionMobile" devices={["mobile"]}>
+  <Responsive dataTestId="DashboardSectionMobile" devices={["mobile"]}>
     <SpacingContainer
       dataTestId="DashboardSectionSpacingContainer"
       paddingTop="spacing96"

@@ -358,12 +358,20 @@ describe("organisms / CompanyDescription", () => {
       }
     ];
 
-    test("there should be correct number of icons", () => {
+    test("there should be correct number of icons - normal icon", () => {
       const { Icons } = setup({
         iconsWithLabels
       });
 
-      expect(Icons.length).toEqual(3);
+      expect(Icons.length).toEqual(2);
+    });
+
+    test("there should be correct number of icons - image", () => {
+      const { IconImages } = setup({
+        iconsWithLabels
+      });
+
+      expect(IconImages.length).toEqual(1);
     });
 
     test("icons should render correct SVGs passed via iconsWithLabels.iconName prop", () => {
@@ -371,8 +379,17 @@ describe("organisms / CompanyDescription", () => {
         iconsWithLabels
       });
 
-      expect(Icons[1].textContent).toEqual("Brand-Webpack.svg");
-      expect(Icons[2].textContent).toEqual("Icon-Node.svg");
+      expect(Icons[1].textContent).toEqual("Icon-Node.svg");
+    });
+
+    test("icons should render correct img passed via iconsWithLabels.iconName prop", () => {
+      const { IconImages } = setup({
+        iconsWithLabels
+      });
+
+      expect(IconImages[0].getAttribute("src")).toEqual(
+        "/images/svg/brandWebpack.svg"
+      );
     });
 
     test("should have correct content passed via iconsWithLabels.label prop", () => {
@@ -612,6 +629,7 @@ interface Setup extends RenderResult {
   CompanyDescriptionContainer: Element;
   DateIconWithLabel: Element;
   DateSpacingContainer: Element;
+  IconImages: Element[];
   Icons: Element[];
   IconsWithLabels: Element;
   IconsWithLabelsSpacingContainers: Element[];
@@ -665,6 +683,7 @@ function setup(additionalProps?: CompanyDescriptionTestProps): Setup {
   const DateSpacingContainer: Element = queryAllByTestId(
     "DateSpacingContainer"
   )[0];
+  const IconImages: Element[] = queryAllByTestId("IconImage");
   const Icons: Element[] = queryAllByTestId("IconContainer");
   const IconsWithLabels: Element = queryAllByTestId("IconsWithLabels")[0];
   const IconsWithLabelsSpacingContainers: Element[] = queryAllByTestId(
@@ -694,6 +713,7 @@ function setup(additionalProps?: CompanyDescriptionTestProps): Setup {
     CompanyDescriptionContainer,
     DateIconWithLabel,
     DateSpacingContainer,
+    IconImages,
     Icons,
     IconsWithLabels,
     IconsWithLabelsSpacingContainers,

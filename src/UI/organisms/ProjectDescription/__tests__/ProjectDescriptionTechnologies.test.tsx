@@ -126,20 +126,25 @@ describe("organisms / ProjectDescriptionTechnologies", () => {
     ];
 
     test("there should be correct number of icons", () => {
-      const { Icons } = setup({
+      const { IconImages } = setup({
         iconsWithLabels
       });
 
-      expect(Icons.length).toEqual(2);
+      expect(IconImages.length).toEqual(2);
     });
 
     test("icons should render correct SVGs", () => {
-      const { Icons } = setup({
+      const { IconImages } = setup({
         iconsWithLabels
       });
 
-      expect(Icons[0].textContent).toEqual("Brand-JS.svg");
-      expect(Icons[1].textContent).toEqual("Brand-React.svg");
+      expect(IconImages[0].getAttribute("src")).toEqual(
+        "/images/svg/brandJS.svg"
+      );
+
+      expect(IconImages[1].getAttribute("src")).toEqual(
+        "/images/svg/brandReact.svg"
+      );
     });
 
     test("should have correct content passed via label prop", () => {
@@ -225,8 +230,8 @@ describe("organisms / ProjectDescriptionTechnologies", () => {
 
 interface Setup extends RenderResult {
   IconContainers: Element[];
+  IconImages: Element[];
   IconWithLabelSpacingContainers: Element[];
-  Icons: NodeListOf<SVGSVGElement>;
   IconsWithLabels: Element;
   LabelTexts: Element[];
   ProjectDescriptionTechnologiesContainer: Element;
@@ -264,10 +269,10 @@ function setup(
   const { queryAllByTestId } = utils || {};
 
   const IconContainers: Element[] = queryAllByTestId("IconContainer");
+  const IconImages: Element[] = queryAllByTestId("IconImage");
   const IconWithLabelSpacingContainers: Element[] = queryAllByTestId(
     "IconWithLabelSpacingContainers"
   );
-  const Icons: NodeListOf<SVGSVGElement> = document.querySelectorAll("svg");
   const IconsWithLabels: Element = queryAllByTestId("IconsWithLabels")[0];
   const LabelTexts: Element[] = queryAllByTestId("LabelText");
   const ProjectDescriptionTechnologiesContainer: Element = queryAllByTestId(
@@ -281,8 +286,8 @@ function setup(
   return {
     ...utils,
     IconContainers,
+    IconImages,
     IconWithLabelSpacingContainers,
-    Icons,
     IconsWithLabels,
     LabelTexts,
     ProjectDescriptionTechnologiesContainer,

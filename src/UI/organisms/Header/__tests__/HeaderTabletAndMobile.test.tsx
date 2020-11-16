@@ -15,79 +15,64 @@ describe("organisms / HeaderTabletAndMobileProps", () => {
   test("should have correct structure if isMenuVisible is true", () => {
     const {
       Backdrop,
-      MenuButtons,
-      HeaderMobileContainer,
-      HeaderTabletContainer,
-      SideMenus
+      MenuButton,
+      HeaderTabletMobileContainer,
+      SideMenu
     } = setup({
       isMenuVisible: true
     });
 
-    expect(HeaderMobileContainer.children[0]).toEqual(MenuButtons[0]);
-    expect(HeaderMobileContainer.children[1]).toEqual(Backdrop[0]);
-    expect(HeaderMobileContainer.children[2]).toEqual(SideMenus[0]);
-
-    expect(HeaderTabletContainer.children[0]).toEqual(MenuButtons[1]);
-    expect(HeaderTabletContainer.children[1]).toEqual(Backdrop[1]);
-    expect(HeaderTabletContainer.children[2]).toEqual(SideMenus[1]);
+    expect(HeaderTabletMobileContainer.children[0]).toEqual(MenuButton);
+    expect(HeaderTabletMobileContainer.children[1]).toEqual(Backdrop);
+    expect(HeaderTabletMobileContainer.children[2]).toEqual(SideMenu);
   });
 
   test("should have correct structure if isMenuVisible is false", () => {
-    const {
-      MenuButtons,
-      HeaderMobileContainer,
-      HeaderTabletContainer,
-      SideMenus
-    } = setup({
+    const { MenuButton, HeaderTabletMobileContainer, SideMenu } = setup({
       isMenuVisible: false
     });
 
-    expect(HeaderMobileContainer.children[0]).toEqual(MenuButtons[0]);
-    expect(HeaderMobileContainer.children[1]).toEqual(SideMenus[0]);
-
-    expect(HeaderTabletContainer.children[0]).toEqual(MenuButtons[1]);
-    expect(HeaderTabletContainer.children[1]).toEqual(SideMenus[1]);
+    expect(HeaderTabletMobileContainer.children[0]).toEqual(MenuButton);
+    expect(HeaderTabletMobileContainer.children[1]).toEqual(SideMenu);
   });
 
-  describe("HeaderMobile", () => {
+  describe("HeaderTabletMobileContainer", () => {
     describe("Props", () => {
       describe("devices", () => {
-        describe("should have mobile", () => {
+        describe("should have tablet, mobile", () => {
           test("should have display block when max-width is 640px", () => {
-            const { HeaderMobileContainer } = setup();
+            const { HeaderTabletMobileContainer } = setup();
 
-            expect(HeaderMobileContainer).toHaveStyleRule("display", "block", {
-              media: "(max-width:640px)"
-            });
+            expect(HeaderTabletMobileContainer).toHaveStyleRule(
+              "display",
+              "block",
+              {
+                media: "(max-width:640px)"
+              }
+            );
+          });
+
+          test("should have display block when min-width is 641px max-width is 1280px", () => {
+            const { HeaderTabletMobileContainer } = setup();
+
+            expect(HeaderTabletMobileContainer).toHaveStyleRule(
+              "display",
+              "block",
+              {
+                media: "(min-width: 641px) and (max-width:1280px)"
+              }
+            );
           });
         });
       });
     });
   });
 
-  describe("HeaderTablet", () => {
-    describe("Props", () => {
-      describe("devices", () => {
-        describe("should have tablet", () => {
-          test("should have display block when min-width is 641px and max-width is 1280px", () => {
-            const { HeaderTabletContainer } = setup();
-
-            expect(HeaderTabletContainer).toHaveStyleRule("display", "block", {
-              media: "(min-width:641px) and (max-width:1280px)"
-            });
-          });
-        });
-      });
-    });
-  });
-
-  describe("MenuButtons", () => {
+  describe("MenuButton", () => {
     test("should render", () => {
-      const { MenuButtons } = setup();
+      const { MenuButton } = setup();
 
-      MenuButtons.forEach((_MenuButtons: Element) => {
-        expect(_MenuButtons).toBeTruthy();
-      });
+      expect(MenuButton).toBeTruthy();
     });
 
     describe("Props", () => {
@@ -281,19 +266,17 @@ describe("organisms / HeaderTabletAndMobileProps", () => {
         test("should fire click", () => {
           const onClick = jest.fn();
 
-          const { MenuButtons } = setup({
+          const { MenuButton } = setup({
             onClick
           });
 
           expect(onClick).toHaveBeenCalledTimes(0);
 
-          MenuButtons.forEach((_MenuButton: Element) => {
-            act(() => {
-              fireEvent.click(_MenuButton);
-            });
+          act(() => {
+            fireEvent.click(MenuButton);
           });
 
-          expect(onClick).toHaveBeenCalledTimes(2);
+          expect(onClick).toHaveBeenCalledTimes(1);
         });
       });
     });
@@ -305,9 +288,7 @@ describe("organisms / HeaderTabletAndMobileProps", () => {
         isMenuVisible: true
       });
 
-      Backdrop.forEach((_Backdrop: Element) => {
-        expect(_Backdrop).toBeTruthy();
-      });
+      expect(Backdrop).toBeTruthy();
     });
 
     test("should not render if isMenuVisible is false", () => {
@@ -315,9 +296,7 @@ describe("organisms / HeaderTabletAndMobileProps", () => {
         isMenuVisible: false
       });
 
-      Backdrop.forEach((_Backdrop: Element) => {
-        expect(_Backdrop).toBeFalsy();
-      });
+      expect(Backdrop).toBeFalsy();
     });
 
     describe("Props", () => {
@@ -332,13 +311,11 @@ describe("organisms / HeaderTabletAndMobileProps", () => {
 
           expect(onClick).toHaveBeenCalledTimes(0);
 
-          Backdrop.forEach((_Backdrop: Element) => {
-            act(() => {
-              fireEvent.click(_Backdrop);
-            });
+          act(() => {
+            fireEvent.click(Backdrop);
           });
 
-          expect(onClick).toHaveBeenCalledTimes(2);
+          expect(onClick).toHaveBeenCalledTimes(1);
         });
       });
     });
@@ -349,26 +326,19 @@ describe("organisms / HeaderTabletAndMobileProps", () => {
       describe("isExpanded", () => {
         describe("transform", () => {
           test("should have translateX(0) if isMenuVisible is true", () => {
-            const { SideMenus } = setup({
+            const { SideMenu } = setup({
               isMenuVisible: true
             });
 
-            SideMenus.forEach((_SideMenu: Element) => {
-              expect(_SideMenu).toHaveStyleRule("transform", "translateX(0)");
-            });
+            expect(SideMenu).toHaveStyleRule("transform", "translateX(0)");
           });
 
           test("should have translateX(100%) if isMenuVisible is false", () => {
-            const { SideMenus } = setup({
+            const { SideMenu } = setup({
               isMenuVisible: false
             });
 
-            SideMenus.forEach((_SideMenu: Element) => {
-              expect(_SideMenu).toHaveStyleRule(
-                "transform",
-                "translateX(100%)"
-              );
-            });
+            expect(SideMenu).toHaveStyleRule("transform", "translateX(100%)");
           });
         });
       });
@@ -379,21 +349,15 @@ describe("organisms / HeaderTabletAndMobileProps", () => {
         test("should fire onCVButtonClick", () => {
           const onCVButtonClick = jest.fn();
 
-          const { Buttons } = setup({ onCVButtonClick });
+          const { Button } = setup({ onCVButtonClick });
 
           expect(onCVButtonClick).toHaveBeenCalledTimes(0);
 
           act(() => {
-            fireEvent.mouseUp(Buttons[0]);
+            fireEvent.mouseUp(Button);
           });
 
           expect(onCVButtonClick).toHaveBeenCalledTimes(1);
-
-          act(() => {
-            fireEvent.mouseUp(Buttons[1]);
-          });
-
-          expect(onCVButtonClick).toHaveBeenCalledTimes(2);
         });
       });
     });
@@ -401,13 +365,12 @@ describe("organisms / HeaderTabletAndMobileProps", () => {
 });
 
 interface Setup extends RenderResult {
-  Backdrop: Element[];
-  Buttons: Element[];
-  HeaderMobileContainer: Element;
-  HeaderTabletContainer: Element;
+  Backdrop: Element;
+  Button: Element;
+  HeaderTabletMobileContainer: Element;
+  MenuButton: Element;
   MenuButtonLines: Element[];
-  MenuButtons: Element[];
-  SideMenus: Element[];
+  SideMenu: Element;
 }
 
 type HeaderMobileTestProps = Partial<HeaderMobileProps>;
@@ -426,22 +389,22 @@ function setup(additionalProps?: HeaderMobileTestProps): Setup {
 
   const { queryAllByTestId, queryByTestId } = utils || {};
 
-  const Backdrop: Element[] = queryAllByTestId("Backdrop");
-  const Buttons: Element[] = queryAllByTestId("Button");
-  const HeaderMobileContainer: Element = queryByTestId("HeaderMobile");
-  const HeaderTabletContainer: Element = queryByTestId("HeaderTablet");
+  const Backdrop: Element = queryAllByTestId("Backdrop")[0];
+  const Button: Element = queryAllByTestId("Button")[0];
+  const HeaderTabletMobileContainer: Element = queryByTestId(
+    "HeaderTabletMobile"
+  );
+  const MenuButton: Element = queryAllByTestId("MenuButtonContainer")[0];
   const MenuButtonLines: Element[] = queryAllByTestId("MenuButtonLine");
-  const MenuButtons: Element[] = queryAllByTestId("MenuButtonContainer");
-  const SideMenus: Element[] = queryAllByTestId("SideMenu");
+  const SideMenu: Element = queryAllByTestId("SideMenu")[0];
 
   return {
     ...utils,
     Backdrop,
-    Buttons,
-    HeaderMobileContainer,
-    HeaderTabletContainer,
+    Button,
+    HeaderTabletMobileContainer,
+    MenuButton,
     MenuButtonLines,
-    MenuButtons,
-    SideMenus
+    SideMenu
   };
 }

@@ -11,7 +11,8 @@ describe("pages / Home / sections / experience / companies / CompanyPersonallyEm
   describe("Props", () => {
     describe("companyMobilePaddingBottom", () => {
       test("should have 0", () => {
-        const { ResponsibilitiesSpacingContainers } = setup();
+        const { ResponsibilitiesSpacingContainers, debug } = setup();
+        debug(ResponsibilitiesSpacingContainers[3]);
 
         expect(ResponsibilitiesSpacingContainers[3]).toHaveStyleRule(
           "padding-bottom",
@@ -43,15 +44,19 @@ describe("pages / Home / sections / experience / companies / CompanyPersonallyEm
             CompanyDescriptions.children[2].children[1].children[0];
 
           expect(
-            IconsWithLabels.children[0].children[0].children[0].textContent
-          ).toEqual("Brand-JS.svg");
+            IconsWithLabels.children[0].children[0].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandJS.svg");
           expect(IconsWithLabels.children[0].children[1].textContent).toEqual(
             "Javascript"
           );
 
           expect(
-            IconsWithLabels.children[1].children[0].children[0].textContent
-          ).toEqual("Brand-jQuery.svg");
+            IconsWithLabels.children[1].children[0].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandJQuery.svg");
           expect(IconsWithLabels.children[1].children[1].textContent).toEqual(
             "jQuery"
           );

@@ -129,13 +129,15 @@ describe("organisms / ProjectMobile", () => {
           });
 
           expect(
-            IconsWithLabels.children[0].children[0].children[0].children[0]
-              .textContent
-          ).toEqual("Brand-JS.svg");
+            IconsWithLabels.children[0].children[0].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandJS.svg");
           expect(
-            IconsWithLabels.children[1].children[0].children[0].children[0]
-              .textContent
-          ).toEqual("Brand-React.svg");
+            IconsWithLabels.children[1].children[0].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandReact.svg");
         });
 
         test("should have correct content passed via label prop", () => {
