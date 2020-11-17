@@ -238,7 +238,7 @@ describe("molecules / Link", () => {
 
             expect(ExternalLink).toHaveStyleRule(
               "filter",
-              "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))",
+              "drop-shadow( 0px 0px .4rem rgba(255,255,255,0.5) )",
               {
                 modifier: "&:focus svg"
               }
@@ -246,7 +246,7 @@ describe("molecules / Link", () => {
 
             expect(ExternalLink).toHaveStyleRule(
               "filter",
-              "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))",
+              "drop-shadow( 0px 0px .4rem rgba(255,255,255,0.5) )",
               {
                 modifier: "&:active svg"
               }
@@ -503,7 +503,7 @@ describe("molecules / Link", () => {
 
             expect(RouterLink).toHaveStyleRule(
               "filter",
-              "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))",
+              "drop-shadow( 0px 0px .4rem rgba(255,255,255,0.5) )",
               {
                 modifier: "&:focus svg"
               }
@@ -511,7 +511,7 @@ describe("molecules / Link", () => {
 
             expect(RouterLink).toHaveStyleRule(
               "filter",
-              "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))",
+              "drop-shadow( 0px 0px .4rem rgba(255,255,255,0.5) )",
               {
                 modifier: "&:active svg"
               }

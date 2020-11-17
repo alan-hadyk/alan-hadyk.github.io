@@ -270,9 +270,7 @@ describe("organisms / Header", () => {
           test("should have correct value", () => {
             const { LinksWithIcons } = setup();
 
-            expect(LinksWithIcons[0].children[0].getAttribute("href")).toEqual(
-              "/"
-            );
+            expect(LinksWithIcons[0].getAttribute("href")).toEqual("/");
           });
         });
 
@@ -308,9 +306,7 @@ describe("organisms / Header", () => {
           test("should have correct value", () => {
             const { LinksWithIcons } = setup();
 
-            expect(LinksWithIcons[1].children[0].getAttribute("href")).toEqual(
-              "/"
-            );
+            expect(LinksWithIcons[1].getAttribute("href")).toEqual("/");
           });
         });
 

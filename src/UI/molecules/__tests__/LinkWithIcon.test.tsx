@@ -15,7 +15,7 @@ describe("molecules / LinkWithIcon", () => {
       isExternal: false
     });
 
-    expect(Link.children[0].children[0]).toEqual(IconContainer);
+    expect(Link.children[0]).toEqual(IconContainer);
   });
 
   test("should have correct structure - isExternal: true", () => {
