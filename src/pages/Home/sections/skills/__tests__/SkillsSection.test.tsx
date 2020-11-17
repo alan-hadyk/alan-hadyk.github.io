@@ -349,14 +349,16 @@ describe("pages / Home / sections / skills / SkillsSection", () => {
           ).toEqual("/images/svg/brandBamboo.svg");
 
           expect(
-            VerticalIconsWithLabels[7].children[0].children[3].children[0]
-              .children[0].textContent
-          ).toEqual("Icon-GitHub.svg");
+            VerticalIconsWithLabels[7].children[0].children[3].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandGithub.svg");
 
           expect(
-            VerticalIconsWithLabels[7].children[0].children[4].children[0]
-              .children[0].textContent
-          ).toEqual("Icon-GitHub.svg");
+            VerticalIconsWithLabels[7].children[0].children[4].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandGithub.svg");
 
           expect(
             VerticalIconsWithLabels[7].children[0].children[5].children[0].getAttribute(
