@@ -13,7 +13,7 @@ describe("pages / Home / sections / dashboard / elements / Flux", () => {
 
     expect(
       DashboardElement.children[1].children[0].children[4].children[0]
-        .children[0]
+        .children[0].children[0].children[0]
     ).toEqual(FlowChart);
   });
 

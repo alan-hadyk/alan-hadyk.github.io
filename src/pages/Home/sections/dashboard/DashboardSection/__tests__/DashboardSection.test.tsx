@@ -58,17 +58,15 @@ jest.mock("detect-browser", () => ({
 describe("pages / Home / sections / dashboard / DashboardSection", () => {
   test("should have correct structure", () => {
     const {
-      DashboardSectionDesktop,
       DashboardSectionMobile,
       DashboardSectionTablet,
-      DashboardSectionTv,
+      DashboardSectionTvAndDesktop,
       Section
     } = setup();
 
-    expect(Section.children[0]).toEqual(DashboardSectionTv);
-    expect(Section.children[1]).toEqual(DashboardSectionDesktop);
-    expect(Section.children[2]).toEqual(DashboardSectionTablet);
-    expect(Section.children[3]).toEqual(DashboardSectionMobile);
+    expect(Section.children[0]).toEqual(DashboardSectionTvAndDesktop);
+    expect(Section.children[1]).toEqual(DashboardSectionTablet);
+    expect(Section.children[2]).toEqual(DashboardSectionMobile);
   });
 
   describe("Section", () => {
@@ -93,10 +91,9 @@ describe("pages / Home / sections / dashboard / DashboardSection", () => {
 });
 
 interface Setup extends RenderResult {
-  DashboardSectionDesktop: Element;
   DashboardSectionMobile: Element;
   DashboardSectionTablet: Element;
-  DashboardSectionTv: Element;
+  DashboardSectionTvAndDesktop: Element;
   Section: Element;
 }
 
@@ -105,24 +102,22 @@ function setup(): Setup {
 
   const { queryByTestId, queryAllByTestId }: RenderResult = utils;
 
-  const DashboardSectionDesktop: Element = queryAllByTestId(
-    "DashboardSectionDesktop"
-  )[0];
   const DashboardSectionMobile: Element = queryAllByTestId(
     "DashboardSectionMobile"
   )[0];
   const DashboardSectionTablet: Element = queryAllByTestId(
     "DashboardSectionTablet"
   )[0];
-  const DashboardSectionTv: Element = queryAllByTestId("DashboardSectionTv")[0];
+  const DashboardSectionTvAndDesktop: Element = queryAllByTestId(
+    "DashboardSectionTvAndDesktop"
+  )[0];
   const Section: Element = queryByTestId("DashboardSection");
 
   return {
     ...utils,
-    DashboardSectionDesktop,
     DashboardSectionMobile,
     DashboardSectionTablet,
-    DashboardSectionTv,
+    DashboardSectionTvAndDesktop,
     Section
   };
 }
