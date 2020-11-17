@@ -231,7 +231,7 @@ describe("molecules / Button", () => {
         });
       });
 
-      describe(":hover", () => {
+      describe(":hover, :active, :focus", () => {
         describe("box-shadow", () => {
           test("should have inset 0px 0px 1.6rem 0px rgba(103,210,223,0.5)", () => {
             const { ButtonContainer } = setup();
@@ -241,6 +241,22 @@ describe("molecules / Button", () => {
               "inset 0px 0px 1.6rem 0px rgba(103,210,223,0.5)",
               {
                 modifier: ":hover"
+              }
+            );
+
+            expect(ButtonContainer).toHaveStyleRule(
+              "box-shadow",
+              "inset 0px 0px 1.6rem 0px rgba(103,210,223,0.5)",
+              {
+                modifier: ":active"
+              }
+            );
+
+            expect(ButtonContainer).toHaveStyleRule(
+              "box-shadow",
+              "inset 0px 0px 1.6rem 0px rgba(103,210,223,0.5)",
+              {
+                modifier: ":focus"
               }
             );
           });
@@ -478,6 +494,105 @@ describe("molecules / Button", () => {
         });
 
         expect(onClick).toHaveBeenCalledTimes(1);
+      });
+
+      describe("onKeyUp", () => {
+        test("should fire onClick when Enter or Space key is pressed", () => {
+          const onClick = jest.fn();
+          const { ButtonContainer } = setup({ onClick });
+
+          expect(onClick).toHaveBeenCalledTimes(0);
+
+          act(() => {
+            fireEvent.keyUp(ButtonContainer, {
+              key: "Enter"
+            });
+          });
+
+          expect(onClick).toHaveBeenCalledTimes(1);
+
+          act(() => {
+            fireEvent.keyUp(ButtonContainer, {
+              key: "Space"
+            });
+          });
+
+          expect(onClick).toHaveBeenCalledTimes(2);
+
+          act(() => {
+            fireEvent.keyUp(ButtonContainer, {
+              key: "Alt"
+            });
+          });
+
+          expect(onClick).toHaveBeenCalledTimes(2);
+
+          act(() => {
+            fireEvent.keyUp(ButtonContainer, {
+              key: "CapsLock"
+            });
+          });
+
+          expect(onClick).toHaveBeenCalledTimes(2);
+
+          act(() => {
+            fireEvent.keyUp(ButtonContainer, {
+              key: "Tab"
+            });
+          });
+
+          expect(onClick).toHaveBeenCalledTimes(2);
+        });
+      });
+    });
+
+    describe("Props", () => {
+      describe("aria-label", () => {
+        test("should have Button by default", () => {
+          const { ButtonContainer } = setup();
+
+          expect(ButtonContainer.getAttribute("aria-label")).toEqual("Button");
+        });
+
+        test("should have value equal to dataCy prop", () => {
+          const { ButtonContainer } = setup({
+            dataCy: "DataCyAria",
+            dataTestId: "DataTestIdAria"
+          });
+
+          expect(ButtonContainer.getAttribute("aria-label")).toEqual(
+            "DataCyAria"
+          );
+        });
+
+        test("should have value equal to dataTestId prop", () => {
+          const { ButtonContainer } = setup({
+            dataCy: undefined,
+            dataTestId: "DataTestIdAria"
+          });
+
+          expect(ButtonContainer.getAttribute("aria-label")).toEqual(
+            "DataTestIdAria"
+          );
+        });
+      });
+
+      describe("tabIndex", () => {
+        test("should have value equal to tabIndex prop", () => {
+          const { ButtonContainer } = setup({
+            tabIndex: 25
+          });
+
+          expect(ButtonContainer.getAttribute("tabIndex")).toEqual("25");
+        });
+
+        test("should not have if there's no tabIndex prop", () => {
+          const { ButtonContainer } = setup({
+            tabIndex: undefined
+          });
+
+          expect(ButtonContainer.getAttribute("tabIndex")).toBeFalsy();
+        });
       });
     });
   });

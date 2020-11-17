@@ -261,6 +261,7 @@ Button.propTypes = {
   ]),
   onClick: PropTypes.func,
   size: PropTypes.oneOf(["small", "medium", "large"]),
+  tabIndex: PropTypes.number,
   type: PropTypes.oneOf(["primary", "secondary"]),
   width: PropTypes.oneOf(["100%", "auto"])
 };

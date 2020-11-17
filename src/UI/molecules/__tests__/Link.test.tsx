@@ -12,8 +12,8 @@ interface MockLinkProps {
   to: string;
 }
 
-function MockRouterLink({ to, children }: MockLinkProps) {
-  return <a href={to}>{children}</a>;
+function MockRouterLink({ children, ...rest }: MockLinkProps) {
+  return <a {...rest}>{children}</a>;
 }
 
 jest.mock("react-router-dom", () => ({
@@ -43,10 +43,8 @@ describe("molecules / Link", () => {
       isHoverable: true
     });
 
-    expect(RouterLink.children[0].children[0]).toEqual(
-      queryByTestId("RouterLinkChildren")
-    );
-    expect(RouterLink.children[0].children[1]).toEqual(PositionContainer);
+    expect(RouterLink.children[0]).toEqual(queryByTestId("RouterLinkChildren"));
+    expect(RouterLink.children[1]).toEqual(PositionContainer);
     expect(PositionContainer.children[0]).toEqual(Lines[0]);
     expect(PositionContainer.children[1]).toEqual(Lines[1]);
   });
@@ -73,9 +71,7 @@ describe("molecules / Link", () => {
       isHoverable: false
     });
 
-    expect(RouterLink.children[0].children[0]).toEqual(
-      queryByTestId("RouterLinkChildren")
-    );
+    expect(RouterLink.children[0]).toEqual(queryByTestId("RouterLinkChildren"));
     expect(PositionContainer).toBeFalsy();
     expect(Lines[0]).toBeFalsy();
     expect(Lines[1]).toBeFalsy();
@@ -84,18 +80,18 @@ describe("molecules / Link", () => {
   describe("ExternalLink", () => {
     describe("Styles", () => {
       describe("display", () => {
-        test("should have inline by default", () => {
+        test("should have block by default", () => {
           const { ExternalLink } = setup();
 
-          expect(ExternalLink).toHaveStyleRule("display", "inline");
+          expect(ExternalLink).toHaveStyleRule("display", "block");
         });
 
-        test("should have block passed via display prop", () => {
+        test("should have inline passed via display prop", () => {
           const { ExternalLink } = setup({
-            display: "block"
+            display: "inline"
           });
 
-          expect(ExternalLink).toHaveStyleRule("display", "block");
+          expect(ExternalLink).toHaveStyleRule("display", "inline");
         });
       });
 
@@ -179,13 +175,21 @@ describe("molecules / Link", () => {
         });
       });
 
-      describe(":hover .line", () => {
+      describe("&:hover .line, &:focus .line, &:active .line", () => {
         describe("opacity", () => {
           test("should have 1", () => {
             const { ExternalLink } = setup();
 
             expect(ExternalLink).toHaveStyleRule("opacity", "1", {
               modifier: "&:hover .line"
+            });
+
+            expect(ExternalLink).toHaveStyleRule("opacity", "1", {
+              modifier: "&:focus .line"
+            });
+
+            expect(ExternalLink).toHaveStyleRule("opacity", "1", {
+              modifier: "&:active .line"
             });
           });
         });
@@ -197,6 +201,14 @@ describe("molecules / Link", () => {
             expect(ExternalLink).toHaveStyleRule("visibility", "visible", {
               modifier: "&:hover .line"
             });
+
+            expect(ExternalLink).toHaveStyleRule("visibility", "visible", {
+              modifier: "&:focus .line"
+            });
+
+            expect(ExternalLink).toHaveStyleRule("visibility", "visible", {
+              modifier: "&:active .line"
+            });
           });
         });
 
@@ -207,21 +219,90 @@ describe("molecules / Link", () => {
             expect(ExternalLink).toHaveStyleRule("width", "50%", {
               modifier: "&:hover .line"
             });
+
+            expect(ExternalLink).toHaveStyleRule("width", "50%", {
+              modifier: "&:focus .line"
+            });
+
+            expect(ExternalLink).toHaveStyleRule("width", "50%", {
+              modifier: "&:active .line"
+            });
+          });
+        });
+      });
+
+      describe("&:focus svg, &:active svg", () => {
+        describe("filter", () => {
+          test("should have drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", () => {
+            const { ExternalLink } = setup();
+
+            expect(ExternalLink).toHaveStyleRule(
+              "filter",
+              "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))",
+              {
+                modifier: "&:focus svg"
+              }
+            );
+
+            expect(ExternalLink).toHaveStyleRule(
+              "filter",
+              "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))",
+              {
+                modifier: "&:active svg"
+              }
+            );
           });
         });
       });
     });
 
     describe("Props", () => {
+      describe("aria-label", () => {
+        test("should have value equal to dataCy prop", () => {
+          const { queryByTestId } = setup({
+            dataCy: "DataCyAria",
+            dataTestId: "DataTestIdAria",
+            isExternal: true
+          });
+
+          expect(
+            queryByTestId("DataTestIdAria").getAttribute("aria-label")
+          ).toEqual("DataCyAria");
+        });
+
+        test("should have value equal to dataTestId prop", () => {
+          const { queryByTestId } = setup({
+            dataCy: undefined,
+            dataTestId: "DataTestIdAria",
+            isExternal: true
+          });
+
+          expect(
+            queryByTestId("DataTestIdAria").getAttribute("aria-label")
+          ).toEqual("DataTestIdAria");
+        });
+      });
+
       describe("href", () => {
         test("should have correct value passed via href prop", () => {
           const { ExternalLink } = setup({
-            href: "http://google.com"
+            href: "http://google.com",
+            isExternal: true
           });
 
           expect(ExternalLink.getAttribute("href")).toEqual(
             "http://google.com"
           );
+        });
+      });
+
+      describe("tabIndex", () => {
+        test("should have 0", () => {
+          const { ExternalLink } = setup({
+            isExternal: true
+          });
+
+          expect(ExternalLink.getAttribute("tabIndex")).toEqual("0");
         });
       });
 
@@ -240,21 +321,21 @@ describe("molecules / Link", () => {
   describe("RouterLink", () => {
     describe("Styles", () => {
       describe("display", () => {
-        test("should have inline by default", () => {
+        test("should have block by default", () => {
           const { RouterLink } = setup({
-            isExternal: false
-          });
-
-          expect(RouterLink).toHaveStyleRule("display", "inline");
-        });
-
-        test("should have block passed via display prop", () => {
-          const { RouterLink } = setup({
-            display: "block",
             isExternal: false
           });
 
           expect(RouterLink).toHaveStyleRule("display", "block");
+        });
+
+        test("should have inline passed via display prop", () => {
+          const { RouterLink } = setup({
+            display: "inline",
+            isExternal: false
+          });
+
+          expect(RouterLink).toHaveStyleRule("display", "inline");
         });
       });
 
@@ -351,7 +432,7 @@ describe("molecules / Link", () => {
         });
       });
 
-      describe(":hover .line", () => {
+      describe(":hover .line, &:focus .line, &:active .line", () => {
         describe("opacity", () => {
           test("should have 1", () => {
             const { RouterLink } = setup({
@@ -360,6 +441,14 @@ describe("molecules / Link", () => {
 
             expect(RouterLink).toHaveStyleRule("opacity", "1", {
               modifier: "&:hover .line"
+            });
+
+            expect(RouterLink).toHaveStyleRule("opacity", "1", {
+              modifier: "&:focus .line"
+            });
+
+            expect(RouterLink).toHaveStyleRule("opacity", "1", {
+              modifier: "&:active .line"
             });
           });
         });
@@ -373,6 +462,14 @@ describe("molecules / Link", () => {
             expect(RouterLink).toHaveStyleRule("visibility", "visible", {
               modifier: "&:hover .line"
             });
+
+            expect(RouterLink).toHaveStyleRule("visibility", "visible", {
+              modifier: "&:focus .line"
+            });
+
+            expect(RouterLink).toHaveStyleRule("visibility", "visible", {
+              modifier: "&:active .line"
+            });
           });
         });
 
@@ -385,20 +482,86 @@ describe("molecules / Link", () => {
             expect(RouterLink).toHaveStyleRule("width", "50%", {
               modifier: "&:hover .line"
             });
+
+            expect(RouterLink).toHaveStyleRule("width", "50%", {
+              modifier: "&:focus .line"
+            });
+
+            expect(RouterLink).toHaveStyleRule("width", "50%", {
+              modifier: "&:active .line"
+            });
+          });
+        });
+      });
+
+      describe("&:focus svg, &:active svg", () => {
+        describe("filter", () => {
+          test("should have drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))", () => {
+            const { RouterLink } = setup({
+              isExternal: false
+            });
+
+            expect(RouterLink).toHaveStyleRule(
+              "filter",
+              "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))",
+              {
+                modifier: "&:focus svg"
+              }
+            );
+
+            expect(RouterLink).toHaveStyleRule(
+              "filter",
+              "drop-shadow(0px 0px .4rem rgba(255,255,255,0.5))",
+              {
+                modifier: "&:active svg"
+              }
+            );
           });
         });
       });
     });
 
     describe("Props", () => {
+      describe("aria-label", () => {
+        test("should have value equal to dataCy prop", () => {
+          const { RouterLink } = setup({
+            dataCy: "DataCyAria",
+            dataTestId: "DataTestIdAria"
+          });
+
+          expect(RouterLink.getAttribute("aria-label")).toEqual("DataCyAria");
+        });
+
+        test("should have value equal to dataTestId prop", () => {
+          const { RouterLink } = setup({
+            dataCy: undefined,
+            dataTestId: "DataTestIdAria"
+          });
+
+          expect(RouterLink.getAttribute("aria-label")).toEqual(
+            "DataTestIdAria"
+          );
+        });
+      });
+
       describe("href", () => {
-        test("should have empty string", () => {
+        test("should not have", () => {
           const { RouterLink } = setup({
             href: "http://google.com",
             isExternal: false
           });
 
-          expect(RouterLink.getAttribute("href")).toEqual("");
+          expect(RouterLink.getAttribute("href")).toBeFalsy();
+        });
+      });
+
+      describe("tabIndex", () => {
+        test("should have 0", () => {
+          const { RouterLink } = setup({
+            isExternal: false
+          });
+
+          expect(RouterLink.getAttribute("tabIndex")).toEqual("0");
         });
       });
 
@@ -478,7 +641,7 @@ function setup(additionalProps?: LinkTestProps): Setup {
   const ExternalLink: Element = queryByTestId("ExternalLink");
   const Lines: Element[] = queryAllByTestId("Line");
   const PositionContainer: Element = queryAllByTestId("PositionContainer")[0];
-  const RouterLink: Element = queryByTestId("RouterLink");
+  const RouterLink: Element = document.querySelector("a");
 
   return {
     ...utils,

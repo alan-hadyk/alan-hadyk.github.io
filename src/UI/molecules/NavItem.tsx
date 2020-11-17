@@ -101,6 +101,7 @@ function NavItem({
 NavItem.propTypes = {
   href: PropTypes.string.isRequired,
   isActive: PropTypes.bool,
+  tabIndex: PropTypes.number,
   title: PropTypes.string.isRequired
 };
 

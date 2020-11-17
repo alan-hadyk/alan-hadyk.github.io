@@ -1,5 +1,6 @@
 import React from "react";
-import { RenderResult } from "@testing-library/react";
+import { act, fireEvent, RenderResult } from "@testing-library/react";
+import { JSDOM } from "jsdom";
 
 import NavItem from "UI/molecules/NavItem";
 
@@ -48,6 +49,60 @@ describe("molecules / NavItem", () => {
           const { PositionContainer } = setup();
 
           expect(PositionContainer).toHaveStyleRule("position", "relative");
+        });
+      });
+
+      describe("tabIndex", () => {
+        test("should have value equal to tabIndex prop", () => {
+          const { PositionContainer } = setup({
+            tabIndex: 43
+          });
+
+          expect(PositionContainer.getAttribute("tabIndex")).toEqual("43");
+        });
+
+        test("should not have if there's no tabIndex prop", () => {
+          const { PositionContainer } = setup({
+            tabIndex: undefined
+          });
+
+          expect(PositionContainer.getAttribute("tabIndex")).toBeFalsy();
+        });
+      });
+    });
+
+    describe("Event handlers", () => {
+      describe("onFocus", () => {
+        test("should fire element.scrollIntoView(true)", () => {
+          const spyQuerySelector = jest.fn();
+          const spyScrollElementIntoView = jest.fn();
+
+          const dom = new JSDOM();
+          global.document = dom.window.document;
+
+          Object.defineProperty(global.document, "querySelector", {
+            value: (selector: string) => {
+              spyQuerySelector(selector);
+
+              return {
+                scrollIntoView: spyScrollElementIntoView
+              };
+            }
+          });
+
+          const { PositionContainer } = setup({
+            href: "#selector"
+          });
+
+          expect(spyQuerySelector).toHaveBeenCalledTimes(0);
+          expect(spyScrollElementIntoView).toHaveBeenCalledTimes(0);
+
+          act(() => {
+            fireEvent.focus(PositionContainer);
+          });
+
+          expect(spyQuerySelector).toHaveBeenNthCalledWith(1, "#selector");
+          expect(spyScrollElementIntoView).toHaveBeenNthCalledWith(1, true);
         });
       });
     });

@@ -442,6 +442,14 @@ describe("organisms / SideMenu", () => {
         });
       });
 
+      describe("tabIndex", () => {
+        test("should have 0", () => {
+          const { Button } = setup();
+
+          expect(Button.getAttribute("tabIndex")).toEqual("0");
+        });
+      });
+
       describe("width", () => {
         describe("should have 100%", () => {
           const { Button } = setup();

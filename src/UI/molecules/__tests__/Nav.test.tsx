@@ -138,12 +138,25 @@ describe("molecules / Nav", () => {
       expect(NavItems[2].textContent).toEqual("About me");
       expect(NavItems[3].textContent).toEqual("Contact");
     });
+
+    describe("Props", () => {
+      describe("tabIndex", () => {
+        test("should have 0", () => {
+          const { NavItemsPositionContainers } = setup();
+
+          NavItemsPositionContainers.forEach((NavItem: Element) => {
+            expect(NavItem.getAttribute("tabIndex")).toEqual("0");
+          });
+        });
+      });
+    });
   });
 });
 
 interface Setup extends RenderResult {
   FlexContainer: Element;
   NavItems: NodeListOf<HTMLAnchorElement>;
+  NavItemsPositionContainers: Element[];
 }
 
 type NavTestProps = Partial<NavProps>;
@@ -161,10 +174,12 @@ function setup(additionalProps?: NavTestProps): Setup {
   const NavItems: NodeListOf<HTMLAnchorElement> = document.querySelectorAll(
     "a"
   );
+  const NavItemsPositionContainers: Element[] = queryAllByTestId("NavItem");
 
   return {
     ...utils,
     FlexContainer,
-    NavItems
+    NavItems,
+    NavItemsPositionContainers
   };
 }

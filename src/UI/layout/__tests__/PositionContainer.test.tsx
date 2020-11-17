@@ -1,5 +1,5 @@
 import React from "react";
-import { RenderResult } from "@testing-library/react";
+import { act, fireEvent, RenderResult } from "@testing-library/react";
 
 import PositionContainer from "UI/layout/PositionContainer";
 
@@ -303,10 +303,50 @@ describe("layout / PositionContainer", () => {
       });
     });
   });
+
+  describe("Props", () => {
+    describe("tabIndex", () => {
+      test("should have value equal to tabIndex prop", () => {
+        const { PositionContainer } = setup({
+          tabIndex: 25
+        });
+
+        expect(PositionContainer.getAttribute("tabIndex")).toEqual("25");
+      });
+
+      test("should not have if there's no tabIndex prop", () => {
+        const { PositionContainer } = setup({
+          tabIndex: undefined
+        });
+
+        expect(PositionContainer.getAttribute("tabIndex")).toBeFalsy();
+      });
+    });
+  });
+
+  describe("Event handlers", () => {
+    describe("onFocus", () => {
+      test("should fire onFocus prop", () => {
+        const onFocus = jest.fn();
+
+        const { PositionContainer } = setup({
+          onFocus
+        });
+
+        expect(onFocus).toHaveBeenCalledTimes(0);
+
+        act(() => {
+          fireEvent.focus(PositionContainer);
+        });
+
+        expect(onFocus).toHaveBeenCalledTimes(1);
+      });
+    });
+  });
 });
 
 interface Setup extends RenderResult {
-  PositionContainer: Node;
+  PositionContainer: Element;
 }
 
 type PositionContainerTestProps = Partial<PositionContainerProps>;
