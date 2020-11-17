@@ -13,19 +13,17 @@ describe("organisms / Company", () => {
   test("should have correct structure", () => {
     const {
       CompanyContainer,
-      CompanyDesktop,
       CompanyMobile,
       CompanyPositionContainer,
-      CompanyTablet,
-      CompanyTv
+      CompanyTvDesktopTablet
     } = setup();
 
     expect(CompanyContainer.children[0]).toEqual(CompanyPositionContainer);
 
-    expect(CompanyPositionContainer.children[0]).toEqual(CompanyTv);
-    expect(CompanyPositionContainer.children[1]).toEqual(CompanyDesktop);
-    expect(CompanyPositionContainer.children[2]).toEqual(CompanyTablet);
-    expect(CompanyPositionContainer.children[3]).toEqual(CompanyMobile);
+    expect(CompanyPositionContainer.children[0]).toEqual(
+      CompanyTvDesktopTablet
+    );
+    expect(CompanyPositionContainer.children[1]).toEqual(CompanyMobile);
   });
 
   describe("CompanyPositionContainer", () => {
@@ -90,8 +88,10 @@ describe("organisms / Company", () => {
 
             expect(IconsWithLabels.children.length).toEqual(2);
             expect(
-              IconsWithLabels.children[0].children[0].children[0].textContent
-            ).toEqual("Brand-Webpack.svg");
+              IconsWithLabels.children[0].children[0].children[0].getAttribute(
+                "src"
+              )
+            ).toEqual("/images/svg/brandWebpack.svg");
             expect(IconsWithLabels.children[0].children[1].textContent).toEqual(
               "Webpack"
             );
@@ -150,7 +150,7 @@ describe("organisms / Company", () => {
 
             expect(UnorderedList.children.length).toEqual(2);
             responsibilities.forEach(
-              (responsibility: string, index: number) => {
+              (responsibility: unknown, index: number) => {
                 expect(UnorderedList.children[index].textContent).toEqual(
                   responsibility
                 );
@@ -204,7 +204,7 @@ describe("organisms / Company", () => {
             companyMobilePaddingBottom: "spacing0"
           });
 
-          expect(CompanyDescriptions[3].children[3]).toHaveStyleRule(
+          expect(CompanyDescriptions[1].children[3]).toHaveStyleRule(
             "padding-bottom",
             "0"
           );
@@ -217,13 +217,11 @@ describe("organisms / Company", () => {
 interface Setup extends RenderResult {
   CompanyContainer: Element;
   CompanyDescriptions: Element[];
-  CompanyDesktop: Element;
   CompanyLogos: Element[];
   CompanyMobile: Element;
   CompanyPositionContainer: Element;
-  CompanyTablet: Element;
   CompanyTimelines: Element[];
-  CompanyTv: Element;
+  CompanyTvDesktopTablet: Element;
 }
 
 type CompanyTestProps = Partial<CompanyProps>;
@@ -260,26 +258,24 @@ function setup(additionalProps?: CompanyTestProps): Setup {
 
   const CompanyContainer: Element = queryAllByTestId("Company")[0];
   const CompanyDescriptions: Element[] = queryAllByTestId("CompanyDescription");
-  const CompanyDesktop: Element = queryAllByTestId("ResponsiveDesktop")[0];
   const CompanyLogos: Element[] = queryAllByTestId("CompanyLogoFlexContainer");
-  const CompanyMobile: Element = queryAllByTestId("ResponsiveMobile")[0];
+  const CompanyMobile: Element = queryAllByTestId("CompanyMobile")[0];
   const CompanyPositionContainer: Element = queryAllByTestId(
     "CompanyPositionContainer"
   )[0];
-  const CompanyTablet: Element = queryAllByTestId("ResponsiveTablet")[0];
   const CompanyTimelines: Element[] = queryAllByTestId("CompanyTimeline");
-  const CompanyTv: Element = queryAllByTestId("ResponsiveTv")[0];
+  const CompanyTvDesktopTablet: Element = queryAllByTestId(
+    "CompanyTvDesktopTablet"
+  )[0];
 
   return {
     ...utils,
     CompanyContainer,
     CompanyDescriptions,
-    CompanyDesktop,
     CompanyLogos,
     CompanyMobile,
     CompanyPositionContainer,
-    CompanyTablet,
     CompanyTimelines,
-    CompanyTv
+    CompanyTvDesktopTablet
   };
 }

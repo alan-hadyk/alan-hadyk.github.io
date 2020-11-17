@@ -13,7 +13,7 @@ describe("pages / Home / sections / experience / companies / CompanyPersonallyEm
       test("should have 0", () => {
         const { ResponsibilitiesSpacingContainers } = setup();
 
-        expect(ResponsibilitiesSpacingContainers[3]).toHaveStyleRule(
+        expect(ResponsibilitiesSpacingContainers[1]).toHaveStyleRule(
           "padding-bottom",
           "0"
         );
@@ -43,15 +43,19 @@ describe("pages / Home / sections / experience / companies / CompanyPersonallyEm
             CompanyDescriptions.children[2].children[1].children[0];
 
           expect(
-            IconsWithLabels.children[0].children[0].children[0].textContent
-          ).toEqual("Brand-JS.svg");
+            IconsWithLabels.children[0].children[0].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandJS.svg");
           expect(IconsWithLabels.children[0].children[1].textContent).toEqual(
             "Javascript"
           );
 
           expect(
-            IconsWithLabels.children[1].children[0].children[0].textContent
-          ).toEqual("Brand-jQuery.svg");
+            IconsWithLabels.children[1].children[0].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandJQuery.svg");
           expect(IconsWithLabels.children[1].children[1].textContent).toEqual(
             "jQuery"
           );

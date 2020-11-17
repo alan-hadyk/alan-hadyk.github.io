@@ -16,32 +16,29 @@ describe("molecules / HexagonWithDescription", () => {
     const {
       HexagonWithDescriptionContainer,
       HexagonWithDescriptionContents,
-      ResponsiveDesktop,
       ResponsiveMobile,
       ResponsiveTablet,
-      ResponsiveTv
+      ResponsiveTvDesktop
     } = setup();
 
-    expect(HexagonWithDescriptionContainer.children[0]).toEqual(ResponsiveTv);
-    expect(HexagonWithDescriptionContainer.children[1]).toEqual(
-      ResponsiveDesktop
+    expect(HexagonWithDescriptionContainer.children[0]).toEqual(
+      ResponsiveTvDesktop
     );
-    expect(HexagonWithDescriptionContainer.children[2]).toEqual(
+    expect(HexagonWithDescriptionContainer.children[1]).toEqual(
       ResponsiveTablet
     );
-    expect(HexagonWithDescriptionContainer.children[3]).toEqual(
+    expect(HexagonWithDescriptionContainer.children[2]).toEqual(
       ResponsiveMobile
     );
 
-    expect(ResponsiveTv.children[0]).toEqual(HexagonWithDescriptionContents[0]);
-    expect(ResponsiveDesktop.children[0]).toEqual(
-      HexagonWithDescriptionContents[1]
+    expect(ResponsiveTvDesktop.children[0]).toEqual(
+      HexagonWithDescriptionContents[0]
     );
     expect(ResponsiveTablet.children[0]).toEqual(
-      HexagonWithDescriptionContents[2]
+      HexagonWithDescriptionContents[1]
     );
     expect(ResponsiveMobile.children[0]).toEqual(
-      HexagonWithDescriptionContents[3]
+      HexagonWithDescriptionContents[2]
     );
   });
 
@@ -82,30 +79,18 @@ describe("molecules / HexagonWithDescription", () => {
     });
   });
 
-  describe("ResponsiveTv", () => {
+  describe("ResponsiveTvDesktop", () => {
     describe("Props", () => {
       describe("devices", () => {
-        describe("should have tv", () => {
+        describe("should have tv, desktop", () => {
           test("should have display block when min-width is 1681px", () => {
-            const { ResponsiveTv } = setup();
+            const { ResponsiveTvDesktop } = setup();
 
-            expect(ResponsiveTv).toHaveStyleRule("display", "block", {
+            expect(ResponsiveTvDesktop).toHaveStyleRule("display", "block", {
               media: "(min-width:1681px)"
             });
-          });
-        });
-      });
-    });
-  });
 
-  describe("ResponsiveDesktop", () => {
-    describe("Props", () => {
-      describe("devices", () => {
-        describe("should have desktop", () => {
-          test("should have display block when min-width is 1281px and max-width is 1680px", () => {
-            const { ResponsiveDesktop } = setup();
-
-            expect(ResponsiveDesktop).toHaveStyleRule("display", "block", {
+            expect(ResponsiveTvDesktop).toHaveStyleRule("display", "block", {
               media: "(min-width:1281px) and (max-width:1680px)"
             });
           });
@@ -181,27 +166,23 @@ describe("molecules / HexagonWithDescription", () => {
       });
 
       describe("flexFlow", () => {
-        test("should have row nowrap for first and second element", () => {
+        test("should have row nowrap for first element", () => {
           const { HexagonWithDescriptionContents } = setup();
 
           expect(HexagonWithDescriptionContents[0]).toHaveStyleRule(
             "flex-flow",
             "row nowrap"
           );
-          expect(HexagonWithDescriptionContents[1]).toHaveStyleRule(
-            "flex-flow",
-            "row nowrap"
-          );
         });
 
-        test("should have column nowrap for third and fourth element", () => {
+        test("should have column nowrap for second and third element", () => {
           const { HexagonWithDescriptionContents } = setup();
 
-          expect(HexagonWithDescriptionContents[2]).toHaveStyleRule(
+          expect(HexagonWithDescriptionContents[1]).toHaveStyleRule(
             "flex-flow",
             "column nowrap"
           );
-          expect(HexagonWithDescriptionContents[3]).toHaveStyleRule(
+          expect(HexagonWithDescriptionContents[2]).toHaveStyleRule(
             "flex-flow",
             "column nowrap"
           );
@@ -209,10 +190,10 @@ describe("molecules / HexagonWithDescription", () => {
       });
 
       describe("lineHeight", () => {
-        test("should have 2.8rem for fourth element", () => {
+        test("should have 2.8rem for third element", () => {
           const { HexagonWithDescriptionContents } = setup();
 
-          expect(HexagonWithDescriptionContents[3].children[1]).toHaveStyleRule(
+          expect(HexagonWithDescriptionContents[2].children[1]).toHaveStyleRule(
             "line-height",
             "2.8rem"
           );
@@ -220,27 +201,23 @@ describe("molecules / HexagonWithDescription", () => {
       });
 
       describe("marginBottom", () => {
-        test("should have 0 for first and second element", () => {
+        test("should have 0 for first element", () => {
           const { HexagonWithDescriptionContents } = setup();
 
           expect(HexagonWithDescriptionContents[0].children[0]).toHaveStyleRule(
             "margin-bottom",
             "0"
           );
-          expect(HexagonWithDescriptionContents[1].children[0]).toHaveStyleRule(
-            "margin-bottom",
-            "0"
-          );
         });
 
-        test("should have 4.8rem for third and fourth element", () => {
+        test("should have 4.8rem for second and thirdelement", () => {
           const { HexagonWithDescriptionContents } = setup();
 
-          expect(HexagonWithDescriptionContents[2].children[0]).toHaveStyleRule(
+          expect(HexagonWithDescriptionContents[1].children[0]).toHaveStyleRule(
             "margin-bottom",
             "4.8rem"
           );
-          expect(HexagonWithDescriptionContents[3].children[0]).toHaveStyleRule(
+          expect(HexagonWithDescriptionContents[2].children[0]).toHaveStyleRule(
             "margin-bottom",
             "4.8rem"
           );
@@ -248,27 +225,23 @@ describe("molecules / HexagonWithDescription", () => {
       });
 
       describe("marginRight", () => {
-        test("should have 4.8rem for first and second element", () => {
+        test("should have 4.8rem for first element", () => {
           const { HexagonWithDescriptionContents } = setup();
 
           expect(HexagonWithDescriptionContents[0].children[0]).toHaveStyleRule(
             "margin-right",
             "4.8rem"
           );
-          expect(HexagonWithDescriptionContents[1].children[0]).toHaveStyleRule(
-            "margin-right",
-            "4.8rem"
-          );
         });
 
-        test("should have 0 for third and fourth element", () => {
+        test("should have 0 for second and thirdelement", () => {
           const { HexagonWithDescriptionContents } = setup();
 
-          expect(HexagonWithDescriptionContents[2].children[0]).toHaveStyleRule(
+          expect(HexagonWithDescriptionContents[1].children[0]).toHaveStyleRule(
             "margin-right",
             "0"
           );
-          expect(HexagonWithDescriptionContents[3].children[0]).toHaveStyleRule(
+          expect(HexagonWithDescriptionContents[2].children[0]).toHaveStyleRule(
             "margin-right",
             "0"
           );
@@ -276,23 +249,19 @@ describe("molecules / HexagonWithDescription", () => {
       });
 
       describe("textWidth", () => {
-        test("should have 50% for first and second element", () => {
+        test("should have 50% for first element", () => {
           const { HexagonWithDescriptionContents } = setup();
 
           expect(HexagonWithDescriptionContents[0].children[1]).toHaveStyleRule(
             "width",
             "50%"
           );
-          expect(HexagonWithDescriptionContents[1].children[1]).toHaveStyleRule(
-            "width",
-            "50%"
-          );
         });
 
-        test("should have 80% for third element", () => {
+        test("should have 80% for second element", () => {
           const { HexagonWithDescriptionContents } = setup();
 
-          expect(HexagonWithDescriptionContents[2].children[1]).toHaveStyleRule(
+          expect(HexagonWithDescriptionContents[1].children[1]).toHaveStyleRule(
             "width",
             "80%"
           );
@@ -300,55 +269,51 @@ describe("molecules / HexagonWithDescription", () => {
       });
 
       describe("width", () => {
-        test("should have 50% for first and second element ", () => {
+        test("should have 50% for first element ", () => {
           const { HexagonWithDescriptionContents } = setup();
 
           expect(HexagonWithDescriptionContents[0].children[0]).toHaveStyleRule(
             "width",
             "50%"
           );
-          expect(HexagonWithDescriptionContents[1].children[0]).toHaveStyleRule(
-            "width",
-            "50%"
-          );
         });
 
-        test("should have 60% for third element if isIE11 returns false", () => {
+        test("should have 60% for second element if isIE11 returns false", () => {
           const mocksiIE11 = (isIE11 as unknown) as jest.Mock;
           mocksiIE11.mockImplementation(() => false);
 
           const { HexagonWithDescriptionContents } = setup();
 
-          expect(HexagonWithDescriptionContents[2].children[0]).toHaveStyleRule(
+          expect(HexagonWithDescriptionContents[1].children[0]).toHaveStyleRule(
             "width",
             "60%"
           );
         });
 
-        test("should have 100% for fourth element if isIE11 returns false", () => {
+        test("should have 100% for third element if isIE11 returns false", () => {
           const mocksiIE11 = (isIE11 as unknown) as jest.Mock;
           mocksiIE11.mockImplementation(() => false);
 
           const { HexagonWithDescriptionContents } = setup();
 
-          expect(HexagonWithDescriptionContents[3].children[0]).toHaveStyleRule(
+          expect(HexagonWithDescriptionContents[2].children[0]).toHaveStyleRule(
             "width",
             "100%"
           );
         });
 
-        test("should have auto for third and fourth element if isIE11 returns true", () => {
+        test("should have auto for second and third element if isIE11 returns true", () => {
           const mocksiIE11 = (isIE11 as unknown) as jest.Mock;
           mocksiIE11.mockImplementation(() => true);
 
           const { HexagonWithDescriptionContents } = setup();
 
-          expect(HexagonWithDescriptionContents[2].children[0]).toHaveStyleRule(
+          expect(HexagonWithDescriptionContents[1].children[0]).toHaveStyleRule(
             "width",
             "auto"
           );
 
-          expect(HexagonWithDescriptionContents[3].children[0]).toHaveStyleRule(
+          expect(HexagonWithDescriptionContents[2].children[0]).toHaveStyleRule(
             "width",
             "auto"
           );
@@ -361,10 +326,9 @@ describe("molecules / HexagonWithDescription", () => {
 interface Setup extends RenderResult {
   HexagonWithDescriptionContainer: Element;
   HexagonWithDescriptionContents: Element[];
-  ResponsiveDesktop: Element;
   ResponsiveMobile: Element;
   ResponsiveTablet: Element;
-  ResponsiveTv: Element;
+  ResponsiveTvDesktop: Element;
 }
 type HexagonWithDescriptionTestProps = Partial<HexagonWithDescriptionProps>;
 
@@ -387,18 +351,18 @@ function setup(additionalProps?: HexagonWithDescriptionTestProps): Setup {
   const HexagonWithDescriptionContents: Element[] = queryAllByTestId(
     "HexagonWithDescriptionContent"
   );
-  const ResponsiveDesktop: Element = queryAllByTestId("ResponsiveDesktop")[0];
   const ResponsiveMobile: Element = queryAllByTestId("ResponsiveMobile")[0];
   const ResponsiveTablet: Element = queryAllByTestId("ResponsiveTablet")[0];
-  const ResponsiveTv: Element = queryAllByTestId("ResponsiveTv")[0];
+  const ResponsiveTvDesktop: Element = queryAllByTestId(
+    "ResponsiveTvDesktop"
+  )[0];
 
   return {
     ...utils,
     HexagonWithDescriptionContainer,
     HexagonWithDescriptionContents,
-    ResponsiveDesktop,
     ResponsiveMobile,
     ResponsiveTablet,
-    ResponsiveTv
+    ResponsiveTvDesktop
   };
 }

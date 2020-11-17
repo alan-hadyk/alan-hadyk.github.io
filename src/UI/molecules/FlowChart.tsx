@@ -1,12 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
+import Image from "UI/atoms/Image";
 import FlexContainer from "UI/layout/FlexContainer";
 import SpacingContainer from "UI/layout/SpacingContainer";
 
-import { ReactComponent as FluxFlowChart } from "assets/svg/Flux-FlowChart.svg";
-
-const FlowChartIcon = styled(FluxFlowChart)`
+const FlowChartIcon = styled(Image)`
   display: block;
   height: 100%;
   margin: 0 auto;
@@ -29,7 +28,7 @@ const FlowChart = (): JSX.Element => (
       paddingTop="spacing8"
       width="100%"
     >
-      <FlowChartIcon id="flow-chart" />
+      <FlowChartIcon id="flow-chart" src="/images/svg/Flux-FlowChart.svg" />
     </SpacingContainer>
   </FlexContainer>
 );

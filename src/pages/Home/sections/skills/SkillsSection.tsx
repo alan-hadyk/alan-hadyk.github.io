@@ -60,7 +60,7 @@ const SkillsSection = (): JSX.Element => (
       devices: ["tablet"]
     })}
 
-    <Responsive dataTestMobileId="SkillsResponsiveMobile" devices={["mobile"]}>
+    <Responsive dataTestId="SkillsResponsiveMobile" devices={["mobile"]}>
       {items.map((data: Data) => (
         <SpacingContainer
           dataTestId="ItemSpacingContainer"

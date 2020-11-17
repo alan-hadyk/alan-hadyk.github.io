@@ -33,43 +33,55 @@ describe("pages / Home / sections / experience / companies / CompanyDiH", () => 
             CompanyDescriptions.children[2].children[1].children[0];
 
           expect(
-            IconsWithLabels.children[0].children[0].children[0].textContent
-          ).toEqual("Brand-JS.svg");
+            IconsWithLabels.children[0].children[0].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandJS.svg");
           expect(IconsWithLabels.children[0].children[1].textContent).toEqual(
             "Javascript"
           );
 
           expect(
-            IconsWithLabels.children[1].children[0].children[0].textContent
-          ).toEqual("Brand-Sass.svg");
+            IconsWithLabels.children[1].children[0].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandSass.svg");
           expect(IconsWithLabels.children[1].children[1].textContent).toEqual(
             "Sass"
           );
 
           expect(
-            IconsWithLabels.children[2].children[0].children[0].textContent
-          ).toEqual("Brand-LESS.svg");
+            IconsWithLabels.children[2].children[0].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandLESS.svg");
           expect(IconsWithLabels.children[2].children[1].textContent).toEqual(
             "LESS"
           );
 
           expect(
-            IconsWithLabels.children[3].children[0].children[0].textContent
-          ).toEqual("Brand-jQuery.svg");
+            IconsWithLabels.children[3].children[0].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandJQuery.svg");
           expect(IconsWithLabels.children[3].children[1].textContent).toEqual(
             "jQuery"
           );
 
           expect(
-            IconsWithLabels.children[4].children[0].children[0].textContent
-          ).toEqual("Brand-PrestaShop.svg");
+            IconsWithLabels.children[4].children[0].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandPrestaShop.svg");
           expect(IconsWithLabels.children[4].children[1].textContent).toEqual(
             "PrestaShop"
           );
 
           expect(
-            IconsWithLabels.children[5].children[0].children[0].textContent
-          ).toEqual("Brand-Redmine.svg");
+            IconsWithLabels.children[5].children[0].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandRedmine.svg");
           expect(IconsWithLabels.children[5].children[1].textContent).toEqual(
             "Redmine"
           );

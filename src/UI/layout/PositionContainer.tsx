@@ -36,9 +36,11 @@ const PositionContainer = (
     dataTestId,
     height = "unset",
     left = "unset",
+    onFocus = () => false,
     position = "relative",
     right = "unset",
     top = "unset",
+    tabIndex,
     transform = "none",
     width = "auto",
     zIndex = "layer1"
@@ -51,9 +53,11 @@ const PositionContainer = (
     data-testid={dataTestId || "PositionContainer"}
     height={height}
     left={left}
+    onFocus={onFocus}
     position={position}
     ref={ref}
     right={right}
+    tabIndex={tabIndex}
     top={top}
     transform={transform}
     width={width}

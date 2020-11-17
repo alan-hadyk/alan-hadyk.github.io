@@ -14,31 +14,27 @@ jest.mock("helpers/browser/isIE11", () => jest.fn());
 describe("molecules / Section", () => {
   test("should have correct structure", () => {
     const {
-      ResponsiveDesktop,
-      ResponsiveMobile,
-      ResponsiveTablet,
-      ResponsiveTv,
+      ResponsiveTitleMobile,
+      ResponsiveTitleTvDesktopTablet,
       SectionContainer,
       Texts,
       TitleSpacingContainers
     } = setup();
 
-    expect(SectionContainer.children[0]).toEqual(ResponsiveTv);
-    expect(SectionContainer.children[1]).toEqual(ResponsiveDesktop);
-    expect(SectionContainer.children[2]).toEqual(ResponsiveTablet);
-    expect(SectionContainer.children[3]).toEqual(ResponsiveMobile);
+    expect(SectionContainer.children[0]).toEqual(
+      ResponsiveTitleTvDesktopTablet
+    );
+    expect(SectionContainer.children[1]).toEqual(ResponsiveTitleMobile);
 
-    expect(ResponsiveTv.children[0]).toEqual(TitleSpacingContainers[0]);
+    expect(ResponsiveTitleTvDesktopTablet.children[0]).toEqual(
+      TitleSpacingContainers[0]
+    );
     expect(TitleSpacingContainers[0].children[0]).toEqual(Texts[0]);
 
-    expect(ResponsiveDesktop.children[0]).toEqual(TitleSpacingContainers[1]);
+    expect(ResponsiveTitleMobile.children[0]).toEqual(
+      TitleSpacingContainers[1]
+    );
     expect(TitleSpacingContainers[1].children[0]).toEqual(Texts[1]);
-
-    expect(ResponsiveTablet.children[0]).toEqual(TitleSpacingContainers[2]);
-    expect(TitleSpacingContainers[2].children[0]).toEqual(Texts[2]);
-
-    expect(ResponsiveMobile.children[0]).toEqual(TitleSpacingContainers[3]);
-    expect(TitleSpacingContainers[3].children[0]).toEqual(Texts[3]);
   });
 
   test("should render children", () => {
@@ -146,20 +142,12 @@ describe("molecules / Section", () => {
               "margin-bottom",
               "9.6rem"
             );
-            expect(TitleSpacingContainers[1]).toHaveStyleRule(
-              "margin-bottom",
-              "9.6rem"
-            );
-            expect(TitleSpacingContainers[2]).toHaveStyleRule(
-              "margin-bottom",
-              "9.6rem"
-            );
           });
 
           test("should have 4.8rem for mobile", () => {
             const { TitleSpacingContainers } = setup();
 
-            expect(TitleSpacingContainers[3]).toHaveStyleRule(
+            expect(TitleSpacingContainers[1]).toHaveStyleRule(
               "margin-bottom",
               "4.8rem"
             );
@@ -216,14 +204,12 @@ describe("molecules / Section", () => {
           const { Texts } = setup();
 
           expect(Texts[0]).toHaveStyleRule("font-size", "72px");
-          expect(Texts[1]).toHaveStyleRule("font-size", "72px");
-          expect(Texts[2]).toHaveStyleRule("font-size", "72px");
         });
 
         test("should have 48px for mobile", () => {
           const { Texts } = setup();
 
-          expect(Texts[3]).toHaveStyleRule("font-size", "48px");
+          expect(Texts[1]).toHaveStyleRule("font-size", "48px");
         });
       });
 
@@ -275,10 +261,8 @@ describe("molecules / Section", () => {
 });
 
 interface Setup extends RenderResult {
-  ResponsiveDesktop: Element;
-  ResponsiveMobile: Element;
-  ResponsiveTablet: Element;
-  ResponsiveTv: Element;
+  ResponsiveTitleMobile: Element;
+  ResponsiveTitleTvDesktopTablet: Element;
   SectionContainer: Element;
   Texts: Element[];
   TitleSpacingContainers: Element[];
@@ -298,10 +282,10 @@ function setup(additionalProps?: SectionTestProps): Setup {
 
   const { queryByTestId, queryAllByTestId }: RenderResult = utils;
 
-  const ResponsiveDesktop: Element = queryByTestId("ResponsiveDesktop");
-  const ResponsiveMobile: Element = queryByTestId("ResponsiveMobile");
-  const ResponsiveTablet: Element = queryByTestId("ResponsiveTablet");
-  const ResponsiveTv: Element = queryByTestId("ResponsiveTv");
+  const ResponsiveTitleMobile: Element = queryByTestId("ResponsiveTitleMobile");
+  const ResponsiveTitleTvDesktopTablet: Element = queryByTestId(
+    "ResponsiveTitleTvDesktopTablet"
+  );
   const SectionContainer: Element = queryByTestId("Section");
   const TitleSpacingContainers: Element[] = queryAllByTestId(
     "TitleSpacingContainer"
@@ -310,10 +294,8 @@ function setup(additionalProps?: SectionTestProps): Setup {
 
   return {
     ...utils,
-    ResponsiveDesktop,
-    ResponsiveMobile,
-    ResponsiveTablet,
-    ResponsiveTv,
+    ResponsiveTitleMobile,
+    ResponsiveTitleTvDesktopTablet,
     SectionContainer,
     Texts,
     TitleSpacingContainers

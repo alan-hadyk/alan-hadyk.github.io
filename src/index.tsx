@@ -1,6 +1,8 @@
 import "core-js";
 import "react-app-polyfill/ie11";
 import "react-app-polyfill/stable";
+import "intersection-observer";
+
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
@@ -16,16 +18,6 @@ import globalStyle from "styles/globalStyle";
 
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-
-export const polyfills: unknown[] = [];
-
-if (typeof window.IntersectionObserver === "undefined") {
-  polyfills.push(
-    import(
-      /* webpackChunkName: "intersection-observer" */ "intersection-observer"
-    )
-  );
-}
 
 export const GlobalStyle: GlobalStyleComponent<
   unknown,
@@ -56,13 +48,9 @@ export function renderApp(): void {
   }, 600);
 }
 
-Promise.all(polyfills)
-  .then(() => {
-    renderApp();
-  })
-  .catch((error) => {
-    console.error("Failed fetching polyfills", error);
-  });
+renderApp();
 
-// More about service workers: https://bit.ly/CRA-PWA
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://cra.link/PWA
 serviceWorker.unregister();

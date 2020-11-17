@@ -16,7 +16,7 @@ import isIE11 from "helpers/browser/isIE11";
 import { HeaderTvProps } from "UI/organisms/Header/__typings__/HeaderTv";
 
 const HeaderTv = ({ onCVButtonClick }: HeaderTvProps): JSX.Element => (
-  <Responsive dataTestTvId="HeaderTv" devices={["tv"]}>
+  <Responsive dataTestId="HeaderTv" devices={["tv"]}>
     <FlexContainer
       dataTestId="HeaderTvFlexContainer"
       flexFlow="row nowrap"
@@ -38,6 +38,7 @@ const HeaderTv = ({ onCVButtonClick }: HeaderTvProps): JSX.Element => (
         iconWidth={isIE11() ? `${spacing.spacing24}` : "auto"}
         onClick={onCVButtonClick}
         size="medium"
+        tabIndex={0}
       />
 
       <MenuIcons />

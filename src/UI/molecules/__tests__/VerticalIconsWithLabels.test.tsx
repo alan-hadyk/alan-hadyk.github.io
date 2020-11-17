@@ -16,7 +16,6 @@ describe("molecules / VerticalIconsWithLabels", () => {
     const {
       FlexContainer,
       FlexItems,
-      IconContainers,
       Icons,
       IconSpacingContainers,
       LabelSpacingContainers,
@@ -33,8 +32,7 @@ describe("molecules / VerticalIconsWithLabels", () => {
     expect(FlexItems[1].children[1]).toEqual(LabelSpacingContainers[1]);
 
     IconSpacingContainers.forEach((IconSpacingContainer, index) => {
-      expect(IconSpacingContainer.children[0]).toEqual(IconContainers[index]);
-      expect(IconContainers[index].children[0]).toEqual(Icons[index]);
+      expect(IconSpacingContainer.children[0]).toEqual(Icons[index]);
     });
 
     LabelSpacingContainers.forEach((LabelSpacingContainer, index) => {
@@ -167,71 +165,47 @@ describe("molecules / VerticalIconsWithLabels", () => {
       expect(Icons.length).toEqual(2);
     });
 
-    test("icons should render correct SVGs", () => {
+    test("icons should render correct images", () => {
       const { Icons } = setup({
         iconsWithLabels
       });
 
-      expect(Icons[0].textContent).toEqual("Brand-JS.svg");
-      expect(Icons[1].textContent).toEqual("Brand-React.svg");
+      expect(Icons[0].getAttribute("src")).toEqual("/images/svg/brandJS.svg");
+      expect(Icons[1].getAttribute("src")).toEqual(
+        "/images/svg/brandReact.svg"
+      );
     });
 
     describe("IconContainer", () => {
       describe("Props", () => {
         describe("height", () => {
           test("should have 2.8rem for small size", () => {
-            const { IconContainers } = setup({
+            const { Icons } = setup({
               size: "small"
             });
 
-            IconContainers.forEach((IconContainer) => {
-              expect(IconContainer).toHaveStyleRule("height", "2.8rem");
+            Icons.forEach((Icon) => {
+              expect(Icon).toHaveStyleRule("height", "2.8rem");
             });
           });
 
           test("should have 3.2rem for medium size", () => {
-            const { IconContainers } = setup({
+            const { Icons } = setup({
               size: "medium"
             });
 
-            IconContainers.forEach((IconContainer) => {
-              expect(IconContainer).toHaveStyleRule("height", "3.2rem");
+            Icons.forEach((Icon) => {
+              expect(Icon).toHaveStyleRule("height", "3.2rem");
             });
           });
 
           test("should have 4rem for large size", () => {
-            const { IconContainers } = setup({
+            const { Icons } = setup({
               size: "large"
             });
 
-            IconContainers.forEach((IconContainer) => {
-              expect(IconContainer).toHaveStyleRule("height", "4rem");
-            });
-          });
-        });
-
-        describe("isResponsive", () => {
-          describe("height", () => {
-            test("should have 100%", () => {
-              const { IconContainers } = setup();
-
-              IconContainers.forEach((IconContainer) => {
-                expect(IconContainer).toHaveStyleRule("height", "100%", {
-                  modifier: "svg"
-                });
-              });
-            });
-          });
-
-          describe("width", () => {
-            test("should have 100%", () => {
-              const { IconContainers } = setup();
-
-              IconContainers.forEach((IconContainer) => {
-                expect(IconContainer).toHaveStyleRule("width", "100%", {
-                  modifier: "svg"
-                });
-              });
+            Icons.forEach((Icon) => {
+              expect(Icon).toHaveStyleRule("height", "4rem");
             });
           });
         });
@@ -365,9 +339,8 @@ describe("molecules / VerticalIconsWithLabels", () => {
 interface Setup extends RenderResult {
   FlexContainer: Element;
   FlexItems: Element[];
-  IconContainers: Element[];
   IconSpacingContainers: Element[];
-  Icons: NodeListOf<SVGSVGElement>;
+  Icons: Element[];
   LabelSpacingContainers: Element[];
   Texts: Element[];
 }
@@ -399,8 +372,7 @@ function setup(additionalProps?: VerticalIconsWithLabelsTestProps): Setup {
 
   const FlexContainer: Element = queryAllByTestId("VerticalIconsWithLabels")[0];
   const FlexItems: Element[] = queryAllByTestId("FlexItem");
-  const IconContainers: Element[] = queryAllByTestId("IconContainer");
-  const Icons: NodeListOf<SVGSVGElement> = document.querySelectorAll("svg");
+  const Icons: Element[] = queryAllByTestId("IconImage");
   const LabelSpacingContainers: Element[] = queryAllByTestId(
     "LabelSpacingContainer"
   );
@@ -413,7 +385,6 @@ function setup(additionalProps?: VerticalIconsWithLabelsTestProps): Setup {
     ...utils,
     FlexContainer,
     FlexItems,
-    IconContainers,
     IconSpacingContainers,
     Icons,
     LabelSpacingContainers,

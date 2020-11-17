@@ -1,60 +1,7 @@
 import React, { forwardRef, Ref } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
-import { transparentize } from "polished";
+import transparentize from "polished/lib/color/transparentize";
 
-import { ReactComponent as BrandAfterEffects } from "assets/svg/Brand-AfterEffects.svg";
-import { ReactComponent as BrandAirbnb } from "assets/svg/Brand-Airbnb.svg";
-import { ReactComponent as BrandApollo } from "assets/svg/Brand-Apollo.svg";
-import { ReactComponent as BrandBamboo } from "assets/svg/Brand-Bamboo.svg";
-import { ReactComponent as BrandBasecamp } from "assets/svg/Brand-Basecamp.svg";
-import { ReactComponent as BrandBuildkite } from "assets/svg/Brand-Buildkite.svg";
-import { ReactComponent as BrandCSS } from "assets/svg/Brand-CSS.svg";
-import { ReactComponent as BrandCorel } from "assets/svg/Brand-Corel.svg";
-import { ReactComponent as BrandCSSModules } from "assets/svg/Brand-CSSModules.svg";
-import { ReactComponent as BrandCoffeeScript } from "assets/svg/Brand-CoffeeScript.svg";
-import { ReactComponent as BrandCypress } from "assets/svg/Brand-Cypress.svg";
-import { ReactComponent as BrandDocker } from "assets/svg/Brand-Docker.svg";
-import { ReactComponent as BrandDocpad } from "assets/svg/Brand-Docpad.svg";
-import { ReactComponent as BrandEmber } from "assets/svg/Brand-Ember.svg";
-import { ReactComponent as BrandExpress } from "assets/svg/Brand-Express.svg";
-import { ReactComponent as BrandFigma } from "assets/svg/Brand-Figma.svg";
-import { ReactComponent as BrandGallery } from "assets/svg/Brand-Gallery.svg";
-import { ReactComponent as BrandGithub } from "assets/svg/Brand-Github.svg";
-import { ReactComponent as BrandGitlab } from "assets/svg/Brand-Gitlab.svg";
-import { ReactComponent as BrandGraphQL } from "assets/svg/Brand-GraphQL.svg";
-import { ReactComponent as BrandGrunt } from "assets/svg/Brand-Grunt.svg";
-import { ReactComponent as BrandGulp } from "assets/svg/Brand-Gulp.svg";
-import { ReactComponent as BrandHTML } from "assets/svg/Brand-HTML.svg";
-import { ReactComponent as BrandJEST } from "assets/svg/Brand-JEST.svg";
-import { ReactComponent as BrandJIRA } from "assets/svg/Brand-JIRA.svg";
-import { ReactComponent as BrandJQuery } from "assets/svg/Brand-jQuery.svg";
-import { ReactComponent as BrandJS } from "assets/svg/Brand-JS.svg";
-import { ReactComponent as BrandJenkins } from "assets/svg/Brand-Jenkins.svg";
-import { ReactComponent as BrandLESS } from "assets/svg/Brand-LESS.svg";
-import { ReactComponent as BrandNode } from "assets/svg/Brand-Node.svg";
-import { ReactComponent as BrandPhabricator } from "assets/svg/Brand-Phabricator.svg";
-import { ReactComponent as BrandPhotoshop } from "assets/svg/Brand-Photoshop.svg";
-import { ReactComponent as BrandPrestaShop } from "assets/svg/Brand-PrestaShop.svg";
-import { ReactComponent as BrandQuire } from "assets/svg/Brand-Quire.svg";
-import { ReactComponent as BrandQunit } from "assets/svg/Brand-Qunit.svg";
-import { ReactComponent as BrandREST } from "assets/svg/Brand-REST.svg";
-import { ReactComponent as BrandRails } from "assets/svg/Brand-Rails.svg";
-import { ReactComponent as BrandReact } from "assets/svg/Brand-React.svg";
-import { ReactComponent as BrandRedmine } from "assets/svg/Brand-Redmine.svg";
-import { ReactComponent as BrandRedux } from "assets/svg/Brand-Redux.svg";
-import { ReactComponent as BrandRuby } from "assets/svg/Brand-Ruby.svg";
-import { ReactComponent as BrandSass } from "assets/svg/Brand-Sass.svg";
-import { ReactComponent as BrandSinatra } from "assets/svg/Brand-Sinatra.svg";
-import { ReactComponent as BrandSketch } from "assets/svg/Brand-Sketch.svg";
-import { ReactComponent as BrandStash } from "assets/svg/Brand-Stash.svg";
-import { ReactComponent as BrandStyledComponents } from "assets/svg/Brand-StyledComponents.svg";
-import { ReactComponent as BrandTS } from "assets/svg/Brand-TS.svg";
-import { ReactComponent as BrandTaskade } from "assets/svg/Brand-Taskade.svg";
-import { ReactComponent as BrandTestingLibrary } from "assets/svg/Brand-TestingLibrary.svg";
-import { ReactComponent as BrandTrello } from "assets/svg/Brand-Trello.svg";
-import { ReactComponent as BrandWebpack } from "assets/svg/Brand-Webpack.svg";
-import { ReactComponent as BrandWebsocket } from "assets/svg/Brand-Websocket.svg";
-import { ReactComponent as BrandZeplin } from "assets/svg/Brand-Zeplin.svg";
 import { ReactComponent as BtnCodeSandbox } from "assets/svg/Btn-CodeSandbox.svg";
 import { ReactComponent as BtnDownload } from "assets/svg/Btn-Download.svg";
 import { ReactComponent as BtnExternalLink } from "assets/svg/Btn-ExternalLink.svg";
@@ -86,68 +33,19 @@ import { ReactComponent as IconOpera } from "assets/svg/Icon-Opera.svg";
 import { ReactComponent as IconSafari } from "assets/svg/Icon-Safari.svg";
 import { ReactComponent as IconUnknown } from "assets/svg/Icon-Unknown.svg";
 
+import spacing from "styles/variables/spacing";
+
 import {
   IconComponents,
   IconContainerProps,
+  IconImageAdditionalProps,
+  IconImageProps,
   IconProps,
   SVGIcon
 } from "UI/atoms/__typings__/Icon";
 
 export const iconComponents: IconComponents = {
   apollo: IconApollo,
-  brandAfterEffects: BrandAfterEffects,
-  brandAirbnb: BrandAirbnb,
-  brandApollo: BrandApollo,
-  brandBamboo: BrandBamboo,
-  brandBasecamp: BrandBasecamp,
-  brandBuildkite: BrandBuildkite,
-  brandCSS: BrandCSS,
-  brandCSSModules: BrandCSSModules,
-  brandCoffeeScript: BrandCoffeeScript,
-  brandCorel: BrandCorel,
-  brandCypress: BrandCypress,
-  brandDocker: BrandDocker,
-  brandDocpad: BrandDocpad,
-  brandEmber: BrandEmber,
-  brandExpress: BrandExpress,
-  brandFigma: BrandFigma,
-  brandGallery: BrandGallery,
-  brandGithub: BrandGithub,
-  brandGitlab: BrandGitlab,
-  brandGraphQL: BrandGraphQL,
-  brandGrunt: BrandGrunt,
-  brandGulp: BrandGulp,
-  brandHTML: BrandHTML,
-  brandJEST: BrandJEST,
-  brandJIRA: BrandJIRA,
-  brandJQuery: BrandJQuery,
-  brandJS: BrandJS,
-  brandJenkins: BrandJenkins,
-  brandLESS: BrandLESS,
-  brandNode: BrandNode,
-  brandPhabricator: BrandPhabricator,
-  brandPhotoshop: BrandPhotoshop,
-  brandPrestaShop: BrandPrestaShop,
-  brandQuire: BrandQuire,
-  brandQunit: BrandQunit,
-  brandREST: BrandREST,
-  brandRails: BrandRails,
-  brandReact: BrandReact,
-  brandRedmine: BrandRedmine,
-  brandRedux: BrandRedux,
-  brandRuby: BrandRuby,
-  brandSass: BrandSass,
-  brandSinatra: BrandSinatra,
-  brandSketch: BrandSketch,
-  brandStash: BrandStash,
-  brandStyledComponents: BrandStyledComponents,
-  brandTS: BrandTS,
-  brandTaskade: BrandTaskade,
-  brandTestingLibrary: BrandTestingLibrary,
-  brandTrello: BrandTrello,
-  brandWebpack: BrandWebpack,
-  brandWebsocket: BrandWebsocket,
-  brandZeplin: BrandZeplin,
   btnCodeSandbox: BtnCodeSandbox,
   btnDownload: BtnDownload,
   btnExternalLink: BtnExternalLink,
@@ -178,6 +76,92 @@ export const iconComponents: IconComponents = {
   unknown: IconUnknown,
   webpack: IconWebpack
 };
+
+export const iconNames: IconProps["iconName"][] = [
+  "apollo",
+  "brandAfterEffects",
+  "brandAirbnb",
+  "brandApollo",
+  "brandBasecamp",
+  "brandBamboo",
+  "brandBuildkite",
+  "brandCSS",
+  "brandCSSModules",
+  "brandCoffeeScript",
+  "brandCorel",
+  "brandCypress",
+  "brandDocker",
+  "brandDocpad",
+  "brandEmber",
+  "brandExpress",
+  "brandFigma",
+  "brandGallery",
+  "brandGithub",
+  "brandGitlab",
+  "brandGraphQL",
+  "brandGrunt",
+  "brandGulp",
+  "brandHTML",
+  "brandJEST",
+  "brandJIRA",
+  "brandJQuery",
+  "brandJS",
+  "brandJenkins",
+  "brandLESS",
+  "brandNode",
+  "brandPhabricator",
+  "brandPhotoshop",
+  "brandPrestaShop",
+  "brandQuire",
+  "brandQunit",
+  "brandRails",
+  "brandREST",
+  "brandReact",
+  "brandRedmine",
+  "brandRedux",
+  "brandRuby",
+  "brandSass",
+  "brandSinatra",
+  "brandSketch",
+  "brandStash",
+  "brandStyledComponents",
+  "brandTS",
+  "brandTaskade",
+  "brandTestingLibrary",
+  "brandTrello",
+  "brandWebpack",
+  "brandWebsocket",
+  "brandZeplin",
+  "btnCodeSandbox",
+  "btnDownload",
+  "btnExternalLink",
+  "calendar",
+  "chrome",
+  "codeSandbox",
+  "companyDIH",
+  "companyOmise",
+  "companySAP",
+  "companyShiji",
+  "earth",
+  "firefox",
+  "gitHub",
+  "graphql",
+  "hexagon",
+  "hexagonWithPattern",
+  "ie",
+  "javascript",
+  "linkedIn",
+  "logo",
+  "logoShortcut",
+  "node",
+  "opera",
+  "react",
+  "reactLogo",
+  "safari",
+  "typescript",
+  "unknown",
+  "webpack"
+];
 
 const IconContainer = styled.div<IconContainerProps>`
   ${({
@@ -241,7 +225,7 @@ const IconContainer = styled.div<IconContainerProps>`
   transitionTimes[animationTime]
 } ${easeInOut} ${animationDelay};
   
-        &:hover {
+        &:hover, &:focus, &:active {
           filter: drop-shadow(0px 0px ${spacing.spacing4} ${transparentize(
   0.5,
   white
@@ -249,6 +233,15 @@ const IconContainer = styled.div<IconContainerProps>`
         }
       `}
     }
+  `};
+`;
+
+const IconImage = styled.img<IconImageProps>`
+  ${({ heightValue, overflow, widthValue }): FlattenSimpleInterpolation => css`
+    height: ${heightValue};
+    margin: 0 auto;
+    overflow: ${overflow};
+    width: ${widthValue};
   `};
 `;
 
@@ -270,6 +263,29 @@ function Icon(
   }: IconProps,
   ref: Ref<SVGSVGElement>
 ): JSX.Element {
+  if (iconName.includes("brand")) {
+    const iconImageAdditionalProps: IconImageAdditionalProps = {
+      ...(height in spacing && {
+        height: parseInt(height.replace("spacing", ""))
+      }),
+      ...(width in spacing && {
+        width: parseInt(width.replace("spacing", ""))
+      })
+    };
+
+    return (
+      <IconImage
+        alt={iconName}
+        data-cy={iconName}
+        data-testid={dataTestId || "IconImage"}
+        heightValue={(height in spacing && spacing[height]) || height}
+        overflow={overflow}
+        src={`/images/svg/${iconName}.svg`}
+        widthValue={(width in spacing && spacing[width]) || width}
+        {...iconImageAdditionalProps}
+      />
+    );
+  }
   const IconComponent: SVGIcon = iconComponents[iconName];
 
   return (

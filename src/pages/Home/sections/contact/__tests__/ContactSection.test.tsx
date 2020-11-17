@@ -11,7 +11,7 @@ describe("pages / Home / sections / contact / ContactSection", () => {
   test("should have correct structure", () => {
     const { ContactSectionContainer, FlexContainer, Link, Text } = setup();
 
-    expect(ContactSectionContainer.children[4]).toEqual(FlexContainer);
+    expect(ContactSectionContainer.children[2]).toEqual(FlexContainer);
     expect(FlexContainer.children[0]).toEqual(Link);
     expect(Link.children[0]).toEqual(Text);
   });

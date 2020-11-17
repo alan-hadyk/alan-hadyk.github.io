@@ -8,6 +8,7 @@ import styled, {
 } from "styled-components";
 import { Link as RouterLink } from "react-router-dom";
 import PropTypes from "prop-types";
+import transparentize from "polished/lib/color/transparentize";
 
 import Line from "UI/atoms/Line";
 import PositionContainer from "UI/layout/PositionContainer";
@@ -27,7 +28,10 @@ const linkStyles: FlattenInterpolation<ThemedStyledProps<
   ${({
     display,
     height,
-    theme: { spacing },
+    theme: {
+      colorPalette: { white },
+      spacing
+    },
     width
   }): FlattenSimpleInterpolation => css`
     display: ${display};
@@ -35,10 +39,19 @@ const linkStyles: FlattenInterpolation<ThemedStyledProps<
     line-height: 1;
     width: ${(width in spacing && spacing[width]) || width};
 
-    &:hover .line {
+    &:hover .line,
+    &:focus .line,
+    &:active .line {
       opacity: 1;
       visibility: visible;
       width: 50%;
+    }
+
+    &:focus svg,
+    &:active svg {
+      filter: drop-shadow(
+        0px 0px ${spacing.spacing4} ${transparentize(0.5, white)}
+      );
     }
   `};
 `;
@@ -47,7 +60,7 @@ const LinkExternal = styled.a<LinkContainerProps>`
   ${linkStyles};
 `;
 
-const LinkRouter = styled.span<LinkContainerProps>`
+const LinkRouter = styled(RouterLink)<LinkContainerProps>`
   ${linkStyles};
 `;
 
@@ -55,7 +68,7 @@ function Link({
   children,
   dataCy,
   dataTestId,
-  display = "inline",
+  display = "block",
   height = "unset",
   href,
   isExternal = false,
@@ -67,25 +80,27 @@ function Link({
     [isExternal]
   );
   const LinkComponent = isExternal ? LinkExternal : LinkRouter;
+  const linkAdditionalProps: LinkContainerProps = {
+    ...(isExternal && {
+      href: href
+    })
+  };
 
   return (
     <LinkComponent
+      aria-label={dataCy || dataTestId}
       className={getComponentType()}
       data-cy={dataCy}
       data-testid={dataTestId || getComponentType()}
       display={display}
       height={height}
-      href={isExternal ? href : ""}
+      tabIndex={0}
       target={isExternal ? "_blank" : "_self"}
+      to={href}
       width={width}
+      {...linkAdditionalProps}
     >
-      {isExternal ? (
-        renderChildren({ children, isHoverable })
-      ) : (
-        <RouterLink to={href}>
-          {renderChildren({ children, isHoverable })}
-        </RouterLink>
-      )}
+      {renderChildren({ children, isHoverable })}
     </LinkComponent>
   );
 }

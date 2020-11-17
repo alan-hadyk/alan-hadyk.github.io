@@ -241,6 +241,14 @@ describe("organisms / HeaderDesktop", () => {
           });
         });
       });
+
+      describe("tabIndex", () => {
+        test("should have 0", () => {
+          const { Button } = setup();
+
+          expect(Button.getAttribute("tabIndex")).toEqual("0");
+        });
+      });
     });
 
     describe("Event handlers", () => {

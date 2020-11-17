@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { iconComponents } from "UI/atoms/Icon";
+import { iconNames } from "UI/atoms/Icon";
 import ProjectTvAndDesktop from "UI/organisms/Project/ProjectTvAndDesktop";
 import ProjectTablet from "UI/organisms/Project/ProjectTablet";
 import ProjectMobile from "UI/organisms/Project/ProjectMobile";
@@ -51,13 +51,13 @@ Project.propTypes = {
   description: PropTypes.string.isRequired,
   iconsWithLabels: PropTypes.arrayOf(
     PropTypes.shape({
-      iconName: PropTypes.oneOf([...Object.keys(iconComponents)]).isRequired,
+      iconName: PropTypes.oneOf(iconNames).isRequired,
       label: PropTypes.string.isRequired,
       labelColor: PropTypes.oneOf([...Object.keys(colorPalette)]),
       size: PropTypes.oneOf(["small", "medium", "large"])
     })
   ).isRequired,
-  projectIcon: PropTypes.oneOf([...Object.keys(iconComponents)]).isRequired,
+  projectIcon: PropTypes.oneOf(iconNames).isRequired,
   title: PropTypes.string.isRequired
 };
 

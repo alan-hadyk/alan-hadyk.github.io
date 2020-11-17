@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { iconComponents } from "UI/atoms/Icon";
+import { iconNames } from "UI/atoms/Icon";
 import FlexContainer from "UI/layout/FlexContainer";
 import PositionContainer from "UI/layout/PositionContainer";
 import CompanyTvDesktopAndTablet from "UI/organisms/Company/CompanyTvDesktopAndTablet";
@@ -57,13 +57,13 @@ Company.propTypes = {
   date: PropTypes.string.isRequired,
   iconsWithLabels: PropTypes.arrayOf(
     PropTypes.shape({
-      iconName: PropTypes.oneOf([...Object.keys(iconComponents)]).isRequired,
+      iconName: PropTypes.oneOf(iconNames).isRequired,
       label: PropTypes.string.isRequired,
       labelColor: PropTypes.oneOf([...Object.keys(colorPalette)]),
       size: PropTypes.oneOf(["small", "medium", "large"])
     })
   ).isRequired,
-  logo: PropTypes.oneOf([...Object.keys(iconComponents)]).isRequired,
+  logo: PropTypes.oneOf(iconNames).isRequired,
   responsibilities: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),

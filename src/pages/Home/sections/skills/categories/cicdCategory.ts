@@ -14,11 +14,11 @@ const iconsWithLabels: IconWithLabelProps[] = [
     label: "Bamboo"
   },
   {
-    iconName: "gitHub",
+    iconName: "brandGithub",
     label: "GitHub Actions"
   },
   {
-    iconName: "gitHub",
+    iconName: "brandGithub",
     label: "GitHub Enterprise"
   },
   {

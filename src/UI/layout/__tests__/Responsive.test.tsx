@@ -9,314 +9,90 @@ import { ResponsiveProps } from "UI/layout/__typings__/Responsive";
 
 describe("layout / Responsive", () => {
   describe("children", () => {
-    test("should render children for tv", () => {
-      const { ResponsiveTV } = setup({
-        children: <div>Custom children</div>,
-        devices: ["tv"]
+    test("should render children", () => {
+      const { ResponsiveContainer } = setup({
+        children: <div>Custom children</div>
       });
 
-      expect(ResponsiveTV.textContent).toEqual("Custom children");
-    });
-
-    test("should render children for desktop", () => {
-      const { ResponsiveDesktop } = setup({
-        children: <div>Custom children</div>,
-        devices: ["desktop"]
-      });
-
-      expect(ResponsiveDesktop.textContent).toEqual("Custom children");
-    });
-
-    test("should render children for tablet", () => {
-      const { ResponsiveTablet } = setup({
-        children: <div>Custom children</div>,
-        devices: ["tablet"]
-      });
-
-      expect(ResponsiveTablet.textContent).toEqual("Custom children");
-    });
-
-    test("should render children for mobile", () => {
-      const { ResponsiveMobile } = setup({
-        children: <div>Custom children</div>,
-        devices: ["mobile"]
-      });
-
-      expect(ResponsiveMobile.textContent).toEqual("Custom children");
+      expect(ResponsiveContainer.textContent).toEqual("Custom children");
     });
   });
 
-  describe("ResponsiveTv", () => {
-    test("should render if device is tv", () => {
-      const {
-        ResponsiveDesktop,
-        ResponsiveMobile,
-        ResponsiveTV,
-        ResponsiveTablet
-      } = setup({
-        children: <div>Custom children</div>,
-        devices: ["tv"]
-      });
-
-      expect(ResponsiveTV).toBeTruthy();
-      expect(ResponsiveDesktop).toBeFalsy();
-      expect(ResponsiveMobile).toBeFalsy();
-      expect(ResponsiveTablet).toBeFalsy();
-    });
-
+  describe("ResponsiveContainer", () => {
     describe("Styles", () => {
       describe("display", () => {
         test("should have none by default", () => {
-          const { ResponsiveTV } = setup({
-            devices: ["tv"]
-          });
+          const { ResponsiveContainer } = setup();
 
-          expect(ResponsiveTV).toHaveStyleRule("display", "none");
+          expect(ResponsiveContainer).toHaveStyleRule("display", "none");
         });
 
-        test("should have block for min-width: 1681px", () => {
-          const { ResponsiveTV } = setup({
+        test("should have block for min-width: 1681px if device is tv", () => {
+          const { ResponsiveContainer } = setup({
             devices: ["tv"]
           });
 
-          expect(ResponsiveTV).toHaveStyleRule("display", "block", {
+          expect(ResponsiveContainer).toHaveStyleRule("display", "block", {
             media: "(min-width:1681px)"
           });
         });
-      });
 
-      describe("height", () => {
-        test("should have auto by default", () => {
-          const { ResponsiveTV } = setup({
-            devices: ["tv"]
-          });
-
-          expect(ResponsiveTV).toHaveStyleRule("height", "auto");
-        });
-
-        test("should have 100% passed via height prop", () => {
-          const { ResponsiveTV } = setup({
-            devices: ["tv"],
-            height: "100%"
-          });
-
-          expect(ResponsiveTV).toHaveStyleRule("height", "100%");
-        });
-      });
-
-      describe("width", () => {
-        test("should have auto by default", () => {
-          const { ResponsiveTV } = setup({
-            devices: ["tv"]
-          });
-
-          expect(ResponsiveTV).toHaveStyleRule("width", "auto");
-        });
-
-        test("should have 100% passed via width prop", () => {
-          const { ResponsiveTV } = setup({
-            devices: ["tv"],
-            width: "100%"
-          });
-
-          expect(ResponsiveTV).toHaveStyleRule("width", "100%");
-        });
-      });
-    });
-  });
-
-  describe("ResponsiveDesktop", () => {
-    test("should render if device is desktop", () => {
-      const {
-        ResponsiveDesktop,
-        ResponsiveMobile,
-        ResponsiveTV,
-        ResponsiveTablet
-      } = setup({
-        children: <div>Custom children</div>,
-        devices: ["desktop"]
-      });
-
-      expect(ResponsiveDesktop).toBeTruthy();
-      expect(ResponsiveTV).toBeFalsy();
-      expect(ResponsiveMobile).toBeFalsy();
-      expect(ResponsiveTablet).toBeFalsy();
-    });
-
-    describe("Styles", () => {
-      describe("display", () => {
-        test("should have none by default", () => {
-          const { ResponsiveDesktop } = setup({
+        test("should not have block for min-width: 1681px if device is not tv", () => {
+          const { ResponsiveContainer } = setup({
             devices: ["desktop"]
           });
 
-          expect(ResponsiveDesktop).toHaveStyleRule("display", "none");
+          expect(ResponsiveContainer).not.toHaveStyleRule("display", "block", {
+            media: "(min-width:1681px)"
+          });
         });
 
-        test("should have block for min-width: 1281px and max-width: 1680px", () => {
-          const { ResponsiveDesktop } = setup({
-            devices: ["desktop"]
+        test("should not have block for min-width: 1281px and max-width: 1680px if device is not desktop", () => {
+          const { ResponsiveContainer } = setup({
+            devices: ["mobile"]
           });
 
-          expect(ResponsiveDesktop).toHaveStyleRule("display", "block", {
+          expect(ResponsiveContainer).not.toHaveStyleRule("display", "block", {
             media: "(min-width:1281px) and (max-width:1680px)"
           });
         });
-      });
 
-      describe("height", () => {
-        test("should have auto by default", () => {
-          const { ResponsiveDesktop } = setup({
-            devices: ["desktop"]
-          });
-
-          expect(ResponsiveDesktop).toHaveStyleRule("height", "auto");
-        });
-
-        test("should have 100% passed via height prop", () => {
-          const { ResponsiveDesktop } = setup({
-            devices: ["desktop"],
-            height: "100%"
-          });
-
-          expect(ResponsiveDesktop).toHaveStyleRule("height", "100%");
-        });
-      });
-
-      describe("width", () => {
-        test("should have auto by default", () => {
-          const { ResponsiveDesktop } = setup({
-            devices: ["desktop"]
-          });
-
-          expect(ResponsiveDesktop).toHaveStyleRule("width", "auto");
-        });
-
-        test("should have 100% passed via width prop", () => {
-          const { ResponsiveDesktop } = setup({
-            devices: ["desktop"],
-            width: "100%"
-          });
-
-          expect(ResponsiveDesktop).toHaveStyleRule("width", "100%");
-        });
-      });
-    });
-  });
-
-  describe("ResponsiveTablet", () => {
-    test("should render if device is tablet", () => {
-      const {
-        ResponsiveDesktop,
-        ResponsiveMobile,
-        ResponsiveTV,
-        ResponsiveTablet
-      } = setup({
-        children: <div>Custom children</div>,
-        devices: ["tablet"]
-      });
-
-      expect(ResponsiveTablet).toBeTruthy();
-      expect(ResponsiveTV).toBeFalsy();
-      expect(ResponsiveDesktop).toBeFalsy();
-      expect(ResponsiveMobile).toBeFalsy();
-    });
-
-    describe("Styles", () => {
-      describe("display", () => {
-        test("should have none by default", () => {
-          const { ResponsiveTablet } = setup({
+        test("should have block for min-width: 641px and max-width: 1280px if device is tablet", () => {
+          const { ResponsiveContainer } = setup({
             devices: ["tablet"]
           });
 
-          expect(ResponsiveTablet).toHaveStyleRule("display", "none");
-        });
-
-        test("should have block for min-width: 641px and max-width: 1280px", () => {
-          const { ResponsiveTablet } = setup({
-            devices: ["tablet"]
-          });
-
-          expect(ResponsiveTablet).toHaveStyleRule("display", "block", {
+          expect(ResponsiveContainer).toHaveStyleRule("display", "block", {
             media: "(min-width:641px) and (max-width:1280px)"
           });
         });
-      });
 
-      describe("height", () => {
-        test("should have auto by default", () => {
-          const { ResponsiveTablet } = setup({
-            devices: ["tablet"]
+        test("should not have block for min-width: 641px and max-width: 1280px if device is not tablet", () => {
+          const { ResponsiveContainer } = setup({
+            devices: ["tv"]
           });
 
-          expect(ResponsiveTablet).toHaveStyleRule("height", "auto");
-        });
-
-        test("should have 100% passed via height prop", () => {
-          const { ResponsiveTablet } = setup({
-            devices: ["tablet"],
-            height: "100%"
+          expect(ResponsiveContainer).not.toHaveStyleRule("display", "block", {
+            media: "(min-width:641px) and (max-width:1280px)"
           });
-
-          expect(ResponsiveTablet).toHaveStyleRule("height", "100%");
-        });
-      });
-
-      describe("width", () => {
-        test("should have auto by default", () => {
-          const { ResponsiveTablet } = setup({
-            devices: ["tablet"]
-          });
-
-          expect(ResponsiveTablet).toHaveStyleRule("width", "auto");
         });
 
-        test("should have 100% passed via width prop", () => {
-          const { ResponsiveTablet } = setup({
-            devices: ["tablet"],
-            width: "100%"
-          });
-
-          expect(ResponsiveTablet).toHaveStyleRule("width", "100%");
-        });
-      });
-    });
-  });
-
-  describe("ResponsiveMobile", () => {
-    test("should render if device is mobile", () => {
-      const {
-        ResponsiveDesktop,
-        ResponsiveMobile,
-        ResponsiveTV,
-        ResponsiveTablet
-      } = setup({
-        children: <div>Custom children</div>,
-        devices: ["mobile"]
-      });
-
-      expect(ResponsiveMobile).toBeTruthy();
-      expect(ResponsiveTablet).toBeFalsy();
-      expect(ResponsiveTV).toBeFalsy();
-      expect(ResponsiveDesktop).toBeFalsy();
-    });
-
-    describe("Styles", () => {
-      describe("display", () => {
-        test("should have none by default", () => {
-          const { ResponsiveMobile } = setup({
+        test("should have block for max-width: 640px if device is mobile", () => {
+          const { ResponsiveContainer } = setup({
             devices: ["mobile"]
           });
 
-          expect(ResponsiveMobile).toHaveStyleRule("display", "none");
+          expect(ResponsiveContainer).toHaveStyleRule("display", "block", {
+            media: "(max-width:640px)"
+          });
         });
 
-        test("should have block for max-width: 640px", () => {
-          const { ResponsiveMobile } = setup({
-            devices: ["mobile"]
+        test("should not have block for max-width: 640px if device is not mobile", () => {
+          const { ResponsiveContainer } = setup({
+            devices: ["desktop"]
           });
 
-          expect(ResponsiveMobile).toHaveStyleRule("display", "block", {
+          expect(ResponsiveContainer).not.toHaveStyleRule("display", "block", {
             media: "(max-width:640px)"
           });
         });
@@ -324,39 +100,33 @@ describe("layout / Responsive", () => {
 
       describe("height", () => {
         test("should have auto by default", () => {
-          const { ResponsiveMobile } = setup({
-            devices: ["mobile"]
-          });
+          const { ResponsiveContainer } = setup();
 
-          expect(ResponsiveMobile).toHaveStyleRule("height", "auto");
+          expect(ResponsiveContainer).toHaveStyleRule("height", "auto");
         });
 
         test("should have 100% passed via height prop", () => {
-          const { ResponsiveMobile } = setup({
-            devices: ["mobile"],
+          const { ResponsiveContainer } = setup({
             height: "100%"
           });
 
-          expect(ResponsiveMobile).toHaveStyleRule("height", "100%");
+          expect(ResponsiveContainer).toHaveStyleRule("height", "100%");
         });
       });
 
       describe("width", () => {
         test("should have auto by default", () => {
-          const { ResponsiveMobile } = setup({
-            devices: ["mobile"]
-          });
+          const { ResponsiveContainer } = setup();
 
-          expect(ResponsiveMobile).toHaveStyleRule("width", "auto");
+          expect(ResponsiveContainer).toHaveStyleRule("width", "auto");
         });
 
         test("should have 100% passed via width prop", () => {
-          const { ResponsiveMobile } = setup({
-            devices: ["mobile"],
+          const { ResponsiveContainer } = setup({
             width: "100%"
           });
 
-          expect(ResponsiveMobile).toHaveStyleRule("width", "100%");
+          expect(ResponsiveContainer).toHaveStyleRule("width", "100%");
         });
       });
     });
@@ -364,10 +134,7 @@ describe("layout / Responsive", () => {
 });
 
 interface Setup extends RenderResult {
-  ResponsiveDesktop: Element;
-  ResponsiveMobile: Element;
-  ResponsiveTV: Element;
-  ResponsiveTablet: Element;
+  ResponsiveContainer: Element;
 }
 
 type ResponsiveTestProps = Partial<ResponsiveProps>;
@@ -385,16 +152,10 @@ function setup(additionalProps?: ResponsiveTestProps): Setup {
 
   const { queryByTestId }: RenderResult = utils;
 
-  const ResponsiveDesktop: Element = queryByTestId("ResponsiveDesktop");
-  const ResponsiveMobile: Element = queryByTestId("ResponsiveMobile");
-  const ResponsiveTV: Element = queryByTestId("ResponsiveTv");
-  const ResponsiveTablet: Element = queryByTestId("ResponsiveTablet");
+  const ResponsiveContainer: Element = queryByTestId("Responsive");
 
   return {
     ...utils,
-    ResponsiveDesktop,
-    ResponsiveMobile,
-    ResponsiveTV,
-    ResponsiveTablet
+    ResponsiveContainer
   };
 }

@@ -21,6 +21,7 @@ export interface ButtonProps {
   iconWidth?: string;
   onClick?: () => unknown;
   size?: "small" | "medium" | "large";
+  tabIndex?: number;
   type?: "primary" | "secondary";
   width?: "100%" | "auto";
 }

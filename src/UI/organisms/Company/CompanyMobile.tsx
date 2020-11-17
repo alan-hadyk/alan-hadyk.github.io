@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import CompanyLogo from "UI/molecules/CompanyLogo";
 
-import { iconComponents } from "UI/atoms/Icon";
+import { iconNames } from "UI/atoms/Icon";
 import CompanyDescription from "UI/organisms/CompanyDescription";
 import FlexContainer from "UI/layout/FlexContainer";
 import Responsive from "UI/layout/Responsive";
@@ -21,7 +21,7 @@ const CompanyMobile = ({
   responsibilitiesPaddingBottom,
   title
 }: CompanyProps): JSX.Element => (
-  <Responsive devices={["mobile"]}>
+  <Responsive dataTestId="CompanyMobile" devices={["mobile"]}>
     <FlexContainer
       alignItems="center"
       dataTestId="CompanyMobileFlexContainer"
@@ -47,13 +47,13 @@ CompanyMobile.propTypes = {
   date: PropTypes.string.isRequired,
   iconsWithLabels: PropTypes.arrayOf(
     PropTypes.shape({
-      iconName: PropTypes.oneOf([...Object.keys(iconComponents)]).isRequired,
+      iconName: PropTypes.oneOf(iconNames).isRequired,
       label: PropTypes.string.isRequired,
       labelColor: PropTypes.oneOf([...Object.keys(colorPalette)]),
       size: PropTypes.oneOf(["small", "medium", "large"])
     })
   ).isRequired,
-  logo: PropTypes.oneOf([...Object.keys(iconComponents)]).isRequired,
+  logo: PropTypes.oneOf(iconNames).isRequired,
   responsibilities: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),

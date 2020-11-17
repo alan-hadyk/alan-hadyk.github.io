@@ -1,6 +1,6 @@
 import React, { memo, useState } from "react";
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
-import { transparentize } from "polished";
+import transparentize from "polished/lib/color/transparentize";
 import PropTypes from "prop-types";
 
 import LinkWithIcon from "UI/molecules/LinkWithIcon";
@@ -85,7 +85,10 @@ function Header({ zIndex = "layer1" }: HeaderProps): JSX.Element {
           height="spacing48"
           justifyContent="space-between"
         >
-          <Responsive devices={["tv", "desktop", "tablet"]}>
+          <Responsive
+            dataTestId="ResponsiveLinkTvDesktopTablet"
+            devices={["tv", "desktop", "tablet"]}
+          >
             <LinkWithIcon
               dataCy="SiteLogo"
               href="/"
@@ -95,7 +98,7 @@ function Header({ zIndex = "layer1" }: HeaderProps): JSX.Element {
             />
           </Responsive>
 
-          <Responsive devices={["mobile"]}>
+          <Responsive dataTestId="ResponsiveLinkMobile" devices={["mobile"]}>
             <LinkWithIcon
               dataCy="SiteLogoMobile"
               href="/"

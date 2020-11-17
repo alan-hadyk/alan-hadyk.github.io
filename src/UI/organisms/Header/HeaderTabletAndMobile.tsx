@@ -15,11 +15,7 @@ const HeaderTabletAndMobile = ({
   onCVButtonClick,
   onClick
 }: HeaderMobileProps): JSX.Element => (
-  <Responsive
-    dataTestMobileId="HeaderMobile"
-    dataTestTabletId="HeaderTablet"
-    devices={["tablet", "mobile"]}
-  >
+  <Responsive dataTestId="HeaderTabletMobile" devices={["tablet", "mobile"]}>
     <MenuButton isOpen={isMenuVisible} onClick={onClick} />
 
     {isMenuVisible && <Backdrop onClick={onClick} />}

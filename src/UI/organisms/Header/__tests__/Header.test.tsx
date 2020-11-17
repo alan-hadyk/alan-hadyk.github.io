@@ -26,16 +26,13 @@ describe("organisms / Header", () => {
       HeaderDesktop,
       HeaderInnerContainer,
       HeaderInnerFlexContainer,
-      HeaderMobile,
       HeaderOuterFlexContainer,
-      HeaderTablet,
+      HeaderTabletMobile,
       HeaderTv,
       LinksWithIcons,
       PositionContainer,
-      ResponsiveDesktop,
-      ResponsiveMobile,
-      ResponsiveTablet,
-      ResponsiveTv
+      ResponsiveLinkTvDesktopTablet,
+      ResponsiveLinkMobile
     } = setup();
 
     expect(PositionContainer.children[0]).toEqual(HeaderContainer);
@@ -46,22 +43,19 @@ describe("organisms / Header", () => {
 
     expect(HeaderInnerContainer.children[0]).toEqual(HeaderInnerFlexContainer);
 
-    expect(HeaderInnerFlexContainer.children[0]).toEqual(ResponsiveTv);
-    expect(ResponsiveTv.children[0]).toEqual(LinksWithIcons[0]);
+    expect(HeaderInnerFlexContainer.children[0]).toEqual(
+      ResponsiveLinkTvDesktopTablet
+    );
+    expect(ResponsiveLinkTvDesktopTablet.children[0]).toEqual(
+      LinksWithIcons[0]
+    );
 
-    expect(HeaderInnerFlexContainer.children[1]).toEqual(ResponsiveDesktop);
-    expect(ResponsiveDesktop.children[0]).toEqual(LinksWithIcons[1]);
+    expect(HeaderInnerFlexContainer.children[1]).toEqual(ResponsiveLinkMobile);
+    expect(ResponsiveLinkMobile.children[0]).toEqual(LinksWithIcons[1]);
 
-    expect(HeaderInnerFlexContainer.children[2]).toEqual(ResponsiveTablet);
-    expect(ResponsiveTablet.children[0]).toEqual(LinksWithIcons[2]);
-
-    expect(HeaderInnerFlexContainer.children[3]).toEqual(ResponsiveMobile);
-    expect(ResponsiveMobile.children[0]).toEqual(LinksWithIcons[3]);
-
-    expect(HeaderInnerFlexContainer.children[4]).toEqual(HeaderTv);
-    expect(HeaderInnerFlexContainer.children[5]).toEqual(HeaderDesktop);
-    expect(HeaderInnerFlexContainer.children[6]).toEqual(HeaderTablet);
-    expect(HeaderInnerFlexContainer.children[7]).toEqual(HeaderMobile);
+    expect(HeaderInnerFlexContainer.children[2]).toEqual(HeaderTv);
+    expect(HeaderInnerFlexContainer.children[3]).toEqual(HeaderDesktop);
+    expect(HeaderInnerFlexContainer.children[4]).toEqual(HeaderTabletMobile);
   });
 
   describe("useResize", () => {
@@ -276,9 +270,7 @@ describe("organisms / Header", () => {
           test("should have correct value", () => {
             const { LinksWithIcons } = setup();
 
-            expect(LinksWithIcons[0].children[0].getAttribute("href")).toEqual(
-              "/"
-            );
+            expect(LinksWithIcons[0].getAttribute("href")).toEqual("/");
           });
         });
 
@@ -314,85 +306,7 @@ describe("organisms / Header", () => {
           test("should have correct value", () => {
             const { LinksWithIcons } = setup();
 
-            expect(LinksWithIcons[1].children[0].getAttribute("href")).toEqual(
-              "/"
-            );
-          });
-        });
-
-        describe("height", () => {
-          test("should have 4.8rem", () => {
-            const { LinksWithIcons } = setup();
-
-            expect(LinksWithIcons[1]).toHaveStyleRule("height", "4.8rem");
-          });
-        });
-
-        describe("iconName", () => {
-          test("should have logo", () => {
-            const { LinksWithIcons } = setup();
-
-            expect(LinksWithIcons[1].textContent).toEqual("Icon-Logo.svg");
-          });
-        });
-
-        describe("width", () => {
-          test("should have 24.8rem", () => {
-            const { LinksWithIcons } = setup();
-
-            expect(LinksWithIcons[1]).toHaveStyleRule("width", "24.8rem");
-          });
-        });
-      });
-    });
-
-    describe("LinksWithIcons[2]", () => {
-      describe("Props", () => {
-        describe("href", () => {
-          test("should have correct value", () => {
-            const { LinksWithIcons } = setup();
-
-            expect(LinksWithIcons[2].children[0].getAttribute("href")).toEqual(
-              "/"
-            );
-          });
-        });
-
-        describe("height", () => {
-          test("should have 4.8rem", () => {
-            const { LinksWithIcons } = setup();
-
-            expect(LinksWithIcons[2]).toHaveStyleRule("height", "4.8rem");
-          });
-        });
-
-        describe("iconName", () => {
-          test("should have logo", () => {
-            const { LinksWithIcons } = setup();
-
-            expect(LinksWithIcons[2].textContent).toEqual("Icon-Logo.svg");
-          });
-        });
-
-        describe("width", () => {
-          test("should have 24.8rem", () => {
-            const { LinksWithIcons } = setup();
-
-            expect(LinksWithIcons[2]).toHaveStyleRule("width", "24.8rem");
-          });
-        });
-      });
-    });
-
-    describe("LinksWithIcons[3]", () => {
-      describe("Props", () => {
-        describe("href", () => {
-          test("should have correct value", () => {
-            const { LinksWithIcons } = setup();
-
-            expect(LinksWithIcons[3].children[0].getAttribute("href")).toEqual(
-              "/"
-            );
+            expect(LinksWithIcons[1].getAttribute("href")).toEqual("/");
           });
         });
 
@@ -400,7 +314,7 @@ describe("organisms / Header", () => {
           test("should have logo shortcut", () => {
             const { LinksWithIcons } = setup();
 
-            expect(LinksWithIcons[3].textContent).toEqual(
+            expect(LinksWithIcons[1].textContent).toEqual(
               "Icon-Logo-Shortcut.svg"
             );
           });
@@ -410,14 +324,62 @@ describe("organisms / Header", () => {
           test("should have 6.4rem", () => {
             const { LinksWithIcons } = setup();
 
-            expect(LinksWithIcons[3]).toHaveStyleRule("width", "6.4rem");
+            expect(LinksWithIcons[1]).toHaveStyleRule("width", "6.4rem");
           });
         });
       });
     });
   });
 
+  describe("HeaderTv", () => {
+    describe("Event handlers", () => {
+      describe("onCVButtonClick", () => {
+        test("should call downloadCV", () => {
+          const spyWindowOpen = jest.fn();
+          global.open = spyWindowOpen;
+          const { HeaderTv } = setup();
+
+          const Button = HeaderTv.querySelector("button");
+
+          expect(spyWindowOpen).toHaveBeenCalledTimes(0);
+
+          act(() => {
+            fireEvent.mouseUp(Button);
+          });
+
+          expect(spyWindowOpen).toHaveBeenCalledWith(
+            "/pdf/Alan_Hadyk_CV_2020.pdf",
+            "_blank"
+          );
+        });
+      });
+    });
+  });
+
   describe("HeaderDesktop", () => {
+    describe("Event handlers", () => {
+      describe("onCVButtonClick", () => {
+        test("should call downloadCV", () => {
+          const spyWindowOpen = jest.fn();
+          global.open = spyWindowOpen;
+          const { HeaderDesktop } = setup();
+
+          const Button = HeaderDesktop.querySelector("button");
+
+          expect(spyWindowOpen).toHaveBeenCalledTimes(0);
+
+          act(() => {
+            fireEvent.mouseUp(Button);
+          });
+
+          expect(spyWindowOpen).toHaveBeenCalledWith(
+            "/pdf/Alan_Hadyk_CV_2020.pdf",
+            "_blank"
+          );
+        });
+      });
+    });
+
     describe("Props", () => {
       describe("isMenuVisible", () => {
         describe("should have false by default", () => {
@@ -451,7 +413,7 @@ describe("organisms / Header", () => {
     });
   });
 
-  describe("HeaderTablet", () => {
+  describe("HeaderTabletMobile", () => {
     describe("Props", () => {
       describe("isMenuVisible", () => {
         describe("should have false by default", () => {
@@ -484,40 +446,6 @@ describe("organisms / Header", () => {
       });
     });
   });
-
-  describe("HeaderMobile", () => {
-    describe("Props", () => {
-      describe("isMenuVisible", () => {
-        describe("should have false by default", () => {
-          test("transform - should have translateX(100%)", () => {
-            const { SideMenus } = setup();
-
-            expect(SideMenus[2]).toHaveStyleRule(
-              "transform",
-              "translateX(100%)"
-            );
-          });
-        });
-
-        describe("should have true if menu button is clicked", () => {
-          test("transform - should have translateX(0)", () => {
-            const { MenuButtons, SideMenus } = setup();
-
-            expect(SideMenus[2]).toHaveStyleRule(
-              "transform",
-              "translateX(100%)"
-            );
-
-            act(() => {
-              fireEvent.click(MenuButtons[2]);
-            });
-
-            expect(SideMenus[2]).toHaveStyleRule("transform", "translateX(0)");
-          });
-        });
-      });
-    });
-  });
 });
 
 interface Setup extends RenderResult {
@@ -525,17 +453,14 @@ interface Setup extends RenderResult {
   HeaderDesktop: Element;
   HeaderInnerContainer: Element;
   HeaderInnerFlexContainer: Element;
-  HeaderMobile: Element;
   HeaderOuterFlexContainer: Element;
-  HeaderTablet: Element;
+  HeaderTabletMobile: Element;
   HeaderTv: Element;
   LinksWithIcons: Element[];
   MenuButtons: Element[];
   PositionContainer: Element;
-  ResponsiveDesktop: Element;
-  ResponsiveMobile: Element;
-  ResponsiveTablet: Element;
-  ResponsiveTv: Element;
+  ResponsiveLinkMobile: Element;
+  ResponsiveLinkTvDesktopTablet: Element;
   SideMenus: Element[];
 }
 
@@ -568,18 +493,19 @@ function setup(additionalProps?: HeaderTestProps, route = "/"): Setup {
   const HeaderOuterFlexContainer: Element = queryAllByTestId(
     "HeaderOuterFlexContainer"
   )[0];
-  const HeaderMobile: Element = queryAllByTestId("HeaderMobile")[0];
-  const HeaderTablet: Element = queryAllByTestId("HeaderTablet")[0];
+  const HeaderTabletMobile: Element = queryAllByTestId("HeaderTabletMobile")[0];
   const HeaderTv: Element = queryAllByTestId("HeaderTv")[0];
   const LinksWithIcons: Element[] = queryAllByTestId("LinkWithIcon");
   const MenuButtons: Element[] = queryAllByTestId("MenuButtonContainer");
   const PositionContainer: Element = queryAllByTestId(
     "HeaderPositionContainer"
   )[0];
-  const ResponsiveDesktop: Element = queryAllByTestId("ResponsiveDesktop")[0];
-  const ResponsiveMobile: Element = queryAllByTestId("ResponsiveMobile")[0];
-  const ResponsiveTablet: Element = queryAllByTestId("ResponsiveTablet")[0];
-  const ResponsiveTv: Element = queryAllByTestId("ResponsiveTv")[0];
+  const ResponsiveLinkMobile: Element = queryAllByTestId(
+    "ResponsiveLinkMobile"
+  )[0];
+  const ResponsiveLinkTvDesktopTablet: Element = queryAllByTestId(
+    "ResponsiveLinkTvDesktopTablet"
+  )[0];
   const SideMenus: Element[] = queryAllByTestId("SideMenu");
 
   return {
@@ -588,17 +514,14 @@ function setup(additionalProps?: HeaderTestProps, route = "/"): Setup {
     HeaderDesktop,
     HeaderInnerContainer,
     HeaderInnerFlexContainer,
-    HeaderMobile,
     HeaderOuterFlexContainer,
-    HeaderTablet,
+    HeaderTabletMobile,
     HeaderTv,
     LinksWithIcons,
     MenuButtons,
     PositionContainer,
-    ResponsiveDesktop,
-    ResponsiveMobile,
-    ResponsiveTablet,
-    ResponsiveTv,
+    ResponsiveLinkMobile,
+    ResponsiveLinkTvDesktopTablet,
     SideMenus
   };
 }

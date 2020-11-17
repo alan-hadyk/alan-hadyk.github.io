@@ -25,7 +25,7 @@ const HeaderDesktop = ({
   onCVButtonClick,
   onClick
 }: HeaderMobileProps): JSX.Element => (
-  <Responsive dataTestDesktopId="HeaderDesktop" devices={["desktop"]}>
+  <Responsive dataTestId="HeaderDesktop" devices={["desktop"]}>
     <FlexContainer
       dataTestId="HeaderDesktopFlexContainer"
       flexFlow="row nowrap"
@@ -47,6 +47,7 @@ const HeaderDesktop = ({
         iconWidth={isIE11() ? `${spacing.spacing24}` : "auto"}
         onClick={onCVButtonClick}
         size="medium"
+        tabIndex={0}
       />
 
       <MenuButton isOpen={isMenuVisible} onClick={onClick} />

@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { JSDOM } from "jsdom";
 
-import { GlobalStyle, polyfills, renderApp } from "../index";
+import { GlobalStyle, renderApp } from "../index";
 
 import theme from "styles/theme";
 
@@ -90,15 +90,5 @@ describe("index", () => {
     });
 
     jest.clearAllTimers();
-  });
-
-  test("Promise.all(polyfills) should contain intersection-observer", async () => {
-    const _polyfills = await Promise.all(polyfills);
-
-    expect(_polyfills).toEqual([
-      {
-        default: "mockIntersectionObserver"
-      }
-    ]);
   });
 });

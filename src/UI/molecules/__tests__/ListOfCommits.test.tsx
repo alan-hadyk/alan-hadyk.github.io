@@ -105,7 +105,7 @@ describe("molecules / ListOfCommits", () => {
         );
         expect(
           Commit.children[0].children[0].children[0].children[0]
-        ).toHaveStyleRule("display", "inline");
+        ).toHaveStyleRule("display", "block");
         expect(
           Commit.children[0].children[0].children[0].children[0]
         ).toHaveStyleRule("height", "unset");

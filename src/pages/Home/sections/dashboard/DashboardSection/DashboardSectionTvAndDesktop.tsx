@@ -18,8 +18,7 @@ import spacing from "styles/variables/spacing";
 
 const DashboardSectionTvAndDesktop = (): JSX.Element => (
   <Responsive
-    dataTestDesktopId="DashboardSectionDesktop"
-    dataTestTvId="DashboardSectionTv"
+    dataTestId="DashboardSectionTvAndDesktop"
     devices={["tv", "desktop"]}
   >
     <DashboardSectionOuterContainer>

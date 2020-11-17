@@ -17,11 +17,11 @@ describe("pages / Home / sections / skills / categories / cicdCategory", () => {
           label: "Bamboo"
         },
         {
-          iconName: "gitHub",
+          iconName: "brandGithub",
           label: "GitHub Actions"
         },
         {
-          iconName: "gitHub",
+          iconName: "brandGithub",
           label: "GitHub Enterprise"
         },
         {

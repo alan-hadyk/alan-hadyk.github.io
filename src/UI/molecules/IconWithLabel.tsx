@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Icon, { iconComponents } from "UI/atoms/Icon";
+import Icon, { iconNames } from "UI/atoms/Icon";
 import Text from "UI/atoms/Text";
 
 import FlexContainer from "UI/layout/FlexContainer";
@@ -73,7 +73,7 @@ function IconWithLabel({
 }
 
 IconWithLabel.propTypes = {
-  iconName: PropTypes.oneOf([...Object.keys(iconComponents)]).isRequired,
+  iconName: PropTypes.oneOf(iconNames).isRequired,
   label: PropTypes.string.isRequired,
   labelColor: PropTypes.oneOf([...Object.keys(colorPalette)]),
   size: PropTypes.oneOf(["small", "medium", "large"])

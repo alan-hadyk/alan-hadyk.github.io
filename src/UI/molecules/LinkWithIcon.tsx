@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Icon, { iconComponents } from "UI/atoms/Icon";
+import Icon, { iconNames } from "UI/atoms/Icon";
 import Link from "UI/molecules/Link";
 
 import spacing from "styles/variables/spacing";
@@ -47,7 +47,7 @@ LinkWithIcon.propTypes = {
     "auto"
   ]),
   href: PropTypes.string.isRequired,
-  iconName: PropTypes.oneOf([...Object.keys(iconComponents)]).isRequired,
+  iconName: PropTypes.oneOf(iconNames).isRequired,
   isExternal: PropTypes.bool,
   width: PropTypes.string
 };

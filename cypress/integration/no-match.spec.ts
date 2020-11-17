@@ -26,9 +26,7 @@ describe("NoMatchPage", () => {
     it("should contain correct href and icon", () => {
       cy.url().should("eq", `${baseUrl}/no-match-page`);
 
-      cy.dataCy("SiteLogo").within(() => {
-        cy.get("a").should("have.attr", "href", "/");
-      });
+      cy.dataCy("SiteLogo").should("have.attr", "href", "/");
 
       cy.dataCy("SiteLogo").within(() => {
         cy.dataCy("logo").should("be.visible");
@@ -38,9 +36,7 @@ describe("NoMatchPage", () => {
     it("should be able to go back to /", () => {
       cy.url().should("eq", `${baseUrl}/no-match-page`);
 
-      cy.dataCy("SiteLogo").within(() => {
-        cy.get("a").click();
-      });
+      cy.dataCy("SiteLogo").click();
 
       cy.url().should("eq", `${baseUrl}/`);
     });

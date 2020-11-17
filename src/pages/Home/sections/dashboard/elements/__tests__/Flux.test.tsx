@@ -13,7 +13,7 @@ describe("pages / Home / sections / dashboard / elements / Flux", () => {
 
     expect(
       DashboardElement.children[1].children[0].children[4].children[0]
-        .children[0]
+        .children[0].children[0].children[0]
     ).toEqual(FlowChart);
   });
 
@@ -71,7 +71,9 @@ describe("pages / Home / sections / dashboard / elements / Flux", () => {
     test("should render", () => {
       const { FlowChart } = setup();
 
-      expect(FlowChart.textContent).toEqual("Flux-FlowChart.svg");
+      expect(FlowChart.getAttribute("src")).toEqual(
+        "/images/svg/Flux-FlowChart.svg"
+      );
     });
   });
 });
@@ -79,7 +81,7 @@ describe("pages / Home / sections / dashboard / elements / Flux", () => {
 interface Setup extends RenderResult {
   Corners: Element[];
   DashboardElement: Element;
-  FlowChart: Element;
+  FlowChart: SVGSVGElement;
 }
 
 function setup(): Setup {
@@ -87,9 +89,9 @@ function setup(): Setup {
 
   const { queryByTestId, queryAllByTestId } = utils || {};
 
-  const DashboardElement: Element = queryByTestId("Flux");
-  const FlowChart: Element = queryByTestId("FlowChart");
   const Corners: Element[] = queryAllByTestId("Corner");
+  const DashboardElement: Element = queryByTestId("Flux");
+  const FlowChart: SVGSVGElement = document.querySelector("img#flow-chart");
 
   return {
     ...utils,

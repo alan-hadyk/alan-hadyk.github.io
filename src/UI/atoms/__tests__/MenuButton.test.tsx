@@ -19,6 +19,16 @@ describe("atoms / MenuButton", () => {
 
   describe("MenuButtonContainer", () => {
     describe("Props", () => {
+      describe("aria-label", () => {
+        test("should have MenuButton", () => {
+          const { MenuButtonContainer } = setup();
+
+          expect(MenuButtonContainer.getAttribute("aria-label")).toEqual(
+            "MenuButton"
+          );
+        });
+      });
+
       describe("onClick", () => {
         test("should fire onClick prop", () => {
           const onClick = jest.fn();

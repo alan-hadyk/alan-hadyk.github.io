@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Icon, { iconComponents } from "UI/atoms/Icon";
+import Icon, { iconNames } from "UI/atoms/Icon";
 import Text from "UI/atoms/Text";
 import {
   mapSizeToIconHeight,
@@ -39,11 +39,7 @@ const VerticalIconsWithLabels = ({
             key={iconName + index}
             marginBottom="spacing12"
           >
-            <Icon
-              height={mapSizeToIconHeight[size]}
-              iconName={iconName}
-              isResponsive
-            />
+            <Icon height={mapSizeToIconHeight[size]} iconName={iconName} />
           </SpacingContainer>
         )
       )}
@@ -78,7 +74,7 @@ const VerticalIconsWithLabels = ({
 VerticalIconsWithLabels.propTypes = {
   iconsWithLabels: PropTypes.arrayOf(
     PropTypes.shape({
-      iconName: PropTypes.oneOf([...Object.keys(iconComponents)]).isRequired,
+      iconName: PropTypes.oneOf(iconNames).isRequired,
       label: PropTypes.string.isRequired,
       labelColor: PropTypes.oneOf([...Object.keys(colorPalette)]),
       size: PropTypes.oneOf(["small", "medium", "large"])

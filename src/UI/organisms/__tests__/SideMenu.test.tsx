@@ -16,11 +16,10 @@ jest.mock("hooks/useIntersectionObserver");
 describe("organisms / SideMenu", () => {
   test("should have correct structure", () => {
     const {
-      Buttons,
+      Button,
       MenuIcons,
       Navs,
-      ResponsiveMobile,
-      ResponsiveTablet,
+      ResponsiveMobileTablet,
       SideMenuContainer,
       SideMenuInnerFlexContainer,
       SideMenuInnerSpacingContainer,
@@ -34,9 +33,11 @@ describe("organisms / SideMenu", () => {
       SideMenuOuterSpacingContainer
     );
 
-    // Mobile
-    expect(SideMenuOuterSpacingContainer.children[0]).toEqual(ResponsiveMobile);
-    expect(ResponsiveMobile.children[0]).toEqual(
+    // Mobile an tablet
+    expect(SideMenuOuterSpacingContainer.children[0]).toEqual(
+      ResponsiveMobileTablet
+    );
+    expect(ResponsiveMobileTablet.children[0]).toEqual(
       SideMenuMobileSpacingContainers[0]
     );
 
@@ -44,30 +45,15 @@ describe("organisms / SideMenu", () => {
       SideMenuMobileFlexContainers[0]
     );
 
-    expect(SideMenuMobileSpacingContainers[0].children[1]).toEqual(Buttons[0]);
+    expect(SideMenuMobileSpacingContainers[0].children[1]).toEqual(Button);
 
     expect(SideMenuMobileFlexContainers[0].children[0]).toEqual(
       SideMenuNavSpacingContainers[0]
     );
     expect(SideMenuNavSpacingContainers[0].children[0]).toEqual(Navs[0]);
 
-    // Tablet
-    expect(SideMenuOuterSpacingContainer.children[1]).toEqual(ResponsiveTablet);
-    expect(ResponsiveTablet.children[0]).toEqual(
-      SideMenuMobileSpacingContainers[1]
-    );
-    expect(SideMenuMobileSpacingContainers[1].children[0]).toEqual(
-      SideMenuMobileFlexContainers[1]
-    );
-
-    expect(SideMenuMobileSpacingContainers[1].children[1]).toEqual(Buttons[1]);
-
-    expect(SideMenuMobileFlexContainers[1].children[0]).toEqual(
-      SideMenuNavSpacingContainers[1]
-    );
-    expect(SideMenuNavSpacingContainers[1].children[0]).toEqual(Navs[1]);
-
-    expect(SideMenuOuterSpacingContainer.children[2]).toEqual(
+    // MenuIcons
+    expect(SideMenuOuterSpacingContainer.children[1]).toEqual(
       SideMenuInnerSpacingContainer
     );
     expect(SideMenuInnerSpacingContainer.children[0]).toEqual(
@@ -398,33 +384,25 @@ describe("organisms / SideMenu", () => {
     });
   });
 
-  describe("Buttons", () => {
+  describe("Button", () => {
     describe("Props", () => {
       describe("buttonText", () => {
         test("should have cv", () => {
-          const { Buttons } = setup();
+          const { Button } = setup();
 
-          const firstButtonText = Buttons[0].querySelector(
-            "[font-family=\"Exan\"]"
-          );
-          const secondButtonText = Buttons[1].querySelector(
-            "[font-family=\"Exan\"]"
-          );
+          const buttonText = Button.querySelector("[font-family=\"Exan\"]");
 
-          expect(firstButtonText.textContent).toEqual("cv");
-          expect(secondButtonText.textContent).toEqual("cv");
+          expect(buttonText.textContent).toEqual("cv");
         });
       });
 
       describe("iconName", () => {
         test("should have Btn-Download.svg", () => {
-          const { Buttons } = setup();
+          const { Button } = setup();
 
-          const firstButtonIcon = Buttons[0].querySelector("svg");
-          const secondButtonIcon = Buttons[1].querySelector("svg");
+          const buttonIcon = Button.querySelector("svg");
 
-          expect(firstButtonIcon.textContent).toEqual("Btn-Download.svg");
-          expect(secondButtonIcon.textContent).toEqual("Btn-Download.svg");
+          expect(buttonIcon.textContent).toEqual("Btn-Download.svg");
         });
       });
 
@@ -433,26 +411,22 @@ describe("organisms / SideMenu", () => {
           const mockisIE11 = (isIE11 as unknown) as jest.Mock;
           mockisIE11.mockImplementation(() => false);
 
-          const { Buttons } = setup();
+          const { Button } = setup();
 
-          Buttons.forEach((Button) => {
-            expect(
-              Button.children[4].children[0].children[0].children[1]
-            ).toHaveStyleRule("width", "auto");
-          });
+          expect(
+            Button.children[4].children[0].children[0].children[1]
+          ).toHaveStyleRule("width", "auto");
         });
 
         test("should have auto if isIE11 returns true", () => {
           const mockisIE11 = (isIE11 as unknown) as jest.Mock;
           mockisIE11.mockImplementation(() => true);
 
-          const { Buttons } = setup();
+          const { Button } = setup();
 
-          Buttons.forEach((Button) => {
-            expect(
-              Button.children[0].children[0].children[0].children[1]
-            ).toHaveStyleRule("width", "2.4rem");
-          });
+          expect(
+            Button.children[0].children[0].children[0].children[1]
+          ).toHaveStyleRule("width", "2.4rem");
         });
       });
 
@@ -460,23 +434,27 @@ describe("organisms / SideMenu", () => {
         describe("should have medium", () => {
           describe("height", () => {
             test("should have 4.8rem", () => {
-              const { Buttons } = setup();
+              const { Button } = setup();
 
-              Buttons.forEach((Button) => {
-                expect(Button).toHaveStyleRule("height", "4.8rem");
-              });
+              expect(Button).toHaveStyleRule("height", "4.8rem");
             });
           });
         });
       });
 
+      describe("tabIndex", () => {
+        test("should have 0", () => {
+          const { Button } = setup();
+
+          expect(Button.getAttribute("tabIndex")).toEqual("0");
+        });
+      });
+
       describe("width", () => {
         describe("should have 100%", () => {
-          const { Buttons } = setup();
+          const { Button } = setup();
 
-          Buttons.forEach((Button) => {
-            expect(Button).toHaveStyleRule("width", "100%");
-          });
+          expect(Button).toHaveStyleRule("width", "100%");
         });
       });
     });
@@ -486,18 +464,18 @@ describe("organisms / SideMenu", () => {
         test("should fire onCVButtonClick", () => {
           const onCVButtonClick = jest.fn();
 
-          const { Buttons } = setup({ onCVButtonClick });
+          const { Button } = setup({ onCVButtonClick });
 
           expect(onCVButtonClick).toHaveBeenCalledTimes(0);
 
           act(() => {
-            fireEvent.mouseUp(Buttons[0]);
+            fireEvent.mouseUp(Button);
           });
 
           expect(onCVButtonClick).toHaveBeenCalledTimes(1);
 
           act(() => {
-            fireEvent.mouseUp(Buttons[1]);
+            fireEvent.mouseUp(Button);
           });
 
           expect(onCVButtonClick).toHaveBeenCalledTimes(2);
@@ -526,11 +504,10 @@ describe("organisms / SideMenu", () => {
 });
 
 interface Setup extends RenderResult {
-  Buttons: Element[];
+  Button: Element;
   MenuIcons: Element[];
   Navs: Element[];
-  ResponsiveMobile: Element;
-  ResponsiveTablet: Element;
+  ResponsiveMobileTablet: Element;
   SideMenuContainer: Element;
   SideMenuInnerFlexContainer: Element;
   SideMenuInnerSpacingContainer: Element;
@@ -547,11 +524,12 @@ function setup(props?: SideMenuTestProps): Setup {
 
   const { queryAllByTestId }: RenderResult = utils;
 
-  const Buttons: Element[] = queryAllByTestId("Button");
+  const Button: Element = queryAllByTestId("Button")[0];
   const MenuIcons: Element[] = queryAllByTestId("MenuIcons");
   const Navs: Element[] = queryAllByTestId("Nav");
-  const ResponsiveMobile: Element = queryAllByTestId("ResponsiveMobile")[0];
-  const ResponsiveTablet: Element = queryAllByTestId("ResponsiveTablet")[0];
+  const ResponsiveMobileTablet: Element = queryAllByTestId(
+    "ResponsiveMobileTablet"
+  )[0];
   const SideMenuContainer: Element = queryAllByTestId("SideMenu")[0];
   const SideMenuInnerFlexContainer: Element = queryAllByTestId(
     "SideMenuInnerFlexContainer"
@@ -574,11 +552,10 @@ function setup(props?: SideMenuTestProps): Setup {
 
   return {
     ...utils,
-    Buttons,
+    Button,
     MenuIcons,
     Navs,
-    ResponsiveMobile,
-    ResponsiveTablet,
+    ResponsiveMobileTablet,
     SideMenuContainer,
     SideMenuInnerFlexContainer,
     SideMenuInnerSpacingContainer,

@@ -16,7 +16,7 @@ describe("pages / Home / sections / about / AboutMeSection", () => {
       Images
     } = setup();
 
-    expect(AboutMeSectionContainer.children[4]).toEqual(HexagonWithDescription);
+    expect(AboutMeSectionContainer.children[2]).toEqual(HexagonWithDescription);
 
     HexagonWithDescriptionContents.forEach(
       (HexagonWithDescriptionContent: Element, index: number) => {

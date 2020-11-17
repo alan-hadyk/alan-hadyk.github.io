@@ -555,11 +555,11 @@ describe("Skills", () => {
                   .should("be.visible");
 
                 cy.get(githubActions)
-                  .find("[data-cy='gitHub']")
+                  .find("[data-cy='brandGithub']")
                   .should("be.visible");
 
                 cy.get(githubEnterprise)
-                  .find("[data-cy='gitHub']")
+                  .find("[data-cy='brandGithub']")
                   .should("be.visible");
 
                 cy.get(docker)

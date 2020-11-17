@@ -17,22 +17,22 @@ describe("organisms / CompanyMobile", () => {
       CompanyDescription,
       CompanyLogo,
       FlexContainer,
-      ResponsiveMobile
+      CompanyMobileContainer
     } = setup();
 
-    expect(ResponsiveMobile.children[0]).toEqual(FlexContainer);
+    expect(CompanyMobileContainer.children[0]).toEqual(FlexContainer);
     expect(FlexContainer.children[0]).toEqual(CompanyLogo);
     expect(FlexContainer.children[1]).toEqual(CompanyDescription);
   });
 
-  describe("ResponsiveMobile", () => {
+  describe("CompanyMobileContainer", () => {
     describe("Props", () => {
       describe("devices", () => {
         describe("should have mobile", () => {
           test("should have display block when max-width is 640px", () => {
-            const { ResponsiveMobile } = setup();
+            const { CompanyMobileContainer } = setup();
 
-            expect(ResponsiveMobile).toHaveStyleRule("display", "block", {
+            expect(CompanyMobileContainer).toHaveStyleRule("display", "block", {
               media: "(max-width:640px)"
             });
           });
@@ -160,8 +160,10 @@ describe("organisms / CompanyMobile", () => {
 
           expect(IconsWithLabels.children.length).toEqual(2);
           expect(
-            IconsWithLabels.children[0].children[0].children[0].textContent
-          ).toEqual("Brand-Webpack.svg");
+            IconsWithLabels.children[0].children[0].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandWebpack.svg");
           expect(IconsWithLabels.children[0].children[1].textContent).toEqual(
             "Webpack"
           );
@@ -191,8 +193,10 @@ describe("organisms / CompanyMobile", () => {
 
           expect(IconsWithLabels.children.length).toEqual(2);
           expect(
-            IconsWithLabels.children[0].children[0].children[0].textContent
-          ).toEqual("Brand-React.svg");
+            IconsWithLabels.children[0].children[0].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandReact.svg");
           expect(IconsWithLabels.children[0].children[1].textContent).toEqual(
             "React"
           );
@@ -297,8 +301,8 @@ describe("organisms / CompanyMobile", () => {
 interface Setup extends RenderResult {
   CompanyDescription: Element;
   CompanyLogo: Element;
+  CompanyMobileContainer: Element;
   FlexContainer: Element;
-  ResponsiveMobile: Element;
 }
 
 type CompanyTestProps = Partial<CompanyProps>;
@@ -338,13 +342,13 @@ function setup(additionalProps?: CompanyTestProps): Setup {
   const FlexContainer: Element = queryAllByTestId(
     "CompanyMobileFlexContainer"
   )[0];
-  const ResponsiveMobile: Element = queryAllByTestId("ResponsiveMobile")[0];
+  const CompanyMobileContainer: Element = queryAllByTestId("CompanyMobile")[0];
 
   return {
     ...utils,
     CompanyDescription,
     CompanyLogo,
-    FlexContainer,
-    ResponsiveMobile
+    CompanyMobileContainer,
+    FlexContainer
   };
 }

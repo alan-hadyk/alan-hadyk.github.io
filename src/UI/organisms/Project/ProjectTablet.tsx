@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { iconComponents } from "UI/atoms/Icon";
+import { iconNames } from "UI/atoms/Icon";
 import ProjectDescription from "UI/organisms/ProjectDescription";
 import ProjectImage from "UI/organisms/Project/ProjectImage";
 import FlexContainer from "UI/layout/FlexContainer";
@@ -18,7 +18,7 @@ const ProjectTablet = ({
   projectIcon,
   title
 }: ProjectProps): JSX.Element => (
-  <Responsive dataTestTabletId="ProjectTablet" devices={["tablet"]}>
+  <Responsive dataTestId="ProjectTablet" devices={["tablet"]}>
     <FlexContainer
       dataTestId="ProjectTabletFlexContainer"
       alignItems="center"
@@ -42,13 +42,13 @@ ProjectTablet.propTypes = {
   description: PropTypes.string.isRequired,
   iconsWithLabels: PropTypes.arrayOf(
     PropTypes.shape({
-      iconName: PropTypes.oneOf([...Object.keys(iconComponents)]).isRequired,
+      iconName: PropTypes.oneOf(iconNames).isRequired,
       label: PropTypes.string.isRequired,
       labelColor: PropTypes.oneOf([...Object.keys(colorPalette)]),
       size: PropTypes.oneOf(["small", "medium", "large"])
     })
   ).isRequired,
-  projectIcon: PropTypes.oneOf([...Object.keys(iconComponents)]).isRequired,
+  projectIcon: PropTypes.oneOf(iconNames).isRequired,
   title: PropTypes.string.isRequired
 };
 

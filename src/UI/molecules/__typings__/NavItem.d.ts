@@ -1,6 +1,7 @@
 export interface NavItemProps {
   href: string;
   isActive?: boolean;
+  tabIndex?: number;
   title: string;
 }
 

@@ -225,8 +225,8 @@ describe("molecules / IconsWithLabels", () => {
       test("icons should render correct SVGs", () => {
         const { Icons } = setup();
 
-        expect(Icons[0].textContent).toEqual("Brand-JS.svg");
-        expect(Icons[1].textContent).toEqual("Brand-React.svg");
+        expect(Icons[0].textContent).toEqual("Icon-GitHub.svg");
+        expect(Icons[1].textContent).toEqual("Icon-Graphql.svg");
       });
 
       describe("IconContainer", () => {
@@ -351,11 +351,11 @@ type IconsWithLabelsTestProps = Partial<IconsWithLabelsProps>;
 function setup(additionalProps?: IconsWithLabelsTestProps): Setup {
   const iconsWithLabels: IconWithLabelProps[] = [
     {
-      iconName: "brandJS",
+      iconName: "gitHub",
       label: "Javascript"
     },
     {
-      iconName: "brandReact",
+      iconName: "graphql",
       label: "React"
     }
   ];
