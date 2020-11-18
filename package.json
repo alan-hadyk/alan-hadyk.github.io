@@ -71,7 +71,8 @@
     "lint-staged": "^10.4.2",
     "prettier": "^2.1.2",
     "react-test-renderer": "^17.0.1",
-    "serve": "^11.3.2"
+    "serve": "^11.3.2",
+    "workbox-build": "^5.1.4"
   },
   "engines": {
     "node": ">=14.11.0"
@@ -100,7 +101,9 @@
   "name": "alan-hadyk.github.io",
   "private": false,
   "scripts": {
-    "build": "react-scripts build",
+    "build": "react-scripts build && npm run build-sw && npm run clean-cra-sw",
+    "build-sw": "node ./src/sw-build.js",
+    "clean-cra-sw": "rm -f build/precache-manifest.*.js && rm -f build/service-worker.js",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "deploy": "gh-pages -d build",
