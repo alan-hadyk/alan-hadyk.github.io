@@ -3,15 +3,7 @@
 
 describe("Contact", () => {
   beforeEach(() => {
-    cy.visit("/", {
-      onBeforeLoad: (win) => {
-        cy.stub(win, "fetch").withArgs("https://api.github.com/repos/alan-hadyk/portfolio/commits")
-          .resolves({
-            json: () => [],
-            ok: true
-          });
-      }
-    });
+    cy.visit("/");
   });
 
   it("should contain title and email", () => {
@@ -20,25 +12,28 @@ describe("Contact", () => {
       .find("[data-testid='Text']")
       .should("contain", "Contact");
 
-    cy.dataCy("Contact")
-      .within(() => {
-        cy.dataCy("EmailLink")
-          .should("be.visible");
-      });
+    cy.dataCy("Contact").within(() => {
+      cy.dataCy("EmailLink").should("be.visible");
+    });
   });
 
   describe("EmailLink", () => {
     it("should contain correct href", () => {
-      cy.dataCy("EmailLink")
-        .should("have.attr", "href", "mailto:alan.hadyk@gmail.com");
+      cy.dataCy("EmailLink").should(
+        "have.attr",
+        "href",
+        "mailto:alan.hadyk@gmail.com"
+      );
     });
 
     it("should contain correct email", () => {
       cy.dataCy("EmailLink")
         .should("be.visible")
         .within(() => {
-          cy.get("[data-testid='EmailText']")
-            .should("contain", "alan.hadyk@gmail.com");
+          cy.get("[data-testid='EmailText']").should(
+            "contain",
+            "alan.hadyk@gmail.com"
+          );
         });
     });
   });

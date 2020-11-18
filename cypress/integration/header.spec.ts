@@ -1,21 +1,9 @@
 // eslint-disable-next-line @typescript-eslint/triple-slash-reference
 /// <reference path="../support/index.d.ts" />
 
-import commits from "../fixtures/commits";
-
 describe("Header", () => {
   beforeEach(() => {
-    cy.visit("/", {
-      onBeforeLoad(win) {
-        cy.stub(win, "open");
-        cy.stub(win, "fetch")
-          .withArgs("https://api.github.com/repos/alan-hadyk/portfolio/commits")
-          .resolves({
-            json: () => commits,
-            ok: true
-          });
-      }
-    });
+    cy.visit("/");
   });
 
   it("each nav link should become active when given section is scrolled into view", () => {
@@ -87,9 +75,6 @@ describe("Header", () => {
             .should("not.be.disabled")
             .should("contain", "cv");
 
-          cy.dataCy("CvButton").click();
-          cy.window().its("open").should("be.called");
-
           cy.dataCy("gitHub")
             .should("be.visible")
             .should("not.be.disabled")
@@ -144,9 +129,6 @@ describe("Header", () => {
             .should("be.visible")
             .should("not.be.disabled")
             .should("contain", "cv");
-
-          cy.dataCy("CvButton").click();
-          cy.window().its("open").should("be.called");
 
           cy.dataCy("gitHub").should("not.be.visible");
           cy.dataCy("codeSandbox").should("not.be.visible");
@@ -245,9 +227,6 @@ describe("Header", () => {
             .should("not.be.disabled")
             .should("contain", "cv");
 
-          cy.dataCy("CvButton").click();
-          cy.window().its("open").should("be.called");
-
           cy.dataCy("gitHub")
             .should("be.visible")
             .should("not.be.disabled")
@@ -330,9 +309,6 @@ describe("Header", () => {
             .should("be.visible")
             .should("not.be.disabled")
             .should("contain", "cv");
-
-          cy.dataCy("CvButton").click();
-          cy.window().its("open").should("be.called");
 
           cy.dataCy("gitHub")
             .should("be.visible")
