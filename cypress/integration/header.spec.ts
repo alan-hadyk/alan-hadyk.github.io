@@ -75,9 +75,6 @@ describe("Header", () => {
             .should("not.be.disabled")
             .should("contain", "cv");
 
-          cy.dataCy("CvButton").click();
-          cy.window().its("open").should("be.called");
-
           cy.dataCy("gitHub")
             .should("be.visible")
             .should("not.be.disabled")
@@ -132,9 +129,6 @@ describe("Header", () => {
             .should("be.visible")
             .should("not.be.disabled")
             .should("contain", "cv");
-
-          cy.dataCy("CvButton").click();
-          cy.window().its("open").should("be.called");
 
           cy.dataCy("gitHub").should("not.be.visible");
           cy.dataCy("codeSandbox").should("not.be.visible");
@@ -233,9 +227,6 @@ describe("Header", () => {
             .should("not.be.disabled")
             .should("contain", "cv");
 
-          cy.dataCy("CvButton").click();
-          cy.window().its("open").should("be.called");
-
           cy.dataCy("gitHub")
             .should("be.visible")
             .should("not.be.disabled")
@@ -318,9 +309,6 @@ describe("Header", () => {
             .should("be.visible")
             .should("not.be.disabled")
             .should("contain", "cv");
-
-          cy.dataCy("CvButton").click();
-          cy.window().its("open").should("be.called");
 
           cy.dataCy("gitHub")
             .should("be.visible")
