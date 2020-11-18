@@ -15,10 +15,67 @@ if ("function" === typeof importScripts) {
       blacklist: [/^\/_/, /\/[^/]+\.[^/]+$/]
     });
 
+    /* Images */
     workbox.routing.registerRoute(
-      /\.(?:png|gif|jpg|jpeg)$/,
+      /\.(?:png|gif|jpg|jpeg|svg)$/,
       workbox.strategies.cacheFirst({
         cacheName: "images",
+        plugins: [
+          new workbox.expiration.Plugin({
+            maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+            maxEntries: 60
+          })
+        ]
+      })
+    );
+
+    /* Scripts */
+    workbox.routing.registerRoute(
+      new RegExp("\\.js$"),
+      workbox.strategies.cacheFirst({
+        cacheName: "scripts",
+        plugins: [
+          new workbox.expiration.Plugin({
+            maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+            maxEntries: 60
+          })
+        ]
+      })
+    );
+
+    /* Stylesheets */
+    workbox.routing.registerRoute(
+      new RegExp("\\.js$"),
+      workbox.strategies.cacheFirst({
+        cacheName: "stylesheets",
+        plugins: [
+          new workbox.expiration.Plugin({
+            maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+            maxEntries: 60
+          })
+        ]
+      })
+    );
+
+    /* Stylesheets */
+    workbox.routing.registerRoute(
+      new RegExp("\\.css$"),
+      workbox.strategies.cacheFirst({
+        cacheName: "stylesheets",
+        plugins: [
+          new workbox.expiration.Plugin({
+            maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+            maxEntries: 60
+          })
+        ]
+      })
+    );
+
+    /* Fonts */
+    workbox.routing.registerRoute(
+      new RegExp("\\.(eot|woff2|woff|ttf|otf)$"),
+      workbox.strategies.cacheFirst({
+        cacheName: "fonts",
         plugins: [
           new workbox.expiration.Plugin({
             maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
