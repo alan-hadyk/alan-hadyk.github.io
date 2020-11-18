@@ -1,8 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/triple-slash-reference
 /// <reference path="../support/index.d.ts" />
 
-// import commits from "../fixtures/commits";
-
 describe("AboutMe", () => {
   beforeEach(() => {
     cy.visit("/");
