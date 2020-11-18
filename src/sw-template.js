@@ -31,7 +31,7 @@ if ("function" === typeof importScripts) {
 
     /* Scripts */
     workbox.routing.registerRoute(
-      /\.(?:js)$/,
+      new RegExp("\\.js$"),
       workbox.strategies.cacheFirst({
         cacheName: "scripts",
         plugins: [
@@ -45,7 +45,21 @@ if ("function" === typeof importScripts) {
 
     /* Stylesheets */
     workbox.routing.registerRoute(
-      /\.(?:css)$/,
+      new RegExp("\\.js$"),
+      workbox.strategies.cacheFirst({
+        cacheName: "stylesheets",
+        plugins: [
+          new workbox.expiration.Plugin({
+            maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+            maxEntries: 60
+          })
+        ]
+      })
+    );
+
+    /* Stylesheets */
+    workbox.routing.registerRoute(
+      new RegExp("\\.css$"),
       workbox.strategies.cacheFirst({
         cacheName: "stylesheets",
         plugins: [
@@ -59,7 +73,7 @@ if ("function" === typeof importScripts) {
 
     /* Fonts */
     workbox.routing.registerRoute(
-      /\.(?:eot|woff2|woff|ttf|otf)$/,
+      new RegExp("\\.(eot|woff2|woff|ttf|otf)$"),
       workbox.strategies.cacheFirst({
         cacheName: "fonts",
         plugins: [
