@@ -22,7 +22,7 @@
     "ip": "^1.1.5",
     "lodash": "^4.17.20",
     "node-fetch": "^2.6.1",
-    "polished": "^4.0.3",
+    "polished": "^4.0.4",
     "promise-polyfill": "^8.2.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.0",
