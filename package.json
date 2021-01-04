@@ -40,7 +40,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.3",
     "@testing-library/react": "^11.2.2",
-    "@testing-library/react-hooks": "^3.4.2",
+    "@testing-library/react-hooks": "^3.7.0",
     "@testing-library/user-event": "^12.2.0",
     "@types/core-js": "^2.5.4",
     "@types/detect-browser": "^4.0.0",
@@ -55,7 +55,7 @@
     "@types/react-dom": "^17.0.0",
     "@types/react-router-dom": "^5.1.6",
     "@types/styled-components": "^5.1.4",
-    "@typescript-eslint/eslint-plugin": "^4.8.2",
+    "@typescript-eslint/eslint-plugin": "^4.11.1",
     "@typescript-eslint/parser": "^4.8.1",
     "canvas": "^2.6.1",
     "cypress": "5.6.0",
