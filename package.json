@@ -71,7 +71,7 @@
     "prettier": "^2.1.2",
     "react-test-renderer": "^17.0.1",
     "serve": "^11.3.2",
-    "workbox-build": "^5.1.4"
+    "workbox-build": "^6.0.2"
   },
   "engines": {
     "node": ">=14.11.0"
