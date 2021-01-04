@@ -223,10 +223,6 @@ describe("Dashboard", () => {
             cy.dataCy("apollo").should("be.visible");
           });
 
-          cy.dataCy("Flux").should("not.be.visible");
-
-          cy.dataCy("Code").should("not.be.visible");
-
           cy.dataCy("ConsoleTvDesktopAndTablet")
             .should("be.visible")
             .find("[data-testid='Text']")
@@ -255,10 +251,6 @@ describe("Dashboard", () => {
           cy.dataCy("PoweredBy").within(() => {
             cy.dataCy("reactLogo").should("be.visible");
           });
-
-          cy.dataCy("UserAgent").should("not.be.visible");
-
-          cy.dataCy("Ip").should("not.be.visible");
         });
     });
   });
@@ -274,28 +266,12 @@ describe("Dashboard", () => {
         .find("[data-testid='DashboardSectionMobile']")
         .should("be.visible")
         .within(() => {
-          cy.dataCy("TechStack").should("not.be.visible");
-
-          cy.dataCy("Flux").should("not.be.visible");
-
-          cy.dataCy("Code").should("not.be.visible");
-
           cy.dataCy("ConsoleMobile")
             .find("[data-testid='ConsoleMobileText']")
             .should(
               "contain",
               "Vision driven change agent with career-long record of front-end user strategy and UI development"
             );
-
-          cy.dataCy("Commits").should("not.be.visible");
-
-          cy.dataCy("PoweredBy").should("not.be.visible");
-
-          cy.dataCy("PoweredBy").should("not.be.visible");
-
-          cy.dataCy("UserAgent").should("not.be.visible");
-
-          cy.dataCy("Ip").should("not.be.visible");
         });
     });
   });
