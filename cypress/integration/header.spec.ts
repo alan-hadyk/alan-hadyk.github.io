@@ -53,8 +53,6 @@ describe("Header", () => {
         .within(() => {
           cy.dataCy("SiteLogo").should("be.visible").should("not.be.disabled");
 
-          cy.dataCy("SiteLogoMobile").should("not.be.visible");
-
           cy.dataCy("NavItemLink")
             .should("have.length", 4)
             .each((link) => {
@@ -108,8 +106,6 @@ describe("Header", () => {
         .within(() => {
           cy.dataCy("SiteLogo").should("be.visible").should("not.be.disabled");
 
-          cy.dataCy("SiteLogoMobile").should("not.be.visible");
-
           cy.dataCy("NavItemLink")
             .should("have.length", 4)
             .each((link) => {
@@ -129,12 +125,6 @@ describe("Header", () => {
             .should("be.visible")
             .should("not.be.disabled")
             .should("contain", "cv");
-
-          cy.dataCy("gitHub").should("not.be.visible");
-          cy.dataCy("codeSandbox").should("not.be.visible");
-          cy.dataCy("linkedIn").should("not.be.visible");
-
-          cy.dataCy("SideMenu").should("not.be.visible");
 
           // Open side menu
           cy.dataCy("MenuButton")
@@ -171,8 +161,6 @@ describe("Header", () => {
         .should("be.visible")
         .should("not.be.disabled")
         .click();
-
-      cy.dataCy("SideMenu").should("not.be.visible");
     });
   });
 
@@ -187,16 +175,6 @@ describe("Header", () => {
         .within(() => {
           cy.dataCy("SiteLogo").should("be.visible").should("not.be.disabled");
 
-          cy.dataCy("SiteLogoMobile").should("not.be.visible");
-
-          cy.dataCy("NavItemLink").should("not.be.visible");
-          cy.contains("cv").should("not.be.visible");
-          cy.dataCy("gitHub").should("not.be.visible");
-          cy.dataCy("codeSandbox").should("not.be.visible");
-          cy.dataCy("linkedIn").should("not.be.visible");
-
-          cy.dataCy("SideMenu").should("not.be.visible");
-
           // Open side menu
           cy.dataCy("MenuButton")
             .should("be.visible")
@@ -252,8 +230,6 @@ describe("Header", () => {
         .should("be.visible")
         .should("not.be.disabled")
         .click();
-
-      cy.dataCy("SideMenu").should("not.be.visible");
     });
   });
 
@@ -266,19 +242,9 @@ describe("Header", () => {
       cy.dataCy("Header")
         .should("be.visible")
         .within(() => {
-          cy.dataCy("SiteLogo").should("not.be.visible");
-
           cy.dataCy("SiteLogoMobile")
             .should("be.visible")
             .should("not.be.disabled");
-
-          cy.dataCy("NavItemLink").should("not.be.visible");
-          cy.contains("cv").should("not.be.visible");
-          cy.dataCy("gitHub").should("not.be.visible");
-          cy.dataCy("codeSandbox").should("not.be.visible");
-          cy.dataCy("linkedIn").should("not.be.visible");
-
-          cy.dataCy("SideMenu").should("not.be.visible");
 
           // Open side menu
           cy.dataCy("MenuButton")
@@ -335,8 +301,6 @@ describe("Header", () => {
         .should("be.visible")
         .should("not.be.disabled")
         .click();
-
-      cy.dataCy("SideMenu").should("not.be.visible");
     });
   });
 });

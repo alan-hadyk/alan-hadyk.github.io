@@ -11,3 +11,4 @@ tsconfig.json
 .gitignore
 tsconfig.paths.json
 *.svg
+.eslintcache
