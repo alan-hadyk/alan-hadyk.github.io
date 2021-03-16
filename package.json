@@ -27,7 +27,7 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.0",
     "react-app-polyfill": "^2.0.0",
-    "react-device-detect": "^1.14.0",
+    "react-device-detect": "^1.17.0",
     "react-dom": "^17.0.0",
     "react-robot": "^0.2.1",
     "react-router-dom": "^5.2.0",
