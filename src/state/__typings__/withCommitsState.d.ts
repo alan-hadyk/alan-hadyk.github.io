@@ -1,5 +1,11 @@
 import { MachineState, Machine } from "robot3";
 
+import { CommitProps } from "UI/molecules/__typings__/Commit";
+
+export interface IContext {
+  commits: CommitProps[];
+}
+
 export type ComponentWithCommitsType = (props: unknown) => JSX.Element;
 
 export interface CreateMachineContext {
@@ -13,6 +19,6 @@ export type CommitsMachine = Machine<
     loaded: MachineState;
     loading: MachineState;
   },
-  unknown,
+  IContext,
   "idle" | "error" | "loading" | "loaded"
 >;

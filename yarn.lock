@@ -10566,12 +10566,12 @@ react-refresh@^0.8.3:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
 
-react-robot@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/react-robot/-/react-robot-0.2.1.tgz#5615a13a9c5bddd663fbd5973790ba3e408368b0"
-  integrity sha512-ULQC0wRqOpScl8wUVs/q9fv7skMFPx3Wm1uq1qjeLJs6+CTbhNS4+yq+2TbI43nbkPC3zYMX80CQcXeV4XW4rw==
+react-robot@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/react-robot/-/react-robot-0.2.2.tgz#2c180f27afed94c2e1648d416628661696f71186"
+  integrity sha512-EjD+4UBwVyxfFz6dMdMdd5DnyDGd1vcx8qwIWA3dEtYOfZXCsH68gSMAYS4jLQxM2aBg9M6Ttg2unsSt2sG6DA==
   dependencies:
-    robot-hooks "^0.3.1"
+    robot-hooks "^0.3.6"
 
 react-router-dom@^5.2.0:
   version "5.2.0"
@@ -11139,10 +11139,10 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
-robot-hooks@^0.3.1:
-  version "0.3.5"
-  resolved "https://registry.yarnpkg.com/robot-hooks/-/robot-hooks-0.3.5.tgz#605e766e1da09317a3f7b94eec0137436209ef21"
-  integrity sha512-25FYYtdofIsmH7Ybo+8x6DltGksYSiaC3gbrbeQ8BFqYzfq12KlKIK0wTHHcc8DM7tkZeEMN7yRVOgPAQqt1RA==
+robot-hooks@^0.3.6:
+  version "0.3.7"
+  resolved "https://registry.yarnpkg.com/robot-hooks/-/robot-hooks-0.3.7.tgz#1f21aaeb2dd572acbe5af7cceac5c5a24020fc88"
+  integrity sha512-mxKIa+GIKYgOjW9p7RzVtSNUStOOFF6qGUl38j3f8wCEfEP0QhkSQoTxz3LkiIDNOTP9XKSJhzhwz9umKX31yA==
 
 robot3@^0.2.18:
   version "0.2.18"
