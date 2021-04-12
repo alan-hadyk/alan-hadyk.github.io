@@ -12,7 +12,7 @@ export default function useInterval(
 
   useEffect(() => {
     const tick = (): void => savedCallback && savedCallback.current();
-    const id: number = setInterval(tick, delay);
+    const id: NodeJS.Timeout = setInterval(tick, delay);
 
     return (): void => clearInterval(id);
   }, [delay]);
