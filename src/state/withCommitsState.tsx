@@ -54,7 +54,7 @@ const withCommitsState = (
   WrappedComponent: React.FunctionComponent<any>
 ): ComponentWithCommitsType => {
   const ComponentWithCommits = (props: unknown): JSX.Element => {
-    const [current] = useMachine(commitsMachine);
+    const [current] = useMachine<CommitsMachine>(commitsMachine);
     const commitsState = current?.name;
     const { commits } = current?.context;
 

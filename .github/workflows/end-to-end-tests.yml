@@ -23,4 +23,4 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           start: yarn start:ci-e2e
-          wait-on: "http://localhost:5000"
+          wait-on: "http://localhost:3000"

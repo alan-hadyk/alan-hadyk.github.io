@@ -31,7 +31,17 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ### `yarn cypress:open`
 
+To install:
+```
+node_modules\.bin\cypress.cmd install --force
+```
+
 Launches E2E tests in `open` mode via Cypress (See [https://docs.cypress.io/](https://docs.cypress.io/) for more information
+
+Alternative (directly in terminal):
+```
+node_modules\.bin\cypress open --config-file cypress.json
+```
 
 ### `yarn cypress:run`
 
