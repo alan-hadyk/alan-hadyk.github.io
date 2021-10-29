@@ -18,6 +18,7 @@ export interface IconProps {
     | "brandBasecamp"
     | "brandBamboo"
     | "brandBuildkite"
+    | "brandChakra"
     | "brandCSS"
     | "brandCSSModules"
     | "brandCoffeeScript"
@@ -41,6 +42,8 @@ export interface IconProps {
     | "brandJS"
     | "brandJenkins"
     | "brandLESS"
+    | "brandNest"
+    | "brandNext"
     | "brandNode"
     | "brandPhabricator"
     | "brandPhotoshop"
@@ -58,6 +61,7 @@ export interface IconProps {
     | "brandSketch"
     | "brandStash"
     | "brandStyledComponents"
+    | "brandTailwind"
     | "brandTS"
     | "brandTaskade"
     | "brandTestingLibrary"
@@ -75,6 +79,7 @@ export interface IconProps {
     | "companyOmise"
     | "companySAP"
     | "companyShiji"
+    | "companyTribe"
     | "earth"
     | "firefox"
     | "gitHub"
@@ -116,6 +121,7 @@ export interface IconComponents {
   companyOmise: SVGIcon;
   companySAP: SVGIcon;
   companyShiji: SVGIcon;
+  companyTribe: SVGIcon;
   earth: SVGIcon;
   firefox: SVGIcon;
   gitHub: SVGIcon;

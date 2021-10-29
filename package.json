@@ -110,7 +110,8 @@
     "lint:fix": "eslint . --fix --ext .js,.jsx,.ts,.tsx",
     "start": "react-scripts start",
     "start:ci-e2e": "npm run build && serve -s build -l 3000",
-    "test": "DISABLE_NEW_JSX_TRANSFORM=true react-scripts test --passWithNoTests --env=jest-environment-jsdom-sixteen",
+    "start:dev": "set FAST_REFRESH=true&&react-scripts start",
+    "test": "react-scripts test --passWithNoTests --env=jest-environment-jsdom-sixteen",
     "test:coverage": "DISABLE_NEW_JSX_TRANSFORM=true react-scripts test --passWithNoTests --env=jest-environment-jsdom-sixteen --coverage --watchAll=false"
   },
   "version": "0.1.0"

@@ -9,12 +9,20 @@ describe("pages / Home / sections / skills / categories / frameworksCategory", (
           label: "React"
         },
         {
+          iconName: "brandNext",
+          label: "Next.js"
+        },
+        {
           iconName: "brandReact",
           label: "React Native"
         },
         {
           iconName: "brandNode",
           label: "Node.js"
+        },
+        {
+          iconName: "brandNest",
+          label: "NestJS"
         },
         {
           iconName: "brandNode",

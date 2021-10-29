@@ -9,6 +9,7 @@ import { ReactComponent as CompanyDIH } from "assets/svg/Company-DiH.svg";
 import { ReactComponent as CompanyOmise } from "assets/svg/Company-Omise.svg";
 import { ReactComponent as CompanySAP } from "assets/svg/Company-SAP.svg";
 import { ReactComponent as CompanyShiji } from "assets/svg/Company-Shiji.svg";
+import { ReactComponent as CompanyTribe } from "assets/svg/Company-Tribe.svg";
 import { ReactComponent as Hexagon } from "assets/svg/Hexagon.svg";
 import { ReactComponent as HexagonWithPattern } from "assets/svg/Hexagon-With-Pattern.svg";
 import { ReactComponent as IconApollo } from "assets/svg/Icon-Apollo.svg";
@@ -56,6 +57,7 @@ export const iconComponents: IconComponents = {
   companyOmise: CompanyOmise,
   companySAP: CompanySAP,
   companyShiji: CompanyShiji,
+  companyTribe: CompanyTribe,
   earth: IconEarth,
   firefox: IconFirefox,
   gitHub: IconGitHub,
@@ -85,6 +87,7 @@ export const iconNames: IconProps["iconName"][] = [
   "brandBasecamp",
   "brandBamboo",
   "brandBuildkite",
+  "brandChakra",
   "brandCSS",
   "brandCSSModules",
   "brandCoffeeScript",
@@ -108,6 +111,8 @@ export const iconNames: IconProps["iconName"][] = [
   "brandJS",
   "brandJenkins",
   "brandLESS",
+  "brandNest",
+  "brandNext",
   "brandNode",
   "brandPhabricator",
   "brandPhotoshop",
@@ -125,6 +130,7 @@ export const iconNames: IconProps["iconName"][] = [
   "brandSketch",
   "brandStash",
   "brandStyledComponents",
+  "brandTailwind",
   "brandTS",
   "brandTaskade",
   "brandTestingLibrary",
@@ -142,6 +148,7 @@ export const iconNames: IconProps["iconName"][] = [
   "companyOmise",
   "companySAP",
   "companyShiji",
+  "companyTribe",
   "earth",
   "firefox",
   "gitHub",

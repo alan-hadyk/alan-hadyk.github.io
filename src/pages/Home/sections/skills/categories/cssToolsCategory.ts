@@ -6,6 +6,14 @@ const iconsWithLabels: IconWithLabelProps[] = [
     label: "styled components"
   },
   {
+    iconName: "brandTailwind",
+    label: "Tailwind"
+  },
+  {
+    iconName: "brandChakra",
+    label: "Chakra"
+  },
+  {
     iconName: "brandSass",
     label: "Sass"
   },

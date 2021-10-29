@@ -9,6 +9,14 @@ describe("pages / Home / sections / skills / categories / cssToolsCategory", () 
           label: "styled components"
         },
         {
+          iconName: "brandTailwind",
+          label: "Tailwind"
+        },
+        {
+          iconName: "brandChakra",
+          label: "Chakra"
+        },
+        {
           iconName: "brandSass",
           label: "Sass"
         },
