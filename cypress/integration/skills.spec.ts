@@ -113,13 +113,13 @@ describe("Skills", () => {
 
           cy.dataCy("SkillsFrameworks").within(() => {
             cy.dataCy("VerticalIcon")
-              .should("have.length", 9)
+              .should("have.length", 11)
               .each((icon: string) => {
                 cy.wrap(icon).should("be.visible");
               });
 
             cy.dataCy("VerticalLabel")
-              .should("have.length", 9)
+              .should("have.length", 11)
               .each((label: string) => {
                 cy.wrap(label).should("be.visible");
               });
@@ -127,8 +127,10 @@ describe("Skills", () => {
             cy.dataCy("VerticalIcon").spread(
               (
                 react,
+                next,
                 reactNative,
                 node,
+                nest,
                 express,
                 ember,
                 prestaShop,
@@ -140,11 +142,15 @@ describe("Skills", () => {
                   .find("[data-cy='brandReact']")
                   .should("be.visible");
 
+                cy.get(next).find("[data-cy='brandNext']").should("be.visible");
+
                 cy.get(reactNative)
                   .find("[data-cy='brandReact']")
                   .should("be.visible");
 
                 cy.get(node).find("[data-cy='brandNode']").should("be.visible");
+
+                cy.get(nest).find("[data-cy='brandNest']").should("be.visible");
 
                 cy.get(express)
                   .find("[data-cy='brandNode']")
@@ -175,8 +181,10 @@ describe("Skills", () => {
             cy.dataCy("VerticalLabel").spread(
               (
                 react,
+                next,
                 reactNative,
                 node,
+                nest,
                 express,
                 ember,
                 prestaShop,
@@ -188,6 +196,10 @@ describe("Skills", () => {
                   .find("[data-testid='LabelText']")
                   .should("contain", "React");
 
+                cy.get(next)
+                  .find("[data-testid='LabelText']")
+                  .should("contain", "Next.js");
+
                 cy.get(reactNative)
                   .find("[data-testid='LabelText']")
                   .should("contain", "React Native");
@@ -195,6 +207,10 @@ describe("Skills", () => {
                 cy.get(node)
                   .find("[data-testid='LabelText']")
                   .should("contain", "Node.js");
+
+                cy.get(nest)
+                  .find("[data-testid='LabelText']")
+                  .should("contain", "NestJS");
 
                 cy.get(express)
                   .find("[data-testid='LabelText']")
@@ -379,21 +395,29 @@ describe("Skills", () => {
 
           cy.dataCy("SkillsCSSTools").within(() => {
             cy.dataCy("VerticalIcon")
-              .should("have.length", 4)
+              .should("have.length", 6)
               .each((icon: string) => {
                 cy.wrap(icon).should("be.visible");
               });
 
             cy.dataCy("VerticalLabel")
-              .should("have.length", 4)
+              .should("have.length", 6)
               .each((label: string) => {
                 cy.wrap(label).should("be.visible");
               });
 
             cy.dataCy("VerticalIcon").spread(
-              (styledComponents, sass, cssModules, less) => {
-                cy.get(styledComponents)
+              (styled, tailwind, chakra, sass, cssModules, less) => {
+                cy.get(styled)
                   .find("[data-cy='brandStyledComponents']")
+                  .should("be.visible");
+
+                cy.get(tailwind)
+                  .find("[data-cy='brandTailwind']")
+                  .should("be.visible");
+
+                cy.get(chakra)
+                  .find("[data-cy='brandChakra']")
                   .should("be.visible");
 
                 cy.get(sass).find("[data-cy='brandSass']").should("be.visible");
@@ -407,20 +431,28 @@ describe("Skills", () => {
             );
 
             cy.dataCy("VerticalLabel").spread(
-              (graphql, apollo, rest, websocket) => {
-                cy.get(graphql)
+              (styled, tailwind, chakra, sass, cssModules, less) => {
+                cy.get(styled)
                   .find("[data-testid='LabelText']")
                   .should("contain", "styled components");
 
-                cy.get(apollo)
+                cy.get(tailwind)
+                  .find("[data-testid='LabelText']")
+                  .should("contain", "Tailwind");
+
+                cy.get(chakra)
+                  .find("[data-testid='LabelText']")
+                  .should("contain", "Chakra");
+
+                cy.get(sass)
                   .find("[data-testid='LabelText']")
                   .should("contain", "Sass");
 
-                cy.get(rest)
+                cy.get(cssModules)
                   .find("[data-testid='LabelText']")
                   .should("contain", "CSS Modules");
 
-                cy.get(websocket)
+                cy.get(less)
                   .find("[data-testid='LabelText']")
                   .should("contain", "LESS");
               }
