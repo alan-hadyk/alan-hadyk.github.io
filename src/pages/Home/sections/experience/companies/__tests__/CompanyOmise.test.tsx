@@ -11,13 +11,13 @@ jest.mock("helpers/browser/isIE11", () => jest.fn());
 describe("pages / Home / sections / experience / companies / CompanyOmise", () => {
   describe("Props", () => {
     describe("date", () => {
-      test("should render August 2018 to present", () => {
+      test("should render August 2018 to March 2021", () => {
         const { CompanyDescriptions } = setup();
 
         CompanyDescriptions.forEach((CompanyDescription: Element) => {
           expect(
             CompanyDescription.children[1].children[0].children[1].textContent
-          ).toEqual("August 2018 to present");
+          ).toEqual("August 2018 to March 2021");
         });
       });
     });

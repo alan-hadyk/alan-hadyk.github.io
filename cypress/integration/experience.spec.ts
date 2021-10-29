@@ -44,7 +44,7 @@ describe("Experience", () => {
             cy.dataCy("IconWithLabel")
               .find("[data-testid='LabelText']")
               .should("be.visible")
-              .should("contain", "August 2018 to present");
+              .should("contain", "August 2018 to March 2021");
           });
       });
 

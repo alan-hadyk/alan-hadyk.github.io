@@ -148,13 +148,13 @@ describe("pages / Home / sections / skills / SkillsSection", () => {
             VerticalIconsWithLabels[1].children[0].children[1].children[0].getAttribute(
               "src"
             )
-          ).toEqual("/images/svg/brandReact.svg");
+          ).toEqual("/images/svg/brandNext.svg");
 
           expect(
             VerticalIconsWithLabels[1].children[0].children[2].children[0].getAttribute(
               "src"
             )
-          ).toEqual("/images/svg/brandNode.svg");
+          ).toEqual("/images/svg/brandReact.svg");
 
           expect(
             VerticalIconsWithLabels[1].children[0].children[3].children[0].getAttribute(
@@ -166,34 +166,46 @@ describe("pages / Home / sections / skills / SkillsSection", () => {
             VerticalIconsWithLabels[1].children[0].children[4].children[0].getAttribute(
               "src"
             )
-          ).toEqual("/images/svg/brandEmber.svg");
+          ).toEqual("/images/svg/brandNest.svg");
 
           expect(
             VerticalIconsWithLabels[1].children[0].children[5].children[0].getAttribute(
               "src"
             )
-          ).toEqual("/images/svg/brandPrestaShop.svg");
+          ).toEqual("/images/svg/brandNode.svg");
 
           expect(
             VerticalIconsWithLabels[1].children[0].children[6].children[0].getAttribute(
               "src"
             )
-          ).toEqual("/images/svg/brandJQuery.svg");
+          ).toEqual("/images/svg/brandEmber.svg");
 
           expect(
             VerticalIconsWithLabels[1].children[0].children[7].children[0].getAttribute(
               "src"
             )
-          ).toEqual("/images/svg/brandRails.svg");
+          ).toEqual("/images/svg/brandPrestaShop.svg");
 
           expect(
             VerticalIconsWithLabels[1].children[0].children[8].children[0].getAttribute(
               "src"
             )
+          ).toEqual("/images/svg/brandJQuery.svg");
+
+          expect(
+            VerticalIconsWithLabels[1].children[0].children[9].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandRails.svg");
+
+          expect(
+            VerticalIconsWithLabels[1].children[0].children[10].children[0].getAttribute(
+              "src"
+            )
           ).toEqual("/images/svg/brandSinatra.svg");
 
           expect(VerticalIconsWithLabels[1].children[1].textContent).toEqual(
-            "ReactReact NativeNode.jsExpressEmberPrestaShopjQueryRuby on RailsSinatra"
+            "ReactNext.jsReact NativeNode.jsNestJSExpressEmberPrestaShopjQueryRuby on RailsSinatra"
           );
 
           expect(SkillsItems[2].children[0].textContent).toEqual(
@@ -274,22 +286,34 @@ describe("pages / Home / sections / skills / SkillsSection", () => {
             VerticalIconsWithLabels[5].children[0].children[1].children[0].getAttribute(
               "src"
             )
-          ).toEqual("/images/svg/brandSass.svg");
+          ).toEqual("/images/svg/brandTailwind.svg");
 
           expect(
             VerticalIconsWithLabels[5].children[0].children[2].children[0].getAttribute(
               "src"
             )
-          ).toEqual("/images/svg/brandCSSModules.svg");
+          ).toEqual("/images/svg/brandChakra.svg");
 
           expect(
             VerticalIconsWithLabels[5].children[0].children[3].children[0].getAttribute(
               "src"
             )
+          ).toEqual("/images/svg/brandSass.svg");
+
+          expect(
+            VerticalIconsWithLabels[5].children[0].children[4].children[0].getAttribute(
+              "src"
+            )
+          ).toEqual("/images/svg/brandCSSModules.svg");
+
+          expect(
+            VerticalIconsWithLabels[5].children[0].children[5].children[0].getAttribute(
+              "src"
+            )
           ).toEqual("/images/svg/brandLESS.svg");
 
           expect(VerticalIconsWithLabels[5].children[1].textContent).toEqual(
-            "styled componentsSassCSS ModulesLESS"
+            "styled componentsTailwindChakraSassCSS ModulesLESS"
           );
 
           expect(SkillsItems[6].children[0].textContent).toEqual("Testing");
