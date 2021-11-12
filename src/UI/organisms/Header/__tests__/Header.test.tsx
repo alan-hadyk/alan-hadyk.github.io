@@ -77,7 +77,7 @@ describe("organisms / Header", () => {
   });
 
   describe("downloadCV", () => {
-    test("should fire window.open(\"/pdf/Alan_Hadyk_CV_2020.pdf\", \"_blank\")", () => {
+    test("should fire window.open(\"/pdf/Alan_Hadyk_CV_2021_compressed.pdf\", \"_blank\")", () => {
       const spyWindowOpen = jest.fn();
       global.open = spyWindowOpen;
 
@@ -86,7 +86,7 @@ describe("organisms / Header", () => {
       downloadCV();
 
       expect(spyWindowOpen).toHaveBeenCalledWith(
-        "/pdf/Alan_Hadyk_CV_2020.pdf",
+        "/pdf/Alan_Hadyk_CV_2021_compressed.pdf",
         "_blank"
       );
     });
@@ -348,7 +348,7 @@ describe("organisms / Header", () => {
           });
 
           expect(spyWindowOpen).toHaveBeenCalledWith(
-            "/pdf/Alan_Hadyk_CV_2020.pdf",
+            "/pdf/Alan_Hadyk_CV_2021_compressed.pdf",
             "_blank"
           );
         });
@@ -373,7 +373,7 @@ describe("organisms / Header", () => {
           });
 
           expect(spyWindowOpen).toHaveBeenCalledWith(
-            "/pdf/Alan_Hadyk_CV_2020.pdf",
+            "/pdf/Alan_Hadyk_CV_2021_compressed.pdf",
             "_blank"
           );
         });
