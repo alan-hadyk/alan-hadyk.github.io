@@ -20,7 +20,7 @@ import useResize from "hooks/useResize";
 import { HeaderProps } from "UI/organisms/Header/__typings__/Header";
 
 const downloadCV = (): Window =>
-  window.open("/pdf/Alan_Hadyk_CV_2021_compressed.pdf", "_blank");
+  window.open("/pdf/Alan_Hadyk_CV_2022_compressed.pdf", "_blank");
 
 const HeaderContainer = styled.header`
   ${({

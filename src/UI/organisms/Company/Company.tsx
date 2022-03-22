@@ -63,7 +63,7 @@ Company.propTypes = {
       size: PropTypes.oneOf(["small", "medium", "large"])
     })
   ).isRequired,
-  logo: PropTypes.oneOf(iconNames).isRequired,
+  logo: PropTypes.string.isRequired,
   responsibilities: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),

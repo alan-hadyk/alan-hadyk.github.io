@@ -89,7 +89,7 @@ const CompanySAP = (): JSX.Element => (
     dataTestId="CompanySAP"
     date="November 2015 to May 2017"
     iconsWithLabels={iconsWithLabels}
-    logo="companySAP"
+    logo="SAP"
     responsibilities={responsibilities}
     title="Front end developer"
   />
