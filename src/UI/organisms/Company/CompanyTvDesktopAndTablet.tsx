@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import PropTypes from "prop-types";
 
 import { iconNames } from "UI/atoms/Icon";
-import CompanyLogo from "UI/molecules/CompanyLogo";
+import Text from "UI/atoms/Text";
 import CompanyDescription from "UI/organisms/CompanyDescription";
 import CompanyTimeline from "UI/organisms/Company/CompanyTimeline";
 import FlexContainer from "UI/layout/FlexContainer";
@@ -36,7 +36,15 @@ function CompanyTvDesktopAndTablet({
         paddingRight="spacing40"
         shouldApplyWidth={isIE11()}
       >
-        <CompanyLogo logo={logo} />
+        <Text
+          color="white"
+          fontFamily={isIE11() ? "AnonymousPro" : "Exan"}
+          fontSize="font48"
+          lineHeight="spacing48"
+          textAlign="right"
+        >
+          {logo}
+        </Text>
       </FlexItem>
     ),
     [logo]
@@ -85,7 +93,7 @@ CompanyTvDesktopAndTablet.propTypes = {
       size: PropTypes.oneOf(["small", "medium", "large"])
     })
   ).isRequired,
-  logo: PropTypes.oneOf(iconNames).isRequired,
+  logo: PropTypes.string.isRequired,
   responsibilities: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),

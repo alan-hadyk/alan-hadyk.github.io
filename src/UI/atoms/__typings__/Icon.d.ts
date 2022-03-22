@@ -15,6 +15,7 @@ export interface IconProps {
     | "brandAfterEffects"
     | "brandAirbnb"
     | "brandApollo"
+    | "brandAuth0"
     | "brandBasecamp"
     | "brandBamboo"
     | "brandBuildkite"

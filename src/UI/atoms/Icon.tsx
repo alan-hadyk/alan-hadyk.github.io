@@ -84,6 +84,7 @@ export const iconNames: IconProps["iconName"][] = [
   "brandAfterEffects",
   "brandAirbnb",
   "brandApollo",
+  "brandAuth0",
   "brandBasecamp",
   "brandBamboo",
   "brandBuildkite",

@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import CompanyLogo from "UI/molecules/CompanyLogo";
-
 import { iconNames } from "UI/atoms/Icon";
+import Text from "UI/atoms/Text";
 import CompanyDescription from "UI/organisms/CompanyDescription";
 import FlexContainer from "UI/layout/FlexContainer";
 import Responsive from "UI/layout/Responsive";
+
+import isIE11 from "helpers/browser/isIE11";
 
 import colorPalette from "styles/variables/colorPalette";
 import spacing from "styles/variables/spacing";
@@ -29,7 +30,15 @@ const CompanyMobile = ({
       gap="spacing48"
       maxWidth="spacing1056"
     >
-      <CompanyLogo logo={logo} />
+      <Text
+        color="white"
+        fontFamily={isIE11() ? "AnonymousPro" : "Exan"}
+        fontSize="font48"
+        lineHeight="spacing48"
+        textAlign="right"
+      >
+        {logo}
+      </Text>
 
       <CompanyDescription
         date={date}
@@ -53,7 +62,7 @@ CompanyMobile.propTypes = {
       size: PropTypes.oneOf(["small", "medium", "large"])
     })
   ).isRequired,
-  logo: PropTypes.oneOf(iconNames).isRequired,
+  logo: PropTypes.string.isRequired,
   responsibilities: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
