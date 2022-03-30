@@ -151,16 +151,6 @@ describe("pages / Home / sections / experience / companies / CompanySAP", () => 
       });
     });
 
-    describe("logo", () => {
-      test("should render Company-SAP.svg", () => {
-        const { Logos } = setup();
-
-        Logos.forEach((Logo: Element) => {
-          expect(Logo.textContent).toEqual("Company-SAP.svg");
-        });
-      });
-    });
-
     describe("responsibilities", () => {
       test("should render correct responsibilities", () => {
         const { CompanyDescriptions } = setup();

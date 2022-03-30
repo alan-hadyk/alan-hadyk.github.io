@@ -19,7 +19,7 @@ import { CompanyProps } from "UI/organisms/Company/__typings__/Company";
 function CompanyTvDesktopAndTablet({
   date,
   iconsWithLabels,
-  logo,
+  name,
   responsibilities,
   timelineBottom,
   title
@@ -38,16 +38,17 @@ function CompanyTvDesktopAndTablet({
       >
         <Text
           color="white"
+          dataTestId="CompanyTvDesktopAndTabletName"
           fontFamily={isIE11() ? "AnonymousPro" : "Exan"}
           fontSize="font48"
           lineHeight="spacing48"
           textAlign="right"
         >
-          {logo}
+          {name}
         </Text>
       </FlexItem>
     ),
-    [logo]
+    [name]
   );
 
   return (
@@ -93,7 +94,7 @@ CompanyTvDesktopAndTablet.propTypes = {
       size: PropTypes.oneOf(["small", "medium", "large"])
     })
   ).isRequired,
-  logo: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   responsibilities: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),

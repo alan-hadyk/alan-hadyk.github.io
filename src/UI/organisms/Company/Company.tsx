@@ -18,7 +18,7 @@ const Company = ({
   dataTestId,
   date,
   iconsWithLabels,
-  logo,
+  name,
   responsibilities,
   timelineBottom,
   title
@@ -32,7 +32,7 @@ const Company = ({
       <CompanyTvDesktopAndTablet
         date={date}
         iconsWithLabels={iconsWithLabels}
-        logo={logo}
+        name={name}
         responsibilities={responsibilities}
         timelineBottom={timelineBottom}
         title={title}
@@ -41,7 +41,7 @@ const Company = ({
       <CompanyMobile
         date={date}
         iconsWithLabels={iconsWithLabels}
-        logo={logo}
+        name={name}
         responsibilities={responsibilities}
         responsibilitiesPaddingBottom={companyMobilePaddingBottom}
         title={title}
@@ -63,7 +63,7 @@ Company.propTypes = {
       size: PropTypes.oneOf(["small", "medium", "large"])
     })
   ).isRequired,
-  logo: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   responsibilities: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),

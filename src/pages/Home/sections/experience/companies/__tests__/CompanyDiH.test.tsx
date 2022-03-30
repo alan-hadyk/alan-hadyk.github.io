@@ -89,16 +89,6 @@ describe("pages / Home / sections / experience / companies / CompanyDiH", () => 
       });
     });
 
-    describe("logo", () => {
-      test("should render Company-DiH.svg", () => {
-        const { Logos } = setup();
-
-        Logos.forEach((Logo: Element) => {
-          expect(Logo.textContent).toEqual("Company-DiH.svg");
-        });
-      });
-    });
-
     describe("responsibilities", () => {
       test("should render correct responsibilities", () => {
         const { CompanyDescriptions } = setup();

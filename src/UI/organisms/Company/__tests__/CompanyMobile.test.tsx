@@ -15,13 +15,13 @@ describe("organisms / CompanyMobile", () => {
   test("should have correct structure", () => {
     const {
       CompanyDescription,
-      CompanyLogo,
+      CompanyMobileName,
       FlexContainer,
       CompanyMobileContainer
     } = setup();
 
     expect(CompanyMobileContainer.children[0]).toEqual(FlexContainer);
-    expect(FlexContainer.children[0]).toEqual(CompanyLogo);
+    expect(FlexContainer.children[0]).toEqual(CompanyMobileName);
     expect(FlexContainer.children[1]).toEqual(CompanyDescription);
   });
 
@@ -83,35 +83,23 @@ describe("organisms / CompanyMobile", () => {
     });
   });
 
-  describe("CompanyLogo", () => {
+  describe("CompanyMobileName", () => {
     describe("Props", () => {
-      describe("height", () => {
-        test("should have 4.8rem", () => {
-          const { CompanyLogo } = setup();
-
-          expect(CompanyLogo.children[0]).toHaveStyleRule("height", "4.8rem");
-        });
-      });
-
-      describe("logo", () => {
-        test("should have Company-Omise.svg when prop logo: companyOmise", () => {
-          const { CompanyLogo } = setup({
-            logo: "companyOmise"
+      describe("name", () => {
+        test("should have Omise when prop name: Omise", () => {
+          const { CompanyMobileName } = setup({
+            name: "Omise"
           });
 
-          expect(CompanyLogo.children[0].textContent).toEqual(
-            "Company-Omise.svg"
-          );
+          expect(CompanyMobileName.textContent).toEqual("Omise");
         });
 
-        test("should have Company-SAP.svg when prop logo: companySAP", () => {
-          const { CompanyLogo } = setup({
-            logo: "companySAP"
+        test("should have SAP when prop name: SAP", () => {
+          const { CompanyMobileName } = setup({
+            name: "SAP"
           });
 
-          expect(CompanyLogo.children[0].textContent).toEqual(
-            "Company-SAP.svg"
-          );
+          expect(CompanyMobileName.textContent).toEqual("SAP");
         });
       });
     });
@@ -222,7 +210,7 @@ describe("organisms / CompanyMobile", () => {
             CompanyDescription.children[3].children[1].children[0];
 
           expect(UnorderedList.children.length).toEqual(2);
-          responsibilities.forEach((responsibility: string, index: number) => {
+          responsibilities.forEach((responsibility, index: number) => {
             expect(UnorderedList.children[index].textContent).toEqual(
               responsibility
             );
@@ -241,7 +229,7 @@ describe("organisms / CompanyMobile", () => {
             CompanyDescription.children[3].children[1].children[0];
 
           expect(UnorderedList.children.length).toEqual(2);
-          responsibilities.forEach((responsibility: string, index: number) => {
+          responsibilities.forEach((responsibility, index: number) => {
             expect(UnorderedList.children[index].textContent).toEqual(
               responsibility
             );
@@ -300,8 +288,8 @@ describe("organisms / CompanyMobile", () => {
 
 interface Setup extends RenderResult {
   CompanyDescription: Element;
-  CompanyLogo: Element;
   CompanyMobileContainer: Element;
+  CompanyMobileName: Element;
   FlexContainer: Element;
 }
 
@@ -327,7 +315,7 @@ function setup(additionalProps?: CompanyTestProps): Setup {
   const props: CompanyProps = {
     date: "August 2018 to present",
     iconsWithLabels,
-    logo: "companyOmise",
+    name: "Omise",
     responsibilities,
     title: "Front end developer",
     ...additionalProps
@@ -338,7 +326,7 @@ function setup(additionalProps?: CompanyTestProps): Setup {
   const { queryAllByTestId } = utils || {};
 
   const CompanyDescription: Element = queryAllByTestId("CompanyDescription")[0];
-  const CompanyLogo: Element = queryAllByTestId("CompanyLogoFlexContainer")[0];
+  const CompanyMobileName: Element = queryAllByTestId("CompanyMobileName")[0];
   const FlexContainer: Element = queryAllByTestId(
     "CompanyMobileFlexContainer"
   )[0];
@@ -347,8 +335,8 @@ function setup(additionalProps?: CompanyTestProps): Setup {
   return {
     ...utils,
     CompanyDescription,
-    CompanyLogo,
     CompanyMobileContainer,
+    CompanyMobileName,
     FlexContainer
   };
 }

@@ -109,7 +109,7 @@ const CompanyShiji = (): JSX.Element => (
     dataTestId="CompanyShiji"
     date="June 2017 to July 2018"
     iconsWithLabels={iconsWithLabels}
-    logo="Shiji"
+    name="Shiji"
     responsibilities={responsibilities}
     title="Front end developer"
   />

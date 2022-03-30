@@ -17,7 +17,7 @@ import { CompanyProps } from "UI/organisms/Company/__typings__/Company";
 const CompanyMobile = ({
   date,
   iconsWithLabels,
-  logo,
+  name,
   responsibilities,
   responsibilitiesPaddingBottom,
   title
@@ -32,12 +32,13 @@ const CompanyMobile = ({
     >
       <Text
         color="white"
+        dataTestId="CompanyMobileName"
         fontFamily={isIE11() ? "AnonymousPro" : "Exan"}
         fontSize="font48"
         lineHeight="spacing48"
         textAlign="right"
       >
-        {logo}
+        {name}
       </Text>
 
       <CompanyDescription
@@ -62,7 +63,7 @@ CompanyMobile.propTypes = {
       size: PropTypes.oneOf(["small", "medium", "large"])
     })
   ).isRequired,
-  logo: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   responsibilities: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
