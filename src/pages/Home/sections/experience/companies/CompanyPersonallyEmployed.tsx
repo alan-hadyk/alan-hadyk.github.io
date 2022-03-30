@@ -44,7 +44,7 @@ const CompanyPersonallyEmployed = (): JSX.Element => (
     dataTestId="CompanyPersonallyEmployed"
     date="May 2008 to September 2010"
     iconsWithLabels={iconsWithLabels}
-    logo="Alan Hadyk"
+    name="Alan Hadyk"
     responsibilities={responsibilities}
     timelineBottom="spacing0"
     title="Freelancer"

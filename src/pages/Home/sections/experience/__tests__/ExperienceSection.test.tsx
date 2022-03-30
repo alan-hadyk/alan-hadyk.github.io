@@ -16,15 +16,17 @@ describe("pages / Home / sections / experience / ExperienceSection", () => {
       CompanySAP,
       CompanyShiji,
       CompanyTribe,
+      CompanyUndisclosed,
       ExperienceSectionContainer
     } = setup();
 
-    expect(ExperienceSectionContainer.children[2]).toEqual(CompanyTribe);
-    expect(ExperienceSectionContainer.children[3]).toEqual(CompanyOmise);
-    expect(ExperienceSectionContainer.children[4]).toEqual(CompanyShiji);
-    expect(ExperienceSectionContainer.children[5]).toEqual(CompanySAP);
-    expect(ExperienceSectionContainer.children[6]).toEqual(CompanyDiH);
-    expect(ExperienceSectionContainer.children[7]).toEqual(
+    expect(ExperienceSectionContainer.children[2]).toEqual(CompanyUndisclosed);
+    expect(ExperienceSectionContainer.children[3]).toEqual(CompanyTribe);
+    expect(ExperienceSectionContainer.children[4]).toEqual(CompanyOmise);
+    expect(ExperienceSectionContainer.children[5]).toEqual(CompanyShiji);
+    expect(ExperienceSectionContainer.children[6]).toEqual(CompanySAP);
+    expect(ExperienceSectionContainer.children[7]).toEqual(CompanyDiH);
+    expect(ExperienceSectionContainer.children[8]).toEqual(
       CompanyPersonallyEmployed
     );
   });
@@ -61,6 +63,7 @@ interface Setup extends RenderResult {
   CompanySAP: Element;
   CompanyShiji: Element;
   CompanyTribe: Element;
+  CompanyUndisclosed: Element;
   ExperienceSectionContainer: Element;
 }
 
@@ -71,6 +74,7 @@ function setup(): Setup {
 
   const CompanyDiH: Element = queryAllByTestId("CompanyDiH")[0];
   const CompanyOmise: Element = queryAllByTestId("CompanyOmise")[0];
+  const CompanyUndisclosed: Element = queryAllByTestId("CompanyUndisclosed")[0];
   const CompanyPersonallyEmployed: Element = queryAllByTestId(
     "CompanyPersonallyEmployed"
   )[0];
@@ -89,6 +93,7 @@ function setup(): Setup {
     CompanySAP,
     CompanyShiji,
     CompanyTribe,
+    CompanyUndisclosed,
     ExperienceSectionContainer
   };
 }

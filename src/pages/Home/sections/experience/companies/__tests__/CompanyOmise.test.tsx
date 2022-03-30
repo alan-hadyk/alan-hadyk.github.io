@@ -215,16 +215,6 @@ describe("pages / Home / sections / experience / companies / CompanyOmise", () =
       });
     });
 
-    describe("logo", () => {
-      test("should render Company-Omise.svg", () => {
-        const { Logos } = setup();
-
-        Logos.forEach((Logo: Element) => {
-          expect(Logo.textContent).toEqual("Company-Omise.svg");
-        });
-      });
-    });
-
     describe("responsibilities", () => {
       test("should render correct responsibilities", () => {
         const { CompanyDescriptions } = setup();

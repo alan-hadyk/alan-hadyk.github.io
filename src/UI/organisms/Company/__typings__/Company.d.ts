@@ -6,6 +6,6 @@ export interface CompanyProps extends CompanyDescriptionProps {
   companyMobilePaddingBottom?: Spacing;
   dataCy?: string;
   dataTestId?: string;
-  logo: string;
+  name: string;
   timelineBottom?: Spacing;
 }

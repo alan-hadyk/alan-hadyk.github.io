@@ -65,8 +65,8 @@ const iconsWithLabels: CompanyProps["iconsWithLabels"] = [
 
 const responsibilities: CompanyProps["responsibilities"] = [
   <span data-testid="CreateScalable" key="create-scalable">
-    <strong>Create</strong> scalable and sane front-end architecture from
-    scratch
+    <strong>Create</strong> scalable front-end architecture for MVP version of a
+    real estate web app from scratch.
   </span>,
   <span data-testid="ApplyAndCertifyFrontEnd" key="apply-and-certify-front">
     <strong>Apply development</strong> and <strong>certify adherence</strong> to
@@ -94,11 +94,11 @@ const responsibilities: CompanyProps["responsibilities"] = [
 
 const CompanyAlpha = (): JSX.Element => (
   <Company
-    dataCy="CompanyAlpha"
-    dataTestId="CompanyAlpha"
+    dataCy="CompanyUndisclosed"
+    dataTestId="CompanyUndisclosed"
     date="December 2021 to March 2022"
     iconsWithLabels={iconsWithLabels}
-    logo="Alpha"
+    name="[Undisclosed]"
     responsibilities={responsibilities}
     title="Front-end Architect"
   />

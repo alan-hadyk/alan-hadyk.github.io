@@ -169,16 +169,6 @@ describe("pages / Home / sections / experience / companies / CompanyShiji", () =
       });
     });
 
-    describe("logo", () => {
-      test("should render Company-Shiji.svg", () => {
-        const { Logos } = setup();
-
-        Logos.forEach((Logo: Element) => {
-          expect(Logo.textContent).toEqual("Company-Shiji.svg");
-        });
-      });
-    });
-
     describe("responsibilities", () => {
       test("should render correct responsibilities", () => {
         const { CompanyDescriptions } = setup();

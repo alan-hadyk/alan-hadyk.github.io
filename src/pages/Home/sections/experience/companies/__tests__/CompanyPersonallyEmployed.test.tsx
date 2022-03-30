@@ -63,16 +63,6 @@ describe("pages / Home / sections / experience / companies / CompanyPersonallyEm
       });
     });
 
-    describe("logo", () => {
-      test("should render Icon-Logo.svg", () => {
-        const { Logos } = setup();
-
-        Logos.forEach((Logo: Element) => {
-          expect(Logo.textContent).toEqual("Icon-Logo.svg");
-        });
-      });
-    });
-
     describe("responsibilities", () => {
       test("should render correct responsibilities", () => {
         const { CompanyDescriptions } = setup();

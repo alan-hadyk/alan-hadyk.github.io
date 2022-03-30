@@ -17,7 +17,7 @@ describe("organisms / CompanyTvDesktopAndTablet", () => {
   test("should have correct structure", () => {
     const {
       CompanyDescription,
-      CompanyLogo,
+      CompanyTvDesktopAndTabletName,
       CompanyTimeline,
       CompanyTvDesktopTablet,
       FlexContainer,
@@ -29,7 +29,7 @@ describe("organisms / CompanyTvDesktopAndTablet", () => {
 
     expect(FlexContainer.children[0]).toEqual(FlexItems[0]);
     expect(FlexContainer.children[1]).toEqual(FlexItems[1]);
-    expect(FlexItems[0].children[0]).toEqual(CompanyLogo);
+    expect(FlexItems[0].children[0]).toEqual(CompanyTvDesktopAndTabletName);
     expect(FlexItems[1].children[0]).toEqual(CompanyDescription);
   });
 
@@ -191,45 +191,23 @@ describe("organisms / CompanyTvDesktopAndTablet", () => {
     });
   });
 
-  describe("CompanyLogo", () => {
+  describe("CompanyTvDesktopAndTabletName", () => {
     describe("Props", () => {
-      describe("height", () => {
-        test("should have 4.8rem", () => {
-          const { CompanyLogo } = setup();
-
-          expect(CompanyLogo.children[0]).toHaveStyleRule("height", "4.8rem");
-        });
-      });
-
-      describe("logo", () => {
-        test("should have Company-SAP.svg when prop logo: companySAP", () => {
-          const { CompanyLogo } = setup({
-            logo: "companySAP"
+      describe("name", () => {
+        test("should have SAP when prop name: SAP", () => {
+          const { CompanyTvDesktopAndTabletName } = setup({
+            name: "SAP"
           });
 
-          expect(CompanyLogo.children[0].textContent).toEqual(
-            "Company-SAP.svg"
-          );
+          expect(CompanyTvDesktopAndTabletName.textContent).toEqual("SAP");
         });
 
-        test("should have Company-Omise.svg when prop logo: companyOmise", () => {
-          const { CompanyLogo } = setup({
-            logo: "companyOmise"
+        test("should have Omise when prop name: Omise", () => {
+          const { CompanyTvDesktopAndTabletName } = setup({
+            name: "Omise"
           });
 
-          expect(CompanyLogo.children[0].textContent).toEqual(
-            "Company-Omise.svg"
-          );
-        });
-
-        test("should have Company-Shiji.svg when prop logo: companyShiji", () => {
-          const { CompanyLogo } = setup({
-            logo: "companyShiji"
-          });
-
-          expect(CompanyLogo.children[0].textContent).toEqual(
-            "Company-Shiji.svg"
-          );
+          expect(CompanyTvDesktopAndTabletName.textContent).toEqual("Omise");
         });
       });
     });
@@ -343,7 +321,7 @@ describe("organisms / CompanyTvDesktopAndTablet", () => {
             CompanyDescription.children[3].children[1].children[0];
 
           expect(UnorderedList.children.length).toEqual(2);
-          responsibilities.forEach((responsibility: string, index: number) => {
+          responsibilities.forEach((responsibility, index: number) => {
             expect(UnorderedList.children[index].textContent).toEqual(
               responsibility
             );
@@ -363,7 +341,7 @@ describe("organisms / CompanyTvDesktopAndTablet", () => {
             CompanyDescription.children[3].children[1].children[0];
 
           expect(UnorderedList.children.length).toEqual(2);
-          responsibilities.forEach((responsibility: string, index: number) => {
+          responsibilities.forEach((responsibility, index: number) => {
             expect(UnorderedList.children[index].textContent).toEqual(
               responsibility
             );
@@ -400,8 +378,8 @@ describe("organisms / CompanyTvDesktopAndTablet", () => {
 
 interface Setup extends RenderResult {
   CompanyDescription: Element;
-  CompanyLogo: Element;
   CompanyTimeline: Element;
+  CompanyTvDesktopAndTabletName: Element;
   CompanyTvDesktopTablet: Element;
   FlexContainer: Element;
   FlexItems: Element[];
@@ -429,7 +407,7 @@ function setup(additionalProps?: CompanyTestProps): Setup {
   const props: CompanyProps = {
     date: "August 2018 to present",
     iconsWithLabels,
-    logo: "companyOmise",
+    name: "companyOmise",
     responsibilities,
     title: "Front end developer",
     ...additionalProps
@@ -442,7 +420,9 @@ function setup(additionalProps?: CompanyTestProps): Setup {
   const { queryAllByTestId } = utils || {};
 
   const CompanyDescription: Element = queryAllByTestId("CompanyDescription")[0];
-  const CompanyLogo: Element = queryAllByTestId("CompanyLogoFlexContainer")[0];
+  const CompanyTvDesktopAndTabletName: Element = queryAllByTestId(
+    "CompanyTvDesktopAndTabletName"
+  )[0];
   const CompanyTimeline: Element = queryAllByTestId("CompanyTimeline")[0];
   const CompanyTvDesktopTablet: Element = queryAllByTestId(
     "CompanyTvDesktopTablet"
@@ -455,8 +435,8 @@ function setup(additionalProps?: CompanyTestProps): Setup {
   return {
     ...utils,
     CompanyDescription,
-    CompanyLogo,
     CompanyTimeline,
+    CompanyTvDesktopAndTabletName,
     CompanyTvDesktopTablet,
     FlexContainer,
     FlexItems
