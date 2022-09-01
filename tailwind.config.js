@@ -29,7 +29,11 @@ const spacing = {
   full: "100%",
   inherit: "inherit",
   negative16: "-1rem",
-  "negative100%": "-100%"
+  "negative100%": "-100%",
+  screenLg: "1680px",
+  screenMd: "1280px",
+  screenSm: "640px",
+  screenXl: "1920px"
 };
 
 module.exports = {

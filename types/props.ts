@@ -7,7 +7,6 @@ export type TChildren =
   | string
   | number
   | boolean
-  | Record<string, unknown>
   | ReactElementLike
   | Iterable<ReactNode>
   | ReactNodeArray
