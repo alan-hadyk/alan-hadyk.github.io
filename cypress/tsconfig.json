@@ -3,11 +3,9 @@
     "strict": true,
     "baseUrl": "../node_modules",
     "target": "es5",
-    "lib": ["es5", "dom"],
-    "types": ["cypress", "node"]
+    "lib": ["es2015", "es2017.object", "dom"],
+    "typeRoots": ["../node_modules/@types"], 
+    "types": ["cypress", "cypress-image-snapshot"]
   },
-  "include": [
-    "**/*.ts",
-    "./support/index.d.ts",
-  ]
+  "include": ["**/*.ts", "./support/index.d.ts", "./types/cypress.d.ts", "plugins/index.js"]
 }

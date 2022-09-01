@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /// <reference types="cypress" />
 // ***********************************************************
@@ -16,10 +17,11 @@
 /**
  * @type {Cypress.PluginConfig}
  */
-// eslint-disable-next-line no-undef
-module.exports = (_on: unknown, _config: unknown) => {
-  // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
+
+import { addMatchImageSnapshotPlugin } from "cypress-image-snapshot/plugin";
+
+const plugins = (on: any, config: Record<string, unknown>) => {
+  addMatchImageSnapshotPlugin(on, config);
 };
 
-
+export default plugins;

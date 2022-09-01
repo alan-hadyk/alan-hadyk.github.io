@@ -1,0 +1,63 @@
+html {
+  font-size: 62.5%;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+*, 
+*:after, 
+*:before, 
+*::before, 
+*::after {
+  box-sizing: border-box;
+  outline: 0;
+}
+
+body {
+  background-color: #1e2224;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.loader {
+  align-items: center;
+  background-color: #1e2224;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
+  opacity: 1;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: opacity 300ms ease-in-out;
+  z-index: 9999;
+}
+
+.loader__spinner {
+  animation-duration: 900ms;
+  animation-iteration-count: infinite;
+  animation-name: rotation;
+  animation-timing-function: linear;
+  border: 0.25rem solid;
+  border-color: #78b0b5 transparent;
+  border-radius: 50%;
+  display: inline-block;
+  height: 10rem;
+  transform: translateX(-50%) translateY(-50%);
+  width: 10rem;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
