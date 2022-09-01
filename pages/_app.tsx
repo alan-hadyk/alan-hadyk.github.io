@@ -1,8 +1,11 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import "styles/fonts.css";
+import "styles/globals.css";
+import { TAppPropsWithComponent } from "types/next";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+const App: React.FC<TAppPropsWithComponent> = ({ Component, pageProps }) => {
+  const getLayout = Component.getLayout || ((page) => page);
 
-export default MyApp
+  return getLayout(<Component {...pageProps} />);
+};
+
+export default App;

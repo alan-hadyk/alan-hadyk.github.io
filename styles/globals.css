@@ -1,26 +1,97 @@
-html,
-body {
-  padding: 0;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, button, input {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  padding: 0;
+  border: 0;
+  font-family: "Anonymous Pro Regular", monospace, sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
 }
 
 * {
-  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  font-smooth: always;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+*, 
+*:after, 
+*:before, 
+*::before, 
+*::after {
+  box-sizing: border-box;
+  outline: 0;
+  scrollbar-color: #006869 transparent;
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #006869;
+  border-radius: 0.5rem;
+  border: none;
+}
+
+body {
+  background-color: #1e2224;
+  color: #78b0b5;
+  line-height: 1;
+  min-height: 100vh;
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+::selection { 
+  background: #bcd8db; 
+  color: #1e2224; 
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "ExanModifiedRegular", monospace, sans-serif;
+}
+
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
 }
