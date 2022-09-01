@@ -20,7 +20,6 @@ export default class MyDocument extends Document {
           <link rel="preconnect" href="https://api.github.com" />
 
           <meta charSet="utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="description" content="Alan Hadyk's Portfolio" />
 
           <link rel="icon" href="/favicon.ico" />

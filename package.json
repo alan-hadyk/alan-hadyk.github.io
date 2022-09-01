@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-hook/resize-observer": "^1.2.6",
     "next": "12.2.5",
     "prop-types": "^15.8.1",
     "react": "18.2.0",
