@@ -1,5 +1,9 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const plugin = require("tailwindcss/plugin");
+
 const spacing = {
   0: "0",
+  1: "1px",
   2: "0.125rem",
   4: "0.25rem",
   8: "0.5rem",
@@ -14,6 +18,7 @@ const spacing = {
   36: "2.25rem",
   40: "2.5rem",
   48: "3rem",
+  "50%": "50%",
   52: "3.25rem",
   56: "3.5rem",
   64: "4rem",
@@ -28,6 +33,7 @@ const spacing = {
   auto: "auto",
   full: "100%",
   inherit: "inherit",
+  negative12: "-0.75rem",
   negative16: "-1rem",
   "negative100%": "-100%",
   screenLg: "1680px",
@@ -43,7 +49,30 @@ module.exports = {
     "./layouts/**/*.tsx",
     "./pages/**/*.tsx"
   ],
+  plugins: [
+    plugin(function ({ addVariant }) {
+      addVariant("secondChild", "&:nth-child(2)");
+      addVariant("thirdChild", "&:nth-child(3)");
+      addVariant("fourthChild", "&:nth-child(4)");
+      addVariant("directChildren", "& > *");
+      addVariant("childrenMask", "& mask");
+      addVariant("childrenPath", "& path");
+      addVariant("childrenSvg", "& svg");
+      addVariant("focusChildrenSvg", "&:focus svg");
+      addVariant("activeChildrenSvg", "&:active svg");
+      addVariant("hoverChildrenLine", "&:hover .line");
+      addVariant("focusChildrenLine", "&:focus .line");
+      addVariant("activeChildrenLine", "&:active .line");
+      addVariant("childrenRipple", "& .ripple");
+    })
+  ],
   theme: {
+    animation: {
+      "glow-fast": "glow 150ms ease-in-out infinite",
+      "glow-slow": "glow 900ms ease-in-out infinite",
+      "glow-verySlow": "glow 3600ms ease-in-out infinite",
+      "ripple-slow": "ripple 900ms linear"
+    },
     borderRadius: {
       full: "50%"
     },
@@ -70,6 +99,9 @@ module.exports = {
       blue500: "#2b595e",
       blue600: "#22272a",
       blue700: "#1e2224",
+
+      // Transparent
+      transparent: "transparent",
 
       // White
       white: "#FFFFFF"

@@ -14,5 +14,7 @@ export type TChildren =
   | null;
 
 export type TSpacing = keyof typeof tailwindConfig.theme.spacing;
+export type TAnimationName = keyof typeof tailwindConfig.theme.animation;
+export type TDuration = keyof typeof tailwindConfig.theme.transitionDuration;
 export type TZIndex = keyof typeof tailwindConfig.theme.zIndex;
 export type TColor = keyof typeof tailwindConfig.theme.colors;

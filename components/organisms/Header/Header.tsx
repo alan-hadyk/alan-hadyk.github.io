@@ -1,18 +1,19 @@
 import { useCallback, useState } from "react";
 
-import LinkWithIcon from "components/molecules/LinkWithIcon";
+import { LinkWithIcon } from "components/molecules/LinkWithIcon";
 
 import HeaderTv from "components/organisms/Header/HeaderTv";
 import HeaderDesktop from "components/organisms/Header/HeaderDesktop";
 import HeaderTabletAndMobile from "components/organisms/Header/HeaderTabletAndMobile";
 
 import { LayoutContainer } from "components/layout/LayoutContainer";
-import Responsive from "components/layout/Responsive";
+import { Responsive } from "components/layout/Responsive";
 
 import { useResize } from "hooks/useResize";
 
 import { IHeaderProps } from "components/organisms/Header/@types/Header";
 import { zIndexPropTypes } from "helpers/propTypes/zIndex";
+import { Device } from "components/layout/@types/Responsive";
 
 const downloadCV = (): Window | null =>
   typeof window !== undefined
@@ -66,23 +67,26 @@ const Header: React.FC<IHeaderProps> = ({ zIndex = "z-100" }) => {
         >
           <Responsive
             dataTestId="ResponsiveLinkTvDesktopTablet"
-            devices={["tv", "desktop", "tablet"]}
+            devices={[Device.TV, Device.DESKTOP, Device.TABLET]}
           >
             <LinkWithIcon
               dataCy="SiteLogo"
               href="/"
-              height="spacing48"
+              height="h-48"
               iconName="logo"
-              width="spacing248"
+              width="w-248"
             />
           </Responsive>
 
-          <Responsive dataTestId="ResponsiveLinkMobile" devices={["mobile"]}>
+          <Responsive
+            dataTestId="ResponsiveLinkMobile"
+            devices={[Device.MOBILE]}
+          >
             <LinkWithIcon
               dataCy="SiteLogoMobile"
               href="/"
               iconName="logoShortcut"
-              width="spacing64"
+              width="w-64"
             />
           </Responsive>
 

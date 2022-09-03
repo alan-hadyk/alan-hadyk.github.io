@@ -26,8 +26,8 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
     marginLeft,
     marginRight,
     marginTop,
+    name,
     onClick,
-    onSubmit,
     padding,
     paddingBottom,
     paddingLeft,
@@ -53,6 +53,7 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
     | "nav"
     | "form"
     | "a"
+    | "button"
   >;
 
   const calculatePadding = useCallback(
@@ -82,7 +83,7 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
       ${marginLeft || ""}  
       ${marginRight || ""}  
       ${marginTop || ""}  
-      ${onClick || onSubmit ? "cursor-pointer" : ""}
+      ${onClick ? "cursor-pointer" : ""}
       ${padding || ""}  
       ${calculatePadding("pb", paddingBottom) || ""}  
       ${calculatePadding("pl", paddingLeft) || ""}  
@@ -96,8 +97,8 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
       ${className || ""}  
     `),
     ["data-cy"]: dataCy,
+    name,
     onClick,
-    onSubmit,
     style
   };
 
@@ -133,7 +134,8 @@ LayoutContainer.propTypes = {
     "nav",
     "form",
     "table",
-    "a"
+    "a",
+    "button"
   ]),
   bottom: spacingPropTypes("bottom"),
   children: childrenPropTypes,
@@ -176,8 +178,8 @@ LayoutContainer.propTypes = {
   marginLeft: spacingPropTypes("ml"),
   marginRight: spacingPropTypes("mr"),
   marginTop: spacingPropTypes("mt"),
+  name: PropTypes.string,
   onClick: PropTypes.func,
-  onSubmit: PropTypes.func,
   padding: spacingPropTypes("p"),
   paddingBottom: PropTypes.oneOfType([
     spacingPropTypes("pb"),

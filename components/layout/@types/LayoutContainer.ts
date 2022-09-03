@@ -1,3 +1,4 @@
+import React from "react";
 import { TChildren, TSpacing, TZIndex } from "types/props";
 
 export type TLayoutContainerElementType =
@@ -21,7 +22,8 @@ export interface ILayoutContainerProps {
     | "nav"
     | "form"
     | "table"
-    | "a";
+    | "a"
+    | "button";
   bottom?: `bottom-${TSpacing}`;
   children?: TChildren;
   className?: string;
@@ -61,8 +63,8 @@ export interface ILayoutContainerProps {
   marginLeft?: `ml-${TSpacing}`;
   marginRight?: `mr-${TSpacing}`;
   marginTop?: `mt-${TSpacing}`;
-  onClick?: () => void;
-  onSubmit?: () => void;
+  name?: string;
+  onClick?: React.MouseEventHandler<HTMLElement>;
   padding?: `p-${TSpacing}`;
   paddingBottom?: `pb-${TSpacing}` | number;
   paddingLeft?: `pl-${TSpacing}` | number;

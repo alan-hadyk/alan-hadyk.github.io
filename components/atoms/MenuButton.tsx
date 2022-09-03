@@ -1,0 +1,64 @@
+import PropTypes from "prop-types";
+
+import {
+  IMenuButtonLineProps,
+  IMenuButtonProps
+} from "components/atoms/@types/MenuButton";
+import { LayoutContainer } from "components/layout/LayoutContainer";
+import { trimTemplateLiteral } from "helpers/strings/trimTemplateLiteral";
+
+const MenuButtonLine = ({ isOpen }: IMenuButtonLineProps) => (
+  <span
+    className={trimTemplateLiteral(`
+      bg-white 
+      left-0 absolute
+      h-2 w-full 
+      transition-all duration-fast ease-in-out
+
+      first:top-0 secondChild:top-14 thirdChild:top-14 fourthChild:top-28
+
+      ${
+        isOpen &&
+        `
+        first:left-50% first:top-14 first:w-0
+        secondChild:rotate-40
+        -thirdChild:rotate-40
+        fourthChild:left-50% fourthChild:top-14 fourthChild:w-0
+      `
+      }
+    `)}
+  />
+);
+
+const MenuButton = ({
+  isOpen = false,
+  onClick
+}: IMenuButtonProps): JSX.Element => (
+  <LayoutContainer
+    aria-label="MenuButton"
+    className={`
+      bg-none cursor-pointer 
+      h-30 w-48
+      relative
+      transition-all duration-fast ease-in-out
+      z-1100
+
+      hover:drop-shadow-md
+    `}
+    data-cy="MenuButton"
+    data-testid="MenuButtonContainer"
+    onClick={onClick}
+  >
+    <MenuButtonLine data-testid="MenuButtonLine" isOpen={isOpen} />
+    <MenuButtonLine data-testid="MenuButtonLine" isOpen={isOpen} />
+    <MenuButtonLine data-testid="MenuButtonLine" isOpen={isOpen} />
+    <MenuButtonLine data-testid="MenuButtonLine" isOpen={isOpen} />
+  </LayoutContainer>
+);
+
+MenuButton.propTypes = {
+  isOpen: PropTypes.bool,
+  onClick: PropTypes.func.isRequired
+};
+
+export { MenuButton };
