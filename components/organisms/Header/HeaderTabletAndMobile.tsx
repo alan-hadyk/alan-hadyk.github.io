@@ -1,20 +1,24 @@
 import PropTypes from "prop-types";
 
-import MenuButton from "UI/atoms/MenuButton";
-import Backdrop from "UI/atoms/Backdrop";
+import { MenuButton } from "components/atoms/MenuButton";
+import { Backdrop } from "components/atoms/Backdrop";
 
-import SideMenu from "UI/organisms/SideMenu";
+import { SideMenu } from "components/organisms/SideMenu";
 
-import Responsive from "UI/layout/Responsive";
+import { Responsive } from "components/layout/Responsive";
 
-import { HeaderMobileProps } from "UI/organisms/Header/__typings__/HeaderMobile";
+import { IHeaderMobileProps } from "components/organisms/Header/@types/HeaderMobile";
+import { Device } from "components/layout/@types/Responsive";
 
-const HeaderTabletAndMobile = ({
+const HeaderTabletAndMobile: React.FC<IHeaderMobileProps> = ({
   isMenuVisible,
   onCVButtonClick,
   onClick
-}: HeaderMobileProps): JSX.Element => (
-  <Responsive dataTestId="HeaderTabletMobile" devices={["tablet", "mobile"]}>
+}) => (
+  <Responsive
+    dataTestId="HeaderTabletMobile"
+    devices={[Device.TABLET, Device.MOBILE]}
+  >
     <MenuButton isOpen={isMenuVisible} onClick={onClick} />
 
     {isMenuVisible && <Backdrop onClick={onClick} />}
@@ -29,4 +33,4 @@ HeaderTabletAndMobile.propTypes = {
   onClick: PropTypes.func.isRequired
 };
 
-export default HeaderTabletAndMobile;
+export { HeaderTabletAndMobile };

@@ -1,15 +1,19 @@
-import { useState, useRef, useLayoutEffect, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import useResizeObserver from "@react-hook/resize-observer";
 import { IUseResizeArgs } from "hooks/@types/useResize";
 
 const useResize = ({ breakpoint, callback }: IUseResizeArgs) => {
-  const targetElement = useRef<HTMLBodyElement | null>(
-    document.querySelector("body")
-  );
+  const targetElement = useRef<HTMLBodyElement | null>(null);
   const [size, setSize] = useState<DOMRectReadOnly | undefined>(undefined);
   const called = useRef<boolean>(false);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
+    if (typeof document !== undefined) {
+      targetElement.current = document.querySelector("body");
+    }
+  }, []);
+
+  useEffect(() => {
     if (targetElement.current) {
       setSize(targetElement.current.getBoundingClientRect());
     }

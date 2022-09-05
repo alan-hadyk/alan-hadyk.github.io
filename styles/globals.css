@@ -18,7 +18,7 @@ time, mark, audio, video, button, input {
   margin: 0;
   padding: 0;
   border: 0;
-  font-family: "Anonymous Pro Regular", monospace, sans-serif;
+  font-family: "Anonymous Pro", monospace, sans-serif;
 }
 
 /* HTML5 display-role reset for older browsers */

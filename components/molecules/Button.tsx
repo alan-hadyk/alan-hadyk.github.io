@@ -166,10 +166,10 @@ const Button: React.FC<IButtonProps> = ({
         ref={buttonInnerContainerRef}
       >
         <LayoutContainer className={buttonHorizontalPadding} width="w-full">
-          <LayoutContainer className="flex-row flex-nowrap">
+          <LayoutContainer display="flex" className="flex-row flex-nowrap">
             <ButtonText
               buttonText={buttonText}
-              fontFamily={isIE11() ? "AnonymousPro" : "Exan"}
+              fontFamily={isIE11() ? "font-anonymousPro" : "font-exan"}
               hasMargin={!!iconName}
               size={size}
               textTransform={isIE11() ? "uppercase" : "lowercase"}
@@ -202,7 +202,7 @@ Button.propTypes = {
   size: PropTypes.oneOf(["small", "medium", "large"]),
   tabIndex: PropTypes.number,
   type: PropTypes.oneOf(["primary", "secondary"]),
-  width: PropTypes.oneOf(["w-100%", "w-auto"])
+  width: PropTypes.oneOf(["w-full", "w-auto"])
 };
 
 export { Button };

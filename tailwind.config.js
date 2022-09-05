@@ -4,37 +4,38 @@ const plugin = require("tailwindcss/plugin");
 const spacing = {
   0: "0",
   1: "1px",
-  2: "0.125rem",
-  4: "0.25rem",
-  8: "0.5rem",
-  10: "0.625rem",
-  12: "0.75rem",
-  14: "0.875rem",
-  16: "1rem",
-  24: "1.5rem",
-  28: "1.75rem",
-  30: "1.875rem",
-  32: "2rem",
-  36: "2.25rem",
-  40: "2.5rem",
-  48: "3rem",
+  2: "0.2rem",
+  4: "0.4rem",
+  8: "0.8rem",
+  10: "1rem",
+  12: "1.2rem",
+  14: "1.4rem",
+  16: "1.6rem",
+  24: "2.4rem",
+  28: "2.8rem",
+  30: "3rem",
+  32: "3.2rem",
+  36: "3.6rem",
+  40: "4rem",
+  48: "4.8rem",
   "50%": "50%",
-  52: "3.25rem",
-  56: "3.5rem",
-  64: "4rem",
-  68: "4.25rem",
-  72: "4.5rem",
-  80: "5rem",
-  88: "5.5rem",
-  96: "6rem",
-  248: "15.5rem",
-  356: "22.25rem",
-  1056: "66rem",
+  52: "5.2rem",
+  56: "5.6rem",
+  64: "6.4rem",
+  68: "6.8rem",
+  72: "7.2rem",
+  80: "8rem",
+  88: "8.8rem",
+  96: "9.6rem",
+  248: "24.8rem",
+  356: "35.6rem",
+  1056: "105.6rem",
   auto: "auto",
   full: "100%",
   inherit: "inherit",
-  negative12: "-0.75rem",
-  negative16: "-1rem",
+  negative8: "-0.8rem",
+  negative12: "-1.2rem",
+  negative16: "-1.6rem",
   "negative100%": "-100%",
   screenLg: "1680px",
   screenMd: "1280px",
@@ -58,12 +59,13 @@ module.exports = {
       addVariant("childrenMask", "& mask");
       addVariant("childrenPath", "& path");
       addVariant("childrenSvg", "& svg");
+      addVariant("childrenRipple", "& .ripple");
+      addVariant("childrenStrong", "& strong");
       addVariant("focusChildrenSvg", "&:focus svg");
       addVariant("activeChildrenSvg", "&:active svg");
       addVariant("hoverChildrenLine", "&:hover .line");
       addVariant("focusChildrenLine", "&:focus .line");
       addVariant("activeChildrenLine", "&:active .line");
-      addVariant("childrenRipple", "& .ripple");
     })
   ],
   theme: {
@@ -108,7 +110,8 @@ module.exports = {
     },
     dropShadow: {
       lg: "0px 0px .25rem rgba(255,255,255,0.5)",
-      md: "0px 0px .125rem rgba(255,255,255,0.9)"
+      md: "0px 0px .125rem rgba(255,255,255,0.9)",
+      xl: "0px 0px .5rem #bcd8db"
     },
     extend: {},
     fontFamily: {
@@ -116,16 +119,16 @@ module.exports = {
       exan: ["'ExanModifiedRegular'", "monospace", "sans-serif"]
     },
     fontSize: {
-      8: "0.5rem",
-      12: "0.75rem",
-      16: "1rem",
-      20: "1.25rem",
-      24: "1.5rem",
-      28: "1.75rem",
-      32: "2rem",
-      36: "2.25rem",
-      48: "3rem",
-      72: "4.5rem"
+      8: "8px",
+      12: "12px",
+      16: "16px",
+      20: "20px",
+      24: "24px",
+      28: "28px",
+      32: "32px",
+      36: "36px",
+      48: "48px",
+      72: "72px"
     },
     fontWeight: {
       bold: 700,
@@ -159,10 +162,20 @@ module.exports = {
         "100%": { transform: "rotate(360deg)" }
       }
     },
-    lineHeight: spacing,
+    lineHeight: {
+      ...spacing,
+      1: "1"
+    },
     margin: spacing,
+    maxHeight: spacing,
     maxWidth: spacing,
     screens: {
+      msHighContrastActive: {
+        raw: "(-ms-high-contrast: active)"
+      },
+      msHighContrastNone: {
+        raw: "(-ms-high-contrast: none)"
+      },
       screenLg: "1680px",
       screenLgXl: {
         raw: "(min-width: 1681px) and (max-width: 1920px)"

@@ -1,7 +1,7 @@
 import styled, { css, FlattenSimpleInterpolation } from "styled-components";
 import PropTypes from "prop-types";
 
-import { BackdropProps } from "UI/atoms/__typings__/Backdrop";
+import { IBackdropProps } from "UI/atoms/__typings__/Backdrop";
 
 const BackdropContainer = styled.div`
   ${({
@@ -19,7 +19,7 @@ const BackdropContainer = styled.div`
   `};
 `;
 
-const Backdrop = ({ onClick }: BackdropProps): JSX.Element => (
+const Backdrop = ({ onClick }: IBackdropProps): JSX.Element => (
   <BackdropContainer data-testid="Backdrop" onClick={onClick} />
 );
 

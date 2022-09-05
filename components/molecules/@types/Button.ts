@@ -5,7 +5,7 @@ export interface IButtonContainerProps {
   border?: "border-1 border-solid" | "border-none";
   borderColor?: `border-${TColor}`;
   height?: "h-40" | "h-48" | "h-56";
-  width?: "w-auto" | "w-100%";
+  width?: "w-auto" | "w-full";
 }
 
 export interface IButtonInnnerContainerPositions {
@@ -19,11 +19,11 @@ export interface IButtonProps {
   dataTestId?: string;
   iconName?: "btnCodeSandbox" | "btnDownload" | "btnExternalLink";
   iconWidth?: string;
-  onClick?: () => unknown;
+  onClick?: () => void;
   size?: "small" | "medium" | "large";
   tabIndex?: number;
   type?: "primary" | "secondary";
-  width?: "w-100%" | "w-auto";
+  width?: "w-full" | "w-auto";
 }
 
 export interface IMapSizeToButtonContainerProps {

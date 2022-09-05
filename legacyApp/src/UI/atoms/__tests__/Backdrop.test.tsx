@@ -4,7 +4,7 @@ import Backdrop from "UI/atoms/Backdrop";
 
 import renderWithTheme from "helpers/tests/renderWithTheme";
 
-import { BackdropProps } from "UI/atoms/__typings__/Backdrop";
+import { IBackdropProps } from "UI/atoms/__typings__/Backdrop";
 
 describe("atoms / Backdrop", () => {
   describe("Styles", () => {
@@ -90,10 +90,10 @@ interface Setup extends RenderResult {
   BackdropContainer: Element;
 }
 
-type BackdropTestProps = Partial<BackdropProps>;
+type BackdropTestProps = Partial<IBackdropProps>;
 
 function setup(additionalProps?: BackdropTestProps): Setup {
-  const props: BackdropProps = {
+  const props: IBackdropProps = {
     onClick: jest.fn(),
     ...additionalProps
   };

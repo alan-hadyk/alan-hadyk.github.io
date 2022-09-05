@@ -1,5 +1,5 @@
-import { HeaderMobileProps } from "UI/organisms/Header/__typings__/HeaderMobile";
+import { IHeaderMobileProps } from "components/organisms/Header/@types/HeaderMobile";
 
-export interface HeaderTvProps {
-  onCVButtonClick: HeaderMobileProps["onCVButtonClick"];
+export interface IHeaderTvProps {
+  onCVButtonClick: IHeaderMobileProps["onCVButtonClick"];
 }

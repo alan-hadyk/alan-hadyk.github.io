@@ -1,5 +1,5 @@
 export interface IHeaderMobileProps {
   isMenuVisible: boolean;
-  onCVButtonClick: React.MouseEventHandler<HTMLDivElement>;
+  onCVButtonClick: () => void;
   onClick: React.MouseEventHandler<HTMLDivElement>;
 }
