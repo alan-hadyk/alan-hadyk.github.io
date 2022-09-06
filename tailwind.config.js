@@ -56,6 +56,7 @@ module.exports = {
       addVariant("thirdChild", "&:nth-child(3)");
       addVariant("fourthChild", "&:nth-child(4)");
       addVariant("directChildren", "& > *");
+      addVariant("firstdirectChild", "& > :first-child");
       addVariant("childrenMask", "& mask");
       addVariant("childrenPath", "& path");
       addVariant("childrenSvg", "& svg");
@@ -178,21 +179,21 @@ module.exports = {
       },
       screenLg: "1680px",
       screenLgXl: {
-        raw: "(min-width: 1681px) and (max-width: 1920px)"
+        raw: "(min-width: 1680px) and (max-width: 1919px)"
       },
       screenMaxSm: {
         raw: "(max-width: 640px)"
       },
       screenMd: "1280px",
       screenMdLg: {
-        raw: "(min-width: 1281px) and (max-width: 1680px)"
+        raw: "(min-width: 1280px) and (max-width: 1679px)"
       },
       screenSm: "640px",
       screenSmLg: {
-        raw: "(min-width: 641px) and (max-width: 1680px)"
+        raw: "(min-width: 640px) and (max-width: 1679px)"
       },
       screenSmMd: {
-        raw: "(min-width: 641px) and (max-width: 1280px)"
+        raw: "(min-width: 640px) and (max-width: 1279px)"
       },
       screenXl: "1920px"
     },

@@ -162,11 +162,17 @@ const Button: React.FC<IButtonProps> = ({
         display="flex"
         data-testid="ButtonInnerContainer"
         height="h-full"
+        justifyContent="justify-center"
         position="relative"
         ref={buttonInnerContainerRef}
       >
         <LayoutContainer className={buttonHorizontalPadding} width="w-full">
-          <LayoutContainer display="flex" className="flex-row flex-nowrap">
+          <LayoutContainer
+            alignItems="items-center"
+            display="flex"
+            className="flex-row flex-nowrap"
+            justifyContent="justify-center"
+          >
             <ButtonText
               buttonText={buttonText}
               fontFamily={isIE11() ? "font-anonymousPro" : "font-exan"}

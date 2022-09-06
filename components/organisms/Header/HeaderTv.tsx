@@ -15,7 +15,7 @@ import { LayoutContainer } from "components/layout/LayoutContainer";
 const HeaderTv: React.FC<IHeaderTvProps> = ({ onCVButtonClick }) => (
   <Responsive dataTestId="HeaderTv" devices={[Device.TV]}>
     <LayoutContainer
-      className="flex-row flex-nowrap directChildren:ml-24 directChildren:first:ml-0"
+      className="flex-row flex-nowrap directChildren:ml-24 firstdirectChild:ml-0"
       display="flex"
       height="h-48"
       justifyContent="justify-start"

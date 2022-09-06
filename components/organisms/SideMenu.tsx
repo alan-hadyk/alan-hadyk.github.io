@@ -18,7 +18,7 @@ const SideMenu: React.FC<ISideMenuProps> = ({
 }) => (
   <LayoutContainer
     className={`
-      bg-blue600/88
+      bg-blue600/[.875]
       border-l-1 border-solid border-blue300/75
       h-full
       pt-88
@@ -69,7 +69,7 @@ const SideMenu: React.FC<ISideMenuProps> = ({
       <LayoutContainer marginBottom="mb-24">
         <LayoutContainer
           display="flex"
-          className="flex-row flex-nowrap directChildren:ml-24 directChildren:first:ml-0"
+          className="flex-row flex-nowrap directChildren:ml-24 firstdirectChild:ml-0"
         >
           <MenuIcons />
         </LayoutContainer>

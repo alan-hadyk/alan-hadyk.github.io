@@ -21,8 +21,8 @@ const MenuButtonLine = ({ isOpen }: IMenuButtonLineProps) => (
         isOpen &&
         `
         first:left-50% first:top-14 first:w-0
-        secondChild:rotate-40
-        -thirdChild:rotate-40
+        secondChild:rotate-[40deg]
+        thirdChild:rotate-[-40deg]
         fourthChild:left-50% fourthChild:top-14 fourthChild:w-0
       `
       }

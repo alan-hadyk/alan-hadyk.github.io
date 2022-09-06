@@ -23,7 +23,8 @@ const HeaderDesktop: React.FC<IHeaderMobileProps> = ({
 }) => (
   <Responsive dataTestId="HeaderDesktop" devices={[Device.DESKTOP]}>
     <LayoutContainer
-      className="flex-row flex-nowrap directChildren:ml-24 directChildren:first:ml-0"
+      alignItems="items-center"
+      className="flex-row flex-nowrap directChildren:ml-24 firstdirectChild:ml-0"
       display="flex"
       height="h-48"
       justifyContent="justify-start"
