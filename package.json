@@ -74,7 +74,7 @@
     "workbox-build": "^6.0.2"
   },
   "engines": {
-    "node": ">=14.11.0"
+    "node": ">=16.0.0"
   },
   "eslintConfig": {
     "extends": "react-app"
