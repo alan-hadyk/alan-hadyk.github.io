@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
 import { ILayoutContainerProps } from "components/layout/@types/LayoutContainer";
 import { childrenPropTypes } from "helpers/propTypes/children";
+import { flexPropType } from "helpers/propTypes/flex";
+import { orderPropType } from "helpers/propTypes/order";
 import { spacingPropTypes } from "helpers/propTypes/spacing";
 import { zIndexPropTypes } from "helpers/propTypes/zIndex";
 import { trimTemplateLiteral } from "helpers/strings/trimTemplateLiteral";
 import PropTypes from "prop-types";
-import { useCallback, forwardRef } from "react";
+import { forwardRef } from "react";
 
 const _LayoutContainer: React.ForwardRefRenderFunction<
   HTMLInputElement | HTMLFormElement | HTMLDivElement | HTMLElement,
@@ -13,13 +15,17 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
 > = (
   {
     alignItems,
+    alignSelf,
     as = "div",
     bottom,
     children,
     className,
     dataCy,
     display,
+    flex,
+    flexFlow,
     height,
+    id,
     justifyContent,
     left,
     marginBottom,
@@ -28,6 +34,7 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
     marginTop,
     name,
     onClick,
+    order,
     padding,
     paddingBottom,
     paddingLeft,
@@ -55,27 +62,14 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
     | "a"
     | "button"
   >;
-
-  const calculatePadding = useCallback(
-    (prefix: "pb" | "pl" | "pr" | "pt", value?: string | number) => {
-      if (value) {
-        if (typeof value === "string") {
-          return value;
-        } else {
-          return `${prefix}-[${value}px]`;
-        }
-      }
-
-      return undefined;
-    },
-    []
-  );
-
   const props = {
     className: trimTemplateLiteral(`
       ${alignItems || ""}  
+      ${alignSelf || ""}  
       ${bottom || ""}  
       ${display || ""}  
+      ${flex || ""}
+      ${flexFlow || ""}
       ${height || ""}  
       ${justifyContent || ""}  
       ${left || ""}  
@@ -84,11 +78,12 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
       ${marginRight || ""}  
       ${marginTop || ""}  
       ${onClick ? "cursor-pointer" : ""}
+      ${order || ""}  
       ${padding || ""}  
-      ${calculatePadding("pb", paddingBottom) || ""}  
-      ${calculatePadding("pl", paddingLeft) || ""}  
-      ${calculatePadding("pr", paddingRight) || ""}  
-      ${calculatePadding("pt", paddingTop) || ""}  
+      ${paddingBottom || ""}  
+      ${paddingLeft || ""}  
+      ${paddingRight || ""}  
+      ${paddingTop || ""}  
       ${position || ""}  
       ${right || ""}  
       ${top || ""}  
@@ -97,6 +92,7 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
       ${className || ""}  
     `),
     ["data-cy"]: dataCy,
+    id,
     name,
     onClick,
     style
@@ -123,6 +119,14 @@ LayoutContainer.propTypes = {
     "items-center",
     "items-baseline",
     "items-stretch"
+  ]),
+  alignSelf: PropTypes.oneOf([
+    "self-auto",
+    "self-start",
+    "self-end",
+    "self-center",
+    "self-stretch",
+    "self-baseline"
   ]),
   as: PropTypes.oneOf([
     "div",
@@ -164,7 +168,23 @@ LayoutContainer.propTypes = {
     "list-item",
     "hidden"
   ]),
+  flex: flexPropType,
+  flexFlow: PropTypes.oneOf([
+    "flex-row flex-wrap",
+    "flex-row-reverse flex-wrap",
+    "flex-col flex-wrap",
+    "flex-col-reverse flex-wrap",
+    "flex-row flex-wrap-reverse",
+    "flex-row-reverse flex-wrap-reverse",
+    "flex-col flex-wrap-reverse",
+    "flex-col-reverse flex-wrap-reverse",
+    "flex-row flex-nowrap",
+    "flex-row-reverse flex-nowrap",
+    "flex-col flex-nowrap",
+    "flex-col-reverse flex-nowrap"
+  ]),
   height: spacingPropTypes("h"),
+  id: PropTypes.string,
   justifyContent: PropTypes.oneOf([
     "justify-start",
     "justify-end",
@@ -180,6 +200,7 @@ LayoutContainer.propTypes = {
   marginTop: spacingPropTypes("mt"),
   name: PropTypes.string,
   onClick: PropTypes.func,
+  order: orderPropType,
   padding: spacingPropTypes("p"),
   paddingBottom: PropTypes.oneOfType([
     spacingPropTypes("pb"),

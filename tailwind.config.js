@@ -27,6 +27,8 @@ const spacing = {
   80: "8rem",
   88: "8.8rem",
   96: "9.6rem",
+  "100%": "100%",
+  "100vh": "100vh",
   248: "24.8rem",
   356: "35.6rem",
   1056: "105.6rem",
@@ -71,10 +73,12 @@ module.exports = {
   ],
   theme: {
     animation: {
+      "blink-default": "blink 300ms ease-in-out infinite",
       "glow-fast": "glow 150ms ease-in-out infinite",
       "glow-slow": "glow 900ms ease-in-out infinite",
       "glow-verySlow": "glow 3600ms ease-in-out infinite",
-      "ripple-slow": "ripple 900ms linear"
+      "ripple-slow": "ripple 900ms linear",
+      "rotation-slower": "rotation 1200ms linear infinite"
     },
     borderRadius: {
       full: "50%"
@@ -114,7 +118,9 @@ module.exports = {
       md: "0px 0px .125rem rgba(255,255,255,0.9)",
       xl: "0px 0px .5rem #bcd8db"
     },
-    extend: {},
+    extend: {
+      minHeight: spacing
+    },
     fontFamily: {
       anonymousPro: ["'Anonymous Pro'", "monospace", "sans-serif"],
       exan: ["'ExanModifiedRegular'", "monospace", "sans-serif"]
@@ -177,9 +183,18 @@ module.exports = {
       msHighContrastNone: {
         raw: "(-ms-high-contrast: none)"
       },
+      "screenHeight401/799": {
+        raw: "(min-height: 401px) and (max-height: 799px)"
+      },
+      screenHeight800: {
+        raw: "(min-height: 800px)"
+      },
       screenLg: "1680px",
       screenLgXl: {
         raw: "(min-width: 1680px) and (max-width: 1919px)"
+      },
+      screenMaxHeight400: {
+        raw: "(max-height: 400px)"
       },
       screenMaxSm: {
         raw: "(max-width: 640px)"
@@ -202,6 +217,7 @@ module.exports = {
       default: "300ms",
       fast: "150ms",
       slow: "900ms",
+      slower: "1200ms",
       verySlow: "3600ms"
     },
     transitionTimingFunction: {

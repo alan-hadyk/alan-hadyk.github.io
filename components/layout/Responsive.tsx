@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Device, IResponsiveProps } from "components/layout/@types/Responsive";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 import { spacingPropTypes } from "helpers/propTypes/spacing";
+import { childrenPropTypes } from "helpers/propTypes/children";
 
 const Responsive: React.FC<IResponsiveProps> = ({
   children,
@@ -28,10 +29,7 @@ const Responsive: React.FC<IResponsiveProps> = ({
 );
 
 Responsive.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired,
+  children: childrenPropTypes.isRequired,
   dataTestId: PropTypes.string,
   devices: PropTypes.arrayOf(
     PropTypes.oneOf([Device.TV, Device.DESKTOP, Device.TABLET, Device.MOBILE])

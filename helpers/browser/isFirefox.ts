@@ -1,9 +1,9 @@
 import { detect } from "detect-browser";
 
-function isFirefox(): boolean {
-  const { name } = detect();
+const isFirefox = (): boolean => {
+  const browser = detect();
 
-  return name === "firefox";
-}
+  return browser?.name === "firefox";
+};
 
-export default isFirefox;
+export { isFirefox };
