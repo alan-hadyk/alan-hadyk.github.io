@@ -26,7 +26,9 @@ const DashboardElement: React.FC<IDashboardElementProps> = ({
   titleOverflow = "visible"
 }) => {
   const calcChildrenHeight = (): ILayoutContainerProps["height"] =>
-    description ? "h-[calc(100%-3.6rem-2.4rem-2.8rem]" : "h-[calc(100%-3.6rem]";
+    description
+      ? "h-[calc(100%-3.6rem-2.4rem-2.8rem)]"
+      : "h-[calc(100%-3.6rem)]";
 
   return (
     <LayoutContainer
@@ -61,9 +63,7 @@ const DashboardElement: React.FC<IDashboardElementProps> = ({
             overflow="overflow-hidden"
             textTransform="uppercase"
           >
-            {
-              "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36"
-            }
+            {description}
           </Text>
         </LayoutContainer>
       ) : null}

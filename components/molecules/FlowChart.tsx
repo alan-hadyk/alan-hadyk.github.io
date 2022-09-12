@@ -4,6 +4,7 @@ import { LayoutContainer } from "components/layout/LayoutContainer";
 const FlowChart = (): JSX.Element => (
   <LayoutContainer
     alignItems="items-center"
+    display="flex"
     height="h-100%"
     justifyContent="justify-center"
   >
@@ -12,7 +13,8 @@ const FlowChart = (): JSX.Element => (
         alt="Flow chart"
         className="block h-100% mx-auto my-0 w-100%"
         id="flow-chart"
-        layout="fill"
+        height="100%"
+        width="100%"
         src="/images/svg/Flux-FlowChart.svg"
       />
     </LayoutContainer>

@@ -3,21 +3,26 @@ import PropTypes from "prop-types";
 
 const Image: React.FC<ImageProps> = ({ height, width, ...imageProps }) => {
   const props: ImageProps = {
-    height,
-    // (...!height && !width ? { layout: "fill" } : {}),
-    ...((!height || !width) && {
-      layout: "fill"
-    }),
-    width,
+    layout: "fill",
     ...imageProps
   };
 
-  return <NextImage {...props} />;
+  return (
+    <div
+      className="relative"
+      style={{
+        height,
+        width
+      }}
+    >
+      <NextImage {...props} />
+    </div>
+  );
 };
 
 Image.propTypes = {
-  height: PropTypes.number,
-  width: PropTypes.number
+  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
 
 export { Image };
