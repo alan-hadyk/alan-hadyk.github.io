@@ -88,15 +88,15 @@ export interface ILayoutContainerProps {
   name?: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
   order?: `order-${number}` | "order-first" | "order-last" | "order-none";
-  padding?: `p-${TSpacing}`;
-  paddingBottom?: `pb-${TSpacing}` | number | `pb-[${string}]`;
-  paddingLeft?: `pl-${TSpacing}` | number | `pl-[${string}]`;
-  paddingRight?: `pr-${TSpacing}` | number | `pr-[${string}]`;
-  paddingTop?: `pt-${TSpacing}` | number | `pt-[${string}]`;
+  padding?: `p-${TSpacing}` | `p-[${string}]`;
+  paddingBottom?: `pb-${TSpacing}` | `pb-[${string}]`;
+  paddingLeft?: `pl-${TSpacing}` | `pl-[${string}]`;
+  paddingRight?: `pr-${TSpacing}` | `pr-[${string}]`;
+  paddingTop?: `pt-${TSpacing}` | `pt-[${string}]`;
   position?: "static" | "relative" | "absolute" | "fixed" | "sticky";
   right?: `right-${TSpacing}`;
   style?: React.CSSProperties;
   top?: `top-${TSpacing}`;
-  width?: `w-${TSpacing}`;
+  width?: `w-${TSpacing}` | `w-[${string}]`;
   zIndex?: `z-${TZIndex}`;
 }

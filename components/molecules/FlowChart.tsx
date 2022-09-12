@@ -12,7 +12,7 @@ const FlowChart = (): JSX.Element => (
         alt="Flow chart"
         className="block h-100% mx-auto my-0 w-100%"
         id="flow-chart"
-        layout="responsive"
+        layout="fill"
         src="/images/svg/Flux-FlowChart.svg"
       />
     </LayoutContainer>

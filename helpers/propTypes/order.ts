@@ -10,7 +10,7 @@ const orderPropType = (
   const propValue = props[propName];
   const order = ["order-first", "order-last", "order-none"];
 
-  if (!regex.test(propValue) && !order.includes(propValue)) {
+  if (propValue && !regex.test(propValue) && !order.includes(propValue)) {
     return new Error(
       `Invalid prop ${propName} with value ${propValue} supplied to ${componentName}`
     );

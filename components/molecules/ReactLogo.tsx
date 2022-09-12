@@ -3,7 +3,7 @@ import { LayoutContainer } from "components/layout/LayoutContainer";
 
 import { isSafari } from "helpers/browser/isSafari";
 
-const Earth = (): JSX.Element => (
+const ReactLogo: React.FC = () => (
   <LayoutContainer height="h-100%" padding="p-[1vh]" width="w-100%">
     <LayoutContainer
       alignItems="items-center"
@@ -12,12 +12,12 @@ const Earth = (): JSX.Element => (
     >
       <Icon
         height={isSafari() ? "h-[18vh]" : "h-100%"}
-        iconName="earth"
+        iconName="reactLogo"
         isResponsive
-        width={isSafari() ? "w-[18vh]" : "w-100%"}
+        width={isSafari() ? "w-[18vh]" : "w-[100%]"}
       />
     </LayoutContainer>
   </LayoutContainer>
 );
 
-export { Earth };
+export { ReactLogo };

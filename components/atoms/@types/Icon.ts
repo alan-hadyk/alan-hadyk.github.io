@@ -10,7 +10,7 @@ export interface IIconProps {
   animation?: `childrenSvg:animate-${TAnimationName}`;
   dataTestId?: string;
   glowAnimationTime?: `childrenSvg:duration-${TDuration}`;
-  height?: `h-${TSpacing}`;
+  height?: `h-${TSpacing}` | `h-[${string}]`;
   iconName:
     | "apollo"
     | "brandAfterEffects"
@@ -93,7 +93,7 @@ export interface IIconProps {
     | "linkedIn"
     | "logo"
     | "logoShortcut"
-    | "node"
+    | "nodeIcon"
     | "opera"
     | "react"
     | "reactLogo"
@@ -108,7 +108,7 @@ export interface IIconProps {
   shouldDisplayGlowAnimation?: boolean;
   shouldGlow?: boolean;
   shouldGlowOnHover?: boolean;
-  width?: `w-${TSpacing}` | string;
+  width?: `w-${TSpacing}` | string | `w-[${string}]`;
 }
 
 export interface IconComponents {
@@ -135,7 +135,7 @@ export interface IconComponents {
   linkedIn: SVGIcon;
   logo: SVGIcon;
   logoShortcut: SVGIcon;
-  node: SVGIcon;
+  nodeIcon: SVGIcon;
   opera: SVGIcon;
   react: SVGIcon;
   reactLogo: SVGIcon;

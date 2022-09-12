@@ -74,6 +74,7 @@ module.exports = {
   theme: {
     animation: {
       "blink-default": "blink 300ms ease-in-out infinite",
+      "blink-slow": "blink 900ms ease-in-out infinite",
       "glow-fast": "glow 150ms ease-in-out infinite",
       "glow-slow": "glow 900ms ease-in-out infinite",
       "glow-verySlow": "glow 3600ms ease-in-out infinite",
@@ -90,9 +91,9 @@ module.exports = {
       thin: "thin"
     },
     boxShadow: {
-      activeButton: "inset 0px 0px 1rem 0px rgba(103,210,223,0.5)",
-      console: "0px 0px .5rem 0px #bcd8db",
-      line: "0px 0px .25rem 0px #bcd8db"
+      activeButton: "inset 0px 0px 1.6rem 0px rgba(103,210,223,0.5)",
+      console: "0px 0px .8rem 0px #bcd8db",
+      line: "0px 0px .4rem 0px #bcd8db"
     },
     colors: {
       // Black
@@ -126,6 +127,7 @@ module.exports = {
       exan: ["'ExanModifiedRegular'", "monospace", "sans-serif"]
     },
     fontSize: {
+      0: "0",
       8: "8px",
       12: "12px",
       16: "16px",
@@ -194,6 +196,9 @@ module.exports = {
         raw: "(min-width: 1680px) and (max-width: 1919px)"
       },
       screenMaxHeight400: {
+        raw: "(max-height: 400px)"
+      },
+      screenMaxHeight640: {
         raw: "(max-height: 400px)"
       },
       screenMaxSm: {

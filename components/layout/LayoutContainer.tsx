@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { ILayoutContainerProps } from "components/layout/@types/LayoutContainer";
 import { childrenPropTypes } from "helpers/propTypes/children";
 import { flexPropType } from "helpers/propTypes/flex";
@@ -202,13 +201,10 @@ LayoutContainer.propTypes = {
   onClick: PropTypes.func,
   order: orderPropType,
   padding: spacingPropTypes("p"),
-  paddingBottom: PropTypes.oneOfType([
-    spacingPropTypes("pb"),
-    PropTypes.number
-  ]),
-  paddingLeft: PropTypes.oneOfType([spacingPropTypes("pl"), PropTypes.number]),
-  paddingRight: PropTypes.oneOfType([spacingPropTypes("pr"), PropTypes.number]),
-  paddingTop: PropTypes.oneOfType([spacingPropTypes("pt"), PropTypes.number]),
+  paddingBottom: spacingPropTypes("pb"),
+  paddingLeft: spacingPropTypes("pl"),
+  paddingRight: spacingPropTypes("pr"),
+  paddingTop: spacingPropTypes("pt"),
   position: PropTypes.oneOf([
     "static",
     "relative",

@@ -1,11 +1,10 @@
-import DashboardElement from "UI/molecules/DashboardElement";
-import ReactLogo from "UI/molecules/ReactLogo";
+import { DashboardElement } from "components/molecules/DashboardElement";
+import { ReactLogo } from "components/molecules/ReactLogo";
 
-const PoweredBy = (): JSX.Element => (
+const PoweredBy: React.FC = () => (
   <DashboardElement
     dataCy="PoweredBy"
-    dataTestId="PoweredBy"
-    flex="1 0 30%"
+    flex="flex-[1_0_30%]"
     shouldDisplayCorners
     title="Powered by"
   >
@@ -13,4 +12,4 @@ const PoweredBy = (): JSX.Element => (
   </DashboardElement>
 );
 
-export default PoweredBy;
+export { PoweredBy };

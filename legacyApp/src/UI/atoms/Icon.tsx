@@ -69,7 +69,7 @@ export const iconComponents: IconComponents = {
   linkedIn: IconLinkedIn,
   logo: IconLogo,
   logoShortcut: IconLogoShortcut,
-  node: IconNode,
+  nodeIcon: IconNode,
   opera: IconOpera,
   react: IconReact,
   reactLogo: IconReactLogo,

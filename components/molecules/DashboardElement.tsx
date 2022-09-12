@@ -36,7 +36,7 @@ const DashboardElement: React.FC<IDashboardElementProps> = ({
       flex={flex}
       order={order}
     >
-      {title && (
+      {title ? (
         <Text
           color={titleFontSize === "text-28" ? "text-blue100" : "text-blue300"}
           dataTestId="DashboardElementTitleText"
@@ -48,9 +48,9 @@ const DashboardElement: React.FC<IDashboardElementProps> = ({
         >
           {title}
         </Text>
-      )}
+      ) : null}
 
-      {description && (
+      {description ? (
         <LayoutContainer height="h-24" marginBottom="mb-28">
           <Text
             color="text-blue300"
@@ -61,10 +61,12 @@ const DashboardElement: React.FC<IDashboardElementProps> = ({
             overflow="overflow-hidden"
             textTransform="uppercase"
           >
-            {description}
+            {
+              "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36"
+            }
           </Text>
         </LayoutContainer>
-      )}
+      ) : null}
 
       <LayoutContainer
         height={calcChildrenHeight()}

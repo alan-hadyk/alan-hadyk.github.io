@@ -1,17 +1,30 @@
-import DashboardElement from "UI/molecules/DashboardElement";
-import BrowserInfo from "UI/molecules/BrowserInfo";
+import { DashboardElement } from "components/molecules/DashboardElement";
+import { BrowserInfo } from "components/molecules/BrowserInfo";
+import { useEffect, useState } from "react";
 
-export const UserAgent = (): JSX.Element => (
-  <DashboardElement
-    dataCy="UserAgent"
-    dataTestId="UserAgent"
-    description={window && window.navigator && window.navigator.userAgent}
-    flex="1 0 20%"
-    shouldDisplayCorners
-    title="User Agent"
-  >
-    <BrowserInfo />
-  </DashboardElement>
-);
+const getDescription = () =>
+  typeof window !== "undefined"
+    ? window.navigator && window.navigator.userAgent
+    : "";
 
-export default UserAgent;
+const UserAgent: React.FC = () => {
+  const [description, setDescription] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    setDescription(getDescription());
+  }, []);
+
+  return (
+    <DashboardElement
+      dataCy="UserAgent"
+      description={description}
+      flex="flex-[1_0_20%]"
+      shouldDisplayCorners
+      title="User Agent"
+    >
+      <BrowserInfo />
+    </DashboardElement>
+  );
+};
+
+export { UserAgent };

@@ -1,11 +1,10 @@
-import DashboardElement from "UI/molecules/DashboardElement";
-import AnimatedIcons from "UI/molecules/AnimatedIcons";
+import { DashboardElement } from "components/molecules/DashboardElement";
+import { AnimatedIcons } from "components/molecules/AnimatedIcons";
 
 const TechStack = (): JSX.Element => (
   <DashboardElement
     dataCy="TechStack"
-    dataTestId="TechStack"
-    flex="1 0 40%"
+    flex="flex-[1_0_40%]"
     shouldDisplayCorners
     title="Tech Stack"
   >
@@ -13,4 +12,4 @@ const TechStack = (): JSX.Element => (
   </DashboardElement>
 );
 
-export default TechStack;
+export { TechStack };

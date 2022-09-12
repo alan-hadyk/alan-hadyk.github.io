@@ -13,7 +13,7 @@ import { PoweredBy } from "containers/dashboard/components/PoweredBy";
 import { Responsive } from "components/layout/Responsive";
 import { Device } from "components/layout/@types/Responsive";
 
-const DashboardSectionTvAndDesktop: React.FC = () => (
+const DashboardContainerTvAndDesktop: React.FC = () => (
   <Responsive
     dataTestId="DashboardSectionTvAndDesktop"
     devices={[Device.TV, Device.DESKTOP]}
@@ -43,4 +43,4 @@ const DashboardSectionTvAndDesktop: React.FC = () => (
   </Responsive>
 );
 
-export { DashboardSectionTvAndDesktop };
+export { DashboardContainerTvAndDesktop };
