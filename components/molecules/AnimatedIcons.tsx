@@ -19,6 +19,7 @@ const AnimatedIcons: React.FC = () => (
   <LayoutContainer height="h-100%" padding="p-8" width="w-100%">
     <LayoutContainer
       alignItems="items-center"
+      display="flex"
       flexFlow="flex-row flex-nowrap"
       height="h-100%"
       justifyContent="justify-center"
@@ -29,7 +30,7 @@ const AnimatedIcons: React.FC = () => (
             height={isSafari() ? "h-auto" : "h-100%"}
             key={icon}
             position="relative"
-            width={`w-[${Number(100 / animatedIcons.length).toFixed(2)}%]`}
+            width={`${Number(Number(100 / animatedIcons.length).toFixed(2))}%`}
           >
             <Icon
               height={isSafari() ? "h-[8vh]" : "h-100%"}

@@ -17,7 +17,9 @@ const DashboardInnerContainer: React.FC<IDashboardInnerContainerProps> = ({
   >
     <LayoutContainer
       alignItems="items-stretch"
-      className="flex-row flex-nowrap directChildren:ml-48 firstdirectChild:ml-0"
+      className="directChildren:ml-48 firstdirectChild:ml-0"
+      display="flex"
+      flexFlow="flex-row flex-nowrap"
       height="h-100%"
       justifyContent="justify-center"
     >

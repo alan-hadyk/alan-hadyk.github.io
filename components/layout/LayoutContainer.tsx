@@ -69,7 +69,7 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
       ${display || ""}  
       ${flex || ""}
       ${flexFlow || ""}
-      ${height || ""}  
+      ${height?.includes("h-") ? height : ""}  
       ${justifyContent || ""}  
       ${left || ""}  
       ${marginBottom || ""}  
@@ -86,7 +86,7 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
       ${position || ""}  
       ${right || ""}  
       ${top || ""}  
-      ${width || ""}  
+      ${width?.includes("w-") ? width : ""}  
       ${zIndex || ""}  
       ${className || ""}  
     `),
@@ -94,7 +94,11 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
     id,
     name,
     onClick,
-    style
+    style: {
+      height: !height?.includes("h-") ? height : undefined,
+      width: !width?.includes("w-") ? width : undefined,
+      ...style
+    }
   };
 
   return children ? (
