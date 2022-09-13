@@ -1,12 +1,10 @@
-import fetchCommits from "api/fetchCommits";
-
-import { CommitProps } from "UI/molecules/__typings__/ListOfCommits";
+import { fetchCommits } from "api/fetchCommits";
+import { ICommitProps } from "components/molecules/@types/ListOfCommits";
+import fetch from "node-fetch";
 
 jest.mock("node-fetch");
 
-import fetch from "node-fetch";
-
-const commitsList: CommitProps[] = [
+const commitsList: ICommitProps[] = [
   {
     commit: {
       author: {
@@ -36,7 +34,7 @@ afterEach(() => {
 describe("api / fetchCommits", () => {
   test("should return an array of commits if GitHub API call's status is 200", async () => {
     const spyFetch = jest.fn();
-    const mockFetch = (fetch as unknown) as jest.Mock;
+    const mockFetch = fetch as unknown as jest.Mock;
 
     mockFetch.mockImplementation((args) => {
       spyFetch(args);
@@ -55,7 +53,7 @@ describe("api / fetchCommits", () => {
   });
 
   test("should return an error if GitHub API call fails", async () => {
-    const mockFetch = (fetch as unknown) as jest.Mock;
+    const mockFetch = fetch as unknown as jest.Mock;
 
     mockFetch.mockImplementation(() => {
       return new Response(

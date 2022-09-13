@@ -8,10 +8,6 @@ export enum Device {
   TV = "tv"
 }
 
-export interface DevicesProps {
-  devices?: Device[];
-}
-
 export interface IResponsiveProps {
   children: TChildren;
   dataTestId?: string;

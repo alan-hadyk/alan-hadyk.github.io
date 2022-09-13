@@ -1,6 +1,5 @@
+import { ICommitProps } from "components/molecules/@types/ListOfCommits";
 import fetch, { Response } from "node-fetch";
-
-import { ICommitProps } from "components/molecules/@types/Commit";
 
 async function fetchCommits(): Promise<ICommitProps[] | Error> {
   const response: Response = await fetch(
