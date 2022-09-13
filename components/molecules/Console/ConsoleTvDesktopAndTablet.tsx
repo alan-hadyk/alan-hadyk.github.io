@@ -54,10 +54,10 @@ const ConsoleTvDesktopAndTablet = (): JSX.Element => (
       <ConsoleText
         dataTestId="ConsoleTvDesktopAndTabletText"
         fontSize="text-[6vh]"
-        height="h-[6vh]"
+        height="after:h-[6vh]"
         lineHeight="leading-[7.4vh]"
         transform="after:translate-y-[1vh]"
-        width="w-[3vh]"
+        width="after:w-[3vh]"
       />
     </LayoutContainer>
   </LayoutContainer>

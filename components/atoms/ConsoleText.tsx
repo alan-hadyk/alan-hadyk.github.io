@@ -42,7 +42,7 @@ const ConsoleText: React.FC<IConsoleTextProps> = ({
 ConsoleText.propTypes = {
   dataTestId: PropTypes.string,
   fontSize: fontSizePropType,
-  height: spacingPropType("h"),
+  height: spacingPropType("after:h"),
   lineHeight: spacingPropType("leading"),
   transform: (
     props: React.ComponentProps<React.JSXElementConstructor<any>>,
@@ -60,7 +60,7 @@ ConsoleText.propTypes = {
 
     return null;
   },
-  width: spacingPropType("w")
+  width: spacingPropType("after:w")
 };
 
 export { ConsoleText, HERO_DESCRIPTION as hero };

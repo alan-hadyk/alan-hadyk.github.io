@@ -1,7 +1,7 @@
 import { DashboardElement } from "components/molecules/DashboardElement";
 import { Earth } from "components/molecules/Earth";
 
-const Ip = (): JSX.Element => (
+const Ip: React.FC = () => (
   <DashboardElement
     dataCy="Ip"
     flex="flex-[0_1_30%]"

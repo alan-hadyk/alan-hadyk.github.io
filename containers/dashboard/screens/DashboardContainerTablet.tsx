@@ -12,7 +12,7 @@ import Responsive from "UI/layout/Responsive";
 
 import spacing from "styles/variables/spacing";
 
-const DashboardSectionTablet = (): JSX.Element => (
+const DashboardSectionTablet: React.FC = () => (
   <Responsive dataTestId="DashboardSectionTablet" devices={["tablet"]}>
     <DashboardSectionOuterContainer>
       <DashboardSectionInnerContainer
