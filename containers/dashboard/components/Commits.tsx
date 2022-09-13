@@ -18,4 +18,5 @@ const Commits: React.FC = () => {
     </DashboardElement>
   );
 };
+
 export { Commits };

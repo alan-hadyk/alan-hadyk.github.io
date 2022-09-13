@@ -11,6 +11,7 @@ const Error: React.FC<IErrorProps> = ({ dataCy, description, title }) => (
   <LayoutContainer dataCy={dataCy} padding="p-8" height="h-100%">
     <LayoutContainer
       alignItems="items-center"
+      display="flex"
       height="h-100%"
       flexFlow="flex-col flex-nowrap"
       justifyContent="justify-center"

@@ -19,6 +19,7 @@ const ListOfCommits: React.FC<IListOfCommitsProps> = ({
       return (
         <LayoutContainer
           alignItems="items-start"
+          display="flex"
           flexFlow="flex-col flex-nowrap"
           justifyContent="justify-start"
         >

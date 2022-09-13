@@ -3,16 +3,16 @@ import fetch, { Response } from "node-fetch";
 import { ICommitProps } from "components/molecules/@types/Commit";
 
 async function fetchCommits(): Promise<ICommitProps[] | Error> {
-  const commits: Response = await fetch(
+  const response: Response = await fetch(
     "https://api.github.com/repos/alan-hadyk/portfolio/commits"
   );
 
-  const commitsJson = await commits.json();
+  const responseAsJson = await response.json();
 
-  if (!commits.ok || !Array.isArray(commitsJson)) {
-    throw new Error(JSON.stringify(commitsJson));
+  if (!response.ok || !Array.isArray(responseAsJson)) {
+    throw new Error(JSON.stringify(responseAsJson));
   } else {
-    return commitsJson;
+    return responseAsJson as ICommitProps[];
   }
 }
 

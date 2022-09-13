@@ -7,6 +7,7 @@ const Earth: React.FC = () => (
   <LayoutContainer height="h-100%" padding="p-[1vh]" width="w-100%">
     <LayoutContainer
       alignItems="items-center"
+      display="flex"
       height="h-100%"
       justifyContent="justify-center"
     >

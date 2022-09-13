@@ -27,11 +27,6 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
-* {
-  -webkit-tap-highlight-color: transparent;
-  font-smooth: always;
-}
-
 *, 
 *:after, 
 *:before, 
@@ -41,6 +36,11 @@ footer, header, hgroup, menu, nav, section {
   outline: 0;
   scrollbar-color: #006869 transparent;
   scrollbar-width: thin;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  font-smooth: always;
 }
 
 ::-webkit-scrollbar {

@@ -33,6 +33,7 @@ const BrowserInfo: React.FC = () => {
       <LayoutContainer data-testid="LayoutContainer" height="h-100%">
         <LayoutContainer
           alignItems="items-center"
+          display="flex"
           flexFlow="flex-row flex-wrap"
           height="h-100%"
           justifyContent="justify-between"

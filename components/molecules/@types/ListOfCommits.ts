@@ -1,6 +1,8 @@
+import { TCommitsState } from "hooks/@types/useCommits";
+
 export interface IListOfCommitsProps {
   commitsList: Array<ICommitProps | undefined | null>;
-  commitsState: "error" | "idle" | "loaded" | "loading";
+  commitsState: TCommitsState;
 }
 
 export interface ICommitProps {

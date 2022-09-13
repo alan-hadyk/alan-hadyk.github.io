@@ -8,11 +8,10 @@ import { LayoutContainer } from "components/layout/LayoutContainer";
 
 const Commit: React.FC<ICommitProps> = ({ date, delay, htmlUrl, sha }) => (
   <LayoutContainer
+    alignItems="items-center"
     className={`
-      items-center
       border-t-thin border-t-solid border-t-blue400
       hidden
-      w-100%
 
       screenHeight800:h-[2.26vh]
       screenHeight800:[&:nth-child(-n+10)]:flex
@@ -26,14 +25,16 @@ const Commit: React.FC<ICommitProps> = ({ date, delay, htmlUrl, sha }) => (
       first:border-t-0
     `}
     data-testid="Commit"
+    width="w-100%"
   >
     <LayoutContainer paddingTop="pt-4" paddingBottom="pb-4" width="w-100%">
       <LayoutContainer
         alignItems="items-center"
+        display="flex"
         flexFlow="flex-row flex-nowrap"
         justifyContent="justify-between"
       >
-        <LayoutContainer className="overflow-hidden" flex="flex-[0_0_60.97%]">
+        <LayoutContainer className="overflow-hidden" flex="flex-[0_0_61%]">
           <Link href={htmlUrl} isExternal>
             <Text
               color="text-blue100"
@@ -47,7 +48,7 @@ const Commit: React.FC<ICommitProps> = ({ date, delay, htmlUrl, sha }) => (
             </Text>
           </Link>
         </LayoutContainer>
-        <LayoutContainer flex="flex-[0_0_30.66%]">
+        <LayoutContainer flex="flex-[0_0_29%]">
           <Text fontSize="text-8" ellipsis>
             {date}
           </Text>

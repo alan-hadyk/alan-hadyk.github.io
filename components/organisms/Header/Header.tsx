@@ -60,7 +60,7 @@ const Header: React.FC<IHeaderProps> = ({ zIndex = "z-100" }) => {
           >
             <LayoutContainer
               alignItems="items-center"
-              className="flex-row flex-nowrap"
+              flexFlow="flex-row flex-nowrap"
               display="flex"
               height="h-48"
               justifyContent="justify-between"

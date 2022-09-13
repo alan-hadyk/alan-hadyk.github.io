@@ -170,7 +170,7 @@ const Button: React.FC<IButtonProps> = ({
           <LayoutContainer
             alignItems="items-center"
             display="flex"
-            className="flex-row flex-nowrap"
+            flexFlow="flex-row flex-nowrap"
             justifyContent="justify-center"
           >
             <ButtonText

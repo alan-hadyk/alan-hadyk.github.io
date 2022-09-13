@@ -9,6 +9,7 @@ const DashboardOuterContainer: React.FC<IDashboardOuterContainerProps> = ({
     <LayoutContainer height="h-100%" position="relative">
       <LayoutContainer
         alignItems="items-center"
+        display="flex"
         className="flex-col flex-nowrap"
         height="h-100%"
         justifyContent="justify-between"

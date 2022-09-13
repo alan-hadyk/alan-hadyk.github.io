@@ -1,59 +1,36 @@
-import {
-  createMachine,
-  immediate,
-  invoke,
-  state,
-  transition,
-  reduce
-} from "robot3";
-import { createUseMachine } from "robot-hooks";
 import { useEffect, useState } from "react";
 
 import { fetchCommits } from "api/fetchCommits";
 import { ICommitProps } from "components/molecules/@types/ListOfCommits";
-import {
-  ICreateMachineContext,
-  TCommitsMachine
-} from "hooks/@types/useCommits";
-
-const fetchCommitsPromise = (): Promise<ICommitProps[] | Error> =>
-  fetchCommits();
-
-const commitsMachine: TCommitsMachine = createMachine(
-  "idle",
-  {
-    error: state(),
-    idle: state(immediate("loading")),
-    loaded: state(),
-    loading: invoke(
-      fetchCommitsPromise,
-      transition(
-        "done",
-        "loaded",
-        reduce(
-          (ctx: Record<string, unknown>, event: Record<string, unknown>) => ({
-            ...ctx,
-            commits: event.data
-          })
-        )
-      ),
-      transition("error", "error")
-    )
-  },
-  (): ICreateMachineContext => ({
-    commits: []
-  })
-);
-
-const useMachine = createUseMachine(useEffect, useState);
+import { TCommitsState } from "hooks/@types/useCommits";
 
 const useCommits = () => {
-  const [current] = useMachine<TCommitsMachine>(commitsMachine);
-  const commitsState = current.name;
-  const { commits } = current.context;
+  const [commitsList, setCommitsList] = useState<ICommitProps[]>([]);
+  const [commitsState, setCommitsState] = useState<TCommitsState>("idle");
+
+  const getCommits = async () => {
+    setCommitsState("loading");
+
+    try {
+      const commits = await fetchCommits();
+
+      if (!(commits instanceof Error)) {
+        setCommitsList(commits);
+        setCommitsState("loaded");
+      } else {
+        setCommitsState("error");
+      }
+    } catch (error) {
+      setCommitsState("error");
+    }
+  };
+
+  useEffect(() => {
+    getCommits();
+  }, []);
 
   return {
-    commitsList: commits,
+    commitsList,
     commitsState
   };
 };
