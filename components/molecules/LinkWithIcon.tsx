@@ -2,10 +2,10 @@ import PropTypes from "prop-types";
 
 import { Icon, iconNames } from "components/atoms/Icon";
 import { Link } from "components/molecules/Link";
-import { LinkWithIconProps } from "components/molecules/@types/LinkWithIcon";
-import { spacingPropTypes } from "helpers/propTypes/spacing";
+import { ILinkWithIconProps } from "components/molecules/@types/LinkWithIcon";
+import { spacingPropType } from "helpers/propTypes/spacing";
 
-const LinkWithIcon = ({
+const LinkWithIcon: React.FC<ILinkWithIconProps> = ({
   dataCy,
   dataTestId,
   height = "h-48",
@@ -13,7 +13,7 @@ const LinkWithIcon = ({
   iconName,
   isExternal = false,
   width = "w-auto"
-}: LinkWithIconProps): JSX.Element => (
+}) => (
   <Link
     dataCy={dataCy}
     dataTestId={dataTestId || "LinkWithIcon"}
@@ -36,11 +36,11 @@ const LinkWithIcon = ({
 LinkWithIcon.propTypes = {
   dataCy: PropTypes.string,
   dataTestId: PropTypes.string,
-  height: spacingPropTypes("h"),
+  height: spacingPropType("h"),
   href: PropTypes.string.isRequired,
   iconName: PropTypes.oneOf(iconNames).isRequired,
   isExternal: PropTypes.bool,
-  width: spacingPropTypes("w")
+  width: spacingPropType("w")
 };
 
 export { LinkWithIcon };

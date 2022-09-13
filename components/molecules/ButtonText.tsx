@@ -21,7 +21,7 @@ const ButtonText: React.FC<IButtonTextProps> = ({
   hasMargin = true,
   size,
   textTransform = "lowercase"
-}): JSX.Element => {
+}) => {
   const getMarginRight = (): `mr-${TSpacing}` => {
     if (!hasMargin) {
       return "mr-0";

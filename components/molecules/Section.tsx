@@ -1,4 +1,4 @@
-import React, { Fragment, useCallback } from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 
 import { Text } from "components/atoms/Text";
@@ -11,7 +11,7 @@ import {
   ISectionProps
 } from "components/molecules/@types/Section";
 import { LayoutContainer } from "components/layout/LayoutContainer";
-import { spacingPropTypes } from "helpers/propTypes/spacing";
+import { spacingPropType } from "helpers/propTypes/spacing";
 import { childrenPropTypes } from "helpers/propTypes/children";
 import { Device } from "components/layout/@types/Responsive";
 import { minHeightPropType } from "helpers/propTypes/minHeight";
@@ -24,24 +24,24 @@ const Section: React.FC<ISectionProps> = ({
   minHeight,
   title
 }) => {
-  const renderTitle = useCallback(
-    ({ fontSize, marginBottom }: IRenderTitle): JSX.Element | null =>
-      title ? (
-        <LayoutContainer marginBottom={marginBottom}>
-          <Text
-            color="text-blue100"
-            fontFamily={isIE11() ? "font-anonymousPro" : "font-exan"}
-            fontSize={fontSize}
-            lineHeight="leading-80"
-            textAlign="text-center"
-            textTransform={isIE11() ? "uppercase" : "lowercase"}
-          >
-            {title}
-          </Text>
-        </LayoutContainer>
-      ) : null,
-    [title]
-  );
+  const renderTitle = ({
+    fontSize,
+    marginBottom
+  }: IRenderTitle): JSX.Element | null =>
+    title ? (
+      <LayoutContainer marginBottom={marginBottom}>
+        <Text
+          color="text-blue100"
+          fontFamily={isIE11() ? "font-anonymousPro" : "font-exan"}
+          fontSize={fontSize}
+          lineHeight="leading-80"
+          textAlign="text-center"
+          textTransform={isIE11() ? "uppercase" : "lowercase"}
+        >
+          {title}
+        </Text>
+      </LayoutContainer>
+    ) : null;
 
   return (
     <LayoutContainer
@@ -84,7 +84,7 @@ Section.propTypes = {
   children: childrenPropTypes.isRequired,
   dataCy: PropTypes.string,
   id: PropTypes.string.isRequired,
-  marginBottom: spacingPropTypes("mb"),
+  marginBottom: spacingPropType("mb"),
   minHeight: minHeightPropType,
   title: PropTypes.string
 };

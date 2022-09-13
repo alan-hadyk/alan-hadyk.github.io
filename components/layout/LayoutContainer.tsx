@@ -2,7 +2,7 @@ import { ILayoutContainerProps } from "components/layout/@types/LayoutContainer"
 import { childrenPropTypes } from "helpers/propTypes/children";
 import { flexPropType } from "helpers/propTypes/flex";
 import { orderPropType } from "helpers/propTypes/order";
-import { spacingPropTypes } from "helpers/propTypes/spacing";
+import { spacingPropType } from "helpers/propTypes/spacing";
 import { zIndexPropTypes } from "helpers/propTypes/zIndex";
 import { trimTemplateLiteral } from "helpers/strings/trimTemplateLiteral";
 import PropTypes from "prop-types";
@@ -144,7 +144,7 @@ LayoutContainer.propTypes = {
     "a",
     "button"
   ]),
-  bottom: spacingPropTypes("bottom"),
+  bottom: spacingPropType("bottom"),
   children: childrenPropTypes,
   className: PropTypes.string,
   dataCy: PropTypes.string,
@@ -186,7 +186,7 @@ LayoutContainer.propTypes = {
     "flex-col flex-nowrap",
     "flex-col-reverse flex-nowrap"
   ]),
-  height: spacingPropTypes("h"),
+  height: spacingPropType("h"),
   id: PropTypes.string,
   justifyContent: PropTypes.oneOf([
     "justify-start",
@@ -196,19 +196,19 @@ LayoutContainer.propTypes = {
     "justify-around",
     "justify-evenly"
   ]),
-  left: spacingPropTypes("left"),
-  marginBottom: spacingPropTypes("mb"),
-  marginLeft: spacingPropTypes("ml"),
-  marginRight: spacingPropTypes("mr"),
-  marginTop: spacingPropTypes("mt"),
+  left: spacingPropType("left"),
+  marginBottom: spacingPropType("mb"),
+  marginLeft: spacingPropType("ml"),
+  marginRight: spacingPropType("mr"),
+  marginTop: spacingPropType("mt"),
   name: PropTypes.string,
   onClick: PropTypes.func,
   order: orderPropType,
-  padding: spacingPropTypes("p"),
-  paddingBottom: spacingPropTypes("pb"),
-  paddingLeft: spacingPropTypes("pl"),
-  paddingRight: spacingPropTypes("pr"),
-  paddingTop: spacingPropTypes("pt"),
+  padding: spacingPropType("p"),
+  paddingBottom: spacingPropType("pb"),
+  paddingLeft: spacingPropType("pl"),
+  paddingRight: spacingPropType("pr"),
+  paddingTop: spacingPropType("pt"),
   position: PropTypes.oneOf([
     "static",
     "relative",
@@ -216,10 +216,10 @@ LayoutContainer.propTypes = {
     "fixed",
     "sticky"
   ]),
-  right: spacingPropTypes("right"),
+  right: spacingPropType("right"),
   style: PropTypes.object,
-  top: spacingPropTypes("top"),
-  width: spacingPropTypes("w"),
+  top: spacingPropType("top"),
+  width: spacingPropType("w"),
   zIndex: zIndexPropTypes
 };
 

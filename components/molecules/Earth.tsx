@@ -3,7 +3,7 @@ import { LayoutContainer } from "components/layout/LayoutContainer";
 
 import { isSafari } from "helpers/browser/isSafari";
 
-const Earth = (): JSX.Element => (
+const Earth: React.FC = () => (
   <LayoutContainer height="h-100%" padding="p-[1vh]" width="w-100%">
     <LayoutContainer
       alignItems="items-center"

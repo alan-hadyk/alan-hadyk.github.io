@@ -1,21 +1,22 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import PropTypes from "prop-types";
 
 import { IConsoleTextProps } from "components/atoms/@types/ConsoleText";
 import { trimTemplateLiteral } from "helpers/strings/trimTemplateLiteral";
-import { spacingPropTypes } from "helpers/propTypes/spacing";
+import { spacingPropType } from "helpers/propTypes/spacing";
 import { fontSizePropType } from "helpers/propTypes/fontSize";
 
 const HERO_DESCRIPTION =
   "Vision driven change agent with career-long record of front-end user strategy and UI development";
 
-const ConsoleText = ({
+const ConsoleText: React.FC<IConsoleTextProps> = ({
   dataTestId,
   fontSize,
   height,
   lineHeight,
   transform,
   width
-}: IConsoleTextProps): JSX.Element => (
+}) => (
   <div
     className={trimTemplateLiteral(`
       text-white font-exan ${fontSize} ${lineHeight}
@@ -41,10 +42,25 @@ const ConsoleText = ({
 ConsoleText.propTypes = {
   dataTestId: PropTypes.string,
   fontSize: fontSizePropType,
-  height: spacingPropTypes("h"),
-  lineHeight: spacingPropTypes("leading"),
-  transform: PropTypes.string.isRequired,
-  width: spacingPropTypes("w")
+  height: spacingPropType("h"),
+  lineHeight: spacingPropType("leading"),
+  transform: (
+    props: React.ComponentProps<React.JSXElementConstructor<any>>,
+    propName: string,
+    componentName: string
+  ) => {
+    const value = props[propName];
+    const regex = new RegExp("^after:translate-(x|y)-\\[.*\\]$", "i");
+
+    if (value && !regex.test(value)) {
+      return new Error(
+        `Invalid prop ${propName} with value ${value} supplied to ${componentName}`
+      );
+    }
+
+    return null;
+  },
+  width: spacingPropType("w")
 };
 
 export { ConsoleText, HERO_DESCRIPTION as hero };

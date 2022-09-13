@@ -3,10 +3,7 @@ import { LayoutContainer } from "components/layout/LayoutContainer";
 import { IPageTemplateProps } from "components/templates/@types/PageTemplate";
 import PropTypes from "prop-types";
 
-const PageTemplate: React.FC<IPageTemplateProps> = ({
-  as,
-  children
-}): JSX.Element => (
+const PageTemplate: React.FC<IPageTemplateProps> = ({ as, children }) => (
   <LayoutContainer
     as={as}
     className="max-w-screenXl screenMaxSm:pt-0 screenMaxSm:pb-96 screenMaxSm:px-28 min-h-screen"

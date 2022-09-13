@@ -1,7 +1,7 @@
 import { IIconProps } from "components/atoms/@types/Icon";
 import { TSpacing } from "types/props";
 
-export interface LinkWithIconProps {
+export interface ILinkWithIconProps {
   dataCy?: string;
   dataTestId?: string;
   height?: `h-${TSpacing}`;

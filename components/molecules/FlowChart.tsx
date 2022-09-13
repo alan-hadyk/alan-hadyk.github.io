@@ -1,7 +1,7 @@
 import { Image } from "components/atoms/Image";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 
-const FlowChart = (): JSX.Element => (
+const FlowChart: React.FC = () => (
   <LayoutContainer
     alignItems="items-center"
     display="flex"

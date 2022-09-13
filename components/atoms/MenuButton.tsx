@@ -30,10 +30,10 @@ const MenuButtonLine = ({ isOpen }: IMenuButtonLineProps) => (
   />
 );
 
-const MenuButton = ({
+const MenuButton: React.FC<IMenuButtonProps> = ({
   isOpen = false,
   onClick
-}: IMenuButtonProps): JSX.Element => (
+}) => (
   <LayoutContainer
     aria-label="MenuButton"
     className={`

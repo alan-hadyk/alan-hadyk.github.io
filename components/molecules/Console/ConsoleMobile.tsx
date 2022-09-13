@@ -19,7 +19,7 @@ const ConsoleMobileContainer = styled.div`
   `};
 `;
 
-const ConsoleMobile = (): JSX.Element => (
+const ConsoleMobile: React.FC = () => (
   <SpacingContainer
     dataCy="ConsoleMobile"
     dataTestId="ConsoleMobileSpacingContainer"
@@ -38,4 +38,4 @@ const ConsoleMobile = (): JSX.Element => (
   </SpacingContainer>
 );
 
-export default ConsoleMobile;
+export { ConsoleMobile };

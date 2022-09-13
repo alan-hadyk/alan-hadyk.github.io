@@ -183,7 +183,7 @@ const _Icon: React.ForwardRefRenderFunction<SVGSVGElement, IIconProps> = (
     width = "w-auto"
   },
   ref
-): JSX.Element => {
+) => {
   const commonClasses = `${height} ${
     width.includes("w-") ? width : ""
   } ${overflow}`;

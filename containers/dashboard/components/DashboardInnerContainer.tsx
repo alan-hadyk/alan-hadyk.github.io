@@ -1,7 +1,7 @@
 import { IDashboardInnerContainerProps } from "containers/dashboard/components/@types/DashboardInnerContainer";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 import { childrenPropTypes } from "helpers/propTypes/children";
-import { spacingPropTypes } from "helpers/propTypes/spacing";
+import { spacingPropType } from "helpers/propTypes/spacing";
 
 const DashboardInnerContainer: React.FC<IDashboardInnerContainerProps> = ({
   children,
@@ -30,9 +30,9 @@ const DashboardInnerContainer: React.FC<IDashboardInnerContainerProps> = ({
 
 DashboardInnerContainer.propTypes = {
   children: childrenPropTypes.isRequired,
-  height: spacingPropTypes("h"),
-  marginBottom: spacingPropTypes("mb"),
-  marginTop: spacingPropTypes("mt")
+  height: spacingPropType("h"),
+  marginBottom: spacingPropType("mb"),
+  marginTop: spacingPropType("mt")
 };
 
 export { DashboardInnerContainer };

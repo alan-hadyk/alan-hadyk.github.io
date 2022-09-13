@@ -5,7 +5,7 @@ const theme = tailwindConfig.theme;
 
 type spacing = `${keyof typeof theme.spacing}`;
 
-const spacingPropTypes =
+const spacingPropType =
   (prefix: string) =>
   (
     props: React.ComponentProps<React.JSXElementConstructor<any>>,
@@ -39,4 +39,4 @@ const spacingPropTypes =
     return null;
   };
 
-export { spacingPropTypes };
+export { spacingPropType };

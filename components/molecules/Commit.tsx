@@ -6,7 +6,7 @@ import { Link } from "components/molecules/Link";
 import { ICommitProps } from "components/molecules/@types/Commit";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 
-const Commit = ({ date, delay, htmlUrl, sha }: ICommitProps): JSX.Element => (
+const Commit: React.FC<ICommitProps> = ({ date, delay, htmlUrl, sha }) => (
   <LayoutContainer
     className={`
       items-center

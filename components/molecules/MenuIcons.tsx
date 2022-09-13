@@ -1,10 +1,10 @@
 import { LinkWithIcon } from "components/molecules/LinkWithIcon";
 
-import { LinkWithIconProps } from "components/molecules/@types/LinkWithIcon";
+import { ILinkWithIconProps } from "components/molecules/@types/LinkWithIcon";
 
 import { isIE11 } from "helpers/browser/isIE11";
 
-const icons: LinkWithIconProps[] = [
+const icons: ILinkWithIconProps[] = [
   {
     href: "https://github.com/alan-hadyk",
     iconName: "gitHub"
@@ -21,7 +21,7 @@ const icons: LinkWithIconProps[] = [
 
 const MenuIcons: React.FC = () => (
   <>
-    {icons.map(({ href, iconName }: LinkWithIconProps) => (
+    {icons.map(({ href, iconName }: ILinkWithIconProps) => (
       <LinkWithIcon
         dataCy={iconName}
         dataTestId="MenuIcons"
