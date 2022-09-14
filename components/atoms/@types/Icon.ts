@@ -10,7 +10,7 @@ export interface IIconProps {
   animation?: `childrenSvg:animate-${TAnimationName}`;
   dataTestId?: string;
   glowAnimationTime?: `childrenSvg:duration-${TDuration}`;
-  height?: `h-${TSpacing}` | `h-[${string}]`;
+  height?: `h-${TSpacing}` | `h-[${string}]` | `${number}px`;
   iconName:
     | "apollo"
     | "brandAfterEffects"
@@ -108,7 +108,7 @@ export interface IIconProps {
   shouldDisplayGlowAnimation?: boolean;
   shouldGlow?: boolean;
   shouldGlowOnHover?: boolean;
-  width?: `w-${TSpacing}` | string | `w-[${string}]`;
+  width?: `w-${TSpacing}` | string | `w-[${string}]` | `${number}px`;
 }
 
 export interface IconComponents {

@@ -9,9 +9,7 @@ export type TChildren =
   | boolean
   | ReactElementLike
   | Iterable<ReactNode>
-  | ReactNodeArray
-  | undefined
-  | null;
+  | ReactNodeArray;
 
 export type TSpacing = keyof typeof tailwindConfig.theme.spacing;
 export type TAnimationName = keyof typeof tailwindConfig.theme.animation;

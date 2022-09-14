@@ -11,6 +11,7 @@ const spacing = {
   12: "1.2rem",
   14: "1.4rem",
   16: "1.6rem",
+  20: "2rem",
   24: "2.4rem",
   28: "2.8rem",
   30: "3rem",
@@ -38,11 +39,13 @@ const spacing = {
   negative8: "-0.8rem",
   negative12: "-1.2rem",
   negative16: "-1.6rem",
+  "negative50%": "-50%",
   "negative100%": "-100%",
   screenLg: "1680px",
   screenMd: "1280px",
   screenSm: "640px",
-  screenXl: "1920px"
+  screenXl: "1920px",
+  unset: "unset"
 };
 
 module.exports = {
@@ -59,9 +62,12 @@ module.exports = {
       addVariant("fourthChild", "&:nth-child(4)");
       addVariant("directChildren", "& > *");
       addVariant("firstdirectChild", "& > :first-child");
+      addVariant("childrenLi", "& li");
+      addVariant("childrenStrong", "& strong");
       addVariant("childrenMask", "& mask");
       addVariant("childrenPath", "& path");
       addVariant("childrenSvg", "& svg");
+      addVariant("childrenImg", "& img");
       addVariant("childrenRipple", "& .ripple");
       addVariant("childrenStrong", "& strong");
       addVariant("focusChildrenSvg", "&:focus svg");
@@ -178,6 +184,8 @@ module.exports = {
     margin: spacing,
     maxHeight: spacing,
     maxWidth: spacing,
+    minHeight: spacing,
+    minWidth: spacing,
     screens: {
       msHighContrastActive: {
         raw: "(-ms-high-contrast: active)"

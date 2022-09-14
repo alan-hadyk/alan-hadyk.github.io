@@ -1,6 +1,6 @@
-import { TChildren } from "types/props";
+import { ReactNode } from "react";
 
 export interface IMainLayoutProps {
-  children: TChildren;
+  children: ReactNode;
   title: string;
 }

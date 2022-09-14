@@ -32,7 +32,6 @@ import IconOpera from "public/images/svg/Icon-Opera.svg";
 import IconSafari from "public/images/svg/Icon-Safari.svg";
 import IconUnknown from "public/images/svg/Icon-Unknown.svg";
 
-import NextImage from "next/image";
 import {
   IconComponents,
   IIconProps,
@@ -184,27 +183,34 @@ const _Icon: React.ForwardRefRenderFunction<SVGSVGElement, IIconProps> = (
   },
   ref
 ) => {
-  const commonClasses = `${height} ${
-    width.includes("w-") ? width : ""
-  } ${overflow}`;
+  const commonClasses = trimTemplateLiteral(`
+    ${height.includes("h-") ? height : ""} 
+    ${width.includes("w-") ? width : ""} 
+    ${overflow}
+    
+  `);
 
   if (iconName.includes("brand")) {
     return (
-      <NextImage
-        alt={iconName}
+      <picture
         className={trimTemplateLiteral(`
           ${commonClasses}
+          relative
           my-0 mx-auto
         `)}
-        data-cy={iconName}
-        data-testid={dataTestId || "IconImage"}
-        height={parseInt(height.replace("h-", ""))}
-        src={`/images/svg/${iconName}.svg`}
-        style={{
-          width: !width.includes("w-") ? width : undefined
-        }}
-        width={parseInt(width.replace("w-", ""))}
-      />
+      >
+        <img
+          alt={iconName}
+          className={commonClasses}
+          data-cy={iconName}
+          data-testid={dataTestId || "IconImage"}
+          src={`/images/svg/${iconName}.svg`}
+          style={{
+            height: !height.includes("h-") ? height : undefined,
+            width: !width.includes("w-") ? width : undefined
+          }}
+        />
+      </picture>
     );
   }
 
@@ -215,7 +221,6 @@ const _Icon: React.ForwardRefRenderFunction<SVGSVGElement, IIconProps> = (
     <div
       className={trimTemplateLiteral(`
         ${commonClasses}
-        
         ${
           isResponsive || isHeightResponsive
             ? "childrenSvg:h-full"
@@ -245,6 +250,7 @@ const _Icon: React.ForwardRefRenderFunction<SVGSVGElement, IIconProps> = (
       data-cy={iconName}
       data-testid={dataTestId || "IconContainer"}
       style={{
+        height: !height.includes("h-") ? height : undefined,
         width: !width.includes("w-") ? width : undefined
       }}
     >

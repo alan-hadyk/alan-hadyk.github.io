@@ -32,7 +32,7 @@ export interface ILayoutContainerProps {
     | "table"
     | "a"
     | "button";
-  bottom?: `bottom-${TSpacing}`;
+  bottom?: `bottom-${TSpacing}` | `bottom-[${string}]`;
   children?: TChildren;
   className?: string;
   dataCy?: string;
@@ -58,7 +58,9 @@ export interface ILayoutContainerProps {
     | "contents"
     | "list-item"
     | "hidden";
-  flex?: `flex-[${number}_${number}_${number}%]`;
+  flex?:
+    | `flex-[${number}_${number}_${number}%]`
+    | `flex-[${number}_${number}_${number}rem]`;
   flexFlow?:
     | "flex-row flex-wrap"
     | "flex-row-reverse flex-wrap"

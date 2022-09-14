@@ -1,5 +1,4 @@
 import {
-  TChildren,
   TColor,
   TFontFamily,
   TFontSize,
@@ -8,7 +7,7 @@ import {
 } from "types/props";
 
 export interface ITextProps {
-  children: TChildren;
+  children: string | number | JSX.Element;
   color?: `text-${TColor}`;
   dataCy?: string;
   dataTestId?: string;
