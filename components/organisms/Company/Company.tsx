@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 import { iconNames } from "components/atoms/Icon";
 import { CompanyTvDesktopAndTablet } from "components/organisms/Company/CompanyTvDesktopAndTablet";
-// import { CompanyMobile } from "components/organisms/Company/CompanyMobile";
+import { CompanyMobile } from "components/organisms/Company/CompanyMobile";
 
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
 import { LayoutContainer } from "components/layout/LayoutContainer";
@@ -10,7 +10,7 @@ import { spacingPropType } from "helpers/propTypes/spacing";
 import { colorPropType } from "helpers/propTypes/color";
 
 const Company: React.FC<ICompanyProps> = ({
-  // companyMobilePaddingBottom,
+  companyMobilePaddingBottom,
   dataCy,
   date,
   iconsWithLabels,
@@ -30,14 +30,14 @@ const Company: React.FC<ICompanyProps> = ({
         title={title}
       />
 
-      {/* <CompanyMobile
+      <CompanyMobile
         date={date}
         iconsWithLabels={iconsWithLabels}
         name={name}
         responsibilities={responsibilities}
         responsibilitiesPaddingBottom={companyMobilePaddingBottom}
         title={title}
-      /> */}
+      />
     </LayoutContainer>
   </LayoutContainer>
 );

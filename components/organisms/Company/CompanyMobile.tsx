@@ -1,41 +1,39 @@
 import PropTypes from "prop-types";
 
-import { iconNames } from "UI/atoms/Icon";
-import Text from "UI/atoms/Text";
-import CompanyDescription from "UI/organisms/CompanyDescription";
-import FlexContainer from "UI/layout/FlexContainer";
-import Responsive from "UI/layout/Responsive";
+import { iconNames } from "components/atoms/Icon";
+import { Text } from "components/atoms/Text";
+import { CompanyDescription } from "components/organisms/CompanyDescription";
+import { Responsive } from "components/layout/Responsive";
 
-import isIE11 from "helpers/browser/isIE11";
+import { isIE11 } from "helpers/browser/isIE11";
 
-import colorPalette from "styles/variables/colorPalette";
-import spacing from "styles/variables/spacing";
+import { ICompanyProps } from "components/organisms/Company/@types/Company";
+import { Device } from "components/layout/@types/Responsive";
+import { spacingPropType } from "helpers/propTypes/spacing";
+import { LayoutContainer } from "components/layout/LayoutContainer";
 
-import { CompanyProps } from "UI/organisms/Company/__typings__/Company";
-
-const CompanyMobile = ({
+const CompanyMobile: React.FC<ICompanyProps> = ({
   date,
   iconsWithLabels,
   name,
   responsibilities,
   responsibilitiesPaddingBottom,
   title
-}: CompanyProps): JSX.Element => (
-  <Responsive dataTestId="CompanyMobile" devices={["mobile"]}>
-    <FlexContainer
-      alignItems="center"
-      dataTestId="CompanyMobileFlexContainer"
-      flexFlow="column nowrap"
-      gap="spacing48"
-      maxWidth="spacing1056"
+}) => (
+  <Responsive dataTestId="CompanyMobile" devices={[Device.MOBILE]}>
+    <LayoutContainer
+      alignItems="items-center"
+      className="directChildren:mt-48 firstdirectChild:mt-48 max-w-1056"
+      display="flex"
+      flexFlow="flex-col flex-nowrap"
     >
       <Text
-        color="white"
+        color="text-white"
         dataTestId="CompanyMobileName"
-        fontFamily={isIE11() ? "AnonymousPro" : "Exan"}
-        fontSize="font48"
-        lineHeight="spacing48"
-        textAlign="right"
+        fontFamily={isIE11() ? "font-anonymousPro" : "font-exan"}
+        fontSize="text-48"
+        lineHeight="leading-48"
+        textAlign="text-center"
       >
         {name}
       </Text>
@@ -45,10 +43,10 @@ const CompanyMobile = ({
         iconsWithLabels={iconsWithLabels}
         responsibilities={responsibilities}
         responsibilitiesPaddingBottom={responsibilitiesPaddingBottom}
-        textAlign="center"
+        textAlign="text-center"
         title={title}
       />
-    </FlexContainer>
+    </LayoutContainer>
   </Responsive>
 );
 
@@ -57,10 +55,8 @@ CompanyMobile.propTypes = {
   iconsWithLabels: PropTypes.arrayOf(
     PropTypes.shape({
       iconName: PropTypes.oneOf(iconNames).isRequired,
-      label: PropTypes.string.isRequired,
-      labelColor: PropTypes.oneOf([...Object.keys(colorPalette)]),
-      size: PropTypes.oneOf(["small", "medium", "large"])
-    })
+      label: PropTypes.string.isRequired
+    }).isRequired
   ).isRequired,
   name: PropTypes.string.isRequired,
   responsibilities: PropTypes.arrayOf(
@@ -70,8 +66,8 @@ CompanyMobile.propTypes = {
       PropTypes.string
     ])
   ).isRequired,
-  responsibilitiesPaddingBottom: PropTypes.oneOf([...Object.keys(spacing)]),
+  responsibilitiesPaddingBottom: spacingPropType("pb"),
   title: PropTypes.string.isRequired
 };
 
-export default CompanyMobile;
+export { CompanyMobile };

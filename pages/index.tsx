@@ -6,7 +6,7 @@ import { TNextPageWithLayout } from "types/next";
 
 const IndexPage: TNextPageWithLayout = () => (
   <>
-    <Header zIndex="z-200" />
+    <Header zIndex="z-400" />
 
     <DashboardContainer />
     <ExperienceContainer />
