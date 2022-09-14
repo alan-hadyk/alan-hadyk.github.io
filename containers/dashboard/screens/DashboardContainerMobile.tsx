@@ -1,19 +1,14 @@
-import React, { memo } from "react";
+import { ConsoleMobile } from "components/molecules/Console/ConsoleMobile";
+import { Responsive } from "components/layout/Responsive";
+import { LayoutContainer } from "components/layout/LayoutContainer";
+import { Device } from "components/layout/@types/Responsive";
 
-import ConsoleMobile from "UI/molecules/Console/ConsoleMobile";
-
-import Responsive from "UI/layout/Responsive";
-import SpacingContainer from "UI/layout/SpacingContainer";
-
-const DashboardSectionMobile: React.FC = () => (
-  <Responsive dataTestId="DashboardSectionMobile" devices={["mobile"]}>
-    <SpacingContainer
-      dataTestId="DashboardSectionSpacingContainer"
-      paddingTop="spacing96"
-    >
+const DashboardContainerMobile: React.FC = () => (
+  <Responsive dataTestId="DashboardContainerMobile" devices={[Device.MOBILE]}>
+    <LayoutContainer paddingTop="pt-96">
       <ConsoleMobile />
-    </SpacingContainer>
+    </LayoutContainer>
   </Responsive>
 );
 
-export default memo(DashboardSectionMobile);
+export { DashboardContainerMobile };

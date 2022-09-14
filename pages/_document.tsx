@@ -6,6 +6,7 @@ import Document, {
   NextScript
 } from "next/document";
 import Script from "next/script";
+
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);

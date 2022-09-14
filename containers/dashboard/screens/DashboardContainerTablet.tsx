@@ -1,38 +1,35 @@
-import React, { memo } from "react";
+import { ConsoleTvDesktopAndTablet } from "components/molecules/Console/ConsoleTvDesktopAndTablet";
 
-import ConsoleTvDesktopAndTablet from "UI/molecules/Console/ConsoleTvDesktopAndTablet";
+import { DashboardInnerContainer } from "containers/dashboard/components/DashboardInnerContainer";
+import { DashboardOuterContainer } from "containers/dashboard/components/DashboardOuterContainer";
+import { TechStack } from "containers/dashboard/components/TechStack";
+import { Commits } from "containers/dashboard/components/Commits";
+import { PoweredBy } from "containers/dashboard/components/PoweredBy";
 
-import DashboardSectionInnerContainer from "pages/Home/sections/dashboard/DashboardSection/DashboardSectionInnerContainer";
-import DashboardSectionOuterContainer from "pages/Home/sections/dashboard/DashboardSection/DashboardSectionOuterContainer";
-import TechStack from "pages/Home/sections/dashboard/elements/TechStack";
-import Commits from "pages/Home/sections/dashboard/elements/Commits";
-import PoweredBy from "pages/Home/sections/dashboard/elements/PoweredBy";
+import { Responsive } from "components/layout/Responsive";
+import { Device } from "components/layout/@types/Responsive";
 
-import Responsive from "UI/layout/Responsive";
-
-import spacing from "styles/variables/spacing";
-
-const DashboardSectionTablet: React.FC = () => (
-  <Responsive dataTestId="DashboardSectionTablet" devices={["tablet"]}>
-    <DashboardSectionOuterContainer>
-      <DashboardSectionInnerContainer
-        height={`calc(17vh + ${spacing.spacing36})`}
-        marginTop="2.22vh"
+const DashboardContainerTablet: React.FC = () => (
+  <Responsive dataTestId="DashboardContainerTablet" devices={[Device.TABLET]}>
+    <DashboardOuterContainer>
+      <DashboardInnerContainer
+        height="h-[calc(17vh+3.6rem)]"
+        marginTop="mt-[2.22vh]"
       >
         <TechStack />
-      </DashboardSectionInnerContainer>
+      </DashboardInnerContainer>
 
       <ConsoleTvDesktopAndTablet />
 
-      <DashboardSectionInnerContainer
-        height={`calc(22.6vh + ${spacing.spacing36})`}
-        marginBottom="2.22vh"
+      <DashboardInnerContainer
+        height="h-[calc(22.6vh+3.6rem)]"
+        marginBottom="mb-[2.22vh]"
       >
         <Commits />
         <PoweredBy />
-      </DashboardSectionInnerContainer>
-    </DashboardSectionOuterContainer>
+      </DashboardInnerContainer>
+    </DashboardOuterContainer>
   </Responsive>
 );
 
-export default memo(DashboardSectionTablet);
+export { DashboardContainerTablet };
