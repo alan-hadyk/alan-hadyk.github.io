@@ -26,6 +26,7 @@ import IconLogoShortcut from "public/images/svg/Icon-Logo-Shortcut.svg";
 import IconNode from "public/images/svg/Icon-Node.svg";
 import IconReact from "public/images/svg/Icon-React.svg";
 import IconReactLogo from "public/images/svg/Icon-ReactLogo.svg";
+import IconToptal from "public/images/svg/Icon-Toptal.svg";
 import IconTypescript from "public/images/svg/Icon-Typescript.svg";
 import IconWebpack from "public/images/svg/Icon-Webpack.svg";
 import IconOpera from "public/images/svg/Icon-Opera.svg";
@@ -68,6 +69,7 @@ const iconComponents: IconComponents = {
   react: IconReact,
   reactLogo: IconReactLogo,
   safari: IconSafari,
+  toptal: IconToptal,
   typescript: IconTypescript,
   unknown: IconUnknown,
   webpack: IconWebpack
@@ -161,6 +163,7 @@ const iconNames: IIconProps["iconName"][] = [
   "react",
   "reactLogo",
   "safari",
+  "toptal",
   "typescript",
   "unknown",
   "webpack"

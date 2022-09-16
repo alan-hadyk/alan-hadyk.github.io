@@ -26,6 +26,7 @@ const LinkWithIcon: React.FC<ILinkWithIconProps> = ({
     <Icon
       glowAnimationTime="childrenSvg:duration-fast"
       height={height}
+      isHeightResponsive
       iconName={iconName}
       width={width}
       shouldGlowOnHover

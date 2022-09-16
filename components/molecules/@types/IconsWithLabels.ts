@@ -1,4 +1,4 @@
-import { IIconWithLabelProps } from "components//molecules/@types/IconWithLabel";
+import { IIconWithLabelProps } from "components/molecules/@types/IconWithLabel";
 import { ITextProps } from "components/atoms/@types/Text";
 
 type TGap =

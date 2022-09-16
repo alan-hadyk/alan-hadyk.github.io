@@ -99,6 +99,7 @@ export interface IIconProps {
     | "react"
     | "reactLogo"
     | "safari"
+    | "toptal"
     | "typescript"
     | "unknown"
     | "webpack";
@@ -141,6 +142,7 @@ export interface IconComponents {
   react: SVGIcon;
   reactLogo: SVGIcon;
   safari: SVGIcon;
+  toptal: SVGIcon;
   typescript: SVGIcon;
   unknown: SVGIcon;
   webpack: SVGIcon;

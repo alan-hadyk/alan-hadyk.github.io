@@ -14,6 +14,10 @@ const icons: ILinkWithIconProps[] = [
     iconName: "codeSandbox"
   },
   {
+    href: "https://www.toptal.com/resume/alan-hadyk",
+    iconName: "toptal"
+  },
+  {
     href: "https://www.linkedin.com/in/alan-hadyk-78738099/",
     iconName: "linkedIn"
   }

@@ -11,7 +11,7 @@ const MainLayout: React.FC<IMainLayoutProps> = ({ children, title }) => (
       <title>{title}</title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
     </Head>
-    <PageTemplate as="main">{children}</PageTemplate>
+    {children && <PageTemplate as="main">{children}</PageTemplate>}
   </>
 );
 
