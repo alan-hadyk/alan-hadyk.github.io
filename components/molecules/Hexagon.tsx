@@ -7,38 +7,11 @@ import { isIE11 } from "helpers/browser/isIE11";
 
 import {
   IHexagonProps,
-  IIconDimensionsProps,
-  IRenderIconArgs
+  IIconDimensionsProps
 } from "components/molecules/@types/Hexagon";
 import { childrenPropTypes } from "helpers/propTypes/children";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 import { spacingPropType } from "helpers/propTypes/spacing";
-
-const renderIcon = ({ fill, iconDimensions, iconRef }: IRenderIconArgs) => {
-  switch (fill) {
-    case "pattern":
-      return <Icon iconName="hexagonWithPattern" />;
-    case "solid":
-      return (
-        <Icon
-          height={isIE11() ? "h-16" : "h-auto"}
-          iconName="hexagon"
-          isActive
-          shouldGlow
-        />
-      );
-    case "none":
-      return (
-        <Icon
-          height={iconDimensions.height}
-          iconName="hexagon"
-          ref={iconRef}
-          shouldGlow
-          width={iconDimensions.width}
-        />
-      );
-  }
-};
 
 const Hexagon: React.FC<IHexagonProps> = ({
   children,
@@ -51,34 +24,25 @@ const Hexagon: React.FC<IHexagonProps> = ({
     height: undefined,
     width: undefined
   });
-  const iconRef = useRef<SVGSVGElement>(null);
+  const iconRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const viewBox2 = iconRef.current?.viewBox;
-    const attributes = iconRef.current?.attributes;
+    if (fill !== "none") {
+      return;
+    }
 
-    console.log("HEXAGON", {
-      attributes,
-      current: iconRef.current,
-      viewBox2
-    });
-    // const viewBox = iconRef.current?.attributes?.viewBox?.value;
-    // const height = viewBox?.split(" ")[3];
-    // const width = viewBox?.split(" ")[2];
+    const path = iconRef.current?.querySelector("path");
+    const { height, width } = path
+      ? path.getBoundingClientRect()
+      : { height: undefined, width: undefined };
 
-    // if (isIE11()) {
-    //   setIconDimensions({
-    //     height: `${height}px`,
-    //     width: `${width}px`
-    //   });
-    // }
-    if (isIE11()) {
+    if (isIE11() && height && width) {
       setIconDimensions({
-        height: "20px",
-        width: "20px"
+        height: `${height}px`,
+        width: `${width}px`
       });
     }
-  }, []);
+  }, [fill]);
 
   return (
     <LayoutContainer
@@ -86,7 +50,26 @@ const Hexagon: React.FC<IHexagonProps> = ({
       data-testid={dataTestId || "Hexagon"}
       position="relative"
     >
-      {renderIcon({ fill, iconDimensions, iconRef })}
+      {fill === "pattern" && <Icon iconName="hexagonWithPattern" />}
+
+      {fill === "solid" && (
+        <Icon
+          height={isIE11() ? "h-16" : "h-auto"}
+          iconName="hexagon"
+          isActive
+          shouldGlow
+        />
+      )}
+
+      {fill === "none" && (
+        <Icon
+          height={iconDimensions.height}
+          iconName="hexagon"
+          ref={iconRef}
+          shouldGlow
+          width={iconDimensions.width}
+        />
+      )}
 
       {children && (
         <LayoutContainer

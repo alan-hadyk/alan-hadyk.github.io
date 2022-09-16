@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { ForwardedRef, forwardRef } from "react";
 
 import BtnCodeSandbox from "public/images/svg/Btn-CodeSandbox.svg";
 import BtnDownload from "public/images/svg/Btn-Download.svg";
@@ -112,6 +112,7 @@ const iconNames: IIconProps["iconName"][] = [
   "brandPhabricator",
   "brandPhotoshop",
   "brandPrestaShop",
+  "brandPrisma",
   "brandQuire",
   "brandQunit",
   "brandRails",
@@ -165,7 +166,10 @@ const iconNames: IIconProps["iconName"][] = [
   "webpack"
 ];
 
-const _Icon: React.ForwardRefRenderFunction<SVGSVGElement, IIconProps> = (
+const _Icon: React.ForwardRefRenderFunction<
+  HTMLDivElement | HTMLImageElement,
+  IIconProps
+> = (
   {
     animation = "childrenSvg:animate-glow-slow",
     dataTestId,
@@ -204,6 +208,7 @@ const _Icon: React.ForwardRefRenderFunction<SVGSVGElement, IIconProps> = (
           className={commonClasses}
           data-cy={iconName}
           data-testid={dataTestId || "IconImage"}
+          ref={ref as ForwardedRef<HTMLImageElement>}
           src={`/images/svg/${iconName}.svg`}
           style={{
             height: !height.includes("h-") ? height : undefined,
@@ -249,12 +254,13 @@ const _Icon: React.ForwardRefRenderFunction<SVGSVGElement, IIconProps> = (
       `)}
       data-cy={iconName}
       data-testid={dataTestId || "IconContainer"}
+      ref={ref as ForwardedRef<HTMLDivElement>}
       style={{
         height: !height.includes("h-") ? height : undefined,
         width: !width.includes("w-") ? width : undefined
       }}
     >
-      <IconComponent ref={ref} />
+      <IconComponent />
     </div>
   );
 };

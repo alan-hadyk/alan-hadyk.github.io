@@ -19,12 +19,18 @@ const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
 }) => (
   <LayoutContainer
     alignItems="items-center"
+    display="flex"
     flexFlow="flex-row flex-nowrap"
     height="h-100%"
     justifyContent="justify-center"
     width="w-100%"
   >
-    <LayoutContainer flex="flex-[0_0_7.2rem]">
+    <LayoutContainer
+      alignItems="items-center"
+      display="flex"
+      flexFlow="flex-col flex-nowrap"
+      flex="flex-[0_0_7.2rem]"
+    >
       {iconsWithLabels.map(
         ({ iconName }: IIconWithLabelProps, index: number): JSX.Element => (
           <LayoutContainer

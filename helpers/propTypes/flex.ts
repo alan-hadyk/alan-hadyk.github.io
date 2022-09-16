@@ -5,7 +5,7 @@ const flexPropType = (
   propName: string,
   componentName: string
 ) => {
-  const regex = /^flex-\[\d_\d_(0|[1-9][0-9]?|100)%\]$/g;
+  const regex = /^flex-\[\d_\d_((\d*)|(\d*\.\d*))(%|rem)\]$/g;
 
   if (props[propName] && !regex.test(props[propName])) {
     return new Error(

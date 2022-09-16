@@ -50,6 +50,7 @@ export interface IIconProps {
     | "brandPhabricator"
     | "brandPhotoshop"
     | "brandPrestaShop"
+    | "brandPrisma"
     | "brandQuire"
     | "brandQunit"
     | "brandRails"

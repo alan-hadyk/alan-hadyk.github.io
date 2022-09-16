@@ -1,6 +1,5 @@
 import { IIconProps } from "components/atoms/@types/Icon";
 import { ILayoutContainerProps } from "components/layout/@types/LayoutContainer";
-import { Ref } from "react";
 import { TChildren } from "types/props";
 
 export interface IHexagonProps {
@@ -14,10 +13,4 @@ export interface IHexagonProps {
 export interface IIconDimensionsProps {
   height?: IIconProps["height"];
   width?: IIconProps["width"];
-}
-
-export interface IRenderIconArgs {
-  fill: IHexagonProps["fill"];
-  iconDimensions: IIconDimensionsProps;
-  iconRef: Ref<SVGSVGElement>;
 }

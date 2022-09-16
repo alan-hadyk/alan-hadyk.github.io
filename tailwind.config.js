@@ -210,18 +210,18 @@ module.exports = {
         raw: "(max-height: 400px)"
       },
       screenMaxSm: {
-        raw: "(max-width: 640px)"
+        raw: "(max-width: 799px)"
       },
       screenMd: "1280px",
       screenMdLg: {
         raw: "(min-width: 1280px) and (max-width: 1679px)"
       },
-      screenSm: "640px",
+      screenSm: "800px",
       screenSmLg: {
-        raw: "(min-width: 640px) and (max-width: 1679px)"
+        raw: "(min-width: 800px) and (max-width: 1679px)"
       },
       screenSmMd: {
-        raw: "(min-width: 640px) and (max-width: 1279px)"
+        raw: "(min-width: 800px) and (max-width: 1279px)"
       },
       screenXl: "1920px"
     },
