@@ -22,6 +22,10 @@ const iconsWithLabels: IIconWithLabelProps[] = [
     label: "NestJS"
   },
   {
+    iconName: "brandPrisma",
+    label: "Prisma"
+  },
+  {
     iconName: "brandNode",
     label: "Express"
   },
