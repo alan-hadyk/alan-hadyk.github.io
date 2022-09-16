@@ -29,7 +29,7 @@ const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
       alignItems="items-center"
       display="flex"
       flexFlow="flex-col flex-nowrap"
-      flex="flex-[0_0_7.2rem]"
+      flex="flex-[0_0_8.4rem]"
     >
       {iconsWithLabels.map(
         ({ iconName }: IIconWithLabelProps, index: number): JSX.Element => (

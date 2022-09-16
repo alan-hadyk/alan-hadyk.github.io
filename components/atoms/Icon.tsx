@@ -1,5 +1,6 @@
 import React, { ForwardedRef, forwardRef } from "react";
 
+import BrandNext from "public/images/svg/brandNext.svg";
 import BtnCodeSandbox from "public/images/svg/Btn-CodeSandbox.svg";
 import BtnDownload from "public/images/svg/Btn-Download.svg";
 import BtnExternalLink from "public/images/svg/Btn-ExternalLink.svg";
@@ -42,6 +43,7 @@ import { trimTemplateLiteral } from "helpers/strings/trimTemplateLiteral";
 
 const iconComponents: IconComponents = {
   apollo: IconApollo,
+  brandNext: BrandNext,
   btnCodeSandbox: BtnCodeSandbox,
   btnDownload: BtnDownload,
   btnExternalLink: BtnExternalLink,
@@ -176,11 +178,13 @@ const _Icon: React.ForwardRefRenderFunction<
   {
     animation = "childrenSvg:animate-glow-slow",
     dataTestId,
+    fill,
     glowAnimationTime = "childrenSvg:duration-slow",
     height = "h-auto",
     iconName,
     isActive = false,
     isHeightResponsive = false,
+    isInlineSvg = false,
     isResponsive = false,
     overflow = "overflow-visible",
     shouldDisplayGlowAnimation = false,
@@ -197,7 +201,7 @@ const _Icon: React.ForwardRefRenderFunction<
     
   `);
 
-  if (iconName.includes("brand")) {
+  if (iconName.includes("brand") && !isInlineSvg) {
     return (
       <picture
         className={trimTemplateLiteral(`
@@ -263,7 +267,7 @@ const _Icon: React.ForwardRefRenderFunction<
         width: !width.includes("w-") ? width : undefined
       }}
     >
-      <IconComponent />
+      <IconComponent className={fill || ""} />
     </div>
   );
 };

@@ -3,8 +3,8 @@ import { LayoutContainer } from "components/layout/LayoutContainer";
 
 import { isSafari } from "helpers/browser/isSafari";
 
-const ReactLogo: React.FC = () => (
-  <LayoutContainer height="h-100%" padding="p-[1vh]" width="w-100%">
+const NextLogo: React.FC = () => (
+  <LayoutContainer height="h-100%" padding="p-[2vh]" width="w-100%">
     <LayoutContainer
       alignItems="items-center"
       display="flex"
@@ -12,8 +12,10 @@ const ReactLogo: React.FC = () => (
       justifyContent="justify-center"
     >
       <Icon
+        fill="childrenPath:fill-blue300"
         height={isSafari() ? "h-[18vh]" : "h-100%"}
-        iconName="reactLogo"
+        iconName="brandNext"
+        isInlineSvg
         isResponsive
         width={isSafari() ? "w-[18vh]" : "w-[100%]"}
       />
@@ -21,4 +23,4 @@ const ReactLogo: React.FC = () => (
   </LayoutContainer>
 );
 
-export { ReactLogo };
+export { NextLogo };

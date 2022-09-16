@@ -1,6 +1,6 @@
 import { FunctionComponent, SVGProps } from "react";
 
-import { TAnimationName, TDuration, TSpacing } from "types/props";
+import { TAnimationName, TColor, TDuration, TSpacing } from "types/props";
 
 export type SVGIcon = FunctionComponent<
   SVGProps<SVGSVGElement> & { title?: string }
@@ -9,6 +9,7 @@ export type SVGIcon = FunctionComponent<
 export interface IIconProps {
   animation?: `childrenSvg:animate-${TAnimationName}`;
   dataTestId?: string;
+  fill?: `childrenPath:fill-${TColor}`;
   glowAnimationTime?: `childrenSvg:duration-${TDuration}`;
   height?: `h-${TSpacing}` | `h-[${string}]` | `${number}px`;
   iconName:
@@ -105,6 +106,7 @@ export interface IIconProps {
     | "webpack";
   isActive?: boolean;
   isHeightResponsive?: boolean;
+  isInlineSvg?: boolean;
   isResponsive?: boolean;
   overflow?: "overflow-hidden" | "overflow-visible";
   shouldDisplayGlowAnimation?: boolean;
@@ -115,6 +117,7 @@ export interface IIconProps {
 
 export interface IconComponents {
   apollo: SVGIcon;
+  brandNext: SVGIcon;
   btnCodeSandbox: SVGIcon;
   btnDownload: SVGIcon;
   btnExternalLink: SVGIcon;

@@ -1,5 +1,5 @@
 import { DashboardElement } from "components/molecules/DashboardElement";
-import { ReactLogo } from "components/molecules/ReactLogo";
+import { NextLogo } from "components/molecules/NextLogo";
 
 const PoweredBy: React.FC = () => (
   <DashboardElement
@@ -8,7 +8,7 @@ const PoweredBy: React.FC = () => (
     shouldDisplayCorners
     title="Powered by"
   >
-    <ReactLogo />
+    <NextLogo />
   </DashboardElement>
 );
 
