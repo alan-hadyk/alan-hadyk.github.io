@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import ShuffleText, { ShuffleTextType } from "shuffle-text";
 
 import { IUseShuffleText } from "hooks/@types/useShuffleText";
+import { ReactElementLike } from "prop-types";
 
 const useShuffleText = ({
   duration = 600,
@@ -26,8 +27,9 @@ const useShuffleText = ({
 
     if (typeof text === "string" || typeof text === "number") {
       shuffle.setText(String(text));
-    } else {
-      shuffle.setText(String(text.props.children));
+    } else if (text) {
+      const { props } = text as ReactElementLike;
+      shuffle.setText(String(props?.children));
     }
 
     shuffle.duration = duration;

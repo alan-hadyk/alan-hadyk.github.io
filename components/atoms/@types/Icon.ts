@@ -41,7 +41,7 @@ export interface IIconProps {
     | "brandHTML"
     | "brandJEST"
     | "brandJIRA"
-    | "brandJQuery"
+    | "brandjQuery"
     | "brandJS"
     | "brandJenkins"
     | "brandLESS"

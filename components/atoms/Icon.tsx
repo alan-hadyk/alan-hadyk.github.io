@@ -106,7 +106,7 @@ const iconNames: IIconProps["iconName"][] = [
   "brandHTML",
   "brandJEST",
   "brandJIRA",
-  "brandJQuery",
+  "brandjQuery",
   "brandJS",
   "brandJenkins",
   "brandLESS",

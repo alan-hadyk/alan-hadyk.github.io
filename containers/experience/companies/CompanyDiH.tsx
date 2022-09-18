@@ -16,7 +16,7 @@ const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
     label: "LESS"
   },
   {
-    iconName: "brandJQuery",
+    iconName: "brandjQuery",
     label: "jQuery"
   },
   {

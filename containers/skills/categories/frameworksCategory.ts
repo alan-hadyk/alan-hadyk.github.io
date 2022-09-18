@@ -38,7 +38,7 @@ const iconsWithLabels: IIconWithLabelProps[] = [
     label: "PrestaShop"
   },
   {
-    iconName: "brandJQuery",
+    iconName: "brandjQuery",
     label: "jQuery"
   },
   {
