@@ -14,6 +14,7 @@ const Company: React.FC<ICompanyProps> = ({
   dataCy,
   date,
   iconsWithLabels,
+  link,
   name,
   responsibilities,
   timelineBottom,
@@ -24,8 +25,10 @@ const Company: React.FC<ICompanyProps> = ({
       <CompanyTvDesktopAndTablet
         date={date}
         iconsWithLabels={iconsWithLabels}
+        link={link}
         name={name}
         responsibilities={responsibilities}
+        responsibilitiesPaddingBottom={companyMobilePaddingBottom}
         timelineBottom={timelineBottom}
         title={title}
       />
@@ -33,6 +36,7 @@ const Company: React.FC<ICompanyProps> = ({
       <CompanyMobile
         date={date}
         iconsWithLabels={iconsWithLabels}
+        link={link}
         name={name}
         responsibilities={responsibilities}
         responsibilitiesPaddingBottom={companyMobilePaddingBottom}
@@ -58,6 +62,7 @@ Company.propTypes = {
       ])
     }).isRequired
   ).isRequired,
+  link: PropTypes.string,
   name: PropTypes.string.isRequired,
   responsibilities: PropTypes.arrayOf(
     PropTypes.oneOfType([

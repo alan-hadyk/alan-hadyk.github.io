@@ -9,6 +9,7 @@ import { LineDirection } from "components/atoms/@types/Line";
 import { trimTemplateLiteral } from "helpers/strings/trimTemplateLiteral";
 
 const Link: React.FC<ILinkProps> = ({
+  alignItems,
   children,
   dataCy,
   dataTestId,
@@ -17,6 +18,7 @@ const Link: React.FC<ILinkProps> = ({
   href,
   isExternal = false,
   isHoverable = false,
+  justifyContent,
   width = "w-unset"
 }) => {
   const componentType = isExternal ? "ExternalLink" : "RouterLink";
@@ -26,6 +28,8 @@ const Link: React.FC<ILinkProps> = ({
     className: trimTemplateLiteral(`
       ${componentType}
       ${display}
+      ${alignItems || ""}  
+      ${justifyContent || ""}  
       ${height} ${width}
       leading-[1] group
 
@@ -66,6 +70,13 @@ const Link: React.FC<ILinkProps> = ({
 };
 
 Link.propTypes = {
+  alignItems: PropTypes.oneOf([
+    "items-start",
+    "items-end",
+    "items-center",
+    "items-baseline",
+    "items-stretch"
+  ]),
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
@@ -77,6 +88,14 @@ Link.propTypes = {
   href: PropTypes.string.isRequired,
   isExternal: PropTypes.bool,
   isHoverable: PropTypes.bool,
+  justifyContent: PropTypes.oneOf([
+    "justify-start",
+    "justify-end",
+    "justify-center",
+    "justify-between",
+    "justify-around",
+    "justify-evenly"
+  ]),
   width: spacingPropType("w")
 };
 

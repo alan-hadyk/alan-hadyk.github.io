@@ -9,6 +9,7 @@ import {
 
 export interface ITextProps {
   children: TChildren;
+  className?: string;
   color?: `text-${TColor}`;
   dataCy?: string;
   dataTestId?: string;

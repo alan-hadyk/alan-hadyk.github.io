@@ -86,6 +86,7 @@ const CompanySAP: React.FC = () => (
     dataCy="CompanySAP"
     date="November 2015 to May 2017"
     iconsWithLabels={iconsWithLabels}
+    link="https://www.sap.com/"
     name="SAP"
     responsibilities={responsibilities}
     title="Front end developer"

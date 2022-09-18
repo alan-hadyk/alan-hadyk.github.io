@@ -1,14 +1,17 @@
+import { ILayoutContainerProps } from "components/layout/@types/LayoutContainer";
 import { TChildren, TSpacing } from "types/props";
 
 export interface ILinkProps {
+  alignItems?: ILayoutContainerProps["alignItems"];
   children: TChildren;
   dataCy?: string;
   dataTestId?: string;
-  display?: "block" | "inline";
+  display?: "block" | "inline" | "flex";
   height?: `h-${TSpacing}`;
   href: string;
   isExternal?: boolean;
   isHoverable?: boolean;
+  justifyContent?: ILayoutContainerProps["justifyContent"];
   width?: string | `w-${TSpacing}`;
 }
 

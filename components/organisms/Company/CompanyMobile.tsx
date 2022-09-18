@@ -15,6 +15,7 @@ import { LayoutContainer } from "components/layout/LayoutContainer";
 const CompanyMobile: React.FC<ICompanyProps> = ({
   date,
   iconsWithLabels,
+  link,
   name,
   responsibilities,
   responsibilitiesPaddingBottom,
@@ -41,6 +42,7 @@ const CompanyMobile: React.FC<ICompanyProps> = ({
       <CompanyDescription
         date={date}
         iconsWithLabels={iconsWithLabels}
+        link={link}
         responsibilities={responsibilities}
         responsibilitiesPaddingBottom={responsibilitiesPaddingBottom}
         textAlign="text-center"
@@ -58,6 +60,7 @@ CompanyMobile.propTypes = {
       label: PropTypes.string.isRequired
     }).isRequired
   ).isRequired,
+  link: PropTypes.string,
   name: PropTypes.string.isRequired,
   responsibilities: PropTypes.arrayOf(
     PropTypes.oneOfType([

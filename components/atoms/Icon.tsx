@@ -22,6 +22,7 @@ import IconGraphql from "public/images/svg/Icon-Graphql.svg";
 import IconIE from "public/images/svg/Icon-IE.svg";
 import IconJavascript from "public/images/svg/Icon-Javascript.svg";
 import IconLinkedIn from "public/images/svg/Icon-LinkedIn.svg";
+import IconLink from "public/images/svg/Icon-Link.svg";
 import IconLogo from "public/images/svg/Icon-Logo.svg";
 import IconLogoShortcut from "public/images/svg/Icon-Logo-Shortcut.svg";
 import IconNode from "public/images/svg/Icon-Node.svg";
@@ -63,6 +64,7 @@ const iconComponents: IconComponents = {
   hexagonWithPattern: HexagonWithPattern,
   ie: IconIE,
   javascript: IconJavascript,
+  link: IconLink,
   linkedIn: IconLinkedIn,
   logo: IconLogo,
   logoShortcut: IconLogoShortcut,
@@ -157,6 +159,7 @@ const iconNames: IIconProps["iconName"][] = [
   "hexagonWithPattern",
   "ie",
   "javascript",
+  "link",
   "linkedIn",
   "logo",
   "logoShortcut",
@@ -177,6 +180,7 @@ const _Icon: React.ForwardRefRenderFunction<
 > = (
   {
     animation = "childrenSvg:animate-glow-slow",
+    className,
     dataTestId,
     fill,
     glowAnimationTime = "childrenSvg:duration-slow",
@@ -198,7 +202,7 @@ const _Icon: React.ForwardRefRenderFunction<
     ${height.includes("h-") ? height : ""} 
     ${width.includes("w-") ? width : ""} 
     ${overflow}
-    
+    ${className || ""}
   `);
 
   if (iconName.includes("brand") && !isInlineSvg) {

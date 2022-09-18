@@ -129,6 +129,7 @@ const CompanyOmise: React.FC = () => (
     dataCy="CompanyOmise"
     date="August 2018 to March 2021"
     iconsWithLabels={iconsWithLabels}
+    link="https://www.omise.co/"
     name="Omise"
     responsibilities={responsibilities}
     title="Senior Full-Stack Developer"

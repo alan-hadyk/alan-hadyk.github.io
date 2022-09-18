@@ -14,6 +14,7 @@ import { spacingPropType } from "helpers/propTypes/spacing";
 const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
   date,
   iconsWithLabels,
+  link,
   responsibilities,
   responsibilitiesPaddingBottom = "pb-68",
   textAlign = "text-left",
@@ -36,7 +37,7 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
       {title}
     </Text>
 
-    <LayoutContainer marginBottom="mb-32" marginTop="mt-32">
+    <LayoutContainer marginBottom={link ? "mb-16" : "mb-32"} marginTop="mt-32">
       <IconWithLabel
         labelColor="text-blue300"
         iconName="calendar"
@@ -44,6 +45,19 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
         size="medium"
       />
     </LayoutContainer>
+
+    {link && (
+      <LayoutContainer marginBottom="mb-32">
+        <IconWithLabel
+          href={link}
+          isExternal
+          labelColor="text-blue300"
+          iconName="link"
+          label={link}
+          size="medium"
+        />
+      </LayoutContainer>
+    )}
 
     <TechStack iconsWithLabels={iconsWithLabels} />
 
@@ -76,6 +90,7 @@ CompanyDescription.propTypes = {
       label: PropTypes.string.isRequired
     }).isRequired
   ).isRequired,
+  link: PropTypes.string,
   responsibilities: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),

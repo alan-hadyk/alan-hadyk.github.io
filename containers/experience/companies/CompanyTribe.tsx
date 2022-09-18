@@ -107,6 +107,7 @@ const CompanyTribe: React.FC = () => (
     dataCy="CompanyTribe"
     date="April 2021 to October 2021"
     iconsWithLabels={iconsWithLabels}
+    link="https://tribe.so/"
     name="Tribe"
     responsibilities={responsibilities}
     title="Senior Full-Stack Developer"

@@ -14,6 +14,7 @@ import { colorPropType } from "helpers/propTypes/color";
 import { isIE11 } from "helpers/browser/isIE11";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 import { ITextProps } from "components/atoms/@types/Text";
+import { Link } from "components/molecules/Link";
 
 const mapSizeToIconHeight: IMapSizeToIconHeight = {
   large: "h-40",
@@ -28,16 +29,19 @@ const mapSizeToTextFontSize: IMapSizeToTextFontSize = {
 };
 
 const IconWithLabel: React.FC<IIconWithLabelProps> = ({
+  href,
   iconName,
+  isExternal,
   label,
   labelColor = "text-blue100",
   size = "medium"
 }) => {
   const iconPadding = size === "small" ? "pr-8" : "pr-12";
 
-  return (
+  const renderContent = () => (
     <LayoutContainer
       alignItems="items-center"
+      className="group"
       dataCy="IconWithLabel"
       display="flex"
       flexFlow="flex-row flex-nowrap"
@@ -46,6 +50,20 @@ const IconWithLabel: React.FC<IIconWithLabelProps> = ({
     >
       <LayoutContainer paddingRight={iconPadding}>
         <Icon
+          className={
+            href
+              ? `
+              childrenPath:transition-all 
+              childrenPath:duration-fast 
+              childrenPath:ease-in-out 
+              childrenMask:transition-all 
+              childrenMask:duration-fast 
+              childrenMask:ease-in-out 
+              group-hover:childrenMask:fill-white 
+              group-hover:childrenPath:fill-white
+          `
+              : ""
+          }
           height={mapSizeToIconHeight[size as "small" | "medium" | "large"]}
           iconName={iconName}
           isHeightResponsive
@@ -53,18 +71,39 @@ const IconWithLabel: React.FC<IIconWithLabelProps> = ({
         />
       </LayoutContainer>
       <Text
+        className={href ? "group-hover:text-white" : ""}
         dataTestId="LabelText"
         color={labelColor as ITextProps["color"]}
         fontSize={mapSizeToTextFontSize[size as "small" | "medium" | "large"]}
+        isHoverable={!!href}
       >
         {label}
       </Text>
     </LayoutContainer>
   );
+
+  return href ? (
+    <Link
+      height={
+        mapSizeToIconHeight[size as "small" | "medium" | "large"] as
+          | "h-40"
+          | "h-32"
+          | "h-28"
+      }
+      href={href}
+      isExternal={isExternal}
+    >
+      {renderContent()}
+    </Link>
+  ) : (
+    renderContent()
+  );
 };
 
 IconWithLabel.propTypes = {
+  href: PropTypes.string,
   iconName: PropTypes.oneOf(iconNames).isRequired,
+  isExternal: PropTypes.bool,
   label: PropTypes.string.isRequired,
   labelColor: colorPropType("text"),
   size: PropTypes.oneOf(["small", "medium", "large"])

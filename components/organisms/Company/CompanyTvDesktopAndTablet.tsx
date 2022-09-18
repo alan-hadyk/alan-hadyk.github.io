@@ -18,8 +18,10 @@ import { Device } from "components/layout/@types/Responsive";
 const CompanyTvDesktopAndTablet: React.FC<ICompanyProps> = ({
   date,
   iconsWithLabels,
+  link,
   name,
   responsibilities,
+  responsibilitiesPaddingBottom,
   timelineBottom,
   title
 }) => (
@@ -78,7 +80,9 @@ const CompanyTvDesktopAndTablet: React.FC<ICompanyProps> = ({
         <CompanyDescription
           date={date}
           iconsWithLabels={iconsWithLabels}
+          link={link}
           responsibilities={responsibilities}
+          responsibilitiesPaddingBottom={responsibilitiesPaddingBottom}
           title={title}
         />
       </LayoutContainer>
@@ -94,6 +98,7 @@ CompanyTvDesktopAndTablet.propTypes = {
       label: PropTypes.string.isRequired
     }).isRequired
   ).isRequired,
+  link: PropTypes.string,
   name: PropTypes.string.isRequired,
   responsibilities: PropTypes.arrayOf(
     PropTypes.oneOfType([

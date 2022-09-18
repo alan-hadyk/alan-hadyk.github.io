@@ -59,6 +59,7 @@ const CompanyDiH: React.FC = () => (
     dataCy="CompanyDiH"
     date="October 2010 to October 2015"
     iconsWithLabels={iconsWithLabels}
+    link="https://dih.pl/"
     name="DiH"
     responsibilities={responsibilities}
     title="Front end developer"

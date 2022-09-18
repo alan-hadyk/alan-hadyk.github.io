@@ -8,6 +8,7 @@ export type SVGIcon = FunctionComponent<
 
 export interface IIconProps {
   animation?: `childrenSvg:animate-${TAnimationName}`;
+  className?: string;
   dataTestId?: string;
   fill?: `childrenPath:fill-${TColor}`;
   glowAnimationTime?: `childrenSvg:duration-${TDuration}`;
@@ -92,6 +93,7 @@ export interface IIconProps {
     | "hexagonWithPattern"
     | "ie"
     | "javascript"
+    | "link"
     | "linkedIn"
     | "logo"
     | "logoShortcut"
@@ -137,6 +139,7 @@ export interface IconComponents {
   hexagonWithPattern: SVGIcon;
   ie: SVGIcon;
   javascript: SVGIcon;
+  link: SVGIcon;
   linkedIn: SVGIcon;
   logo: SVGIcon;
   logoShortcut: SVGIcon;

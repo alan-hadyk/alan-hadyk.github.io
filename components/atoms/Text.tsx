@@ -13,6 +13,7 @@ const transitionDuration = tailwindConfig.theme.transitionDuration;
 const _Text: React.ForwardRefRenderFunction<HTMLDivElement, ITextProps> = (
   {
     children,
+    className,
     color = "text-blue300",
     dataCy,
     dataTestId,
@@ -80,6 +81,7 @@ const _Text: React.ForwardRefRenderFunction<HTMLDivElement, ITextProps> = (
         ${ellipsis && "text-ellipsis overflow-hidden whitespace-nowrap"}
         ${color === "text-blue300" && "childrenStrong:text-blue300"}
         ${isHoverable && "hover:text-white"}
+        ${className || ""}
       `)}
       data-cy={dataCy}
       data-testid={dataTestId || "Text"}
