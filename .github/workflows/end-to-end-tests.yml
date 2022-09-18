@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.11.0]
+        node-version: [18.2.0]
 
     steps:
       - name: Checkout
@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: E2E tests
+      - name: test-end-to-end
         uses: cypress-io/github-action@v2
         with:
           start: yarn start:ci-e2e
