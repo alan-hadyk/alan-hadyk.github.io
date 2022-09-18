@@ -3,7 +3,7 @@ name: Build
 on: [push]
 
 jobs:
-  unit-integration-and-lint:
+  build:
     runs-on: ubuntu-latest
 
     strategy:
@@ -22,6 +22,7 @@ jobs:
       - name: build
         run: |
           npm install yarn -g
+          npm install next@12.2.5 -g
           yarn build
         env:
           CI: true
