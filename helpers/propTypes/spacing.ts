@@ -15,20 +15,21 @@ const spacingPropType =
     const propValue = props[propName];
 
     const regexArbitraryTailwindValue = new RegExp(`^${prefix}-\\[.*\\]$`, "i");
-    const regexDirectPercentageValue = /^((\d*)|(\d*\.\d*))%$/gi;
+    const regexDirectValue = /^((\d*)|(\d*\.\d*))(%|rem|px)$/gi;
 
-    const percentageValueCheck =
+    const directValueCheck =
       propValue && !propValue.includes(`${prefix}-`)
-        ? regexDirectPercentageValue.test(propValue)
+        ? regexDirectValue.test(propValue)
         : false;
 
     const spacingValuesArray = Object.keys(theme.spacing).map(
       (value) => `${prefix}-${value}`
     ) as Array<`${never}-${spacing}`>;
+
     if (
       propValue &&
       !regexArbitraryTailwindValue.test(propValue) &&
-      !percentageValueCheck &&
+      !directValueCheck &&
       !spacingValuesArray.includes(propValue as never)
     ) {
       return new Error(

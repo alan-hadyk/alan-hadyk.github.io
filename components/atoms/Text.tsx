@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, useRef } from "react";
+import { forwardRef, useState, useRef } from "react";
 
 import { useShuffleText } from "hooks/useShuffleText";
 import { useInterval } from "hooks/useInterval";

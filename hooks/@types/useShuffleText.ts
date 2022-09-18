@@ -1,4 +1,5 @@
 import { MutableRefObject } from "react";
+import { TChildren } from "types/props";
 
 export interface IShuffleState {
   start: VoidFunction;
@@ -12,5 +13,5 @@ export interface IUseShuffleText {
   shouldInitialize?: boolean;
   shuffleDelay?: number;
   shuffleState: IShuffleState | undefined;
-  text: string | number | JSX.Element;
+  text: TChildren;
 }

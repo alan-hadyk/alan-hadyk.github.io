@@ -74,7 +74,12 @@ export interface ILayoutContainerProps {
     | "flex-row-reverse flex-nowrap"
     | "flex-col flex-nowrap"
     | "flex-col-reverse flex-nowrap";
-  height?: `h-${TSpacing}` | `h-[${string}]` | `${number}%` | `${number}px`;
+  height?:
+    | `h-${TSpacing}`
+    | `h-[${string}]`
+    | `${number}%`
+    | `${number}px`
+    | `${number}rem`;
   id?: string;
   justifyContent?:
     | "justify-start"
@@ -100,6 +105,11 @@ export interface ILayoutContainerProps {
   right?: `right-${TSpacing}`;
   style?: React.CSSProperties;
   top?: `top-${TSpacing}`;
-  width?: `w-${TSpacing}` | `w-[${string}]` | `${number}%` | `${number}px`;
+  width?:
+    | `w-${TSpacing}`
+    | `w-[${string}]`
+    | `${number}%`
+    | `${number}px`
+    | `${number}rem`;
   zIndex?: `z-${TZIndex}`;
 }

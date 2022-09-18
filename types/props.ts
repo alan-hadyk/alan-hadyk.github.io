@@ -1,5 +1,4 @@
 import { ReactElementLike, ReactNodeArray } from "prop-types";
-import { ReactNode } from "react";
 
 import tailwindConfig from "tailwind.config";
 
@@ -8,7 +7,6 @@ export type TChildren =
   | number
   | boolean
   | ReactElementLike
-  | Iterable<ReactNode>
   | ReactNodeArray;
 
 export type TSpacing = keyof typeof tailwindConfig.theme.spacing;
