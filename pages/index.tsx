@@ -1,5 +1,6 @@
 import { Header } from "components/organisms/Header/Header";
 import { AboutMeContainer } from "containers/aboutMe/AboutMeContainer";
+import { ContactContainer } from "containers/contact/ContactContainer";
 import { DashboardContainer } from "containers/dashboard/DashboardContainer";
 import { ExperienceContainer } from "containers/experience/ExperienceContainer";
 import { SkillsContainer } from "containers/skills/SkillsContainer";
@@ -14,6 +15,7 @@ const IndexPage: TNextPageWithLayout = () => (
     <ExperienceContainer />
     <SkillsContainer />
     <AboutMeContainer />
+    <ContactContainer />
   </>
 );
 

@@ -1,5 +1,3 @@
-import { useCallback } from "react";
-
 import NextLink from "next/link";
 import PropTypes from "prop-types";
 
@@ -21,15 +19,12 @@ const Link: React.FC<ILinkProps> = ({
   isHoverable = false,
   width = "w-unset"
 }) => {
-  const getComponentType = useCallback(
-    () => (isExternal ? "ExternalLink" : "RouterLink"),
-    [isExternal]
-  );
+  const componentType = isExternal ? "ExternalLink" : "RouterLink";
 
   const props = {
     "aria-label": dataCy || dataTestId,
     className: trimTemplateLiteral(`
-      ${getComponentType()}
+      ${componentType}
       ${display}
       ${height} ${width}
       leading-[1] group
@@ -41,7 +36,7 @@ const Link: React.FC<ILinkProps> = ({
       focusChildrenSvg:drop-shadow-lg activeChildrenSvg:drop-shadow-lg
     `),
     "data-cy": dataCy,
-    "data-testid": dataTestId || getComponentType(),
+    "data-testid": dataTestId || componentType,
     tabIndex: 0,
     target: isExternal ? "_blank" : "_self"
   };
@@ -51,7 +46,7 @@ const Link: React.FC<ILinkProps> = ({
       {children}
 
       {isHoverable && (
-        <LayoutContainer position="relative">
+        <LayoutContainer position="relative" width="w-auto">
           <Line direction={LineDirection.LEFT} />
           <Line direction={LineDirection.RIGHT} />
         </LayoutContainer>

@@ -13,7 +13,7 @@ const Line: React.FC<ILineProps> = ({ direction, isActive = false }) => (
       transition-all duration-fast ease-in-out
       z-100
 
-      ${isActive ? "w-50% opacity-100 visible" : "w-0 opacity-0 hidden"}
+      ${isActive ? "w-50% opacity-100 visible" : "w-0 opacity-0 invisible"}
       ${direction === LineDirection.LEFT && "left-50%"}
       ${direction === LineDirection.RIGHT && "right-50%"}
     `)}
