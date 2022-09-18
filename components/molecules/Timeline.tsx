@@ -1,7 +1,7 @@
 import { LayoutContainer } from "components/layout/LayoutContainer";
 import { Hexagon } from "components/molecules/Hexagon";
 
-const Timeline = (): JSX.Element => (
+const Timeline: React.FC = () => (
   <LayoutContainer height="h-100%" position="relative" width="w-16">
     <LayoutContainer
       height="h-16"

@@ -1,7 +1,7 @@
 import { DashboardElement } from "components/molecules/DashboardElement";
 import { AnimatedIcons } from "components/molecules/AnimatedIcons";
 
-const TechStack = (): JSX.Element => (
+const TechStack: React.FC = () => (
   <DashboardElement
     dataCy="TechStack"
     flex="flex-[1_0_40%]"

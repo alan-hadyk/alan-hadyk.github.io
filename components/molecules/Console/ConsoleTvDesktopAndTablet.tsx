@@ -2,7 +2,7 @@ import { ConsoleText } from "components/atoms/ConsoleText";
 import { Text } from "components/atoms/Text";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 
-const ConsoleTvDesktopAndTablet = (): JSX.Element => (
+const ConsoleTvDesktopAndTablet: React.FC = () => (
   <LayoutContainer
     className="translate-y-[-50%]"
     dataCy="ConsoleTvDesktopAndTablet"

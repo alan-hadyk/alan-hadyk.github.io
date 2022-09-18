@@ -81,7 +81,7 @@ const responsibilities: ICompanyProps["responsibilities"] = [
   </span>
 ];
 
-const CompanySAP = (): JSX.Element => (
+const CompanySAP: React.FC = () => (
   <Company
     dataCy="CompanySAP"
     date="November 2015 to May 2017"

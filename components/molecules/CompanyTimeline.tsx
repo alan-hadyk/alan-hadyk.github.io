@@ -5,7 +5,7 @@ import { spacingPropType } from "helpers/propTypes/spacing";
 
 const CompanyTimeline: React.FC<ICompanyTimelineProps> = ({
   timelineBottom = "bottom-[-2rem]"
-}): JSX.Element => (
+}) => (
   <LayoutContainer
     className="translate-x-negative50%"
     bottom={timelineBottom}

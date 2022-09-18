@@ -101,7 +101,7 @@ const responsibilities: ICompanyProps["responsibilities"] = [
   </span>
 ];
 
-const CompanyShiji = (): JSX.Element => (
+const CompanyShiji: React.FC = () => (
   <Company
     dataCy="CompanyShiji"
     date="June 2017 to July 2018"

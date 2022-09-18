@@ -124,7 +124,7 @@ const responsibilities: ICompanyProps["responsibilities"] = [
   </span>
 ];
 
-const CompanyOmise = (): JSX.Element => (
+const CompanyOmise: React.FC = () => (
   <Company
     dataCy="CompanyOmise"
     date="August 2018 to March 2021"

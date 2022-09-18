@@ -89,7 +89,7 @@ const responsibilities: ICompanyProps["responsibilities"] = [
   </span>
 ];
 
-const CompanyStealthRealEstateStartup = (): JSX.Element => (
+const CompanyStealthRealEstateStartup: React.FC = () => (
   <Company
     dataCy="CompanyUndisclosed"
     date="December 2021 to March 2022"

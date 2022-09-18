@@ -102,7 +102,7 @@ const responsibilities: ICompanyProps["responsibilities"] = [
   </span>
 ];
 
-const CompanyTribe = (): JSX.Element => (
+const CompanyTribe: React.FC = () => (
   <Company
     dataCy="CompanyTribe"
     date="April 2021 to October 2021"

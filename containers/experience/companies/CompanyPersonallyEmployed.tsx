@@ -35,7 +35,7 @@ const responsibilities: ICompanyProps["responsibilities"] = [
   </span>
 ];
 
-const CompanyPersonallyEmployed = (): JSX.Element => (
+const CompanyPersonallyEmployed: React.FC = () => (
   <Company
     companyMobilePaddingBottom="pb-0"
     dataCy="CompanyPersonallyEmployed"

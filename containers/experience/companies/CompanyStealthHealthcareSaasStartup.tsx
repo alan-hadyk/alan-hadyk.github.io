@@ -54,7 +54,7 @@ const responsibilities: ICompanyProps["responsibilities"] = [
   </span>
 ];
 
-const CompanyStealthHealthcareSaasStartup = (): JSX.Element => (
+const CompanyStealthHealthcareSaasStartup: React.FC = () => (
   <Company
     dataCy="CompanyStealthHealthcareSaasStartup"
     date="May 2022 to June 2022"

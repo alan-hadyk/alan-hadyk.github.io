@@ -32,7 +32,7 @@ const IconWithLabel: React.FC<IIconWithLabelProps> = ({
   label,
   labelColor = "text-blue100",
   size = "medium"
-}): JSX.Element => {
+}) => {
   const iconPadding = size === "small" ? "pr-8" : "pr-12";
 
   return (

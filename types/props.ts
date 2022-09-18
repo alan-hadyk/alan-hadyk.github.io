@@ -7,7 +7,8 @@ export type TChildren =
   | number
   | boolean
   | ReactElementLike
-  | ReactNodeArray;
+  | ReactNodeArray
+  | null;
 
 export type TSpacing = keyof typeof tailwindConfig.theme.spacing;
 export type TAnimationName = keyof typeof tailwindConfig.theme.animation;

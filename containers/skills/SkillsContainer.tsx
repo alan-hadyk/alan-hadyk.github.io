@@ -33,11 +33,11 @@ const items: ISkillsItemProps[] = [
   designToolsCategory
 ];
 
-const renderColumns = ({
+const SkillsColumns: React.FC<IRenderColumnsArgs> = ({
   columnCount,
   dataTestId,
   devices
-}: IRenderColumnsArgs): JSX.Element => (
+}) => (
   <Responsive dataTestId={dataTestId} devices={devices}>
     <LayoutContainer
       className={`
@@ -55,25 +55,25 @@ const renderColumns = ({
   </Responsive>
 );
 
-const SkillsContainer = (): JSX.Element => (
+const SkillsContainer: React.FC = () => (
   <Section dataCy="Skills" id="skills" title="Skills">
-    {renderColumns({
-      columnCount: "columns-5",
-      dataTestId: "SkillsResponsiveTv",
-      devices: [Device.TV]
-    })}
+    <SkillsColumns
+      columnCount="columns-5"
+      dataTestId="SkillsResponsiveTv"
+      devices={[Device.TV]}
+    />
 
-    {renderColumns({
-      columnCount: "columns-3",
-      dataTestId: "SkillsResponsiveDesktop",
-      devices: [Device.DESKTOP]
-    })}
+    <SkillsColumns
+      columnCount="columns-3"
+      dataTestId="SkillsResponsiveDesktop"
+      devices={[Device.DESKTOP]}
+    />
 
-    {renderColumns({
-      columnCount: "columns-2",
-      dataTestId: "SkillsResponsiveTablet",
-      devices: [Device.TABLET]
-    })}
+    <SkillsColumns
+      columnCount="columns-2"
+      dataTestId="SkillsResponsiveTablet"
+      devices={[Device.TABLET]}
+    />
 
     <Responsive dataTestId="SkillsResponsiveMobile" devices={[Device.MOBILE]}>
       {items.map(({ iconsWithLabels, title }: ISkillsItemProps) => (
