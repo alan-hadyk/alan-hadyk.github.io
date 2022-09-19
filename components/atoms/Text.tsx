@@ -16,7 +16,6 @@ const _Text: React.ForwardRefRenderFunction<HTMLDivElement, ITextProps> = (
     className,
     color = "text-blue300",
     dataCy,
-    dataTestId,
     ellipsis = false,
     fontFamily = "font-anonymousPro",
     fontSize = "text-20",
@@ -84,7 +83,6 @@ const _Text: React.ForwardRefRenderFunction<HTMLDivElement, ITextProps> = (
         ${className || ""}
       `)}
       data-cy={dataCy}
-      data-testid={dataTestId || "Text"}
       onMouseOver={handleMouseOver}
       ref={ref || textElementRef}
     >

@@ -22,12 +22,11 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
 }) => (
   <LayoutContainer
     className="msHighContrastNone:w-100% msHighContrastActive:w-100%"
-    data-testid="CompanyDescription"
+    dataCy="CompanyDescription"
   >
     <Text
       color="text-white"
       dataCy="CompanyDescriptionMainTitle"
-      dataTestId="MainTitle"
       fontFamily={isIE11() ? "font-anonymousPro" : "font-exan"}
       fontSize="text-36"
       lineHeight="leading-56"
@@ -67,7 +66,7 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
     >
       <Text
         color="text-blue100"
-        dataTestId="ResponsibilitiesTitle"
+        dataCy="ResponsibilitiesTitle"
         fontFamily="font-anonymousPro"
         fontSize="text-24"
         fontWeight="font-bold"

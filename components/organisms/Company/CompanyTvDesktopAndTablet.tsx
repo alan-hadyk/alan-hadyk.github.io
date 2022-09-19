@@ -26,7 +26,7 @@ const CompanyTvDesktopAndTablet: React.FC<ICompanyProps> = ({
   title
 }) => (
   <Responsive
-    dataTestId="CompanyTvDesktopTablet"
+    dataCy="CompanyTvDesktopTablet"
     devices={[Device.TV, Device.DESKTOP, Device.TABLET]}
   >
     <CompanyTimeline timelineBottom={timelineBottom} />
@@ -55,7 +55,7 @@ const CompanyTvDesktopAndTablet: React.FC<ICompanyProps> = ({
       >
         <Text
           color="text-white"
-          dataTestId="CompanyTvDesktopAndTabletName"
+          dataCy="CompanyTvDesktopAndTabletName"
           fontFamily={isIE11() ? "font-anonymousPro" : "font-exan"}
           fontSize="text-48"
           lineHeight="leading-56"

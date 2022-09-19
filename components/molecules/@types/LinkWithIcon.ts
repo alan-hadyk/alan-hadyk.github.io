@@ -3,7 +3,6 @@ import { TSpacing } from "types/props";
 
 export interface ILinkWithIconProps {
   dataCy?: string;
-  dataTestId?: string;
   height?: `h-${TSpacing}`;
   href: string;
   iconName: IIconProps["iconName"];

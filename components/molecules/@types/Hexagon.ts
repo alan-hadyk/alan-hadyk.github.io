@@ -6,7 +6,6 @@ export interface IHexagonProps {
   children?: TChildren;
   contentWidth?: ILayoutContainerProps["width"];
   dataCy?: string;
-  dataTestId?: string;
   fill?: "none" | "solid" | "pattern";
 }
 

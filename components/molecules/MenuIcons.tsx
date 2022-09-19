@@ -28,7 +28,6 @@ const MenuIcons: React.FC = () => (
     {icons.map(({ href, iconName }: ILinkWithIconProps) => (
       <LinkWithIcon
         dataCy={iconName}
-        dataTestId="MenuIcons"
         height="h-48"
         href={href}
         iconName={iconName}

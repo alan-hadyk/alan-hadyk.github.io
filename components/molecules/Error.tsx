@@ -16,7 +16,7 @@ const Error: React.FC<IErrorProps> = ({ dataCy, description, title }) => (
       flexFlow="flex-col flex-nowrap"
       justifyContent="justify-center"
     >
-      <IconWarning className="animate-glow-verySlow" data-testid="ErrorIcon" />
+      <IconWarning className="animate-glow-verySlow" data-cy="ErrorIcon" />
       <Text
         dataCy="ErrorTitle"
         fontSize="text-24"

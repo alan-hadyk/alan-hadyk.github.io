@@ -21,7 +21,7 @@ const HeaderDesktop: React.FC<IHeaderMobileProps> = ({
   onCVButtonClick,
   onClick
 }) => (
-  <Responsive dataTestId="HeaderDesktop" devices={[Device.DESKTOP]}>
+  <Responsive dataCy="HeaderDesktop" devices={[Device.DESKTOP]}>
     <LayoutContainer
       alignItems="items-center"
       className="directChildren:ml-24 firstdirectChild:ml-0"

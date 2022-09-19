@@ -3,7 +3,7 @@ import { Section } from "components/molecules/Section";
 import { HexagonWithDescription } from "components/molecules/HexagonWithDescription";
 
 const renderDescription = () => (
-  <div data-testid="AboutMeSectionDescription">
+  <div data-cy="AboutMeSectionDescription">
     <strong>Proven talent</strong> for aligning software development strategy
     and objectives with established user interface implementation and technology
     management paradigms to achieve maximum operational impacts with minimum
@@ -22,8 +22,6 @@ const AboutMeContainer: React.FC = () => (
     <HexagonWithDescription description={renderDescription()}>
       <Image
         alt="Alan Hadyk"
-        data-cy="AboutMeImage"
-        data-testid="AboutMeImage"
         height="700px"
         src="/images/alan.png"
         width="700px"

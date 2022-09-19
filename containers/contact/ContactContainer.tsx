@@ -14,7 +14,7 @@ const ContactContainer: React.FC = () => (
       >
         <Text
           color="text-blue300"
-          dataTestId="EmailText"
+          dataCy="EmailText"
           ellipsis
           fontSize="text-28"
           isHoverable

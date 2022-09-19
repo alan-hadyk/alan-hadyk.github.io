@@ -81,7 +81,7 @@ const TypingAnimation: React.FC = () => {
 
   return (
     <LayoutContainer height="h-100%" position="relative">
-      <pre data-testid="TypingAnimationPre">
+      <pre data-cy="TypingAnimationPre">
         <code
           className={trimTemplateLiteral(`
             bottom-0 left-0 right-0 absolute
@@ -97,7 +97,7 @@ const TypingAnimation: React.FC = () => {
             after:ml-4
             after:translate-y-1
           `)}
-          data-testid="TypingAnimationCode"
+          data-cy="TypingAnimationCode"
           ref={codeContainerRef}
         />
       </pre>

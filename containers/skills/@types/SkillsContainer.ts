@@ -2,6 +2,6 @@ import { IResponsiveProps } from "components/layout/@types/Responsive";
 
 export interface IRenderColumnsArgs {
   columnCount: `columns-${number}`;
-  dataTestId: string;
+  dataCy: string;
   devices: IResponsiveProps["devices"];
 }

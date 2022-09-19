@@ -34,6 +34,7 @@ const Header: React.FC<IHeaderProps> = ({ zIndex = "z-100" }) => {
 
   return (
     <LayoutContainer
+      className="Header"
       left="left-0"
       position="fixed"
       right="right-0"
@@ -66,7 +67,7 @@ const Header: React.FC<IHeaderProps> = ({ zIndex = "z-100" }) => {
               justifyContent="justify-between"
             >
               <Responsive
-                dataTestId="ResponsiveLinkTvDesktopTablet"
+                dataCy="ResponsiveLinkTvDesktopTablet"
                 devices={[Device.TV, Device.DESKTOP, Device.TABLET]}
               >
                 <LinkWithIcon
@@ -79,7 +80,7 @@ const Header: React.FC<IHeaderProps> = ({ zIndex = "z-100" }) => {
               </Responsive>
 
               <Responsive
-                dataTestId="ResponsiveLinkMobile"
+                dataCy="ResponsiveLinkMobile"
                 devices={[Device.MOBILE]}
               >
                 <LinkWithIcon

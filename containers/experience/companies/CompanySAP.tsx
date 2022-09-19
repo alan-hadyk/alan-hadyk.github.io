@@ -58,23 +58,23 @@ const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
 ];
 
 const responsibilities: ICompanyProps["responsibilities"] = [
-  <span data-testid="AlignedAndBridged" key="aligned-and-bridged">
+  <span data-cy="AlignedAndBridged" key="aligned-and-bridged">
     <strong>Aligned objectives</strong> and{" "}
     <strong>bridged communication</strong> for UI development and monitoring of
     various projects and services
   </span>,
-  <span data-testid="PromotedSynchronized" key="promoted-synchronized">
+  <span data-cy="PromotedSynchronized" key="promoted-synchronized">
     <strong>Promoted synchronized communication</strong> to produce Agile
     methodology across projects
   </span>,
-  <span data-testid="EngageAndDeliver" key="engage-and-deliver">
+  <span data-cy="EngageAndDeliver" key="engage-and-deliver">
     <strong>Sought as speaker</strong> to engage and deliver university lectures
   </span>,
-  <span data-testid="NavigatedToDrive" key="navigated-to-drive">
+  <span data-cy="NavigatedToDrive" key="navigated-to-drive">
     <strong>Navigated</strong> rapidly evolving digital technology landscapes to{" "}
     <strong>drive</strong> team comprehension of JavaScript frameworks
   </span>,
-  <span data-testid="EnabledTapInto" key="enabled-tap-into">
+  <span data-cy="EnabledTapInto" key="enabled-tap-into">
     <strong>Enabled</strong> our product team to{" "}
     <strong>tap into valuable data sources</strong> and build incredible
     features for our customers

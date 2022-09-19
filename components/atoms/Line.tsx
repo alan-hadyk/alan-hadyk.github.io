@@ -17,7 +17,7 @@ const Line: React.FC<ILineProps> = ({ direction, isActive = false }) => (
       ${direction === LineDirection.LEFT && "left-50%"}
       ${direction === LineDirection.RIGHT && "right-50%"}
     `)}
-    data-testid="Line"
+    data-cy="Line"
   />
 );
 

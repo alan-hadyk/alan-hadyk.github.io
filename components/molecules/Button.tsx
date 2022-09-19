@@ -45,7 +45,6 @@ const mapSizeToButtonContainerProps: IMapSizeToButtonContainerProps = {
 const Button: React.FC<IButtonProps> = ({
   buttonText,
   dataCy,
-  dataTestId,
   iconName,
   iconWidth,
   onClick,
@@ -124,7 +123,7 @@ const Button: React.FC<IButtonProps> = ({
 
   return (
     <button
-      aria-label={dataCy || dataTestId || "Button"}
+      aria-label={dataCy || "Button"}
       className={trimTemplateLiteral(`
         ${buttonSizeClasses} ${buttonTypeClasses}
         ${width}
@@ -145,7 +144,6 @@ const Button: React.FC<IButtonProps> = ({
         childrenRipple:absolute
       `)}
       data-cy={dataCy || "Button"}
-      data-testid={dataTestId || "Button"}
       name={dataCy || "Button"}
       onKeyUp={handleKeyUp}
       onMouseEnter={handleMouseEnter}
@@ -160,7 +158,6 @@ const Button: React.FC<IButtonProps> = ({
         alignItems="items-center"
         className="overflow-hidden"
         display="flex"
-        data-testid="ButtonInnerContainer"
         height="h-full"
         justifyContent="justify-center"
         position="relative"
@@ -198,7 +195,6 @@ const Button: React.FC<IButtonProps> = ({
 Button.propTypes = {
   buttonText: PropTypes.string.isRequired,
   dataCy: PropTypes.string,
-  dataTestId: PropTypes.string,
   iconName: PropTypes.oneOf([
     "btnCodeSandbox",
     "btnDownload",

@@ -7,7 +7,7 @@ import { childrenPropTypes } from "helpers/propTypes/children";
 
 const Responsive: React.FC<IResponsiveProps> = ({
   children,
-  dataTestId,
+  dataCy,
   devices,
   height = "h-auto",
   width = "w-auto"
@@ -20,7 +20,7 @@ const Responsive: React.FC<IResponsiveProps> = ({
       ${devices.includes(Device.TABLET) && "screenSmMd:block"}
       ${devices.includes(Device.MOBILE) && "screenMaxSm:block"}
     `}
-    data-testid={dataTestId || "Responsive"}
+    data-cy={dataCy || "Responsive"}
     height={height}
     width={width}
   >
@@ -30,7 +30,7 @@ const Responsive: React.FC<IResponsiveProps> = ({
 
 Responsive.propTypes = {
   children: childrenPropTypes.isRequired,
-  dataTestId: PropTypes.string,
+  dataCy: PropTypes.string,
   devices: PropTypes.arrayOf(
     PropTypes.oneOf([Device.TV, Device.DESKTOP, Device.TABLET, Device.MOBILE])
       .isRequired

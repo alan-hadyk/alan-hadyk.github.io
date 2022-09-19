@@ -5,7 +5,6 @@ export interface ILinkProps {
   alignItems?: ILayoutContainerProps["alignItems"];
   children: TChildren;
   dataCy?: string;
-  dataTestId?: string;
   display?: "block" | "inline" | "flex";
   height?: `h-${TSpacing}`;
   href: string;

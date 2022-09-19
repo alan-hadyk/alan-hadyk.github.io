@@ -54,7 +54,7 @@ const Section: React.FC<ISectionProps> = ({
       {title && (
         <Fragment>
           <Responsive
-            dataTestId="ResponsiveTitleTvDesktopTablet"
+            dataCy="ResponsiveTitleTvDesktopTablet"
             devices={[Device.TV, Device.DESKTOP, Device.TABLET]}
           >
             {renderTitle({
@@ -63,10 +63,7 @@ const Section: React.FC<ISectionProps> = ({
             })}
           </Responsive>
 
-          <Responsive
-            dataTestId="ResponsiveTitleMobile"
-            devices={[Device.MOBILE]}
-          >
+          <Responsive dataCy="ResponsiveTitleMobile" devices={[Device.MOBILE]}>
             {renderTitle({
               fontSize: "text-48",
               marginBottom: "mb-48"

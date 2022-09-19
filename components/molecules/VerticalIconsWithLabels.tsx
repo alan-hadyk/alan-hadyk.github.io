@@ -53,7 +53,7 @@ const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
             marginBottom="mb-12"
           >
             <Text
-              dataTestId="LabelText"
+              dataCy="LabelText"
               color={labelColor}
               ellipsis
               fontSize={mapSizeToTextFontSize[size]}

@@ -181,7 +181,6 @@ const _Icon: React.ForwardRefRenderFunction<
   {
     animation = "childrenSvg:animate-glow-slow",
     className,
-    dataTestId,
     fill,
     glowAnimationTime = "childrenSvg:duration-slow",
     height = "h-auto",
@@ -218,7 +217,6 @@ const _Icon: React.ForwardRefRenderFunction<
           alt={iconName}
           className={commonClasses}
           data-cy={iconName}
-          data-testid={dataTestId || "IconImage"}
           ref={ref as ForwardedRef<HTMLImageElement>}
           src={`/images/svg/${iconName}.svg`}
           style={{
@@ -264,7 +262,6 @@ const _Icon: React.ForwardRefRenderFunction<
         }
       `)}
       data-cy={iconName}
-      data-testid={dataTestId || "IconContainer"}
       ref={ref as ForwardedRef<HTMLDivElement>}
       style={{
         height: !height.includes("h-") ? height : undefined,

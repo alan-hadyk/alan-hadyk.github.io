@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import PropTypes from "prop-types";
 
 import { IConsoleTextProps } from "components/atoms/@types/ConsoleText";
 import { trimTemplateLiteral } from "helpers/strings/trimTemplateLiteral";
@@ -10,7 +9,6 @@ const HERO_DESCRIPTION =
   "Vision driven change agent with career-long record of front-end user strategy and UI development";
 
 const ConsoleText: React.FC<IConsoleTextProps> = ({
-  dataTestId,
   fontSize,
   height,
   lineHeight,
@@ -33,14 +31,12 @@ const ConsoleText: React.FC<IConsoleTextProps> = ({
       after:ml-8
       ${transform}
     `)}
-    data-testid={dataTestId || "ConsoleText"}
   >
     {HERO_DESCRIPTION}
   </div>
 );
 
 ConsoleText.propTypes = {
-  dataTestId: PropTypes.string,
   fontSize: fontSizePropType,
   height: spacingPropType("after:h"),
   lineHeight: spacingPropType("leading"),

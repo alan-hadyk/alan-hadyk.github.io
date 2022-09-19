@@ -17,7 +17,6 @@ const Hexagon: React.FC<IHexagonProps> = ({
   children,
   contentWidth = "w-100%",
   dataCy,
-  dataTestId,
   fill = "none"
 }) => {
   const [iconDimensions, setIconDimensions] = useState<IIconDimensionsProps>({
@@ -45,11 +44,7 @@ const Hexagon: React.FC<IHexagonProps> = ({
   }, [fill]);
 
   return (
-    <LayoutContainer
-      data-cy={dataCy}
-      data-testid={dataTestId || "Hexagon"}
-      position="relative"
-    >
+    <LayoutContainer dataCy={dataCy} position="relative">
       {fill === "pattern" && <Icon iconName="hexagonWithPattern" />}
 
       {fill === "solid" && (
@@ -85,7 +80,6 @@ const Hexagon: React.FC<IHexagonProps> = ({
             `
             }
           `}
-          data-testid="LayoutContainer"
           left="left-50%"
           position="absolute"
           top="top-50%"
@@ -101,7 +95,6 @@ Hexagon.propTypes = {
   children: childrenPropTypes,
   contentWidth: spacingPropType("w"),
   dataCy: PropTypes.string,
-  dataTestId: PropTypes.string,
   fill: PropTypes.oneOf(["none", "solid", "pattern"])
 };
 

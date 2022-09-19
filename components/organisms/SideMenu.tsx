@@ -29,8 +29,7 @@ const SideMenu: React.FC<ISideMenuProps> = ({
 
       msHighContrastNone:max-w-[300px] msHighContrastActive:max-w-[300px]
     `}
-    data-cy="SideMenu"
-    data-testid="SideMenu"
+    dataCy="SideMenu"
   >
     <LayoutContainer
       className="overflow-y-auto"
@@ -40,7 +39,7 @@ const SideMenu: React.FC<ISideMenuProps> = ({
       paddingTop="pt-8"
     >
       <Responsive
-        dataTestId="ResponsiveMobileTablet"
+        dataCy="ResponsiveMobileTablet"
         devices={[Device.MOBILE, Device.TABLET]}
       >
         <LayoutContainer marginBottom="mb-24">

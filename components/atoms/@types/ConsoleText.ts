@@ -1,7 +1,6 @@
 import { TFontSize, TSpacing } from "types/props";
 
 export interface IConsoleTextProps {
-  dataTestId?: string;
   fontSize: `text-${TFontSize}` | `text-[${string}]`;
   height: `after:h-${TSpacing}` | `after:h-[${string}]`;
   lineHeight: `leading-${TSpacing}` | `leading-[${string}]`;

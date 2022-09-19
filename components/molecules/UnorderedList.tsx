@@ -27,8 +27,7 @@ const UnorderedList: React.FC<IUnorderedListProps> = ({ items }) => (
       childrenLi:before:min-w-8
       childrenLi:before:w-8
     `}
-    data-cy="UnorderedList"
-    data-testid="UnorderedList"
+    dataCy="UnorderedList"
   >
     {items?.map(
       (item: IListItemProps["children"] | undefined | null, index: number) =>

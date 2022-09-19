@@ -86,40 +86,37 @@ const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
 ];
 
 const responsibilities: ICompanyProps["responsibilities"] = [
-  <span data-testid="CreateScalable" key="create-scalable">
+  <span data-cy="CreateScalable" key="create-scalable">
     <strong>Create</strong> scalable and sane front-end architecture
   </span>,
-  <span data-testid="OrchestrateAndDirect" key="orchestrate-and-direct">
+  <span data-cy="OrchestrateAndDirect" key="orchestrate-and-direct">
     <strong>Orchestrate</strong> and <strong>direct</strong> collaborative team
     operational objectives for front-end layer of an application designed to
     manage payment systems
   </span>,
-  <span data-testid="ApplyAndCertify" key="apply-and-certify">
+  <span data-cy="ApplyAndCertify" key="apply-and-certify">
     <strong>Apply development</strong> and <strong>certify adherence</strong> to
     best practices to deliver application based on React.js
   </span>,
-  <span
-    data-testid="StreamlineProjectTimelines"
-    key="streamline-project-timelines"
-  >
+  <span data-cy="StreamlineProjectTimelines" key="streamline-project-timelines">
     <strong>Streamline project timelines</strong> to ensure application is being
     developed
   </span>,
-  <span data-testid="DevelopApiGateway" key="develop-api-gateway">
+  <span data-cy="DevelopApiGateway" key="develop-api-gateway">
     <strong>Develop API gateway</strong> in the form of Express / Node.js
     server, along with Apollo / GraphQL stack
   </span>,
-  <span data-testid="TransformAndCreate" key="transform-and-create">
+  <span data-cy="TransformAndCreate" key="transform-and-create">
     <strong>Transform and create</strong> reusable components
   </span>,
-  <span data-testid="AuthorUnit" key="author-unit">
+  <span data-cy="AuthorUnit" key="author-unit">
     <strong>Author</strong> unit, integration and acceptance tests
   </span>,
-  <span data-testid="DemonstrateExpertise" key="demonstrate-expertise">
+  <span data-cy="DemonstrateExpertise" key="demonstrate-expertise">
     <strong>Demonstrate expertise</strong> in the utilization of GraphQL to
     communicate with backend
   </span>,
-  <span data-testid="MentorJunior" key="mentor-junior">
+  <span data-cy="MentorJunior" key="mentor-junior">
     <strong>Mentor</strong> junior front-end developers
   </span>
 ];

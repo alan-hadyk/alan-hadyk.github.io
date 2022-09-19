@@ -70,33 +70,30 @@ const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
 ];
 
 const responsibilities: ICompanyProps["responsibilities"] = [
-  <span data-testid="CreateScalable" key="create-scalable">
+  <span data-cy="CreateScalable" key="create-scalable">
     <strong>Create</strong> scalable and sane front-end architecture
   </span>,
-  <span data-testid="ApplyAndCertifyFrontEnd" key="apply-and-certify-front">
+  <span data-cy="ApplyAndCertifyFrontEnd" key="apply-and-certify-front">
     <strong>Apply development</strong> and <strong>certify adherence</strong> to
     best practices to deliver features for front-end application based on
     React.js, Next.js, TypeScript, Apollo, GraphQL, Chakra and Tailwind
   </span>,
-  <span data-testid="ApplyAndCertifyBackEnd" key="apply-and-certify-back">
+  <span data-cy="ApplyAndCertifyBackEnd" key="apply-and-certify-back">
     <strong>Apply development</strong> and <strong>certify adherence</strong> to
     best practices to deliver features for back-end application based on NestJS,
     TypeScript, GraphQL and PostgreSQL
   </span>,
-  <span
-    data-testid="StreamlineProjectTimelines"
-    key="streamline-project-timelines"
-  >
+  <span data-cy="StreamlineProjectTimelines" key="streamline-project-timelines">
     <strong>Streamline project timelines</strong> to ensure application is being
     developed
   </span>,
-  <span data-testid="TransformAndCreate" key="transform-and-create">
+  <span data-cy="TransformAndCreate" key="transform-and-create">
     <strong>Transform and create</strong> reusable components
   </span>,
-  <span data-testid="AuthorUnit" key="author-unit">
+  <span data-cy="AuthorUnit" key="author-unit">
     <strong>Author</strong> unit, integration and acceptance tests
   </span>,
-  <span data-testid="DemonstrateExpertise" key="demonstrate-expertise">
+  <span data-cy="DemonstrateExpertise" key="demonstrate-expertise">
     <strong>Demonstrate expertise</strong> in the utilization of GraphQL to
     communicate with backend
   </span>

@@ -16,7 +16,7 @@ const HeaderTabletAndMobile: React.FC<IHeaderMobileProps> = ({
   onClick
 }) => (
   <Responsive
-    dataTestId="HeaderTabletMobile"
+    dataCy="HeaderTabletMobile"
     devices={[Device.TABLET, Device.MOBILE]}
   >
     <MenuButton isOpen={isMenuVisible} onClick={onClick} />

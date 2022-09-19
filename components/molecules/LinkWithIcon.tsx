@@ -7,7 +7,6 @@ import { spacingPropType } from "helpers/propTypes/spacing";
 
 const LinkWithIcon: React.FC<ILinkWithIconProps> = ({
   dataCy,
-  dataTestId,
   height = "h-48",
   href,
   iconName,
@@ -16,7 +15,6 @@ const LinkWithIcon: React.FC<ILinkWithIconProps> = ({
 }) => (
   <Link
     dataCy={dataCy}
-    dataTestId={dataTestId || "LinkWithIcon"}
     display="block"
     height={height}
     href={href}
@@ -36,7 +34,6 @@ const LinkWithIcon: React.FC<ILinkWithIconProps> = ({
 
 LinkWithIcon.propTypes = {
   dataCy: PropTypes.string,
-  dataTestId: PropTypes.string,
   height: spacingPropType("h"),
   href: PropTypes.string.isRequired,
   iconName: PropTypes.oneOf(iconNames).isRequired,

@@ -4,7 +4,7 @@ import { LayoutContainer } from "components/layout/LayoutContainer";
 import { Device } from "components/layout/@types/Responsive";
 
 const DashboardContainerMobile: React.FC = () => (
-  <Responsive dataTestId="DashboardContainerMobile" devices={[Device.MOBILE]}>
+  <Responsive dataCy="DashboardContainerMobile" devices={[Device.MOBILE]}>
     <LayoutContainer paddingTop="pt-96">
       <ConsoleMobile />
     </LayoutContainer>

@@ -20,7 +20,7 @@ const HexagonWithDescription: React.FC<IHexagonWithDescriptionProps> = ({
     marginRight="mr-auto"
   >
     <Responsive
-      dataTestId="ResponsiveTvDesktop"
+      dataCy="ResponsiveTvDesktop"
       devices={[Device.TV, Device.DESKTOP]}
     >
       <HexagonWithDescriptionContent
@@ -34,7 +34,7 @@ const HexagonWithDescription: React.FC<IHexagonWithDescriptionProps> = ({
       </HexagonWithDescriptionContent>
     </Responsive>
 
-    <Responsive dataTestId="ResponsiveTablet" devices={[Device.TABLET]}>
+    <Responsive dataCy="ResponsiveTablet" devices={[Device.TABLET]}>
       <HexagonWithDescriptionContent
         description={description}
         flexFlow="flex-col flex-nowrap"
@@ -46,7 +46,7 @@ const HexagonWithDescription: React.FC<IHexagonWithDescriptionProps> = ({
       </HexagonWithDescriptionContent>
     </Responsive>
 
-    <Responsive dataTestId="ResponsiveMobile" devices={[Device.MOBILE]}>
+    <Responsive dataCy="ResponsiveMobile" devices={[Device.MOBILE]}>
       <HexagonWithDescriptionContent
         description={description}
         flexFlow="flex-col flex-nowrap"

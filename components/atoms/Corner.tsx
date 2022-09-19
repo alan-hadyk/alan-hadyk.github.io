@@ -52,7 +52,7 @@ const Corner: React.FC<ICornerProps> = ({ isActive = false, position }) => {
         absolute
         transition-all duration-fast ease-in-out
       `)}
-      data-testid="Corner"
+      data-cy="Corner"
     />
   );
 };

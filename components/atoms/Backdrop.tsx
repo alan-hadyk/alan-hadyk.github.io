@@ -10,7 +10,7 @@ const Backdrop: React.FC<IBackdropProps> = ({ onClick }) => (
       cursor-pointer
       z-900
     `)}
-    data-testid="Backdrop"
+    data-cy="Backdrop"
     onClick={onClick}
   />
 );

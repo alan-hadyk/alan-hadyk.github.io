@@ -35,10 +35,10 @@ const items: ISkillsItemProps[] = [
 
 const SkillsColumns: React.FC<IRenderColumnsArgs> = ({
   columnCount,
-  dataTestId,
+  dataCy,
   devices
 }) => (
-  <Responsive dataTestId={dataTestId} devices={devices}>
+  <Responsive dataCy={dataCy} devices={devices}>
     <LayoutContainer
       className={`
        ${columnCount} gap-32 
@@ -59,23 +59,23 @@ const SkillsContainer: React.FC = () => (
   <Section dataCy="Skills" id="skills" title="Skills">
     <SkillsColumns
       columnCount="columns-5"
-      dataTestId="SkillsResponsiveTv"
+      dataCy="SkillsResponsiveTv"
       devices={[Device.TV]}
     />
 
     <SkillsColumns
       columnCount="columns-3"
-      dataTestId="SkillsResponsiveDesktop"
+      dataCy="SkillsResponsiveDesktop"
       devices={[Device.DESKTOP]}
     />
 
     <SkillsColumns
       columnCount="columns-2"
-      dataTestId="SkillsResponsiveTablet"
+      dataCy="SkillsResponsiveTablet"
       devices={[Device.TABLET]}
     />
 
-    <Responsive dataTestId="SkillsResponsiveMobile" devices={[Device.MOBILE]}>
+    <Responsive dataCy="SkillsResponsiveMobile" devices={[Device.MOBILE]}>
       {items.map(({ iconsWithLabels, title }: ISkillsItemProps) => (
         <LayoutContainer key={title} marginBottom="mb-32">
           <SkillsItem iconsWithLabels={iconsWithLabels} title={title} />

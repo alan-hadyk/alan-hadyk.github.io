@@ -30,7 +30,7 @@ const ConsoleTvDesktopAndTablet: React.FC = () => (
         msHighContrastActive:after:min-h-inherit
       `}
       display="flex"
-      data-testid="ConsoleTvDesktopAndTabletContainer"
+      dataCy="ConsoleTvDesktopAndTabletContainer"
       height="h-[26.6%]"
       justifyContent="justify-center"
       position="relative"
@@ -52,7 +52,6 @@ const ConsoleTvDesktopAndTablet: React.FC = () => (
       </LayoutContainer>
 
       <ConsoleText
-        dataTestId="ConsoleTvDesktopAndTabletText"
         fontSize="text-[6vh]"
         height="after:h-[6vh]"
         lineHeight="leading-[7.4vh]"

@@ -12,7 +12,7 @@ const TechStack: React.FC<ITechStackProps> = ({ iconsWithLabels }) => (
   <LayoutContainer dataCy="CompanyTechStack" marginBottom="mb-16">
     <Text
       color="text-blue100"
-      dataTestId="TechStackTitle"
+      dataCy="TechStackTitle"
       fontFamily="font-anonymousPro"
       fontSize="text-24"
       fontWeight="font-bold"

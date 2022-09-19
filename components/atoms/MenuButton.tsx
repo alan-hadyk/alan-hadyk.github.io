@@ -45,14 +45,13 @@ const MenuButton: React.FC<IMenuButtonProps> = ({
 
       hover:drop-shadow-md
     `}
-    data-cy="MenuButton"
-    data-testid="MenuButtonContainer"
+    dataCy="MenuButton"
     onClick={onClick}
   >
-    <MenuButtonLine data-testid="MenuButtonLine" isOpen={isOpen} />
-    <MenuButtonLine data-testid="MenuButtonLine" isOpen={isOpen} />
-    <MenuButtonLine data-testid="MenuButtonLine" isOpen={isOpen} />
-    <MenuButtonLine data-testid="MenuButtonLine" isOpen={isOpen} />
+    <MenuButtonLine isOpen={isOpen} />
+    <MenuButtonLine isOpen={isOpen} />
+    <MenuButtonLine isOpen={isOpen} />
+    <MenuButtonLine isOpen={isOpen} />
   </LayoutContainer>
 );
 

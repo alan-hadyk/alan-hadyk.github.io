@@ -12,7 +12,6 @@ const Link: React.FC<ILinkProps> = ({
   alignItems,
   children,
   dataCy,
-  dataTestId,
   display = "block",
   height = "h-unset",
   href,
@@ -24,7 +23,7 @@ const Link: React.FC<ILinkProps> = ({
   const componentType = isExternal ? "ExternalLink" : "RouterLink";
 
   const props = {
-    "aria-label": dataCy || dataTestId,
+    "aria-label": dataCy || href,
     className: trimTemplateLiteral(`
       ${componentType}
       ${display}
@@ -40,7 +39,6 @@ const Link: React.FC<ILinkProps> = ({
       focusChildrenSvg:drop-shadow-lg activeChildrenSvg:drop-shadow-lg
     `),
     "data-cy": dataCy,
-    "data-testid": dataTestId || componentType,
     tabIndex: 0,
     target: isExternal ? "_blank" : "_self"
   };
@@ -82,7 +80,6 @@ Link.propTypes = {
     PropTypes.node
   ]).isRequired,
   dataCy: PropTypes.string,
-  dataTestId: PropTypes.string,
   display: PropTypes.oneOf(["block", "inline"]),
   height: spacingPropType("h"),
   href: PropTypes.string.isRequired,

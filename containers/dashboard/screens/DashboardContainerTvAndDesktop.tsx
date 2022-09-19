@@ -15,7 +15,7 @@ import { Device } from "components/layout/@types/Responsive";
 
 const DashboardContainerTvAndDesktop: React.FC = () => (
   <Responsive
-    dataTestId="DashboardSectionTvAndDesktop"
+    dataCy="DashboardSectionTvAndDesktop"
     devices={[Device.TV, Device.DESKTOP]}
   >
     <DashboardOuterContainer>

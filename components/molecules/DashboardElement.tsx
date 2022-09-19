@@ -41,7 +41,7 @@ const DashboardElement: React.FC<IDashboardElementProps> = ({
       {title ? (
         <Text
           color={titleFontSize === "text-28" ? "text-blue100" : "text-blue300"}
-          dataTestId="DashboardElementTitleText"
+          dataCy="DashboardElementTitleText"
           ellipsis
           fontFamily="font-anonymousPro"
           fontSize={titleFontSize}
@@ -56,7 +56,7 @@ const DashboardElement: React.FC<IDashboardElementProps> = ({
         <LayoutContainer height="h-24" marginBottom="mb-28">
           <Text
             color="text-blue300"
-            dataTestId="DashboardElementDescriptionText"
+            dataCy="DashboardElementDescriptionText"
             fontSize="text-8"
             lineHeight="leading-12"
             maxHeight="max-h-36"
@@ -94,7 +94,7 @@ const DashboardElement: React.FC<IDashboardElementProps> = ({
                 `
               };
             `}
-            data-testid="DashboardElementInnerContainer"
+            dataCy="DashboardElementInnerContainer"
           >
             {shouldDisplayCorners ? (
               <LayoutContainer height="h-100%" padding="p-8">

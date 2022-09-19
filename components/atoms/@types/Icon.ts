@@ -9,7 +9,6 @@ export type SVGIcon = FunctionComponent<
 export interface IIconProps {
   animation?: `childrenSvg:animate-${TAnimationName}`;
   className?: string;
-  dataTestId?: string;
   fill?: `childrenPath:fill-${TColor}`;
   glowAnimationTime?: `childrenSvg:duration-${TDuration}`;
   height?: `h-${TSpacing}` | `h-[${string}]` | `${number}px`;

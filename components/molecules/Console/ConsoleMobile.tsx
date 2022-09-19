@@ -9,11 +9,10 @@ const ConsoleMobile: React.FC = () => (
         border-1 border-solid border-blue300
         shadow-console
       `}
-      data-testid="ConsoleMobileContainer"
+      dataCy="ConsoleMobileContainer"
       padding="p-16"
     >
       <ConsoleText
-        dataTestId="ConsoleMobileText"
         fontSize="text-32"
         height="after:h-24"
         lineHeight="leading-36"
