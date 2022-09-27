@@ -1,62 +1,33 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import { IConsoleTextProps } from "components/atoms/@types/ConsoleText";
-import { trimTemplateLiteral } from "helpers/strings/trimTemplateLiteral";
-import { spacingPropType } from "helpers/propTypes/spacing";
-import { fontSizePropType } from "helpers/propTypes/fontSize";
 
 const HERO_DESCRIPTION =
   "Vision driven change agent with career-long record of front-end user strategy and UI development";
 
-const ConsoleText: React.FC<IConsoleTextProps> = ({
-  fontSize,
-  height,
-  lineHeight,
-  transform,
-  width
-}) => (
-  <div
-    className={trimTemplateLiteral(`
-      text-white font-exan ${fontSize} ${lineHeight}
-      text-center lowercase
-    
-      msHighContrastNone:font-anonymousPro msHighContrastNone:uppercase
-      msHighContrastActive:font-anonymousPro msHighContrastActive:uppercase
+const DEFAULT_CLASS_NAMES = [
+  "text-white",
+  "font-exan",
+  "text-center",
+  "lowercase",
+  "msHighContrastNone:font-anonymousPro",
+  "msHighContrastNone:uppercase",
+  "msHighContrastActive:font-anonymousPro",
+  "msHighContrastActive:uppercase",
+  "after:animate-blink-slow",
+  "after:bg-blue100",
+  "after:content-['']",
+  "after:inline-block",
+  "after:ml-8"
+];
 
-      after:animate-blink-slow
-      after:bg-blue100
-      after:content-['']
-      after:inline-block
-      ${height} ${width}
-      after:ml-8
-      ${transform}
-    `)}
-  >
-    {HERO_DESCRIPTION}
-  </div>
-);
+const ConsoleText: React.FC<IConsoleTextProps> = ({ themeClasses }) => {
+  const classNames = [...DEFAULT_CLASS_NAMES];
 
-ConsoleText.propTypes = {
-  fontSize: fontSizePropType,
-  height: spacingPropType("after:h"),
-  lineHeight: spacingPropType("leading"),
-  transform: (
-    props: React.ComponentProps<React.JSXElementConstructor<any>>,
-    propName: string,
-    componentName: string
-  ) => {
-    const value = props[propName];
-    const regex = new RegExp("^after:translate-(x|y)-\\[.*\\]$", "i");
+  themeClasses &&
+    Object.values(themeClasses).forEach(
+      (themeClass) => themeClass && classNames.push(themeClass)
+    );
 
-    if (value && !regex.test(value)) {
-      return new Error(
-        `Invalid prop ${propName} with value ${value} supplied to ${componentName}`
-      );
-    }
-
-    return null;
-  },
-  width: spacingPropType("after:w")
+  return <div className={classNames.join(" ")}>{HERO_DESCRIPTION}</div>;
 };
 
 export { ConsoleText, HERO_DESCRIPTION as hero };

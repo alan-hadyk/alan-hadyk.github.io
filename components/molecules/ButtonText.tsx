@@ -6,7 +6,7 @@ import {
   IButtonTextProps,
   IMapSizeToButtonTextProps
 } from "components/molecules/@types/ButtonText";
-import { TSpacing } from "types/props";
+import { TSpacingValues } from "types/theme";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 
 const mapSizeToButtonTextProps: IMapSizeToButtonTextProps = {
@@ -22,7 +22,7 @@ const ButtonText: React.FC<IButtonTextProps> = ({
   size,
   textTransform = "lowercase"
 }) => {
-  const getMarginRight = (): `mr-${TSpacing}` => {
+  const getMarginRight = (): `mr-${TSpacingValues}` => {
     if (!hasMargin) {
       return "mr-0";
     }

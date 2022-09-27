@@ -13,11 +13,13 @@ const ConsoleMobile: React.FC = () => (
       padding="p-16"
     >
       <ConsoleText
-        fontSize="text-32"
-        height="after:h-24"
-        lineHeight="leading-36"
-        transform="after:translate-y-[1px]"
-        width="after:w-12"
+        themeClasses={{
+          fontSize: "text-32",
+          height: "after:h-24",
+          lineHeight: "leading-36",
+          transform: "after:translate-y-[1px]",
+          width: "after:w-12"
+        }}
       />
     </LayoutContainer>
   </LayoutContainer>

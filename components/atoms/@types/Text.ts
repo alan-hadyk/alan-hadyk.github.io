@@ -1,34 +1,34 @@
 import {
-  TChildren,
-  TColor,
-  TFontFamily,
-  TFontSize,
-  TFontWeight,
-  TSpacing
-} from "types/props";
+  TColorValues,
+  TFontFamilyValues,
+  TFontSizeValues,
+  TFontWeightValues,
+  TSpacingValues
+} from "types/theme";
+import { TChildren } from "types/props";
 
 export interface ITextProps {
   children: TChildren;
   className?: string;
-  color?: `text-${TColor}`;
+  color?: `text-${TColorValues}`;
   dataCy?: string;
   ellipsis?: boolean;
-  fontFamily?: `font-${TFontFamily}`;
-  fontSize?: `text-${TFontSize}`;
-  fontWeight?: `font-${TFontWeight}`;
+  fontFamily?: `font-${TFontFamilyValues}`;
+  fontSize?: `text-${TFontSizeValues}`;
+  fontWeight?: `font-${TFontWeightValues}`;
   isHoverable?: boolean;
-  lineHeight?: `leading-${TSpacing}` | "leading-1";
-  maxHeight?: `max-h-${TSpacing}`;
+  lineHeight?: `leading-${TSpacingValues}` | "leading-1";
+  maxHeight?: `max-h-${TSpacingValues}`;
   overflow?: "overflow-visible" | "overflow-hidden";
-  paddingBottom?: `pb-${TSpacing}`;
-  paddingLeft?: `pl-${TSpacing}`;
-  paddingRight?: `pr-${TSpacing}`;
-  paddingTop?: `pt-${TSpacing}`;
+  paddingBottom?: `pb-${TSpacingValues}`;
+  paddingLeft?: `pl-${TSpacingValues}`;
+  paddingRight?: `pr-${TSpacingValues}`;
+  paddingTop?: `pt-${TSpacingValues}`;
   shouldShuffle?: boolean;
   shouldShuffleOnHover?: boolean;
   shuffleDelay?: number;
   shuffleInterval?: number;
   textAlign?: "text-left" | "text-center" | "text-right";
   textTransform?: "normal-case" | "lowercase" | "uppercase" | "capitalize";
-  width?: `w-${TSpacing}`;
+  width?: `w-${TSpacingValues}`;
 }

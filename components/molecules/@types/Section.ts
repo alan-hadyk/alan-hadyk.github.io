@@ -1,13 +1,14 @@
 import { ITextProps } from "components/atoms/@types/Text";
 import { ILayoutContainerProps } from "components/layout/@types/LayoutContainer";
-import { TChildren, TSpacing } from "types/props";
+import { TSpacingValues } from "types/theme";
+import { TChildren } from "types/props";
 
 export interface ISectionProps {
   children: TChildren;
   dataCy?: string;
   id: string;
   marginBottom?: ILayoutContainerProps["marginBottom"];
-  minHeight?: `min-h-${TSpacing}`;
+  minHeight?: `min-h-${TSpacingValues}`;
   title?: string;
 }
 

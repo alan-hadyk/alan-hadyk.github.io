@@ -1,10 +1,18 @@
-import { TSpacing } from "types/props";
+import { TSpacingValues } from "types/theme";
 
 export interface IImageProps {
   alt?: string;
   className?: string;
-  height?: `h-${TSpacing}` | `h-[${string}]` | `${number}%` | `${number}px`;
+  height?:
+    | `h-${TSpacingValues}`
+    | `h-[${string}]`
+    | `${number}%`
+    | `${number}px`;
   id?: string;
   src: string;
-  width?: `w-${TSpacing}` | `w-[${string}]` | `${number}%` | `${number}px`;
+  width?:
+    | `w-${TSpacingValues}`
+    | `w-[${string}]`
+    | `${number}%`
+    | `${number}px`;
 }

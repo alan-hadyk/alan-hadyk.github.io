@@ -1,9 +1,9 @@
-import { TColor } from "types/props";
+import { TColorValues } from "types/theme";
 
 export interface IButtonContainerProps {
-  backgroundColor?: `bg-${TColor}`;
+  backgroundColor?: `bg-${TColorValues}`;
   border?: "border-1 border-solid" | "border-none";
-  borderColor?: `border-${TColor}`;
+  borderColor?: `border-${TColorValues}`;
   height?: "h-40" | "h-48" | "h-56";
   width?: "w-auto" | "w-full";
 }

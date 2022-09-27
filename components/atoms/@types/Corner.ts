@@ -1,16 +1,18 @@
+import { TLeft, TTop } from "types/theme";
+
 export interface ICornerProps {
   isActive?: boolean;
   position: "topLeft" | "topRight" | "bottomLeft" | "bottomRight";
 }
 
 export interface ICornerContainerProps {
-  left: "left-0" | "left-full" | "left-[-8px]" | "left-[calc(100%-8px)]";
+  left: TLeft;
   opacity?: "opacity-50" | "opacity-100";
-  top: "top-0" | "top-full" | "top-[-8px]" | "top-[calc(100%-8px)]";
+  top: TTop;
   transform: "rotate-0" | "rotate-90" | "rotate-[270deg]" | "rotate-180";
 }
 
-export interface MapPositionToCornerProps {
+export interface IMapPositionToCornerProps {
   bottomLeft: ICornerContainerProps;
   bottomRight: ICornerContainerProps;
   topLeft: ICornerContainerProps;

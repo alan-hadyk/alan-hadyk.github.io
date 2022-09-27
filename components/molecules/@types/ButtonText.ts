@@ -1,15 +1,15 @@
-import { TFontFamily, TFontSize } from "types/props";
+import { TFontFamilyValues, TFontSizeValues } from "types/theme";
 
 export interface IButtonTextProps {
   buttonText: string;
-  fontFamily?: `font-${TFontFamily}`;
+  fontFamily?: `font-${TFontFamilyValues}`;
   hasMargin?: boolean;
   size: "small" | "medium" | "large";
   textTransform?: "normal-case" | "lowercase" | "uppercase" | "capitalize";
 }
 
 export interface ITextProps {
-  fontSize: `text-${TFontSize}`;
+  fontSize: `text-${TFontSizeValues}`;
 }
 
 export interface IMapSizeToButtonTextProps {

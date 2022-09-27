@@ -1,17 +1,19 @@
 import { FunctionComponent, SVGProps } from "react";
 
-import { TAnimationName, TColor, TDuration, TSpacing } from "types/props";
+import {
+  TAnimationNameValues,
+  TColorValues,
+  TTransitionDurationValues,
+  IThemeClasses,
+  TUtility
+} from "types/theme";
 
 export type SVGIcon = FunctionComponent<
   SVGProps<SVGSVGElement> & { title?: string }
 >;
 
 export interface IIconProps {
-  animation?: `childrenSvg:animate-${TAnimationName}`;
   className?: string;
-  fill?: `childrenPath:fill-${TColor}`;
-  glowAnimationTime?: `childrenSvg:duration-${TDuration}`;
-  height?: `h-${TSpacing}` | `h-[${string}]` | `${number}px`;
   iconName:
     | "apollo"
     | "brandAfterEffects"
@@ -109,11 +111,17 @@ export interface IIconProps {
   isHeightResponsive?: boolean;
   isInlineSvg?: boolean;
   isResponsive?: boolean;
-  overflow?: "overflow-hidden" | "overflow-visible";
   shouldDisplayGlowAnimation?: boolean;
   shouldGlow?: boolean;
   shouldGlowOnHover?: boolean;
-  width?: `w-${TSpacing}` | string | `w-[${string}]` | `${number}px`;
+  themeClasses?: Pick<IThemeClasses, "height" | "overflow" | "width"> & {
+    animation?: TUtility<"childrenSvg:animate", TAnimationNameValues>;
+    fill?: TUtility<"childrenPath:fill", TColorValues>;
+    glowAnimationTime?: TUtility<
+      "childrenSvg:duration",
+      TTransitionDurationValues
+    >;
+  };
 }
 
 export interface IconComponents {

@@ -52,11 +52,13 @@ const ConsoleTvDesktopAndTablet: React.FC = () => (
       </LayoutContainer>
 
       <ConsoleText
-        fontSize="text-[6vh]"
-        height="after:h-[6vh]"
-        lineHeight="leading-[7.4vh]"
-        transform="after:translate-y-[1vh]"
-        width="after:w-[3vh]"
+        themeClasses={{
+          fontSize: "text-[6vh]",
+          height: "after:h-[6vh]",
+          lineHeight: "leading-[7.4vh]",
+          transform: "after:translate-y-[1vh]",
+          width: "after:w-[3vh]"
+        }}
       />
     </LayoutContainer>
   </LayoutContainer>

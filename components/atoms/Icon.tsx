@@ -179,50 +179,56 @@ const _Icon: React.ForwardRefRenderFunction<
   IIconProps
 > = (
   {
-    animation = "childrenSvg:animate-glow-slow",
     className,
-    fill,
-    glowAnimationTime = "childrenSvg:duration-slow",
-    height = "h-auto",
     iconName,
     isActive = false,
     isHeightResponsive = false,
     isInlineSvg = false,
     isResponsive = false,
-    overflow = "overflow-visible",
     shouldDisplayGlowAnimation = false,
     shouldGlow = false,
     shouldGlowOnHover = false,
-    width = "w-auto"
+    themeClasses = {
+      animation: "childrenSvg:animate-glow-slow",
+      glowAnimationTime: "childrenSvg:duration-slow",
+      height: "h-auto",
+      overflow: "overflow-visible",
+      width: "w-auto"
+    }
   },
   ref
 ) => {
-  const commonClasses = trimTemplateLiteral(`
-    ${height.includes("h-") ? height : ""} 
-    ${width.includes("w-") ? width : ""} 
-    ${overflow}
-    ${className || ""}
-  `);
+  const sharedClassNames = [
+    themeClasses.height,
+    themeClasses.width,
+    themeClasses.overflow,
+    className
+  ].filter(Boolean);
+
+  const pictureClassNames = [
+    ...sharedClassNames,
+    "relative",
+    "my-0",
+    "mx-auto"
+  ];
+
+  const { height, width } = themeClasses || {};
+
+  const style = {
+    height: height && !height?.includes("h-") ? height : undefined,
+    width: width && !width.includes("w-") ? width : undefined
+  };
 
   if (iconName.includes("brand") && !isInlineSvg) {
     return (
-      <picture
-        className={trimTemplateLiteral(`
-          ${commonClasses}
-          relative
-          my-0 mx-auto
-        `)}
-      >
+      <picture className={pictureClassNames.join(" ")}>
         <img
           alt={iconName}
-          className={commonClasses}
+          className={sharedClassNames.join(" ")}
           data-cy={iconName}
           ref={ref as ForwardedRef<HTMLImageElement>}
           src={`/images/svg/${iconName}.svg`}
-          style={{
-            height: !height.includes("h-") ? height : undefined,
-            width: !width.includes("w-") ? width : undefined
-          }}
+          style={style}
         />
       </picture>
     );
@@ -234,7 +240,7 @@ const _Icon: React.ForwardRefRenderFunction<
   return (
     <div
       className={trimTemplateLiteral(`
-        ${commonClasses}
+        ${sharedClassNames.join(" ")}
         ${
           isResponsive || isHeightResponsive
             ? "childrenSvg:h-full"
@@ -246,14 +252,14 @@ const _Icon: React.ForwardRefRenderFunction<
             : "childrenSvg:w-auto"
         }
         ${isActive && "childrenMask:fill-blue300 childrenPath:fill-blue300"}
-        ${shouldDisplayGlowAnimation && animation}
+        ${shouldDisplayGlowAnimation && themeClasses.animation}
         ${shouldGlow && "childrenSvg:drop-shadow-lg"}
         ${
           shouldGlowOnHover &&
           `
           childrenSvg:transition-all 
           childrenSvg:ease-in-out
-          ${glowAnimationTime}
+          ${themeClasses.glowAnimationTime}
 
           childrenSvg:hover:drop-shadow-lg 
           childrenSvg:focus:drop-shadow-lg       
@@ -263,16 +269,12 @@ const _Icon: React.ForwardRefRenderFunction<
       `)}
       data-cy={iconName}
       ref={ref as ForwardedRef<HTMLDivElement>}
-      style={{
-        height: !height.includes("h-") ? height : undefined,
-        width: !width.includes("w-") ? width : undefined
-      }}
+      style={style}
     >
-      <IconComponent className={fill || ""} />
+      <IconComponent className={themeClasses.fill || ""} />
     </div>
   );
 };
-
 const Icon = forwardRef(_Icon);
 
 export { Icon, iconComponents, iconNames };

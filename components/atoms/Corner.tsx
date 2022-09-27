@@ -1,16 +1,13 @@
-import PropTypes from "prop-types";
-
 import {
   ICornerContainerProps,
   ICornerProps,
-  MapPositionToCornerProps
+  IMapPositionToCornerProps
 } from "components/atoms/@types/Corner";
-import { trimTemplateLiteral } from "helpers/strings/trimTemplateLiteral";
 import { convertObjectValuesToString } from "helpers/objects/convertObjectValuesToString";
 
 const mapPositionToCornerProps = (
   isActive: ICornerProps["isActive"]
-): MapPositionToCornerProps => ({
+): IMapPositionToCornerProps => ({
   bottomLeft: {
     left: isActive ? "left-[-8px]" : "left-0",
     top: isActive ? "top-full" : "top-[calc(100%-8px)]",
@@ -33,6 +30,20 @@ const mapPositionToCornerProps = (
   }
 });
 
+const DEFAULT_CLASS_NAMES = [
+  "border-l-thin",
+  "border-t-thin",
+  "border-solid",
+  "border-white",
+  "transform-gpu",
+  "h-8",
+  "w-8",
+  "absolute",
+  "transition-all",
+  "duration-fast",
+  "ease-in-out"
+];
+
 const Corner: React.FC<ICornerProps> = ({ isActive = false, position }) => {
   const opacity: ICornerContainerProps["opacity"] = isActive
     ? "opacity-100"
@@ -42,29 +53,13 @@ const Corner: React.FC<ICornerProps> = ({ isActive = false, position }) => {
     mapPositionToCornerProps(isActive)[position]
   );
 
-  return (
-    <div
-      className={trimTemplateLiteral(`
-        ${opacity} ${cornerClasses}
-        border-l-thin border-t-thin border-solid border-white
-        transform-gpu
-        h-8 w-8
-        absolute
-        transition-all duration-fast ease-in-out
-      `)}
-      data-cy="Corner"
-    />
-  );
-};
+  const classNames = [...DEFAULT_CLASS_NAMES, opacity];
 
-Corner.propTypes = {
-  isActive: PropTypes.bool,
-  position: PropTypes.oneOf<ICornerProps["position"]>([
-    "topLeft",
-    "topRight",
-    "bottomLeft",
-    "bottomRight"
-  ]).isRequired
+  Object.values(cornerClasses).forEach(
+    (cornerClass) => cornerClass && classNames.push(cornerClass)
+  );
+
+  return <div className={classNames.join(" ")} data-cy="Corner" />;
 };
 
 export { Corner };

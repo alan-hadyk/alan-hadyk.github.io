@@ -1,5 +1,6 @@
 import React from "react";
-import { TChildren, TSpacing, TZIndex } from "types/props";
+import { TSpacingValues, TZIndexValues } from "types/theme";
+import { TChildren } from "types/props";
 
 export type TLayoutContainerElementType =
   | HTMLDivElement
@@ -32,7 +33,7 @@ export interface ILayoutContainerProps {
     | "table"
     | "a"
     | "button";
-  bottom?: `bottom-${TSpacing}` | `bottom-[${string}]`;
+  bottom?: `bottom-${TSpacingValues}` | `bottom-[${string}]`;
   children?: TChildren;
   className?: string;
   dataCy?: string;
@@ -75,7 +76,7 @@ export interface ILayoutContainerProps {
     | "flex-col flex-nowrap"
     | "flex-col-reverse flex-nowrap";
   height?:
-    | `h-${TSpacing}`
+    | `h-${TSpacingValues}`
     | `h-[${string}]`
     | `${number}%`
     | `${number}px`
@@ -88,28 +89,28 @@ export interface ILayoutContainerProps {
     | "justify-between"
     | "justify-around"
     | "justify-evenly";
-  left?: `left-${TSpacing}`;
-  marginBottom?: `mb-${TSpacing}` | `mb-[${string}]`;
-  marginLeft?: `ml-${TSpacing}`;
-  marginRight?: `mr-${TSpacing}`;
-  marginTop?: `mt-${TSpacing}` | `mt-[${string}]`;
+  left?: `left-${TSpacingValues}`;
+  marginBottom?: `mb-${TSpacingValues}` | `mb-[${string}]`;
+  marginLeft?: `ml-${TSpacingValues}`;
+  marginRight?: `mr-${TSpacingValues}`;
+  marginTop?: `mt-${TSpacingValues}` | `mt-[${string}]`;
   name?: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
   order?: `order-${number}` | "order-first" | "order-last" | "order-none";
-  padding?: `p-${TSpacing}` | `p-[${string}]`;
-  paddingBottom?: `pb-${TSpacing}` | `pb-[${string}]`;
-  paddingLeft?: `pl-${TSpacing}` | `pl-[${string}]`;
-  paddingRight?: `pr-${TSpacing}` | `pr-[${string}]`;
-  paddingTop?: `pt-${TSpacing}` | `pt-[${string}]`;
+  padding?: `p-${TSpacingValues}` | `p-[${string}]`;
+  paddingBottom?: `pb-${TSpacingValues}` | `pb-[${string}]`;
+  paddingLeft?: `pl-${TSpacingValues}` | `pl-[${string}]`;
+  paddingRight?: `pr-${TSpacingValues}` | `pr-[${string}]`;
+  paddingTop?: `pt-${TSpacingValues}` | `pt-[${string}]`;
   position?: "static" | "relative" | "absolute" | "fixed" | "sticky";
-  right?: `right-${TSpacing}`;
+  right?: `right-${TSpacingValues}`;
   style?: React.CSSProperties;
-  top?: `top-${TSpacing}`;
+  top?: `top-${TSpacingValues}`;
   width?:
-    | `w-${TSpacing}`
+    | `w-${TSpacingValues}`
     | `w-[${string}]`
     | `${number}%`
     | `${number}px`
     | `${number}rem`;
-  zIndex?: `z-${TZIndex}`;
+  zIndex?: `z-${TZIndexValues}`;
 }
