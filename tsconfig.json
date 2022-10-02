@@ -46,5 +46,11 @@
     "target": "es5"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "legacyApp", "cypress", "cypressExamples"]
+  "exclude": [
+    "node_modules", 
+    "legacyApp", 
+    "cypress", 
+    "cypressExamples", 
+    "cypress.config.ts"
+  ]
 }

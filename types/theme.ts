@@ -67,7 +67,10 @@ export type TBgColor = TUtilityWithArbitraryValues<"bg", TColorValues>;
 export type TFill = TUtility<"fill", TColorValues>;
 
 export type TTextColor = TUtility<"text", TColorValues>;
-export type TTextFontSize = TUtility<"text", TFontSizeValues>;
+export type TTextFontSize = TUtilityWithArbitraryValues<
+  "text",
+  TFontSizeValues
+>;
 export type TTextFontFamily = TUtility<"font", TFontFamilyValues>;
 export type TTextFontWeight = TUtility<"font", TFontWeightValues>;
 export type TTextAlign =

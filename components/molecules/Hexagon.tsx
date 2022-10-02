@@ -6,7 +6,7 @@ import { isIE11 } from "helpers/browser/isIE11";
 
 import {
   IHexagonProps,
-  IIconDimensionsProps
+  TIconDimensionsProps
 } from "components/molecules/@types/Hexagon";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 
@@ -16,7 +16,7 @@ const Hexagon: React.FC<IHexagonProps> = ({
   dataCy,
   fill = "none"
 }) => {
-  const [iconDimensions, setIconDimensions] = useState<IIconDimensionsProps>({
+  const [iconDimensions, setIconDimensions] = useState<TIconDimensionsProps>({
     height: undefined,
     width: undefined
   });

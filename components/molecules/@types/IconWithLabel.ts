@@ -1,6 +1,7 @@
 import { IIconProps } from "components/atoms/@types/Icon";
 import { ITextProps } from "components/atoms/@types/Text";
 import { ILinkProps } from "components/molecules/@types/Link";
+import { IThemeClasses } from "types/theme";
 
 export interface IIconWithLabelProps {
   href?: ILinkProps["href"];
@@ -12,9 +13,9 @@ export interface IIconWithLabelProps {
 }
 
 export interface IMapSizeToIconHeight {
-  large: IIconProps["height"];
-  medium: IIconProps["height"];
-  small: IIconProps["height"];
+  large: IThemeClasses["height"];
+  medium: IThemeClasses["height"];
+  small: IThemeClasses["height"];
 }
 
 export interface IMapSizeToTextFontSize {

@@ -1,6 +1,6 @@
-import { IIconProps } from "components/atoms/@types/Icon";
 import { ILayoutContainerProps } from "components/layout/@types/LayoutContainer";
 import { TChildren } from "types/props";
+import { IThemeClasses } from "types/theme";
 
 export interface IHexagonProps {
   children?: TChildren;
@@ -9,7 +9,4 @@ export interface IHexagonProps {
   fill?: "none" | "solid" | "pattern";
 }
 
-export interface IIconDimensionsProps {
-  height?: IIconProps["height"];
-  width?: IIconProps["width"];
-}
+export type TIconDimensionsProps = Pick<IThemeClasses, "height" | "width">;
