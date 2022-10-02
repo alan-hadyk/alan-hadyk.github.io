@@ -1,6 +1,4 @@
-import PropTypes from "prop-types";
-
-import { Icon, iconNames } from "components/atoms/Icon";
+import { Icon } from "components/atoms/Icon";
 import { Text } from "components/atoms/Text";
 import {
   mapSizeToIconHeight,
@@ -10,7 +8,6 @@ import {
 import { IVerticalIconsWithLabelsProps } from "components/molecules/@types/VerticalIconsWithLabels";
 import { IIconWithLabelProps } from "components/molecules/@types/IconWithLabel";
 import { LayoutContainer } from "components/layout/LayoutContainer";
-import { colorPropType } from "helpers/propTypes/color";
 
 const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
   iconsWithLabels,
@@ -38,7 +35,12 @@ const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
             key={iconName + index}
             marginBottom="mb-12"
           >
-            <Icon height={mapSizeToIconHeight[size]} iconName={iconName} />
+            <Icon
+              themeClasses={{
+                height: mapSizeToIconHeight[size]
+              }}
+              iconName={iconName}
+            />
           </LayoutContainer>
         )
       )}
@@ -68,16 +70,5 @@ const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
     </LayoutContainer>
   </LayoutContainer>
 );
-
-VerticalIconsWithLabels.propTypes = {
-  iconsWithLabels: PropTypes.arrayOf(
-    PropTypes.shape({
-      iconName: PropTypes.oneOf(iconNames).isRequired,
-      label: PropTypes.string.isRequired
-    }).isRequired
-  ).isRequired,
-  labelColor: colorPropType("text"),
-  size: PropTypes.oneOf(["small", "medium", "large"])
-};
 
 export { VerticalIconsWithLabels };

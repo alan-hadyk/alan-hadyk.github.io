@@ -1,7 +1,4 @@
-import PropTypes from "prop-types";
-
 import { IImageProps } from "components/atoms/@types/Image";
-import { spacingPropType } from "helpers/propTypes/spacing";
 
 const Image: React.FC<IImageProps> = ({
   alt,
@@ -29,14 +26,5 @@ const Image: React.FC<IImageProps> = ({
     />
   </picture>
 );
-
-Image.propTypes = {
-  alt: PropTypes.string,
-  className: PropTypes.string,
-  height: spacingPropType("h"),
-  id: PropTypes.string,
-  src: PropTypes.string.isRequired,
-  width: spacingPropType("w")
-};
 
 export { Image };

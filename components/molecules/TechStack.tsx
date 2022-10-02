@@ -1,12 +1,8 @@
-import PropTypes from "prop-types";
-
 import { Text } from "components/atoms/Text";
-import { iconNames } from "components/atoms/Icon";
 import { IconsWithLabels } from "components/molecules/IconsWithLabels";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 
 import { ITechStackProps } from "components/molecules/@types/TechStack";
-import { colorPropType } from "helpers/propTypes/color";
 
 const TechStack: React.FC<ITechStackProps> = ({ iconsWithLabels }) => (
   <LayoutContainer dataCy="CompanyTechStack" marginBottom="mb-16">
@@ -29,20 +25,5 @@ const TechStack: React.FC<ITechStackProps> = ({ iconsWithLabels }) => (
     </LayoutContainer>
   </LayoutContainer>
 );
-
-TechStack.propTypes = {
-  iconsWithLabels: PropTypes.arrayOf(
-    PropTypes.shape({
-      iconName: PropTypes.oneOf(iconNames).isRequired,
-      label: PropTypes.string.isRequired,
-      labelColor: colorPropType("text"),
-      size: PropTypes.oneOf<"small" | "medium" | "large">([
-        "small",
-        "medium",
-        "large"
-      ])
-    }).isRequired
-  ).isRequired
-};
 
 export { TechStack };

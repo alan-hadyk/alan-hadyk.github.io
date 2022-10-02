@@ -12,10 +12,12 @@ const Earth: React.FC = () => (
       justifyContent="justify-center"
     >
       <Icon
-        height={isSafari() ? "h-[18vh]" : "h-100%"}
         iconName="earth"
         isResponsive
-        width={isSafari() ? "w-[18vh]" : "w-100%"}
+        themeClasses={{
+          height: isSafari() ? "h-[18vh]" : "h-100%",
+          width: isSafari() ? "w-[18vh]" : "w-100%"
+        }}
       />
     </LayoutContainer>
   </LayoutContainer>

@@ -33,10 +33,12 @@ const AnimatedIcons: React.FC = () => (
             width={`${Number(Number(100 / animatedIcons.length).toFixed(2))}%`}
           >
             <Icon
-              height={isSafari() ? "h-[8vh]" : "h-100%"}
+              themeClasses={{
+                height: isSafari() ? "h-[8vh]" : "h-100%",
+                width: isSafari() ? "w-[8vh]" : "w-100%"
+              }}
               iconName={icon}
               isResponsive
-              width={isSafari() ? "w-[8vh]" : "w-100%"}
             />
           </LayoutContainer>
         )

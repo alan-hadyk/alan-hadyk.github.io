@@ -1,7 +1,6 @@
 import { Timeline } from "components/molecules/Timeline";
 import { ICompanyTimelineProps } from "components/molecules/@types/CompanyTimeline";
 import { LayoutContainer } from "components/layout/LayoutContainer";
-import { spacingPropType } from "helpers/propTypes/spacing";
 
 const CompanyTimeline: React.FC<ICompanyTimelineProps> = ({
   timelineBottom = "bottom-[-2rem]"
@@ -16,9 +15,5 @@ const CompanyTimeline: React.FC<ICompanyTimelineProps> = ({
     <Timeline />
   </LayoutContainer>
 );
-
-CompanyTimeline.propTypes = {
-  timelineBottom: spacingPropType("bottom")
-};
 
 export { CompanyTimeline };

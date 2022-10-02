@@ -1,6 +1,3 @@
-import PropTypes from "prop-types";
-
-import { iconNames } from "components/atoms/Icon";
 import { IconWithLabel } from "components/molecules/IconWithLabel";
 import { VerticalIconsWithLabels } from "components/molecules/VerticalIconsWithLabels";
 
@@ -11,7 +8,6 @@ import {
 } from "components/molecules/@types/IconsWithLabels";
 import { ILayoutContainerProps } from "components/layout/@types/LayoutContainer";
 import { LayoutContainer } from "components/layout/LayoutContainer";
-import { colorPropType } from "helpers/propTypes/color";
 
 const mapSizeToFlexContainerGap: IMapSizeToFlexContainerGap = {
   horizontal: {
@@ -79,18 +75,6 @@ const IconsWithLabels: React.FC<IIconsWithLabelsProps> = ({
       )}
     </LayoutContainer>
   );
-};
-
-IconsWithLabels.propTypes = {
-  iconsWithLabels: PropTypes.arrayOf(
-    PropTypes.shape({
-      iconName: PropTypes.oneOf(iconNames).isRequired,
-      label: PropTypes.string.isRequired
-    }).isRequired
-  ).isRequired,
-  labelColor: colorPropType("text"),
-  position: PropTypes.oneOf(["vertical", "horizontal"]),
-  size: PropTypes.oneOf(["small", "medium", "large"])
 };
 
 export { IconsWithLabels };

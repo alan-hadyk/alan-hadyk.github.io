@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import PropTypes from "prop-types";
 
 import { Text } from "components/atoms/Text";
 import { Responsive } from "components/layout/Responsive";
@@ -11,10 +10,7 @@ import {
   ISectionProps
 } from "components/molecules/@types/Section";
 import { LayoutContainer } from "components/layout/LayoutContainer";
-import { spacingPropType } from "helpers/propTypes/spacing";
-import { childrenPropTypes } from "helpers/propTypes/children";
 import { Device } from "components/layout/@types/Responsive";
-import { minHeightPropType } from "helpers/propTypes/minHeight";
 
 const Section: React.FC<ISectionProps> = ({
   children,
@@ -75,15 +71,6 @@ const Section: React.FC<ISectionProps> = ({
       <Fragment>{children}</Fragment>
     </LayoutContainer>
   );
-};
-
-Section.propTypes = {
-  children: childrenPropTypes.isRequired,
-  dataCy: PropTypes.string,
-  id: PropTypes.string.isRequired,
-  marginBottom: spacingPropType("mb"),
-  minHeight: minHeightPropType,
-  title: PropTypes.string
 };
 
 export { Section };

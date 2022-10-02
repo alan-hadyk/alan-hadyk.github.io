@@ -1,12 +1,8 @@
-import PropTypes from "prop-types";
-
 import { ListItem } from "components/atoms/ListItem";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 
 import { IUnorderedListProps } from "components/molecules/@types/UnorderedList";
 import { IListItemProps } from "components/atoms/@types/ListItem";
-import { childrenPropTypes } from "helpers/propTypes/children";
-import { TChildren } from "types/props";
 
 const UnorderedList: React.FC<IUnorderedListProps> = ({ items }) => (
   <LayoutContainer
@@ -35,10 +31,5 @@ const UnorderedList: React.FC<IUnorderedListProps> = ({ items }) => (
     )}
   </LayoutContainer>
 );
-
-UnorderedList.propTypes = {
-  items: PropTypes.arrayOf<TChildren | undefined | null>(childrenPropTypes)
-    .isRequired
-};
 
 export { UnorderedList };

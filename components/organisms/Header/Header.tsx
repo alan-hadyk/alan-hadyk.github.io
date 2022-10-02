@@ -12,7 +12,6 @@ import { Responsive } from "components/layout/Responsive";
 import { useResize } from "hooks/useResize";
 
 import { IHeaderProps } from "components/organisms/Header/@types/Header";
-import { zIndexPropTypes } from "helpers/propTypes/zIndex";
 import { Device } from "components/layout/@types/Responsive";
 
 const downloadCV = () => {
@@ -110,10 +109,6 @@ const Header: React.FC<IHeaderProps> = ({ zIndex = "z-100" }) => {
       </LayoutContainer>
     </LayoutContainer>
   );
-};
-
-Header.propTypes = {
-  zIndex: zIndexPropTypes
 };
 
 export { Header, downloadCV };

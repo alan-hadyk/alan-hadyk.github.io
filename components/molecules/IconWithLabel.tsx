@@ -1,6 +1,4 @@
-import PropTypes from "prop-types";
-
-import { Icon, iconNames } from "components/atoms/Icon";
+import { Icon } from "components/atoms/Icon";
 import { Text } from "components/atoms/Text";
 
 import {
@@ -8,8 +6,6 @@ import {
   IMapSizeToIconHeight,
   IMapSizeToTextFontSize
 } from "components/molecules/@types/IconWithLabel";
-
-import { colorPropType } from "helpers/propTypes/color";
 
 import { isIE11 } from "helpers/browser/isIE11";
 import { LayoutContainer } from "components/layout/LayoutContainer";
@@ -64,10 +60,12 @@ const IconWithLabel: React.FC<IIconWithLabelProps> = ({
           `
               : ""
           }
-          height={mapSizeToIconHeight[size as "small" | "medium" | "large"]}
+          themeClasses={{
+            height: mapSizeToIconHeight[size as "small" | "medium" | "large"],
+            width: isIE11() ? "w-32" : "w-auto"
+          }}
           iconName={iconName}
           isHeightResponsive
-          width={isIE11() ? "w-32" : "w-auto"}
         />
       </LayoutContainer>
       <Text
@@ -98,15 +96,6 @@ const IconWithLabel: React.FC<IIconWithLabelProps> = ({
   ) : (
     renderContent()
   );
-};
-
-IconWithLabel.propTypes = {
-  href: PropTypes.string,
-  iconName: PropTypes.oneOf(iconNames).isRequired,
-  isExternal: PropTypes.bool,
-  label: PropTypes.string.isRequired,
-  labelColor: colorPropType("text"),
-  size: PropTypes.oneOf(["small", "medium", "large"])
 };
 
 export { IconWithLabel, mapSizeToIconHeight, mapSizeToTextFontSize };

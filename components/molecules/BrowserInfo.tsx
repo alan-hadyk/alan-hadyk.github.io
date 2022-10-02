@@ -66,14 +66,18 @@ const BrowserInfo: React.FC = () => {
                 paddingTop="pt-[4.8%]"
               >
                 <Icon
-                  animation="childrenSvg:animate-glow-verySlow"
-                  height={isSafari() ? "h-[4vh]" : "h-[100%]"}
+                  themeClasses={{
+                    animation: "childrenSvg:animate-glow-verySlow",
+                    height: isSafari() ? "h-[4vh]" : "h-[100%]",
+                    overflow: isSafari()
+                      ? "overflow-hidden"
+                      : "overflow-visible",
+                    width: isSafari() ? "4vh" : "100%"
+                  }}
                   iconName={icon}
                   isActive={isActive || isUnknown}
                   isResponsive
-                  overflow={isSafari() ? "overflow-hidden" : "overflow-visible"}
                   shouldDisplayGlowAnimation={isActive || isUnknown}
-                  width={isSafari() ? "4vh" : "100%"}
                 />
               </LayoutContainer>
             );

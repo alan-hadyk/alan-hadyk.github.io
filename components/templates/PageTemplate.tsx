@@ -1,7 +1,5 @@
-import { childrenPropTypes } from "helpers/propTypes/children";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 import { IPageTemplateProps } from "components/templates/@types/PageTemplate";
-import PropTypes from "prop-types";
 
 const PageTemplate: React.FC<IPageTemplateProps> = ({ as, children }) => (
   <LayoutContainer
@@ -19,21 +17,5 @@ const PageTemplate: React.FC<IPageTemplateProps> = ({ as, children }) => (
     {children}
   </LayoutContainer>
 );
-
-PageTemplate.propTypes = {
-  as: PropTypes.oneOf([
-    "div",
-    "main",
-    "section",
-    "article",
-    "header",
-    "footer",
-    "nav",
-    "form",
-    "table",
-    "a"
-  ]),
-  children: childrenPropTypes.isRequired
-};
 
 export { PageTemplate };

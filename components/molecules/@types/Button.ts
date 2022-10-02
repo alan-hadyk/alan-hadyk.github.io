@@ -1,4 +1,4 @@
-import { TColorValues } from "types/theme";
+import { IThemeClasses, TColorValues } from "types/theme";
 
 export interface IButtonContainerProps {
   backgroundColor?: `bg-${TColorValues}`;
@@ -17,7 +17,7 @@ export interface IButtonProps {
   buttonText: string;
   dataCy?: string;
   iconName?: "btnCodeSandbox" | "btnDownload" | "btnExternalLink";
-  iconWidth?: string;
+  iconWidth?: IThemeClasses["width"];
   onClick?: () => void;
   size?: "small" | "medium" | "large";
   tabIndex?: number;

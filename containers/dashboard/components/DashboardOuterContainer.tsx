@@ -1,6 +1,5 @@
 import { IDashboardOuterContainerProps } from "containers/dashboard/components/@types/DashboardOuterContainer";
 import { LayoutContainer } from "components/layout/LayoutContainer";
-import { childrenPropTypes } from "helpers/propTypes/children";
 
 const DashboardOuterContainer: React.FC<IDashboardOuterContainerProps> = ({
   children
@@ -19,9 +18,5 @@ const DashboardOuterContainer: React.FC<IDashboardOuterContainerProps> = ({
     </LayoutContainer>
   </LayoutContainer>
 );
-
-DashboardOuterContainer.propTypes = {
-  children: childrenPropTypes.isRequired
-};
 
 export { DashboardOuterContainer };

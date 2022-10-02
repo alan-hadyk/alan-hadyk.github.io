@@ -1,10 +1,7 @@
-import PropTypes from "prop-types";
-
 import { Text } from "components/atoms/Text";
 import { Hexagon } from "components/molecules/Hexagon";
 
 import { IHexagonWithDescriptionContentProps } from "components/molecules/@types/HexagonWithDescriptionContent";
-import { spacingPropType } from "helpers/propTypes/spacing";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 
 const HexagonWithDescriptionContent: React.FC<
@@ -39,29 +36,5 @@ const HexagonWithDescriptionContent: React.FC<
     </Text>
   </LayoutContainer>
 );
-
-HexagonWithDescriptionContent.propTypes = {
-  children: PropTypes.any.isRequired,
-  description: PropTypes.any.isRequired,
-  flexFlow: PropTypes.oneOf([
-    "flex-row flex-wrap",
-    "flex-row-reverse flex-wrap",
-    "flex-col flex-wrap",
-    "flex-col-reverse flex-wrap",
-    "flex-row flex-wrap-reverse",
-    "flex-row-reverse flex-wrap-reverse",
-    "flex-col flex-wrap-reverse",
-    "flex-col-reverse flex-wrap-reverse",
-    "flex-row flex-nowrap",
-    "flex-row-reverse flex-nowrap",
-    "flex-col flex-nowrap",
-    "flex-col-reverse flex-nowrap"
-  ]),
-  lineHeight: spacingPropType("leading"),
-  marginBottom: spacingPropType("mb"),
-  marginRight: spacingPropType("mr"),
-  textWidth: spacingPropType("w"),
-  width: spacingPropType("w")
-};
 
 export { HexagonWithDescriptionContent };

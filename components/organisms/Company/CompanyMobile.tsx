@@ -1,6 +1,3 @@
-import PropTypes from "prop-types";
-
-import { iconNames } from "components/atoms/Icon";
 import { Text } from "components/atoms/Text";
 import { CompanyDescription } from "components/organisms/CompanyDescription";
 import { Responsive } from "components/layout/Responsive";
@@ -9,7 +6,6 @@ import { isIE11 } from "helpers/browser/isIE11";
 
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
 import { Device } from "components/layout/@types/Responsive";
-import { spacingPropType } from "helpers/propTypes/spacing";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 
 const CompanyMobile: React.FC<ICompanyProps> = ({
@@ -51,26 +47,5 @@ const CompanyMobile: React.FC<ICompanyProps> = ({
     </LayoutContainer>
   </Responsive>
 );
-
-CompanyMobile.propTypes = {
-  date: PropTypes.string.isRequired,
-  iconsWithLabels: PropTypes.arrayOf(
-    PropTypes.shape({
-      iconName: PropTypes.oneOf(iconNames).isRequired,
-      label: PropTypes.string.isRequired
-    }).isRequired
-  ).isRequired,
-  link: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  responsibilities: PropTypes.arrayOf(
-    PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node,
-      PropTypes.string
-    ])
-  ).isRequired,
-  responsibilitiesPaddingBottom: spacingPropType("pb"),
-  title: PropTypes.string.isRequired
-};
 
 export { CompanyMobile };

@@ -12,12 +12,14 @@ const NextLogo: React.FC = () => (
       justifyContent="justify-center"
     >
       <Icon
-        fill="childrenPath:fill-blue300"
-        height={isSafari() ? "h-[18vh]" : "h-100%"}
+        themeClasses={{
+          fill: "childrenPath:fill-blue300",
+          height: isSafari() ? "h-[18vh]" : "h-100%",
+          width: isSafari() ? "w-[18vh]" : "w-[100%]"
+        }}
         iconName="brandNext"
         isInlineSvg
         isResponsive
-        width={isSafari() ? "w-[18vh]" : "w-[100%]"}
       />
     </LayoutContainer>
   </LayoutContainer>

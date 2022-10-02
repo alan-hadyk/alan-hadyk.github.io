@@ -174,6 +174,14 @@ const iconNames: IIconProps["iconName"][] = [
   "webpack"
 ];
 
+const defaultThemeClasses: IIconProps["themeClasses"] = {
+  animation: "childrenSvg:animate-glow-slow",
+  glowAnimationTime: "childrenSvg:duration-slow",
+  height: "h-full",
+  overflow: "overflow-visible",
+  width: "w-auto"
+};
+
 const _Icon: React.ForwardRefRenderFunction<
   HTMLDivElement | HTMLImageElement,
   IIconProps
@@ -188,20 +196,19 @@ const _Icon: React.ForwardRefRenderFunction<
     shouldDisplayGlowAnimation = false,
     shouldGlow = false,
     shouldGlowOnHover = false,
-    themeClasses = {
-      animation: "childrenSvg:animate-glow-slow",
-      glowAnimationTime: "childrenSvg:duration-slow",
-      height: "h-auto",
-      overflow: "overflow-visible",
-      width: "w-auto"
-    }
+    themeClasses
   },
   ref
 ) => {
+  const iconThemeClasses = {
+    ...defaultThemeClasses,
+    ...themeClasses
+  };
+
   const sharedClassNames = [
-    themeClasses.height,
-    themeClasses.width,
-    themeClasses.overflow,
+    iconThemeClasses.height,
+    iconThemeClasses.width,
+    iconThemeClasses.overflow,
     className
   ].filter(Boolean);
 
@@ -219,7 +226,7 @@ const _Icon: React.ForwardRefRenderFunction<
     width: width && !width.includes("w-") ? width : undefined
   };
 
-  if (iconName.includes("brand") && !isInlineSvg) {
+  if (!Object.keys(iconComponents).includes(iconName) && !isInlineSvg) {
     return (
       <picture className={pictureClassNames.join(" ")}>
         <img
@@ -252,14 +259,14 @@ const _Icon: React.ForwardRefRenderFunction<
             : "childrenSvg:w-auto"
         }
         ${isActive && "childrenMask:fill-blue300 childrenPath:fill-blue300"}
-        ${shouldDisplayGlowAnimation && themeClasses.animation}
+        ${shouldDisplayGlowAnimation && iconThemeClasses.animation}
         ${shouldGlow && "childrenSvg:drop-shadow-lg"}
         ${
           shouldGlowOnHover &&
           `
           childrenSvg:transition-all 
           childrenSvg:ease-in-out
-          ${themeClasses.glowAnimationTime}
+          ${iconThemeClasses.glowAnimationTime}
 
           childrenSvg:hover:drop-shadow-lg 
           childrenSvg:focus:drop-shadow-lg       
@@ -271,7 +278,7 @@ const _Icon: React.ForwardRefRenderFunction<
       ref={ref as ForwardedRef<HTMLDivElement>}
       style={style}
     >
-      <IconComponent className={themeClasses.fill || ""} />
+      <IconComponent className={iconThemeClasses.fill || ""} />
     </div>
   );
 };

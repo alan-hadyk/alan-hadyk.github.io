@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import { Text } from "components/atoms/Text";
 import { Corners } from "components/molecules/Corners";
@@ -7,9 +6,6 @@ import { Corners } from "components/molecules/Corners";
 import { IDashboardElementProps } from "components/molecules/@types/DashboardElement";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 import { ILayoutContainerProps } from "components/layout/@types/LayoutContainer";
-import { childrenPropTypes } from "helpers/propTypes/children";
-import { flexPropType } from "helpers/propTypes/flex";
-import { orderPropType } from "helpers/propTypes/order";
 
 const DashboardElement: React.FC<IDashboardElementProps> = ({
   alignSelf = "self-auto",
@@ -108,28 +104,6 @@ const DashboardElement: React.FC<IDashboardElementProps> = ({
       </LayoutContainer>
     </LayoutContainer>
   );
-};
-
-DashboardElement.propTypes = {
-  alignSelf: PropTypes.oneOf([
-    "self-auto",
-    "self-start",
-    "self-end",
-    "self-center",
-    "self-stretch",
-    "self-baseline"
-  ]),
-  children: childrenPropTypes,
-  dataCy: PropTypes.string,
-  description: PropTypes.string,
-  flex: flexPropType,
-  order: orderPropType,
-  overflow: PropTypes.oneOf(["overflow-visible", "overflow-hidden"]),
-  shouldDisplayBorder: PropTypes.bool,
-  shouldDisplayCorners: PropTypes.bool,
-  title: PropTypes.string,
-  titleFontSize: PropTypes.oneOf(["text-16", "text-28"]),
-  titleOverflow: PropTypes.oneOf(["overflow-visible", "overflow-hidden"])
 };
 
 export { DashboardElement };

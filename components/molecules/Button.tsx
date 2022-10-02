@@ -179,10 +179,12 @@ const Button: React.FC<IButtonProps> = ({
             />
             {iconName && (
               <Icon
-                height={size === "small" ? "h-12" : "h-24"}
+                themeClasses={{
+                  height: size === "small" ? "h-12" : "h-24",
+                  width: iconWidth
+                }}
                 iconName={iconName}
                 isHeightResponsive
-                width={iconWidth}
               />
             )}
           </LayoutContainer>

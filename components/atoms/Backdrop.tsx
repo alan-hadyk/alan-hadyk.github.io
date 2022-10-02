@@ -1,18 +1,20 @@
 import { IBackdropProps } from "components/atoms/@types/Backdrop";
+import { IThemeClasses } from "types/theme";
+import { convertObjectValuesToString } from "helpers/objects/convertObjectValuesToString";
 
-const DEFAULT_CLASS_NAMES = [
-  "bottom-0",
-  "left-0",
-  "right-0",
-  "top-0",
-  "fixed",
-  "cursor-pointer",
-  "z-900"
-];
+const defaultThemeClasses: IThemeClasses = {
+  bottom: "bottom-0",
+  cursor: "cursor-pointer",
+  left: "left-0",
+  position: "fixed",
+  right: "right-0",
+  top: "top-0",
+  zIndex: "z-900"
+};
 
 const Backdrop: React.FC<IBackdropProps> = ({ onClick }) => (
   <div
-    className={DEFAULT_CLASS_NAMES.join(" ")}
+    className={convertObjectValuesToString(defaultThemeClasses)}
     data-cy="Backdrop"
     onClick={onClick}
   />

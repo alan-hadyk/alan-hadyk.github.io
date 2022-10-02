@@ -1,10 +1,8 @@
 import NextLink from "next/link";
-import PropTypes from "prop-types";
 
 import { Line } from "components/atoms/Line";
 import { ILinkProps } from "components/molecules/@types/Link";
 import { LayoutContainer } from "components/layout/LayoutContainer";
-import { spacingPropType } from "helpers/propTypes/spacing";
 import { LineDirection } from "components/atoms/@types/Line";
 import { trimTemplateLiteral } from "helpers/strings/trimTemplateLiteral";
 
@@ -65,35 +63,6 @@ const Link: React.FC<ILinkProps> = ({
       <a {...props}>{renderChildren()}</a>
     </NextLink>
   );
-};
-
-Link.propTypes = {
-  alignItems: PropTypes.oneOf([
-    "items-start",
-    "items-end",
-    "items-center",
-    "items-baseline",
-    "items-stretch"
-  ]),
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired,
-  dataCy: PropTypes.string,
-  display: PropTypes.oneOf(["block", "inline"]),
-  height: spacingPropType("h"),
-  href: PropTypes.string.isRequired,
-  isExternal: PropTypes.bool,
-  isHoverable: PropTypes.bool,
-  justifyContent: PropTypes.oneOf([
-    "justify-start",
-    "justify-end",
-    "justify-center",
-    "justify-between",
-    "justify-around",
-    "justify-evenly"
-  ]),
-  width: spacingPropType("w")
 };
 
 export { Link };

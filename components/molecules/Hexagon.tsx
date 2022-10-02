@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from "react";
-import PropTypes from "prop-types";
 
 import { Icon } from "components/atoms/Icon";
 
@@ -9,9 +8,7 @@ import {
   IHexagonProps,
   IIconDimensionsProps
 } from "components/molecules/@types/Hexagon";
-import { childrenPropTypes } from "helpers/propTypes/children";
 import { LayoutContainer } from "components/layout/LayoutContainer";
-import { spacingPropType } from "helpers/propTypes/spacing";
 
 const Hexagon: React.FC<IHexagonProps> = ({
   children,
@@ -49,7 +46,9 @@ const Hexagon: React.FC<IHexagonProps> = ({
 
       {fill === "solid" && (
         <Icon
-          height={isIE11() ? "h-16" : "h-auto"}
+          themeClasses={{
+            height: isIE11() ? "h-16" : "h-auto"
+          }}
           iconName="hexagon"
           isActive
           shouldGlow
@@ -58,11 +57,13 @@ const Hexagon: React.FC<IHexagonProps> = ({
 
       {fill === "none" && (
         <Icon
-          height={iconDimensions.height}
+          themeClasses={{
+            height: iconDimensions.height,
+            width: iconDimensions.width
+          }}
           iconName="hexagon"
           ref={iconRef}
           shouldGlow
-          width={iconDimensions.width}
         />
       )}
 
@@ -90,12 +91,6 @@ const Hexagon: React.FC<IHexagonProps> = ({
       )}
     </LayoutContainer>
   );
-};
-Hexagon.propTypes = {
-  children: childrenPropTypes,
-  contentWidth: spacingPropType("w"),
-  dataCy: PropTypes.string,
-  fill: PropTypes.oneOf(["none", "solid", "pattern"])
 };
 
 export { Hexagon };

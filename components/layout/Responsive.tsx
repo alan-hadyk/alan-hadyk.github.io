@@ -1,9 +1,5 @@
-import PropTypes from "prop-types";
-
 import { Device, IResponsiveProps } from "components/layout/@types/Responsive";
 import { LayoutContainer } from "components/layout/LayoutContainer";
-import { spacingPropType } from "helpers/propTypes/spacing";
-import { childrenPropTypes } from "helpers/propTypes/children";
 
 const Responsive: React.FC<IResponsiveProps> = ({
   children,
@@ -27,16 +23,5 @@ const Responsive: React.FC<IResponsiveProps> = ({
     {children}
   </LayoutContainer>
 );
-
-Responsive.propTypes = {
-  children: childrenPropTypes.isRequired,
-  dataCy: PropTypes.string,
-  devices: PropTypes.arrayOf(
-    PropTypes.oneOf([Device.TV, Device.DESKTOP, Device.TABLET, Device.MOBILE])
-      .isRequired
-  ).isRequired,
-  height: spacingPropType("h"),
-  width: spacingPropType("w")
-};
 
 export { Responsive };

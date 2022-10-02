@@ -1,7 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-import { iconNames } from "components/atoms/Icon";
 import { Text } from "components/atoms/Text";
 import { CompanyDescription } from "components/organisms/CompanyDescription";
 import { CompanyTimeline } from "components/molecules/CompanyTimeline";
@@ -10,7 +8,6 @@ import { Responsive } from "components/layout/Responsive";
 import { isIE11 } from "helpers/browser/isIE11";
 
 import { LayoutContainer } from "components/layout/LayoutContainer";
-import { spacingPropType } from "helpers/propTypes/spacing";
 
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
 import { Device } from "components/layout/@types/Responsive";
@@ -89,26 +86,5 @@ const CompanyTvDesktopAndTablet: React.FC<ICompanyProps> = ({
     </LayoutContainer>
   </Responsive>
 );
-
-CompanyTvDesktopAndTablet.propTypes = {
-  date: PropTypes.string.isRequired,
-  iconsWithLabels: PropTypes.arrayOf(
-    PropTypes.shape({
-      iconName: PropTypes.oneOf(iconNames).isRequired,
-      label: PropTypes.string.isRequired
-    }).isRequired
-  ).isRequired,
-  link: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  responsibilities: PropTypes.arrayOf(
-    PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node,
-      PropTypes.string
-    ])
-  ).isRequired,
-  timelineBottom: spacingPropType("bottom"),
-  title: PropTypes.string.isRequired
-};
 
 export { CompanyTvDesktopAndTablet };
