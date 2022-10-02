@@ -3,7 +3,6 @@ import { DashboardElement } from "components/molecules/DashboardElement";
 
 import { ISkillsItemProps } from "components/molecules/@types/SkillsItem";
 import { LayoutContainer } from "components/layout/LayoutContainer";
-import { iconNames } from "components/atoms/Icon";
 
 const SkillsItem: React.FC<ISkillsItemProps> = ({ iconsWithLabels, title }) => {
   const dataCyTitle = title.replace(/\s/g, "").replace("/", "");
