@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 
 import { NavItem } from "components/molecules/NavItem";
 
@@ -65,10 +64,6 @@ const Nav: React.FC<INavProps> = ({ position = "horizontal" }) => {
       )}
     </LayoutContainer>
   );
-};
-
-Nav.propTypes = {
-  position: PropTypes.oneOf(["horizontal", "vertical"])
 };
 
 export { Nav };

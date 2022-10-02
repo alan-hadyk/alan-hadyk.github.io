@@ -2,12 +2,12 @@ import { IIconWithLabelProps } from "components/molecules/@types/IconWithLabel";
 
 const iconsWithLabels: IIconWithLabelProps[] = [
   {
-    iconName: "brandGraphQL",
-    label: "GraphQL"
+    iconName: "brandAxios",
+    label: "Axios"
   },
   {
-    iconName: "brandApollo",
-    label: "Apollo"
+    iconName: "brandGraphQL",
+    label: "GraphQL"
   },
   {
     iconName: "brandREST",

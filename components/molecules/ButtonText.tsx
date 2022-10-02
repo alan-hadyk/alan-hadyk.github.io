@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 import { Text } from "components/atoms/Text";
 
 import {
@@ -42,20 +40,6 @@ const ButtonText: React.FC<IButtonTextProps> = ({
       </Text>
     </LayoutContainer>
   );
-};
-
-ButtonText.propTypes = {
-  buttonText: PropTypes.string.isRequired,
-  fontFamily: PropTypes.oneOf(["font-exan", "font-anonymousPro"]),
-  hasMargin: PropTypes.bool,
-  size: PropTypes.oneOf<IButtonTextProps["size"]>(["small", "medium", "large"])
-    .isRequired,
-  textTransform: PropTypes.oneOf<IButtonTextProps["textTransform"]>([
-    "normal-case",
-    "lowercase",
-    "uppercase",
-    "capitalize"
-  ])
 };
 
 export { ButtonText };

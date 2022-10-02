@@ -8,9 +8,11 @@ import { CompanySAP } from "containers/experience/companies/CompanySAP";
 import { CompanyShiji } from "containers/experience/companies/CompanyShiji";
 import { CompanyTribe } from "containers/experience/companies/CompanyTribe";
 import { CompanyStealthHealthcareSaasStartup } from "containers/experience/companies/CompanyStealthHealthcareSaasStartup";
+import { CompanyIkoBrands } from "containers/experience/companies/CompanyIkoBrands";
 
 const ExperienceContainer: React.FC = () => (
   <Section dataCy="Experience" id="experience" title="Experience">
+    <CompanyIkoBrands />
     <CompanyStealthHealthcareSaasStartup />
     <CompanyStealthRealEstateStartup />
     <CompanyTribe />

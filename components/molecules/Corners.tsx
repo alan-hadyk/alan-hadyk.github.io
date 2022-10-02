@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 import { Corner } from "components/atoms/Corner";
 
 import { ICornerProps } from "components/atoms/@types/Corner";
@@ -29,9 +27,5 @@ const Corners: React.FC<ICornersProps> = ({ isActive = false }) => (
     )}
   </>
 );
-
-Corners.propTypes = {
-  isActive: PropTypes.bool
-};
 
 export { Corners };

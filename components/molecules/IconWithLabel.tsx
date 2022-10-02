@@ -28,6 +28,7 @@ const IconWithLabel: React.FC<IIconWithLabelProps> = ({
   href,
   iconName,
   isExternal,
+  isStaticImg,
   label,
   labelColor = "text-blue100",
   size = "medium"
@@ -60,6 +61,7 @@ const IconWithLabel: React.FC<IIconWithLabelProps> = ({
           `
               : ""
           }
+          isStaticImg={isStaticImg}
           themeClasses={{
             height: mapSizeToIconHeight[size as "small" | "medium" | "large"],
             width: isIE11() ? "w-32" : "w-auto"

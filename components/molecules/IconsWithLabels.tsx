@@ -1,7 +1,6 @@
 import { IconWithLabel } from "components/molecules/IconWithLabel";
 import { VerticalIconsWithLabels } from "components/molecules/VerticalIconsWithLabels";
 
-import { IIconWithLabelProps } from "components/molecules/@types/IconWithLabel";
 import {
   IIconsWithLabelsProps,
   IMapSizeToFlexContainerGap
@@ -53,13 +52,11 @@ const IconsWithLabels: React.FC<IIconsWithLabelsProps> = ({
       {position === "horizontal" ? (
         iconsWithLabels &&
         iconsWithLabels.map(
-          ({
-            iconName,
-            label
-          }: Pick<IIconWithLabelProps, "iconName" | "label">): JSX.Element => (
+          ({ iconName, isStaticImg, label }): JSX.Element => (
             <IconWithLabel
               labelColor={labelColor}
               iconName={iconName}
+              isStaticImg={isStaticImg}
               key={label}
               label={label}
               size={size}

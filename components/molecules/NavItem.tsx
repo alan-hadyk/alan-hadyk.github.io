@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react";
-import PropTypes from "prop-types";
 
 import { Line } from "components/atoms/Line";
 
@@ -74,14 +73,6 @@ const NavItem: React.FC<INavItemProps> = ({
       <Line direction={LineDirection.RIGHT} isActive={isActive} />
     </div>
   );
-};
-
-NavItem.propTypes = {
-  href: PropTypes.string.isRequired,
-  isActive: PropTypes.bool,
-  position: PropTypes.oneOf(["horizontal", "vertical"]),
-  tabIndex: PropTypes.number,
-  title: PropTypes.string.isRequired
 };
 
 export { NavItem };

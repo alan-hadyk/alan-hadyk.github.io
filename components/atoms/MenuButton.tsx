@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 import {
   IMenuButtonLineProps,
   IMenuButtonProps
@@ -54,10 +52,5 @@ const MenuButton: React.FC<IMenuButtonProps> = ({
     <MenuButtonLine isOpen={isOpen} />
   </LayoutContainer>
 );
-
-MenuButton.propTypes = {
-  isOpen: PropTypes.bool,
-  onClick: PropTypes.func.isRequired
-};
 
 export { MenuButton };

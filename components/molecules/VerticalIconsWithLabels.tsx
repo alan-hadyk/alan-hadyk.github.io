@@ -29,7 +29,10 @@ const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
       flex="flex-[0_0_9.2rem]"
     >
       {iconsWithLabels.map(
-        ({ iconName }: IIconWithLabelProps, index: number): JSX.Element => (
+        (
+          { iconName, isStaticImg }: IIconWithLabelProps,
+          index: number
+        ): JSX.Element => (
           <LayoutContainer
             dataCy="VerticalIcon"
             key={iconName + index}
@@ -40,6 +43,7 @@ const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
                 height: mapSizeToIconHeight[size]
               }}
               iconName={iconName}
+              isStaticImg={isStaticImg}
             />
           </LayoutContainer>
         )

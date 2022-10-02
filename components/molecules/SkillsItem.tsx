@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 import { IconsWithLabels } from "components/molecules/IconsWithLabels";
 import { DashboardElement } from "components/molecules/DashboardElement";
 
@@ -27,16 +25,6 @@ const SkillsItem: React.FC<ISkillsItemProps> = ({ iconsWithLabels, title }) => {
       </LayoutContainer>
     </DashboardElement>
   );
-};
-
-SkillsItem.propTypes = {
-  iconsWithLabels: PropTypes.arrayOf(
-    PropTypes.shape({
-      iconName: PropTypes.oneOf(iconNames).isRequired,
-      label: PropTypes.string.isRequired
-    }).isRequired
-  ).isRequired,
-  title: PropTypes.string.isRequired
 };
 
 export { SkillsItem };

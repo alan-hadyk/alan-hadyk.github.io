@@ -7,6 +7,7 @@ const iconsWithLabels: IIconWithLabelProps[] = [
   },
   {
     iconName: "brandNext",
+    isStaticImg: true,
     label: "Next.js"
   },
   {

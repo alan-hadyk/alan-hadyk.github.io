@@ -18,7 +18,6 @@ const NextLogo: React.FC = () => (
           width: isSafari() ? "w-[18vh]" : "w-[100%]"
         }}
         iconName="brandNext"
-        isInlineSvg
         isResponsive
       />
     </LayoutContainer>

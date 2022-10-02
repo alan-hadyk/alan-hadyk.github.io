@@ -2,6 +2,10 @@ import { IIconWithLabelProps } from "components/molecules/@types/IconWithLabel";
 
 const iconsWithLabels: IIconWithLabelProps[] = [
   {
+    iconName: "brandWindi",
+    label: "Windi CSS"
+  },
+  {
     iconName: "brandStyledComponents",
     label: "styled components"
   },

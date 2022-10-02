@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 import { MenuButton } from "components/atoms/MenuButton";
 import { Backdrop } from "components/atoms/Backdrop";
 
@@ -26,11 +24,5 @@ const HeaderTabletAndMobile: React.FC<IHeaderMobileProps> = ({
     <SideMenu isExpanded={isMenuVisible} onCVButtonClick={onCVButtonClick} />
   </Responsive>
 );
-
-HeaderTabletAndMobile.propTypes = {
-  isMenuVisible: PropTypes.bool.isRequired,
-  onCVButtonClick: PropTypes.func.isRequired,
-  onClick: PropTypes.func.isRequired
-};
 
 export { HeaderTabletAndMobile };

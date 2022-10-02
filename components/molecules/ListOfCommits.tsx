@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import isEmpty from "lodash/isEmpty";
 
 import { Loader } from "components/molecules/Loader";
@@ -48,26 +47,6 @@ const ListOfCommits: React.FC<IListOfCommitsProps> = ({
     default:
       return <Loader />;
   }
-};
-
-ListOfCommits.propTypes = {
-  commitsList: PropTypes.arrayOf(
-    PropTypes.shape({
-      commit: PropTypes.shape({
-        author: PropTypes.shape({
-          date: PropTypes.string
-        })
-      }),
-      html_url: PropTypes.string,
-      sha: PropTypes.string
-    })
-  ).isRequired,
-  commitsState: PropTypes.oneOf<IListOfCommitsProps["commitsState"]>([
-    "error",
-    "idle",
-    "loaded",
-    "loading"
-  ]).isRequired
 };
 
 export { ListOfCommits };

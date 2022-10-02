@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 import { HexagonWithDescriptionContent } from "components/molecules/HexagonWithDescriptionContent";
 import { Responsive } from "components/layout/Responsive";
 
@@ -59,10 +57,5 @@ const HexagonWithDescription: React.FC<IHexagonWithDescriptionProps> = ({
     </Responsive>
   </LayoutContainer>
 );
-
-HexagonWithDescription.propTypes = {
-  children: PropTypes.any.isRequired,
-  description: PropTypes.any.isRequired
-};
 
 export { HexagonWithDescription };

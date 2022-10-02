@@ -53,11 +53,7 @@ const Corner: React.FC<ICornerProps> = ({ isActive = false, position }) => {
     mapPositionToCornerProps(isActive)[position]
   );
 
-  const classNames = [...DEFAULT_CLASS_NAMES, opacity];
-
-  Object.values(cornerClasses).forEach(
-    (cornerClass) => cornerClass && classNames.push(cornerClass)
-  );
+  const classNames = [...DEFAULT_CLASS_NAMES, opacity, cornerClasses];
 
   return <div className={classNames.join(" ")} data-cy="Corner" />;
 };

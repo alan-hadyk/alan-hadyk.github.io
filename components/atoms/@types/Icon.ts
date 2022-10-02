@@ -20,6 +20,7 @@ export interface IIconProps {
     | "brandAirbnb"
     | "brandApollo"
     | "brandAuth0"
+    | "brandAxios"
     | "brandBasecamp"
     | "brandBamboo"
     | "brandBuildkite"
@@ -59,6 +60,7 @@ export interface IIconProps {
     | "brandRails"
     | "brandREST"
     | "brandReact"
+    | "brandReactQuery"
     | "brandRedmine"
     | "brandRedux"
     | "brandRuby"
@@ -72,8 +74,10 @@ export interface IIconProps {
     | "brandTaskade"
     | "brandTestingLibrary"
     | "brandTrello"
+    | "brandVite"
     | "brandWebpack"
     | "brandWebsocket"
+    | "brandWindi"
     | "brandZeplin"
     | "btnCodeSandbox"
     | "btnDownload"
@@ -109,8 +113,8 @@ export interface IIconProps {
     | "webpack";
   isActive?: boolean;
   isHeightResponsive?: boolean;
-  isInlineSvg?: boolean;
   isResponsive?: boolean;
+  isStaticImg?: boolean;
   shouldDisplayGlowAnimation?: boolean;
   shouldGlow?: boolean;
   shouldGlowOnHover?: boolean;

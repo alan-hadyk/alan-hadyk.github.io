@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 import { Button } from "components/molecules/Button";
 import { MenuIcons } from "components/molecules/MenuIcons";
 import { Nav } from "components/molecules/Nav";
@@ -38,9 +36,5 @@ const HeaderTv: React.FC<IHeaderTvProps> = ({ onCVButtonClick }) => (
     </LayoutContainer>
   </Responsive>
 );
-
-HeaderTv.propTypes = {
-  onCVButtonClick: PropTypes.func.isRequired
-};
 
 export { HeaderTv };

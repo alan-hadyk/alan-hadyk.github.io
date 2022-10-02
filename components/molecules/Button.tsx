@@ -1,6 +1,5 @@
 import React, { useState, useRef, useCallback } from "react";
 import { isMobile } from "react-device-detect";
-import PropTypes from "prop-types";
 
 import { Icon } from "components/atoms/Icon";
 import { ButtonText } from "components/molecules/ButtonText";
@@ -192,21 +191,6 @@ const Button: React.FC<IButtonProps> = ({
       </LayoutContainer>
     </button>
   );
-};
-
-Button.propTypes = {
-  buttonText: PropTypes.string.isRequired,
-  dataCy: PropTypes.string,
-  iconName: PropTypes.oneOf([
-    "btnCodeSandbox",
-    "btnDownload",
-    "btnExternalLink"
-  ]),
-  onClick: PropTypes.func,
-  size: PropTypes.oneOf(["small", "medium", "large"]),
-  tabIndex: PropTypes.number,
-  type: PropTypes.oneOf(["primary", "secondary"]),
-  width: PropTypes.oneOf(["w-full", "w-auto"])
 };
 
 export { Button };

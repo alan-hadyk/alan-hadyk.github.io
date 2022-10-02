@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 import { Button } from "components/molecules/Button";
 import { MenuIcons } from "components/molecules/MenuIcons";
 import { Nav } from "components/molecules/Nav";
@@ -76,10 +74,5 @@ const SideMenu: React.FC<ISideMenuProps> = ({
     </LayoutContainer>
   </LayoutContainer>
 );
-
-SideMenu.propTypes = {
-  isExpanded: PropTypes.bool,
-  onCVButtonClick: PropTypes.func
-};
 
 export { SideMenu };

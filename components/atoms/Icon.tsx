@@ -191,8 +191,8 @@ const _Icon: React.ForwardRefRenderFunction<
     iconName,
     isActive = false,
     isHeightResponsive = false,
-    isInlineSvg = false,
     isResponsive = false,
+    isStaticImg = false,
     shouldDisplayGlowAnimation = false,
     shouldGlow = false,
     shouldGlowOnHover = false,
@@ -226,7 +226,7 @@ const _Icon: React.ForwardRefRenderFunction<
     width: width && !width.includes("w-") ? width : undefined
   };
 
-  if (!Object.keys(iconComponents).includes(iconName) && !isInlineSvg) {
+  if (!Object.keys(iconComponents).includes(iconName) || isStaticImg) {
     return (
       <picture className={pictureClassNames.join(" ")}>
         <img
@@ -282,6 +282,7 @@ const _Icon: React.ForwardRefRenderFunction<
     </div>
   );
 };
+
 const Icon = forwardRef(_Icon);
 
 export { Icon, iconComponents, iconNames };

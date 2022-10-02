@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 import { Text } from "components/atoms/Text";
 
 import IconWarning from "public/images/svg/Icon-Warning.svg";
@@ -39,11 +37,5 @@ const Error: React.FC<IErrorProps> = ({ dataCy, description, title }) => (
     </LayoutContainer>
   </LayoutContainer>
 );
-
-Error.propTypes = {
-  dataCy: PropTypes.string,
-  description: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired
-};
 
 export { Error };

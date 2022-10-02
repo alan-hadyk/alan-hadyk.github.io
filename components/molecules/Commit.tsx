@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 import { Text } from "components/atoms/Text";
 import { Link } from "components/molecules/Link";
 
@@ -57,12 +55,5 @@ const Commit: React.FC<ICommitProps> = ({ date, delay, htmlUrl, sha }) => (
     </LayoutContainer>
   </LayoutContainer>
 );
-
-Commit.propTypes = {
-  date: PropTypes.string.isRequired,
-  delay: PropTypes.number.isRequired,
-  htmlUrl: PropTypes.string.isRequired,
-  sha: PropTypes.string.isRequired
-};
 
 export { Commit };

@@ -7,6 +7,7 @@ export interface IIconWithLabelProps {
   href?: ILinkProps["href"];
   iconName: IIconProps["iconName"];
   isExternal?: ILinkProps["isExternal"];
+  isStaticImg?: IIconProps["isStaticImg"];
   label: string;
   labelColor?: ITextProps["color"];
   size?: "small" | "medium" | "large" | null | undefined;

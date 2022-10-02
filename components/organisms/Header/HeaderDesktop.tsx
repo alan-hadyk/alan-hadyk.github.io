@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 import { MenuButton } from "components/atoms/MenuButton";
 
 import { Button } from "components/molecules/Button";
@@ -52,11 +50,5 @@ const HeaderDesktop: React.FC<IHeaderMobileProps> = ({
     </LayoutContainer>
   </Responsive>
 );
-
-HeaderDesktop.propTypes = {
-  isMenuVisible: PropTypes.bool.isRequired,
-  onCVButtonClick: PropTypes.func.isRequired,
-  onClick: PropTypes.func.isRequired
-};
 
 export { HeaderDesktop };

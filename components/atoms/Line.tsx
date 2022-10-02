@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 import { ILineProps, LineDirection } from "components/atoms/@types/Line";
 import { trimTemplateLiteral } from "helpers/strings/trimTemplateLiteral";
 
@@ -20,11 +18,5 @@ const Line: React.FC<ILineProps> = ({ direction, isActive = false }) => (
     data-cy="Line"
   />
 );
-
-Line.propTypes = {
-  direction: PropTypes.oneOf([LineDirection.LEFT, LineDirection.RIGHT])
-    .isRequired,
-  isActive: PropTypes.bool
-};
 
 export { Line };

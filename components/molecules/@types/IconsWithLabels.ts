@@ -6,7 +6,10 @@ type TGap =
   | `directChildren:mt-${number} firstdirectChild:mt-${number}`;
 
 export interface IIconsWithLabelsProps {
-  iconsWithLabels: Pick<IIconWithLabelProps, "iconName" | "label">[];
+  iconsWithLabels: Pick<
+    IIconWithLabelProps,
+    "iconName" | "label" | "isStaticImg"
+  >[];
   labelColor?: ITextProps["color"];
   position?: "vertical" | "horizontal";
   size?: IIconWithLabelProps["size"];
