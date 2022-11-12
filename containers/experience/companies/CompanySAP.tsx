@@ -81,16 +81,20 @@ const responsibilities: ICompanyProps["responsibilities"] = [
   </span>
 ];
 
+const companySAPProps = {
+  date: "November 2015 to May 2017",
+  iconsWithLabels,
+  name: "SAP",
+  responsibilities,
+  title: "Front end developer"
+};
+
 const CompanySAP: React.FC = () => (
   <Company
     dataCy="CompanySAP"
-    date="November 2015 to May 2017"
-    iconsWithLabels={iconsWithLabels}
     link="https://www.sap.com/"
-    name="SAP"
-    responsibilities={responsibilities}
-    title="Front end developer"
+    {...companySAPProps}
   />
 );
 
-export { CompanySAP };
+export { CompanySAP, companySAPProps };

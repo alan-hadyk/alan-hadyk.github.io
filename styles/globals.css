@@ -96,6 +96,11 @@ a {
   text-decoration: none;
 }
 
+iframe {
+  height: 100vh;
+  width: 100vw;
+}
+
 /* Custom CSS */
 .radial-gradient .ripple {
   background-color: rgba(120,176,181,0.5);
@@ -105,3 +110,5 @@ a {
 .page-break-inside-avoid {
   page-break-inside: avoid;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&display=swap');

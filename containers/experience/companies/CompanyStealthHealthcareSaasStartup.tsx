@@ -54,15 +54,22 @@ const responsibilities: ICompanyProps["responsibilities"] = [
   </span>
 ];
 
+const companyStealthHealthcareSaasStartupProps = {
+  date: "May 2022 to June 2022",
+  iconsWithLabels,
+  name: "Healthcare SaaS",
+  responsibilities,
+  title: "Senior React Developer"
+};
+
 const CompanyStealthHealthcareSaasStartup: React.FC = () => (
   <Company
     dataCy="CompanyStealthHealthcareSaasStartup"
-    date="May 2022 to June 2022"
-    iconsWithLabels={iconsWithLabels}
-    name="Stealth Healthcare SaaS startup"
-    responsibilities={responsibilities}
-    title="Senior React Developer"
+    {...companyStealthHealthcareSaasStartupProps}
   />
 );
 
-export { CompanyStealthHealthcareSaasStartup };
+export {
+  CompanyStealthHealthcareSaasStartup,
+  companyStealthHealthcareSaasStartupProps
+};

@@ -99,16 +99,20 @@ const responsibilities: ICompanyProps["responsibilities"] = [
   </span>
 ];
 
+const companyTribeProps = {
+  date: "April 2021 to October 2021",
+  iconsWithLabels,
+  name: "Tribe",
+  responsibilities,
+  title: "Senior Full-Stack Developer"
+};
+
 const CompanyTribe: React.FC = () => (
   <Company
     dataCy="CompanyTribe"
-    date="April 2021 to October 2021"
-    iconsWithLabels={iconsWithLabels}
     link="https://tribe.so/"
-    name="Tribe"
-    responsibilities={responsibilities}
-    title="Senior Full-Stack Developer"
+    {...companyTribeProps}
   />
 );
 
-export { CompanyTribe };
+export { CompanyTribe, companyTribeProps };

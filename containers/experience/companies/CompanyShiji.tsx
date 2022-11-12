@@ -101,16 +101,20 @@ const responsibilities: ICompanyProps["responsibilities"] = [
   </span>
 ];
 
+const companyShijiProps = {
+  date: "June 2017 to July 2018",
+  iconsWithLabels,
+  name: "Shiji",
+  responsibilities,
+  title: "Senior Front-End developer"
+};
+
 const CompanyShiji: React.FC = () => (
   <Company
     dataCy="CompanyShiji"
-    date="June 2017 to July 2018"
-    iconsWithLabels={iconsWithLabels}
     link="https://shijigroup.com/"
-    name="Shiji"
-    responsibilities={responsibilities}
-    title="Senior Front-End developer"
+    {...companyShijiProps}
   />
 );
 
-export { CompanyShiji };
+export { CompanyShiji, companyShijiProps };

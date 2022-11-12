@@ -35,17 +35,21 @@ const responsibilities: ICompanyProps["responsibilities"] = [
   </span>
 ];
 
+const companyPersonallyEmployedProps = {
+  date: "May 2008 to September 2010",
+  iconsWithLabels,
+  name: "Alan Hadyk",
+  responsibilities,
+  title: "Freelancer"
+};
+
 const CompanyPersonallyEmployed: React.FC = () => (
   <Company
     companyMobilePaddingBottom="pb-0"
     dataCy="CompanyPersonallyEmployed"
-    date="May 2008 to September 2010"
-    iconsWithLabels={iconsWithLabels}
-    name="Alan Hadyk"
-    responsibilities={responsibilities}
     timelineBottom="bottom-0"
-    title="Freelancer"
+    {...companyPersonallyEmployedProps}
   />
 );
 
-export { CompanyPersonallyEmployed };
+export { CompanyPersonallyEmployed, companyPersonallyEmployedProps };

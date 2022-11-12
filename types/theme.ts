@@ -278,6 +278,7 @@ export type TGroupHover = TUtility<"group-hover", TColorProperties, ":">;
 export type THover = TUtility<"hover", TColorProperties, ":">;
 
 export type TTransform = "transform" | "transform-gpu" | "transform-none";
+export type TRotate = `rotate-${number}` | `-rotate-${number}`;
 
 export type TCursor = TUtility<
   "cursor",
@@ -377,6 +378,7 @@ export interface IBasicThemeClasses {
   paddingY?: TPaddingY;
   position?: TPosition;
   right?: TRight;
+  rotate?: TRotate;
   textAlign?: TTextAlign;
   textTransform?: TTextTransform;
   top?: TTop;

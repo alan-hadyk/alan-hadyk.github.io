@@ -54,16 +54,16 @@ const responsibilities: ICompanyProps["responsibilities"] = [
   </span>
 ];
 
+const companyDiHProps = {
+  date: "October 2010 to October 2015",
+  iconsWithLabels,
+  name: "DiH",
+  responsibilities,
+  title: "Front end developer"
+};
+
 const CompanyDiH: React.FC = () => (
-  <Company
-    dataCy="CompanyDiH"
-    date="October 2010 to October 2015"
-    iconsWithLabels={iconsWithLabels}
-    link="https://dih.pl/"
-    name="DiH"
-    responsibilities={responsibilities}
-    title="Front end developer"
-  />
+  <Company dataCy="CompanyDiH" link="https://dih.pl/" {...companyDiHProps} />
 );
 
-export { CompanyDiH };
+export { CompanyDiH, companyDiHProps };

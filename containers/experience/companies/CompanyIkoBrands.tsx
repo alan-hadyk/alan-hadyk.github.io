@@ -54,16 +54,20 @@ const responsibilities: ICompanyProps["responsibilities"] = [
   </span>
 ];
 
+const companyIkoBrandsProps = {
+  date: "since September 2022",
+  iconsWithLabels,
+  name: "Iko Brands",
+  responsibilities,
+  title: "Senior React Developer"
+};
+
 const CompanyIkoBrands: React.FC = () => (
   <Company
     dataCy="CompanyIkoBrands"
-    date="since September 2022"
-    iconsWithLabels={iconsWithLabels}
     // link="https://ikontent.io/"
-    name="Iko Brands"
-    responsibilities={responsibilities}
-    title="Senior React Developer"
+    {...companyIkoBrandsProps}
   />
 );
 
-export { CompanyIkoBrands };
+export { CompanyIkoBrands, companyIkoBrandsProps };
