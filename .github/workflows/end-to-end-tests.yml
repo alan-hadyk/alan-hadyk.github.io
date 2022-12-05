@@ -20,7 +20,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: E2E tests
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v5
         with:
           start: yarn start:ci-e2e
           wait-on: "http://localhost:3000"
