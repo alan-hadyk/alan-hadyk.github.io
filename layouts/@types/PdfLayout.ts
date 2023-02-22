@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
 
-export interface IMainLayoutProps {
+export interface IPdfLayoutProps {
   children: ReactNode;
-  title: string;
 }

@@ -1,6 +1,6 @@
 import { IConsoleTextProps } from "components/atoms/@types/ConsoleText";
 import { IThemeClasses, TClassStyleUtility } from "types/theme";
-import { convertObjectValuesToString } from "helpers/objects/convertObjectValuesToString";
+import { convertObjectValuesToArray } from "helpers/arrays/convertObjectValuesToArray";
 
 const HERO_DESCRIPTION =
   "Vision driven change agent with career-long record of front-end user strategy and UI development";
@@ -26,10 +26,14 @@ const defaultThemeClasses: IThemeClasses = {
 };
 
 const ConsoleText: React.FC<IConsoleTextProps> = ({ themeClasses }) => {
-  const classNames: TClassStyleUtility[] = [];
+  const consoleTextThemeClasses = {
+    ...defaultThemeClasses,
+    ...themeClasses
+  };
 
-  classNames.push(convertObjectValuesToString(defaultThemeClasses));
-  classNames.push(convertObjectValuesToString(themeClasses));
+  const classNames: TClassStyleUtility[] = convertObjectValuesToArray(
+    consoleTextThemeClasses
+  );
 
   return <div className={classNames.join(" ")}>{HERO_DESCRIPTION}</div>;
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { TSpacingValues, TZIndexValues } from "types/theme";
+import { IThemeClasses, TSpacingValues, TZIndexValues } from "types/theme";
 import { TChildren } from "types/props";
 
 export type TLayoutContainerElementType =
@@ -105,6 +105,7 @@ export interface ILayoutContainerProps {
   position?: "static" | "relative" | "absolute" | "fixed" | "sticky";
   right?: `right-${TSpacingValues}`;
   style?: React.CSSProperties;
+  themeClasses?: IThemeClasses;
   top?: `top-${TSpacingValues}`;
   width?:
     | `w-${TSpacingValues}`

@@ -1,15 +1,16 @@
-import { TLeft, TTop } from "types/theme";
+import { TLeft, TOpacity, TRotate, TTop } from "types/theme";
 
 export interface ICornerProps {
   isActive?: boolean;
   position: "topLeft" | "topRight" | "bottomLeft" | "bottomRight";
+  variant?: CornerVariant;
 }
 
 export interface ICornerContainerProps {
   left: TLeft;
-  opacity?: "opacity-50" | "opacity-100";
+  opacity?: TOpacity;
+  rotate: TRotate;
   top: TTop;
-  transform: "rotate-0" | "rotate-90" | "rotate-[270deg]" | "rotate-180";
 }
 
 export interface IMapPositionToCornerProps {
@@ -17,4 +18,9 @@ export interface IMapPositionToCornerProps {
   bottomRight: ICornerContainerProps;
   topLeft: ICornerContainerProps;
   topRight: ICornerContainerProps;
+}
+
+export enum CornerVariant {
+  Dark,
+  Light
 }

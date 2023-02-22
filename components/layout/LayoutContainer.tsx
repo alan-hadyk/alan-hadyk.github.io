@@ -1,5 +1,5 @@
 import { ILayoutContainerProps } from "components/layout/@types/LayoutContainer";
-import { trimTemplateLiteral } from "helpers/strings/trimTemplateLiteral";
+import { convertObjectValuesToArray } from "helpers/arrays/convertObjectValuesToArray";
 import { forwardRef } from "react";
 
 const _LayoutContainer: React.ForwardRefRenderFunction<
@@ -36,6 +36,7 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
     position,
     right,
     style,
+    themeClasses,
     top,
     width,
     zIndex
@@ -55,35 +56,41 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
     | "a"
     | "button"
   >;
+  const classNames = [
+    ...(onClick ? ["cursor-pointer"] : []),
+    alignItems,
+    alignSelf,
+    bottom,
+    display,
+    flex,
+    flexFlow,
+    ...(height?.includes("h-") ? [height] : []),
+    justifyContent,
+    left,
+    marginBottom,
+    marginLeft,
+    marginRight,
+    marginTop,
+    order,
+    padding,
+    paddingBottom,
+    paddingLeft,
+    paddingRight,
+    paddingTop,
+    position,
+    right,
+    top,
+    ...(width?.includes("w-") ? [width] : []),
+    zIndex,
+    className
+  ];
+
+  if (themeClasses) {
+    classNames.push(...convertObjectValuesToArray(themeClasses));
+  }
+
   const props = {
-    className: trimTemplateLiteral(`
-      ${alignItems || ""}  
-      ${alignSelf || ""}  
-      ${bottom || ""}  
-      ${display || ""}  
-      ${flex || ""}
-      ${flexFlow || ""}
-      ${height?.includes("h-") ? height : ""}  
-      ${justifyContent || ""}  
-      ${left || ""}  
-      ${marginBottom || ""}  
-      ${marginLeft || ""}  
-      ${marginRight || ""}  
-      ${marginTop || ""}  
-      ${onClick ? "cursor-pointer" : ""}
-      ${order || ""}  
-      ${padding || ""}  
-      ${paddingBottom || ""}  
-      ${paddingLeft || ""}  
-      ${paddingRight || ""}  
-      ${paddingTop || ""}  
-      ${position || ""}  
-      ${right || ""}  
-      ${top || ""}  
-      ${width?.includes("w-") ? width : ""}  
-      ${zIndex || ""}  
-      ${className || ""}  
-    `),
+    className: classNames.join(" "),
     ["data-cy"]: dataCy,
     id,
     name,

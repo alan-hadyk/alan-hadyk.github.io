@@ -15,10 +15,8 @@ const ConsoleMobile: React.FC = () => (
       <ConsoleText
         themeClasses={{
           fontSize: "text-32",
-          height: "after:h-24",
           lineHeight: "leading-36",
-          transform: "after:translate-y-[1px]",
-          width: "after:w-12"
+          pseudoClasses: ["after:h-24", "after:translate-y-[1px]", "after:w-12"]
         }}
       />
     </LayoutContainer>

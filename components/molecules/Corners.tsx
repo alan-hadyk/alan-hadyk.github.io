@@ -18,11 +18,16 @@ const positions: ICornerProps[] = [
   }
 ];
 
-const Corners: React.FC<ICornersProps> = ({ isActive = false }) => (
+const Corners: React.FC<ICornersProps> = ({ isActive = false, variant }) => (
   <>
     {positions.map(
       ({ position }: ICornerProps): JSX.Element => (
-        <Corner key={position} position={position} isActive={isActive} />
+        <Corner
+          key={position}
+          position={position}
+          isActive={isActive}
+          variant={variant}
+        />
       )
     )}
   </>

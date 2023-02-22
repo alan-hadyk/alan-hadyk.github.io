@@ -63,7 +63,19 @@ export type TUtilityWithTransparency<TPrefix extends string, TSuffix> =
 
 export type TAnimate = TUtility<"animate", TAnimationNameValues>;
 
-export type TBgColor = TUtilityWithArbitraryValues<"bg", TColorValues>;
+export type TBgColor = TUtilityWithArbitraryValues<
+  "bg",
+  | TColorValues
+  | `${TColorValues}/${number}`
+  | `[${string}]`
+  | `gradient-to-${string}`
+>;
+
+export type TBg = TUtilityWithArbitraryValues<
+  "bg",
+  `[url(${string})]` | "center" | "repeat-space" | `[length:${string}]`
+>;
+
 export type TFill = TUtility<"fill", TColorValues>;
 
 export type TTextColor = TUtility<"text", TColorValues>;
@@ -120,7 +132,7 @@ export type TMaxWidth = TUtilityWithArbitraryValues<"max-w", TSpacingValues>;
 export type TBoxShadow = TUtility<"shadow", TBoxShadowValues>;
 
 export type TBorderWidth = TUtilityWithArbitraryValues<
-  "border",
+  "border" | "border-l" | "border-r" | "border-t" | "border-b",
   TBorderWidthValues
 >;
 export type TBorderColor =
@@ -278,7 +290,10 @@ export type TGroupHover = TUtility<"group-hover", TColorProperties, ":">;
 export type THover = TUtility<"hover", TColorProperties, ":">;
 
 export type TTransform = "transform" | "transform-gpu" | "transform-none";
-export type TRotate = `rotate-${number}` | `-rotate-${number}`;
+export type TRotate =
+  | `rotate-${number}`
+  | `-rotate-${number}`
+  | `rotate-[${number}deg]`;
 
 export type TCursor = TUtility<
   "cursor",
@@ -313,8 +328,11 @@ export type TMediaQuery = TUtilityWithArbitraryValues<
 >;
 
 export type TAfter = TUtilityWithArbitraryValues<"after", string, ":">;
+export type TPseudoClasses = `${string}:${string}` | `${string}:${string}`[];
 
 export type TContent = `content-[${string}]`;
+
+export type TOpacity = `opacity-${number}`;
 
 export type TClassStyleUtility = `${string}-${string}` | string;
 
@@ -322,6 +340,7 @@ export interface IBasicThemeClasses {
   alignItems?: TAlignItems;
   alignSelf?: TAlignSelf;
   animate?: TAnimate;
+  background?: TBg | TBg[];
   backgroundColor?: TBgColor;
   borderBottomColor?: TBorderBottomColor;
   borderColor?: TBorderColor;
@@ -330,7 +349,7 @@ export interface IBasicThemeClasses {
   borderRightColor?: TBorderRightColor;
   borderStyle?: TBorderStyle;
   borderTopColor?: TBorderTopColor;
-  borderWidth?: TBorderWidth;
+  borderWidth?: TBorderWidth | TBorderWidth[];
   bottom?: TBottom;
   boxShadow?: TBoxShadow;
   color?: TTextColor;
@@ -367,6 +386,7 @@ export interface IBasicThemeClasses {
   maxWidth?: TMaxWidth;
   minHeight?: TMinHeight;
   minWidth?: TMinWidth;
+  opacity?: TOpacity;
   order?: TOrder;
   overflow?: TOverflow;
   padding?: TPadding;
@@ -377,6 +397,7 @@ export interface IBasicThemeClasses {
   paddingX?: TPaddingX;
   paddingY?: TPaddingY;
   position?: TPosition;
+  pseudoClasses?: TPseudoClasses;
   right?: TRight;
   rotate?: TRotate;
   textAlign?: TTextAlign;

@@ -29,7 +29,7 @@ const DashboardElement: React.FC<IDashboardElementProps> = ({
   return (
     <LayoutContainer
       alignSelf={alignSelf}
-      className={`${titleOverflow}`}
+      className={titleOverflow}
       dataCy={dataCy}
       flex={flex}
       order={order}

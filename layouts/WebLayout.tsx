@@ -1,9 +1,9 @@
 import { PageTemplate } from "components/templates/PageTemplate";
-import { IMainLayoutProps } from "layouts/@types/MainLayout";
+import { IWebLayoutProps } from "layouts/@types/WebLayout";
 import Head from "next/head";
 import React from "react";
 
-const MainLayout: React.FC<IMainLayoutProps> = ({ children, title }) => (
+const WebLayout: React.FC<IWebLayoutProps> = ({ children, title }) => (
   <>
     <Head>
       <title>{title}</title>
@@ -13,4 +13,4 @@ const MainLayout: React.FC<IMainLayoutProps> = ({ children, title }) => (
   </>
 );
 
-export { MainLayout };
+export { WebLayout };

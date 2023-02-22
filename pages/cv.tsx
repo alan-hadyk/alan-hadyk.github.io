@@ -1,17 +1,16 @@
-import { Header } from "components/organisms/Header/Header";
 import { AboutMeContainer } from "containers/aboutMe/AboutMeContainer";
 import { ContactContainer } from "containers/contact/ContactContainer";
 import { DashboardContainer } from "containers/dashboard/DashboardContainer";
 import { ExperienceContainer } from "containers/experience/ExperienceContainer";
 import { SkillsContainer } from "containers/skills/SkillsContainer";
-import { WebLayout } from "layouts/WebLayout";
+import { PdfLayout } from "layouts/PdfLayout";
 import { TNextPageWithLayout } from "types/next";
 
-const IndexPage: TNextPageWithLayout = () => (
-  <>
-    <Header zIndex="z-400" />
+// Size: 793 x 1122
 
-    <DashboardContainer />
+const CVPage: TNextPageWithLayout = () => (
+  <>
+    <DashboardContainer format="pdf" />
     <ExperienceContainer />
     <SkillsContainer />
     <AboutMeContainer />
@@ -19,8 +18,6 @@ const IndexPage: TNextPageWithLayout = () => (
   </>
 );
 
-IndexPage.getLayout = (page) => (
-  <WebLayout title="Alan Hadyk">{page}</WebLayout>
-);
+CVPage.getLayout = (page) => <PdfLayout>{page}</PdfLayout>;
 
-export default IndexPage;
+export default CVPage;
