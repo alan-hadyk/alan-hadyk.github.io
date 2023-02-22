@@ -65,56 +65,45 @@ const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
   }
 ];
 
-const responsibilities: ICompanyProps["responsibilities"] = [
-  <span data-cy="OrchestrateAndDirect" key="orchestrate-and-direct-hotels">
-    <strong>Orchestrate</strong> and <strong>direct</strong> collaborative team
-    operational objectives for front-end layer of an application designed to
-    manage hotels
-  </span>,
-  <span data-cy="ApplyAndCertify" key="apply-and-certify">
-    <strong>Apply development</strong> and <strong>certify adherence</strong> to
-    best practices to deliver PoC based on React.js
-  </span>,
-  <span
-    data-cy="StreamlineProjectTimelines"
-    key="streamline-project-timelines-ember"
-  >
-    <strong>Streamline project timelines</strong> to ensure application is being
-    developed in Ember.js with TypeScript
-  </span>,
-  <span
-    data-cy="TransformAndCreate"
-    key="transform-and-create-models-serializers"
-  >
-    <strong>Transform and create</strong> reusable components and manage
-    adapters, models and serializers
-  </span>,
-  <span data-cy="AuthorUnit" key="author-unit-integration">
-    <strong>Author</strong> unit, integration and acceptance tests
-  </span>,
-  <span data-cy="DemonstrateExpertise" key="demonstrate-expertise-rest">
-    <strong>Demonstrate expertise</strong> in the utilization of REST to
-    communicate with backend
-  </span>,
-  <span data-cy="MentorJunior" key="mentor-junior-developers">
-    <strong>Mentor</strong> junior front-end developers
-  </span>
-];
-
-const companyShijiProps = {
+const companyShijiProps: ICompanyProps = {
   date: "June 2017 to July 2018",
   iconsWithLabels,
   name: "Shiji",
-  responsibilities,
+  responsibilities: [
+    <span key="orchestrated-and-directed-hotels">
+      <strong>Orchestrated</strong> and <strong>directed</strong> collaborative
+      team operational objectives for front-end layer of an application designed
+      to manage hotels
+    </span>,
+    <span key="applied-and-certified">
+      <strong>Applied development</strong> and{" "}
+      <strong>certified adherence</strong> to best practices to deliver PoC
+      based on React.js
+    </span>,
+    <span key="streamlined-project-timelines-ember">
+      <strong>Streamlined project timelines</strong> to ensure application is
+      being developed in Ember.js with TypeScript
+    </span>,
+    <span key="transformed-and-created-models-serializers">
+      <strong>Transformed and created</strong> reusable components and managed
+      adapters, models and serializers
+    </span>,
+    <span key="authored-unit-integration">
+      <strong>Authored</strong> unit, integration and acceptance tests
+    </span>,
+    <span key="demonstrated-expertise-rest">
+      <strong>Demonstrated expertise</strong> in the utilization of REST to
+      communicate with backend
+    </span>,
+    <span key="mentored-junior-developers">
+      <strong>Mentored</strong> junior front-end developers
+    </span>
+  ],
   title: "Senior Front-End developer"
 };
 
 const CompanyShiji: React.FC = () => (
-  <Company
-    dataCy="CompanyShiji"
-    link="https://shijigroup.com/"
-    {...companyShijiProps}
-  />
+  <Company link="https://shijigroup.com/" {...companyShijiProps} />
 );
 
 export { CompanyShiji, companyShijiProps };

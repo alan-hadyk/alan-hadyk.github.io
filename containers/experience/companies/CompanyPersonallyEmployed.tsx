@@ -13,40 +13,34 @@ const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
   }
 ];
 
-const responsibilities: ICompanyProps["responsibilities"] = [
-  <span data-cy="EmployedPersonalReferral" key="employed-personal-referral">
-    <strong>Employed personal referral networks</strong> to attain small job
-    order contracts
-  </span>,
-  <span
-    data-cy="InitializedPersonalMotivation"
-    key="initialized-personal-motivation"
-  >
-    <strong>Initialized personal motivation</strong> to acquire front-end
-    development skills
-  </span>,
-  <span data-cy="CultivatedStrongTies" key="cultivated-strong-ties">
-    <strong>Cultivated strong ties</strong> to the technology community through
-    exemplified demonstration of abilities
-  </span>,
-  <span data-cy="CoordinatedDevelopment" key="coordinated-development">
-    <strong>Coordinated development</strong> of interactive web-based data
-    visualizations, including interactive charts and maps
-  </span>
-];
-
-const companyPersonallyEmployedProps = {
+const companyPersonallyEmployedProps: ICompanyProps = {
   date: "May 2008 to September 2010",
   iconsWithLabels,
   name: "Alan Hadyk",
-  responsibilities,
+  responsibilities: [
+    <span key="employed-personal-referral">
+      <strong>Employed personal referral networks</strong> to attain small job
+      order contracts
+    </span>,
+    <span key="initialized-personal-motivation">
+      <strong>Initialized personal motivation</strong> to acquire front-end
+      development skills
+    </span>,
+    <span key="cultivated-strong-ties">
+      <strong>Cultivated strong ties</strong> to the technology community
+      through exemplified demonstration of abilities
+    </span>,
+    <span key="coordinated-development">
+      <strong>Coordinated development</strong> of interactive web-based data
+      visualizations, including interactive charts and maps
+    </span>
+  ],
   title: "Freelancer"
 };
 
 const CompanyPersonallyEmployed: React.FC = () => (
   <Company
     companyMobilePaddingBottom="pb-0"
-    dataCy="CompanyPersonallyEmployed"
     timelineBottom="bottom-0"
     {...companyPersonallyEmployedProps}
   />

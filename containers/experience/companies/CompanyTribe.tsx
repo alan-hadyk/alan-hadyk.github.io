@@ -69,50 +69,46 @@ const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
   }
 ];
 
-const responsibilities: ICompanyProps["responsibilities"] = [
-  <span data-cy="CreateScalable" key="create-scalable">
-    <strong>Create</strong> scalable and sane front-end architecture
-  </span>,
-  <span data-cy="ApplyAndCertifyFrontEnd" key="apply-and-certify-front">
-    <strong>Apply development</strong> and <strong>certify adherence</strong> to
-    best practices to deliver features for front-end application based on
-    React.js, Next.js, TypeScript, Apollo, GraphQL, Chakra and Tailwind
-  </span>,
-  <span data-cy="ApplyAndCertifyBackEnd" key="apply-and-certify-back">
-    <strong>Apply development</strong> and <strong>certify adherence</strong> to
-    best practices to deliver features for back-end application based on NestJS,
-    TypeScript, GraphQL and PostgreSQL
-  </span>,
-  <span data-cy="StreamlineProjectTimelines" key="streamline-project-timelines">
-    <strong>Streamline project timelines</strong> to ensure application is being
-    developed
-  </span>,
-  <span data-cy="TransformAndCreate" key="transform-and-create">
-    <strong>Transform and create</strong> reusable components
-  </span>,
-  <span data-cy="AuthorUnit" key="author-unit">
-    <strong>Author</strong> unit, integration and acceptance tests
-  </span>,
-  <span data-cy="DemonstrateExpertise" key="demonstrate-expertise">
-    <strong>Demonstrate expertise</strong> in the utilization of GraphQL to
-    communicate with backend
-  </span>
-];
-
-const companyTribeProps = {
+const companyTribeProps: ICompanyProps = {
   date: "April 2021 to October 2021",
   iconsWithLabels,
   name: "Tribe",
-  responsibilities,
+  responsibilities: [
+    <span key="created-scalable">
+      <strong>Created</strong> scalable and sane front-end architecture
+    </span>,
+    <span key="applied-and-certified-front">
+      <strong>Applied development</strong> and{" "}
+      <strong>certified adherence</strong> to best practices to deliver features
+      for front-end application based on React.js, Next.js, TypeScript, Apollo,
+      GraphQL, Chakra and Tailwind
+    </span>,
+    <span key="applied-and-certified-back">
+      <strong>Applied development</strong> and{" "}
+      <strong>certified adherence</strong> to best practices to deliver features
+      for back-end application based on NestJS, TypeScript, GraphQL and
+      PostgreSQL
+    </span>,
+    <span key="streamlined-project-timelines">
+      <strong>Streamlined project timelines</strong> to ensure application is
+      being developed
+    </span>,
+    <span key="transformed-and-created">
+      <strong>Transformed and created</strong> reusable components
+    </span>,
+    <span key="authored-unit">
+      <strong>Authored</strong> unit, integration and acceptance tests
+    </span>,
+    <span key="demonstrated-expertise">
+      <strong>Demonstrated expertise</strong> in the utilization of GraphQL to
+      communicate with backend
+    </span>
+  ],
   title: "Senior Full-Stack Developer"
 };
 
 const CompanyTribe: React.FC = () => (
-  <Company
-    dataCy="CompanyTribe"
-    link="https://tribe.so/"
-    {...companyTribeProps}
-  />
+  <Company link="https://tribe.so/" {...companyTribeProps} />
 );
 
 export { CompanyTribe, companyTribeProps };

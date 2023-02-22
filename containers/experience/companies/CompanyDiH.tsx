@@ -29,41 +29,39 @@ const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
   }
 ];
 
-const responsibilities: ICompanyProps["responsibilities"] = [
-  <span data-cy="OptimizedAndSystematized" key="optimized-and-systematized">
-    <strong>Optimized and systematized UI development</strong> (and sometimes
-    design) of various e-commerce projects
-  </span>,
-  <span data-cy="Bolstered" key="bolstered">
-    <strong>Bolstered continued professional development</strong> with concepts
-    and technologies, such as: CSS preprocessors, UI pattern libraries and
-    JavaScript task runners
-  </span>,
-  <span data-cy="PresentedInnovative" key="presented-innovative">
-    <strong>Presented innovative approaches</strong> in the form of brown bags
-    to all engineers to help shape our technical market presence
-  </span>,
-  <span data-cy="FosteredCrossFunctional" key="fostered-cross-functional">
-    <strong>Fostered cross-functional communication</strong> with information
-    technology, end users, and other stakeholders to translate needs into system
-    requirements, solid solutions, and reliable results
-  </span>,
-  <span data-cy="InformedDecisions" key="informed-decisions">
-    Informed decisions to <strong>incorporate</strong> the use of defect and
-    enhancement tracking software and processes
-  </span>
-];
-
-const companyDiHProps = {
+const companyDiHProps: ICompanyProps = {
   date: "October 2010 to October 2015",
   iconsWithLabels,
   name: "DiH",
-  responsibilities,
+  responsibilities: [
+    <span key="optimized-and-systematized">
+      <strong>Optimized and systematized UI development</strong> (and sometimes
+      design) of various e-commerce projects
+    </span>,
+    <span key="bolstered">
+      <strong>Bolstered continued professional development</strong> with
+      concepts and technologies, such as: CSS preprocessors, UI pattern
+      libraries and JavaScript task runners
+    </span>,
+    <span key="presented-innovative">
+      <strong>Presented innovative approaches</strong> in the form of brown bags
+      to all engineers to help shape our technical market presence
+    </span>,
+    <span key="fostered-cross-functional">
+      <strong>Fostered cross-functional communication</strong> with information
+      technology, end users, and other stakeholders to translate needs into
+      system requirements, solid solutions, and reliable results
+    </span>,
+    <span key="informed-decisions">
+      Informed decisions to <strong>incorporate</strong> the use of defect and
+      enhancement tracking software and processes
+    </span>
+  ],
   title: "Front end developer"
 };
 
 const CompanyDiH: React.FC = () => (
-  <Company dataCy="CompanyDiH" link="https://dih.pl/" {...companyDiHProps} />
+  <Company link="https://dih.pl/" {...companyDiHProps} />
 );
 
 export { CompanyDiH, companyDiHProps };

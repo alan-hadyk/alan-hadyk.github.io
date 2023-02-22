@@ -61,32 +61,33 @@ const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
 ];
 
 const responsibilities: ICompanyProps["responsibilities"] = [
-  <span data-cy="CreateScalable" key="create-scalable">
-    <strong>Create</strong> scalable front-end architecture for MVP version of a
-    real estate web app from scratch.
+  <span key="created-scalable">
+    <strong>Created</strong> scalable front-end architecture for MVP version of
+    a real estate web app from scratch.
   </span>,
-  <span data-cy="ApplyAndCertifyFrontEnd" key="apply-and-certify-front">
-    <strong>Apply development</strong> and <strong>certify adherence</strong> to
-    best practices to deliver features for front-end app based on React.js,
-    Next.js, TypeScript, Apollo, GraphQL, Auth0 and Tailwind
+  <span key="applied-and-certified-front">
+    <strong>Applied development</strong> and{" "}
+    <strong>certified adherence</strong> to best practices to deliver features
+    for front-end app based on React.js, Next.js, TypeScript, Apollo, GraphQL,
+    Auth0 and Tailwind
   </span>,
-  <span data-cy="StreamlineProjectTimelines" key="streamline-project-timelines">
-    <strong>Streamline project timelines</strong> to ensure application is being
-    developed
+  <span key="streamlined-project-timelines">
+    <strong>Streamlined project timelines</strong> to ensure application is
+    being developed
   </span>,
-  <span data-cy="TransformAndCreate" key="transform-and-create">
-    <strong>Actively participate</strong> in all stages of product building
+  <span key="actively-participated">
+    <strong>Actively participated</strong> in all stages of product building
   </span>,
-  <span data-cy="AuthorUnit" key="author-unit">
-    <strong>Transform and create</strong> reusable components
+  <span key="reusable-components">
+    <strong>Transformed and created</strong> reusable components
   </span>,
-  <span data-cy="DemonstrateExpertise" key="demonstrate-expertise">
-    <strong>Demonstrate expertise</strong> in the utilization of GraphQL to
+  <span key="demonstrated-expertise">
+    <strong>Demonstrated expertise</strong> in the utilization of GraphQL to
     communicate with backend
   </span>
 ];
 
-const companyStealthRealEstateStartupProps = {
+const companyRealEstateStartupProps = {
   date: "December 2021 to March 2022",
   iconsWithLabels,
   name: "Real Estate Startup",
@@ -94,14 +95,8 @@ const companyStealthRealEstateStartupProps = {
   title: "Front-end Architect"
 };
 
-const CompanyStealthRealEstateStartup: React.FC = () => (
-  <Company
-    dataCy="CompanyUndisclosed"
-    {...companyStealthRealEstateStartupProps}
-  />
+const CompanyRealEstateStartup: React.FC = () => (
+  <Company {...companyRealEstateStartupProps} />
 );
 
-export {
-  CompanyStealthRealEstateStartup,
-  companyStealthRealEstateStartupProps
-};
+export { CompanyRealEstateStartup, companyRealEstateStartupProps };
