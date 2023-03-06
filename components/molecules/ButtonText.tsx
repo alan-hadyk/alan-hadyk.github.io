@@ -1,4 +1,4 @@
-import { Text } from "components/atoms/Text";
+import { Typography } from "components/atoms/Typography";
 
 import {
   IButtonTextProps,
@@ -30,14 +30,14 @@ const ButtonText: React.FC<IButtonTextProps> = ({
 
   return (
     <LayoutContainer marginRight={getMarginRight()}>
-      <Text
+      <Typography
         fontFamily={fontFamily}
         fontSize={mapSizeToButtonTextProps[size].fontSize}
         color="text-white"
         textTransform={textTransform}
       >
         {buttonText}
-      </Text>
+      </Typography>
     </LayoutContainer>
   );
 };

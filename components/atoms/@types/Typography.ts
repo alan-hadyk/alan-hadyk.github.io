@@ -7,7 +7,7 @@ import {
 } from "types/theme";
 import { TChildren } from "types/props";
 
-export interface ITextProps {
+export interface ITypographyProps {
   children: TChildren;
   className?: string;
   color?: `text-${TColorValues}`;

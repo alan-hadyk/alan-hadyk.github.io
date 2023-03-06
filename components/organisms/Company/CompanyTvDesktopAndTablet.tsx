@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Text } from "components/atoms/Text";
+import { Typography } from "components/atoms/Typography";
 import { CompanyDescription } from "components/organisms/CompanyDescription";
 import { CompanyTimeline } from "components/molecules/CompanyTimeline";
 import { Responsive } from "components/layout/Responsive";
@@ -47,7 +47,7 @@ const CompanyTvDesktopAndTablet: React.FC<ICompanyProps> = ({
         flex="flex-[0_0_50%]"
         paddingRight="pr-40"
       >
-        <Text
+        <Typography
           color="text-white"
           fontFamily={isIE11() ? "font-anonymousPro" : "font-exan"}
           fontSize="text-48"
@@ -55,7 +55,7 @@ const CompanyTvDesktopAndTablet: React.FC<ICompanyProps> = ({
           textAlign="text-right"
         >
           {name}
-        </Text>
+        </Typography>
       </LayoutContainer>
 
       <LayoutContainer

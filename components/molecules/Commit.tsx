@@ -1,4 +1,4 @@
-import { Text } from "components/atoms/Text";
+import { Typography } from "components/atoms/Typography";
 import { Link } from "components/molecules/Link";
 
 import { ICommitProps } from "components/molecules/@types/Commit";
@@ -33,7 +33,7 @@ const Commit: React.FC<ICommitProps> = ({ date, delay, htmlUrl, sha }) => (
       >
         <LayoutContainer className="overflow-hidden" flex="flex-[0_0_61%]">
           <Link href={htmlUrl} isExternal>
-            <Text
+            <Typography
               color="text-blue100"
               ellipsis
               fontSize="text-8"
@@ -42,13 +42,13 @@ const Commit: React.FC<ICommitProps> = ({ date, delay, htmlUrl, sha }) => (
               textTransform="uppercase"
             >
               {sha}
-            </Text>
+            </Typography>
           </Link>
         </LayoutContainer>
         <LayoutContainer flex="flex-[0_0_29%]">
-          <Text fontSize="text-8" ellipsis>
+          <Typography fontSize="text-8" ellipsis>
             {date}
-          </Text>
+          </Typography>
         </LayoutContainer>
       </LayoutContainer>
     </LayoutContainer>

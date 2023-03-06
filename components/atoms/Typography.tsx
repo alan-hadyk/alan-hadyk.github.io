@@ -3,14 +3,15 @@ import { forwardRef, useState, useRef } from "react";
 import { useShuffleText } from "hooks/useShuffleText";
 import { useInterval } from "hooks/useInterval";
 
-import { ITextProps } from "components/atoms/@types/Text";
+import { ITypographyProps } from "components/atoms/@types/Typography";
 import { IShuffleState } from "hooks/@types/useShuffleText";
 import { trimTemplateLiteral } from "helpers/strings/trimTemplateLiteral";
+import { theme } from "styles/theme";
 
-import tailwindConfig from "tailwind.config";
-const transitionDuration = tailwindConfig.theme.transitionDuration;
-
-const _Text: React.ForwardRefRenderFunction<HTMLDivElement, ITextProps> = (
+const _Typography: React.ForwardRefRenderFunction<
+  HTMLDivElement,
+  ITypographyProps
+> = (
   {
     children,
     className,
@@ -30,7 +31,9 @@ const _Text: React.ForwardRefRenderFunction<HTMLDivElement, ITextProps> = (
     shouldShuffle = false,
     shouldShuffleOnHover = false,
     shuffleDelay = 0,
-    shuffleInterval = parseInt(transitionDuration.verySlow.replace("ms", "")),
+    shuffleInterval = parseInt(
+      theme.transitionDuration.verySlow.replace("ms", "")
+    ),
     textAlign = "text-left",
     textTransform = "normal-case",
     width = "w-auto"
@@ -89,6 +92,6 @@ const _Text: React.ForwardRefRenderFunction<HTMLDivElement, ITextProps> = (
   );
 };
 
-const Text = forwardRef<HTMLDivElement, ITextProps>(_Text);
+const Typography = forwardRef<HTMLDivElement, ITypographyProps>(_Typography);
 
-export { Text };
+export { Typography };

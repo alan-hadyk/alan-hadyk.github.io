@@ -1,5 +1,5 @@
 import { Icon } from "components/atoms/Icon";
-import { Text } from "components/atoms/Text";
+import { Typography } from "components/atoms/Typography";
 
 import {
   IIconWithLabelProps,
@@ -9,7 +9,7 @@ import {
 
 import { isIE11 } from "helpers/browser/isIE11";
 import { LayoutContainer } from "components/layout/LayoutContainer";
-import { ITextProps } from "components/atoms/@types/Text";
+import { ITypographyProps } from "components/atoms/@types/Typography";
 import { Link } from "components/molecules/Link";
 
 const mapSizeToIconHeight: IMapSizeToIconHeight = {
@@ -69,14 +69,14 @@ const IconWithLabel: React.FC<IIconWithLabelProps> = ({
           isHeightResponsive
         />
       </LayoutContainer>
-      <Text
+      <Typography
         className={href ? "group-hover:text-white" : ""}
-        color={labelColor as ITextProps["color"]}
+        color={labelColor as ITypographyProps["color"]}
         fontSize={mapSizeToTextFontSize[size as "small" | "medium" | "large"]}
         isHoverable={!!href}
       >
         {label}
-      </Text>
+      </Typography>
     </LayoutContainer>
   );
 

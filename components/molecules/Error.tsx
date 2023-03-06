@@ -1,4 +1,4 @@
-import { Text } from "components/atoms/Text";
+import { Typography } from "components/atoms/Typography";
 
 import IconWarning from "public/images/svg/Icon-Warning.svg";
 
@@ -15,7 +15,7 @@ const Error: React.FC<IErrorProps> = ({ description, title }) => (
       justifyContent="justify-center"
     >
       <IconWarning className="animate-glow-verySlow" data-cy="ErrorIcon" />
-      <Text
+      <Typography
         fontSize="text-24"
         fontWeight="font-bold"
         lineHeight="leading-24"
@@ -23,15 +23,15 @@ const Error: React.FC<IErrorProps> = ({ description, title }) => (
         textTransform="uppercase"
       >
         {title}
-      </Text>
-      <Text
+      </Typography>
+      <Typography
         fontSize="text-16"
         lineHeight="leading-24"
         textAlign="text-center"
         textTransform="uppercase"
       >
         {description}
-      </Text>
+      </Typography>
     </LayoutContainer>
   </LayoutContainer>
 );

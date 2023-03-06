@@ -1,4 +1,4 @@
-import { ITextProps } from "components/atoms/@types/Text";
+import { ITypographyProps } from "components/atoms/@types/Typography";
 import { ILayoutContainerProps } from "components/layout/@types/LayoutContainer";
 import { TSpacingValues } from "types/theme";
 import { TChildren } from "types/props";
@@ -12,6 +12,6 @@ export interface ISectionProps {
 }
 
 export interface IRenderTitle {
-  fontSize: ITextProps["fontSize"];
+  fontSize: ITypographyProps["fontSize"];
   marginBottom: ILayoutContainerProps["marginBottom"];
 }

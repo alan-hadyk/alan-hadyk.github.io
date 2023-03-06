@@ -1,4 +1,4 @@
-import { Text } from "components/atoms/Text";
+import { Typography } from "components/atoms/Typography";
 import { CompanyDescription } from "components/organisms/CompanyDescription";
 import { Responsive } from "components/layout/Responsive";
 
@@ -24,7 +24,7 @@ const CompanyMobile: React.FC<ICompanyProps> = ({
       display="flex"
       flexFlow="flex-col flex-nowrap"
     >
-      <Text
+      <Typography
         color="text-white"
         fontFamily={isIE11() ? "font-anonymousPro" : "font-exan"}
         fontSize="text-48"
@@ -32,7 +32,7 @@ const CompanyMobile: React.FC<ICompanyProps> = ({
         textAlign="text-center"
       >
         {name}
-      </Text>
+      </Typography>
 
       <CompanyDescription
         date={date}

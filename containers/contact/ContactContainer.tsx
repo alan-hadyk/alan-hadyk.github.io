@@ -1,4 +1,4 @@
-import { Text } from "components/atoms/Text";
+import { Typography } from "components/atoms/Typography";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 import { Link } from "components/molecules/Link";
 import { Section } from "components/molecules/Section";
@@ -7,7 +7,7 @@ const ContactContainer: React.FC = () => (
   <Section id="contact" title="Contact">
     <LayoutContainer display="flex" justifyContent="justify-center">
       <Link href="mailto:alan.hadyk@gmail.com" isExternal isHoverable>
-        <Text
+        <Typography
           color="text-blue300"
           ellipsis
           fontSize="text-28"
@@ -16,7 +16,7 @@ const ContactContainer: React.FC = () => (
           textAlign="text-center"
         >
           alan.hadyk@gmail.com
-        </Text>
+        </Typography>
       </Link>
     </LayoutContainer>
   </Section>

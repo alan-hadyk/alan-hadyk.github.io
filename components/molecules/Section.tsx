@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-import { Text } from "components/atoms/Text";
+import { Typography } from "components/atoms/Typography";
 import { Responsive } from "components/layout/Responsive";
 
 import { isIE11 } from "helpers/browser/isIE11";
@@ -25,7 +25,7 @@ const Section: React.FC<ISectionProps> = ({
   }: IRenderTitle): JSX.Element | null =>
     title ? (
       <LayoutContainer marginBottom={marginBottom}>
-        <Text
+        <Typography
           color="text-blue100"
           fontFamily={isIE11() ? "font-anonymousPro" : "font-exan"}
           fontSize={fontSize}
@@ -34,7 +34,7 @@ const Section: React.FC<ISectionProps> = ({
           textTransform={isIE11() ? "uppercase" : "lowercase"}
         >
           {title}
-        </Text>
+        </Typography>
       </LayoutContainer>
     ) : null;
 

@@ -1,4 +1,4 @@
-import { Text } from "components/atoms/Text";
+import { Typography } from "components/atoms/Typography";
 import { IconWithLabel } from "components/molecules/IconWithLabel";
 import { UnorderedList } from "components/molecules/UnorderedList";
 import { isIE11 } from "helpers/browser/isIE11";
@@ -17,7 +17,7 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
   title
 }) => (
   <LayoutContainer className="msHighContrastNone:w-100% msHighContrastActive:w-100%">
-    <Text
+    <Typography
       color="text-white"
       fontFamily={isIE11() ? "font-anonymousPro" : "font-exan"}
       fontSize="text-36"
@@ -26,7 +26,7 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
       textTransform="uppercase"
     >
       {title}
-    </Text>
+    </Typography>
 
     <LayoutContainer marginBottom={link ? "mb-16" : "mb-32"} marginTop="mt-32">
       <IconWithLabel
@@ -53,7 +53,7 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
     <TechStack iconsWithLabels={iconsWithLabels} />
 
     <LayoutContainer paddingBottom={responsibilitiesPaddingBottom}>
-      <Text
+      <Typography
         color="text-blue100"
         fontFamily="font-anonymousPro"
         fontSize="text-24"
@@ -61,7 +61,7 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
         lineHeight="leading-32"
       >
         Responsibilities
-      </Text>
+      </Typography>
       <LayoutContainer marginLeft="ml-16" marginTop="mt-16">
         <UnorderedList items={responsibilities} />
       </LayoutContainer>

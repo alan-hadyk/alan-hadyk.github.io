@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Text } from "components/atoms/Text";
+import { Typography } from "components/atoms/Typography";
 import { Corners } from "components/molecules/Corners";
 
 import { IDashboardElementProps } from "components/molecules/@types/DashboardElement";
@@ -33,7 +33,7 @@ const DashboardElement: React.FC<IDashboardElementProps> = ({
       order={order}
     >
       {title ? (
-        <Text
+        <Typography
           color={titleFontSize === "text-28" ? "text-blue100" : "text-blue300"}
           ellipsis
           fontFamily="font-anonymousPro"
@@ -42,12 +42,12 @@ const DashboardElement: React.FC<IDashboardElementProps> = ({
           textTransform="uppercase"
         >
           {title}
-        </Text>
+        </Typography>
       ) : null}
 
       {description ? (
         <LayoutContainer height="h-24" marginBottom="mb-28">
-          <Text
+          <Typography
             color="text-blue300"
             fontSize="text-8"
             lineHeight="leading-12"
@@ -56,7 +56,7 @@ const DashboardElement: React.FC<IDashboardElementProps> = ({
             textTransform="uppercase"
           >
             {description}
-          </Text>
+          </Typography>
         </LayoutContainer>
       ) : null}
 

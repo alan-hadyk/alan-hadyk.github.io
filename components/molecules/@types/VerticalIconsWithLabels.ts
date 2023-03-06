@@ -1,4 +1,4 @@
-import { ITextProps } from "components/atoms/@types/Text";
+import { ITypographyProps } from "components/atoms/@types/Typography";
 import { IIconWithLabelProps } from "components/molecules/@types/IconWithLabel";
 
 export interface IVerticalIconsWithLabelsProps {
@@ -6,6 +6,6 @@ export interface IVerticalIconsWithLabelsProps {
     IIconWithLabelProps,
     "iconName" | "label" | "isStaticImg"
   >[];
-  labelColor?: ITextProps["color"];
+  labelColor?: ITypographyProps["color"];
   size?: "small" | "medium" | "large";
 }

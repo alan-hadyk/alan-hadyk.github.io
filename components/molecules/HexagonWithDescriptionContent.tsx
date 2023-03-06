@@ -1,4 +1,4 @@
-import { Text } from "components/atoms/Text";
+import { Typography } from "components/atoms/Typography";
 import { Hexagon } from "components/molecules/Hexagon";
 
 import { IHexagonWithDescriptionContentProps } from "components/molecules/@types/HexagonWithDescriptionContent";
@@ -25,7 +25,7 @@ const HexagonWithDescriptionContent: React.FC<
       <Hexagon>{children}</Hexagon>
     </LayoutContainer>
 
-    <Text
+    <Typography
       color="text-blue300"
       fontFamily="font-anonymousPro"
       fontSize="text-20"
@@ -33,7 +33,7 @@ const HexagonWithDescriptionContent: React.FC<
       width={textWidth}
     >
       {description}
-    </Text>
+    </Typography>
   </LayoutContainer>
 );
 

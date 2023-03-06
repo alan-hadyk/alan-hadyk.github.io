@@ -1,5 +1,5 @@
 import { ConsoleText } from "components/atoms/ConsoleText";
-import { Text } from "components/atoms/Text";
+import { Typography } from "components/atoms/Typography";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 
 const ConsoleTvDesktopAndTablet: React.FC = () => (
@@ -40,13 +40,13 @@ const ConsoleTvDesktopAndTablet: React.FC = () => (
         position="absolute"
         top="top-0"
       >
-        <Text
+        <Typography
           fontSize="text-12"
           lineHeight="leading-28"
           textTransform="uppercase"
         >
           GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin19)
-        </Text>
+        </Typography>
       </LayoutContainer>
 
       <ConsoleText

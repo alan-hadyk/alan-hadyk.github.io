@@ -1,5 +1,5 @@
 import { IIconWithLabelProps } from "components/molecules/@types/IconWithLabel";
-import { ITextProps } from "components/atoms/@types/Text";
+import { ITypographyProps } from "components/atoms/@types/Typography";
 
 type TGap =
   | `directChildren:mr-${number} directChildren:mb-${number}`
@@ -10,7 +10,7 @@ export interface IIconsWithLabelsProps {
     IIconWithLabelProps,
     "iconName" | "label" | "isStaticImg"
   >[];
-  labelColor?: ITextProps["color"];
+  labelColor?: ITypographyProps["color"];
   position?: "vertical" | "horizontal";
   size?: IIconWithLabelProps["size"];
 }
