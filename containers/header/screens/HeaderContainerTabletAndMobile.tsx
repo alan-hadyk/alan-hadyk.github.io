@@ -1,5 +1,5 @@
 import { MenuButton } from "components/atoms/MenuButton";
-import { Backdrop } from "components/atoms/Backdrop";
+import { Backdrop } from "components/atoms/Backdrop/Backdrop";
 
 import { SideMenu } from "components/organisms/SideMenu";
 

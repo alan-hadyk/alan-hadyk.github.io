@@ -7,7 +7,7 @@ import { SideMenu } from "components/organisms/SideMenu";
 
 import { Responsive } from "components/layout/Responsive";
 
-import { Backdrop } from "components/atoms/Backdrop";
+import { Backdrop } from "components/atoms/Backdrop/Backdrop";
 import { isIE11 } from "helpers/browser/isIE11";
 
 import { Device } from "components/layout/@types/Responsive";
