@@ -1,4 +1,4 @@
-import { Image } from "components/atoms/Image";
+import { ImageStatic } from "components/atoms/ImageStatic/ImageStatic";
 import { Section } from "components/molecules/Section";
 import { HexagonWithDescription } from "components/molecules/HexagonWithDescription";
 
@@ -20,11 +20,13 @@ const renderDescription = () => (
 const AboutMeContainer: React.FC = () => (
   <Section id="about-me" title="About me">
     <HexagonWithDescription description={renderDescription()}>
-      <Image
+      <ImageStatic
         alt="Alan Hadyk"
-        height="700px"
         src="/images/alan.png"
-        width="700px"
+        themeClasses={{
+          height: "700px",
+          width: "700px"
+        }}
       />
     </HexagonWithDescription>
   </Section>

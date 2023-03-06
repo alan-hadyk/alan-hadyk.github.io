@@ -1,0 +1,51 @@
+import { IImageStaticProps } from "components/atoms/ImageStatic/@types/ImageStatic";
+import { imageStaticImgDefaultThemeClasses } from "components/atoms/ImageStatic/styles";
+import { convertObjectValuesToString } from "helpers/objects/convertObjectValuesToString";
+import { CSSProperties } from "react";
+import { IThemeClasses } from "types/theme";
+
+const ImageStatic: React.FC<IImageStaticProps> = ({
+  alt,
+  id,
+  src,
+  themeClasses
+}) => {
+  const imageStaticImgThemeClasses: IThemeClasses = {
+    ...imageStaticImgDefaultThemeClasses,
+    ...themeClasses
+  };
+
+  const { height, width } = imageStaticImgThemeClasses;
+
+  const pictureClassNames = [];
+  const pictureStyles: CSSProperties = {};
+
+  if (height) {
+    if (height.includes("h-")) {
+      pictureClassNames.push(height);
+    } else {
+      pictureStyles.height = height;
+    }
+  }
+
+  if (width) {
+    if (width.includes("w-")) {
+      pictureClassNames.push(width);
+    } else {
+      pictureStyles.width = width;
+    }
+  }
+
+  return (
+    <picture className={pictureClassNames.join(" ")} style={pictureStyles}>
+      <img
+        alt={alt}
+        className={convertObjectValuesToString(imageStaticImgThemeClasses)}
+        id={id}
+        src={src}
+      />
+    </picture>
+  );
+};
+
+export { ImageStatic };
