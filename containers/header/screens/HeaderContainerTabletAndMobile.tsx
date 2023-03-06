@@ -5,10 +5,10 @@ import { SideMenu } from "components/organisms/SideMenu";
 
 import { Responsive } from "components/layout/Responsive";
 
-import { IHeaderMobileProps } from "components/organisms/Header/@types/HeaderMobile";
 import { Device } from "components/layout/@types/Responsive";
+import { IHeaderContainerScreenProps } from "containers/header/@types/HeaderContainerScreen";
 
-const HeaderTabletAndMobile: React.FC<IHeaderMobileProps> = ({
+const HeaderContainerTabletAndMobile: React.FC<IHeaderContainerScreenProps> = ({
   isMenuVisible,
   onCVButtonClick,
   onClick
@@ -25,4 +25,4 @@ const HeaderTabletAndMobile: React.FC<IHeaderMobileProps> = ({
   </Responsive>
 );
 
-export { HeaderTabletAndMobile };
+export { HeaderContainerTabletAndMobile };

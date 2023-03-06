@@ -1,19 +1,29 @@
+import { MenuButton } from "components/atoms/MenuButton";
+
 import { Button } from "components/molecules/Button";
-import { MenuIcons } from "components/molecules/MenuIcons";
 import { Nav } from "components/molecules/Nav";
+
+import { SideMenu } from "components/organisms/SideMenu";
 
 import { Responsive } from "components/layout/Responsive";
 
+import { Backdrop } from "components/atoms/Backdrop";
 import { isIE11 } from "helpers/browser/isIE11";
 
-import { IHeaderTvProps } from "components/organisms/Header/@types/HeaderTv";
 import { Device } from "components/layout/@types/Responsive";
 import { LayoutContainer } from "components/layout/LayoutContainer";
+import { IHeaderContainerScreenProps } from "containers/header/@types/HeaderContainerScreen";
 
-const HeaderTv: React.FC<IHeaderTvProps> = ({ onCVButtonClick }) => (
-  <Responsive dataCy="HeaderTv" devices={[Device.TV]}>
+const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
+  isMenuVisible,
+  onCVButtonClick,
+  onClick
+}) => (
+  <Responsive dataCy="HeaderDesktop" devices={[Device.DESKTOP]}>
     <LayoutContainer
-      className="flex-row flex-nowrap directChildren:ml-24 firstdirectChild:ml-0"
+      alignItems="items-center"
+      className="directChildren:ml-24 firstdirectChild:ml-0"
+      flexFlow="flex-row flex-nowrap"
       display="flex"
       height="h-48"
       justifyContent="justify-start"
@@ -32,9 +42,13 @@ const HeaderTv: React.FC<IHeaderTvProps> = ({ onCVButtonClick }) => (
         tabIndex={0}
       />
 
-      <MenuIcons />
+      <MenuButton isOpen={isMenuVisible} onClick={onClick} />
+
+      {isMenuVisible && <Backdrop onClick={onClick} />}
+
+      <SideMenu isExpanded={isMenuVisible} />
     </LayoutContainer>
   </Responsive>
 );
 
-export { HeaderTv };
+export { HeaderContainerDesktop };

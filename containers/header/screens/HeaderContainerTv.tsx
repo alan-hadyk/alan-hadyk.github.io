@@ -1,29 +1,21 @@
-import { MenuButton } from "components/atoms/MenuButton";
-
 import { Button } from "components/molecules/Button";
+import { MenuIcons } from "components/molecules/MenuIcons";
 import { Nav } from "components/molecules/Nav";
-
-import { SideMenu } from "components/organisms/SideMenu";
 
 import { Responsive } from "components/layout/Responsive";
 
-import { Backdrop } from "components/atoms/Backdrop";
 import { isIE11 } from "helpers/browser/isIE11";
 
-import { IHeaderMobileProps } from "components/organisms/Header/@types/HeaderMobile";
 import { Device } from "components/layout/@types/Responsive";
 import { LayoutContainer } from "components/layout/LayoutContainer";
+import { IHeaderContainerTvProps } from "containers/header/@types/HeaderContainerTv";
 
-const HeaderDesktop: React.FC<IHeaderMobileProps> = ({
-  isMenuVisible,
-  onCVButtonClick,
-  onClick
+const HeaderContainerTv: React.FC<IHeaderContainerTvProps> = ({
+  onCVButtonClick
 }) => (
-  <Responsive dataCy="HeaderDesktop" devices={[Device.DESKTOP]}>
+  <Responsive dataCy="HeaderTv" devices={[Device.TV]}>
     <LayoutContainer
-      alignItems="items-center"
-      className="directChildren:ml-24 firstdirectChild:ml-0"
-      flexFlow="flex-row flex-nowrap"
+      className="flex-row flex-nowrap directChildren:ml-24 firstdirectChild:ml-0"
       display="flex"
       height="h-48"
       justifyContent="justify-start"
@@ -42,13 +34,9 @@ const HeaderDesktop: React.FC<IHeaderMobileProps> = ({
         tabIndex={0}
       />
 
-      <MenuButton isOpen={isMenuVisible} onClick={onClick} />
-
-      {isMenuVisible && <Backdrop onClick={onClick} />}
-
-      <SideMenu isExpanded={isMenuVisible} />
+      <MenuIcons />
     </LayoutContainer>
   </Responsive>
 );
 
-export { HeaderDesktop };
+export { HeaderContainerTv };

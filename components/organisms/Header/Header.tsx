@@ -1,11 +1,6 @@
 import { useCallback, useState } from "react";
 
 import { LinkWithIcon } from "components/molecules/LinkWithIcon";
-
-import { HeaderTv } from "components/organisms/Header/HeaderTv";
-import { HeaderDesktop } from "components/organisms/Header/HeaderDesktop";
-import { HeaderTabletAndMobile } from "components/organisms/Header/HeaderTabletAndMobile";
-
 import { LayoutContainer } from "components/layout/LayoutContainer";
 import { Responsive } from "components/layout/Responsive";
 
@@ -20,7 +15,7 @@ const downloadCV = () => {
     : null;
 };
 
-const Header: React.FC<IHeaderProps> = ({ zIndex = "z-100" }) => {
+const Header: React.FC<IHeaderProps> = ({ children, zIndex = "z-400" }) => {
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false);
   const toggleMenuVisibility = useCallback((): void => {
     setIsMenuVisible((_isMenuVisible) => !_isMenuVisible);
@@ -65,12 +60,8 @@ const Header: React.FC<IHeaderProps> = ({ zIndex = "z-100" }) => {
               height="h-48"
               justifyContent="justify-between"
             >
-              <Responsive
-                dataCy="ResponsiveLinkTvDesktopTablet"
-                devices={[Device.TV, Device.DESKTOP, Device.TABLET]}
-              >
+              <Responsive devices={[Device.TV, Device.DESKTOP, Device.TABLET]}>
                 <LinkWithIcon
-                  dataCy="SiteLogo"
                   href="/"
                   height="h-48"
                   iconName="logo"
@@ -78,31 +69,11 @@ const Header: React.FC<IHeaderProps> = ({ zIndex = "z-100" }) => {
                 />
               </Responsive>
 
-              <Responsive
-                dataCy="ResponsiveLinkMobile"
-                devices={[Device.MOBILE]}
-              >
-                <LinkWithIcon
-                  dataCy="SiteLogoMobile"
-                  href="/"
-                  iconName="logoShortcut"
-                  width="w-64"
-                />
+              <Responsive devices={[Device.MOBILE]}>
+                <LinkWithIcon href="/" iconName="logoShortcut" width="w-64" />
               </Responsive>
 
-              <HeaderTv onCVButtonClick={downloadCV} />
-
-              <HeaderDesktop
-                isMenuVisible={isMenuVisible}
-                onCVButtonClick={downloadCV}
-                onClick={toggleMenuVisibility}
-              />
-
-              <HeaderTabletAndMobile
-                isMenuVisible={isMenuVisible}
-                onCVButtonClick={downloadCV}
-                onClick={toggleMenuVisibility}
-              />
+              {children({ isMenuVisible, toggleMenuVisibility })}
             </LayoutContainer>
           </LayoutContainer>
         </LayoutContainer>
