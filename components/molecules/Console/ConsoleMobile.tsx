@@ -1,4 +1,5 @@
-import { ConsoleText } from "components/atoms/ConsoleText";
+import { ConsoleTextVariant } from "components/atoms/ConsoleText/@types/ConsoleText";
+import { ConsoleText } from "components/atoms/ConsoleText/ConsoleText";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 
 const ConsoleMobile: React.FC = () => (
@@ -11,13 +12,7 @@ const ConsoleMobile: React.FC = () => (
       `}
       padding="p-16"
     >
-      <ConsoleText
-        themeClasses={{
-          fontSize: "text-32",
-          lineHeight: "leading-36",
-          pseudoClasses: ["after:h-24", "after:translate-y-[1px]", "after:w-12"]
-        }}
-      />
+      <ConsoleText variant={ConsoleTextVariant.Mobile} />
     </LayoutContainer>
   </LayoutContainer>
 );

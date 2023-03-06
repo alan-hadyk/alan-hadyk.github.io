@@ -1,4 +1,5 @@
-import { ConsoleText } from "components/atoms/ConsoleText";
+import { ConsoleTextVariant } from "components/atoms/ConsoleText/@types/ConsoleText";
+import { ConsoleText } from "components/atoms/ConsoleText/ConsoleText";
 import { Typography } from "components/atoms/Typography";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 
@@ -49,17 +50,7 @@ const ConsoleTvDesktopAndTablet: React.FC = () => (
         </Typography>
       </LayoutContainer>
 
-      <ConsoleText
-        themeClasses={{
-          fontSize: "text-[6vh]",
-          lineHeight: "leading-[7.4vh]",
-          pseudoClasses: [
-            "after:h-[6vh]",
-            "after:translate-y-[1vh]",
-            "after:w-[3vh]"
-          ]
-        }}
-      />
+      <ConsoleText variant={ConsoleTextVariant.TvDesktopAndTablet} />
     </LayoutContainer>
   </LayoutContainer>
 );

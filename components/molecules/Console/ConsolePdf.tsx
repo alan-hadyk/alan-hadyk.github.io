@@ -1,5 +1,6 @@
+import { ConsoleTextVariant } from "components/atoms/ConsoleText/@types/ConsoleText";
 import { CornerVariant } from "components/atoms/@types/Corner";
-import { ConsoleText } from "components/atoms/ConsoleText";
+import { ConsoleText } from "components/atoms/ConsoleText/ConsoleText";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 import { Corners } from "components/molecules/Corners";
 
@@ -17,15 +18,7 @@ const ConsolePdf: React.FC = () => (
       }}
     >
       <Corners variant={CornerVariant.Dark} />
-      <ConsoleText
-        themeClasses={{
-          color: "text-blue600",
-          fontFamily: "font-anonymousPro",
-          fontSize: "text-12",
-          lineHeight: "leading-16",
-          textTransform: "uppercase"
-        }}
-      />
+      <ConsoleText variant={ConsoleTextVariant.Pdf} />
     </LayoutContainer>
   </LayoutContainer>
 );
