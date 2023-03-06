@@ -2,31 +2,31 @@ import { IIconWithLabelProps } from "components/molecules/@types/IconWithLabel";
 
 const iconsWithLabels: IIconWithLabelProps[] = [
   {
-    iconName: "brandPhotoshop",
+    iconName: "photoshop",
     label: "Photoshop"
   },
   {
-    iconName: "brandSketch",
+    iconName: "sketch",
     label: "Sketch"
   },
   {
-    iconName: "brandFigma",
+    iconName: "figma",
     label: "Figma"
   },
   {
-    iconName: "brandCorel",
+    iconName: "corelDraw",
     label: "CorelDRAW"
   },
   {
-    iconName: "brandAfterEffects",
+    iconName: "afterEffects",
     label: "After Effects"
   },
   {
-    iconName: "brandZeplin",
+    iconName: "zeplin",
     label: "Zeplin"
   },
   {
-    iconName: "brandGallery",
+    iconName: "gallery",
     label: "Gallery"
   }
 ];

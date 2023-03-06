@@ -1,4 +1,4 @@
-import { Icon } from "components/atoms/Icon";
+import { ImageDynamic } from "components/atoms/ImageDynamic/ImageDynamic";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 
 import { isSafari } from "helpers/browser/isSafari";
@@ -11,8 +11,8 @@ const Earth: React.FC = () => (
       height="h-100%"
       justifyContent="justify-center"
     >
-      <Icon
-        iconName="earth"
+      <ImageDynamic
+        imageName="earth"
         isResponsive
         themeClasses={{
           height: isSafari() ? "h-[18vh]" : "h-100%",

@@ -3,31 +3,31 @@ import { Company } from "components/organisms/Company/Company";
 
 const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
   {
-    iconName: "brandJS",
+    iconName: "javaScript",
     label: "Javascript"
   },
   {
-    iconName: "brandTS",
+    iconName: "typeScript",
     label: "Typescript"
   },
   {
-    iconName: "brandReact",
+    iconName: "react",
     label: "React"
   },
   {
-    iconName: "brandTailwind",
+    iconName: "tailwind",
     label: "Tailwind"
   },
   {
-    iconName: "brandGraphQL",
+    iconName: "graphQL",
     label: "GraphQL"
   },
   {
-    iconName: "brandApollo",
+    iconName: "apollo",
     label: "Apollo"
   },
   {
-    iconName: "brandPrisma",
+    iconName: "prisma",
     label: "Prisma"
   }
 ];

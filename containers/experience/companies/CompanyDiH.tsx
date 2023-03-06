@@ -4,27 +4,27 @@ import { ICompanyProps } from "components/organisms/Company/@types/Company";
 
 const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
   {
-    iconName: "brandJS",
+    iconName: "javaScript",
     label: "Javascript"
   },
   {
-    iconName: "brandSass",
+    iconName: "sass",
     label: "Sass"
   },
   {
-    iconName: "brandLESS",
+    iconName: "less",
     label: "LESS"
   },
   {
-    iconName: "brandjQuery",
+    iconName: "jQuery",
     label: "jQuery"
   },
   {
-    iconName: "brandPrestaShop",
+    iconName: "prestashop",
     label: "PrestaShop"
   },
   {
-    iconName: "brandRedmine",
+    iconName: "redmine",
     label: "Redmine"
   }
 ];

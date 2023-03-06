@@ -4,83 +4,83 @@ import { ICompanyProps } from "components/organisms/Company/@types/Company";
 
 const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
   {
-    iconName: "brandJS",
+    iconName: "javaScript",
     label: "Javascript"
   },
   {
-    iconName: "brandRuby",
+    iconName: "ruby",
     label: "Ruby"
   },
   {
-    iconName: "brandReact",
+    iconName: "react",
     label: "React"
   },
   {
-    iconName: "brandRails",
+    iconName: "rubyOnRails",
     label: "Ruby on Rails"
   },
   {
-    iconName: "brandSinatra",
+    iconName: "sinatra",
     label: "Sinatra"
   },
   {
-    iconName: "brandStyledComponents",
+    iconName: "styledComponents",
     label: "styled components"
   },
   {
-    iconName: "brandWebpack",
+    iconName: "webpack",
     label: "Webpack"
   },
   {
-    iconName: "brandJEST",
+    iconName: "jest",
     label: "JEST"
   },
   {
-    iconName: "brandAirbnb",
+    iconName: "airbnb",
     label: "Enzyme"
   },
   {
-    iconName: "brandTestingLibrary",
+    iconName: "reactTestingLibrary",
     label: "React Testing Library"
   },
   {
-    iconName: "brandCypress",
+    iconName: "cypress",
     label: "Cypress"
   },
   {
-    iconName: "brandNode",
+    iconName: "nodeJs",
     label: "Node.js"
   },
   {
-    iconName: "brandExpress",
+    iconName: "express",
     label: "Express"
   },
   {
-    iconName: "brandApollo",
+    iconName: "apollo",
     label: "Apollo"
   },
   {
-    iconName: "brandGraphQL",
+    iconName: "graphQL",
     label: "GraphQL"
   },
   {
-    iconName: "brandDocker",
+    iconName: "docker",
     label: "Docker"
   },
   {
-    iconName: "brandJenkins",
+    iconName: "jenkins",
     label: "Jenkins"
   },
   {
-    iconName: "brandBuildkite",
+    iconName: "buildkite",
     label: "Buildkite"
   },
   {
-    iconName: "brandBasecamp",
+    iconName: "basecamp",
     label: "Basecamp"
   },
   {
-    iconName: "brandGallery",
+    iconName: "gallery",
     label: "Gallery"
   }
 ];

@@ -3,59 +3,59 @@ import { Company } from "components/organisms/Company/Company";
 
 const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
   {
-    iconName: "brandJS",
+    iconName: "javaScript",
     label: "Javascript"
   },
   {
-    iconName: "brandTS",
+    iconName: "typeScript",
     label: "Typescript"
   },
   {
-    iconName: "brandReact",
+    iconName: "react",
     label: "React"
   },
   {
-    iconName: "brandNext",
+    iconName: "nextJs",
     label: "Next.js"
   },
   {
-    iconName: "brandTailwind",
+    iconName: "tailwind",
     label: "Tailwind"
   },
   {
-    iconName: "brandAuth0",
+    iconName: "auth0",
     label: "Auth0"
   },
   {
-    iconName: "brandWebpack",
+    iconName: "webpack",
     label: "Webpack"
   },
   {
-    iconName: "brandJEST",
+    iconName: "jest",
     label: "JEST"
   },
   {
-    iconName: "brandTestingLibrary",
+    iconName: "reactTestingLibrary",
     label: "React Testing Library"
   },
   {
-    iconName: "brandCypress",
+    iconName: "cypress",
     label: "Cypress"
   },
   {
-    iconName: "brandNode",
+    iconName: "nodeJs",
     label: "Node.js"
   },
   {
-    iconName: "brandApollo",
+    iconName: "apollo",
     label: "Apollo"
   },
   {
-    iconName: "brandGraphQL",
+    iconName: "graphQL",
     label: "GraphQL"
   },
   {
-    iconName: "brandDocker",
+    iconName: "docker",
     label: "Docker"
   }
 ];

@@ -34,7 +34,7 @@ const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
 
       <Button
         buttonText="cv"
-        iconName="btnDownload"
+        iconName="download"
         iconWidth={isIE11() ? "w-24" : "w-auto"}
         onClick={onCVButtonClick}
         size="medium"

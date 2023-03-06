@@ -2,35 +2,35 @@ import { IIconWithLabelProps } from "components/molecules/@types/IconWithLabel";
 
 const iconsWithLabels: IIconWithLabelProps[] = [
   {
-    iconName: "brandJenkins",
+    iconName: "jenkins",
     label: "Jenkins"
   },
   {
-    iconName: "brandBuildkite",
+    iconName: "buildkite",
     label: "Buildkite"
   },
   {
-    iconName: "brandBamboo",
+    iconName: "bamboo",
     label: "Bamboo"
   },
   {
-    iconName: "brandGithub",
+    iconName: "github",
     label: "GitHub Actions"
   },
   {
-    iconName: "brandGithub",
+    iconName: "github",
     label: "GitHub Enterprise"
   },
   {
-    iconName: "brandDocker",
+    iconName: "docker",
     label: "Docker"
   },
   {
-    iconName: "brandGitlab",
+    iconName: "gitlab",
     label: "GitLab"
   },
   {
-    iconName: "brandStash",
+    iconName: "stash",
     label: "Stash"
   }
 ];

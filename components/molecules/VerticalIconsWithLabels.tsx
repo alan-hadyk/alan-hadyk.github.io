@@ -1,4 +1,3 @@
-import { Icon } from "components/atoms/Icon";
 import { Typography } from "components/atoms/Typography";
 import {
   mapSizeToIconHeight,
@@ -8,6 +7,7 @@ import {
 import { IVerticalIconsWithLabelsProps } from "components/molecules/@types/VerticalIconsWithLabels";
 import { IIconWithLabelProps } from "components/molecules/@types/IconWithLabel";
 import { LayoutContainer } from "components/layout/LayoutContainer";
+import { IconStatic } from "components/atoms/IconStatic/IconStatic";
 
 const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
   iconsWithLabels,
@@ -29,17 +29,13 @@ const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
       flex="flex-[0_0_9.2rem]"
     >
       {iconsWithLabels.map(
-        (
-          { iconName, isStaticImg }: IIconWithLabelProps,
-          index: number
-        ): JSX.Element => (
+        ({ iconName }: IIconWithLabelProps, index: number): JSX.Element => (
           <LayoutContainer key={iconName + index} marginBottom="mb-12">
-            <Icon
+            <IconStatic
               themeClasses={{
                 height: mapSizeToIconHeight[size]
               }}
               iconName={iconName}
-              isStaticImg={isStaticImg}
             />
           </LayoutContainer>
         )

@@ -1,6 +1,5 @@
 import { useCallback, useState } from "react";
 
-import { LinkWithIcon } from "components/molecules/LinkWithIcon";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 import { Responsive } from "components/layout/Responsive";
 
@@ -8,6 +7,7 @@ import { useResize } from "hooks/useResize";
 
 import { IHeaderProps } from "components/organisms/@types/Header";
 import { Device } from "components/layout/@types/Responsive";
+import { LinkWithImage } from "components/molecules/LinkWithImage/LinkWithImage";
 
 const Header: React.FC<IHeaderProps> = ({ children, zIndex = "z-400" }) => {
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false);
@@ -55,7 +55,7 @@ const Header: React.FC<IHeaderProps> = ({ children, zIndex = "z-400" }) => {
               justifyContent="justify-between"
             >
               <Responsive devices={[Device.TV, Device.DESKTOP, Device.TABLET]}>
-                <LinkWithIcon
+                <LinkWithImage
                   href="/"
                   height="h-48"
                   iconName="logo"
@@ -64,7 +64,7 @@ const Header: React.FC<IHeaderProps> = ({ children, zIndex = "z-400" }) => {
               </Responsive>
 
               <Responsive devices={[Device.MOBILE]}>
-                <LinkWithIcon href="/" iconName="logoShortcut" width="w-64" />
+                <LinkWithImage href="/" iconName="logoShortcut" width="w-64" />
               </Responsive>
 
               {children({ isMenuVisible, toggleMenuVisibility })}

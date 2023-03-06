@@ -26,7 +26,7 @@ const HeaderContainerTv: React.FC<IHeaderContainerTvProps> = ({
 
       <Button
         buttonText="cv"
-        iconName="btnDownload"
+        iconName="download"
         iconWidth={isIE11() ? "w-24" : "w-auto"}
         onClick={onCVButtonClick}
         size="medium"

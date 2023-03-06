@@ -1,3 +1,4 @@
+import { IIconDynamicProps } from "components/atoms/IconDynamic/@types/IconDynamic";
 import { IThemeClasses, TColorValues } from "types/theme";
 
 export interface IButtonContainerProps {
@@ -15,7 +16,10 @@ export interface IButtonInnnerContainerPositions {
 
 export interface IButtonProps {
   buttonText: string;
-  iconName?: "btnCodeSandbox" | "btnDownload" | "btnExternalLink";
+  iconName?: Extract<
+    IIconDynamicProps["iconName"],
+    "download" | "externalLink"
+  >;
   iconWidth?: IThemeClasses["width"];
   onClick?: () => void;
   size?: "small" | "medium" | "large";

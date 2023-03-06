@@ -1,7 +1,7 @@
 import React, { useState, useRef, useCallback } from "react";
 import { isMobile } from "react-device-detect";
 
-import { Icon } from "components/atoms/Icon";
+import { IconDynamic } from "components/atoms/IconDynamic/IconDynamic";
 import { ButtonText } from "components/molecules/ButtonText";
 import { Corners } from "components/molecules/Corners";
 
@@ -174,8 +174,9 @@ const Button: React.FC<IButtonProps> = ({
               size={size}
               textTransform={isIE11() ? "uppercase" : "lowercase"}
             />
+
             {iconName && (
-              <Icon
+              <IconDynamic
                 themeClasses={{
                   height: size === "small" ? "h-12" : "h-24",
                   width: iconWidth

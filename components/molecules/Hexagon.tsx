@@ -1,7 +1,4 @@
 import { useEffect, useState, useRef } from "react";
-
-import { Icon } from "components/atoms/Icon";
-
 import { isIE11 } from "helpers/browser/isIE11";
 
 import {
@@ -9,6 +6,7 @@ import {
   TIconDimensionsProps
 } from "components/molecules/@types/Hexagon";
 import { LayoutContainer } from "components/layout/LayoutContainer";
+import { ImageDynamic } from "components/atoms/ImageDynamic/ImageDynamic";
 
 const Hexagon: React.FC<IHexagonProps> = ({
   children,
@@ -41,26 +39,26 @@ const Hexagon: React.FC<IHexagonProps> = ({
 
   return (
     <LayoutContainer position="relative">
-      {fill === "pattern" && <Icon iconName="hexagonWithPattern" />}
+      {fill === "pattern" && <ImageDynamic imageName="hexagonWithPattern" />}
 
       {fill === "solid" && (
-        <Icon
+        <ImageDynamic
           themeClasses={{
             height: isIE11() ? "h-16" : "h-auto"
           }}
-          iconName="hexagon"
+          imageName="hexagon"
           isActive
           shouldGlow
         />
       )}
 
       {fill === "none" && (
-        <Icon
+        <ImageDynamic
           themeClasses={{
             height: iconDimensions.height,
             width: iconDimensions.width
           }}
-          iconName="hexagon"
+          imageName="hexagon"
           ref={iconRef}
           shouldGlow
         />

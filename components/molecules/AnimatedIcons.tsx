@@ -1,16 +1,16 @@
-import { Icon } from "components/atoms/Icon";
+import { IconDynamic } from "components/atoms/IconDynamic/IconDynamic";
 
 import { isSafari } from "helpers/browser/isSafari";
 
-import { IIconProps } from "components/atoms/@types/Icon";
+import { IIconDynamicProps } from "components/atoms/IconDynamic/@types/IconDynamic";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 
-const animatedIcons: IIconProps["iconName"][] = [
+const animatedIcons: IIconDynamicProps["iconName"][] = [
   "react",
-  "javascript",
-  "typescript",
+  "javaScript",
+  "typeScript",
   "webpack",
-  "nodeIcon",
+  "nodeJs",
   "apollo",
   "graphql"
 ];
@@ -25,14 +25,14 @@ const AnimatedIcons: React.FC = () => (
       justifyContent="justify-center"
     >
       {animatedIcons.map(
-        (icon: IIconProps["iconName"]): JSX.Element => (
+        (icon: IIconDynamicProps["iconName"]): JSX.Element => (
           <LayoutContainer
             height={isSafari() ? "h-auto" : "h-100%"}
             key={icon}
             position="relative"
             width={`${Number(Number(100 / animatedIcons.length).toFixed(2))}%`}
           >
-            <Icon
+            <IconDynamic
               themeClasses={{
                 height: isSafari() ? "h-[8vh]" : "h-100%",
                 width: isSafari() ? "w-[8vh]" : "w-100%"

@@ -1,4 +1,4 @@
-import { Icon } from "components/atoms/Icon";
+import { IconDynamic } from "components/atoms/IconDynamic/IconDynamic";
 import { Link } from "components/molecules/Link";
 import { ILinkWithIconProps } from "components/molecules/@types/LinkWithIcon";
 
@@ -16,10 +16,13 @@ const LinkWithIcon: React.FC<ILinkWithIconProps> = ({
     isExternal={isExternal}
     width={width}
   >
-    <Icon
+    <IconDynamic
       themeClasses={{
-        glowAnimationTime: "childrenSvg:duration-fast",
         height: height,
+        pseudoClasses: [
+          "childrenSvg:animate-glow-slow",
+          "childrenSvg:duration-fast"
+        ],
         width: width
       }}
       isHeightResponsive

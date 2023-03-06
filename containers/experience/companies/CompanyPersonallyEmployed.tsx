@@ -4,11 +4,11 @@ import { ICompanyProps } from "components/organisms/Company/@types/Company";
 
 const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
   {
-    iconName: "brandJS",
+    iconName: "javaScript",
     label: "Javascript"
   },
   {
-    iconName: "brandjQuery",
+    iconName: "jQuery",
     label: "jQuery"
   }
 ];

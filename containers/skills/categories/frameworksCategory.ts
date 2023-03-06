@@ -2,52 +2,51 @@ import { IIconWithLabelProps } from "components/molecules/@types/IconWithLabel";
 
 const iconsWithLabels: IIconWithLabelProps[] = [
   {
-    iconName: "brandReact",
+    iconName: "react",
     label: "React"
   },
   {
-    iconName: "brandNext",
-    isStaticImg: true,
+    iconName: "nextJs",
     label: "Next.js"
   },
   {
-    iconName: "brandReact",
+    iconName: "react",
     label: "React Native"
   },
   {
-    iconName: "brandNode",
+    iconName: "nodeJs",
     label: "Node.js"
   },
   {
-    iconName: "brandNest",
+    iconName: "nestJs",
     label: "NestJS"
   },
   {
-    iconName: "brandPrisma",
+    iconName: "prisma",
     label: "Prisma"
   },
   {
-    iconName: "brandNode",
+    iconName: "nodeJs",
     label: "Express"
   },
   {
-    iconName: "brandEmber",
+    iconName: "ember",
     label: "Ember"
   },
   {
-    iconName: "brandPrestaShop",
+    iconName: "prestashop",
     label: "PrestaShop"
   },
   {
-    iconName: "brandjQuery",
+    iconName: "jQuery",
     label: "jQuery"
   },
   {
-    iconName: "brandRails",
+    iconName: "rubyOnRails",
     label: "Ruby on Rails"
   },
   {
-    iconName: "brandSinatra",
+    iconName: "sinatra",
     label: "Sinatra"
   }
 ];

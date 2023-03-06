@@ -1,4 +1,4 @@
-import { Icon } from "components/atoms/Icon";
+// import { Icon } from "components/atoms/Icon/Icon";
 import { Typography } from "components/atoms/Typography";
 
 import {
@@ -11,6 +11,7 @@ import { isIE11 } from "helpers/browser/isIE11";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 import { ITypographyProps } from "components/atoms/@types/Typography";
 import { Link } from "components/molecules/Link";
+import { IconStatic } from "components/atoms/IconStatic/IconStatic";
 
 const mapSizeToIconHeight: IMapSizeToIconHeight = {
   large: "h-40",
@@ -28,7 +29,6 @@ const IconWithLabel: React.FC<IIconWithLabelProps> = ({
   href,
   iconName,
   isExternal,
-  isStaticImg,
   label,
   labelColor = "text-blue100",
   size = "medium"
@@ -45,28 +45,12 @@ const IconWithLabel: React.FC<IIconWithLabelProps> = ({
       justifyContent="justify-start"
     >
       <LayoutContainer paddingRight={iconPadding}>
-        <Icon
-          className={
-            href
-              ? `
-              childrenPath:transition-all 
-              childrenPath:duration-fast 
-              childrenPath:ease-in-out 
-              childrenMask:transition-all 
-              childrenMask:duration-fast 
-              childrenMask:ease-in-out 
-              group-hover:childrenMask:fill-white 
-              group-hover:childrenPath:fill-white
-          `
-              : ""
-          }
-          isStaticImg={isStaticImg}
+        <IconStatic
           themeClasses={{
             height: mapSizeToIconHeight[size as "small" | "medium" | "large"],
             width: isIE11() ? "w-32" : "w-auto"
           }}
           iconName={iconName}
-          isHeightResponsive
         />
       </LayoutContainer>
       <Typography

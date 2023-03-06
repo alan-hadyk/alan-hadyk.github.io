@@ -52,11 +52,10 @@ const IconsWithLabels: React.FC<IIconsWithLabelsProps> = ({
       {position === "horizontal" ? (
         iconsWithLabels &&
         iconsWithLabels.map(
-          ({ iconName, isStaticImg, label }): JSX.Element => (
+          ({ iconName, label }): JSX.Element => (
             <IconWithLabel
               labelColor={labelColor}
               iconName={iconName}
-              isStaticImg={isStaticImg}
               key={label}
               label={label}
               size={size}

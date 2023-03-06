@@ -107,6 +107,8 @@ export type TMarginBottom = TUtilityWithArbitraryValues<"mb", TSpacingValues>;
 export type TMarginLeft = TUtilityWithArbitraryValues<"ml", TSpacingValues>;
 export type TMarginRight = TUtilityWithArbitraryValues<"mr", TSpacingValues>;
 export type TMarginTop = TUtilityWithArbitraryValues<"mt", TSpacingValues>;
+export type TMarginX = TUtilityWithArbitraryValues<"mx", TSpacingValues>;
+export type TMarginY = TUtilityWithArbitraryValues<"my", TSpacingValues>;
 
 export type TPaddingBottom = TUtilityWithArbitraryValues<"pb", TSpacingValues>;
 export type TPaddingLeft = TUtilityWithArbitraryValues<"pl", TSpacingValues>;
@@ -328,7 +330,7 @@ export type TMediaQuery = TUtilityWithArbitraryValues<
 >;
 
 export type TAfter = TUtilityWithArbitraryValues<"after", string, ":">;
-export type TPseudoClasses = `${string}:${string}` | `${string}:${string}`[];
+export type TPseudoClasses = `${string}:${string}`[];
 
 export type TContent = `content-[${string}]`;
 
@@ -382,6 +384,8 @@ export interface IBasicThemeClasses {
   marginLeft?: TMarginLeft;
   marginRight?: TMarginRight;
   marginTop?: TMarginTop;
+  marginX?: TMarginX;
+  marginY?: TMarginY;
   maxHeight?: TMaxHeight;
   maxWidth?: TMaxWidth;
   minHeight?: TMinHeight;

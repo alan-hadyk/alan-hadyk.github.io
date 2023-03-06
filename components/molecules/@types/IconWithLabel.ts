@@ -1,13 +1,12 @@
-import { IIconProps } from "components/atoms/@types/Icon";
 import { ITypographyProps } from "components/atoms/@types/Typography";
 import { ILinkProps } from "components/molecules/@types/Link";
 import { IThemeClasses } from "types/theme";
+import { IIconStaticProps } from "components/atoms/IconStatic/@types/IconStatic";
 
 export interface IIconWithLabelProps {
   href?: ILinkProps["href"];
-  iconName: IIconProps["iconName"];
+  iconName: IIconStaticProps["iconName"];
   isExternal?: ILinkProps["isExternal"];
-  isStaticImg?: IIconProps["isStaticImg"];
   label: string;
   labelColor?: ITypographyProps["color"];
   size?: "small" | "medium" | "large" | null | undefined;

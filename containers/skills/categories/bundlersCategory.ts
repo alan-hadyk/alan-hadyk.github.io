@@ -2,19 +2,19 @@ import { IIconWithLabelProps } from "components/molecules/@types/IconWithLabel";
 
 const iconsWithLabels: IIconWithLabelProps[] = [
   {
-    iconName: "brandVite",
+    iconName: "vite",
     label: "Vite"
   },
   {
-    iconName: "brandWebpack",
+    iconName: "webpack",
     label: "Webpack"
   },
   {
-    iconName: "brandGrunt",
+    iconName: "grunt",
     label: "Grunt"
   },
   {
-    iconName: "brandGulp",
+    iconName: "gulp",
     label: "Gulp"
   }
 ];

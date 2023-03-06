@@ -1,6 +1,6 @@
-import { IHeaderMobileProps } from "components/organisms/Header/@types/HeaderMobile";
+import { IButtonProps } from "components/molecules/@types/Button";
 
 export interface ISideMenuProps {
   isExpanded?: boolean;
-  onCVButtonClick?: IHeaderMobileProps["onCVButtonClick"];
+  onCVButtonClick?: IButtonProps["onClick"];
 }

@@ -1,10 +1,10 @@
-import { IIconProps } from "components/atoms/@types/Icon";
+import { IIconDynamicProps } from "components/atoms/IconDynamic/@types/IconDynamic";
 import { TSpacingValues } from "types/theme";
 
 export interface ILinkWithIconProps {
   height?: `h-${TSpacingValues}`;
   href: string;
-  iconName: IIconProps["iconName"];
+  iconName: IIconDynamicProps["iconName"];
   isExternal?: boolean;
   width?: `w-${TSpacingValues}`;
 }
