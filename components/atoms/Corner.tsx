@@ -58,7 +58,7 @@ const Corner: React.FC<ICornerProps> = ({
 
   const classNames = convertObjectValuesToArray(themeClasses);
 
-  return <div className={classNames.join(" ")} data-cy="Corner" />;
+  return <div className={classNames.join(" ")} />;
 };
 
 export { Corner };

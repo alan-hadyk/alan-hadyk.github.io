@@ -15,7 +15,6 @@ const defaultThemeClasses: IThemeClasses = {
 const Backdrop: React.FC<IBackdropProps> = ({ onClick }) => (
   <div
     className={convertObjectValuesToString(defaultThemeClasses)}
-    data-cy="Backdrop"
     onClick={onClick}
   />
 );

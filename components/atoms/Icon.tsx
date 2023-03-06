@@ -232,7 +232,6 @@ const _Icon: React.ForwardRefRenderFunction<
         <img
           alt={iconName}
           className={sharedClassNames.join(" ")}
-          data-cy={iconName}
           ref={ref as ForwardedRef<HTMLImageElement>}
           src={`/images/svg/${iconName}.svg`}
           style={style}
@@ -274,7 +273,6 @@ const _Icon: React.ForwardRefRenderFunction<
         `
         }
       `)}
-      data-cy={iconName}
       ref={ref as ForwardedRef<HTMLDivElement>}
       style={style}
     >

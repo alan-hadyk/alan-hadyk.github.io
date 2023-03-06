@@ -88,7 +88,7 @@ export default class MyDocument extends Document {
           <meta name="theme-color" content="#22272a" />
         </Head>
         <body>
-          <div data-cy="Loader" className="loader">
+          <div className="loader">
             <div className="loader__spinner"></div>
           </div>
           <Main />

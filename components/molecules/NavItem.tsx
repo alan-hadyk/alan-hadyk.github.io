@@ -61,7 +61,6 @@ const NavItem: React.FC<INavItemProps> = ({
           active:text-white active:drop-shadow-xl
           focus:text-white focus:drop-shadow-xl
         `)}
-        data-cy="NavItemLink"
         data-isactive={isActive}
         onMouseUp={handleClick}
         onMouseOver={handleMouseOver}

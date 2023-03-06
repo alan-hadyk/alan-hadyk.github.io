@@ -14,7 +14,7 @@ const Error: React.FC<IErrorProps> = ({ description, title }) => (
       flexFlow="flex-col flex-nowrap"
       justifyContent="justify-center"
     >
-      <IconWarning className="animate-glow-verySlow" data-cy="ErrorIcon" />
+      <IconWarning className="animate-glow-verySlow" />
       <Typography
         fontSize="text-24"
         fontWeight="font-bold"

@@ -3,7 +3,7 @@ import { Section } from "components/molecules/Section";
 import { HexagonWithDescription } from "components/molecules/HexagonWithDescription";
 
 const renderDescription = () => (
-  <div data-cy="AboutMeSectionDescription">
+  <div>
     <strong>Proven talent</strong> for aligning software development strategy
     and objectives with established user interface implementation and technology
     management paradigms to achieve maximum operational impacts with minimum

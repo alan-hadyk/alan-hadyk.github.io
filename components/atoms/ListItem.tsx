@@ -11,7 +11,6 @@ const ListItem: React.FC<IListItemProps> = ({ children }) => (
 
       childrenStrong:text-blue100
     `)}
-    data-cy="ListItem"
   >
     {children}
   </li>
