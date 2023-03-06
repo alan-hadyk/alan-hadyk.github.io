@@ -6,7 +6,7 @@ import { useInterval } from "hooks/useInterval";
 import { ITypographyProps } from "components/atoms/@types/Typography";
 import { IShuffleState } from "hooks/@types/useShuffleText";
 import { trimTemplateLiteral } from "helpers/strings/trimTemplateLiteral";
-import { theme } from "styles/theme";
+import { theme } from "theme/theme";
 
 const _Typography: React.ForwardRefRenderFunction<
   HTMLDivElement,

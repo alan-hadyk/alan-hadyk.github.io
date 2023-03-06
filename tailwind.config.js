@@ -51,10 +51,10 @@ const spacing = {
 
 module.exports = {
   content: [
-    "./components/**/*.tsx",
-    "./containers/**/*.tsx",
-    "./layouts/**/*.tsx",
-    "./pages/**/*.tsx"
+    "./components/**/*.{ts,tsx}",
+    "./containers/**/*.{ts,tsx}",
+    "./layouts/**/*.{ts,tsx}",
+    "./pages/**/*.{ts,tsx}"
   ],
   plugins: [
     plugin(function ({ addVariant }) {
