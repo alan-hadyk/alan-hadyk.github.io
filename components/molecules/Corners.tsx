@@ -1,6 +1,6 @@
-import { Corner } from "components/atoms/Corner";
+import { Corner } from "components/atoms/Corner/Corner";
 
-import { ICornerProps } from "components/atoms/@types/Corner";
+import { ICornerProps } from "components/atoms/Corner/@types/Corner";
 import { ICornersProps } from "components/molecules/@types/Corners";
 
 const positions: ICornerProps[] = [

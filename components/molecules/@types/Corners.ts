@@ -1,4 +1,4 @@
-import { CornerVariant } from "components/atoms/@types/Corner";
+import { CornerVariant } from "components/atoms/Corner/@types/Corner";
 
 export interface ICornersProps {
   isActive?: boolean;

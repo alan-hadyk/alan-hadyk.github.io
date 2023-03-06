@@ -1,9 +1,7 @@
 import {
-  CornerVariant,
   ICornerProps,
   IMapPositionToCornerProps
-} from "components/atoms/@types/Corner";
-import { convertObjectValuesToArray } from "helpers/arrays/convertObjectValuesToArray";
+} from "components/atoms/Corner/@types/Corner";
 import { IThemeClasses } from "types/theme";
 
 const mapPositionToCornerProps = (
@@ -31,7 +29,7 @@ const mapPositionToCornerProps = (
   }
 });
 
-const defaultThemeClasses: IThemeClasses = {
+const cornerDefaultThemeClasses: IThemeClasses = {
   borderStyle: "border-solid",
   borderWidth: ["border-l-thin", "border-t-thin"],
   height: "h-8",
@@ -43,22 +41,4 @@ const defaultThemeClasses: IThemeClasses = {
   width: "w-8"
 };
 
-const Corner: React.FC<ICornerProps> = ({
-  isActive = false,
-  position,
-  variant = CornerVariant.Light
-}) => {
-  const themeClasses: IThemeClasses = {
-    ...defaultThemeClasses,
-    ...mapPositionToCornerProps(isActive)[position],
-    borderColor:
-      variant === CornerVariant.Light ? "border-white" : "border-blue500",
-    opacity: isActive ? "opacity-100" : "opacity-50"
-  };
-
-  const classNames = convertObjectValuesToArray(themeClasses);
-
-  return <div className={classNames.join(" ")} />;
-};
-
-export { Corner };
+export { cornerDefaultThemeClasses, mapPositionToCornerProps };
