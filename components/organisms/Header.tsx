@@ -6,14 +6,8 @@ import { Responsive } from "components/layout/Responsive";
 
 import { useResize } from "hooks/useResize";
 
-import { IHeaderProps } from "components/organisms/Header/@types/Header";
+import { IHeaderProps } from "components/organisms/@types/Header";
 import { Device } from "components/layout/@types/Responsive";
-
-const downloadCV = () => {
-  typeof window !== undefined
-    ? window?.open("/pdf/Alan_Hadyk_CV_2022_compressed.pdf", "_blank")
-    : null;
-};
 
 const Header: React.FC<IHeaderProps> = ({ children, zIndex = "z-400" }) => {
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false);
@@ -82,4 +76,4 @@ const Header: React.FC<IHeaderProps> = ({ children, zIndex = "z-400" }) => {
   );
 };
 
-export { Header, downloadCV };
+export { Header };

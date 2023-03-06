@@ -10,7 +10,7 @@ import { Responsive } from "components/layout/Responsive";
 import { Device } from "components/layout/@types/Responsive";
 
 const DashboardContainerTablet: React.FC = () => (
-  <Responsive dataCy="DashboardContainerTablet" devices={[Device.TABLET]}>
+  <Responsive devices={[Device.TABLET]}>
     <DashboardOuterContainer>
       <DashboardInnerContainer
         height="h-[calc(17vh+3.6rem)]"

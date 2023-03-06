@@ -16,7 +16,6 @@ const UserAgent: React.FC = () => {
 
   return (
     <DashboardElement
-      dataCy="UserAgent"
       description={description}
       flex="flex-[1_0_20%]"
       shouldDisplayCorners

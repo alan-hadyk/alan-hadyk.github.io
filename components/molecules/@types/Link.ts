@@ -5,7 +5,6 @@ import { TChildren } from "types/props";
 export interface ILinkProps {
   alignItems?: ILayoutContainerProps["alignItems"];
   children: TChildren;
-  dataCy?: string;
   display?: "block" | "inline" | "flex";
   height?: `h-${TSpacingValues}`;
   href: string;

@@ -43,7 +43,6 @@ const mapSizeToButtonContainerProps: IMapSizeToButtonContainerProps = {
 
 const Button: React.FC<IButtonProps> = ({
   buttonText,
-  dataCy,
   iconName,
   iconWidth,
   onClick,
@@ -122,7 +121,7 @@ const Button: React.FC<IButtonProps> = ({
 
   return (
     <button
-      aria-label={dataCy || "Button"}
+      aria-label="Button"
       className={trimTemplateLiteral(`
         ${buttonSizeClasses} ${buttonTypeClasses}
         ${width}
@@ -142,8 +141,7 @@ const Button: React.FC<IButtonProps> = ({
         childrenRipple:opacity-0
         childrenRipple:absolute
       `)}
-      data-cy={dataCy || "Button"}
-      name={dataCy || "Button"}
+      name="Button"
       onKeyUp={handleKeyUp}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}

@@ -13,7 +13,6 @@ import { LayoutContainer } from "components/layout/LayoutContainer";
 const Hexagon: React.FC<IHexagonProps> = ({
   children,
   contentWidth = "w-100%",
-  dataCy,
   fill = "none"
 }) => {
   const [iconDimensions, setIconDimensions] = useState<TIconDimensionsProps>({
@@ -41,7 +40,7 @@ const Hexagon: React.FC<IHexagonProps> = ({
   }, [fill]);
 
   return (
-    <LayoutContainer dataCy={dataCy} position="relative">
+    <LayoutContainer position="relative">
       {fill === "pattern" && <Icon iconName="hexagonWithPattern" />}
 
       {fill === "solid" && (

@@ -3,7 +3,6 @@ import { LayoutContainer } from "components/layout/LayoutContainer";
 
 const Responsive: React.FC<IResponsiveProps> = ({
   children,
-  dataCy,
   devices,
   height = "h-auto",
   width = "w-auto"
@@ -16,7 +15,6 @@ const Responsive: React.FC<IResponsiveProps> = ({
       ${devices.includes(Device.TABLET) && "screenSmMd:block"}
       ${devices.includes(Device.MOBILE) && "screenMaxSm:block"}
     `}
-    data-cy={dataCy || "Responsive"}
     height={height}
     width={width}
   >

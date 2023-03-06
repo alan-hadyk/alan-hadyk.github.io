@@ -5,7 +5,6 @@ import { IThemeClasses } from "types/theme";
 export interface IHexagonProps {
   children?: TChildren;
   contentWidth?: ILayoutContainerProps["width"];
-  dataCy?: string;
   fill?: "none" | "solid" | "pattern";
 }
 

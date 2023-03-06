@@ -33,11 +33,7 @@ const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
           { iconName, isStaticImg }: IIconWithLabelProps,
           index: number
         ): JSX.Element => (
-          <LayoutContainer
-            dataCy="VerticalIcon"
-            key={iconName + index}
-            marginBottom="mb-12"
-          >
+          <LayoutContainer key={iconName + index} marginBottom="mb-12">
             <Icon
               themeClasses={{
                 height: mapSizeToIconHeight[size]
@@ -52,14 +48,8 @@ const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
     <LayoutContainer flex="flex-[0_0_75%]">
       {iconsWithLabels.map(
         ({ label }: IIconWithLabelProps): JSX.Element => (
-          <LayoutContainer
-            dataCy="VerticalLabel"
-            height="h-32"
-            key={label}
-            marginBottom="mb-12"
-          >
+          <LayoutContainer height="h-32" key={label} marginBottom="mb-12">
             <Text
-              dataCy="LabelText"
               color={labelColor}
               ellipsis
               fontSize={mapSizeToTextFontSize[size]}

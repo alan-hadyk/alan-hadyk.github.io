@@ -9,7 +9,6 @@ import { trimTemplateLiteral } from "helpers/strings/trimTemplateLiteral";
 const Link: React.FC<ILinkProps> = ({
   alignItems,
   children,
-  dataCy,
   display = "block",
   height = "h-unset",
   href,
@@ -21,7 +20,7 @@ const Link: React.FC<ILinkProps> = ({
   const componentType = isExternal ? "ExternalLink" : "RouterLink";
 
   const props = {
-    "aria-label": dataCy || href,
+    "aria-label": href,
     className: trimTemplateLiteral(`
       ${componentType}
       ${display}
@@ -36,7 +35,6 @@ const Link: React.FC<ILinkProps> = ({
 
       focusChildrenSvg:drop-shadow-lg activeChildrenSvg:drop-shadow-lg
     `),
-    "data-cy": dataCy,
     tabIndex: 0,
     target: isExternal ? "_blank" : "_self"
   };

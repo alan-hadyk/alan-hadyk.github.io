@@ -15,7 +15,6 @@ const _Text: React.ForwardRefRenderFunction<HTMLDivElement, ITextProps> = (
     children,
     className,
     color = "text-blue300",
-    dataCy,
     ellipsis = false,
     fontFamily = "font-anonymousPro",
     fontSize = "text-20",
@@ -82,7 +81,6 @@ const _Text: React.ForwardRefRenderFunction<HTMLDivElement, ITextProps> = (
         ${isHoverable && "hover:text-white"}
         ${className || ""}
       `)}
-      data-cy={dataCy}
       onMouseOver={handleMouseOver}
       ref={ref || textElementRef}
     >

@@ -43,7 +43,6 @@ const MenuButton: React.FC<IMenuButtonProps> = ({
 
       hover:drop-shadow-md
     `}
-    dataCy="MenuButton"
     onClick={onClick}
   >
     <MenuButtonLine isOpen={isOpen} />

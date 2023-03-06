@@ -3,7 +3,6 @@ import { AnimatedIcons } from "components/molecules/AnimatedIcons";
 
 const TechStack: React.FC = () => (
   <DashboardElement
-    dataCy="TechStack"
     flex="flex-[1_0_40%]"
     shouldDisplayCorners
     title="Tech Stack"

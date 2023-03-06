@@ -13,7 +13,6 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
     bottom,
     children,
     className,
-    dataCy,
     display,
     flex,
     flexFlow,
@@ -56,6 +55,7 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
     | "a"
     | "button"
   >;
+
   const classNames = [
     ...(onClick ? ["cursor-pointer"] : []),
     alignItems,
@@ -91,7 +91,6 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
 
   const props = {
     className: classNames.join(" "),
-    ["data-cy"]: dataCy,
     id,
     name,
     onClick,

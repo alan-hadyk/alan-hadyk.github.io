@@ -11,7 +11,6 @@ export interface ITextProps {
   children: TChildren;
   className?: string;
   color?: `text-${TColorValues}`;
-  dataCy?: string;
   ellipsis?: boolean;
   fontFamily?: `font-${TFontFamilyValues}`;
   fontSize?: `text-${TFontSizeValues}`;

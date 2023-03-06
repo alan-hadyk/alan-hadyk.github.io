@@ -10,7 +10,6 @@ export enum Device {
 
 export interface IResponsiveProps {
   children: TChildren;
-  dataCy?: string;
   devices: Device[];
   height?: ILayoutContainerProps["height"];
   width?: ILayoutContainerProps["width"];

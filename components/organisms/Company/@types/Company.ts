@@ -4,7 +4,6 @@ import { ICompanyDescriptionProps } from "components/organisms/@types/CompanyDes
 
 export interface ICompanyProps extends ICompanyDescriptionProps {
   companyMobilePaddingBottom?: ILayoutContainerProps["paddingBottom"];
-  dataCy?: string;
   name: string;
   timelineBottom?: ICompanyTimelineProps["timelineBottom"];
 }

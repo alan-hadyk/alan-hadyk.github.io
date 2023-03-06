@@ -27,7 +27,6 @@ const SideMenu: React.FC<ISideMenuProps> = ({
 
       msHighContrastNone:max-w-[300px] msHighContrastActive:max-w-[300px]
     `}
-    dataCy="SideMenu"
   >
     <LayoutContainer
       className="overflow-y-auto"
@@ -36,10 +35,7 @@ const SideMenu: React.FC<ISideMenuProps> = ({
       paddingRight="pr-48"
       paddingTop="pt-8"
     >
-      <Responsive
-        dataCy="ResponsiveMobileTablet"
-        devices={[Device.MOBILE, Device.TABLET]}
-      >
+      <Responsive devices={[Device.MOBILE, Device.TABLET]}>
         <LayoutContainer marginBottom="mb-24">
           <LayoutContainer
             display="flex"
@@ -52,7 +48,6 @@ const SideMenu: React.FC<ISideMenuProps> = ({
           </LayoutContainer>
           <Button
             buttonText="cv"
-            dataCy="CvButton"
             iconName="btnDownload"
             iconWidth={isIE11() ? "w-24" : "w-auto"}
             onClick={onCVButtonClick}

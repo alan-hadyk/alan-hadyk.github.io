@@ -13,7 +13,7 @@ import { IHeaderContainerTvProps } from "containers/header/@types/HeaderContaine
 const HeaderContainerTv: React.FC<IHeaderContainerTvProps> = ({
   onCVButtonClick
 }) => (
-  <Responsive dataCy="HeaderTv" devices={[Device.TV]}>
+  <Responsive devices={[Device.TV]}>
     <LayoutContainer
       className="flex-row flex-nowrap directChildren:ml-24 firstdirectChild:ml-0"
       display="flex"
@@ -26,7 +26,6 @@ const HeaderContainerTv: React.FC<IHeaderContainerTvProps> = ({
 
       <Button
         buttonText="cv"
-        dataCy="CvButton"
         iconName="btnDownload"
         iconWidth={isIE11() ? "w-24" : "w-auto"}
         onClick={onCVButtonClick}

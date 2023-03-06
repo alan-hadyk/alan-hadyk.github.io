@@ -3,7 +3,6 @@ import { Link } from "components/molecules/Link";
 import { ILinkWithIconProps } from "components/molecules/@types/LinkWithIcon";
 
 const LinkWithIcon: React.FC<ILinkWithIconProps> = ({
-  dataCy,
   height = "h-48",
   href,
   iconName,
@@ -11,7 +10,6 @@ const LinkWithIcon: React.FC<ILinkWithIconProps> = ({
   width = "w-auto"
 }) => (
   <Link
-    dataCy={dataCy}
     display="block"
     height={height}
     href={href}

@@ -6,7 +6,6 @@ import { LayoutContainer } from "components/layout/LayoutContainer";
 
 const Company: React.FC<ICompanyProps> = ({
   companyMobilePaddingBottom,
-  dataCy,
   date,
   iconsWithLabels,
   link,
@@ -15,7 +14,7 @@ const Company: React.FC<ICompanyProps> = ({
   timelineBottom,
   title
 }) => (
-  <LayoutContainer dataCy={dataCy}>
+  <LayoutContainer>
     <LayoutContainer position="relative" width="w-100%">
       <CompanyTvDesktopAndTablet
         date={date}

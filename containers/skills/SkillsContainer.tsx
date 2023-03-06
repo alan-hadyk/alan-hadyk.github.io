@@ -35,10 +35,9 @@ const items: ISkillsItemProps[] = [
 
 const SkillsColumns: React.FC<IRenderColumnsArgs> = ({
   columnCount,
-  dataCy,
   devices
 }) => (
-  <Responsive dataCy={dataCy} devices={devices}>
+  <Responsive devices={devices}>
     <LayoutContainer
       className={`
        ${columnCount} gap-32 
@@ -56,26 +55,14 @@ const SkillsColumns: React.FC<IRenderColumnsArgs> = ({
 );
 
 const SkillsContainer: React.FC = () => (
-  <Section dataCy="Skills" id="skills" title="Skills">
-    <SkillsColumns
-      columnCount="columns-5"
-      dataCy="SkillsResponsiveTv"
-      devices={[Device.TV]}
-    />
+  <Section id="skills" title="Skills">
+    <SkillsColumns columnCount="columns-5" devices={[Device.TV]} />
 
-    <SkillsColumns
-      columnCount="columns-3"
-      dataCy="SkillsResponsiveDesktop"
-      devices={[Device.DESKTOP]}
-    />
+    <SkillsColumns columnCount="columns-3" devices={[Device.DESKTOP]} />
 
-    <SkillsColumns
-      columnCount="columns-2"
-      dataCy="SkillsResponsiveTablet"
-      devices={[Device.TABLET]}
-    />
+    <SkillsColumns columnCount="columns-2" devices={[Device.TABLET]} />
 
-    <Responsive dataCy="SkillsResponsiveMobile" devices={[Device.MOBILE]}>
+    <Responsive devices={[Device.MOBILE]}>
       {items.map(({ iconsWithLabels, title }: ISkillsItemProps) => (
         <LayoutContainer key={title} marginBottom="mb-32">
           <SkillsItem iconsWithLabels={iconsWithLabels} title={title} />

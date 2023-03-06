@@ -39,7 +39,6 @@ const IconWithLabel: React.FC<IIconWithLabelProps> = ({
     <LayoutContainer
       alignItems="items-center"
       className="group"
-      dataCy="IconWithLabel"
       display="flex"
       flexFlow="flex-row flex-nowrap"
       height="100%"
@@ -72,7 +71,6 @@ const IconWithLabel: React.FC<IIconWithLabelProps> = ({
       </LayoutContainer>
       <Text
         className={href ? "group-hover:text-white" : ""}
-        dataCy="LabelText"
         color={labelColor as ITextProps["color"]}
         fontSize={mapSizeToTextFontSize[size as "small" | "medium" | "large"]}
         isHoverable={!!href}

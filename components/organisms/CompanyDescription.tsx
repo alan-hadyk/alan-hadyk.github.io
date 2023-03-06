@@ -16,13 +16,9 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
   textAlign = "text-left",
   title
 }) => (
-  <LayoutContainer
-    className="msHighContrastNone:w-100% msHighContrastActive:w-100%"
-    dataCy="CompanyDescription"
-  >
+  <LayoutContainer className="msHighContrastNone:w-100% msHighContrastActive:w-100%">
     <Text
       color="text-white"
-      dataCy="CompanyDescriptionMainTitle"
       fontFamily={isIE11() ? "font-anonymousPro" : "font-exan"}
       fontSize="text-36"
       lineHeight="leading-56"
@@ -56,13 +52,9 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
 
     <TechStack iconsWithLabels={iconsWithLabels} />
 
-    <LayoutContainer
-      dataCy="CompanyResponsibilities"
-      paddingBottom={responsibilitiesPaddingBottom}
-    >
+    <LayoutContainer paddingBottom={responsibilitiesPaddingBottom}>
       <Text
         color="text-blue100"
-        dataCy="ResponsibilitiesTitle"
         fontFamily="font-anonymousPro"
         fontSize="text-24"
         fontWeight="font-bold"

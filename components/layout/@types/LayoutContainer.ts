@@ -36,7 +36,6 @@ export interface ILayoutContainerProps {
   bottom?: `bottom-${TSpacingValues}` | `bottom-[${string}]`;
   children?: TChildren;
   className?: string;
-  dataCy?: string;
   display?:
     | "block"
     | "inline-block"

@@ -8,7 +8,7 @@ import { DashboardContainerPdf } from "containers/dashboard/screens/DashboardCon
 const DashboardContainer: React.FC<IDashboardContainerProps> = ({
   format = "web"
 }) => (
-  <Section dataCy="Dashboard" id="dashboard" marginBottom="mb-12">
+  <Section id="dashboard" marginBottom="mb-12">
     {format === "web" && (
       <>
         <DashboardContainerTvAndDesktop />

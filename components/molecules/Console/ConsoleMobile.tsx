@@ -2,14 +2,13 @@ import { ConsoleText } from "components/atoms/ConsoleText";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 
 const ConsoleMobile: React.FC = () => (
-  <LayoutContainer dataCy="ConsoleMobile" paddingTop="pt-48">
+  <LayoutContainer paddingTop="pt-48">
     <LayoutContainer
       className={`
         bg-blue700/75
         border-1 border-solid border-blue300
         shadow-console
       `}
-      dataCy="ConsoleMobileContainer"
       padding="p-16"
     >
       <ConsoleText

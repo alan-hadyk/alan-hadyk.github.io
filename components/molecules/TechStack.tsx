@@ -5,10 +5,9 @@ import { LayoutContainer } from "components/layout/LayoutContainer";
 import { ITechStackProps } from "components/molecules/@types/TechStack";
 
 const TechStack: React.FC<ITechStackProps> = ({ iconsWithLabels }) => (
-  <LayoutContainer dataCy="CompanyTechStack" marginBottom="mb-16">
+  <LayoutContainer marginBottom="mb-16">
     <Text
       color="text-blue100"
-      dataCy="TechStackTitle"
       fontFamily="font-anonymousPro"
       fontSize="text-24"
       fontWeight="font-bold"

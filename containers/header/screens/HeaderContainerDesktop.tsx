@@ -19,7 +19,7 @@ const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
   onCVButtonClick,
   onClick
 }) => (
-  <Responsive dataCy="HeaderDesktop" devices={[Device.DESKTOP]}>
+  <Responsive devices={[Device.DESKTOP]}>
     <LayoutContainer
       alignItems="items-center"
       className="directChildren:ml-24 firstdirectChild:ml-0"
@@ -34,7 +34,6 @@ const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
 
       <Button
         buttonText="cv"
-        dataCy="CvButton"
         iconName="btnDownload"
         iconWidth={isIE11() ? "w-24" : "w-auto"}
         onClick={onCVButtonClick}

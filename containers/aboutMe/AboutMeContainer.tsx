@@ -18,7 +18,7 @@ const renderDescription = () => (
 );
 
 const AboutMeContainer: React.FC = () => (
-  <Section dataCy="AboutMe" id="about-me" title="About me">
+  <Section id="about-me" title="About me">
     <HexagonWithDescription description={renderDescription()}>
       <Image
         alt="Alan Hadyk"

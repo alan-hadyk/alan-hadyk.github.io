@@ -22,7 +22,6 @@ const Commit: React.FC<ICommitProps> = ({ date, delay, htmlUrl, sha }) => (
 
       first:border-t-0
     `}
-    dataCy="Commit"
     width="w-100%"
   >
     <LayoutContainer paddingTop="pt-4" paddingBottom="pb-4" width="w-100%">

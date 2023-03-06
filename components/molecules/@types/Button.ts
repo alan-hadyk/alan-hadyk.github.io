@@ -15,7 +15,6 @@ export interface IButtonInnnerContainerPositions {
 
 export interface IButtonProps {
   buttonText: string;
-  dataCy?: string;
   iconName?: "btnCodeSandbox" | "btnDownload" | "btnExternalLink";
   iconWidth?: IThemeClasses["width"];
   onClick?: () => void;

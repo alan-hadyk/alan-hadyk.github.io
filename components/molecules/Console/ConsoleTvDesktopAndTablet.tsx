@@ -5,7 +5,6 @@ import { LayoutContainer } from "components/layout/LayoutContainer";
 const ConsoleTvDesktopAndTablet: React.FC = () => (
   <LayoutContainer
     className="translate-y-[-50%]"
-    dataCy="ConsoleTvDesktopAndTablet"
     left="left-0"
     position="absolute"
     right="right-0"
@@ -30,7 +29,6 @@ const ConsoleTvDesktopAndTablet: React.FC = () => (
         msHighContrastActive:after:min-h-inherit
       `}
       display="flex"
-      dataCy="ConsoleTvDesktopAndTabletContainer"
       height="h-[26.6%]"
       justifyContent="justify-center"
       position="relative"

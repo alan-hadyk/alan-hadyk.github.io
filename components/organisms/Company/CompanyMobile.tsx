@@ -17,7 +17,7 @@ const CompanyMobile: React.FC<ICompanyProps> = ({
   responsibilitiesPaddingBottom,
   title
 }) => (
-  <Responsive dataCy="CompanyMobile" devices={[Device.MOBILE]}>
+  <Responsive devices={[Device.MOBILE]}>
     <LayoutContainer
       alignItems="items-center"
       className="directChildren:mt-48 firstdirectChild:mt-48 max-w-1056"
@@ -26,7 +26,6 @@ const CompanyMobile: React.FC<ICompanyProps> = ({
     >
       <Text
         color="text-white"
-        dataCy="CompanyMobileName"
         fontFamily={isIE11() ? "font-anonymousPro" : "font-exan"}
         fontSize="text-48"
         lineHeight="leading-48"

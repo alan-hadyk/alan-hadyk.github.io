@@ -14,7 +14,6 @@ import { Device } from "components/layout/@types/Responsive";
 
 const Section: React.FC<ISectionProps> = ({
   children,
-  dataCy,
   id,
   marginBottom = "mb-0",
   minHeight,
@@ -42,24 +41,20 @@ const Section: React.FC<ISectionProps> = ({
   return (
     <LayoutContainer
       className={minHeight}
-      dataCy={dataCy}
       id={id}
       marginBottom={marginBottom}
       paddingTop={title ? "pt-96" : "pt-0"}
     >
       {title && (
         <Fragment>
-          <Responsive
-            dataCy="ResponsiveTitleTvDesktopTablet"
-            devices={[Device.TV, Device.DESKTOP, Device.TABLET]}
-          >
+          <Responsive devices={[Device.TV, Device.DESKTOP, Device.TABLET]}>
             {renderTitle({
               fontSize: "text-72",
               marginBottom: "mb-96"
             })}
           </Responsive>
 
-          <Responsive dataCy="ResponsiveTitleMobile" devices={[Device.MOBILE]}>
+          <Responsive devices={[Device.MOBILE]}>
             {renderTitle({
               fontSize: "text-48",
               marginBottom: "mb-48"

@@ -5,8 +5,8 @@ import IconWarning from "public/images/svg/Icon-Warning.svg";
 import { IErrorProps } from "components/molecules/@types/Error";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 
-const Error: React.FC<IErrorProps> = ({ dataCy, description, title }) => (
-  <LayoutContainer dataCy={dataCy} padding="p-8" height="h-100%">
+const Error: React.FC<IErrorProps> = ({ description, title }) => (
+  <LayoutContainer padding="p-8" height="h-100%">
     <LayoutContainer
       alignItems="items-center"
       display="flex"
@@ -16,7 +16,6 @@ const Error: React.FC<IErrorProps> = ({ dataCy, description, title }) => (
     >
       <IconWarning className="animate-glow-verySlow" data-cy="ErrorIcon" />
       <Text
-        dataCy="ErrorTitle"
         fontSize="text-24"
         fontWeight="font-bold"
         lineHeight="leading-24"
@@ -26,7 +25,6 @@ const Error: React.FC<IErrorProps> = ({ dataCy, description, title }) => (
         {title}
       </Text>
       <Text
-        dataCy="ErrorDescription"
         fontSize="text-16"
         lineHeight="leading-24"
         textAlign="text-center"

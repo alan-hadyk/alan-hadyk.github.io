@@ -11,7 +11,7 @@ import { CompanyHealthcareSaas } from "containers/experience/companies/CompanyHe
 import { CompanySaaSForContentWriters } from "containers/experience/companies/CompanySaaSForContentWriters";
 
 const ExperienceContainer: React.FC = () => (
-  <Section dataCy="Experience" id="experience" title="Experience">
+  <Section id="experience" title="Experience">
     <CompanySaaSForContentWriters />
     <CompanyHealthcareSaas />
     <CompanyRealEstateStartup />

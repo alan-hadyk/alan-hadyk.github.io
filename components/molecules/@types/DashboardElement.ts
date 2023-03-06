@@ -5,7 +5,6 @@ export interface IDashboardElementProps
     ILayoutContainerProps,
     "alignSelf" | "children" | "flex" | "order"
   > {
-  dataCy?: string;
   description?: string;
   overflow?: "overflow-visible" | "overflow-hidden";
   shouldDisplayBorder?: boolean;

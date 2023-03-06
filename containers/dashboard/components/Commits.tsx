@@ -8,7 +8,6 @@ const Commits: React.FC = () => {
 
   return (
     <DashboardElement
-      dataCy="Commits"
       flex="flex-[1_0_20%]"
       shouldDisplayCorners={commitsState === "error"}
       title="Commits"

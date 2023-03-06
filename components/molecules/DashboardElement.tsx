@@ -10,7 +10,6 @@ import { ILayoutContainerProps } from "components/layout/@types/LayoutContainer"
 const DashboardElement: React.FC<IDashboardElementProps> = ({
   alignSelf = "self-auto",
   children,
-  dataCy,
   description,
   flex,
   overflow = "overflow-hidden",
@@ -30,14 +29,12 @@ const DashboardElement: React.FC<IDashboardElementProps> = ({
     <LayoutContainer
       alignSelf={alignSelf}
       className={titleOverflow}
-      dataCy={dataCy}
       flex={flex}
       order={order}
     >
       {title ? (
         <Text
           color={titleFontSize === "text-28" ? "text-blue100" : "text-blue300"}
-          dataCy="DashboardElementTitleText"
           ellipsis
           fontFamily="font-anonymousPro"
           fontSize={titleFontSize}
@@ -52,7 +49,6 @@ const DashboardElement: React.FC<IDashboardElementProps> = ({
         <LayoutContainer height="h-24" marginBottom="mb-28">
           <Text
             color="text-blue300"
-            dataCy="DashboardElementDescriptionText"
             fontSize="text-8"
             lineHeight="leading-12"
             maxHeight="max-h-36"
@@ -90,7 +86,6 @@ const DashboardElement: React.FC<IDashboardElementProps> = ({
                 `
               };
             `}
-            dataCy="DashboardElementInnerContainer"
           >
             {shouldDisplayCorners ? (
               <LayoutContainer height="h-100%" padding="p-8">

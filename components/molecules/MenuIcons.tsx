@@ -10,10 +10,6 @@ const icons: ILinkWithIconProps[] = [
     iconName: "gitHub"
   },
   {
-    href: "https://codesandbox.io/u/alan-hadyk",
-    iconName: "codeSandbox"
-  },
-  {
     href: "https://www.toptal.com/resume/alan-hadyk",
     iconName: "toptal"
   },
@@ -27,7 +23,6 @@ const MenuIcons: React.FC = () => (
   <>
     {icons.map(({ href, iconName }: ILinkWithIconProps) => (
       <LinkWithIcon
-        dataCy={iconName}
         height="h-48"
         href={href}
         iconName={iconName}
