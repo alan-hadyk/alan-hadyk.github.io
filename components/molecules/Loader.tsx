@@ -1,4 +1,4 @@
-import { Spinner } from "components/atoms/Spinner";
+import { Spinner } from "components/atoms/Spinner/Spinner";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 
 const Loader: React.FC = () => (

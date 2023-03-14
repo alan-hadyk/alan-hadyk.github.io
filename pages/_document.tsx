@@ -89,7 +89,7 @@ export default class MyDocument extends Document {
         </Head>
         <body>
           <div className="loader">
-            <div className="loader__spinner"></div>
+            <div className="spinner"></div>
           </div>
           <Main />
           <NextScript />

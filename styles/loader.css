@@ -26,7 +26,7 @@ body {
   z-index: 9999;
 }
 
-.loader__spinner {
+.spinner {
   animation-duration: 900ms;
   animation-iteration-count: infinite;
   animation-name: rotation;
