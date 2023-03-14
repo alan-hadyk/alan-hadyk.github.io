@@ -25,7 +25,12 @@ const Line: React.FC<ILineProps> = ({ direction, isActive = false }) => {
     })
   };
 
-  return <div className={convertObjectValuesToString(lineThemeClasses)} />;
+  const lineClassNames = [
+    "line",
+    convertObjectValuesToString(lineThemeClasses)
+  ];
+
+  return <div className={lineClassNames.join(" ")} />;
 };
 
 export { Line };
