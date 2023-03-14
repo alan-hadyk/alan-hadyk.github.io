@@ -1,6 +1,6 @@
 import "styles/loader.css";
 import "styles/fonts.css";
-import "styles/globals.css";
+import "styles/global.css";
 import { TAppPropsWithComponent } from "types/next";
 import { useLoader } from "hooks/useLoader";
 
