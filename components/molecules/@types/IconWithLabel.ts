@@ -1,6 +1,5 @@
-import { ITypographyProps } from "components/atoms/@types/Typography";
 import { ILinkProps } from "components/molecules/@types/Link";
-import { IThemeClasses } from "types/theme";
+import { IThemeClasses, TTextColor, TTextFontSize } from "types/theme";
 import { IIconStaticProps } from "components/atoms/IconStatic/@types/IconStatic";
 
 export interface IIconWithLabelProps {
@@ -8,7 +7,7 @@ export interface IIconWithLabelProps {
   iconName: IIconStaticProps["iconName"];
   isExternal?: ILinkProps["isExternal"];
   label: string;
-  labelColor?: ITypographyProps["color"];
+  labelColor?: TTextColor;
   size?: "small" | "medium" | "large" | null | undefined;
 }
 
@@ -19,7 +18,7 @@ export interface IMapSizeToIconHeight {
 }
 
 export interface IMapSizeToTextFontSize {
-  large: ITypographyProps["fontSize"];
-  medium: ITypographyProps["fontSize"];
-  small: ITypographyProps["fontSize"];
+  large: TTextFontSize;
+  medium: TTextFontSize;
+  small: TTextFontSize;
 }

@@ -1,4 +1,4 @@
-import { Typography } from "components/atoms/Typography";
+import { Typography } from "components/atoms/Typography/Typography";
 import { CompanyDescription } from "components/organisms/CompanyDescription";
 import { Responsive } from "components/layout/Responsive";
 
@@ -25,11 +25,13 @@ const CompanyMobile: React.FC<ICompanyProps> = ({
       flexFlow="flex-col flex-nowrap"
     >
       <Typography
-        color="text-white"
-        fontFamily={isIE11() ? "font-anonymousPro" : "font-exan"}
-        fontSize="text-48"
-        lineHeight="leading-48"
-        textAlign="text-center"
+        themeClasses={{
+          color: "text-white",
+          fontFamily: isIE11() ? "font-anonymousPro" : "font-exan",
+          fontSize: "text-48",
+          lineHeight: "leading-48",
+          textAlign: "text-center"
+        }}
       >
         {name}
       </Typography>

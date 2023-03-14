@@ -1,4 +1,4 @@
-import { Typography } from "components/atoms/Typography";
+import { Typography } from "components/atoms/Typography/Typography";
 import { Link } from "components/molecules/Link";
 
 import { ICommitProps } from "components/molecules/@types/Commit";
@@ -34,19 +34,26 @@ const Commit: React.FC<ICommitProps> = ({ date, delay, htmlUrl, sha }) => (
         <LayoutContainer className="overflow-hidden" flex="flex-[0_0_61%]">
           <Link href={htmlUrl} isExternal>
             <Typography
-              color="text-blue100"
               ellipsis
-              fontSize="text-8"
               shouldShuffle
               shuffleDelay={delay}
-              textTransform="uppercase"
+              themeClasses={{
+                color: "text-blue100",
+                fontSize: "text-8",
+                textTransform: "uppercase"
+              }}
             >
               {sha}
             </Typography>
           </Link>
         </LayoutContainer>
         <LayoutContainer flex="flex-[0_0_29%]">
-          <Typography fontSize="text-8" ellipsis>
+          <Typography
+            ellipsis
+            themeClasses={{
+              fontSize: "text-8"
+            }}
+          >
             {date}
           </Typography>
         </LayoutContainer>

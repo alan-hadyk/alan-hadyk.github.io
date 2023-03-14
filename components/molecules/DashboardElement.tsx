@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Typography } from "components/atoms/Typography";
+import { Typography } from "components/atoms/Typography/Typography";
 import { Corners } from "components/molecules/Corners";
 
 import { IDashboardElementProps } from "components/molecules/@types/DashboardElement";
@@ -34,12 +34,15 @@ const DashboardElement: React.FC<IDashboardElementProps> = ({
     >
       {title ? (
         <Typography
-          color={titleFontSize === "text-28" ? "text-blue100" : "text-blue300"}
           ellipsis
-          fontFamily="font-anonymousPro"
-          fontSize={titleFontSize}
-          lineHeight="leading-36"
-          textTransform="uppercase"
+          themeClasses={{
+            color:
+              titleFontSize === "text-28" ? "text-blue100" : "text-blue300",
+            fontFamily: "font-anonymousPro",
+            fontSize: titleFontSize,
+            lineHeight: "leading-36",
+            textTransform: "uppercase"
+          }}
         >
           {title}
         </Typography>
@@ -48,12 +51,14 @@ const DashboardElement: React.FC<IDashboardElementProps> = ({
       {description ? (
         <LayoutContainer height="h-24" marginBottom="mb-28">
           <Typography
-            color="text-blue300"
-            fontSize="text-8"
-            lineHeight="leading-12"
-            maxHeight="max-h-36"
-            overflow="overflow-hidden"
-            textTransform="uppercase"
+            themeClasses={{
+              color: "text-blue300",
+              fontSize: "text-8",
+              lineHeight: "leading-12",
+              maxHeight: "max-h-36",
+              overflow: "overflow-hidden",
+              textTransform: "uppercase"
+            }}
           >
             {description}
           </Typography>

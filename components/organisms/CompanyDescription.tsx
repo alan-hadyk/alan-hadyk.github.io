@@ -1,4 +1,4 @@
-import { Typography } from "components/atoms/Typography";
+import { Typography } from "components/atoms/Typography/Typography";
 import { IconWithLabel } from "components/molecules/IconWithLabel";
 import { UnorderedList } from "components/molecules/UnorderedList";
 import { isIE11 } from "helpers/browser/isIE11";
@@ -18,12 +18,14 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
 }) => (
   <LayoutContainer className="msHighContrastNone:w-100% msHighContrastActive:w-100%">
     <Typography
-      color="text-white"
-      fontFamily={isIE11() ? "font-anonymousPro" : "font-exan"}
-      fontSize="text-36"
-      lineHeight="leading-56"
-      textAlign={textAlign}
-      textTransform="uppercase"
+      themeClasses={{
+        color: "text-white",
+        fontFamily: isIE11() ? "font-anonymousPro" : "font-exan",
+        fontSize: "text-36",
+        lineHeight: "leading-56",
+        textAlign,
+        textTransform: "uppercase"
+      }}
     >
       {title}
     </Typography>
@@ -54,11 +56,13 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
 
     <LayoutContainer paddingBottom={responsibilitiesPaddingBottom}>
       <Typography
-        color="text-blue100"
-        fontFamily="font-anonymousPro"
-        fontSize="text-24"
-        fontWeight="font-bold"
-        lineHeight="leading-32"
+        themeClasses={{
+          color: "text-blue100",
+          fontFamily: "font-anonymousPro",
+          fontSize: "text-24",
+          fontWeight: "font-bold",
+          lineHeight: "leading-32"
+        }}
       >
         Responsibilities
       </Typography>

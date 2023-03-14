@@ -1,4 +1,4 @@
-import { MenuButton } from "components/atoms/MenuButton";
+import { MenuButton } from "components/molecules/MenuButton/MenuButton";
 
 import { Button } from "components/molecules/Button";
 import { Nav } from "components/molecules/Nav";

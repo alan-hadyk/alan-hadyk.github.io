@@ -1,8 +1,8 @@
-import { ListItem } from "components/atoms/ListItem";
+import { ListItem } from "components/atoms/ListItem/ListItem";
 import { LayoutContainer } from "components/layout/LayoutContainer";
 
 import { IUnorderedListProps } from "components/molecules/@types/UnorderedList";
-import { IListItemProps } from "components/atoms/@types/ListItem";
+import { IListItemProps } from "components/atoms/ListItem/@types/ListItem";
 
 const UnorderedList: React.FC<IUnorderedListProps> = ({ items }) => (
   <LayoutContainer

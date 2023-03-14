@@ -1,4 +1,4 @@
-import { MenuButton } from "components/atoms/MenuButton";
+import { MenuButton } from "components/molecules/MenuButton/MenuButton";
 import { Backdrop } from "components/atoms/Backdrop/Backdrop";
 
 import { SideMenu } from "components/organisms/SideMenu";

@@ -1,4 +1,4 @@
-import { Typography } from "components/atoms/Typography";
+import { Typography } from "components/atoms/Typography/Typography";
 
 import {
   IButtonTextProps,
@@ -31,10 +31,12 @@ const ButtonText: React.FC<IButtonTextProps> = ({
   return (
     <LayoutContainer marginRight={getMarginRight()}>
       <Typography
-        fontFamily={fontFamily}
-        fontSize={mapSizeToButtonTextProps[size].fontSize}
-        color="text-white"
-        textTransform={textTransform}
+        themeClasses={{
+          color: "text-white",
+          fontFamily,
+          fontSize: mapSizeToButtonTextProps[size].fontSize,
+          textTransform
+        }}
       >
         {buttonText}
       </Typography>

@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-import { Typography } from "components/atoms/Typography";
+import { Typography } from "components/atoms/Typography/Typography";
 import { Responsive } from "components/layout/Responsive";
 
 import { isIE11 } from "helpers/browser/isIE11";
@@ -26,12 +26,14 @@ const Section: React.FC<ISectionProps> = ({
     title ? (
       <LayoutContainer marginBottom={marginBottom}>
         <Typography
-          color="text-blue100"
-          fontFamily={isIE11() ? "font-anonymousPro" : "font-exan"}
-          fontSize={fontSize}
-          lineHeight="leading-80"
-          textAlign="text-center"
-          textTransform={isIE11() ? "uppercase" : "lowercase"}
+          themeClasses={{
+            color: "text-blue100",
+            fontFamily: isIE11() ? "font-anonymousPro" : "font-exan",
+            fontSize,
+            lineHeight: "leading-80",
+            textAlign: "text-center",
+            textTransform: isIE11() ? "uppercase" : "lowercase"
+          }}
         >
           {title}
         </Typography>

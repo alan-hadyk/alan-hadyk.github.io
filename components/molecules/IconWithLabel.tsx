@@ -1,5 +1,5 @@
 // import { Icon } from "components/atoms/Icon/Icon";
-import { Typography } from "components/atoms/Typography";
+import { Typography } from "components/atoms/Typography/Typography";
 
 import {
   IIconWithLabelProps,
@@ -9,7 +9,6 @@ import {
 
 import { isIE11 } from "helpers/browser/isIE11";
 import { LayoutContainer } from "components/layout/LayoutContainer";
-import { ITypographyProps } from "components/atoms/@types/Typography";
 import { Link } from "components/molecules/Link";
 import { IconStatic } from "components/atoms/IconStatic/IconStatic";
 
@@ -54,10 +53,12 @@ const IconWithLabel: React.FC<IIconWithLabelProps> = ({
         />
       </LayoutContainer>
       <Typography
-        className={href ? "group-hover:text-white" : ""}
-        color={labelColor as ITypographyProps["color"]}
-        fontSize={mapSizeToTextFontSize[size as "small" | "medium" | "large"]}
         isHoverable={!!href}
+        themeClasses={{
+          color: labelColor,
+          fontSize: size ? mapSizeToTextFontSize[size] : undefined,
+          groupHover: href ? "group-hover:text-white" : undefined
+        }}
       >
         {label}
       </Typography>

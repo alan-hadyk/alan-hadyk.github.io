@@ -1,9 +1,9 @@
 import NextLink from "next/link";
 
-import { Line } from "components/atoms/Line";
+import { Line } from "components/atoms/Line/Line";
 import { ILinkProps } from "components/molecules/@types/Link";
 import { LayoutContainer } from "components/layout/LayoutContainer";
-import { LineDirection } from "components/atoms/@types/Line";
+import { LineDirection } from "components/atoms/Line/@types/Line";
 import { trimTemplateLiteral } from "helpers/strings/trimTemplateLiteral";
 
 const Link: React.FC<ILinkProps> = ({

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Typography } from "components/atoms/Typography";
+import { Typography } from "components/atoms/Typography/Typography";
 import { CompanyDescription } from "components/organisms/CompanyDescription";
 import { CompanyTimeline } from "components/molecules/CompanyTimeline";
 import { Responsive } from "components/layout/Responsive";
@@ -48,11 +48,13 @@ const CompanyTvDesktopAndTablet: React.FC<ICompanyProps> = ({
         paddingRight="pr-40"
       >
         <Typography
-          color="text-white"
-          fontFamily={isIE11() ? "font-anonymousPro" : "font-exan"}
-          fontSize="text-48"
-          lineHeight="leading-56"
-          textAlign="text-right"
+          themeClasses={{
+            color: "text-white",
+            fontFamily: isIE11() ? "font-anonymousPro" : "font-exan",
+            fontSize: "text-48",
+            lineHeight: "leading-56",
+            textAlign: "text-right"
+          }}
         >
           {name}
         </Typography>

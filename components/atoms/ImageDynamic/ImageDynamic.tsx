@@ -68,19 +68,18 @@ const _ImageDynamic: React.ForwardRefRenderFunction<
   const ImageComponent: SVGImage =
     imageComponents[imageName as keyof TImageComponents];
 
+  const imageComponentClassNames =
+    imageDynamicBaseThemeClasses?.pseudoClasses?.find((pseudoClass) =>
+      pseudoClass.includes("fill-")
+    ) || "";
+
   return (
     <div
       className={convertObjectValuesToString(imageDynamicThemeClasses)}
       ref={ref as ForwardedRef<HTMLDivElement>}
       style={style}
     >
-      <ImageComponent
-        className={
-          imageDynamicBaseThemeClasses?.pseudoClasses?.find((pseudoClass) =>
-            pseudoClass.includes("fill-")
-          ) || ""
-        }
-      />
+      <ImageComponent className={imageComponentClassNames} />
     </div>
   );
 };

@@ -97,6 +97,13 @@ export type TTextTransform =
   | "lowercase"
   | "capitalize"
   | "normal-case";
+export type TTextOverflow = TUtility<"text", "ellipsis" | "clip">;
+
+export type TWhitespace = TUtility<
+  "whitespace",
+  "normal" | "nowrap" | "pre" | "pre-line" | "pre-wrap"
+>;
+
 export type TLeading = TUtilityWithArbitraryValues<
   "leading",
   TLineHeightValues
@@ -132,6 +139,7 @@ export type TMinWidth = TUtilityWithArbitraryValues<"min-w", TSpacingValues>;
 export type TMaxWidth = TUtilityWithArbitraryValues<"max-w", TSpacingValues>;
 
 export type TBoxShadow = TUtility<"shadow", TBoxShadowValues>;
+export type TDropShadow = TUtility<"drop-shadow", TDropShadowValues>;
 
 export type TBorderWidth = TUtilityWithArbitraryValues<
   "border" | "border-l" | "border-r" | "border-t" | "border-b",
@@ -289,7 +297,11 @@ export type TColorProperties =
   | TFill;
 
 export type TGroupHover = TUtility<"group-hover", TColorProperties, ":">;
-export type THover = TUtility<"hover", TColorProperties, ":">;
+export type THover = TUtility<
+  "hover",
+  TColorProperties | TBoxShadow | TDropShadow,
+  ":"
+>;
 
 export type TTransform = "transform" | "transform-gpu" | "transform-none";
 export type TRotate =
@@ -357,6 +369,7 @@ export interface IBasicThemeClasses {
   color?: TTextColor;
   cursor?: TCursor;
   display?: TDisplay;
+  dropShadow?: TDropShadow;
   fill?: TFill;
   flex?: TFlex;
   flexFlow?: TFlexFlowValues;
@@ -366,7 +379,7 @@ export interface IBasicThemeClasses {
   fontWeight?: TTextFontWeight;
   gap?: TGap;
   group?: "group";
-  groupHover?: TGroupHover;
+  groupHover?: TGroupHover | TGroupHover[];
   height?:
     | THeight
     | `${number}%`
@@ -405,12 +418,14 @@ export interface IBasicThemeClasses {
   right?: TRight;
   rotate?: TRotate;
   textAlign?: TTextAlign;
+  textOverflow?: TTextOverflow;
   textTransform?: TTextTransform;
   top?: TTop;
   transform?: TTransform;
   transition?: TTransition;
   transitionDuration?: TTransitionDuration;
   transitionTiming?: TTransitionTiming;
+  whitespace?: TWhitespace;
   width?:
     | TWidth
     | `${number}%`

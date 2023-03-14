@@ -1,14 +1,15 @@
-import { ITypographyProps } from "components/atoms/@types/Typography";
+import { ITypographyProps } from "components/atoms/Typography/@types/Typography";
 import { ILayoutContainerProps } from "components/layout/@types/LayoutContainer";
 import { TChildren } from "types/props";
+import { TLeading, TWidth } from "types/theme";
 
 export interface IHexagonWithDescriptionContentProps {
   children: TChildren;
   description: ITypographyProps["children"];
   flexFlow?: ILayoutContainerProps["flexFlow"];
-  lineHeight?: ITypographyProps["lineHeight"];
+  lineHeight?: TLeading;
   marginBottom?: ILayoutContainerProps["marginBottom"];
   marginRight?: ILayoutContainerProps["marginRight"];
-  textWidth?: ITypographyProps["width"];
+  textWidth?: TWidth;
   width?: ILayoutContainerProps["width"];
 }

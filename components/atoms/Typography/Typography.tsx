@@ -3,10 +3,12 @@ import { forwardRef, useState, useRef } from "react";
 import { useShuffleText } from "hooks/useShuffleText";
 import { useInterval } from "hooks/useInterval";
 
-import { ITypographyProps } from "components/atoms/@types/Typography";
+import { ITypographyProps } from "components/atoms/Typography/@types/Typography";
 import { IShuffleState } from "hooks/@types/useShuffleText";
-import { trimTemplateLiteral } from "helpers/strings/trimTemplateLiteral";
 import { theme } from "theme/theme";
+import { typographyDefaultThemeClasses } from "components/atoms/Typography/styles";
+import { IThemeClasses, TPseudoClasses } from "types/theme";
+import { convertObjectValuesToString } from "helpers/objects/convertObjectValuesToString";
 
 const _Typography: React.ForwardRefRenderFunction<
   HTMLDivElement,
@@ -14,29 +16,15 @@ const _Typography: React.ForwardRefRenderFunction<
 > = (
   {
     children,
-    className,
-    color = "text-blue300",
     ellipsis = false,
-    fontFamily = "font-anonymousPro",
-    fontSize = "text-20",
-    fontWeight = "font-normal",
     isHoverable = false,
-    lineHeight = "leading-1",
-    maxHeight,
-    overflow = "overflow-visible",
-    paddingBottom = "pb-0",
-    paddingLeft = "pl-0",
-    paddingRight = "pr-0",
-    paddingTop = "pt-0",
     shouldShuffle = false,
     shouldShuffleOnHover = false,
     shuffleDelay = 0,
     shuffleInterval = parseInt(
       theme.transitionDuration.verySlow.replace("ms", "")
     ),
-    textAlign = "text-left",
-    textTransform = "normal-case",
-    width = "w-auto"
+    themeClasses
   },
   ref
 ) => {
@@ -67,23 +55,34 @@ const _Typography: React.ForwardRefRenderFunction<
     shuffleText && shuffleText.start();
   };
 
+  const typographyBaseThemeClasses: IThemeClasses = {
+    ...typographyDefaultThemeClasses,
+    ...themeClasses
+  };
+
+  const typographyThemeClasses: IThemeClasses = {
+    ...typographyBaseThemeClasses,
+    ...(ellipsis && {
+      overflow: "overflow-hidden",
+      textOverflow: "text-ellipsis",
+      whitespace: "whitespace-nowrap"
+    }),
+    ...(typographyBaseThemeClasses.color === "text-blue300" && {
+      pseudoClasses: [
+        "childrenStrong:text-blue300",
+        ...(typographyBaseThemeClasses?.pseudoClasses
+          ? (typographyBaseThemeClasses.pseudoClasses as TPseudoClasses)
+          : [])
+      ]
+    }),
+    ...(isHoverable && {
+      hover: "hover:text-white"
+    })
+  };
+
   return (
     <div
-      className={trimTemplateLiteral(`
-        ${color} ${fontFamily} ${fontSize} ${fontWeight}
-        ${lineHeight}
-        ${maxHeight}
-        ${overflow}
-        ${paddingBottom} ${paddingLeft} ${paddingRight} ${paddingTop}
-        ${textAlign} ${textTransform}
-        ${width}
-        transition-all duration-fast ease-in-out
-        
-        ${ellipsis && "text-ellipsis overflow-hidden whitespace-nowrap"}
-        ${color === "text-blue300" && "childrenStrong:text-blue300"}
-        ${isHoverable && "hover:text-white"}
-        ${className || ""}
-      `)}
+      className={convertObjectValuesToString(typographyThemeClasses)}
       onMouseOver={handleMouseOver}
       ref={ref || textElementRef}
     >

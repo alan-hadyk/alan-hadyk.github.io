@@ -1,6 +1,5 @@
-import { ITypographyProps } from "components/atoms/@types/Typography";
 import { ILayoutContainerProps } from "components/layout/@types/LayoutContainer";
-import { TSpacingValues } from "types/theme";
+import { TSpacingValues, TTextFontSize } from "types/theme";
 import { TChildren } from "types/props";
 
 export interface ISectionProps {
@@ -12,6 +11,6 @@ export interface ISectionProps {
 }
 
 export interface IRenderTitle {
-  fontSize: ITypographyProps["fontSize"];
+  fontSize: TTextFontSize;
   marginBottom: ILayoutContainerProps["marginBottom"];
 }

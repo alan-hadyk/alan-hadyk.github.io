@@ -1,12 +1,12 @@
 import React, { useRef, useState } from "react";
 
-import { Line } from "components/atoms/Line";
+import { Line } from "components/atoms/Line/Line";
 
 import { useShuffleText } from "hooks/useShuffleText";
 
 import { INavItemProps } from "components/molecules/@types/NavItem";
 import { IShuffleState } from "hooks/@types/useShuffleText";
-import { LineDirection } from "components/atoms/@types/Line";
+import { LineDirection } from "components/atoms/Line/@types/Line";
 import { trimTemplateLiteral } from "helpers/strings/trimTemplateLiteral";
 
 const NavItem: React.FC<INavItemProps> = ({

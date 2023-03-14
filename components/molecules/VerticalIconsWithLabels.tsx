@@ -1,4 +1,4 @@
-import { Typography } from "components/atoms/Typography";
+import { Typography } from "components/atoms/Typography/Typography";
 import {
   mapSizeToIconHeight,
   mapSizeToTextFontSize
@@ -46,11 +46,13 @@ const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
         ({ label }: IIconWithLabelProps): JSX.Element => (
           <LayoutContainer height="h-32" key={label} marginBottom="mb-12">
             <Typography
-              color={labelColor}
               ellipsis
-              fontSize={mapSizeToTextFontSize[size]}
               key={label}
-              lineHeight="leading-32"
+              themeClasses={{
+                color: labelColor,
+                fontSize: mapSizeToTextFontSize[size],
+                lineHeight: "leading-32"
+              }}
             >
               {label}
             </Typography>
