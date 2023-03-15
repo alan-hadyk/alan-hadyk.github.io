@@ -1,5 +1,5 @@
 import { DashboardElement } from "components/molecules/DashboardElement";
-import { AnimatedIcons } from "components/molecules/AnimatedIcons";
+import { AnimatedIcons } from "components/molecules/AnimatedIcons/AnimatedIcons";
 
 const TechStack: React.FC = () => (
   <DashboardElement
