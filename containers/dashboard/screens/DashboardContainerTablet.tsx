@@ -6,8 +6,8 @@ import { TechStack } from "containers/dashboard/components/TechStack";
 import { Commits } from "containers/dashboard/components/Commits";
 import { PoweredBy } from "containers/dashboard/components/PoweredBy";
 
-import { Responsive } from "components/layout/Responsive";
-import { Device } from "components/layout/@types/Responsive";
+import { Responsive } from "components/layout/Responsive/Responsive";
+import { Device } from "components/layout/Responsive/@types/Responsive";
 
 const DashboardContainerTablet: React.FC = () => (
   <Responsive devices={[Device.TABLET]}>

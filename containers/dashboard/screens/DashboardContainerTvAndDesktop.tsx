@@ -10,8 +10,8 @@ import { Ip } from "containers/dashboard/components/Ip";
 import { UserAgent } from "containers/dashboard/components/UserAgent";
 import { PoweredBy } from "containers/dashboard/components/PoweredBy";
 
-import { Responsive } from "components/layout/Responsive";
-import { Device } from "components/layout/@types/Responsive";
+import { Responsive } from "components/layout/Responsive/Responsive";
+import { Device } from "components/layout/Responsive/@types/Responsive";
 
 const DashboardContainerTvAndDesktop: React.FC = () => (
   <Responsive devices={[Device.TV, Device.DESKTOP]}>

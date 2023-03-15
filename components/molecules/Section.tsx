@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 
 import { Typography } from "components/atoms/Typography/Typography";
-import { Responsive } from "components/layout/Responsive";
+import { Responsive } from "components/layout/Responsive/Responsive";
 
 import { isIE11 } from "helpers/browser/isIE11";
 
@@ -10,7 +10,7 @@ import {
   ISectionProps
 } from "components/molecules/@types/Section";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
-import { Device } from "components/layout/@types/Responsive";
+import { Device } from "components/layout/Responsive/@types/Responsive";
 
 const Section: React.FC<ISectionProps> = ({
   children,

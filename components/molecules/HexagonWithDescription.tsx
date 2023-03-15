@@ -1,11 +1,11 @@
 import { HexagonWithDescriptionContent } from "components/molecules/HexagonWithDescriptionContent";
-import { Responsive } from "components/layout/Responsive";
+import { Responsive } from "components/layout/Responsive/Responsive";
 
 import { IHexagonWithDescriptionProps } from "components/molecules/@types/HexagonWithDescription";
 
 import { isIE11 } from "helpers/browser/isIE11";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
-import { Device } from "components/layout/@types/Responsive";
+import { Device } from "components/layout/Responsive/@types/Responsive";
 
 const HexagonWithDescription: React.FC<IHexagonWithDescriptionProps> = ({
   children,

@@ -1,7 +1,7 @@
 import { ConsoleMobile } from "components/molecules/Console/ConsoleMobile";
-import { Responsive } from "components/layout/Responsive";
+import { Responsive } from "components/layout/Responsive/Responsive";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
-import { Device } from "components/layout/@types/Responsive";
+import { Device } from "components/layout/Responsive/@types/Responsive";
 
 const DashboardContainerMobile: React.FC = () => (
   <Responsive devices={[Device.MOBILE]}>

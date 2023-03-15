@@ -2,11 +2,11 @@ import { Button } from "components/molecules/Button";
 import { MenuIcons } from "components/molecules/MenuIcons";
 import { Nav } from "components/molecules/Nav";
 
-import { Responsive } from "components/layout/Responsive";
+import { Responsive } from "components/layout/Responsive/Responsive";
 
 import { isIE11 } from "helpers/browser/isIE11";
 
-import { Device } from "components/layout/@types/Responsive";
+import { Device } from "components/layout/Responsive/@types/Responsive";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { IHeaderContainerTvProps } from "containers/header/@types/HeaderContainerTv";
 

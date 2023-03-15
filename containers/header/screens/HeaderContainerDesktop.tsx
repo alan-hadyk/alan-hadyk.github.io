@@ -5,12 +5,12 @@ import { Nav } from "components/molecules/Nav";
 
 import { SideMenu } from "components/organisms/SideMenu";
 
-import { Responsive } from "components/layout/Responsive";
+import { Responsive } from "components/layout/Responsive/Responsive";
 
 import { Backdrop } from "components/atoms/Backdrop/Backdrop";
 import { isIE11 } from "helpers/browser/isIE11";
 
-import { Device } from "components/layout/@types/Responsive";
+import { Device } from "components/layout/Responsive/@types/Responsive";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { IHeaderContainerScreenProps } from "containers/header/@types/HeaderContainerScreen";
 

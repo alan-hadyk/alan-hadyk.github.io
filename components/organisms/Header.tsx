@@ -1,12 +1,12 @@
 import { useCallback, useState } from "react";
 
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
-import { Responsive } from "components/layout/Responsive";
+import { Responsive } from "components/layout/Responsive/Responsive";
 
 import { useResize } from "hooks/useResize";
 
 import { IHeaderProps } from "components/organisms/@types/Header";
-import { Device } from "components/layout/@types/Responsive";
+import { Device } from "components/layout/Responsive/@types/Responsive";
 import { LinkWithImage } from "components/molecules/LinkWithImage/LinkWithImage";
 
 const Header: React.FC<IHeaderProps> = ({ children, zIndex = "z-400" }) => {

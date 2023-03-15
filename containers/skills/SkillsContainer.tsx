@@ -1,6 +1,6 @@
 import { Section } from "components/molecules/Section";
 import { SkillsItem } from "components/molecules/SkillsItem";
-import { Responsive } from "components/layout/Responsive";
+import { Responsive } from "components/layout/Responsive/Responsive";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 
 import { languagesCategory } from "containers/skills/categories/languagesCategory";
@@ -17,7 +17,7 @@ import { designToolsCategory } from "containers/skills/categories/designToolsCat
 
 import { ISkillsItemProps } from "components/molecules/@types/SkillsItem";
 import { IRenderColumnsArgs } from "containers/skills/@types/SkillsContainer";
-import { Device } from "components/layout/@types/Responsive";
+import { Device } from "components/layout/Responsive/@types/Responsive";
 
 const items: ISkillsItemProps[] = [
   languagesCategory,

@@ -1,5 +1,4 @@
 import { TChildren } from "types/props";
-import { ILayoutContainerProps } from "../LayoutContainer/@types/LayoutContainer";
 
 export enum Device {
   DESKTOP = "desktop",
@@ -11,6 +10,4 @@ export enum Device {
 export interface IResponsiveProps {
   children: TChildren;
   devices: Device[];
-  height?: ILayoutContainerProps["height"];
-  width?: ILayoutContainerProps["width"];
 }

@@ -3,14 +3,14 @@ import React from "react";
 import { Typography } from "components/atoms/Typography/Typography";
 import { CompanyDescription } from "components/organisms/CompanyDescription";
 import { CompanyTimeline } from "components/molecules/CompanyTimeline";
-import { Responsive } from "components/layout/Responsive";
+import { Responsive } from "components/layout/Responsive/Responsive";
 
 import { isIE11 } from "helpers/browser/isIE11";
 
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
-import { Device } from "components/layout/@types/Responsive";
+import { Device } from "components/layout/Responsive/@types/Responsive";
 
 const CompanyTvDesktopAndTablet: React.FC<ICompanyProps> = ({
   date,
