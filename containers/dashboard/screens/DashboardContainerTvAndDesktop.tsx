@@ -1,5 +1,3 @@
-import { ConsoleTvDesktopAndTablet } from "components/molecules/Console/ConsoleTvDesktopAndTablet";
-
 import { DashboardInnerContainer } from "containers/dashboard/components/DashboardInnerContainer";
 import { DashboardOuterContainer } from "containers/dashboard/components/DashboardOuterContainer";
 import { TechStack } from "containers/dashboard/components/TechStack";
@@ -12,6 +10,7 @@ import { PoweredBy } from "containers/dashboard/components/PoweredBy";
 
 import { Responsive } from "components/layout/Responsive/Responsive";
 import { Device } from "components/layout/Responsive/@types/Responsive";
+import { ConsoleTvDesktopAndTablet } from "components/molecules/Console/screens/ConsoleTvDesktopAndTablet";
 
 const DashboardContainerTvAndDesktop: React.FC = () => (
   <Responsive devices={[Device.TV, Device.DESKTOP]}>

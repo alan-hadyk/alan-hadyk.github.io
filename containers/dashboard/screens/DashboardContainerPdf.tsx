@@ -1,4 +1,4 @@
-import { ConsolePdf } from "components/molecules/Console/ConsolePdf";
+import { ConsolePdf } from "components/molecules/Console/screens/ConsolePdf";
 
 const DashboardContainerPdf: React.FC = () => <ConsolePdf />;
 
