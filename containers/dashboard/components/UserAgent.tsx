@@ -1,5 +1,5 @@
 import { DashboardElement } from "components/molecules/DashboardElement";
-import { BrowserInfo } from "components/molecules/BrowserInfo";
+import { BrowserInfo } from "components/molecules/BrowserInfo/BrowserInfo";
 import { useEffect, useState } from "react";
 
 const getDescription = () =>
