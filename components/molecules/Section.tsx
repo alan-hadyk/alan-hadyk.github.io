@@ -9,7 +9,7 @@ import {
   IRenderTitle,
   ISectionProps
 } from "components/molecules/@types/Section";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { Device } from "components/layout/@types/Responsive";
 
 const Section: React.FC<ISectionProps> = ({
@@ -24,7 +24,7 @@ const Section: React.FC<ISectionProps> = ({
     marginBottom
   }: IRenderTitle): JSX.Element | null =>
     title ? (
-      <LayoutContainer marginBottom={marginBottom}>
+      <LayoutContainer themeClasses={{ marginBottom }}>
         <Typography
           themeClasses={{
             color: "text-blue100",
@@ -42,10 +42,12 @@ const Section: React.FC<ISectionProps> = ({
 
   return (
     <LayoutContainer
-      className={minHeight}
       id={id}
-      marginBottom={marginBottom}
-      paddingTop={title ? "pt-96" : "pt-0"}
+      themeClasses={{
+        marginBottom,
+        minHeight,
+        paddingTop: title ? "pt-96" : "pt-0"
+      }}
     >
       {title && (
         <Fragment>

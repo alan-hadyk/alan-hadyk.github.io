@@ -2,7 +2,7 @@ import { Typography } from "components/atoms/Typography/Typography";
 import { Hexagon } from "components/molecules/Hexagon";
 
 import { IHexagonWithDescriptionContentProps } from "components/molecules/@types/HexagonWithDescriptionContent";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 
 const HexagonWithDescriptionContent: React.FC<
   IHexagonWithDescriptionContentProps
@@ -16,11 +16,19 @@ const HexagonWithDescriptionContent: React.FC<
   textWidth = "w-100%",
   width = "w-100%"
 }) => (
-  <LayoutContainer alignItems="items-center" display="flex" flexFlow={flexFlow}>
+  <LayoutContainer
+    themeClasses={{
+      alignItems: "items-center",
+      display: "flex",
+      flexFlow
+    }}
+  >
     <LayoutContainer
-      marginBottom={marginBottom}
-      marginRight={marginRight}
-      width={width}
+      themeClasses={{
+        marginBottom,
+        marginRight,
+        width
+      }}
     >
       <Hexagon>{children}</Hexagon>
     </LayoutContainer>

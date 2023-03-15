@@ -6,7 +6,7 @@ import { isIE11 } from "helpers/browser/isIE11";
 
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
 import { Device } from "components/layout/@types/Responsive";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 
 const CompanyMobile: React.FC<ICompanyProps> = ({
   date,
@@ -19,10 +19,13 @@ const CompanyMobile: React.FC<ICompanyProps> = ({
 }) => (
   <Responsive devices={[Device.MOBILE]}>
     <LayoutContainer
-      alignItems="items-center"
-      className="directChildren:mt-48 firstdirectChild:mt-48 max-w-1056"
-      display="flex"
-      flexFlow="flex-col flex-nowrap"
+      themeClasses={{
+        alignItems: "items-center",
+        display: "flex",
+        flexFlow: "flex-col-nowrap",
+        maxWidth: "max-w-1056",
+        pseudoClasses: ["directChildren:mt-48", "firstdirectChild:mt-48"]
+      }}
     >
       <Typography
         themeClasses={{

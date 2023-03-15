@@ -5,19 +5,19 @@ import {
   IIconsWithLabelsProps,
   IMapSizeToFlexContainerGap
 } from "components/molecules/@types/IconsWithLabels";
-import { ILayoutContainerProps } from "components/layout/@types/LayoutContainer";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
+import { IThemeClasses } from "types/theme";
 
 const mapSizeToFlexContainerGap: IMapSizeToFlexContainerGap = {
   horizontal: {
-    large: "directChildren:mr-28 directChildren:mb-28",
-    medium: "directChildren:mr-12 directChildren:mb-12",
-    small: "directChildren:mr-16 directChildren:mb-16"
+    large: ["directChildren:mr-28", "directChildren:mb-28"],
+    medium: ["directChildren:mr-12", "directChildren:mb-12"],
+    small: ["directChildren:mr-16", "directChildren:mb-16"]
   },
   vertical: {
-    large: "directChildren:mt-28 firstdirectChild:mt-28",
-    medium: "directChildren:mt-12 firstdirectChild:mt-12",
-    small: "directChildren:mt-16 firstdirectChild:mt-16"
+    large: ["directChildren:mt-28", "firstdirectChild:mt-28"],
+    medium: ["directChildren:mt-12", "firstdirectChild:mt-12"],
+    small: ["directChildren:mt-16", "firstdirectChild:mt-16"]
   }
 };
 
@@ -27,27 +27,25 @@ const IconsWithLabels: React.FC<IIconsWithLabelsProps> = ({
   position = "vertical",
   size = "medium"
 }) => {
-  const justifyContent: ILayoutContainerProps["justifyContent"] =
+  const justifyContent: IThemeClasses["justifyContent"] =
     position === "horizontal" ? "justify-start" : "justify-center";
-  const flexFlow: ILayoutContainerProps["flexFlow"] =
-    position === "horizontal" ? "flex-row flex-wrap" : "flex-row flex-nowrap";
+  const flexFlow: IThemeClasses["flexFlow"] =
+    position === "horizontal" ? "flex-row-wrap" : "flex-row-nowrap";
 
   return (
     <LayoutContainer
-      alignItems="items-start"
-      className={`
-        ${
+      themeClasses={{
+        alignItems: "items-start",
+        display: "flex",
+        flexFlow,
+        height: "100%",
+        justifyContent,
+        maxWidth: position === "horizontal" ? "max-w-unset" : "max-w-100%",
+        pseudoClasses:
           mapSizeToFlexContainerGap[position][
             size as "small" | "medium" | "large"
           ]
-        }
-
-        ${position === "horizontal" ? " max-w-unset" : "max-w-100%"}
-      `}
-      display="flex"
-      flexFlow={flexFlow}
-      height="100%"
-      justifyContent={justifyContent}
+      }}
     >
       {position === "horizontal" ? (
         iconsWithLabels &&

@@ -14,7 +14,7 @@ import {
 
 import { isIE11 } from "helpers/browser/isIE11";
 import { convertObjectValuesToString } from "helpers/objects/convertObjectValuesToString";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { trimTemplateLiteral } from "helpers/strings/trimTemplateLiteral";
 
 const mapTypeToButtonContainerProps: IMapTypeToButtonContainerProps = {
@@ -152,20 +152,29 @@ const Button: React.FC<IButtonProps> = ({
     >
       {!isIE11() && <Corners isActive={isActive} />}
       <LayoutContainer
-        alignItems="items-center"
-        className="overflow-hidden"
-        display="flex"
-        height="h-full"
-        justifyContent="justify-center"
-        position="relative"
         ref={buttonInnerContainerRef}
+        themeClasses={{
+          alignItems: "items-center",
+          display: "flex",
+          height: "h-full",
+          justifyContent: "justify-center",
+          overflow: "overflow-hidden",
+          position: "relative"
+        }}
       >
-        <LayoutContainer className={buttonHorizontalPadding} width="w-full">
+        <LayoutContainer
+          themeClasses={{
+            paddingX: buttonHorizontalPadding,
+            width: "w-full"
+          }}
+        >
           <LayoutContainer
-            alignItems="items-center"
-            display="flex"
-            flexFlow="flex-row flex-nowrap"
-            justifyContent="justify-center"
+            themeClasses={{
+              alignItems: "items-center",
+              display: "flex",
+              flexFlow: "flex-row-nowrap",
+              justifyContent: "justify-center"
+            }}
           >
             <ButtonText
               buttonText={buttonText}

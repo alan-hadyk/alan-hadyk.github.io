@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useInterval } from "hooks/useInterval";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { trimTemplateLiteral } from "helpers/strings/trimTemplateLiteral";
 
 const CODE = `import { useEffect } from "react";
@@ -80,7 +80,12 @@ const TypingAnimation: React.FC = () => {
   }, 50);
 
   return (
-    <LayoutContainer height="h-100%" position="relative">
+    <LayoutContainer
+      themeClasses={{
+        height: "h-100%",
+        position: "relative"
+      }}
+    >
       <pre>
         <code
           className={trimTemplateLiteral(`

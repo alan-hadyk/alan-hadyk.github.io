@@ -1,11 +1,15 @@
 import { ConsoleTextVariant } from "components/atoms/ConsoleText/@types/ConsoleText";
 import { CornerVariant } from "components/atoms/Corner/@types/Corner";
 import { ConsoleText } from "components/atoms/ConsoleText/ConsoleText";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { Corners } from "components/molecules/Corners";
 
 const ConsolePdf: React.FC = () => (
-  <LayoutContainer paddingTop="pt-48">
+  <LayoutContainer
+    themeClasses={{
+      paddingTop: "pt-48"
+    }}
+  >
     <LayoutContainer
       themeClasses={{
         // borderColor: "border-blue300",

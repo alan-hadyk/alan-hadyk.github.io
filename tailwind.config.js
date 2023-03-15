@@ -57,7 +57,7 @@ module.exports = {
     "./pages/**/*.{ts,tsx}"
   ],
   plugins: [
-    plugin(function ({ addVariant }) {
+    plugin(({ addVariant }) => {
       addVariant("secondChild", "&:nth-child(2)");
       addVariant("thirdChild", "&:nth-child(3)");
       addVariant("fourthChild", "&:nth-child(4)");

@@ -1,5 +1,5 @@
 import { TChildren } from "types/props";
-import { ILayoutContainerProps } from "./LayoutContainer";
+import { ILayoutContainerProps } from "../LayoutContainer/@types/LayoutContainer";
 
 export enum Device {
   DESKTOP = "desktop",

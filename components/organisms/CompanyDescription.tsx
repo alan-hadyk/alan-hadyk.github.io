@@ -4,7 +4,7 @@ import { UnorderedList } from "components/molecules/UnorderedList";
 import { isIE11 } from "helpers/browser/isIE11";
 
 import { ICompanyDescriptionProps } from "components/organisms/@types/CompanyDescription";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { TechStack } from "components/molecules/TechStack";
 
 const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
@@ -16,7 +16,11 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
   textAlign = "text-left",
   title
 }) => (
-  <LayoutContainer className="msHighContrastNone:w-100% msHighContrastActive:w-100%">
+  <LayoutContainer
+    themeClasses={{
+      mediaQuery: ["msHighContrastNone:w-100%", "msHighContrastActive:w-100%"]
+    }}
+  >
     <Typography
       themeClasses={{
         color: "text-white",
@@ -30,7 +34,12 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
       {title}
     </Typography>
 
-    <LayoutContainer marginBottom={link ? "mb-16" : "mb-32"} marginTop="mt-32">
+    <LayoutContainer
+      themeClasses={{
+        marginBottom: link ? "mb-16" : "mb-32",
+        marginTop: "mt-32"
+      }}
+    >
       <IconWithLabel
         labelColor="text-blue300"
         iconName="calendar"
@@ -40,7 +49,11 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
     </LayoutContainer>
 
     {link && (
-      <LayoutContainer marginBottom="mb-32">
+      <LayoutContainer
+        themeClasses={{
+          marginBottom: "mb-32"
+        }}
+      >
         <IconWithLabel
           href={link}
           isExternal
@@ -54,7 +67,11 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
 
     <TechStack iconsWithLabels={iconsWithLabels} />
 
-    <LayoutContainer paddingBottom={responsibilitiesPaddingBottom}>
+    <LayoutContainer
+      themeClasses={{
+        paddingBottom: responsibilitiesPaddingBottom
+      }}
+    >
       <Typography
         themeClasses={{
           color: "text-blue100",
@@ -66,7 +83,12 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
       >
         Responsibilities
       </Typography>
-      <LayoutContainer marginLeft="ml-16" marginTop="mt-16">
+      <LayoutContainer
+        themeClasses={{
+          marginLeft: "ml-16",
+          marginTop: "mt-16"
+        }}
+      >
         <UnorderedList items={responsibilities} />
       </LayoutContainer>
     </LayoutContainer>

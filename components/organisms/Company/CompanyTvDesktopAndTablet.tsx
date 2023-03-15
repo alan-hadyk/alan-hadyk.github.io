@@ -7,7 +7,7 @@ import { Responsive } from "components/layout/Responsive";
 
 import { isIE11 } from "helpers/browser/isIE11";
 
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
 import { Device } from "components/layout/@types/Responsive";
@@ -26,26 +26,28 @@ const CompanyTvDesktopAndTablet: React.FC<ICompanyProps> = ({
     <CompanyTimeline timelineBottom={timelineBottom} />
 
     <LayoutContainer
-      alignItems="items-start"
-      className=" max-w-1056"
-      display="flex"
-      flexFlow="flex-row flex-nowrap"
-      marginBottom="mb-0"
-      marginLeft="ml-auto"
-      marginRight="mr-auto"
-      marginTop="mt-0"
+      themeClasses={{
+        alignItems: "items-start",
+        display: "flex",
+        flexFlow: "flex-row-nowrap",
+        marginX: "mx-auto",
+        marginY: "my-0",
+        maxWidth: "max-w-1056"
+      }}
     >
       <LayoutContainer
-        className={
-          isIE11()
-            ? `
-              msHighContrastNone:flex-none msHighContrastNone:w-50%
-              msHighContrastActive:flex-none msHighContrastActive:w-50%
-            `
-            : ""
-        }
-        flex="flex-[0_0_50%]"
-        paddingRight="pr-40"
+        themeClasses={{
+          flex: "flex-[0_0_50%]",
+          paddingRight: "pr-40",
+          pseudoClasses: isIE11()
+            ? [
+                "msHighContrastNone:flex-none",
+                "msHighContrastNone:w-50%",
+                "msHighContrastActive:flex-none",
+                "msHighContrastActive:w-50%"
+              ]
+            : []
+        }}
       >
         <Typography
           themeClasses={{
@@ -61,16 +63,18 @@ const CompanyTvDesktopAndTablet: React.FC<ICompanyProps> = ({
       </LayoutContainer>
 
       <LayoutContainer
-        className={
-          isIE11()
-            ? `
-              msHighContrastNone:flex-none msHighContrastNone:w-50%
-              msHighContrastActive:flex-none msHighContrastActive:w-50%
-            `
-            : ""
-        }
-        flex="flex-[0_0_50%]"
-        paddingLeft="pl-40"
+        themeClasses={{
+          flex: "flex-[0_0_50%]",
+          paddingLeft: "pl-40",
+          pseudoClasses: isIE11()
+            ? [
+                "msHighContrastNone:flex-none",
+                "msHighContrastNone:w-50%",
+                "msHighContrastActive:flex-none",
+                "msHighContrastActive:w-50%"
+              ]
+            : []
+        }}
       >
         <CompanyDescription
           date={date}

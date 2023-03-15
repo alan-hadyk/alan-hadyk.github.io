@@ -67,13 +67,25 @@ export type TBgColor = TUtilityWithArbitraryValues<
   "bg",
   | TColorValues
   | `${TColorValues}/${number}`
+  | `${TColorValues}/[.${number}]`
   | `[${string}]`
   | `gradient-to-${string}`
 >;
 
 export type TBg = TUtilityWithArbitraryValues<
   "bg",
-  `[url(${string})]` | "center" | "repeat-space" | `[length:${string}]`
+  | `[url(${string})]`
+  | "bottom"
+  | "center"
+  | "left"
+  | "left-bottom"
+  | "left-top"
+  | "right"
+  | "right-bottom"
+  | "right-top"
+  | "top"
+  | "repeat-space"
+  | `[length:${string}]`
 >;
 
 export type TFill = TUtility<"fill", TColorValues>;
@@ -148,22 +160,18 @@ export type TBorderWidth = TUtilityWithArbitraryValues<
 export type TBorderColor =
   | TUtilityWithArbitraryValues<"border", TColorValues>
   | TUtilityWithTransparency<"border", TColorValues>;
-export type TBorderLeftColor = TUtilityWithArbitraryValues<
-  "border-l",
-  TColorValues
->;
-export type TBorderRightColor = TUtilityWithArbitraryValues<
-  "border-r",
-  TColorValues
->;
-export type TBorderBottomColor = TUtilityWithArbitraryValues<
-  "border-b",
-  TColorValues
->;
-export type TBorderTopColor = TUtilityWithArbitraryValues<
-  "border-t",
-  TColorValues
->;
+export type TBorderLeftColor =
+  | TUtilityWithArbitraryValues<"border-l", TColorValues>
+  | TUtilityWithTransparency<"border-l", TColorValues>;
+export type TBorderRightColor =
+  | TUtilityWithArbitraryValues<"border-r", TColorValues>
+  | TUtilityWithTransparency<"border-r", TColorValues>;
+export type TBorderBottomColor =
+  | TUtilityWithArbitraryValues<"border-b", TColorValues>
+  | TUtilityWithTransparency<"border-b", TColorValues>;
+export type TBorderTopColor =
+  | TUtilityWithArbitraryValues<"border-t", TColorValues>
+  | TUtilityWithTransparency<"border-t", TColorValues>;
 export type TBorderRadius = TUtilityWithArbitraryValues<
   "rounded",
   TSpacingValues
@@ -304,6 +312,12 @@ export type THover = TUtility<
 >;
 
 export type TTransform = "transform" | "transform-gpu" | "transform-none";
+
+export type TTranslate = TUtilityWithArbitraryValues<
+  `translate-${"x" | "y" | "z"}`,
+  TSpacingValues
+>;
+
 export type TRotate =
   | `rotate-${number}`
   | `-rotate-${number}`
@@ -320,6 +334,8 @@ export type TCursor = TUtility<
   | "help"
   | "not-allowed"
 >;
+
+export type TListStyleType = TUtility<"list", "none" | "disc" | "decimal">;
 
 export type TFlexFlowValues =
   | "flex-row-wrap"
@@ -348,6 +364,8 @@ export type TContent = `content-[${string}]`;
 
 export type TOpacity = `opacity-${number}`;
 
+export type TColumns = `columns-${number}`;
+
 export type TClassStyleUtility = `${string}-${string}` | string;
 
 export interface IBasicThemeClasses {
@@ -367,6 +385,7 @@ export interface IBasicThemeClasses {
   bottom?: TBottom;
   boxShadow?: TBoxShadow;
   color?: TTextColor;
+  columns?: TColumns;
   cursor?: TCursor;
   display?: TDisplay;
   dropShadow?: TDropShadow;
@@ -393,6 +412,7 @@ export interface IBasicThemeClasses {
   left?: TLeft;
   letterSpacing?: TTracking;
   lineHeight?: TLeading;
+  listStyleType?: TListStyleType;
   marginBottom?: TMarginBottom;
   marginLeft?: TMarginLeft;
   marginRight?: TMarginRight;
@@ -425,6 +445,7 @@ export interface IBasicThemeClasses {
   transition?: TTransition;
   transitionDuration?: TTransitionDuration;
   transitionTiming?: TTransitionTiming;
+  translate?: TTranslate | TTranslate[];
   whitespace?: TWhitespace;
   width?:
     | TWidth

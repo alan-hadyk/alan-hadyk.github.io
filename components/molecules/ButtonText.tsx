@@ -5,7 +5,7 @@ import {
   IMapSizeToButtonTextProps
 } from "components/molecules/@types/ButtonText";
 import { TSpacingValues } from "types/theme";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 
 const mapSizeToButtonTextProps: IMapSizeToButtonTextProps = {
   large: { fontSize: "text-28" },
@@ -29,7 +29,11 @@ const ButtonText: React.FC<IButtonTextProps> = ({
   };
 
   return (
-    <LayoutContainer marginRight={getMarginRight()}>
+    <LayoutContainer
+      themeClasses={{
+        marginRight: getMarginRight()
+      }}
+    >
       <Typography
         themeClasses={{
           color: "text-white",

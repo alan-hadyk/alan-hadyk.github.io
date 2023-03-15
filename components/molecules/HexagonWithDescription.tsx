@@ -4,7 +4,7 @@ import { Responsive } from "components/layout/Responsive";
 import { IHexagonWithDescriptionProps } from "components/molecules/@types/HexagonWithDescription";
 
 import { isIE11 } from "helpers/browser/isIE11";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { Device } from "components/layout/@types/Responsive";
 
 const HexagonWithDescription: React.FC<IHexagonWithDescriptionProps> = ({
@@ -12,9 +12,10 @@ const HexagonWithDescription: React.FC<IHexagonWithDescriptionProps> = ({
   description
 }) => (
   <LayoutContainer
-    className="max-w-1056"
-    marginLeft="ml-auto"
-    marginRight="mr-auto"
+    themeClasses={{
+      marginX: "mx-auto",
+      maxWidth: "max-w-1056"
+    }}
   >
     <Responsive devices={[Device.TV, Device.DESKTOP]}>
       <HexagonWithDescriptionContent

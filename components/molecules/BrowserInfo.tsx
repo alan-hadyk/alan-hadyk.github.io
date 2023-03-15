@@ -5,8 +5,9 @@ import { IconDynamic } from "components/atoms/IconDynamic/IconDynamic";
 import { isSafari } from "helpers/browser/isSafari";
 
 import { IIconDynamicProps } from "components/atoms/IconDynamic/@types/IconDynamic";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { useEffect, useState } from "react";
+import { TMediaQuery } from "types/theme";
 
 const BROWSER_ICONS: IIconDynamicProps["iconName"][] = [
   "chrome",
@@ -29,14 +30,26 @@ const BrowserInfo: React.FC = () => {
   }, [name]);
 
   return (
-    <LayoutContainer height="h-100%" padding="p-[1.25vh]" width="w-100%">
-      <LayoutContainer height="h-100%">
+    <LayoutContainer
+      themeClasses={{
+        height: "h-100%",
+        padding: "p-[1.25vh]",
+        width: "w-100%"
+      }}
+    >
+      <LayoutContainer
+        themeClasses={{
+          height: "h-100%"
+        }}
+      >
         <LayoutContainer
-          alignItems="items-center"
-          display="flex"
-          flexFlow="flex-row flex-wrap"
-          height="h-100%"
-          justifyContent="justify-between"
+          themeClasses={{
+            alignItems: "items-center",
+            display: "flex",
+            flexFlow: "flex-row-wrap",
+            height: "h-100%",
+            justifyContent: "justify-between"
+          }}
         >
           {BROWSER_ICONS.map(
             (icon: IIconDynamicProps["iconName"]): JSX.Element => {
@@ -50,21 +63,27 @@ const BrowserInfo: React.FC = () => {
 
               return (
                 <LayoutContainer
-                  className={`
-                ${
-                  isActive
-                    ? "screenMaxHeight640:block screenMaxHeight640:h-100% screenMaxHeight640:mx-auto screenMaxHeight640:my-0"
-                    : "screenMaxHeight640:hidden"
-                }
-                ${isSafari() ? "overflow-hidden" : "overflow-visible"}
-              `}
-                  display={isSafari() ? "flex" : "block"}
-                  flex="flex-[0_1_28%]"
-                  height="h-50%"
-                  justifyContent={isSafari() ? "justify-center" : undefined}
                   key={icon}
-                  paddingBottom="pb-[4.8%]"
-                  paddingTop="pt-[4.8%]"
+                  themeClasses={{
+                    display: isSafari() ? "flex" : "block",
+                    flex: "flex-[0_1_28%]",
+                    height: "h-50%",
+                    justifyContent: isSafari() ? "justify-center" : undefined,
+                    mediaQuery: [
+                      ...(isActive
+                        ? [
+                            "screenMaxHeight640:block",
+                            "screenMaxHeight640:h-100%",
+                            "screenMaxHeight640:mx-auto",
+                            "screenMaxHeight640:my-0"
+                          ]
+                        : ["screenMaxHeight640:hidden"])
+                    ] as TMediaQuery[],
+                    overflow: isSafari()
+                      ? "overflow-hidden"
+                      : "overflow-visible",
+                    paddingY: "py-[4.8%]"
+                  }}
                 >
                   <IconDynamic
                     themeClasses={{

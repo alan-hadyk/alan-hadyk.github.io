@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { Responsive } from "components/layout/Responsive";
 
 import { useResize } from "hooks/useResize";
@@ -22,37 +22,49 @@ const Header: React.FC<IHeaderProps> = ({ children, zIndex = "z-400" }) => {
 
   return (
     <LayoutContainer
-      className="Header"
-      left="left-0"
-      position="fixed"
-      right="right-0"
-      top="top-0"
-      zIndex={zIndex}
+      themeClasses={{
+        left: "left-0",
+        position: "fixed",
+        right: "right-0",
+        top: "top-0",
+        zIndex
+      }}
     >
       <LayoutContainer
         as="header"
-        className="bg-blue600/75 border-b-1 border-solid border-b-blue300/50"
-        height="h-96"
+        themeClasses={{
+          backgroundColor: "bg-blue600/75",
+          borderBottomColor: "border-b-blue300/50",
+          borderStyle: "border-solid",
+          borderWidth: "border-b-1",
+          height: "h-96"
+        }}
       >
         <LayoutContainer
-          className="flex-row flex-nowrap"
-          display="flex"
-          justifyContent="justify-center"
+          themeClasses={{
+            display: "flex",
+            flexFlow: "flex-row-nowrap",
+            justifyContent: "justify-center"
+          }}
         >
           <LayoutContainer
-            className="max-w-screenXl"
-            paddingBottom="pb-24"
-            paddingLeft="pl-48"
-            paddingRight="pr-48"
-            paddingTop="pt-24"
-            width="w-full"
+            themeClasses={{
+              maxWidth: "max-w-screenXl",
+              paddingBottom: "pb-24",
+              paddingLeft: "pl-48",
+              paddingRight: "pr-48",
+              paddingTop: "pt-24",
+              width: "w-full"
+            }}
           >
             <LayoutContainer
-              alignItems="items-center"
-              flexFlow="flex-row flex-nowrap"
-              display="flex"
-              height="h-48"
-              justifyContent="justify-between"
+              themeClasses={{
+                alignItems: "items-center",
+                display: "flex",
+                flexFlow: "flex-row-nowrap",
+                height: "h-48",
+                justifyContent: "justify-between"
+              }}
             >
               <Responsive devices={[Device.TV, Device.DESKTOP, Device.TABLET]}>
                 <LinkWithImage

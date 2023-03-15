@@ -1,11 +1,11 @@
 import { Typography } from "components/atoms/Typography/Typography";
 import { IconsWithLabels } from "components/molecules/IconsWithLabels";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 
 import { ITechStackProps } from "components/molecules/@types/TechStack";
 
 const TechStack: React.FC<ITechStackProps> = ({ iconsWithLabels }) => (
-  <LayoutContainer marginBottom="mb-16">
+  <LayoutContainer themeClasses={{ marginBottom: "mb-16" }}>
     <Typography
       themeClasses={{
         color: "text-blue100",
@@ -17,7 +17,12 @@ const TechStack: React.FC<ITechStackProps> = ({ iconsWithLabels }) => (
     >
       Tech stack
     </Typography>
-    <LayoutContainer marginLeft="ml-16" marginTop="mt-16">
+    <LayoutContainer
+      themeClasses={{
+        marginLeft: "ml-16",
+        marginTop: "mt-16"
+      }}
+    >
       <IconsWithLabels
         iconsWithLabels={iconsWithLabels}
         position="horizontal"

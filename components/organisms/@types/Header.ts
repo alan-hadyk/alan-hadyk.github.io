@@ -1,4 +1,4 @@
-import { ILayoutContainerProps } from "components/layout/@types/LayoutContainer";
+import { ILayoutContainerProps } from "components/layout/LayoutContainer/@types/LayoutContainer";
 
 interface IChildrenArgs {
   isMenuVisible?: boolean;

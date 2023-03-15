@@ -5,8 +5,9 @@ import {
   IHexagonProps,
   TIconDimensionsProps
 } from "components/molecules/@types/Hexagon";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { ImageDynamic } from "components/atoms/ImageDynamic/ImageDynamic";
+import { TMediaQuery } from "types/theme";
 
 const Hexagon: React.FC<IHexagonProps> = ({
   children,
@@ -38,7 +39,11 @@ const Hexagon: React.FC<IHexagonProps> = ({
   }, [fill]);
 
   return (
-    <LayoutContainer position="relative">
+    <LayoutContainer
+      themeClasses={{
+        position: "relative"
+      }}
+    >
       {fill === "pattern" && <ImageDynamic imageName="hexagonWithPattern" />}
 
       {fill === "solid" && (
@@ -66,22 +71,22 @@ const Hexagon: React.FC<IHexagonProps> = ({
 
       {children && (
         <LayoutContainer
-          className={`
-            translate-x-negative50% translate-y-negative50%
-
-            ${
-              isIE11() &&
-              `
-              screenMd:left-[48%]
-              screenMd:top-[53%]
-              screenMd:w-[90%]
-            `
-            }
-          `}
-          left="left-50%"
-          position="absolute"
-          top="top-50%"
-          width={contentWidth}
+          themeClasses={{
+            left: "left-50%",
+            mediaQuery: [
+              ...(isIE11()
+                ? [
+                    "screenMd:left-[48%]",
+                    "screenMd:top-[53%]",
+                    "screenMd:w-[90%]"
+                  ]
+                : [])
+            ] as TMediaQuery[],
+            position: "absolute",
+            top: "top-50%",
+            translate: ["translate-x-negative50%", "translate-y-negative50%"],
+            width: contentWidth
+          }}
         >
           {children}
         </LayoutContainer>

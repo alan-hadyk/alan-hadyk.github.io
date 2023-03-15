@@ -2,6 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .flex-row-wrap {
+    @apply flex-row flex-wrap;
+  }
+  .flex-row-reverse-wrap {
+    @apply flex-row-reverse flex-wrap;
+  }
+  .flex-col-wrap {
+    @apply flex-col flex-wrap;
+  }
+  .flex-col-reverse-wrap {
+    @apply flex-col-reverse flex-wrap;
+  }
+  .flex-row-wrap-reverse {
+    @apply flex-row flex-wrap-reverse;
+  }
+  .flex-row-reverse-wrap-reverse {
+    @apply flex-row-reverse flex-wrap-reverse;
+  }
+  .flex-col-wrap-reverse {
+    @apply flex-col flex-wrap-reverse;
+  }
+  .flex-col-reverse-wrap-reverse {
+    @apply flex-col-reverse flex-wrap-reverse;
+  }
+  .flex-row-nowrap {
+    @apply flex-row flex-nowrap;
+  }
+  .flex-row-reverse-nowrap {
+    @apply flex-row-reverse flex-nowrap;
+  }
+  .flex-col-nowrap {
+    @apply flex-col flex-nowrap;
+  }
+  .flex-col-reverse-nowrap {
+    @apply flex-col-reverse flex-nowrap;
+  }
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,

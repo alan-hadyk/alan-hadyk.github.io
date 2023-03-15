@@ -2,7 +2,7 @@ import { CompanyTvDesktopAndTablet } from "components/organisms/Company/CompanyT
 import { CompanyMobile } from "components/organisms/Company/CompanyMobile";
 
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 
 const Company: React.FC<ICompanyProps> = ({
   companyMobilePaddingBottom,
@@ -15,7 +15,12 @@ const Company: React.FC<ICompanyProps> = ({
   title
 }) => (
   <LayoutContainer>
-    <LayoutContainer position="relative" width="w-100%">
+    <LayoutContainer
+      themeClasses={{
+        position: "relative",
+        width: "w-100%"
+      }}
+    >
       <CompanyTvDesktopAndTablet
         date={date}
         iconsWithLabels={iconsWithLabels}

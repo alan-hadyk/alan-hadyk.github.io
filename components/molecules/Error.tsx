@@ -3,16 +3,23 @@ import { Typography } from "components/atoms/Typography/Typography";
 import IconWarning from "public/images/svg/Icon-Warning.svg";
 
 import { IErrorProps } from "components/molecules/@types/Error";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 
 const Error: React.FC<IErrorProps> = ({ description, title }) => (
-  <LayoutContainer padding="p-8" height="h-100%">
+  <LayoutContainer
+    themeClasses={{
+      height: "h-100%",
+      padding: "p-8"
+    }}
+  >
     <LayoutContainer
-      alignItems="items-center"
-      display="flex"
-      height="h-100%"
-      flexFlow="flex-col flex-nowrap"
-      justifyContent="justify-center"
+      themeClasses={{
+        alignItems: "items-center",
+        display: "flex",
+        flexFlow: "flex-col-nowrap",
+        height: "h-100%",
+        justifyContent: "justify-center"
+      }}
     >
       <IconWarning className="animate-glow-verySlow" />
       <Typography

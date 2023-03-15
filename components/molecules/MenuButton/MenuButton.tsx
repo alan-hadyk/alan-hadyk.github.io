@@ -1,7 +1,6 @@
 import { IMenuButtonProps } from "components/molecules/MenuButton/@types/MenuButton";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { MenuButtonLine } from "components/atoms/MenuButtonLine/MenuButtonLine";
-import { convertObjectValuesToString } from "helpers/objects/convertObjectValuesToString";
 import { menuButtonDefaultThemeClasses } from "components/molecules/MenuButton/styles";
 
 const MenuButton: React.FC<IMenuButtonProps> = ({
@@ -10,8 +9,8 @@ const MenuButton: React.FC<IMenuButtonProps> = ({
 }) => (
   <LayoutContainer
     aria-label="MenuButton"
-    className={convertObjectValuesToString(menuButtonDefaultThemeClasses)}
     onClick={onClick}
+    themeClasses={menuButtonDefaultThemeClasses}
   >
     <MenuButtonLine isOpen={isOpen} />
     <MenuButtonLine isOpen={isOpen} />

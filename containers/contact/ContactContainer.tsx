@@ -1,11 +1,16 @@
 import { Typography } from "components/atoms/Typography/Typography";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { Link } from "components/molecules/Link";
 import { Section } from "components/molecules/Section";
 
 const ContactContainer: React.FC = () => (
   <Section id="contact" title="Contact">
-    <LayoutContainer display="flex" justifyContent="justify-center">
+    <LayoutContainer
+      themeClasses={{
+        display: "flex",
+        justifyContent: "justify-center"
+      }}
+    >
       <Link href="mailto:alan.hadyk@gmail.com" isExternal isHoverable>
         <Typography
           ellipsis

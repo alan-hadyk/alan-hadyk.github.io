@@ -11,7 +11,7 @@ import { Backdrop } from "components/atoms/Backdrop/Backdrop";
 import { isIE11 } from "helpers/browser/isIE11";
 
 import { Device } from "components/layout/@types/Responsive";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { IHeaderContainerScreenProps } from "containers/header/@types/HeaderContainerScreen";
 
 const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
@@ -21,14 +21,16 @@ const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
 }) => (
   <Responsive devices={[Device.DESKTOP]}>
     <LayoutContainer
-      alignItems="items-center"
-      className="directChildren:ml-24 firstdirectChild:ml-0"
-      flexFlow="flex-row flex-nowrap"
-      display="flex"
-      height="h-48"
-      justifyContent="justify-start"
+      themeClasses={{
+        alignItems: "items-center",
+        display: "flex",
+        flexFlow: "flex-row-nowrap",
+        height: "h-48",
+        justifyContent: "justify-start",
+        pseudoClasses: ["directChildren:ml-24", "firstdirectChild:ml-0"]
+      }}
     >
-      <LayoutContainer marginRight="mr-24">
+      <LayoutContainer themeClasses={{ marginRight: "mr-24" }}>
         <Nav />
       </LayoutContainer>
 

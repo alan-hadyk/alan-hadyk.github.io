@@ -7,7 +7,7 @@ import { useIntersectionObserver } from "hooks/useIntersectionObserver";
 import { INavItemProps } from "components/molecules/@types/NavItem";
 
 import { INavProps } from "components/molecules/@types/Nav";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 
 const navItems: INavItemProps[] = [
   {
@@ -39,16 +39,13 @@ const Nav: React.FC<INavProps> = ({ position = "horizontal" }) => {
   return (
     <LayoutContainer
       as="nav"
-      className={`
-        ${
-          position === "horizontal"
-            ? "flex-row flex-nowrap"
-            : "flex-col flex-nowrap"
-        }
-      `}
-      alignItems={position === "horizontal" ? "items-center" : "items-end"}
-      display="flex"
-      justifyContent="justify-center"
+      themeClasses={{
+        alignItems: position === "horizontal" ? "items-center" : "items-end",
+        display: "flex",
+        flexFlow:
+          position === "horizontal" ? "flex-row-nowrap" : "flex-col-nowrap",
+        justifyContent: "justify-center"
+      }}
     >
       {navItems.map(
         ({ href, title }: INavItemProps, index: number): JSX.Element => (

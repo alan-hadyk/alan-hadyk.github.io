@@ -4,7 +4,7 @@ import { Loader } from "components/molecules/Loader";
 import { Commit } from "components/molecules/Commit";
 import { Error } from "components/molecules/Error";
 import { IListOfCommitsProps } from "components/molecules/@types/ListOfCommits";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 
 const ListOfCommits: React.FC<IListOfCommitsProps> = ({
   commitsList,
@@ -17,10 +17,12 @@ const ListOfCommits: React.FC<IListOfCommitsProps> = ({
     case "loaded":
       return (
         <LayoutContainer
-          alignItems="items-start"
-          display="flex"
-          flexFlow="flex-col flex-nowrap"
-          justifyContent="justify-start"
+          themeClasses={{
+            alignItems: "items-start",
+            display: "flex",
+            flexFlow: "flex-col-nowrap",
+            justifyContent: "justify-start"
+          }}
         >
           {!isEmpty(commitsList) &&
             commitsList

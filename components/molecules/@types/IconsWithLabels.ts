@@ -1,9 +1,5 @@
 import { IIconWithLabelProps } from "components/molecules/@types/IconWithLabel";
-import { TTextColor } from "types/theme";
-
-type TGap =
-  | `directChildren:mr-${number} directChildren:mb-${number}`
-  | `directChildren:mt-${number} firstdirectChild:mt-${number}`;
+import { TPseudoClasses, TTextColor } from "types/theme";
 
 export interface IIconsWithLabelsProps {
   iconsWithLabels: Pick<IIconWithLabelProps, "iconName" | "label">[];
@@ -13,13 +9,13 @@ export interface IIconsWithLabelsProps {
 }
 export interface IMapSizeToFlexContainerGap {
   horizontal: {
-    large: TGap;
-    medium: TGap;
-    small: TGap;
+    large: TPseudoClasses;
+    medium: TPseudoClasses;
+    small: TPseudoClasses;
   };
   vertical: {
-    large: TGap;
-    medium: TGap;
-    small: TGap;
+    large: TPseudoClasses;
+    medium: TPseudoClasses;
+    small: TPseudoClasses;
   };
 }

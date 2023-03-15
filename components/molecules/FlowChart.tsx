@@ -1,14 +1,22 @@
 import { ImageStatic } from "components/atoms/ImageStatic/ImageStatic";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 
 const FlowChart: React.FC = () => (
   <LayoutContainer
-    alignItems="items-center"
-    display="flex"
-    height="h-100%"
-    justifyContent="justify-center"
+    themeClasses={{
+      alignItems: "items-center",
+      display: "flex",
+      height: "h-100%",
+      justifyContent: "justify-center"
+    }}
   >
-    <LayoutContainer height="h-100%" padding="p-8" width="w-100%">
+    <LayoutContainer
+      themeClasses={{
+        height: "h-100%",
+        padding: "p-8",
+        width: "w-100%"
+      }}
+    >
       <ImageStatic
         alt="Flow chart"
         id="flow-chart"

@@ -1,4 +1,4 @@
-import { forwardRef, useState, useRef } from "react";
+import { useState, useRef } from "react";
 
 import { useShuffleText } from "hooks/useShuffleText";
 import { useInterval } from "hooks/useInterval";
@@ -10,24 +10,18 @@ import { typographyDefaultThemeClasses } from "components/atoms/Typography/style
 import { IThemeClasses, TPseudoClasses } from "types/theme";
 import { convertObjectValuesToString } from "helpers/objects/convertObjectValuesToString";
 
-const _Typography: React.ForwardRefRenderFunction<
-  HTMLDivElement,
-  ITypographyProps
-> = (
-  {
-    children,
-    ellipsis = false,
-    isHoverable = false,
-    shouldShuffle = false,
-    shouldShuffleOnHover = false,
-    shuffleDelay = 0,
-    shuffleInterval = parseInt(
-      theme.transitionDuration.verySlow.replace("ms", "")
-    ),
-    themeClasses
-  },
-  ref
-) => {
+const Typography: React.FC<ITypographyProps> = ({
+  children,
+  ellipsis = false,
+  isHoverable = false,
+  shouldShuffle = false,
+  shouldShuffleOnHover = false,
+  shuffleDelay = 0,
+  shuffleInterval = parseInt(
+    theme.transitionDuration.verySlow.replace("ms", "")
+  ),
+  themeClasses
+}) => {
   const [shuffleText, setShuffleText] = useState<IShuffleState | undefined>();
   const textElementRef = useRef<HTMLDivElement>(null);
 
@@ -84,13 +78,10 @@ const _Typography: React.ForwardRefRenderFunction<
     <div
       className={convertObjectValuesToString(typographyThemeClasses)}
       onMouseOver={handleMouseOver}
-      ref={ref || textElementRef}
+      ref={textElementRef}
     >
       {children}
     </div>
   );
 };
-
-const Typography = forwardRef<HTMLDivElement, ITypographyProps>(_Typography);
-
 export { Typography };

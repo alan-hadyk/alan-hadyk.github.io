@@ -1,4 +1,4 @@
-import { ILayoutContainerProps } from "components/layout/@types/LayoutContainer";
+import { ILayoutContainerProps } from "components/layout/LayoutContainer/@types/LayoutContainer";
 
 export interface ICompanyTimelineProps {
   timelineBottom?: ILayoutContainerProps["bottom"];

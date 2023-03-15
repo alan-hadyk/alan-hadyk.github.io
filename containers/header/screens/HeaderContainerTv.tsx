@@ -7,7 +7,7 @@ import { Responsive } from "components/layout/Responsive";
 import { isIE11 } from "helpers/browser/isIE11";
 
 import { Device } from "components/layout/@types/Responsive";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { IHeaderContainerTvProps } from "containers/header/@types/HeaderContainerTv";
 
 const HeaderContainerTv: React.FC<IHeaderContainerTvProps> = ({
@@ -15,12 +15,15 @@ const HeaderContainerTv: React.FC<IHeaderContainerTvProps> = ({
 }) => (
   <Responsive devices={[Device.TV]}>
     <LayoutContainer
-      className="flex-row flex-nowrap directChildren:ml-24 firstdirectChild:ml-0"
-      display="flex"
-      height="h-48"
-      justifyContent="justify-start"
+      themeClasses={{
+        display: "flex",
+        flexFlow: "flex-row-nowrap",
+        height: "h-48",
+        justifyContent: "justify-start",
+        pseudoClasses: ["directChildren:ml-24", "firstdirectChild:ml-0"]
+      }}
     >
-      <LayoutContainer marginRight="mr-24">
+      <LayoutContainer themeClasses={{ marginRight: "mr-24" }}>
         <Nav />
       </LayoutContainer>
 

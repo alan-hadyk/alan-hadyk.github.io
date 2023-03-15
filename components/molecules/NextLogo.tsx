@@ -1,15 +1,23 @@
 import { IconDynamic } from "components/atoms/IconDynamic/IconDynamic";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 
 import { isSafari } from "helpers/browser/isSafari";
 
 const NextLogo: React.FC = () => (
-  <LayoutContainer height="h-100%" padding="p-[2vh]" width="w-100%">
+  <LayoutContainer
+    themeClasses={{
+      height: "h-100%",
+      padding: "p-[2vh]",
+      width: "w-100%"
+    }}
+  >
     <LayoutContainer
-      alignItems="items-center"
-      display="flex"
-      height="h-100%"
-      justifyContent="justify-center"
+      themeClasses={{
+        alignItems: "items-center",
+        display: "flex",
+        height: "h-100%",
+        justifyContent: "justify-center"
+      }}
     >
       <IconDynamic
         themeClasses={{

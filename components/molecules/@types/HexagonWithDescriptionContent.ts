@@ -1,5 +1,5 @@
 import { ITypographyProps } from "components/atoms/Typography/@types/Typography";
-import { ILayoutContainerProps } from "components/layout/@types/LayoutContainer";
+import { ILayoutContainerProps } from "components/layout/LayoutContainer/@types/LayoutContainer";
 import { TChildren } from "types/props";
 import { TLeading, TWidth } from "types/theme";
 

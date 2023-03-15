@@ -2,7 +2,7 @@ import { Button } from "components/molecules/Button";
 import { MenuIcons } from "components/molecules/MenuIcons";
 import { Nav } from "components/molecules/Nav";
 
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { Responsive } from "components/layout/Responsive";
 
 import { isIE11 } from "helpers/browser/isIE11";
@@ -15,34 +15,54 @@ const SideMenu: React.FC<ISideMenuProps> = ({
   onCVButtonClick
 }) => (
   <LayoutContainer
-    className={`
-      bg-blue600/[.875]
-      border-l-1 border-solid border-blue300/75
-      h-full
-      pt-88
-      fixed right-0 top-0
-      ${isExpanded ? "translate-x-0" : "translate-x-full"}
-      transition-all duration-fast ease-in-out
-      z-1000
-
-      msHighContrastNone:max-w-[300px] msHighContrastActive:max-w-[300px]
-    `}
+    themeClasses={{
+      backgroundColor: "bg-blue600/[.875]",
+      borderColor: "border-blue300/75",
+      borderStyle: "border-solid",
+      borderWidth: "border-l-1",
+      height: "h-full",
+      mediaQuery: [
+        "msHighContrastNone:max-w-[300px]",
+        "msHighContrastActive:max-w-[300px]"
+      ],
+      paddingTop: "pt-88",
+      position: "fixed",
+      right: "right-0",
+      top: "top-0",
+      transition: "transition-all",
+      transitionDuration: "duration-fast",
+      transitionTiming: "ease-in-out",
+      translate: isExpanded ? "translate-x-0" : "translate-x-full",
+      zIndex: "z-1000"
+    }}
   >
     <LayoutContainer
-      className="overflow-y-auto"
-      height="h-full"
-      paddingLeft="pl-48"
-      paddingRight="pr-48"
-      paddingTop="pt-8"
+      themeClasses={{
+        height: "h-full",
+        overflow: "overflow-y-auto",
+        paddingLeft: "pl-48",
+        paddingRight: "pr-48",
+        paddingTop: "pt-8"
+      }}
     >
       <Responsive devices={[Device.MOBILE, Device.TABLET]}>
-        <LayoutContainer marginBottom="mb-24">
+        <LayoutContainer
+          themeClasses={{
+            marginBottom: "mb-24"
+          }}
+        >
           <LayoutContainer
-            display="flex"
-            className="flex-row flex-wrap"
-            justifyContent="justify-end"
+            themeClasses={{
+              display: "flex",
+              flexFlow: "flex-row-wrap",
+              justifyContent: "justify-end"
+            }}
           >
-            <LayoutContainer marginBottom="mb-24">
+            <LayoutContainer
+              themeClasses={{
+                marginBottom: "mb-24"
+              }}
+            >
               <Nav position="vertical" />
             </LayoutContainer>
           </LayoutContainer>
@@ -58,10 +78,17 @@ const SideMenu: React.FC<ISideMenuProps> = ({
         </LayoutContainer>
       </Responsive>
 
-      <LayoutContainer marginBottom="mb-24">
+      <LayoutContainer
+        themeClasses={{
+          marginBottom: "mb-24"
+        }}
+      >
         <LayoutContainer
-          display="flex"
-          className="flex-row flex-nowrap directChildren:ml-24 firstdirectChild:ml-0"
+          themeClasses={{
+            display: "flex",
+            flexFlow: "flex-row-nowrap",
+            pseudoClasses: ["directChildren:ml-24", "firstdirectChild:ml-0"]
+          }}
         >
           <MenuIcons />
         </LayoutContainer>

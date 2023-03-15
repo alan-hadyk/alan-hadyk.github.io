@@ -2,7 +2,7 @@ import NextLink from "next/link";
 
 import { Line } from "components/atoms/Line/Line";
 import { ILinkProps } from "components/molecules/@types/Link";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { LineDirection } from "components/atoms/Line/@types/Line";
 import { trimTemplateLiteral } from "helpers/strings/trimTemplateLiteral";
 
@@ -44,7 +44,12 @@ const Link: React.FC<ILinkProps> = ({
       {children}
 
       {isHoverable && (
-        <LayoutContainer position="relative" width="w-auto">
+        <LayoutContainer
+          themeClasses={{
+            position: "relative",
+            width: "w-auto"
+          }}
+        >
           <Line direction={LineDirection.LEFT} />
           <Line direction={LineDirection.RIGHT} />
         </LayoutContainer>

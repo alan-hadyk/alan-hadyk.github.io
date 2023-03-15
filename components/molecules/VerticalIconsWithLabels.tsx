@@ -6,7 +6,7 @@ import {
 
 import { IVerticalIconsWithLabelsProps } from "components/molecules/@types/VerticalIconsWithLabels";
 import { IIconWithLabelProps } from "components/molecules/@types/IconWithLabel";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { IconStatic } from "components/atoms/IconStatic/IconStatic";
 
 const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
@@ -15,22 +15,31 @@ const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
   size = "medium"
 }) => (
   <LayoutContainer
-    alignItems="items-center"
-    display="flex"
-    flexFlow="flex-row flex-nowrap"
-    height="h-100%"
-    justifyContent="justify-center"
-    width="w-100%"
+    themeClasses={{
+      alignItems: "items-center",
+      display: "flex",
+      flexFlow: "flex-row-nowrap",
+      height: "h-100%",
+      justifyContent: "justify-center",
+      width: "w-100%"
+    }}
   >
     <LayoutContainer
-      alignItems="items-center"
-      display="flex"
-      flexFlow="flex-col flex-nowrap"
-      flex="flex-[0_0_9.2rem]"
+      themeClasses={{
+        alignItems: "items-center",
+        display: "flex",
+        flex: "flex-[0_0_9.2rem]",
+        flexFlow: "flex-col-nowrap"
+      }}
     >
       {iconsWithLabels.map(
         ({ iconName }: IIconWithLabelProps, index: number): JSX.Element => (
-          <LayoutContainer key={iconName + index} marginBottom="mb-12">
+          <LayoutContainer
+            key={iconName + index}
+            themeClasses={{
+              marginBottom: "mb-12"
+            }}
+          >
             <IconStatic
               themeClasses={{
                 height: mapSizeToIconHeight[size]
@@ -41,10 +50,20 @@ const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
         )
       )}
     </LayoutContainer>
-    <LayoutContainer flex="flex-[0_0_75%]">
+    <LayoutContainer
+      themeClasses={{
+        flex: "flex-[0_0_75%]"
+      }}
+    >
       {iconsWithLabels.map(
         ({ label }: IIconWithLabelProps): JSX.Element => (
-          <LayoutContainer height="h-32" key={label} marginBottom="mb-12">
+          <LayoutContainer
+            key={label}
+            themeClasses={{
+              height: "h-32",
+              marginBottom: "mb-12"
+            }}
+          >
             <Typography
               ellipsis
               key={label}

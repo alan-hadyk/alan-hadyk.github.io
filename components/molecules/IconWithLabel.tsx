@@ -8,7 +8,7 @@ import {
 } from "components/molecules/@types/IconWithLabel";
 
 import { isIE11 } from "helpers/browser/isIE11";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { Link } from "components/molecules/Link";
 import { IconStatic } from "components/atoms/IconStatic/IconStatic";
 
@@ -36,14 +36,20 @@ const IconWithLabel: React.FC<IIconWithLabelProps> = ({
 
   const renderContent = () => (
     <LayoutContainer
-      alignItems="items-center"
-      className="group"
-      display="flex"
-      flexFlow="flex-row flex-nowrap"
-      height="100%"
-      justifyContent="justify-start"
+      themeClasses={{
+        alignItems: "items-center",
+        display: "flex",
+        flexFlow: "flex-row-nowrap",
+        group: "group",
+        height: "100%",
+        justifyContent: "justify-start"
+      }}
     >
-      <LayoutContainer paddingRight={iconPadding}>
+      <LayoutContainer
+        themeClasses={{
+          paddingRight: iconPadding
+        }}
+      >
         <IconStatic
           themeClasses={{
             height: mapSizeToIconHeight[size as "small" | "medium" | "large"],

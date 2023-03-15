@@ -1,15 +1,23 @@
 import { ImageDynamic } from "components/atoms/ImageDynamic/ImageDynamic";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 
 import { isSafari } from "helpers/browser/isSafari";
 
 const Earth: React.FC = () => (
-  <LayoutContainer height="h-100%" padding="p-[1vh]" width="w-100%">
+  <LayoutContainer
+    themeClasses={{
+      height: "h-100%",
+      padding: "p-[1vh]",
+      width: "w-100%"
+    }}
+  >
     <LayoutContainer
-      alignItems="items-center"
-      display="flex"
-      height="h-100%"
-      justifyContent="justify-center"
+      themeClasses={{
+        alignItems: "items-center",
+        display: "flex",
+        height: "h-100%",
+        justifyContent: "justify-center"
+      }}
     >
       <ImageDynamic
         imageName="earth"

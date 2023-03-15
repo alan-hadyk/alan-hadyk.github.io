@@ -1,4 +1,4 @@
-import { ILayoutContainerProps } from "components/layout/@types/LayoutContainer";
+import { ILayoutContainerProps } from "components/layout/LayoutContainer/@types/LayoutContainer";
 import { ICompanyTimelineProps } from "components/molecules/@types/CompanyTimeline";
 import { ICompanyDescriptionProps } from "components/organisms/@types/CompanyDescription";
 

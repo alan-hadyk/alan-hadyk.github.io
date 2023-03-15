@@ -1,7 +1,7 @@
 import { IIconWithLabelProps } from "components/molecules/@types/IconWithLabel";
 import { IUnorderedListProps } from "components/molecules/@types/UnorderedList";
 
-import { ILayoutContainerProps } from "components/layout/@types/LayoutContainer";
+import { ILayoutContainerProps } from "components/layout/LayoutContainer/@types/LayoutContainer";
 import { TTextAlign } from "types/theme";
 
 export interface ICompanyDescriptionProps {

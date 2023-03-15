@@ -1,7 +1,7 @@
 import { Section } from "components/molecules/Section";
 import { SkillsItem } from "components/molecules/SkillsItem";
 import { Responsive } from "components/layout/Responsive";
-import { LayoutContainer } from "components/layout/LayoutContainer";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 
 import { languagesCategory } from "containers/skills/categories/languagesCategory";
 import { frameworksCategory } from "containers/skills/categories/frameworksCategory";
@@ -39,14 +39,22 @@ const SkillsColumns: React.FC<IRenderColumnsArgs> = ({
 }) => (
   <Responsive devices={devices}>
     <LayoutContainer
-      className={`
-       ${columnCount} gap-32 
-       directChildren:break-inside-avoid-column 
-       directChildren:page-break-inside-avoid
-    `}
+      themeClasses={{
+        columns: columnCount,
+        gap: "gap-32",
+        pseudoClasses: [
+          "directChildren:break-inside-avoid-column",
+          "directChildren:page-break-inside-avoid"
+        ]
+      }}
     >
       {items.map(({ iconsWithLabels, title }: ISkillsItemProps) => (
-        <LayoutContainer key={title} marginBottom="mb-32">
+        <LayoutContainer
+          key={title}
+          themeClasses={{
+            marginBottom: "mb-32"
+          }}
+        >
           <SkillsItem iconsWithLabels={iconsWithLabels} title={title} />
         </LayoutContainer>
       ))}
@@ -64,7 +72,12 @@ const SkillsContainer: React.FC = () => (
 
     <Responsive devices={[Device.MOBILE]}>
       {items.map(({ iconsWithLabels, title }: ISkillsItemProps) => (
-        <LayoutContainer key={title} marginBottom="mb-32">
+        <LayoutContainer
+          key={title}
+          themeClasses={{
+            marginBottom: "mb-32"
+          }}
+        >
           <SkillsItem iconsWithLabels={iconsWithLabels} title={title} />
         </LayoutContainer>
       ))}

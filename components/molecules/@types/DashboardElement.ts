@@ -1,10 +1,9 @@
-import { ILayoutContainerProps } from "components/layout/@types/LayoutContainer";
+import { TChildren } from "types/props";
+import { IThemeClasses } from "types/theme";
 
 export interface IDashboardElementProps
-  extends Pick<
-    ILayoutContainerProps,
-    "alignSelf" | "children" | "flex" | "order"
-  > {
+  extends Pick<IThemeClasses, "alignSelf" | "flex" | "order"> {
+  children: TChildren;
   description?: string;
   overflow?: "overflow-visible" | "overflow-hidden";
   shouldDisplayBorder?: boolean;
