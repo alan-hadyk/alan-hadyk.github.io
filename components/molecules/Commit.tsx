@@ -1,5 +1,5 @@
 import { Typography } from "components/atoms/Typography/Typography";
-import { Link } from "components/molecules/Link";
+import { Link } from "components/molecules/Link/Link";
 
 import { ICommitProps } from "components/molecules/@types/Commit";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";

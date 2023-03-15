@@ -1,6 +1,6 @@
 import { Typography } from "components/atoms/Typography/Typography";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
-import { Link } from "components/molecules/Link";
+import { Link } from "components/molecules/Link/Link";
 import { Section } from "components/molecules/Section";
 
 const ContactContainer: React.FC = () => (

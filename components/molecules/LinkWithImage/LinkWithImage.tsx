@@ -1,35 +1,42 @@
 import { ImageDynamic } from "components/atoms/ImageDynamic/ImageDynamic";
-import { Link } from "components/molecules/Link";
+import { Link } from "components/molecules/Link/Link";
 import { ILinkWithImageProps } from "components/molecules/LinkWithImage/@types/LinkWithImage";
+import {
+  linkWithImageDefaultThemeClasses,
+  linkWithImageDynamicImageDefaultThemeClasses
+} from "components/molecules/LinkWithImage/styles";
+import { IThemeClasses } from "types/theme";
 
 const LinkWithImage: React.FC<ILinkWithImageProps> = ({
-  height = "h-48",
   href,
   iconName,
   isExternal = false,
-  width = "w-auto"
-}) => (
-  <Link
-    display="block"
-    height={height}
-    href={href}
-    isExternal={isExternal}
-    width={width}
-  >
-    <ImageDynamic
-      themeClasses={{
-        height: height,
-        pseudoClasses: [
-          "childrenSvg:animate-glow-slow",
-          "childrenSvg:duration-fast"
-        ],
-        width: width
-      }}
-      isHeightResponsive
-      imageName={iconName}
-      shouldGlowOnHover
-    />
-  </Link>
-);
+  themeClasses
+}) => {
+  const linkWithImageThemeClasses: IThemeClasses = {
+    ...linkWithImageDefaultThemeClasses,
+    ...themeClasses
+  };
+
+  const linkWithImageDynamicImageThemeClasses: IThemeClasses = {
+    ...linkWithImageDynamicImageDefaultThemeClasses,
+    ...themeClasses
+  };
+
+  return (
+    <Link
+      href={href}
+      isExternal={isExternal}
+      themeClasses={linkWithImageThemeClasses}
+    >
+      <ImageDynamic
+        themeClasses={linkWithImageDynamicImageThemeClasses}
+        isHeightResponsive
+        imageName={iconName}
+        shouldGlowOnHover
+      />
+    </Link>
+  );
+};
 
 export { LinkWithImage };

@@ -1,4 +1,4 @@
-import { ILinkProps } from "components/molecules/@types/Link";
+import { ILinkProps } from "components/molecules/Link/@types/Link";
 import { IThemeClasses, TTextColor, TTextFontSize } from "types/theme";
 import { IIconStaticProps } from "components/atoms/IconStatic/@types/IconStatic";
 

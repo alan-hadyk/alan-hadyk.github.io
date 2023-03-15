@@ -9,7 +9,7 @@ import {
 
 import { isIE11 } from "helpers/browser/isIE11";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
-import { Link } from "components/molecules/Link";
+import { Link } from "components/molecules/Link/Link";
 import { IconStatic } from "components/atoms/IconStatic/IconStatic";
 
 const mapSizeToIconHeight: IMapSizeToIconHeight = {
@@ -73,14 +73,14 @@ const IconWithLabel: React.FC<IIconWithLabelProps> = ({
 
   return href ? (
     <Link
-      height={
-        mapSizeToIconHeight[size as "small" | "medium" | "large"] as
+      href={href}
+      isExternal={isExternal}
+      themeClasses={{
+        height: mapSizeToIconHeight[size as "small" | "medium" | "large"] as
           | "h-40"
           | "h-32"
           | "h-28"
-      }
-      href={href}
-      isExternal={isExternal}
+      }}
     >
       {renderContent()}
     </Link>

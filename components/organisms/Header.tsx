@@ -69,14 +69,22 @@ const Header: React.FC<IHeaderProps> = ({ children, zIndex = "z-400" }) => {
               <Responsive devices={[Device.TV, Device.DESKTOP, Device.TABLET]}>
                 <LinkWithImage
                   href="/"
-                  height="h-48"
                   iconName="logo"
-                  width="w-248"
+                  themeClasses={{
+                    height: "h-48",
+                    width: "w-248"
+                  }}
                 />
               </Responsive>
 
               <Responsive devices={[Device.MOBILE]}>
-                <LinkWithImage href="/" iconName="logoShortcut" width="w-64" />
+                <LinkWithImage
+                  href="/"
+                  iconName="logoShortcut"
+                  themeClasses={{
+                    width: "w-64"
+                  }}
+                />
               </Responsive>
 
               {children({ isMenuVisible, toggleMenuVisibility })}

@@ -1,5 +1,5 @@
 import { IconDynamic } from "components/atoms/IconDynamic/IconDynamic";
-import { Link } from "components/molecules/Link";
+import { Link } from "components/molecules/Link/Link";
 import { ILinkWithIconProps } from "components/molecules/@types/LinkWithIcon";
 
 const LinkWithIcon: React.FC<ILinkWithIconProps> = ({
@@ -10,11 +10,13 @@ const LinkWithIcon: React.FC<ILinkWithIconProps> = ({
   width = "w-auto"
 }) => (
   <Link
-    display="block"
-    height={height}
     href={href}
     isExternal={isExternal}
-    width={width}
+    themeClasses={{
+      display: "block",
+      height,
+      width
+    }}
   >
     <IconDynamic
       themeClasses={{

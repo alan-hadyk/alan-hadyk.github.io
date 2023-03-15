@@ -1,40 +1,38 @@
 import NextLink from "next/link";
 
 import { Line } from "components/atoms/Line/Line";
-import { ILinkProps } from "components/molecules/@types/Link";
+import { ILinkProps } from "components/molecules/Link/@types/Link";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { LineDirection } from "components/atoms/Line/@types/Line";
-import { trimTemplateLiteral } from "helpers/strings/trimTemplateLiteral";
+import { IThemeClasses } from "types/theme";
+import {
+  linkDefaultThemeClasses,
+  linkLinesContainerDefaultThemeClasses
+} from "components/molecules/Link/styles";
+import { convertObjectValuesToString } from "helpers/objects/convertObjectValuesToString";
 
 const Link: React.FC<ILinkProps> = ({
-  alignItems,
   children,
-  display = "block",
-  height = "h-unset",
   href,
   isExternal = false,
   isHoverable = false,
-  justifyContent,
-  width = "w-unset"
+  themeClasses
 }) => {
   const componentType = isExternal ? "ExternalLink" : "RouterLink";
 
-  const props = {
+  const linkThemeClasses: IThemeClasses = {
+    ...linkDefaultThemeClasses,
+    ...themeClasses
+  };
+
+  const linkClassNames = [
+    componentType,
+    convertObjectValuesToString(linkThemeClasses)
+  ];
+
+  const props: React.AnchorHTMLAttributes<HTMLAnchorElement> = {
     "aria-label": href,
-    className: trimTemplateLiteral(`
-      ${componentType}
-      ${display}
-      ${alignItems || ""}  
-      ${justifyContent || ""}  
-      ${height} ${width}
-      leading-[1] group
-
-      hoverChildrenLine:opacity-100 hoverChildrenLine:visible hoverChildrenLine:w-50%
-      focusChildrenLine:opacity-100 focusChildrenLine:visible focusChildrenLine:w-50%
-      activeChildrenLine:opacity-100 activeChildrenLine:visible activeChildrenLine:w-50%
-
-      focusChildrenSvg:drop-shadow-lg activeChildrenSvg:drop-shadow-lg
-    `),
+    className: linkClassNames.join(" "),
     tabIndex: 0,
     target: isExternal ? "_blank" : "_self"
   };
@@ -44,12 +42,7 @@ const Link: React.FC<ILinkProps> = ({
       {children}
 
       {isHoverable && (
-        <LayoutContainer
-          themeClasses={{
-            position: "relative",
-            width: "w-auto"
-          }}
-        >
+        <LayoutContainer themeClasses={linkLinesContainerDefaultThemeClasses}>
           <Line direction={LineDirection.LEFT} />
           <Line direction={LineDirection.RIGHT} />
         </LayoutContainer>
