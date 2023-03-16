@@ -1,5 +1,4 @@
-import React, { useState, useCallback } from "react";
-import { isMobile } from "react-device-detect";
+import React from "react";
 
 import { IconDynamic } from "components/atoms/IconDynamic/IconDynamic";
 import { ButtonText } from "components/molecules/ButtonText";
@@ -8,17 +7,13 @@ import { Corners } from "components/molecules/Corners";
 import { IButtonProps } from "components/molecules/Button/@types/Button";
 
 import { isIE11 } from "helpers/browser/isIE11";
-import { convertObjectValuesToString } from "helpers/objects/convertObjectValuesToString";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import {
-  buttonChildrenOuterWrapperDefaultThemeClasses,
   buttonChildrenWrapperDefaultThemeClasses,
-  buttonDefaultThemeClasses,
-  buttonInnerContainerDefaultThemeClasses,
-  mapSizeToButtonContainerProps,
-  mapTypeToButtonContainerProps
+  buttonInnerContainerDefaultThemeClasses
 } from "components/molecules/Button/styles";
-import { IThemeClasses } from "types/theme";
+import { useButtonThemeClasses } from "components/molecules/Button/hooks/useButtonThemeClasses";
+import { useButtonHandlers } from "components/molecules/Button/hooks/useButtonHandlers";
 
 const Button: React.FC<IButtonProps> = ({
   children,
@@ -30,50 +25,24 @@ const Button: React.FC<IButtonProps> = ({
   type = "primary",
   themeClasses
 }) => {
-  const [isActive, setIsActive] = useState<boolean>(false);
+  const {
+    handleButtonClick,
+    handleKeyUp,
+    handleMouseEnter,
+    handleMouseLeave,
+    isActive
+  } = useButtonHandlers({ onClick });
 
-  const handleKeyUp = (event: React.KeyboardEvent<HTMLButtonElement>): void => {
-    switch (event?.key) {
-      case "Enter":
-      case "Space":
-        onClick && onClick();
-        break;
-    }
-  };
-
-  const handleMouseEnter = (): void => {
-    !isMobile && setIsActive(true);
-  };
-
-  const handleMouseLeave = (): void => {
-    !isMobile && setIsActive(false);
-  };
-
-  const handleButtonClick = useCallback(
-    (event: React.MouseEvent<HTMLButtonElement>): void => {
-      !isMobile && setIsActive(false);
-      event.preventDefault();
-
-      onClick?.();
-    },
-    [onClick]
-  );
-
-  const buttonThemeClasses: IThemeClasses = {
-    ...buttonDefaultThemeClasses,
-    ...themeClasses
-  };
-
-  const buttonChildrenOuterWrapperThemeClasses: IThemeClasses = {
-    ...buttonChildrenOuterWrapperDefaultThemeClasses,
-    paddingX: size === "small" ? "px-16" : "px-24"
-  };
-
-  const buttonClassNames = [
-    convertObjectValuesToString(buttonThemeClasses),
-    convertObjectValuesToString(mapSizeToButtonContainerProps[size]),
-    convertObjectValuesToString(mapTypeToButtonContainerProps[type])
-  ];
+  const {
+    buttonChildrenOuterWrapperThemeClasses,
+    buttonClassNames,
+    iconThemeClasses
+  } = useButtonThemeClasses({
+    iconWidth,
+    size,
+    themeClasses,
+    type
+  });
 
   return (
     <button
@@ -105,10 +74,7 @@ const Button: React.FC<IButtonProps> = ({
 
             {iconName && (
               <IconDynamic
-                themeClasses={{
-                  height: size === "small" ? "h-12" : "h-24",
-                  width: iconWidth
-                }}
+                themeClasses={iconThemeClasses}
                 iconName={iconName}
                 isHeightResponsive
               />
