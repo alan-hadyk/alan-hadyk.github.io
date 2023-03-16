@@ -1,6 +1,6 @@
 import { MenuButton } from "components/molecules/MenuButton/MenuButton";
 
-import { Button } from "components/molecules/Button";
+import { Button } from "components/molecules/Button/Button";
 import { Nav } from "components/molecules/Nav";
 
 import { SideMenu } from "components/organisms/SideMenu";
@@ -35,13 +35,14 @@ const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
       </LayoutContainer>
 
       <Button
-        buttonText="cv"
         iconName="download"
         iconWidth={isIE11() ? "w-24" : "w-auto"}
         onClick={onCVButtonClick}
         size="medium"
         tabIndex={0}
-      />
+      >
+        cv
+      </Button>
 
       <MenuButton isOpen={isMenuVisible} onClick={onClick} />
 

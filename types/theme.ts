@@ -305,8 +305,21 @@ export type TColorProperties =
   | TFill;
 
 export type TGroupHover = TUtility<"group-hover", TColorProperties, ":">;
+
 export type THover = TUtility<
   "hover",
+  TColorProperties | TBoxShadow | TDropShadow,
+  ":"
+>;
+
+export type TActive = TUtility<
+  "active",
+  TColorProperties | TBoxShadow | TDropShadow,
+  ":"
+>;
+
+export type TFocus = TUtility<
+  "focus",
   TColorProperties | TBoxShadow | TDropShadow,
   ":"
 >;
@@ -337,6 +350,8 @@ export type TCursor = TUtility<
 
 export type TListStyleType = TUtility<"list", "none" | "disc" | "decimal">;
 
+export type TUserSelect = TUtility<"select", "none" | "text" | "all" | "auto">;
+
 export type TFlexFlowValues =
   | "flex-row-wrap"
   | "flex-row-reverse-wrap"
@@ -366,9 +381,12 @@ export type TOpacity = `opacity-${number}`;
 
 export type TColumns = `columns-${number}`;
 
+export type TOutline = `outline-${number}`;
+
 export type TClassStyleUtility = `${string}-${string}` | string;
 
 export interface IBasicThemeClasses {
+  active?: TActive;
   alignItems?: TAlignItems;
   alignSelf?: TAlignSelf;
   animate?: TAnimate;
@@ -393,6 +411,7 @@ export interface IBasicThemeClasses {
   flex?: TFlex;
   flexFlow?: TFlexFlowValues;
   flexGrow?: TFlexGrow;
+  focus?: TFocus;
   fontFamily?: TTextFontFamily;
   fontSize?: TTextFontSize;
   fontWeight?: TTextFontWeight;
@@ -425,6 +444,7 @@ export interface IBasicThemeClasses {
   minWidth?: TMinWidth;
   opacity?: TOpacity;
   order?: TOrder;
+  outline?: TOutline;
   overflow?: TOverflow;
   padding?: TPadding;
   paddingBottom?: TPaddingBottom;
@@ -446,6 +466,7 @@ export interface IBasicThemeClasses {
   transitionDuration?: TTransitionDuration;
   transitionTiming?: TTransitionTiming;
   translate?: TTranslate | TTranslate[];
+  userSelect?: TUserSelect;
   whitespace?: TWhitespace;
   width?:
     | TWidth

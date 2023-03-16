@@ -1,4 +1,4 @@
-import { Button } from "components/molecules/Button";
+import { Button } from "components/molecules/Button/Button";
 import { MenuIcons } from "components/molecules/MenuIcons";
 import { Nav } from "components/molecules/Nav";
 
@@ -67,14 +67,17 @@ const SideMenu: React.FC<ISideMenuProps> = ({
             </LayoutContainer>
           </LayoutContainer>
           <Button
-            buttonText="cv"
             iconName="download"
             iconWidth={isIE11() ? "w-24" : "w-auto"}
             onClick={onCVButtonClick}
             size="medium"
             tabIndex={0}
-            width="w-full"
-          />
+            themeClasses={{
+              width: "w-full"
+            }}
+          >
+            cv
+          </Button>
         </LayoutContainer>
       </Responsive>
 

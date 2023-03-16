@@ -141,11 +141,6 @@ iframe {
 }
 
 /* Custom CSS */
-.radial-gradient .ripple {
-  background-color: rgba(120,176,181,0.5);
-  background-image: radial-gradient(center ellipse farthest-corner at 0.75rem 0.75rem, rgba(120,176,181,0.5) 0%, rgba(103,210,223,0) 50%);
-}
-
 .page-break-inside-avoid {
   page-break-inside: avoid;
 }
