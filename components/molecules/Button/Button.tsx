@@ -2,7 +2,7 @@ import React from "react";
 
 import { IconDynamic } from "components/atoms/IconDynamic/IconDynamic";
 import { ButtonText } from "components/molecules/ButtonText/ButtonText";
-import { Corners } from "components/molecules/Corners";
+import { Corners } from "components/molecules/Corners/Corners";
 
 import { IButtonProps } from "components/molecules/Button/@types/Button";
 

@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Typography } from "components/atoms/Typography/Typography";
-import { Corners } from "components/molecules/Corners";
+import { Corners } from "components/molecules/Corners/Corners";
 
 import { IDashboardElementProps } from "components/molecules/@types/DashboardElement";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";

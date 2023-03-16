@@ -2,7 +2,7 @@ import { ConsoleTextVariant } from "components/atoms/ConsoleText/@types/ConsoleT
 import { CornerVariant } from "components/atoms/Corner/@types/Corner";
 import { ConsoleText } from "components/atoms/ConsoleText/ConsoleText";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
-import { Corners } from "components/molecules/Corners";
+import { Corners } from "components/molecules/Corners/Corners";
 import {
   consolePdfDefaultThemeClasses,
   consolePdfInnerContainerDefaultThemeClasses
