@@ -1,7 +1,7 @@
 import React from "react";
 
 import { IconDynamic } from "components/atoms/IconDynamic/IconDynamic";
-import { ButtonText } from "components/molecules/ButtonText";
+import { ButtonText } from "components/molecules/ButtonText/ButtonText";
 import { Corners } from "components/molecules/Corners";
 
 import { IButtonProps } from "components/molecules/Button/@types/Button";
@@ -64,13 +64,9 @@ const Button: React.FC<IButtonProps> = ({
           <LayoutContainer
             themeClasses={buttonChildrenWrapperDefaultThemeClasses}
           >
-            <ButtonText
-              buttonText={children}
-              fontFamily={isIE11() ? "font-anonymousPro" : "font-exan"}
-              hasMargin={!!iconName}
-              size={size}
-              textTransform={isIE11() ? "uppercase" : "lowercase"}
-            />
+            <ButtonText hasMargin={!!iconName} size={size}>
+              {children}
+            </ButtonText>
 
             {iconName && (
               <IconDynamic
