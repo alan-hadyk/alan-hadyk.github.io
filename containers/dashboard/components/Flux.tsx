@@ -1,5 +1,5 @@
 import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
-import { FlowChart } from "components/molecules/FlowChart";
+import { FluxChart } from "components/molecules/FluxChart/FluxChart";
 
 const Flux: React.FC = () => (
   <ContentFrame
@@ -11,7 +11,7 @@ const Flux: React.FC = () => (
       }
     }}
   >
-    <FlowChart />
+    <FluxChart />
   </ContentFrame>
 );
 

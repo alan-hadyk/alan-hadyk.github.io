@@ -10,39 +10,45 @@ const ImageStatic: React.FC<IImageStaticProps> = ({
   src,
   themeClasses
 }) => {
-  const imageStaticImgThemeClasses: IThemeClasses = {
+  const imageStaticImgBaseThemeClasses: IThemeClasses = {
     ...imageStaticImgDefaultThemeClasses,
     ...themeClasses
   };
 
-  const { height, width } = imageStaticImgThemeClasses;
+  const { height, width, ...imageStaticImgOtherBaseThemeClasses } =
+    imageStaticImgBaseThemeClasses;
 
+  const imageStaticImgThemeClasses: IThemeClasses =
+    imageStaticImgOtherBaseThemeClasses;
   const pictureClassNames = [];
-  const pictureStyles: CSSProperties = {};
+  const inlineStyles: CSSProperties = {};
 
   if (height) {
     if (height.includes("h-")) {
       pictureClassNames.push(height);
+      imageStaticImgThemeClasses.height = height;
     } else {
-      pictureStyles.height = height;
+      inlineStyles.height = height;
     }
   }
 
   if (width) {
     if (width.includes("w-")) {
       pictureClassNames.push(width);
+      imageStaticImgThemeClasses.width = width;
     } else {
-      pictureStyles.width = width;
+      inlineStyles.width = width;
     }
   }
 
   return (
-    <picture className={pictureClassNames.join(" ")} style={pictureStyles}>
+    <picture className={pictureClassNames.join(" ")} style={inlineStyles}>
       <img
         alt={alt}
         className={convertObjectValuesToString(imageStaticImgThemeClasses)}
         id={id}
         src={src}
+        style={inlineStyles}
       />
     </picture>
   );

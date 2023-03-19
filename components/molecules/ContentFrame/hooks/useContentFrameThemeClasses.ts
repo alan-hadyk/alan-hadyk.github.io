@@ -54,7 +54,7 @@ const useContentFrameThemeClasses = ({
     }),
     ...((shouldDisplayCorners || shouldDisplayBorder) && {
       background: [
-        "bg-[url('/images/svg/Cross.svg')]",
+        "bg-[url('/images/static/cross.svg')]",
         "bg-center",
         "bg-repeat-space",
         "bg-[length:3.2rem_3.2rem]"
