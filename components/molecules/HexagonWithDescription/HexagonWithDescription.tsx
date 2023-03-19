@@ -1,29 +1,28 @@
-import { HexagonWithDescriptionContent } from "components/molecules/HexagonWithDescriptionContent";
+import { HexagonWithDescriptionContent } from "components/molecules/HexagonWithDescriptionContent/HexagonWithDescriptionContent";
 import { Responsive } from "components/layout/Responsive/Responsive";
 
-import { IHexagonWithDescriptionProps } from "components/molecules/@types/HexagonWithDescription";
+import { IHexagonWithDescriptionProps } from "components/molecules/HexagonWithDescription/@types/HexagonWithDescription";
 
-import { isIE11 } from "helpers/browser/isIE11";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { Device } from "components/layout/Responsive/@types/Responsive";
+import {
+  hexagonWithDescriptionDefaultThemeClasses,
+  hexagonWithDescriptionMobileDescriptionContentDefaultThemeClasses,
+  hexagonWithDescriptionTabletDescriptionContentDefaultThemeClasses,
+  hexagonWithDescriptionTvDesktopDescriptionContentDefaultThemeClasses
+} from "components/molecules/HexagonWithDescription/styles";
 
 const HexagonWithDescription: React.FC<IHexagonWithDescriptionProps> = ({
   children,
   description
 }) => (
-  <LayoutContainer
-    themeClasses={{
-      marginX: "mx-auto",
-      maxWidth: "max-w-1056"
-    }}
-  >
+  <LayoutContainer themeClasses={hexagonWithDescriptionDefaultThemeClasses}>
     <Responsive devices={[Device.TV, Device.DESKTOP]}>
       <HexagonWithDescriptionContent
         description={description}
-        flexFlow="flex-row flex-nowrap"
-        marginRight="mr-48"
-        textWidth="w-50%"
-        width="w-50%"
+        themeClasses={
+          hexagonWithDescriptionTvDesktopDescriptionContentDefaultThemeClasses
+        }
       >
         {children}
       </HexagonWithDescriptionContent>
@@ -32,10 +31,9 @@ const HexagonWithDescription: React.FC<IHexagonWithDescriptionProps> = ({
     <Responsive devices={[Device.TABLET]}>
       <HexagonWithDescriptionContent
         description={description}
-        flexFlow="flex-col flex-nowrap"
-        marginBottom="mb-48"
-        textWidth="w-80%"
-        width={isIE11() ? "w-auto" : "60%"}
+        themeClasses={
+          hexagonWithDescriptionTabletDescriptionContentDefaultThemeClasses
+        }
       >
         {children}
       </HexagonWithDescriptionContent>
@@ -44,10 +42,9 @@ const HexagonWithDescription: React.FC<IHexagonWithDescriptionProps> = ({
     <Responsive devices={[Device.MOBILE]}>
       <HexagonWithDescriptionContent
         description={description}
-        flexFlow="flex-col flex-nowrap"
-        lineHeight="leading-28"
-        marginBottom="mb-48"
-        width={isIE11() ? "w-auto" : "w-100%"}
+        themeClasses={
+          hexagonWithDescriptionMobileDescriptionContentDefaultThemeClasses
+        }
       >
         {children}
       </HexagonWithDescriptionContent>
