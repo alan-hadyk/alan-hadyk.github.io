@@ -1,9 +1,10 @@
 import { Typography } from "components/atoms/Typography/Typography";
-import { IconsWithLabels } from "components/molecules/IconsWithLabels";
+import { IconsWithLabels } from "components/molecules/IconsWithLabels/IconsWithLabels";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 
 import { ITechStackProps } from "components/molecules/@types/TechStack";
 import { IconWithLabelSize } from "components/molecules/IconWithLabel/@types/IconWithLabel";
+import { IconsWithLabelsPosition } from "components/molecules/IconsWithLabels/@types/IconsWithLabels";
 
 const TechStack: React.FC<ITechStackProps> = ({ iconsWithLabels }) => (
   <LayoutContainer themeClasses={{ marginBottom: "mb-16" }}>
@@ -26,7 +27,7 @@ const TechStack: React.FC<ITechStackProps> = ({ iconsWithLabels }) => (
     >
       <IconsWithLabels
         iconsWithLabels={iconsWithLabels}
-        position="horizontal"
+        position={IconsWithLabelsPosition.Horizontal}
         size={IconWithLabelSize.Small}
       />
     </LayoutContainer>

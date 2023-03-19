@@ -14,8 +14,12 @@ import {
 
 const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
   iconsWithLabels,
-  labelColor = "text-blue100",
-  size = IconWithLabelSize.Medium
+  size = IconWithLabelSize.Medium,
+  themeClasses = {
+    label: {
+      color: "text-blue100"
+    }
+  }
 }) => (
   <LayoutContainer
     themeClasses={{
@@ -71,7 +75,7 @@ const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
               ellipsis
               key={label}
               themeClasses={{
-                color: labelColor,
+                ...themeClasses.label,
                 fontSize: mapSizeToTextFontSize[size],
                 lineHeight: "leading-32"
               }}

@@ -1,9 +1,10 @@
-import { IconsWithLabels } from "components/molecules/IconsWithLabels";
+import { IconsWithLabels } from "components/molecules/IconsWithLabels/IconsWithLabels";
 import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
 
 import { ISkillsItemProps } from "components/molecules/@types/SkillsItem";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { IconWithLabelSize } from "components/molecules/IconWithLabel/@types/IconWithLabel";
+import { IconsWithLabelsPosition } from "components/molecules/IconsWithLabels/@types/IconsWithLabels";
 
 const SkillsItem: React.FC<ISkillsItemProps> = ({ iconsWithLabels, title }) => (
   <ContentFrame
@@ -21,7 +22,7 @@ const SkillsItem: React.FC<ISkillsItemProps> = ({ iconsWithLabels, title }) => (
     <LayoutContainer themeClasses={{ padding: "p-32" }}>
       <IconsWithLabels
         iconsWithLabels={iconsWithLabels}
-        position="vertical"
+        position={IconsWithLabelsPosition.Vertical}
         size={IconWithLabelSize.Medium}
       />
     </LayoutContainer>
