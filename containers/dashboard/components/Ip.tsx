@@ -1,5 +1,5 @@
 import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
-import { Earth } from "components/molecules/Earth";
+import { Earth } from "components/molecules/Earth/Earth";
 
 const Ip: React.FC = () => (
   <ContentFrame
