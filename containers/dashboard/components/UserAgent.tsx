@@ -1,4 +1,4 @@
-import { DashboardElement } from "components/molecules/DashboardElement";
+import { DashboardElement } from "components/molecules/DashboardElement/DashboardElement";
 import { BrowserInfo } from "components/molecules/BrowserInfo/BrowserInfo";
 import { useEffect, useState } from "react";
 
@@ -17,9 +17,13 @@ const UserAgent: React.FC = () => {
   return (
     <DashboardElement
       description={description}
-      flex="flex-[1_0_20%]"
       shouldDisplayCorners
       title="User Agent"
+      themeClasses={{
+        container: {
+          flex: "flex-[1_0_20%]"
+        }
+      }}
     >
       <BrowserInfo />
     </DashboardElement>

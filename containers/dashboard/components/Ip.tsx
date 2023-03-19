@@ -1,11 +1,15 @@
-import { DashboardElement } from "components/molecules/DashboardElement";
+import { DashboardElement } from "components/molecules/DashboardElement/DashboardElement";
 import { Earth } from "components/molecules/Earth";
 
 const Ip: React.FC = () => (
   <DashboardElement
-    flex="flex-[0_1_30%]"
     shouldDisplayCorners
     title="IP: 127.0.0.1"
+    themeClasses={{
+      container: {
+        flex: "flex-[0_1_30%]"
+      }
+    }}
   >
     <Earth />
   </DashboardElement>
