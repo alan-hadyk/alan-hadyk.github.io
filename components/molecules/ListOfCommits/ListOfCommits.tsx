@@ -1,6 +1,6 @@
 import isEmpty from "lodash/isEmpty";
 
-import { Loader } from "components/molecules/Loader";
+import { Loader } from "components/molecules/Loader/Loader";
 import { Commit } from "components/molecules/Commit/Commit";
 import { Error } from "components/molecules/Error/Error";
 import { IListOfCommitsProps } from "components/molecules/ListOfCommits/@types/ListOfCommits";
