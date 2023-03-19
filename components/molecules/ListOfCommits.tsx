@@ -2,7 +2,7 @@ import isEmpty from "lodash/isEmpty";
 
 import { Loader } from "components/molecules/Loader";
 import { Commit } from "components/molecules/Commit/Commit";
-import { Error } from "components/molecules/Error";
+import { Error } from "components/molecules/Error/Error";
 import { IListOfCommitsProps } from "components/molecules/@types/ListOfCommits";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 

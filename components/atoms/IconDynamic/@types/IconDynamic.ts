@@ -28,6 +28,7 @@ export interface IIconDynamicProps {
     | "toptal"
     | "typeScript"
     | "unknown"
+    | "warning"
     | "webpack";
   isActive?: boolean;
   isHeightResponsive?: boolean;

@@ -18,6 +18,7 @@ import Safari from "public/icons/dynamic/safari.svg";
 import Toptal from "public/icons/dynamic/toptal.svg";
 import TypeScript from "public/icons/dynamic/typeScript.svg";
 import Unknown from "public/icons/dynamic/unknown.svg";
+import Warning from "public/icons/dynamic/warning.svg";
 import Webpack from "public/icons/dynamic/webpack.svg";
 
 import { TIconComponents } from "components/atoms/IconDynamic/@types/IconDynamic";
@@ -43,6 +44,7 @@ const iconComponents: TIconComponents = {
   toptal: Toptal,
   typeScript: TypeScript,
   unknown: Unknown,
+  warning: Warning,
   webpack: Webpack
 };
 
