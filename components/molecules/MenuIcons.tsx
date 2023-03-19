@@ -1,6 +1,6 @@
-import { LinkWithIcon } from "components/molecules/LinkWithIcon";
+import { LinkWithIcon } from "components/molecules/LinkWithIcon/LinkWithIcon";
 
-import { ILinkWithIconProps } from "components/molecules/@types/LinkWithIcon";
+import { ILinkWithIconProps } from "components/molecules/LinkWithIcon/@types/LinkWithIcon";
 
 import { isIE11 } from "helpers/browser/isIE11";
 
@@ -21,14 +21,16 @@ const icons: ILinkWithIconProps[] = [
 
 const MenuIcons: React.FC = () => (
   <>
-    {icons.map(({ href, iconName }: ILinkWithIconProps) => (
+    {icons.map(({ href, iconName }) => (
       <LinkWithIcon
-        height="h-48"
         href={href}
         iconName={iconName}
         isExternal
         key={iconName}
-        width={isIE11() ? "w-48" : "w-auto"}
+        themeClasses={{
+          height: "h-48",
+          width: isIE11() ? "w-48" : "w-auto"
+        }}
       />
     ))}
   </>
