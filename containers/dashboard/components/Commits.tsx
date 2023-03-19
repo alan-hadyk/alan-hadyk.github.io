@@ -1,4 +1,4 @@
-import { DashboardElement } from "components/molecules/DashboardElement/DashboardElement";
+import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
 import { ListOfCommits } from "components/molecules/ListOfCommits";
 
 import { useCommits } from "hooks/useCommits";
@@ -7,7 +7,7 @@ const Commits: React.FC = () => {
   const { commitsList, commitsState } = useCommits();
 
   return (
-    <DashboardElement
+    <ContentFrame
       shouldDisplayCorners={commitsState === "error"}
       title="Commits"
       themeClasses={{
@@ -18,7 +18,7 @@ const Commits: React.FC = () => {
       }}
     >
       <ListOfCommits commitsList={commitsList} commitsState={commitsState} />
-    </DashboardElement>
+    </ContentFrame>
   );
 };
 

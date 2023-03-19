@@ -1,4 +1,4 @@
-import { DashboardElement } from "components/molecules/DashboardElement/DashboardElement";
+import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
 import { BrowserInfo } from "components/molecules/BrowserInfo/BrowserInfo";
 import { useEffect, useState } from "react";
 
@@ -15,7 +15,7 @@ const UserAgent: React.FC = () => {
   }, []);
 
   return (
-    <DashboardElement
+    <ContentFrame
       description={description}
       shouldDisplayCorners
       title="User Agent"
@@ -26,7 +26,7 @@ const UserAgent: React.FC = () => {
       }}
     >
       <BrowserInfo />
-    </DashboardElement>
+    </ContentFrame>
   );
 };
 

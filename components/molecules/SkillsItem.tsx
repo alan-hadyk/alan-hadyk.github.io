@@ -1,11 +1,11 @@
 import { IconsWithLabels } from "components/molecules/IconsWithLabels";
-import { DashboardElement } from "components/molecules/DashboardElement/DashboardElement";
+import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
 
 import { ISkillsItemProps } from "components/molecules/@types/SkillsItem";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 
 const SkillsItem: React.FC<ISkillsItemProps> = ({ iconsWithLabels, title }) => (
-  <DashboardElement
+  <ContentFrame
     shouldDisplayBorder
     title={title}
     themeClasses={{
@@ -24,7 +24,7 @@ const SkillsItem: React.FC<ISkillsItemProps> = ({ iconsWithLabels, title }) => (
         size="medium"
       />
     </LayoutContainer>
-  </DashboardElement>
+  </ContentFrame>
 );
 
 export { SkillsItem };

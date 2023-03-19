@@ -6,7 +6,7 @@ type TOverflow = Extract<
   "overflow-visible" | "overflow-hidden"
 >;
 
-export interface IDashboardElementProps {
+export interface IContentFrameProps {
   children: TChildren;
   description?: string;
   shouldDisplayBorder?: boolean;
@@ -15,7 +15,6 @@ export interface IDashboardElementProps {
     children?: {
       overflow?: TOverflow;
     };
-    // Zmienić titleOverflow na themeClasses.container.overflow
     container?: Pick<IThemeClasses, "alignSelf" | "flex" | "order"> & {
       overflow?: TOverflow;
     };

@@ -1,8 +1,8 @@
-import { DashboardElement } from "components/molecules/DashboardElement/DashboardElement";
+import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
 import { FlowChart } from "components/molecules/FlowChart";
 
 const Flux: React.FC = () => (
-  <DashboardElement
+  <ContentFrame
     shouldDisplayCorners
     title="Flux"
     themeClasses={{
@@ -12,7 +12,7 @@ const Flux: React.FC = () => (
     }}
   >
     <FlowChart />
-  </DashboardElement>
+  </ContentFrame>
 );
 
 export { Flux };

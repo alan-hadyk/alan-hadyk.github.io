@@ -1,8 +1,8 @@
-import { DashboardElement } from "components/molecules/DashboardElement/DashboardElement";
+import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
 import { AnimatedIcons } from "components/molecules/AnimatedIcons/AnimatedIcons";
 
 const TechStack: React.FC = () => (
-  <DashboardElement
+  <ContentFrame
     shouldDisplayCorners
     title="Tech Stack"
     themeClasses={{
@@ -12,7 +12,7 @@ const TechStack: React.FC = () => (
     }}
   >
     <AnimatedIcons />
-  </DashboardElement>
+  </ContentFrame>
 );
 
 export { TechStack };

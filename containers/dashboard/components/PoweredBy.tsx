@@ -1,8 +1,8 @@
-import { DashboardElement } from "components/molecules/DashboardElement/DashboardElement";
+import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
 import { NextLogo } from "components/molecules/NextLogo";
 
 const PoweredBy: React.FC = () => (
-  <DashboardElement
+  <ContentFrame
     shouldDisplayCorners
     title="Powered by"
     themeClasses={{
@@ -12,7 +12,7 @@ const PoweredBy: React.FC = () => (
     }}
   >
     <NextLogo />
-  </DashboardElement>
+  </ContentFrame>
 );
 
 export { PoweredBy };

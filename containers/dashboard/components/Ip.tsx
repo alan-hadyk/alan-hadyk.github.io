@@ -1,8 +1,8 @@
-import { DashboardElement } from "components/molecules/DashboardElement/DashboardElement";
+import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
 import { Earth } from "components/molecules/Earth";
 
 const Ip: React.FC = () => (
-  <DashboardElement
+  <ContentFrame
     shouldDisplayCorners
     title="IP: 127.0.0.1"
     themeClasses={{
@@ -12,7 +12,7 @@ const Ip: React.FC = () => (
     }}
   >
     <Earth />
-  </DashboardElement>
+  </ContentFrame>
 );
 
 export { Ip };

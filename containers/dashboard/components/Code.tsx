@@ -1,8 +1,8 @@
-import { DashboardElement } from "components/molecules/DashboardElement/DashboardElement";
+import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
 import { TypingAnimation } from "components/molecules/TypingAnimation";
 
 const Code: React.FC = () => (
-  <DashboardElement
+  <ContentFrame
     title="Code"
     themeClasses={{
       children: {
@@ -14,7 +14,7 @@ const Code: React.FC = () => (
     }}
   >
     <TypingAnimation />
-  </DashboardElement>
+  </ContentFrame>
 );
 
 export { Code };
