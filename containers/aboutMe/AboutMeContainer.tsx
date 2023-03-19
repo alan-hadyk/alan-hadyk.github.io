@@ -24,7 +24,7 @@ const AboutMeContainer: React.FC = () => (
         alt="Alan Hadyk"
         src="/images/alan.png"
         themeClasses={{
-          height: "700px",
+          height: "504px",
           width: "700px"
         }}
       />

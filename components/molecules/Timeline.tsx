@@ -1,5 +1,6 @@
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
-import { Hexagon } from "components/molecules/Hexagon";
+import { HexagonFill } from "components/molecules/Hexagon/@types/Hexagon";
+import { Hexagon } from "components/molecules/Hexagon/Hexagon";
 
 const Timeline: React.FC = () => (
   <LayoutContainer
@@ -18,7 +19,7 @@ const Timeline: React.FC = () => (
         width: "w-16"
       }}
     >
-      <Hexagon fill="solid" />
+      <Hexagon fill={HexagonFill.Solid} />
     </LayoutContainer>
     <LayoutContainer
       themeClasses={{

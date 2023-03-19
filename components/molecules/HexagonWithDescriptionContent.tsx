@@ -1,5 +1,5 @@
 import { Typography } from "components/atoms/Typography/Typography";
-import { Hexagon } from "components/molecules/Hexagon";
+import { Hexagon } from "components/molecules/Hexagon/Hexagon";
 
 import { IHexagonWithDescriptionContentProps } from "components/molecules/@types/HexagonWithDescriptionContent";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
