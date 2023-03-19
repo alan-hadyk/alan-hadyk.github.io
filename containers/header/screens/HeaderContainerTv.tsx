@@ -1,6 +1,6 @@
 import { Button } from "components/molecules/Button/Button";
 import { HorizontalLinksWithIcons } from "components/molecules/HorizontalLinksWithIcons/HorizontalLinksWithIcons";
-import { Nav } from "components/molecules/Nav";
+import { Nav } from "components/molecules/Nav/Nav";
 
 import { Responsive } from "components/layout/Responsive/Responsive";
 
@@ -24,7 +24,26 @@ const HeaderContainerTv: React.FC<IHeaderContainerTvProps> = ({
       }}
     >
       <LayoutContainer themeClasses={{ marginRight: "mr-24" }}>
-        <Nav />
+        <Nav
+          navItems={[
+            {
+              href: "#experience",
+              title: "Experience"
+            },
+            {
+              href: "#skills",
+              title: "Skills"
+            },
+            {
+              href: "#about-me",
+              title: "About me"
+            },
+            {
+              href: "#contact",
+              title: "Contact"
+            }
+          ]}
+        />
       </LayoutContainer>
 
       <Button

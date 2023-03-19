@@ -1,9 +1,12 @@
-import { INavProps } from "components/molecules/@types/Nav";
+export enum NavItemPosition {
+  Horizontal,
+  Vertical
+}
 
 export interface INavItemProps {
   href: string;
   isActive?: boolean;
-  position?: INavProps["position"];
+  position?: NavItemPosition;
   tabIndex?: number;
   title: string;
 }

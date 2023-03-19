@@ -1,6 +1,6 @@
 import { Button } from "components/molecules/Button/Button";
 import { HorizontalLinksWithIcons } from "components/molecules/HorizontalLinksWithIcons/HorizontalLinksWithIcons";
-import { Nav } from "components/molecules/Nav";
+import { Nav } from "components/molecules/Nav/Nav";
 
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { Responsive } from "components/layout/Responsive/Responsive";
@@ -9,6 +9,7 @@ import { isIE11 } from "helpers/browser/isIE11";
 
 import { ISideMenuProps } from "components/organisms/@types/SideMenu";
 import { Device } from "components/layout/Responsive/@types/Responsive";
+import { NavItemPosition } from "components/molecules/NavItem/@types/NavItem";
 
 const SideMenu: React.FC<ISideMenuProps> = ({
   isExpanded = false,
@@ -63,7 +64,27 @@ const SideMenu: React.FC<ISideMenuProps> = ({
                 marginBottom: "mb-24"
               }}
             >
-              <Nav position="vertical" />
+              <Nav
+                navItems={[
+                  {
+                    href: "#experience",
+                    title: "Experience"
+                  },
+                  {
+                    href: "#skills",
+                    title: "Skills"
+                  },
+                  {
+                    href: "#about-me",
+                    title: "About me"
+                  },
+                  {
+                    href: "#contact",
+                    title: "Contact"
+                  }
+                ]}
+                position={NavItemPosition.Vertical}
+              />
             </LayoutContainer>
           </LayoutContainer>
           <Button

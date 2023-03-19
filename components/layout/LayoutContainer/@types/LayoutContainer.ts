@@ -13,6 +13,8 @@ export interface ILayoutContainerProps {
   id?: string;
   name?: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
+  onFocus?: React.FocusEventHandler<HTMLElement> | (() => void);
   style?: React.CSSProperties;
+  tabIndex?: number;
   themeClasses?: IThemeClasses;
 }

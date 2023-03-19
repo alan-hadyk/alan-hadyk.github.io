@@ -386,7 +386,7 @@ export type TOutline = `outline-${number}`;
 export type TClassStyleUtility = `${string}-${string}` | string;
 
 export interface IBasicThemeClasses {
-  active?: TActive;
+  active?: TActive | TActive[];
   alignItems?: TAlignItems;
   alignSelf?: TAlignSelf;
   animate?: TAnimate;
@@ -411,7 +411,7 @@ export interface IBasicThemeClasses {
   flex?: TFlex;
   flexFlow?: TFlexFlowValues;
   flexGrow?: TFlexGrow;
-  focus?: TFocus;
+  focus?: TFocus | TFocus[];
   fontFamily?: TTextFontFamily;
   fontSize?: TTextFontSize;
   fontWeight?: TTextFontWeight;
@@ -425,7 +425,7 @@ export interface IBasicThemeClasses {
     | `${number}rem`
     | `${number}vh`
     | `${number}vw`;
-  hover?: THover;
+  hover?: THover | THover[];
   justifyContent?: TJustifyContent;
   justifyItems?: TJustifyItems;
   left?: TLeft;

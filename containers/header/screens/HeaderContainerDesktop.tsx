@@ -1,7 +1,7 @@
 import { MenuButton } from "components/molecules/MenuButton/MenuButton";
 
 import { Button } from "components/molecules/Button/Button";
-import { Nav } from "components/molecules/Nav";
+import { Nav } from "components/molecules/Nav/Nav";
 
 import { SideMenu } from "components/organisms/SideMenu";
 
@@ -31,7 +31,26 @@ const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
       }}
     >
       <LayoutContainer themeClasses={{ marginRight: "mr-24" }}>
-        <Nav />
+        <Nav
+          navItems={[
+            {
+              href: "#experience",
+              title: "Experience"
+            },
+            {
+              href: "#skills",
+              title: "Skills"
+            },
+            {
+              href: "#about-me",
+              title: "About me"
+            },
+            {
+              href: "#contact",
+              title: "Contact"
+            }
+          ]}
+        />
       </LayoutContainer>
 
       <Button

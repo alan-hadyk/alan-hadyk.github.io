@@ -5,7 +5,20 @@ import { forwardRef } from "react";
 const _LayoutContainer: React.ForwardRefRenderFunction<
   HTMLDivElement | HTMLElement,
   ILayoutContainerProps
-> = ({ as = "div", children, id, name, onClick, style, themeClasses }, ref) => {
+> = (
+  {
+    as = "div",
+    children,
+    id,
+    name,
+    onClick,
+    onFocus,
+    style,
+    tabIndex,
+    themeClasses
+  },
+  ref
+) => {
   const Tag = `${as}` as keyof Pick<
     JSX.IntrinsicElements,
     "div" | "nav" | "header" | "main"
@@ -28,11 +41,13 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
     id,
     name,
     onClick,
+    onFocus,
     style: {
       height: !height?.includes("h-") ? height : undefined,
       width: !width?.includes("w-") ? width : undefined,
       ...style
-    }
+    },
+    tabIndex
   };
 
   return children ? (
