@@ -1,5 +1,5 @@
 import { Button } from "components/molecules/Button/Button";
-import { MenuIcons } from "components/molecules/MenuIcons";
+import { HorizontalLinksWithIcons } from "components/molecules/HorizontalLinksWithIcons/HorizontalLinksWithIcons";
 import { Nav } from "components/molecules/Nav";
 
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
@@ -93,7 +93,25 @@ const SideMenu: React.FC<ISideMenuProps> = ({
             pseudoClasses: ["directChildren:ml-24", "firstdirectChild:ml-0"]
           }}
         >
-          <MenuIcons />
+          <HorizontalLinksWithIcons
+            icons={[
+              {
+                href: "https://github.com/alan-hadyk",
+                iconName: "gitHub",
+                isExternal: true
+              },
+              {
+                href: "https://www.toptal.com/resume/alan-hadyk",
+                iconName: "toptal",
+                isExternal: true
+              },
+              {
+                href: "https://www.linkedin.com/in/alan-hadyk-78738099/",
+                iconName: "linkedIn",
+                isExternal: true
+              }
+            ]}
+          />
         </LayoutContainer>
       </LayoutContainer>
     </LayoutContainer>
