@@ -1,27 +1,29 @@
 import { useEffect, useState } from "react";
 
 import { fetchCommits } from "api/fetchCommits";
-import { ICommitProps } from "components/molecules/@types/ListOfCommits";
-import { TCommitsState } from "hooks/@types/useCommits";
+import { ICommitProps } from "components/molecules/ListOfCommits/@types/ListOfCommits";
+import { CommitsState } from "hooks/@types/useCommits";
 
 const useCommits = () => {
   const [commitsList, setCommitsList] = useState<ICommitProps[]>([]);
-  const [commitsState, setCommitsState] = useState<TCommitsState>("idle");
+  const [commitsState, setCommitsState] = useState<CommitsState>(
+    CommitsState.Idle
+  );
 
   const getCommits = async () => {
-    setCommitsState("loading");
+    setCommitsState(CommitsState.Loading);
 
     try {
       const commits = await fetchCommits();
 
       if (!(commits instanceof Error)) {
         setCommitsList(commits);
-        setCommitsState("loaded");
+        setCommitsState(CommitsState.Loaded);
       } else {
-        setCommitsState("error");
+        setCommitsState(CommitsState.Error);
       }
     } catch (error) {
-      setCommitsState("error");
+      setCommitsState(CommitsState.Error);
     }
   };
 

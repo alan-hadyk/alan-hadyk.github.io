@@ -1,5 +1,6 @@
 import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
-import { ListOfCommits } from "components/molecules/ListOfCommits";
+import { ListOfCommits } from "components/molecules/ListOfCommits/ListOfCommits";
+import { CommitsState } from "hooks/@types/useCommits";
 
 import { useCommits } from "hooks/useCommits";
 
@@ -8,7 +9,7 @@ const Commits: React.FC = () => {
 
   return (
     <ContentFrame
-      shouldDisplayCorners={commitsState === "error"}
+      shouldDisplayCorners={commitsState === CommitsState.Error}
       title="Commits"
       themeClasses={{
         container: {

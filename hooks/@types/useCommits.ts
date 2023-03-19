@@ -1,1 +1,6 @@
-export type TCommitsState = "idle" | "error" | "loading" | "loaded";
+export enum CommitsState {
+  Idle,
+  Error,
+  Loading,
+  Loaded
+}

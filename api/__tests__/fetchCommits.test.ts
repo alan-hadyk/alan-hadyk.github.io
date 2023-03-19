@@ -1,5 +1,5 @@
 import { fetchCommits } from "api/fetchCommits";
-import { ICommitProps } from "components/molecules/@types/ListOfCommits";
+import { ICommitProps } from "components/molecules/ListOfCommits/@types/ListOfCommits";
 import fetch from "node-fetch";
 
 jest.mock("node-fetch");

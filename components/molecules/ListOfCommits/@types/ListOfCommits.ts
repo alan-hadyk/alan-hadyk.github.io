@@ -1,8 +1,8 @@
-import { TCommitsState } from "hooks/@types/useCommits";
+import { CommitsState } from "hooks/@types/useCommits";
 
 export interface IListOfCommitsProps {
   commitsList: Array<ICommitProps | undefined | null>;
-  commitsState: TCommitsState;
+  commitsState: CommitsState;
 }
 
 export interface ICommitProps {

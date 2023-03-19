@@ -3,34 +3,30 @@ import isEmpty from "lodash/isEmpty";
 import { Loader } from "components/molecules/Loader";
 import { Commit } from "components/molecules/Commit/Commit";
 import { Error } from "components/molecules/Error/Error";
-import { IListOfCommitsProps } from "components/molecules/@types/ListOfCommits";
+import { IListOfCommitsProps } from "components/molecules/ListOfCommits/@types/ListOfCommits";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
+import { listOfCommitsCommitsWrapperDefaultThemeClasses } from "components/molecules/ListOfCommits/styles";
+import { getCommitData } from "components/molecules/ListOfCommits/helpers/getCommitData";
+import { CommitsState } from "hooks/@types/useCommits";
 
 const ListOfCommits: React.FC<IListOfCommitsProps> = ({
   commitsList,
   commitsState
 }) => {
   switch (commitsState) {
-    case "error":
+    case CommitsState.Error:
       return <Error title="Error" description="Github API is offline" />;
 
-    case "loaded":
+    case CommitsState.Loaded:
       return (
         <LayoutContainer
-          themeClasses={{
-            alignItems: "items-start",
-            display: "flex",
-            flexFlow: "flex-col-nowrap",
-            justifyContent: "justify-start"
-          }}
+          themeClasses={listOfCommitsCommitsWrapperDefaultThemeClasses}
         >
           {!isEmpty(commitsList) &&
             commitsList
-              ?.filter((item) => item)
-              ?.map((item, index: number): JSX.Element | null => {
-                const { commit, html_url, sha } = item || {};
-                const { author } = commit || {};
-                const { date } = author || {};
+              ?.filter((commitEntity) => commitEntity)
+              ?.map((commitEntity, index: number) => {
+                const { date, html_url, sha } = getCommitData(commitEntity);
                 const delay = index * 300;
 
                 return date && html_url && sha ? (
