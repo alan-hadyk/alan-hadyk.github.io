@@ -1,4 +1,4 @@
-import { IIconWithLabelProps } from "components/molecules/@types/IconWithLabel";
+import { IIconWithLabelProps } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 
 const iconsWithLabels: IIconWithLabelProps[] = [
   {

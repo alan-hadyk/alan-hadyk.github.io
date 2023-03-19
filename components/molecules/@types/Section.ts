@@ -1,16 +1,15 @@
-import { ILayoutContainerProps } from "components/layout/LayoutContainer/@types/LayoutContainer";
-import { TSpacingValues, TTextFontSize } from "types/theme";
+import { IThemeClasses, TSpacingValues, TTextFontSize } from "types/theme";
 import { TChildren } from "types/props";
 
 export interface ISectionProps {
   children: TChildren;
   id: string;
-  marginBottom?: ILayoutContainerProps["marginBottom"];
+  marginBottom?: IThemeClasses["marginBottom"];
   minHeight?: `min-h-${TSpacingValues}`;
   title?: string;
 }
 
 export interface IRenderTitle {
   fontSize: TTextFontSize;
-  marginBottom: ILayoutContainerProps["marginBottom"];
+  marginBottom: IThemeClasses["marginBottom"];
 }

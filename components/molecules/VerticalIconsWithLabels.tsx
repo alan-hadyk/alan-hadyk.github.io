@@ -1,18 +1,21 @@
 import { Typography } from "components/atoms/Typography/Typography";
+
+import { IVerticalIconsWithLabelsProps } from "components/molecules/@types/VerticalIconsWithLabels";
+import {
+  IconWithLabelSize,
+  IIconWithLabelProps
+} from "components/molecules/IconWithLabel/@types/IconWithLabel";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
+import { IconStatic } from "components/atoms/IconStatic/IconStatic";
 import {
   mapSizeToIconHeight,
   mapSizeToTextFontSize
-} from "components/molecules/IconWithLabel";
-
-import { IVerticalIconsWithLabelsProps } from "components/molecules/@types/VerticalIconsWithLabels";
-import { IIconWithLabelProps } from "components/molecules/@types/IconWithLabel";
-import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
-import { IconStatic } from "components/atoms/IconStatic/IconStatic";
+} from "components/molecules/IconWithLabel/styles";
 
 const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
   iconsWithLabels,
   labelColor = "text-blue100",
-  size = "medium"
+  size = IconWithLabelSize.Medium
 }) => (
   <LayoutContainer
     themeClasses={{

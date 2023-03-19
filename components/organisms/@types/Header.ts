@@ -1,4 +1,4 @@
-import { ILayoutContainerProps } from "components/layout/LayoutContainer/@types/LayoutContainer";
+import { IThemeClasses } from "types/theme";
 
 interface IChildrenArgs {
   isMenuVisible?: boolean;
@@ -10,5 +10,5 @@ export interface IHeaderProps {
     isMenuVisible,
     toggleMenuVisibility
   }: IChildrenArgs) => JSX.Element;
-  zIndex?: ILayoutContainerProps["zIndex"];
+  zIndex?: IThemeClasses["zIndex"];
 }

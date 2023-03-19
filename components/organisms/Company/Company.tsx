@@ -11,7 +11,7 @@ const Company: React.FC<ICompanyProps> = ({
   link,
   name,
   responsibilities,
-  timelineBottom,
+  themeClasses,
   title
 }) => (
   <LayoutContainer>
@@ -28,7 +28,7 @@ const Company: React.FC<ICompanyProps> = ({
         name={name}
         responsibilities={responsibilities}
         responsibilitiesPaddingBottom={companyMobilePaddingBottom}
-        timelineBottom={timelineBottom}
+        themeClasses={themeClasses}
         title={title}
       />
 

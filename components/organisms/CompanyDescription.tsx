@@ -1,11 +1,12 @@
 import { Typography } from "components/atoms/Typography/Typography";
-import { IconWithLabel } from "components/molecules/IconWithLabel";
+import { IconWithLabel } from "components/molecules/IconWithLabel/IconWithLabel";
 import { UnorderedList } from "components/molecules/UnorderedList";
 import { isIE11 } from "helpers/browser/isIE11";
 
 import { ICompanyDescriptionProps } from "components/organisms/@types/CompanyDescription";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { TechStack } from "components/molecules/TechStack";
+import { IconWithLabelSize } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 
 const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
   date,
@@ -41,10 +42,16 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
       }}
     >
       <IconWithLabel
-        labelColor="text-blue300"
         iconName="calendar"
         label={date}
-        size="medium"
+        size={IconWithLabelSize.Medium}
+        themeClasses={{
+          iconWithLabelContent: {
+            label: {
+              color: "text-blue300"
+            }
+          }
+        }}
       />
     </LayoutContainer>
 
@@ -57,10 +64,16 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
         <IconWithLabel
           href={link}
           isExternal
-          labelColor="text-blue300"
           iconName="link"
           label={link}
-          size="medium"
+          size={IconWithLabelSize.Medium}
+          themeClasses={{
+            iconWithLabelContent: {
+              label: {
+                color: "text-blue300"
+              }
+            }
+          }}
         />
       </LayoutContainer>
     )}

@@ -19,11 +19,11 @@ const CompanyTvDesktopAndTablet: React.FC<ICompanyProps> = ({
   name,
   responsibilities,
   responsibilitiesPaddingBottom,
-  timelineBottom,
+  themeClasses,
   title
 }) => (
   <Responsive devices={[Device.TV, Device.DESKTOP, Device.TABLET]}>
-    <CompanyTimeline timelineBottom={timelineBottom} />
+    <CompanyTimeline themeClasses={themeClasses} />
 
     <LayoutContainer
       themeClasses={{

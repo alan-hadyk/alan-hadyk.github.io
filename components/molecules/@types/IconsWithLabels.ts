@@ -1,4 +1,7 @@
-import { IIconWithLabelProps } from "components/molecules/@types/IconWithLabel";
+import {
+  IconWithLabelSize,
+  IIconWithLabelProps
+} from "components/molecules/IconWithLabel/@types/IconWithLabel";
 import { TPseudoClasses, TTextColor } from "types/theme";
 
 export interface IIconsWithLabelsProps {
@@ -8,14 +11,6 @@ export interface IIconsWithLabelsProps {
   size?: IIconWithLabelProps["size"];
 }
 export interface IMapSizeToFlexContainerGap {
-  horizontal: {
-    large: TPseudoClasses;
-    medium: TPseudoClasses;
-    small: TPseudoClasses;
-  };
-  vertical: {
-    large: TPseudoClasses;
-    medium: TPseudoClasses;
-    small: TPseudoClasses;
-  };
+  horizontal: Record<IconWithLabelSize, TPseudoClasses>;
+  vertical: Record<IconWithLabelSize, TPseudoClasses>;
 }

@@ -1,4 +1,4 @@
-import { IconWithLabel } from "components/molecules/IconWithLabel";
+import { IconWithLabel } from "components/molecules/IconWithLabel/IconWithLabel";
 import { VerticalIconsWithLabels } from "components/molecules/VerticalIconsWithLabels";
 
 import {
@@ -7,17 +7,30 @@ import {
 } from "components/molecules/@types/IconsWithLabels";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { IThemeClasses } from "types/theme";
+import { IconWithLabelSize } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 
 const mapSizeToFlexContainerGap: IMapSizeToFlexContainerGap = {
   horizontal: {
-    large: ["directChildren:mr-28", "directChildren:mb-28"],
-    medium: ["directChildren:mr-12", "directChildren:mb-12"],
-    small: ["directChildren:mr-16", "directChildren:mb-16"]
+    [IconWithLabelSize.Large]: ["directChildren:mr-28", "directChildren:mb-28"],
+    [IconWithLabelSize.Medium]: [
+      "directChildren:mr-12",
+      "directChildren:mb-12"
+    ],
+    [IconWithLabelSize.Small]: ["directChildren:mr-16", "directChildren:mb-16"]
   },
   vertical: {
-    large: ["directChildren:mt-28", "firstdirectChild:mt-28"],
-    medium: ["directChildren:mt-12", "firstdirectChild:mt-12"],
-    small: ["directChildren:mt-16", "firstdirectChild:mt-16"]
+    [IconWithLabelSize.Large]: [
+      "directChildren:mt-28",
+      "firstdirectChild:mt-28"
+    ],
+    [IconWithLabelSize.Medium]: [
+      "directChildren:mt-12",
+      "firstdirectChild:mt-12"
+    ],
+    [IconWithLabelSize.Small]: [
+      "directChildren:mt-16",
+      "firstdirectChild:mt-16"
+    ]
   }
 };
 
@@ -25,7 +38,7 @@ const IconsWithLabels: React.FC<IIconsWithLabelsProps> = ({
   iconsWithLabels,
   labelColor = "text-blue100",
   position = "vertical",
-  size = "medium"
+  size = IconWithLabelSize.Medium
 }) => {
   const justifyContent: IThemeClasses["justifyContent"] =
     position === "horizontal" ? "justify-start" : "justify-center";
@@ -41,10 +54,7 @@ const IconsWithLabels: React.FC<IIconsWithLabelsProps> = ({
         height: "100%",
         justifyContent,
         maxWidth: position === "horizontal" ? "max-w-unset" : "max-w-100%",
-        pseudoClasses:
-          mapSizeToFlexContainerGap[position][
-            size as "small" | "medium" | "large"
-          ]
+        pseudoClasses: mapSizeToFlexContainerGap[position][size]
       }}
     >
       {position === "horizontal" ? (
@@ -52,11 +62,17 @@ const IconsWithLabels: React.FC<IIconsWithLabelsProps> = ({
         iconsWithLabels.map(
           ({ iconName, label }): JSX.Element => (
             <IconWithLabel
-              labelColor={labelColor}
               iconName={iconName}
               key={label}
               label={label}
               size={size}
+              themeClasses={{
+                iconWithLabelContent: {
+                  label: {
+                    color: labelColor
+                  }
+                }
+              }}
             />
           )
         )
@@ -64,7 +80,7 @@ const IconsWithLabels: React.FC<IIconsWithLabelsProps> = ({
         <VerticalIconsWithLabels
           labelColor={labelColor}
           iconsWithLabels={iconsWithLabels}
-          size={size as "small" | "medium" | "large"}
+          size={size}
         />
       )}
     </LayoutContainer>

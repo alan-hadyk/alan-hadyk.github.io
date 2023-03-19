@@ -3,6 +3,7 @@ import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
 
 import { ISkillsItemProps } from "components/molecules/@types/SkillsItem";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
+import { IconWithLabelSize } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 
 const SkillsItem: React.FC<ISkillsItemProps> = ({ iconsWithLabels, title }) => (
   <ContentFrame
@@ -21,7 +22,7 @@ const SkillsItem: React.FC<ISkillsItemProps> = ({ iconsWithLabels, title }) => (
       <IconsWithLabels
         iconsWithLabels={iconsWithLabels}
         position="vertical"
-        size="medium"
+        size={IconWithLabelSize.Medium}
       />
     </LayoutContainer>
   </ContentFrame>

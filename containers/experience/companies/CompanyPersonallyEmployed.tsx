@@ -41,7 +41,9 @@ const companyPersonallyEmployedProps: ICompanyProps = {
 const CompanyPersonallyEmployed: React.FC = () => (
   <Company
     companyMobilePaddingBottom="pb-0"
-    timelineBottom="bottom-0"
+    themeClasses={{
+      bottom: "bottom-0"
+    }}
     {...companyPersonallyEmployedProps}
   />
 );

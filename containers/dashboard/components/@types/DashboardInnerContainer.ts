@@ -1,9 +1,9 @@
-import { ILayoutContainerProps } from "components/layout/LayoutContainer/@types/LayoutContainer";
 import { TChildren } from "types/props";
+import { IThemeClasses } from "types/theme";
 
 export interface IDashboardInnerContainerProps {
   children: TChildren;
-  height?: ILayoutContainerProps["height"];
-  marginBottom?: ILayoutContainerProps["marginBottom"];
-  marginTop?: ILayoutContainerProps["marginTop"];
+  height?: IThemeClasses["height"];
+  marginBottom?: IThemeClasses["marginBottom"];
+  marginTop?: IThemeClasses["marginTop"];
 }
