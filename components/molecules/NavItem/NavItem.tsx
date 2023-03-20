@@ -34,7 +34,6 @@ const NavItem: React.FC<INavItemProps> = ({
     >
       <a
         className={convertObjectValuesToString(navItemLinkThemeClasses)}
-        data-isactive={isActive}
         onMouseUp={handleClick}
         onMouseOver={handleMouseOver}
         ref={navItemElementRef}

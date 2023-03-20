@@ -1,5 +1,5 @@
 import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
-import { NextLogo } from "components/molecules/NextLogo";
+import { LargeIcon } from "components/molecules/LargeIcon/LargeIcon";
 
 const PoweredBy: React.FC = () => (
   <ContentFrame
@@ -11,7 +11,7 @@ const PoweredBy: React.FC = () => (
       }
     }}
   >
-    <NextLogo />
+    <LargeIcon iconName="nextJs" />
   </ContentFrame>
 );
 
