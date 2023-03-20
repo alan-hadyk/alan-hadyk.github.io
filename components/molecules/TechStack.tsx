@@ -1,7 +1,6 @@
 import { Typography } from "components/atoms/Typography/Typography";
 import { IconsWithLabels } from "components/molecules/IconsWithLabels/IconsWithLabels";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
-
 import { ITechStackProps } from "components/molecules/@types/TechStack";
 import { IconWithLabelSize } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 import { IconsWithLabelsPosition } from "components/molecules/IconsWithLabels/@types/IconsWithLabels";
