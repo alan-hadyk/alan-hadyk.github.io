@@ -1,5 +1,5 @@
 import { Section } from "components/molecules/Section/Section";
-import { SkillsItem } from "components/molecules/SkillsItem";
+import { SkillsItem } from "components/molecules/SkillsItem/SkillsItem";
 import { Responsive } from "components/layout/Responsive/Responsive";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 
@@ -15,7 +15,7 @@ import { bundlersCategory } from "containers/skills/categories/bundlersCategory"
 import { taskManagementCategory } from "containers/skills/categories/taskManagementCategory";
 import { designToolsCategory } from "containers/skills/categories/designToolsCategory";
 
-import { ISkillsItemProps } from "components/molecules/@types/SkillsItem";
+import { ISkillsItemProps } from "components/molecules/SkillsItem/@types/SkillsItem";
 import { IRenderColumnsArgs } from "containers/skills/@types/SkillsContainer";
 import { Device } from "components/layout/Responsive/@types/Responsive";
 
