@@ -20,7 +20,7 @@ const IndexPage: TNextPageWithLayout = () => (
 );
 
 IndexPage.getLayout = (page) => (
-  <WebLayout title="Alan Hadyk">{page}</WebLayout>
+  <WebLayout title="Alan Hadyk - Portfolio">{page}</WebLayout>
 );
 
 export default IndexPage;
