@@ -1,4 +1,4 @@
-import { Section } from "components/molecules/Section";
+import { Section } from "components/molecules/Section/Section";
 import { SkillsItem } from "components/molecules/SkillsItem";
 import { Responsive } from "components/layout/Responsive/Responsive";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";

@@ -1,4 +1,4 @@
-import { Section } from "components/molecules/Section";
+import { Section } from "components/molecules/Section/Section";
 
 import { CompanyRealEstateStartup } from "containers/experience/companies/CompanyRealEstateStartup";
 import { CompanyDiH } from "containers/experience/companies/CompanyDiH";

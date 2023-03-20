@@ -1,4 +1,4 @@
-import { Section } from "components/molecules/Section";
+import { Section } from "components/molecules/Section/Section";
 import { DashboardContainerTvAndDesktop } from "containers/dashboard/screens/DashboardContainerTvAndDesktop";
 import { DashboardContainerTablet } from "containers/dashboard/screens/DashboardContainerTablet";
 import { DashboardContainerMobile } from "containers/dashboard/screens/DashboardContainerMobile";
@@ -8,7 +8,12 @@ import { DashboardContainerPdf } from "containers/dashboard/screens/DashboardCon
 const DashboardContainer: React.FC<IDashboardContainerProps> = ({
   format = "web"
 }) => (
-  <Section id="dashboard" marginBottom="mb-12">
+  <Section
+    id="dashboard"
+    themeClasses={{
+      marginBottom: "mb-12"
+    }}
+  >
     {format === "web" && (
       <>
         <DashboardContainerTvAndDesktop />
