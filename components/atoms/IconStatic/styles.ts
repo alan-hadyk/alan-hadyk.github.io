@@ -7,11 +7,11 @@ const iconStaticDefaultThemeClasses: IIconStaticProps["themeClasses"] = {
   width: "w-auto"
 };
 
-const iconStaticPictureThemeClasses: IThemeClasses = {
+const iconStaticPictureDefaultThemeClasses: IThemeClasses = {
   ...iconStaticDefaultThemeClasses,
   marginX: "mx-auto",
   marginY: "my-auto",
   position: "relative"
 };
 
-export { iconStaticDefaultThemeClasses, iconStaticPictureThemeClasses };
+export { iconStaticDefaultThemeClasses, iconStaticPictureDefaultThemeClasses };

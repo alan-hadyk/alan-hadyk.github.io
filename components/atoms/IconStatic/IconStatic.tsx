@@ -2,7 +2,7 @@ import React, { ForwardedRef, forwardRef } from "react";
 import { IIconStaticProps } from "components/atoms/IconStatic/@types/IconStatic";
 import {
   iconStaticDefaultThemeClasses,
-  iconStaticPictureThemeClasses
+  iconStaticPictureDefaultThemeClasses
 } from "components/atoms/IconStatic/styles";
 import { convertObjectValuesToString } from "helpers/objects/convertObjectValuesToString";
 
@@ -24,7 +24,9 @@ const _IconStatic: React.ForwardRefRenderFunction<
 
   return (
     <picture
-      className={convertObjectValuesToString(iconStaticPictureThemeClasses)}
+      className={convertObjectValuesToString(
+        iconStaticPictureDefaultThemeClasses
+      )}
     >
       <img
         alt={iconName}
