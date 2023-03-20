@@ -43,8 +43,8 @@ const Link: React.FC<ILinkProps> = ({
 
       {isHoverable && (
         <LayoutContainer themeClasses={linkLinesContainerDefaultThemeClasses}>
-          <Line direction={LineDirection.LEFT} />
-          <Line direction={LineDirection.RIGHT} />
+          <Line direction={LineDirection.Left} />
+          <Line direction={LineDirection.Right} />
         </LayoutContainer>
       )}
     </>

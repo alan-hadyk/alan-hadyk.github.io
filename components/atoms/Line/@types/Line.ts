@@ -1,6 +1,6 @@
 export enum LineDirection {
-  LEFT = "left",
-  RIGHT = "right"
+  Left,
+  Right
 }
 
 export interface ILineProps {

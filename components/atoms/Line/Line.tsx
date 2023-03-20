@@ -17,10 +17,10 @@ const Line: React.FC<ILineProps> = ({ direction, isActive = false }) => {
           visibility: "invisible",
           width: "w-0"
         }),
-    ...(direction === LineDirection.LEFT && {
+    ...(direction === LineDirection.Left && {
       left: "left-50%"
     }),
-    ...(direction === LineDirection.RIGHT && {
+    ...(direction === LineDirection.Right && {
       right: "right-50%"
     })
   };

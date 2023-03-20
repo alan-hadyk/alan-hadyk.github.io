@@ -41,8 +41,8 @@ const NavItem: React.FC<INavItemProps> = ({
         {title}
       </a>
 
-      <Line direction={LineDirection.LEFT} isActive={isActive} />
-      <Line direction={LineDirection.RIGHT} isActive={isActive} />
+      <Line direction={LineDirection.Left} isActive={isActive} />
+      <Line direction={LineDirection.Right} isActive={isActive} />
     </LayoutContainer>
   );
 };
