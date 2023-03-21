@@ -13,7 +13,7 @@ const HeaderContainerTabletAndMobile: React.FC<IHeaderContainerScreenProps> = ({
   onCVButtonClick,
   onClick
 }) => (
-  <Responsive devices={[Device.TABLET, Device.MOBILE]}>
+  <Responsive devices={[Device.Tablet, Device.Mobile]}>
     <MenuButton isOpen={isMenuVisible} onClick={onClick} />
 
     {isMenuVisible && <Backdrop onClick={onClick} />}

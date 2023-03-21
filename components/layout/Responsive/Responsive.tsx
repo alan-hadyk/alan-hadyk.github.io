@@ -10,10 +10,10 @@ const Responsive: React.FC<IResponsiveProps> = ({ children, devices }) => {
   const responsiveThemeClasses: IThemeClasses = {
     ...responsiveDefaultThemeClasses,
     pseudoClasses: [
-      ...(devices.includes(Device.TV) ? ["screenLg:block"] : []),
-      ...(devices.includes(Device.DESKTOP) ? ["screenMdLg:block"] : []),
-      ...(devices.includes(Device.TABLET) ? ["screenSmMd:block"] : []),
-      ...(devices.includes(Device.MOBILE) ? ["screenMaxSm:block"] : [])
+      ...(devices.includes(Device.Tv) ? ["screenLg:block"] : []),
+      ...(devices.includes(Device.Desktop) ? ["screenMdLg:block"] : []),
+      ...(devices.includes(Device.Tablet) ? ["screenSmMd:block"] : []),
+      ...(devices.includes(Device.Mobile) ? ["screenMaxSm:block"] : [])
     ] as TPseudoClasses
   };
 

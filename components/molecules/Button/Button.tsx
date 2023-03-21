@@ -4,7 +4,10 @@ import { IconDynamic } from "components/atoms/IconDynamic/IconDynamic";
 import { ButtonText } from "components/molecules/ButtonText/ButtonText";
 import { Corners } from "components/molecules/Corners/Corners";
 
-import { IButtonProps } from "components/molecules/Button/@types/Button";
+import {
+  ButtonSize,
+  IButtonProps
+} from "components/molecules/Button/@types/Button";
 
 import { isIE11 } from "helpers/browser/isIE11";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
@@ -20,7 +23,7 @@ const Button: React.FC<IButtonProps> = ({
   iconName,
   iconWidth,
   onClick,
-  size = "medium",
+  size = ButtonSize.Medium,
   tabIndex,
   type = "primary",
   themeClasses

@@ -1,15 +1,15 @@
 import { ILayoutContainerProps } from "components/layout/LayoutContainer/@types/LayoutContainer";
-import { animatedIcons } from "components/molecules/AnimatedIcons/config";
+import { horizontalIcons } from "components/molecules/HorizontalIcons/config";
 import { isSafari } from "helpers/browser/isSafari";
 import { IThemeClasses } from "types/theme";
 
-export const animatedIconsDefaultThemeClasses: IThemeClasses = {
+export const horizontalIconsDefaultThemeClasses: IThemeClasses = {
   height: "h-100%",
   padding: "p-8",
   width: "w-100%"
 };
 
-export const animatedIconsContainerDefaultThemeClasses: IThemeClasses = {
+export const horizontalIconsContainerDefaultThemeClasses: IThemeClasses = {
   alignItems: "items-center",
   display: "flex",
   flexFlow: "flex-row-nowrap",
@@ -17,17 +17,17 @@ export const animatedIconsContainerDefaultThemeClasses: IThemeClasses = {
   justifyContent: "justify-center"
 };
 
-export const animatedIconsIconWrapperDefaultThemeClasses: IThemeClasses = {
+export const horizontalIconsIconWrapperDefaultThemeClasses: IThemeClasses = {
   height: isSafari() ? "h-auto" : "h-100%",
   position: "relative"
 };
 
-export const animatedIconsIconWrapperDefaultStyles: ILayoutContainerProps["style"] =
+export const horizontalIconsIconWrapperDefaultStyles: ILayoutContainerProps["style"] =
   {
-    width: `${Number(Number(100 / animatedIcons.length).toFixed(2))}%`
+    width: `${Number(Number(100 / horizontalIcons.length).toFixed(2))}%`
   };
 
-export const animatedIconsIconDefaultThemeClasses: IThemeClasses = {
+export const horizontalIconsIconDefaultThemeClasses: IThemeClasses = {
   height: isSafari() ? "h-[8vh]" : "h-100%",
   width: isSafari() ? "w-[8vh]" : "w-100%"
 };

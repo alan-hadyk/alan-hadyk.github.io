@@ -3,7 +3,7 @@ import {
   IIconDynamicProps
 } from "components/atoms/IconDynamic/@types/IconDynamic";
 
-export const animatedIcons: IIconDynamicProps["iconName"][] = [
+export const horizontalIcons: IIconDynamicProps["iconName"][] = [
   IconDynamicName.React,
   IconDynamicName.JavaScript,
   IconDynamicName.TypeScript,

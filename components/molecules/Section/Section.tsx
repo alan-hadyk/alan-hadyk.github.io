@@ -28,7 +28,7 @@ const Section: React.FC<ISectionProps> = ({
     <LayoutContainer id={id} themeClasses={sectionThemeClasses}>
       {title && (
         <Fragment>
-          <Responsive devices={[Device.TV, Device.DESKTOP, Device.TABLET]}>
+          <Responsive devices={[Device.Tv, Device.Desktop, Device.Tablet]}>
             <SectionTitle
               themeClasses={sectionTitleTvDesktopTabletDefaultThemeClasses}
             >
@@ -36,7 +36,7 @@ const Section: React.FC<ISectionProps> = ({
             </SectionTitle>
           </Responsive>
 
-          <Responsive devices={[Device.MOBILE]}>
+          <Responsive devices={[Device.Mobile]}>
             <SectionTitle themeClasses={sectionTitleMobileDefaultThemeClasses}>
               {title}
             </SectionTitle>

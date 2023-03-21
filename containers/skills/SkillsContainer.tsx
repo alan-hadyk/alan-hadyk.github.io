@@ -64,13 +64,13 @@ const SkillsColumns: React.FC<IRenderColumnsArgs> = ({
 
 const SkillsContainer: React.FC = () => (
   <Section id="skills" title="Skills">
-    <SkillsColumns columnCount="columns-5" devices={[Device.TV]} />
+    <SkillsColumns columnCount="columns-5" devices={[Device.Tv]} />
 
-    <SkillsColumns columnCount="columns-3" devices={[Device.DESKTOP]} />
+    <SkillsColumns columnCount="columns-3" devices={[Device.Desktop]} />
 
-    <SkillsColumns columnCount="columns-2" devices={[Device.TABLET]} />
+    <SkillsColumns columnCount="columns-2" devices={[Device.Tablet]} />
 
-    <Responsive devices={[Device.MOBILE]}>
+    <Responsive devices={[Device.Mobile]}>
       {items.map(({ iconsWithLabels, title }: ISkillsItemProps) => (
         <LayoutContainer
           key={title}

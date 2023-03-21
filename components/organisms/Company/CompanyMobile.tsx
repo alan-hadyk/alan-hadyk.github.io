@@ -17,7 +17,7 @@ const CompanyMobile: React.FC<ICompanyProps> = ({
   responsibilitiesPaddingBottom,
   title
 }) => (
-  <Responsive devices={[Device.MOBILE]}>
+  <Responsive devices={[Device.Mobile]}>
     <LayoutContainer
       themeClasses={{
         alignItems: "items-center",

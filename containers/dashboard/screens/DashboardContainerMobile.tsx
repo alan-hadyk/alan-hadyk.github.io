@@ -4,7 +4,7 @@ import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContain
 import { Device } from "components/layout/Responsive/@types/Responsive";
 
 const DashboardContainerMobile: React.FC = () => (
-  <Responsive devices={[Device.MOBILE]}>
+  <Responsive devices={[Device.Mobile]}>
     <LayoutContainer themeClasses={{ paddingTop: "pt-96" }}>
       <ConsoleMobile>
         Vision driven change agent with career-long record of front-end user

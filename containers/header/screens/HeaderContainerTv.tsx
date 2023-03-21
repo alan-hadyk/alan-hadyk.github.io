@@ -10,11 +10,12 @@ import { Device } from "components/layout/Responsive/@types/Responsive";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { IHeaderContainerTvProps } from "containers/header/@types/HeaderContainerTv";
 import { IconDynamicName } from "components/atoms/IconDynamic/@types/IconDynamic";
+import { ButtonSize } from "components/molecules/Button/@types/Button";
 
 const HeaderContainerTv: React.FC<IHeaderContainerTvProps> = ({
   onCVButtonClick
 }) => (
-  <Responsive devices={[Device.TV]}>
+  <Responsive devices={[Device.Tv]}>
     <LayoutContainer
       themeClasses={{
         display: "flex",
@@ -51,7 +52,7 @@ const HeaderContainerTv: React.FC<IHeaderContainerTvProps> = ({
         iconName={IconDynamicName.Download}
         iconWidth={isIE11() ? "w-24" : "w-auto"}
         onClick={onCVButtonClick}
-        size="medium"
+        size={ButtonSize.Medium}
         tabIndex={0}
       >
         cv

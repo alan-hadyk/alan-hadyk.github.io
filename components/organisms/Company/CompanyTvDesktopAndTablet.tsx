@@ -22,7 +22,7 @@ const CompanyTvDesktopAndTablet: React.FC<ICompanyProps> = ({
   themeClasses,
   title
 }) => (
-  <Responsive devices={[Device.TV, Device.DESKTOP, Device.TABLET]}>
+  <Responsive devices={[Device.Tv, Device.Desktop, Device.Tablet]}>
     <CompanyTimeline themeClasses={themeClasses} />
 
     <LayoutContainer

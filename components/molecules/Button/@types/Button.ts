@@ -4,6 +4,12 @@ import {
 } from "components/atoms/IconDynamic/@types/IconDynamic";
 import { IThemeClasses } from "types/theme";
 
+export enum ButtonSize {
+  Small,
+  Medium,
+  Large
+}
+
 export interface IButtonProps {
   children: string;
   iconName?: Extract<
@@ -12,23 +18,16 @@ export interface IButtonProps {
   >;
   iconWidth?: IThemeClasses["width"];
   onClick?: () => void;
-  size?: "small" | "medium" | "large";
+  size?: ButtonSize;
   tabIndex?: number;
   themeClasses?: Pick<IThemeClasses, "width">;
   type?: "primary" | "secondary";
 }
 
-export interface IMapSizeToButtonContainerProps {
-  large: {
-    height: IThemeClasses["height"];
-  };
-  medium: {
-    height: IThemeClasses["height"];
-  };
-  small: {
-    height: IThemeClasses["height"];
-  };
-}
+export type TMapSizeToButtonContainerProps = Record<
+  ButtonSize,
+  Pick<IThemeClasses, "height">
+>;
 
 export interface IMapTypeToButtonContainerProps {
   primary: {

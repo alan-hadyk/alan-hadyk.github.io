@@ -13,7 +13,7 @@ import { Device } from "components/layout/Responsive/@types/Responsive";
 import { ConsoleTvDesktopAndTablet } from "components/molecules/Console/screens/ConsoleTvDesktopAndTablet";
 
 const DashboardContainerTvAndDesktop: React.FC = () => (
-  <Responsive devices={[Device.TV, Device.DESKTOP]}>
+  <Responsive devices={[Device.Tv, Device.Desktop]}>
     <DashboardOuterContainer>
       <DashboardInnerContainer
         height="h-[calc(17vh+3.6rem)]"

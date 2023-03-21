@@ -14,13 +14,14 @@ import { Device } from "components/layout/Responsive/@types/Responsive";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { IHeaderContainerScreenProps } from "containers/header/@types/HeaderContainerScreen";
 import { IconDynamicName } from "components/atoms/IconDynamic/@types/IconDynamic";
+import { ButtonSize } from "components/molecules/Button/@types/Button";
 
 const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
   isMenuVisible,
   onCVButtonClick,
   onClick
 }) => (
-  <Responsive devices={[Device.DESKTOP]}>
+  <Responsive devices={[Device.Desktop]}>
     <LayoutContainer
       themeClasses={{
         alignItems: "items-center",
@@ -58,7 +59,7 @@ const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
         iconName={IconDynamicName.Download}
         iconWidth={isIE11() ? "w-24" : "w-auto"}
         onClick={onCVButtonClick}
-        size="medium"
+        size={ButtonSize.Medium}
         tabIndex={0}
       >
         cv

@@ -17,7 +17,7 @@ const HexagonWithDescription: React.FC<IHexagonWithDescriptionProps> = ({
   description
 }) => (
   <LayoutContainer themeClasses={hexagonWithDescriptionDefaultThemeClasses}>
-    <Responsive devices={[Device.TV, Device.DESKTOP]}>
+    <Responsive devices={[Device.Tv, Device.Desktop]}>
       <HexagonWithDescriptionContent
         description={description}
         themeClasses={
@@ -28,7 +28,7 @@ const HexagonWithDescription: React.FC<IHexagonWithDescriptionProps> = ({
       </HexagonWithDescriptionContent>
     </Responsive>
 
-    <Responsive devices={[Device.TABLET]}>
+    <Responsive devices={[Device.Tablet]}>
       <HexagonWithDescriptionContent
         description={description}
         themeClasses={
@@ -39,7 +39,7 @@ const HexagonWithDescription: React.FC<IHexagonWithDescriptionProps> = ({
       </HexagonWithDescriptionContent>
     </Responsive>
 
-    <Responsive devices={[Device.MOBILE]}>
+    <Responsive devices={[Device.Mobile]}>
       <HexagonWithDescriptionContent
         description={description}
         themeClasses={

@@ -1,6 +1,7 @@
 import {
-  IMapSizeToButtonContainerProps,
-  IMapTypeToButtonContainerProps
+  TMapSizeToButtonContainerProps,
+  IMapTypeToButtonContainerProps,
+  ButtonSize
 } from "components/molecules/Button/@types/Button";
 import { IThemeClasses } from "types/theme";
 export const mapTypeToButtonContainerProps: IMapTypeToButtonContainerProps = {
@@ -16,14 +17,14 @@ export const mapTypeToButtonContainerProps: IMapTypeToButtonContainerProps = {
   }
 };
 
-export const mapSizeToButtonContainerProps: IMapSizeToButtonContainerProps = {
-  large: {
+export const mapSizeToButtonContainerProps: TMapSizeToButtonContainerProps = {
+  [ButtonSize.Large]: {
     height: "h-56"
   },
-  medium: {
+  [ButtonSize.Medium]: {
     height: "h-48"
   },
-  small: {
+  [ButtonSize.Small]: {
     height: "h-40"
   }
 };

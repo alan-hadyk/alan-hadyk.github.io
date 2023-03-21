@@ -1,6 +1,6 @@
 import { ILayoutContainerProps } from "components/layout/LayoutContainer/@types/LayoutContainer";
 import { useLayoutContainerThemeClasses } from "components/layout/LayoutContainer/hooks/useLayoutContainerThemeClasses";
-import { forwardRef } from "react";
+import { forwardRef, LegacyRef } from "react";
 
 const _LayoutContainer: React.ForwardRefRenderFunction<
   HTMLDivElement | HTMLElement,
@@ -39,11 +39,11 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
   };
 
   return children ? (
-    <HTMLTag {...props} ref={ref as never}>
+    <HTMLTag {...props} ref={ref as LegacyRef<HTMLDivElement>}>
       {children}
     </HTMLTag>
   ) : (
-    <HTMLTag {...props} ref={ref as never} />
+    <HTMLTag {...props} ref={ref as LegacyRef<HTMLDivElement>} />
   );
 };
 

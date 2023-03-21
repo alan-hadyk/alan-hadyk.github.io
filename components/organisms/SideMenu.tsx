@@ -11,6 +11,7 @@ import { ISideMenuProps } from "components/organisms/@types/SideMenu";
 import { Device } from "components/layout/Responsive/@types/Responsive";
 import { NavItemPosition } from "components/molecules/NavItem/@types/NavItem";
 import { IconDynamicName } from "components/atoms/IconDynamic/@types/IconDynamic";
+import { ButtonSize } from "components/molecules/Button/@types/Button";
 
 const SideMenu: React.FC<ISideMenuProps> = ({
   isExpanded = false,
@@ -47,7 +48,7 @@ const SideMenu: React.FC<ISideMenuProps> = ({
         paddingTop: "pt-8"
       }}
     >
-      <Responsive devices={[Device.MOBILE, Device.TABLET]}>
+      <Responsive devices={[Device.Mobile, Device.Tablet]}>
         <LayoutContainer
           themeClasses={{
             marginBottom: "mb-24"
@@ -92,7 +93,7 @@ const SideMenu: React.FC<ISideMenuProps> = ({
             iconName={IconDynamicName.Download}
             iconWidth={isIE11() ? "w-24" : "w-auto"}
             onClick={onCVButtonClick}
-            size="medium"
+            size={ButtonSize.Medium}
             tabIndex={0}
             themeClasses={{
               width: "w-full"

@@ -3,11 +3,12 @@ import { detect } from "detect-browser";
 import { IconDynamic } from "components/atoms/IconDynamic/IconDynamic";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { useEffect, useState } from "react";
-import { TMediaQuery } from "types/theme";
 import {
   browserInfoDefaultThemeClasses,
   browserInfoIconDefaultThemeClasses,
+  browserInfoIconWrapperActiveIconDefaultThemeClasses,
   browserInfoIconWrapperDefaultThemeClasses,
+  browserInfoIconWrapperInactiveIconDefaultThemeClasses,
   browserInfoInnerContainerDefaultThemeClasses,
   browserInfoOuterContainerDefaultThemeClasses
 } from "components/molecules/BrowserInfo/styles";
@@ -46,16 +47,9 @@ const BrowserInfo: React.FC = () => {
                 key={icon}
                 themeClasses={{
                   ...browserInfoIconWrapperDefaultThemeClasses,
-                  mediaQuery: [
-                    ...(isIconActive
-                      ? [
-                          "screenMaxHeight640:block",
-                          "screenMaxHeight640:h-100%",
-                          "screenMaxHeight640:mx-auto",
-                          "screenMaxHeight640:my-0"
-                        ]
-                      : ["screenMaxHeight640:hidden"])
-                  ] as TMediaQuery[]
+                  mediaQuery: isIconActive
+                    ? browserInfoIconWrapperActiveIconDefaultThemeClasses
+                    : browserInfoIconWrapperInactiveIconDefaultThemeClasses
                 }}
               >
                 <IconDynamic

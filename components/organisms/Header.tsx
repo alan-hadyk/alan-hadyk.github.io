@@ -66,7 +66,7 @@ const Header: React.FC<IHeaderProps> = ({ children, zIndex = "z-400" }) => {
                 justifyContent: "justify-between"
               }}
             >
-              <Responsive devices={[Device.TV, Device.DESKTOP, Device.TABLET]}>
+              <Responsive devices={[Device.Tv, Device.Desktop, Device.Tablet]}>
                 <LinkWithImage
                   href="/"
                   iconName="logo"
@@ -77,7 +77,7 @@ const Header: React.FC<IHeaderProps> = ({ children, zIndex = "z-400" }) => {
                 />
               </Responsive>
 
-              <Responsive devices={[Device.MOBILE]}>
+              <Responsive devices={[Device.Mobile]}>
                 <LinkWithImage
                   href="/"
                   iconName="logoShortcut"

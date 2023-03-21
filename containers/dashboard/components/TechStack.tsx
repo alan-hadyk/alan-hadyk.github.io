@@ -1,5 +1,5 @@
 import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
-import { AnimatedIcons } from "components/molecules/AnimatedIcons/AnimatedIcons";
+import { HorizontalIcons } from "components/molecules/HorizontalIcons/HorizontalIcons";
 
 const TechStack: React.FC = () => (
   <ContentFrame
@@ -11,7 +11,7 @@ const TechStack: React.FC = () => (
       }
     }}
   >
-    <AnimatedIcons />
+    <HorizontalIcons />
   </ContentFrame>
 );
 

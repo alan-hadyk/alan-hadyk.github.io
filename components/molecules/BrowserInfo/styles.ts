@@ -1,5 +1,5 @@
 import { isSafari } from "helpers/browser/isSafari";
-import { IThemeClasses } from "types/theme";
+import { IThemeClasses, TMediaQuery } from "types/theme";
 
 export const browserInfoDefaultThemeClasses: IThemeClasses = {
   height: "h-100%",
@@ -37,3 +37,14 @@ export const browserInfoIconDefaultThemeClasses: IThemeClasses = {
   ],
   width: isSafari() ? "4vh" : "100%"
 };
+
+export const browserInfoIconWrapperActiveIconDefaultThemeClasses: TMediaQuery[] =
+  [
+    "screenMaxHeight640:block",
+    "screenMaxHeight640:h-100%",
+    "screenMaxHeight640:mx-auto",
+    "screenMaxHeight640:my-0"
+  ];
+
+export const browserInfoIconWrapperInactiveIconDefaultThemeClasses: TMediaQuery[] =
+  ["screenMaxHeight640:hidden"];
