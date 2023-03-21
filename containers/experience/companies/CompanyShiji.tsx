@@ -1,66 +1,75 @@
 import { Company } from "components/organisms/Company/Company";
 
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
+import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 
 const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
   {
-    iconName: "javaScript",
+    iconName: IconStaticName.HTML,
+    label: "HTML"
+  },
+  {
+    iconName: IconStaticName.CSS,
+    label: "CSS"
+  },
+  {
+    iconName: IconStaticName.JavaScript,
     label: "Javascript"
   },
   {
-    iconName: "typeScript",
+    iconName: IconStaticName.TypeScript,
     label: "Typescript"
   },
   {
-    iconName: "react",
+    iconName: IconStaticName.React,
     label: "React"
   },
   {
-    iconName: "redux",
+    iconName: IconStaticName.Redux,
     label: "Redux"
   },
   {
-    iconName: "ember",
+    iconName: IconStaticName.Ember,
     label: "Ember"
   },
   {
-    iconName: "sass",
+    iconName: IconStaticName.Sass,
     label: "Sass"
   },
   {
-    iconName: "docker",
+    iconName: IconStaticName.Docker,
     label: "Docker"
   },
   {
-    iconName: "qUnit",
+    iconName: IconStaticName.QUnit,
     label: "QUnit"
   },
   {
-    iconName: "webpack",
+    iconName: IconStaticName.Webpack,
     label: "Webpack"
   },
   {
-    iconName: "nodeJs",
+    iconName: IconStaticName.NodeJs,
     label: "Node.js"
   },
   {
-    iconName: "rest",
+    iconName: IconStaticName.REST,
     label: "REST"
   },
   {
-    iconName: "zeplin",
+    iconName: IconStaticName.Zeplin,
     label: "Zeplin"
   },
   {
-    iconName: "jira",
+    iconName: IconStaticName.Jira,
     label: "JIRA"
   },
   {
-    iconName: "jenkins",
+    iconName: IconStaticName.Jenkins,
     label: "Jenkins"
   },
   {
-    iconName: "gitlab",
+    iconName: IconStaticName.GitLab,
     label: "GitLab"
   }
 ];

@@ -1,20 +1,21 @@
+import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 import { IIconWithLabelProps } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 
 const iconsWithLabels: IIconWithLabelProps[] = [
   {
-    iconName: "javaScript",
+    iconName: IconStaticName.JavaScript,
     label: "JavaScript"
   },
   {
-    iconName: "typeScript",
+    iconName: IconStaticName.TypeScript,
     label: "TypeScript"
   },
   {
-    iconName: "coffeeScript",
+    iconName: IconStaticName.CoffeeScript,
     label: "CoffeeScript"
   },
   {
-    iconName: "ruby",
+    iconName: IconStaticName.Ruby,
     label: "Ruby"
   }
 ];

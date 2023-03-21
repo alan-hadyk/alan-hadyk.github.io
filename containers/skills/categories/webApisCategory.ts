@@ -1,20 +1,21 @@
+import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 import { IIconWithLabelProps } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 
 const iconsWithLabels: IIconWithLabelProps[] = [
   {
-    iconName: "axios",
+    iconName: IconStaticName.Axios,
     label: "Axios"
   },
   {
-    iconName: "graphQL",
+    iconName: IconStaticName.GraphQL,
     label: "GraphQL"
   },
   {
-    iconName: "rest",
+    iconName: IconStaticName.REST,
     label: "REST"
   },
   {
-    iconName: "websocket",
+    iconName: IconStaticName.Websocket,
     label: "WebSockets"
   }
 ];

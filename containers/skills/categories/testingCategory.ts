@@ -1,24 +1,25 @@
+import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 import { IIconWithLabelProps } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 
 const iconsWithLabels: IIconWithLabelProps[] = [
   {
-    iconName: "jest",
+    iconName: IconStaticName.JEST,
     label: "JEST"
   },
   {
-    iconName: "airbnb",
+    iconName: IconStaticName.AirBnb,
     label: "Enzyme"
   },
   {
-    iconName: "reactTestingLibrary",
+    iconName: IconStaticName.ReactTestingLibrary,
     label: "React Testing Library"
   },
   {
-    iconName: "cypress",
+    iconName: IconStaticName.Cypress,
     label: "Cypress"
   },
   {
-    iconName: "qUnit",
+    iconName: IconStaticName.QUnit,
     label: "QUnit"
   }
 ];

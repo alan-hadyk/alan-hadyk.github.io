@@ -1,73 +1,76 @@
 import { CSSProperties } from "react";
 import { IThemeClasses } from "types/theme";
 
+export enum IconStaticName {
+  AfterEffects = "afterEffects",
+  AirBnb = "airbnb",
+  Apollo = "apollo",
+  Auth0 = "auth0",
+  Axios = "axios",
+  Bamboo = "bamboo",
+  Basecamp = "basecamp",
+  Buildkite = "buildkite",
+  CSS = "css",
+  CSSModules = "cssModules",
+  Calendar = "calendar",
+  Chakra = "chakra",
+  CoffeeScript = "coffeeScript",
+  CorelDraw = "corelDraw",
+  Cypress = "cypress",
+  Docker = "docker",
+  Docpad = "docpad",
+  Ember = "ember",
+  Express = "express",
+  Figma = "figma",
+  Gallery = "gallery",
+  GitHub = "github",
+  GitLab = "gitlab",
+  GraphQL = "graphQL",
+  Grunt = "grunt",
+  Gulp = "gulp",
+  HTML = "html",
+  JEST = "jest",
+  JQuery = "jQuery",
+  JavaScript = "javaScript",
+  Jenkins = "jenkins",
+  Jira = "jira",
+  LESS = "less",
+  Link = "link",
+  NestJs = "nestJs",
+  NextJs = "nextJs",
+  NodeJs = "nodeJs",
+  Phabricator = "phabricator",
+  Photoshop = "photoshop",
+  Prestashop = "prestashop",
+  Prisma = "prisma",
+  QUnit = "qUnit",
+  Quire = "quire",
+  REST = "rest",
+  React = "react",
+  ReactQuery = "reactQuery",
+  ReactTestingLibrary = "reactTestingLibrary",
+  Redmine = "redmine",
+  Redux = "redux",
+  Ruby = "ruby",
+  RubyOnRails = "rubyOnRails",
+  Sass = "sass",
+  Sinatra = "sinatra",
+  Sketch = "sketch",
+  Stash = "stash",
+  StyledComponents = "styledComponents",
+  Tailwind = "tailwind",
+  Taskade = "taskade",
+  Trello = "trello",
+  TypeScript = "typeScript",
+  Vite = "vite",
+  Webpack = "webpack",
+  Websocket = "websocket",
+  WindiCSS = "windiCss",
+  Zeplin = "zeplin"
+}
+
 export interface IIconStaticProps {
-  iconName:
-    | "afterEffects"
-    | "airbnb"
-    | "apollo"
-    | "auth0"
-    | "axios"
-    | "bamboo"
-    | "basecamp"
-    | "buildkite"
-    | "chakra"
-    | "coffeeScript"
-    | "corelDraw"
-    | "css"
-    | "cssModules"
-    | "cypress"
-    | "docker"
-    | "docpad"
-    | "ember"
-    | "express"
-    | "figma"
-    | "gallery"
-    | "github"
-    | "gitlab"
-    | "graphQL"
-    | "grunt"
-    | "gulp"
-    | "html"
-    | "jenkins"
-    | "jest"
-    | "jira"
-    | "jQuery"
-    | "javaScript"
-    | "less"
-    | "link"
-    | "nestJs"
-    | "nextJs"
-    | "nodeJs"
-    | "phabricator"
-    | "photoshop"
-    | "prestashop"
-    | "prisma"
-    | "quire"
-    | "qUnit"
-    | "rubyOnRails"
-    | "react"
-    | "reactQuery"
-    | "redmine"
-    | "redux"
-    | "rest"
-    | "ruby"
-    | "sass"
-    | "sinatra"
-    | "sketch"
-    | "stash"
-    | "styledComponents"
-    | "tailwind"
-    | "taskade"
-    | "reactTestingLibrary"
-    | "trello"
-    | "typeScript"
-    | "vite"
-    | "webpack"
-    | "websocket"
-    | "windiCss"
-    | "zeplin"
-    | "calendar";
+  iconName: IconStaticName;
   style?: CSSProperties;
   themeClasses?: Pick<IThemeClasses, "height" | "overflow" | "width">;
 }

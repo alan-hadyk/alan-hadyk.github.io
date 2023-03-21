@@ -1,16 +1,17 @@
+import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 import { IIconWithLabelProps } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 
 const iconsWithLabels: IIconWithLabelProps[] = [
   {
-    iconName: "reactQuery",
+    iconName: IconStaticName.ReactQuery,
     label: "React Query"
   },
   {
-    iconName: "apollo",
+    iconName: IconStaticName.Apollo,
     label: "Apollo"
   },
   {
-    iconName: "redux",
+    iconName: IconStaticName.Redux,
     label: "Redux"
   }
 ];

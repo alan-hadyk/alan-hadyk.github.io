@@ -1,33 +1,42 @@
+import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
 import { Company } from "components/organisms/Company/Company";
 
 const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
   {
-    iconName: "javaScript",
+    iconName: IconStaticName.HTML,
+    label: "HTML"
+  },
+  {
+    iconName: IconStaticName.CSS,
+    label: "CSS"
+  },
+  {
+    iconName: IconStaticName.JavaScript,
     label: "Javascript"
   },
   {
-    iconName: "typeScript",
+    iconName: IconStaticName.TypeScript,
     label: "Typescript"
   },
   {
-    iconName: "react",
+    iconName: IconStaticName.React,
     label: "React"
   },
   {
-    iconName: "tailwind",
+    iconName: IconStaticName.Tailwind,
     label: "Tailwind"
   },
   {
-    iconName: "graphQL",
+    iconName: IconStaticName.GraphQL,
     label: "GraphQL"
   },
   {
-    iconName: "apollo",
+    iconName: IconStaticName.Apollo,
     label: "Apollo"
   },
   {
-    iconName: "prisma",
+    iconName: IconStaticName.Prisma,
     label: "Prisma"
   }
 ];

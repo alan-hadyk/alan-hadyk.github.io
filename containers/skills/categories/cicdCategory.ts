@@ -1,36 +1,37 @@
+import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 import { IIconWithLabelProps } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 
 const iconsWithLabels: IIconWithLabelProps[] = [
   {
-    iconName: "jenkins",
+    iconName: IconStaticName.Jenkins,
     label: "Jenkins"
   },
   {
-    iconName: "buildkite",
+    iconName: IconStaticName.Buildkite,
     label: "Buildkite"
   },
   {
-    iconName: "bamboo",
+    iconName: IconStaticName.Bamboo,
     label: "Bamboo"
   },
   {
-    iconName: "github",
+    iconName: IconStaticName.GitHub,
     label: "GitHub Actions"
   },
   {
-    iconName: "github",
+    iconName: IconStaticName.GitHub,
     label: "GitHub Enterprise"
   },
   {
-    iconName: "docker",
+    iconName: IconStaticName.Docker,
     label: "Docker"
   },
   {
-    iconName: "gitlab",
+    iconName: IconStaticName.GitLab,
     label: "GitLab"
   },
   {
-    iconName: "stash",
+    iconName: IconStaticName.Stash,
     label: "Stash"
   }
 ];

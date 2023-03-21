@@ -1,20 +1,21 @@
+import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 import { IIconWithLabelProps } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 
 const iconsWithLabels: IIconWithLabelProps[] = [
   {
-    iconName: "vite",
+    iconName: IconStaticName.Vite,
     label: "Vite"
   },
   {
-    iconName: "webpack",
+    iconName: IconStaticName.Webpack,
     label: "Webpack"
   },
   {
-    iconName: "grunt",
+    iconName: IconStaticName.Grunt,
     label: "Grunt"
   },
   {
-    iconName: "gulp",
+    iconName: IconStaticName.Gulp,
     label: "Gulp"
   }
 ];

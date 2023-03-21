@@ -1,52 +1,53 @@
+import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 import { IIconWithLabelProps } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 
 const iconsWithLabels: IIconWithLabelProps[] = [
   {
-    iconName: "react",
+    iconName: IconStaticName.React,
     label: "React"
   },
   {
-    iconName: "nextJs",
+    iconName: IconStaticName.NextJs,
     label: "Next.js"
   },
   {
-    iconName: "react",
+    iconName: IconStaticName.React,
     label: "React Native"
   },
   {
-    iconName: "nodeJs",
+    iconName: IconStaticName.NodeJs,
     label: "Node.js"
   },
   {
-    iconName: "nestJs",
+    iconName: IconStaticName.NestJs,
     label: "NestJS"
   },
   {
-    iconName: "prisma",
+    iconName: IconStaticName.Prisma,
     label: "Prisma"
   },
   {
-    iconName: "nodeJs",
+    iconName: IconStaticName.NodeJs,
     label: "Express"
   },
   {
-    iconName: "ember",
+    iconName: IconStaticName.Ember,
     label: "Ember"
   },
   {
-    iconName: "prestashop",
+    iconName: IconStaticName.Prestashop,
     label: "PrestaShop"
   },
   {
-    iconName: "jQuery",
+    iconName: IconStaticName.JQuery,
     label: "jQuery"
   },
   {
-    iconName: "rubyOnRails",
+    iconName: IconStaticName.RubyOnRails,
     label: "Ruby on Rails"
   },
   {
-    iconName: "sinatra",
+    iconName: IconStaticName.Sinatra,
     label: "Sinatra"
   }
 ];

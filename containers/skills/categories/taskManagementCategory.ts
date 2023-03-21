@@ -1,32 +1,33 @@
+import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 import { IIconWithLabelProps } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 
 const iconsWithLabels: IIconWithLabelProps[] = [
   {
-    iconName: "jira",
+    iconName: IconStaticName.Jira,
     label: "JIRA"
   },
   {
-    iconName: "phabricator",
+    iconName: IconStaticName.Phabricator,
     label: "Phabricator"
   },
   {
-    iconName: "redmine",
+    iconName: IconStaticName.Redmine,
     label: "Redmine"
   },
   {
-    iconName: "quire",
+    iconName: IconStaticName.Quire,
     label: "Quire"
   },
   {
-    iconName: "trello",
+    iconName: IconStaticName.Trello,
     label: "Trello"
   },
   {
-    iconName: "taskade",
+    iconName: IconStaticName.Taskade,
     label: "Taskade"
   },
   {
-    iconName: "basecamp",
+    iconName: IconStaticName.Basecamp,
     label: "Basecamp"
   }
 ];

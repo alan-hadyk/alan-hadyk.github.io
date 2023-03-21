@@ -1,41 +1,50 @@
+import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
 import { Company } from "components/organisms/Company/Company";
 
 const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
   {
-    iconName: "javaScript",
+    iconName: IconStaticName.HTML,
+    label: "HTML"
+  },
+  {
+    iconName: IconStaticName.CSS,
+    label: "CSS"
+  },
+  {
+    iconName: IconStaticName.JavaScript,
     label: "Javascript"
   },
   {
-    iconName: "typeScript",
+    iconName: IconStaticName.TypeScript,
     label: "Typescript"
   },
   {
-    iconName: "react",
+    iconName: IconStaticName.React,
     label: "React"
   },
   {
-    iconName: "windiCss",
+    iconName: IconStaticName.WindiCSS,
     label: "Windi CSS"
   },
   {
-    iconName: "reactQuery",
+    iconName: IconStaticName.ReactQuery,
     label: "React Query"
   },
   {
-    iconName: "vite",
+    iconName: IconStaticName.Vite,
     label: "Vite"
   },
   {
-    iconName: "axios",
+    iconName: IconStaticName.Axios,
     label: "Axios"
   },
   {
-    iconName: "rest",
+    iconName: IconStaticName.REST,
     label: "REST"
   },
   {
-    iconName: "prisma",
+    iconName: IconStaticName.Prisma,
     label: "Prisma"
   }
 ];

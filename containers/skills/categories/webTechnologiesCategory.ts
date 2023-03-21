@@ -1,12 +1,13 @@
+import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 import { IIconWithLabelProps } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 
 const iconsWithLabels: IIconWithLabelProps[] = [
   {
-    iconName: "html",
+    iconName: IconStaticName.HTML,
     label: "HTML"
   },
   {
-    iconName: "css",
+    iconName: IconStaticName.CSS,
     label: "CSS"
   }
 ];

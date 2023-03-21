@@ -1,86 +1,95 @@
 import { Company } from "components/organisms/Company/Company";
 
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
+import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 
 const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
   {
-    iconName: "javaScript",
+    iconName: IconStaticName.HTML,
+    label: "HTML"
+  },
+  {
+    iconName: IconStaticName.CSS,
+    label: "CSS"
+  },
+  {
+    iconName: IconStaticName.JavaScript,
     label: "Javascript"
   },
   {
-    iconName: "ruby",
+    iconName: IconStaticName.Ruby,
     label: "Ruby"
   },
   {
-    iconName: "react",
+    iconName: IconStaticName.React,
     label: "React"
   },
   {
-    iconName: "rubyOnRails",
+    iconName: IconStaticName.RubyOnRails,
     label: "Ruby on Rails"
   },
   {
-    iconName: "sinatra",
+    iconName: IconStaticName.Sinatra,
     label: "Sinatra"
   },
   {
-    iconName: "styledComponents",
+    iconName: IconStaticName.StyledComponents,
     label: "styled components"
   },
   {
-    iconName: "webpack",
+    iconName: IconStaticName.Webpack,
     label: "Webpack"
   },
   {
-    iconName: "jest",
+    iconName: IconStaticName.JEST,
     label: "JEST"
   },
   {
-    iconName: "airbnb",
+    iconName: IconStaticName.AirBnb,
     label: "Enzyme"
   },
   {
-    iconName: "reactTestingLibrary",
+    iconName: IconStaticName.ReactTestingLibrary,
     label: "React Testing Library"
   },
   {
-    iconName: "cypress",
+    iconName: IconStaticName.Cypress,
     label: "Cypress"
   },
   {
-    iconName: "nodeJs",
+    iconName: IconStaticName.NodeJs,
     label: "Node.js"
   },
   {
-    iconName: "express",
+    iconName: IconStaticName.Express,
     label: "Express"
   },
   {
-    iconName: "apollo",
+    iconName: IconStaticName.Apollo,
     label: "Apollo"
   },
   {
-    iconName: "graphQL",
+    iconName: IconStaticName.GraphQL,
     label: "GraphQL"
   },
   {
-    iconName: "docker",
+    iconName: IconStaticName.Docker,
     label: "Docker"
   },
   {
-    iconName: "jenkins",
+    iconName: IconStaticName.Jenkins,
     label: "Jenkins"
   },
   {
-    iconName: "buildkite",
+    iconName: IconStaticName.Buildkite,
     label: "Buildkite"
   },
   {
-    iconName: "basecamp",
+    iconName: IconStaticName.Basecamp,
     label: "Basecamp"
   },
   {
-    iconName: "gallery",
+    iconName: IconStaticName.Gallery,
     label: "Gallery"
   }
 ];

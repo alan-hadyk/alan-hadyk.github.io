@@ -1,32 +1,33 @@
+import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 import { IIconWithLabelProps } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 
 const iconsWithLabels: IIconWithLabelProps[] = [
   {
-    iconName: "windiCss",
+    iconName: IconStaticName.WindiCSS,
     label: "Windi CSS"
   },
   {
-    iconName: "styledComponents",
+    iconName: IconStaticName.StyledComponents,
     label: "styled components"
   },
   {
-    iconName: "tailwind",
+    iconName: IconStaticName.Tailwind,
     label: "Tailwind"
   },
   {
-    iconName: "chakra",
+    iconName: IconStaticName.Chakra,
     label: "Chakra"
   },
   {
-    iconName: "sass",
+    iconName: IconStaticName.Sass,
     label: "Sass"
   },
   {
-    iconName: "cssModules",
+    iconName: IconStaticName.CSSModules,
     label: "CSS Modules"
   },
   {
-    iconName: "less",
+    iconName: IconStaticName.LESS,
     label: "LESS"
   }
 ];

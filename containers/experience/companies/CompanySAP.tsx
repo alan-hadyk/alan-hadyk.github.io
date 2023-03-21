@@ -1,58 +1,67 @@
 import { Company } from "components/organisms/Company/Company";
 
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
+import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 
 const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
   {
-    iconName: "javaScript",
+    iconName: IconStaticName.HTML,
+    label: "HTML"
+  },
+  {
+    iconName: IconStaticName.CSS,
+    label: "CSS"
+  },
+  {
+    iconName: IconStaticName.JavaScript,
     label: "Javascript"
   },
   {
-    iconName: "coffeeScript",
+    iconName: IconStaticName.CoffeeScript,
     label: "CoffeeScript"
   },
   {
-    iconName: "react",
+    iconName: IconStaticName.React,
     label: "React"
   },
   {
-    iconName: "redux",
+    iconName: IconStaticName.Redux,
     label: "Redux"
   },
   {
-    iconName: "cssModules",
+    iconName: IconStaticName.CSSModules,
     label: "CSS Modules"
   },
   {
-    iconName: "webpack",
+    iconName: IconStaticName.Webpack,
     label: "Webpack"
   },
   {
-    iconName: "nodeJs",
+    iconName: IconStaticName.NodeJs,
     label: "Node.js"
   },
   {
-    iconName: "docpad",
+    iconName: IconStaticName.Docpad,
     label: "DocPad"
   },
   {
-    iconName: "jest",
+    iconName: IconStaticName.JEST,
     label: "JEST"
   },
   {
-    iconName: "airbnb",
+    iconName: IconStaticName.AirBnb,
     label: "Enzyme"
   },
   {
-    iconName: "jira",
+    iconName: IconStaticName.Jira,
     label: "JIRA"
   },
   {
-    iconName: "stash",
+    iconName: IconStaticName.Stash,
     label: "Stash"
   },
   {
-    iconName: "bamboo",
+    iconName: IconStaticName.Bamboo,
     label: "Bamboo"
   }
 ];

@@ -7,6 +7,7 @@ import { ICompanyDescriptionProps } from "components/organisms/@types/CompanyDes
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { TechStack } from "components/molecules/TechStack";
 import { IconWithLabelSize } from "components/molecules/IconWithLabel/@types/IconWithLabel";
+import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 
 const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
   date,
@@ -42,7 +43,7 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
       }}
     >
       <IconWithLabel
-        iconName="calendar"
+        iconName={IconStaticName.Calendar}
         label={date}
         size={IconWithLabelSize.Medium}
         themeClasses={{
@@ -64,7 +65,7 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
         <IconWithLabel
           href={link}
           isExternal
-          iconName="link"
+          iconName={IconStaticName.Link}
           label={link}
           size={IconWithLabelSize.Medium}
           themeClasses={{

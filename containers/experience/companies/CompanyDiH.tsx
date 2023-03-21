@@ -1,30 +1,39 @@
 import { Company } from "components/organisms/Company/Company";
 
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
+import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 
 const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
   {
-    iconName: "javaScript",
+    iconName: IconStaticName.HTML,
+    label: "HTML"
+  },
+  {
+    iconName: IconStaticName.CSS,
+    label: "CSS"
+  },
+  {
+    iconName: IconStaticName.JavaScript,
     label: "Javascript"
   },
   {
-    iconName: "sass",
+    iconName: IconStaticName.Sass,
     label: "Sass"
   },
   {
-    iconName: "less",
+    iconName: IconStaticName.LESS,
     label: "LESS"
   },
   {
-    iconName: "jQuery",
+    iconName: IconStaticName.JQuery,
     label: "jQuery"
   },
   {
-    iconName: "prestashop",
+    iconName: IconStaticName.Prestashop,
     label: "PrestaShop"
   },
   {
-    iconName: "redmine",
+    iconName: IconStaticName.Redmine,
     label: "Redmine"
   }
 ];

@@ -1,32 +1,33 @@
+import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 import { IIconWithLabelProps } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 
 const iconsWithLabels: IIconWithLabelProps[] = [
   {
-    iconName: "photoshop",
+    iconName: IconStaticName.Photoshop,
     label: "Photoshop"
   },
   {
-    iconName: "sketch",
+    iconName: IconStaticName.Sketch,
     label: "Sketch"
   },
   {
-    iconName: "figma",
+    iconName: IconStaticName.Figma,
     label: "Figma"
   },
   {
-    iconName: "corelDraw",
+    iconName: IconStaticName.CorelDraw,
     label: "CorelDRAW"
   },
   {
-    iconName: "afterEffects",
+    iconName: IconStaticName.AfterEffects,
     label: "After Effects"
   },
   {
-    iconName: "zeplin",
+    iconName: IconStaticName.Zeplin,
     label: "Zeplin"
   },
   {
-    iconName: "gallery",
+    iconName: IconStaticName.Gallery,
     label: "Gallery"
   }
 ];
