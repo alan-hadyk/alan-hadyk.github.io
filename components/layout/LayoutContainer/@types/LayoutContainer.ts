@@ -11,7 +11,6 @@ export interface ILayoutContainerProps {
   as?: "div" | "nav" | "header" | "main";
   children?: TChildren;
   id?: string;
-  name?: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
   onFocus?: React.FocusEventHandler<HTMLElement> | (() => void);
   style?: React.CSSProperties;

@@ -6,17 +6,7 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
   HTMLDivElement | HTMLElement,
   ILayoutContainerProps
 > = (
-  {
-    as = "div",
-    children,
-    id,
-    name,
-    onClick,
-    onFocus,
-    style,
-    tabIndex,
-    themeClasses
-  },
+  { as = "div", children, id, onClick, onFocus, style, tabIndex, themeClasses },
   ref
 ) => {
   const HTMLTag = as;
@@ -26,22 +16,18 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
     themeClasses
   });
 
-  const props = {
-    className: layoutContainerClassNames.join(" "),
-    id,
-    name,
-    onClick,
-    onFocus,
-    style,
-    tabIndex
-  };
-
-  return children ? (
-    <HTMLTag {...props} ref={ref as LegacyRef<HTMLDivElement>}>
+  return (
+    <HTMLTag
+      className={layoutContainerClassNames.join(" ")}
+      id={id}
+      onClick={onClick}
+      onFocus={onFocus}
+      style={style}
+      tabIndex={tabIndex}
+      ref={ref as LegacyRef<HTMLDivElement>}
+    >
       {children}
     </HTMLTag>
-  ) : (
-    <HTMLTag {...props} ref={ref as LegacyRef<HTMLDivElement>} />
   );
 };
 
