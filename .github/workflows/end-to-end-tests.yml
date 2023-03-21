@@ -1,23 +1,23 @@
 name: End-to-end tests
 
-on: [push]
+# on: [push]
 
-jobs:
-  end-to-end:
-    runs-on: ubuntu-latest
+# jobs:
+#   end-to-end:
+#     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [18.2.0]
+#     strategy:
+#       matrix:
+#         node-version: [18.2.0]
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3.4.0
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v3.4.0
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2.1.5
-        with:
-          node-version: ${{ matrix.node-version }}
+#       - name: Use Node.js ${{ matrix.node-version }}
+#         uses: actions/setup-node@v2.1.5
+#         with:
+#           node-version: ${{ matrix.node-version }}
 
       # - name: test-end-to-end
       #   uses: cypress-io/github-action@v2
