@@ -1,30 +1,56 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
     "checkJs": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "incremental": true,
     "isolatedModules": true,
-    "jsx": "react-jsx",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "jsx": "preserve",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
-    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "api": ["api"],
+      "api/*": ["api/*"],
+      "components": ["components"],
+      "components/*": ["components/*"],
+      "constants/*": ["constants/*"],
+      "containers": ["containers"],
+      "containers/*": ["containers/*"],
+      "helpers": ["helpers"],
+      "helpers/*": ["helpers/*"],
+      "hoc": ["hoc"],
+      "hoc/*": ["hoc/*"],
+      "hooks": ["hooks"],
+      "hooks/*": ["hooks/*"],
+      "layouts": ["layouts"],
+      "layouts/*": ["layouts/*"],
+      "lib": ["lib"],
+      "lib/*": ["lib/*"],
+      "pages": ["pages"],
+      "pages/*": ["pages/*"],
+      "public": ["public"],
+      "public/*": ["public/*"],
+      "styles": ["styles"],
+      "styles/*": ["styles/*"],
+      "types": ["types"]
+    },
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "strictNullChecks": false,
-    "suppressImplicitAnyIndexErrors": true,
+    "strictNullChecks": true,
     "target": "es5"
   },
-  "include": [
-    "src"
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": [
+    "node_modules", 
+    "legacyApp", 
+    "cypress", 
+    "cypressExamples", 
+    "cypress.config.ts"
   ]
 }
