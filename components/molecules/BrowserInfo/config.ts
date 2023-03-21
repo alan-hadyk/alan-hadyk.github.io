@@ -1,10 +1,11 @@
-import { IIconDynamicProps } from "components/atoms/IconDynamic/@types/IconDynamic";
+import { IconDynamicName } from "components/atoms/IconDynamic/@types/IconDynamic";
+import { TBrowserIcon } from "components/molecules/BrowserInfo/@types/BrowserInfo";
 
-export const browserIcons: IIconDynamicProps["iconName"][] = [
-  "chrome",
-  "firefox",
-  "ie",
-  "opera",
-  "safari",
-  "unknown"
+export const browserIcons: TBrowserIcon[] = [
+  IconDynamicName.Chrome,
+  IconDynamicName.Firefox,
+  IconDynamicName.IE,
+  IconDynamicName.Opera,
+  IconDynamicName.Safari,
+  IconDynamicName.Unknown
 ];

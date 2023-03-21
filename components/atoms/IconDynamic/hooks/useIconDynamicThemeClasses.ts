@@ -2,6 +2,7 @@ import { IIconDynamicProps } from "components/atoms/IconDynamic/@types/IconDynam
 import { iconDynamicDefaultThemeClasses } from "components/atoms/IconDynamic/styles";
 import { IThemeClasses, TPseudoClasses } from "types/theme";
 import pick from "lodash/pick";
+import { convertObjectValuesToString } from "helpers/objects/convertObjectValuesToString";
 
 const useIconDynamicThemeClasses = ({
   isActive,
@@ -68,9 +69,18 @@ const useIconDynamicThemeClasses = ({
     width: width && !width.includes("w-") ? width : undefined
   };
 
+  const iconDynamicWrapperClassName = iconDynamicThemeClasses
+    ? convertObjectValuesToString(iconDynamicThemeClasses)
+    : "";
+
+  const iconDynamicClassName =
+    iconDynamicBaseThemeClasses?.pseudoClasses?.find((pseudoClass) =>
+      pseudoClass.includes("fill-")
+    ) || "";
+
   return {
-    iconDynamicBaseThemeClasses,
-    iconDynamicThemeClasses,
+    iconDynamicClassName,
+    iconDynamicWrapperClassName,
     style
   };
 };

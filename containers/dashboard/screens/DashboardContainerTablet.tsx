@@ -18,7 +18,10 @@ const DashboardContainerTablet: React.FC = () => (
         <TechStack />
       </DashboardInnerContainer>
 
-      <ConsoleTvDesktopAndTablet />
+      <ConsoleTvDesktopAndTablet>
+        Vision driven change agent with career-long record of front-end user
+        strategy and UI development
+      </ConsoleTvDesktopAndTablet>
 
       <DashboardInnerContainer
         height="h-[calc(22.6vh+3.6rem)]"

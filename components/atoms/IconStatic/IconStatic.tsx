@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef } from "react";
+import React from "react";
 import { IIconStaticProps } from "components/atoms/IconStatic/@types/IconStatic";
 import {
   iconStaticDefaultThemeClasses,
@@ -6,10 +6,7 @@ import {
 } from "components/atoms/IconStatic/styles";
 import { convertObjectValuesToString } from "helpers/objects/convertObjectValuesToString";
 
-const _IconStatic: React.ForwardRefRenderFunction<
-  HTMLDivElement | HTMLImageElement,
-  IIconStaticProps
-> = ({ iconName, themeClasses }, ref) => {
+const IconStatic: React.FC<IIconStaticProps> = ({ iconName, themeClasses }) => {
   const iconStaticThemeClasses = {
     ...iconStaticDefaultThemeClasses,
     ...themeClasses
@@ -31,14 +28,10 @@ const _IconStatic: React.ForwardRefRenderFunction<
       <img
         alt={iconName}
         className={convertObjectValuesToString(iconStaticThemeClasses)}
-        ref={ref as ForwardedRef<HTMLImageElement>}
         src={`/icons/static/${iconName}.svg`}
         style={style}
       />
     </picture>
   );
 };
-
-const IconStatic = forwardRef(_IconStatic);
-
 export { IconStatic };

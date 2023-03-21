@@ -6,10 +6,7 @@ import {
   mapConsoleTextVariantToStyles
 } from "components/atoms/ConsoleText/styles";
 
-const HERO_DESCRIPTION =
-  "Vision driven change agent with career-long record of front-end user strategy and UI development";
-
-const ConsoleText: React.FC<IConsoleTextProps> = ({ variant }) => {
+const ConsoleText: React.FC<IConsoleTextProps> = ({ children, variant }) => {
   const consoleTextThemeClasses: IThemeClasses = {
     ...consoleTextDefaultThemeClasses,
     ...mapConsoleTextVariantToStyles[variant]
@@ -19,7 +16,7 @@ const ConsoleText: React.FC<IConsoleTextProps> = ({ variant }) => {
     consoleTextThemeClasses
   );
 
-  return <div className={classNames.join(" ")}>{HERO_DESCRIPTION}</div>;
+  return <div className={classNames.join(" ")}>{children}</div>;
 };
 
-export { ConsoleText, HERO_DESCRIPTION as hero };
+export { ConsoleText };

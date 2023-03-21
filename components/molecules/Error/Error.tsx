@@ -10,12 +10,13 @@ import {
   errorTitleDefaultThemeClasses
 } from "components/molecules/Error/styles";
 import { IconDynamic } from "components/atoms/IconDynamic/IconDynamic";
+import { IconDynamicName } from "components/atoms/IconDynamic/@types/IconDynamic";
 
 const Error: React.FC<IErrorProps> = ({ description, title }) => (
   <LayoutContainer themeClasses={errorDefaultThemeClasses}>
     <LayoutContainer themeClasses={errorContainerDefaultThemeClasses}>
       <IconDynamic
-        iconName="warning"
+        iconName={IconDynamicName.Warning}
         shouldDisplayGlowAnimation
         themeClasses={errorIconDefaultThemeClasses}
       />

@@ -2,6 +2,7 @@ import { IThemeClasses, TPseudoClasses } from "types/theme";
 import pick from "lodash/pick";
 import { IImageDynamicProps } from "components/atoms/ImageDynamic/@types/ImageDynamic";
 import { imageDynamicDefaultThemeClasses } from "components/atoms/ImageDynamic/styles";
+import { convertObjectValuesToString } from "helpers/objects/convertObjectValuesToString";
 
 const useImageDynamicThemeClasses = ({
   isActive,
@@ -59,6 +60,10 @@ const useImageDynamicThemeClasses = ({
     width: width && !width.includes("w-") ? width : undefined
   };
 
+  const imageDynamicWrapperClassNames = convertObjectValuesToString(
+    imageDynamicThemeClasses
+  );
+
   const imageComponentClassNames =
     imageDynamicBaseThemeClasses?.pseudoClasses?.find((pseudoClass) =>
       pseudoClass.includes("fill-")
@@ -66,7 +71,7 @@ const useImageDynamicThemeClasses = ({
 
   return {
     imageComponentClassNames,
-    imageDynamicThemeClasses,
+    imageDynamicWrapperClassNames,
     style
   };
 };

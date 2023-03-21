@@ -1,11 +1,14 @@
-import { IIconDynamicProps } from "components/atoms/IconDynamic/@types/IconDynamic";
+import {
+  IconDynamicName,
+  IIconDynamicProps
+} from "components/atoms/IconDynamic/@types/IconDynamic";
 import { IThemeClasses } from "types/theme";
 
 export interface IButtonProps {
   children: string;
   iconName?: Extract<
     IIconDynamicProps["iconName"],
-    "download" | "externalLink"
+    IconDynamicName.Download | IconDynamicName.ExternalLink
   >;
   iconWidth?: IThemeClasses["width"];
   onClick?: () => void;

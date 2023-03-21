@@ -10,6 +10,7 @@ import { isIE11 } from "helpers/browser/isIE11";
 import { ISideMenuProps } from "components/organisms/@types/SideMenu";
 import { Device } from "components/layout/Responsive/@types/Responsive";
 import { NavItemPosition } from "components/molecules/NavItem/@types/NavItem";
+import { IconDynamicName } from "components/atoms/IconDynamic/@types/IconDynamic";
 
 const SideMenu: React.FC<ISideMenuProps> = ({
   isExpanded = false,
@@ -88,7 +89,7 @@ const SideMenu: React.FC<ISideMenuProps> = ({
             </LayoutContainer>
           </LayoutContainer>
           <Button
-            iconName="download"
+            iconName={IconDynamicName.Download}
             iconWidth={isIE11() ? "w-24" : "w-auto"}
             onClick={onCVButtonClick}
             size="medium"
@@ -118,17 +119,17 @@ const SideMenu: React.FC<ISideMenuProps> = ({
             icons={[
               {
                 href: "https://github.com/alan-hadyk",
-                iconName: "gitHub",
+                iconName: IconDynamicName.GitHub,
                 isExternal: true
               },
               {
                 href: "https://www.toptal.com/resume/alan-hadyk",
-                iconName: "toptal",
+                iconName: IconDynamicName.Toptal,
                 isExternal: true
               },
               {
                 href: "https://www.linkedin.com/in/alan-hadyk-78738099/",
-                iconName: "linkedIn",
+                iconName: IconDynamicName.LinkedIn,
                 isExternal: true
               }
             ]}

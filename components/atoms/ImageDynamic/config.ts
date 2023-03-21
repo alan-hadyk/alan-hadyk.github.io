@@ -6,7 +6,7 @@ import LogoShortcut from "public/images/dynamic/logoShortcut.svg";
 
 import { TImageComponents } from "components/atoms/ImageDynamic/@types/ImageDynamic";
 
-const imageComponents: TImageComponents = {
+const imageDynamicComponents: TImageComponents = {
   earth: Earth,
   hexagon: Hexagon,
   hexagonWithPattern: HexagonWithPattern,
@@ -14,4 +14,4 @@ const imageComponents: TImageComponents = {
   logoShortcut: LogoShortcut
 };
 
-export { imageComponents };
+export { imageDynamicComponents };

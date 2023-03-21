@@ -1,10 +1,9 @@
-import React, { ForwardedRef, forwardRef } from "react";
-import { convertObjectValuesToString } from "helpers/objects/convertObjectValuesToString";
+import React, { forwardRef } from "react";
 import {
   IImageDynamicProps,
   SVGImage
 } from "components/atoms/ImageDynamic/@types/ImageDynamic";
-import { imageComponents } from "components/atoms/ImageDynamic/config";
+import { imageDynamicComponents } from "components/atoms/ImageDynamic/config";
 import { useImageDynamicThemeClasses } from "components/atoms/ImageDynamic/hooks/useImageDynamicThemeClasses";
 
 const _ImageDynamic: React.ForwardRefRenderFunction<
@@ -22,7 +21,7 @@ const _ImageDynamic: React.ForwardRefRenderFunction<
   },
   ref
 ) => {
-  const { imageComponentClassNames, imageDynamicThemeClasses, style } =
+  const { imageComponentClassNames, imageDynamicWrapperClassNames, style } =
     useImageDynamicThemeClasses({
       isActive,
       isHeightResponsive,
@@ -32,14 +31,10 @@ const _ImageDynamic: React.ForwardRefRenderFunction<
       themeClasses
     });
 
-  const ImageComponent: SVGImage = imageComponents[imageName];
+  const ImageComponent: SVGImage = imageDynamicComponents[imageName];
 
   return (
-    <div
-      className={convertObjectValuesToString(imageDynamicThemeClasses)}
-      ref={ref as ForwardedRef<HTMLDivElement>}
-      style={style}
-    >
+    <div className={imageDynamicWrapperClassNames} ref={ref} style={style}>
       <ImageComponent className={imageComponentClassNames} />
     </div>
   );

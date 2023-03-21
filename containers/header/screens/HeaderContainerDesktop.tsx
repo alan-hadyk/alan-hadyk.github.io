@@ -13,6 +13,7 @@ import { isIE11 } from "helpers/browser/isIE11";
 import { Device } from "components/layout/Responsive/@types/Responsive";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { IHeaderContainerScreenProps } from "containers/header/@types/HeaderContainerScreen";
+import { IconDynamicName } from "components/atoms/IconDynamic/@types/IconDynamic";
 
 const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
   isMenuVisible,
@@ -54,7 +55,7 @@ const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
       </LayoutContainer>
 
       <Button
-        iconName="download"
+        iconName={IconDynamicName.Download}
         iconWidth={isIE11() ? "w-24" : "w-auto"}
         onClick={onCVButtonClick}
         size="medium"

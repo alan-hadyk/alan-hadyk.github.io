@@ -1,10 +1,9 @@
-import React, { ForwardedRef, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import {
   IIconDynamicProps,
   SVGIcon
 } from "components/atoms/IconDynamic/@types/IconDynamic";
-import { iconComponents } from "components/atoms/IconDynamic/config";
-import { convertObjectValuesToString } from "helpers/objects/convertObjectValuesToString";
+import { iconDynamicComponents } from "components/atoms/IconDynamic/config";
 import { useIconDynamicThemeClasses } from "components/atoms/IconDynamic/hooks/useIconDynamicThemeClasses";
 
 const _IconDynamic: React.ForwardRefRenderFunction<
@@ -23,7 +22,7 @@ const _IconDynamic: React.ForwardRefRenderFunction<
   },
   ref
 ) => {
-  const { iconDynamicBaseThemeClasses, iconDynamicThemeClasses, style } =
+  const { iconDynamicClassName, iconDynamicWrapperClassName, style } =
     useIconDynamicThemeClasses({
       isActive,
       isHeightResponsive,
@@ -34,29 +33,15 @@ const _IconDynamic: React.ForwardRefRenderFunction<
       themeClasses
     });
 
-  const IconComponent: SVGIcon = iconComponents[iconName];
+  const IconComponent: SVGIcon = iconDynamicComponents[iconName];
 
   return (
-    <div
-      className={
-        iconDynamicThemeClasses
-          ? convertObjectValuesToString(iconDynamicThemeClasses)
-          : ""
-      }
-      ref={ref as ForwardedRef<HTMLDivElement>}
-      style={style}
-    >
-      <IconComponent
-        className={
-          iconDynamicBaseThemeClasses?.pseudoClasses?.find((pseudoClass) =>
-            pseudoClass.includes("fill-")
-          ) || ""
-        }
-      />
+    <div className={iconDynamicWrapperClassName} ref={ref} style={style}>
+      <IconComponent className={iconDynamicClassName} />
     </div>
   );
 };
 
 const IconDynamic = forwardRef(_IconDynamic);
 
-export { IconDynamic, iconComponents };
+export { IconDynamic, iconDynamicComponents as iconComponents };

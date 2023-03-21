@@ -1,14 +1,7 @@
-import { useState, useRef } from "react";
-
-import { useShuffleText } from "hooks/useShuffleText";
-import { useInterval } from "hooks/useInterval";
-
 import { ITypographyProps } from "components/atoms/Typography/@types/Typography";
-import { IShuffleState } from "hooks/@types/useShuffleText";
 import { theme } from "theme/theme";
-import { typographyDefaultThemeClasses } from "components/atoms/Typography/styles";
-import { IThemeClasses, TPseudoClasses } from "types/theme";
-import { convertObjectValuesToString } from "helpers/objects/convertObjectValuesToString";
+import { useTypographyState } from "components/atoms/Typography/hooks/useTypographyState";
+import { useTypographyThemeClasses } from "components/atoms/Typography/hooks/useTypographyThemeClasses";
 
 const Typography: React.FC<ITypographyProps> = ({
   children,
@@ -22,61 +15,23 @@ const Typography: React.FC<ITypographyProps> = ({
   ),
   themeClasses
 }) => {
-  const [shuffleText, setShuffleText] = useState<IShuffleState | undefined>();
-  const textElementRef = useRef<HTMLDivElement>(null);
-
-  useShuffleText({
-    onShuffleReady: setShuffleText,
-    ref: textElementRef,
-    shouldInitialize: shouldShuffleOnHover || shouldShuffle,
+  const { handleMouseOver, textElementRef } = useTypographyState({
+    children,
+    shouldShuffle,
+    shouldShuffleOnHover,
     shuffleDelay,
-    shuffleState: shuffleText,
-    text: children
+    shuffleInterval
   });
 
-  useInterval(() => {
-    if (!textElementRef.current || !shouldShuffle) {
-      return;
-    }
-    shuffleText && shuffleText.start();
-  }, shuffleInterval);
-
-  const handleMouseOver = () => {
-    if (!textElementRef.current || !shouldShuffleOnHover) {
-      return;
-    }
-
-    shuffleText && shuffleText.start();
-  };
-
-  const typographyBaseThemeClasses: IThemeClasses = {
-    ...typographyDefaultThemeClasses,
-    ...themeClasses
-  };
-
-  const typographyThemeClasses: IThemeClasses = {
-    ...typographyBaseThemeClasses,
-    ...(ellipsis && {
-      overflow: "overflow-hidden",
-      textOverflow: "text-ellipsis",
-      whitespace: "whitespace-nowrap"
-    }),
-    ...(typographyBaseThemeClasses.color === "text-blue300" && {
-      pseudoClasses: [
-        "childrenStrong:text-blue300",
-        ...(typographyBaseThemeClasses?.pseudoClasses
-          ? (typographyBaseThemeClasses.pseudoClasses as TPseudoClasses)
-          : [])
-      ]
-    }),
-    ...(isHoverable && {
-      hover: "hover:text-white"
-    })
-  };
+  const { typographyClassName } = useTypographyThemeClasses({
+    ellipsis,
+    isHoverable,
+    themeClasses
+  });
 
   return (
     <div
-      className={convertObjectValuesToString(typographyThemeClasses)}
+      className={typographyClassName}
       onMouseOver={handleMouseOver}
       ref={textElementRef}
     >

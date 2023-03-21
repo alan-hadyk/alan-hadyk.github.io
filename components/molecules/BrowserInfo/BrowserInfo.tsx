@@ -13,6 +13,7 @@ import {
 } from "components/molecules/BrowserInfo/styles";
 import { browserIcons } from "components/molecules/BrowserInfo/config";
 import { TActiveIcon } from "components/molecules/BrowserInfo/@types/BrowserInfo";
+import { IconDynamicName } from "components/atoms/IconDynamic/@types/IconDynamic";
 
 const BrowserInfo: React.FC = () => {
   const [activeIcon, setActiveIcon] = useState<TActiveIcon>();
@@ -36,8 +37,8 @@ const BrowserInfo: React.FC = () => {
               (icon) => icon === activeIcon
             );
             const isIconActive =
-              icon === "ie"
-                ? activeIcon === "ie" || activeIcon === "edge"
+              icon === IconDynamicName.IE
+                ? activeIcon === IconDynamicName.IE || activeIcon === "edge"
                 : activeIcon === icon;
 
             return (

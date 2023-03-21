@@ -1,28 +1,29 @@
 import {
+  CornerPosition,
   ICornerProps,
-  IMapPositionToCornerProps
+  TMapPositionToCornerProps
 } from "components/atoms/Corner/@types/Corner";
 import { IThemeClasses } from "types/theme";
 
 const mapPositionToCornerProps = (
   isActive: ICornerProps["isActive"]
-): IMapPositionToCornerProps => ({
-  bottomLeft: {
+): TMapPositionToCornerProps => ({
+  [CornerPosition.BottomLeft]: {
     left: isActive ? "left-[-8px]" : "left-0",
     rotate: "rotate-[270deg]",
     top: isActive ? "top-full" : "top-[calc(100%-8px)]"
   },
-  bottomRight: {
+  [CornerPosition.BottomRight]: {
     left: isActive ? "left-full" : "left-[calc(100%-8px)]",
     rotate: "rotate-180",
     top: isActive ? "top-full" : "top-[calc(100%-8px)]"
   },
-  topLeft: {
+  [CornerPosition.TopLeft]: {
     left: isActive ? "left-[-8px]" : "left-0",
     rotate: "rotate-0",
     top: isActive ? "top-[-8px]" : "top-0"
   },
-  topRight: {
+  [CornerPosition.TopRight]: {
     left: isActive ? "left-full" : "left-[calc(100%-8px)]",
     rotate: "rotate-90",
     top: isActive ? "top-[-8px]" : "top-0"

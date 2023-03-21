@@ -1,11 +1,14 @@
-import { IIconDynamicProps } from "components/atoms/IconDynamic/@types/IconDynamic";
+import {
+  IconDynamicName,
+  IIconDynamicProps
+} from "components/atoms/IconDynamic/@types/IconDynamic";
 
 export const animatedIcons: IIconDynamicProps["iconName"][] = [
-  "react",
-  "javaScript",
-  "typeScript",
-  "webpack",
-  "nodeJs",
-  "apollo",
-  "graphql"
+  IconDynamicName.React,
+  IconDynamicName.JavaScript,
+  IconDynamicName.TypeScript,
+  IconDynamicName.Webpack,
+  IconDynamicName.NodeJS,
+  IconDynamicName.Apollo,
+  IconDynamicName.GraphQL
 ];

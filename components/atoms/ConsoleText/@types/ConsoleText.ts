@@ -5,5 +5,6 @@ export enum ConsoleTextVariant {
 }
 
 export interface IConsoleTextProps {
+  children: string;
   variant: ConsoleTextVariant;
 }

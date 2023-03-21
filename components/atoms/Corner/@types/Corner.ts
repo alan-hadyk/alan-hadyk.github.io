@@ -1,24 +1,29 @@
-import { TLeft, TOpacity, TRotate, TTop } from "types/theme";
+import { IThemeClasses } from "types/theme";
+
+export enum CornerPosition {
+  TopLeft,
+  TopRight,
+  BottomLeft,
+  BottomRight
+}
 
 export interface ICornerProps {
   isActive?: boolean;
-  position: "topLeft" | "topRight" | "bottomLeft" | "bottomRight";
+  position: CornerPosition;
   variant?: CornerVariant;
 }
 
 export interface ICornerContainerProps {
-  left: TLeft;
-  opacity?: TOpacity;
-  rotate: TRotate;
-  top: TTop;
+  left: IThemeClasses["left"];
+  opacity?: IThemeClasses["opacity"];
+  rotate: IThemeClasses["rotate"];
+  top: IThemeClasses["top"];
 }
 
-export interface IMapPositionToCornerProps {
-  bottomLeft: ICornerContainerProps;
-  bottomRight: ICornerContainerProps;
-  topLeft: ICornerContainerProps;
-  topRight: ICornerContainerProps;
-}
+export type TMapPositionToCornerProps = Record<
+  CornerPosition,
+  ICornerContainerProps
+>;
 
 export enum CornerVariant {
   Dark,

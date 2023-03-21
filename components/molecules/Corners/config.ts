@@ -1,16 +1,19 @@
-import { ICornerProps } from "components/atoms/Corner/@types/Corner";
+import {
+  CornerPosition,
+  ICornerProps
+} from "components/atoms/Corner/@types/Corner";
 
 export const cornersPositions: Pick<ICornerProps, "position">[] = [
   {
-    position: "topLeft"
+    position: CornerPosition.TopLeft
   },
   {
-    position: "topRight"
+    position: CornerPosition.TopRight
   },
   {
-    position: "bottomLeft"
+    position: CornerPosition.BottomLeft
   },
   {
-    position: "bottomRight"
+    position: CornerPosition.BottomRight
   }
 ];

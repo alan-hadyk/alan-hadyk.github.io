@@ -1,5 +1,5 @@
 import { ILayoutContainerProps } from "components/layout/LayoutContainer/@types/LayoutContainer";
-import { convertObjectValuesToArray } from "helpers/arrays/convertObjectValuesToArray";
+import { useLayoutContainerThemeClasses } from "components/layout/LayoutContainer/hooks/useLayoutContainerThemeClasses";
 import { forwardRef } from "react";
 
 const _LayoutContainer: React.ForwardRefRenderFunction<
@@ -19,43 +19,31 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
   },
   ref
 ) => {
-  const Tag = `${as}` as keyof Pick<
-    JSX.IntrinsicElements,
-    "div" | "nav" | "header" | "main"
-  >;
+  const HTMLTag = as;
 
-  const { height, width, ...otherThemeClasses } = themeClasses || {};
-
-  const classNames = [
-    ...(onClick ? ["cursor-pointer"] : []),
-    ...(height?.includes("h-") ? [height] : []),
-    ...(width?.includes("w-") ? [width] : [])
-  ];
-
-  if (otherThemeClasses) {
-    classNames.push(...convertObjectValuesToArray(otherThemeClasses));
-  }
+  const { layoutContainerClassNames, layoutContainerStyles } =
+    useLayoutContainerThemeClasses({
+      onClick,
+      style,
+      themeClasses
+    });
 
   const props = {
-    className: classNames.join(" "),
+    className: layoutContainerClassNames.join(" "),
     id,
     name,
     onClick,
     onFocus,
-    style: {
-      height: !height?.includes("h-") ? height : undefined,
-      width: !width?.includes("w-") ? width : undefined,
-      ...style
-    },
+    style: layoutContainerStyles,
     tabIndex
   };
 
   return children ? (
-    <Tag {...props} ref={ref as never}>
+    <HTMLTag {...props} ref={ref as never}>
       {children}
-    </Tag>
+    </HTMLTag>
   ) : (
-    <Tag {...props} ref={ref as never} />
+    <HTMLTag {...props} ref={ref as never} />
   );
 };
 

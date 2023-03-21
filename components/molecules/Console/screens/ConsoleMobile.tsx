@@ -1,4 +1,7 @@
-import { ConsoleTextVariant } from "components/atoms/ConsoleText/@types/ConsoleText";
+import {
+  ConsoleTextVariant,
+  IConsoleTextProps
+} from "components/atoms/ConsoleText/@types/ConsoleText";
 import { ConsoleText } from "components/atoms/ConsoleText/ConsoleText";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import {
@@ -6,12 +9,14 @@ import {
   consoleMobileDefaultThemeClasses
 } from "components/molecules/Console/styles";
 
-const ConsoleMobile: React.FC = () => (
+const ConsoleMobile: React.FC<Pick<IConsoleTextProps, "children">> = ({
+  children
+}) => (
   <LayoutContainer themeClasses={consoleMobileDefaultThemeClasses}>
     <LayoutContainer
       themeClasses={consoleMobileConsoleTextWrapperDefaultThemeClasses}
     >
-      <ConsoleText variant={ConsoleTextVariant.Mobile} />
+      <ConsoleText variant={ConsoleTextVariant.Mobile}>{children}</ConsoleText>
     </LayoutContainer>
   </LayoutContainer>
 );

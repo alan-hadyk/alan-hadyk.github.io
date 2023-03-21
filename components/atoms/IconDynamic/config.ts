@@ -21,31 +21,34 @@ import Unknown from "public/icons/dynamic/unknown.svg";
 import Warning from "public/icons/dynamic/warning.svg";
 import Webpack from "public/icons/dynamic/webpack.svg";
 
-import { TIconComponents } from "components/atoms/IconDynamic/@types/IconDynamic";
+import {
+  IconDynamicName,
+  TIconComponents
+} from "components/atoms/IconDynamic/@types/IconDynamic";
 
-const iconComponents: TIconComponents = {
-  apollo: Apollo,
-  chrome: Chrome,
-  codeSandbox: CodeSandbox,
-  download: Download,
-  externalLink: ExternalLink,
-  firefox: Firefox,
-  gitHub: GitHub,
-  graphql: Graphql,
-  ie: IE,
-  javaScript: JavaScript,
-  linkedIn: LinkedIn,
-  nextJs: NextJs,
-  nodeJs: NodeJs,
-  opera: Opera,
-  react: React,
-  reactLogo: ReactLogo,
-  safari: Safari,
-  toptal: Toptal,
-  typeScript: TypeScript,
-  unknown: Unknown,
-  warning: Warning,
-  webpack: Webpack
+const iconDynamicComponents: TIconComponents = {
+  [IconDynamicName.Apollo]: Apollo,
+  [IconDynamicName.Chrome]: Chrome,
+  [IconDynamicName.CodeSandbox]: CodeSandbox,
+  [IconDynamicName.Download]: Download,
+  [IconDynamicName.ExternalLink]: ExternalLink,
+  [IconDynamicName.Firefox]: Firefox,
+  [IconDynamicName.GitHub]: GitHub,
+  [IconDynamicName.GraphQL]: Graphql,
+  [IconDynamicName.IE]: IE,
+  [IconDynamicName.JavaScript]: JavaScript,
+  [IconDynamicName.LinkedIn]: LinkedIn,
+  [IconDynamicName.NextJS]: NextJs,
+  [IconDynamicName.NodeJS]: NodeJs,
+  [IconDynamicName.Opera]: Opera,
+  [IconDynamicName.React]: React,
+  [IconDynamicName.ReactLogo]: ReactLogo,
+  [IconDynamicName.Safari]: Safari,
+  [IconDynamicName.Toptal]: Toptal,
+  [IconDynamicName.TypeScript]: TypeScript,
+  [IconDynamicName.Unknown]: Unknown,
+  [IconDynamicName.Warning]: Warning,
+  [IconDynamicName.Webpack]: Webpack
 };
 
-export { iconComponents };
+export { iconDynamicComponents };

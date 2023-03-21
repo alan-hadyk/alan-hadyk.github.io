@@ -10,6 +10,7 @@ export const contentFrameTitleDefaultThemeClasses: IThemeClasses = {
   fontFamily: "font-anonymousPro",
   fontSize: "text-16",
   lineHeight: "leading-36",
+  paddingLeft: "pl-2",
   textTransform: "uppercase"
 };
 

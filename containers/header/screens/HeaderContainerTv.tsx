@@ -9,6 +9,7 @@ import { isIE11 } from "helpers/browser/isIE11";
 import { Device } from "components/layout/Responsive/@types/Responsive";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { IHeaderContainerTvProps } from "containers/header/@types/HeaderContainerTv";
+import { IconDynamicName } from "components/atoms/IconDynamic/@types/IconDynamic";
 
 const HeaderContainerTv: React.FC<IHeaderContainerTvProps> = ({
   onCVButtonClick
@@ -47,7 +48,7 @@ const HeaderContainerTv: React.FC<IHeaderContainerTvProps> = ({
       </LayoutContainer>
 
       <Button
-        iconName="download"
+        iconName={IconDynamicName.Download}
         iconWidth={isIE11() ? "w-24" : "w-auto"}
         onClick={onCVButtonClick}
         size="medium"
@@ -60,17 +61,17 @@ const HeaderContainerTv: React.FC<IHeaderContainerTvProps> = ({
         icons={[
           {
             href: "https://github.com/alan-hadyk",
-            iconName: "gitHub",
+            iconName: IconDynamicName.GitHub,
             isExternal: true
           },
           {
             href: "https://www.toptal.com/resume/alan-hadyk",
-            iconName: "toptal",
+            iconName: IconDynamicName.Toptal,
             isExternal: true
           },
           {
             href: "https://www.linkedin.com/in/alan-hadyk-78738099/",
-            iconName: "linkedIn",
+            iconName: IconDynamicName.LinkedIn,
             isExternal: true
           }
         ]}
