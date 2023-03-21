@@ -36,7 +36,7 @@ export const mapSizeToFlexContainerGap: TMapSizeToFlexContainerGap = {
 export const iconsWithLabelsDefaultThemeClasses: IThemeClasses = {
   alignItems: "items-start",
   display: "flex",
-  height: "100%"
+  height: "h-100%"
 };
 
 export const iconsWithLabelsIconDefaultThemeClasses: IIconWithLabelProps["themeClasses"] =

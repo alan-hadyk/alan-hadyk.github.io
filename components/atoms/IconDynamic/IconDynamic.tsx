@@ -18,11 +18,12 @@ const _IconDynamic: React.ForwardRefRenderFunction<
     shouldDisplayGlowAnimation = false,
     shouldGlow = false,
     shouldGlowOnHover = false,
+    style,
     themeClasses
   },
   ref
 ) => {
-  const { iconDynamicClassName, iconDynamicWrapperClassName, style } =
+  const { iconDynamicClassName, iconDynamicWrapperClassName } =
     useIconDynamicThemeClasses({
       isActive,
       isHeightResponsive,
@@ -44,4 +45,4 @@ const _IconDynamic: React.ForwardRefRenderFunction<
 
 const IconDynamic = forwardRef(_IconDynamic);
 
-export { IconDynamic, iconDynamicComponents as iconComponents };
+export { IconDynamic };

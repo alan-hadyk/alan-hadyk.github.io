@@ -12,11 +12,11 @@ const ConsoleText: React.FC<IConsoleTextProps> = ({ children, variant }) => {
     ...mapConsoleTextVariantToStyles[variant]
   };
 
-  const classNames: TClassStyleUtility[] = convertObjectValuesToArray(
+  const consoleTexClassNames: TClassStyleUtility[] = convertObjectValuesToArray(
     consoleTextThemeClasses
   );
 
-  return <div className={classNames.join(" ")}>{children}</div>;
+  return <div className={consoleTexClassNames.join(" ")}>{children}</div>;
 };
 
 export { ConsoleText };

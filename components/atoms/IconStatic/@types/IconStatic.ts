@@ -1,3 +1,4 @@
+import { CSSProperties } from "react";
 import { IThemeClasses } from "types/theme";
 
 export interface IIconStaticProps {
@@ -67,5 +68,6 @@ export interface IIconStaticProps {
     | "windiCss"
     | "zeplin"
     | "calendar";
+  style?: CSSProperties;
   themeClasses?: Pick<IThemeClasses, "height" | "overflow" | "width">;
 }

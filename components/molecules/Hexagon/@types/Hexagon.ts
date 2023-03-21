@@ -1,3 +1,4 @@
+import { CSSProperties } from "react";
 import { TChildren } from "types/props";
 import { IThemeClasses } from "types/theme";
 
@@ -13,7 +14,7 @@ export interface IHexagonProps {
   themeClasses?: { children?: Pick<IThemeClasses, "width"> };
 }
 
-export type TIconDimensionsProps = Pick<IThemeClasses, "height" | "width">;
+export type TIconDimensionsProps = CSSProperties;
 
 export type TGetHexagonImagePropsArgs = Pick<IHexagonProps, "fill"> & {
   iconDimensions: TIconDimensionsProps;

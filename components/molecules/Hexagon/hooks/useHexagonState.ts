@@ -20,6 +20,7 @@ const useHexagonState = ({ fill }: Pick<IHexagonProps, "fill">) => {
     }
 
     const path = iconRef.current?.querySelector("path");
+
     const { height, width } = path
       ? path.getBoundingClientRect()
       : { height: undefined, width: undefined };

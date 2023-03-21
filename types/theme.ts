@@ -385,8 +385,9 @@ export type TOutline = `outline-${number}`;
 
 export type TClassStyleUtility = `${string}-${string}` | string;
 
-export interface IBasicThemeClasses {
+export interface IThemeClasses {
   active?: TActive | TActive[];
+  after?: TAfter | TAfter[];
   alignItems?: TAlignItems;
   alignSelf?: TAlignSelf;
   animate?: TAnimate;
@@ -418,13 +419,7 @@ export interface IBasicThemeClasses {
   gap?: TGap;
   group?: "group";
   groupHover?: TGroupHover | TGroupHover[];
-  height?:
-    | THeight
-    | `${number}%`
-    | `${number}px`
-    | `${number}rem`
-    | `${number}vh`
-    | `${number}vw`;
+  height?: THeight;
   hover?: THover | THover[];
   justifyContent?: TJustifyContent;
   justifyItems?: TJustifyItems;
@@ -440,6 +435,7 @@ export interface IBasicThemeClasses {
   marginY?: TMarginY;
   maxHeight?: TMaxHeight;
   maxWidth?: TMaxWidth;
+  mediaQuery?: TMediaQuery | TMediaQuery[];
   minHeight?: TMinHeight;
   minWidth?: TMinWidth;
   opacity?: TOpacity;
@@ -468,17 +464,6 @@ export interface IBasicThemeClasses {
   translate?: TTranslate | TTranslate[];
   userSelect?: TUserSelect;
   whitespace?: TWhitespace;
-  width?:
-    | TWidth
-    | `${number}%`
-    | `${number}px`
-    | `${number}rem`
-    | `${number}vh`
-    | `${number}vw`;
+  width?: TWidth;
   zIndex?: TZIndex;
-}
-
-export interface IThemeClasses extends IBasicThemeClasses {
-  after?: TAfter | TAfter[];
-  mediaQuery?: TMediaQuery | TMediaQuery[];
 }

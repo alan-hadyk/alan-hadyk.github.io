@@ -1,54 +1,25 @@
 import { IImageStaticProps } from "components/atoms/ImageStatic/@types/ImageStatic";
-import { imageStaticImgDefaultThemeClasses } from "components/atoms/ImageStatic/styles";
+import { useImageStaticThemeClasses } from "components/atoms/ImageStatic/hooks/useImageStaticThemeClasses";
 import { convertObjectValuesToString } from "helpers/objects/convertObjectValuesToString";
-import { CSSProperties } from "react";
-import { IThemeClasses } from "types/theme";
 
 const ImageStatic: React.FC<IImageStaticProps> = ({
   alt,
   id,
   src,
+  style,
   themeClasses
 }) => {
-  const imageStaticImgBaseThemeClasses: IThemeClasses = {
-    ...imageStaticImgDefaultThemeClasses,
-    ...themeClasses
-  };
-
-  const { height, width, ...imageStaticImgOtherBaseThemeClasses } =
-    imageStaticImgBaseThemeClasses;
-
-  const imageStaticImgThemeClasses: IThemeClasses =
-    imageStaticImgOtherBaseThemeClasses;
-  const pictureClassNames = [];
-  const inlineStyles: CSSProperties = {};
-
-  if (height) {
-    if (height.includes("h-")) {
-      pictureClassNames.push(height);
-      imageStaticImgThemeClasses.height = height;
-    } else {
-      inlineStyles.height = height;
-    }
-  }
-
-  if (width) {
-    if (width.includes("w-")) {
-      pictureClassNames.push(width);
-      imageStaticImgThemeClasses.width = width;
-    } else {
-      inlineStyles.width = width;
-    }
-  }
+  const { imageStaticImgThemeClasses, imageStaticPictureClassNames } =
+    useImageStaticThemeClasses({ themeClasses });
 
   return (
-    <picture className={pictureClassNames.join(" ")} style={inlineStyles}>
+    <picture className={imageStaticPictureClassNames.join(" ")} style={style}>
       <img
         alt={alt}
         className={convertObjectValuesToString(imageStaticImgThemeClasses)}
         id={id}
         src={src}
-        style={inlineStyles}
+        style={style}
       />
     </picture>
   );

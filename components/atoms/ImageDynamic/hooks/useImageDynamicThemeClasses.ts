@@ -1,5 +1,5 @@
 import { IThemeClasses, TPseudoClasses } from "types/theme";
-import pick from "lodash/pick";
+import omit from "lodash/omit";
 import { IImageDynamicProps } from "components/atoms/ImageDynamic/@types/ImageDynamic";
 import { imageDynamicDefaultThemeClasses } from "components/atoms/ImageDynamic/styles";
 import { convertObjectValuesToString } from "helpers/objects/convertObjectValuesToString";
@@ -26,7 +26,7 @@ const useImageDynamicThemeClasses = ({
   };
 
   const imageDynamicThemeClasses: IImageDynamicProps["themeClasses"] = {
-    ...pick(imageDynamicBaseThemeClasses, "height", "overflow", "width"),
+    ...omit(imageDynamicBaseThemeClasses, "pseudoClasses"),
     pseudoClasses: [
       ...(isResponsive || isHeightResponsive
         ? ["childrenSvg:h-full"]
@@ -53,13 +53,6 @@ const useImageDynamicThemeClasses = ({
     ] as TPseudoClasses | undefined
   };
 
-  const { height, width } = imageDynamicBaseThemeClasses || {};
-
-  const style = {
-    height: height && !height?.includes("h-") ? height : undefined,
-    width: width && !width.includes("w-") ? width : undefined
-  };
-
   const imageDynamicWrapperClassNames = convertObjectValuesToString(
     imageDynamicThemeClasses
   );
@@ -71,8 +64,7 @@ const useImageDynamicThemeClasses = ({
 
   return {
     imageComponentClassNames,
-    imageDynamicWrapperClassNames,
-    style
+    imageDynamicWrapperClassNames
   };
 };
 

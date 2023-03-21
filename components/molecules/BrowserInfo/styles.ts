@@ -29,13 +29,13 @@ export const browserInfoIconWrapperDefaultThemeClasses: IThemeClasses = {
 };
 
 export const browserInfoIconDefaultThemeClasses: IThemeClasses = {
-  height: isSafari() ? "h-[4vh]" : "h-[100%]",
+  height: isSafari() ? "h-[4vh]" : "h-100%",
   overflow: isSafari() ? "overflow-hidden" : "overflow-visible",
   pseudoClasses: [
     "childrenSvg:animate-glow-verySlow",
     "childrenSvg:duration-slow"
   ],
-  width: isSafari() ? "4vh" : "100%"
+  width: isSafari() ? "w-[4vh]" : "w-100%"
 };
 
 export const browserInfoIconWrapperActiveIconDefaultThemeClasses: TMediaQuery[] =

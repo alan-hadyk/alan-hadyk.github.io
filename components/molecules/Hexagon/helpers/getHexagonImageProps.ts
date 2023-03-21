@@ -28,7 +28,7 @@ const getHexagonImageProps = ({
       return {
         imageName: "hexagon",
         shouldGlow: true,
-        themeClasses: {
+        style: {
           height: iconDimensions.height,
           width: iconDimensions.width
         }

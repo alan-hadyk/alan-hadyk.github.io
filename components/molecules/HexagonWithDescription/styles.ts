@@ -28,7 +28,7 @@ export const hexagonWithDescriptionTabletDescriptionContentDefaultThemeClasses: 
     },
     hexagonContainer: {
       marginBottom: "mb-48",
-      width: isIE11() ? "w-auto" : "60%"
+      width: isIE11() ? "w-auto" : "w-[60%]"
     },
     wrapper: {
       flexFlow: "flex-col-nowrap"

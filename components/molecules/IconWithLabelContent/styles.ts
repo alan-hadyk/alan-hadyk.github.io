@@ -5,7 +5,7 @@ export const iconWithLabelContentDefaultThemeClasses: IThemeClasses = {
   display: "flex",
   flexFlow: "flex-row-nowrap",
   group: "group",
-  height: "100%",
+  height: "h-100%",
   justifyContent: "justify-start"
 };
 

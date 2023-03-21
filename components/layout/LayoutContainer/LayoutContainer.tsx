@@ -21,12 +21,10 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
 ) => {
   const HTMLTag = as;
 
-  const { layoutContainerClassNames, layoutContainerStyles } =
-    useLayoutContainerThemeClasses({
-      onClick,
-      style,
-      themeClasses
-    });
+  const { layoutContainerClassNames } = useLayoutContainerThemeClasses({
+    onClick,
+    themeClasses
+  });
 
   const props = {
     className: layoutContainerClassNames.join(" "),
@@ -34,7 +32,7 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
     name,
     onClick,
     onFocus,
-    style: layoutContainerStyles,
+    style,
     tabIndex
   };
 

@@ -1,23 +1,17 @@
 import React from "react";
 import { IIconStaticProps } from "components/atoms/IconStatic/@types/IconStatic";
-import {
-  iconStaticDefaultThemeClasses,
-  iconStaticPictureDefaultThemeClasses
-} from "components/atoms/IconStatic/styles";
+import { iconStaticPictureDefaultThemeClasses } from "components/atoms/IconStatic/styles";
 import { convertObjectValuesToString } from "helpers/objects/convertObjectValuesToString";
+import { useIconStaticThemeClasses } from "components/atoms/IconStatic/hooks/useIconStaticThemeClasses";
 
-const IconStatic: React.FC<IIconStaticProps> = ({ iconName, themeClasses }) => {
-  const iconStaticThemeClasses = {
-    ...iconStaticDefaultThemeClasses,
-    ...themeClasses
-  };
-
-  const { height, width } = iconStaticThemeClasses || {};
-
-  const style = {
-    height: height && !height?.includes("h-") ? height : undefined,
-    width: width && !width.includes("w-") ? width : undefined
-  };
+const IconStatic: React.FC<IIconStaticProps> = ({
+  iconName,
+  style,
+  themeClasses
+}) => {
+  const { iconStaticThemeClasses } = useIconStaticThemeClasses({
+    themeClasses
+  });
 
   return (
     <picture

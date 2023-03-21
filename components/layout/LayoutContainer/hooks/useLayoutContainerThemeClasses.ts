@@ -3,30 +3,15 @@ import { convertObjectValuesToArray } from "helpers/arrays/convertObjectValuesTo
 
 const useLayoutContainerThemeClasses = ({
   onClick,
-  style,
   themeClasses
-}: Pick<ILayoutContainerProps, "onClick" | "style" | "themeClasses">) => {
-  const { height, width, ...otherThemeClasses } = themeClasses || {};
+}: Pick<ILayoutContainerProps, "onClick" | "themeClasses">) => {
+  const layoutContainerClassNames = [...(onClick ? ["cursor-pointer"] : [])];
 
-  const layoutContainerClassNames = [
-    ...(onClick ? ["cursor-pointer"] : []),
-    ...(height?.includes("h-") ? [height] : []),
-    ...(width?.includes("w-") ? [width] : [])
-  ];
-
-  if (otherThemeClasses) {
-    layoutContainerClassNames.push(
-      ...convertObjectValuesToArray(otherThemeClasses)
-    );
+  if (themeClasses) {
+    layoutContainerClassNames.push(...convertObjectValuesToArray(themeClasses));
   }
 
-  const layoutContainerStyles = {
-    height: !height?.includes("h-") ? height : undefined,
-    width: !width?.includes("w-") ? width : undefined,
-    ...style
-  };
-
-  return { layoutContainerClassNames, layoutContainerStyles };
+  return { layoutContainerClassNames };
 };
 
 export { useLayoutContainerThemeClasses };

@@ -1,7 +1,7 @@
 import { IIconDynamicProps } from "components/atoms/IconDynamic/@types/IconDynamic";
 import { iconDynamicDefaultThemeClasses } from "components/atoms/IconDynamic/styles";
 import { IThemeClasses, TPseudoClasses } from "types/theme";
-import pick from "lodash/pick";
+import omit from "lodash/omit";
 import { convertObjectValuesToString } from "helpers/objects/convertObjectValuesToString";
 
 const useIconDynamicThemeClasses = ({
@@ -28,7 +28,7 @@ const useIconDynamicThemeClasses = ({
   };
 
   const iconDynamicThemeClasses: IIconDynamicProps["themeClasses"] = {
-    ...pick(iconDynamicBaseThemeClasses, "height", "overflow", "width"),
+    ...omit(iconDynamicBaseThemeClasses, "pseudoClasses"),
     pseudoClasses: [
       ...(isResponsive || isHeightResponsive
         ? ["childrenSvg:h-full"]
@@ -62,13 +62,6 @@ const useIconDynamicThemeClasses = ({
     ] as TPseudoClasses | undefined
   };
 
-  const { height, width } = iconDynamicBaseThemeClasses || {};
-
-  const style = {
-    height: height && !height?.includes("h-") ? height : undefined,
-    width: width && !width.includes("w-") ? width : undefined
-  };
-
   const iconDynamicWrapperClassName = iconDynamicThemeClasses
     ? convertObjectValuesToString(iconDynamicThemeClasses)
     : "";
@@ -80,8 +73,7 @@ const useIconDynamicThemeClasses = ({
 
   return {
     iconDynamicClassName,
-    iconDynamicWrapperClassName,
-    style
+    iconDynamicWrapperClassName
   };
 };
 

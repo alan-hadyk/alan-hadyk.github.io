@@ -24,8 +24,8 @@ const AboutMeContainer: React.FC = () => (
         alt="Alan Hadyk"
         src="/images/alan.png"
         themeClasses={{
-          height: "100%",
-          width: "700px"
+          height: "h-100%",
+          width: "w-[700px]"
         }}
       />
     </HexagonWithDescription>

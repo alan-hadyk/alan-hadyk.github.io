@@ -1,4 +1,4 @@
-import { FunctionComponent, SVGProps } from "react";
+import { CSSProperties, FunctionComponent, SVGProps } from "react";
 
 import { IThemeClasses } from "types/theme";
 
@@ -39,6 +39,7 @@ export interface IIconDynamicProps {
   shouldDisplayGlowAnimation?: boolean;
   shouldGlow?: boolean;
   shouldGlowOnHover?: boolean;
+  style?: CSSProperties;
   themeClasses?: Pick<
     IThemeClasses,
     "height" | "overflow" | "width" | "pseudoClasses"

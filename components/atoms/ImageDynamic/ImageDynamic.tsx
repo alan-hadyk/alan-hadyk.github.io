@@ -17,11 +17,12 @@ const _ImageDynamic: React.ForwardRefRenderFunction<
     isResponsive = false,
     shouldGlow = false,
     shouldGlowOnHover = false,
+    style,
     themeClasses
   },
   ref
 ) => {
-  const { imageComponentClassNames, imageDynamicWrapperClassNames, style } =
+  const { imageComponentClassNames, imageDynamicWrapperClassNames } =
     useImageDynamicThemeClasses({
       isActive,
       isHeightResponsive,

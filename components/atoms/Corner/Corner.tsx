@@ -14,7 +14,7 @@ const Corner: React.FC<ICornerProps> = ({
   position,
   variant = CornerVariant.Light
 }) => {
-  const themeClasses: IThemeClasses = {
+  const cornerThemeClasses: IThemeClasses = {
     ...cornerDefaultThemeClasses,
     ...mapPositionToCornerProps(isActive)[position],
     borderColor:
@@ -22,9 +22,9 @@ const Corner: React.FC<ICornerProps> = ({
     opacity: isActive ? "opacity-100" : "opacity-50"
   };
 
-  const classNames = convertObjectValuesToArray(themeClasses);
+  const cornerClassNames = convertObjectValuesToArray(cornerThemeClasses);
 
-  return <div className={classNames.join(" ")} />;
+  return <div className={cornerClassNames.join(" ")} />;
 };
 
 export { Corner };
