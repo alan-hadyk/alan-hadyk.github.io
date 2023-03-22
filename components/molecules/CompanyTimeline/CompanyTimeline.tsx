@@ -1,4 +1,4 @@
-import { Timeline } from "components/molecules/Timeline";
+import { Timeline } from "components/molecules/Timeline/Timeline";
 import { ICompanyTimelineProps } from "components/molecules/CompanyTimeline/@types/CompanyTimeline";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { IThemeClasses } from "types/theme";

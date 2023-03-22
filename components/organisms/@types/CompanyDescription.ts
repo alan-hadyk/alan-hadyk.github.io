@@ -1,5 +1,5 @@
 import { IIconWithLabelProps } from "components/molecules/IconWithLabel/@types/IconWithLabel";
-import { IUnorderedListProps } from "components/molecules/@types/UnorderedList";
+import { IUnorderedListProps } from "components/molecules/UnorderedList/@types/UnorderedList";
 
 import { IThemeClasses, TTextAlign } from "types/theme";
 
