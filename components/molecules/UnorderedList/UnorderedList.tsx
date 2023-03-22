@@ -6,9 +6,9 @@ import { unorderedListDefaultThemeClasses } from "components/molecules/Unordered
 
 const UnorderedList: React.FC<IUnorderedListProps> = ({ items }) => (
   <LayoutContainer themeClasses={unorderedListDefaultThemeClasses}>
-    {items?.map((item, index: number) =>
-      item ? <ListItem key={index}>{item}</ListItem> : null
-    )}
+    {items.map((item, index: number) => (
+      <ListItem key={index}>{item}</ListItem>
+    ))}
   </LayoutContainer>
 );
 
