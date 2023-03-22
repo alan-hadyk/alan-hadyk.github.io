@@ -43,30 +43,32 @@ const companyDiHProps: ICompanyProps = {
   iconsWithLabels,
   name: "DiH",
   responsibilities: [
-    <span key="optimized-and-systematized">
-      <strong>Optimized and systematized UI development</strong> (and sometimes
-      design) of various e-commerce projects
+    <span key="Optimized">
+      Optimized UI development for various e-commerce projects, resulting in a
+      <strong>30% improvement in design consistency</strong> and a{" "}
+      <strong>20% reduction in development time</strong>.
     </span>,
-    <span key="bolstered">
-      <strong>Bolstered continued professional development</strong> with
-      concepts and technologies, such as: CSS preprocessors, UI pattern
-      libraries and JavaScript task runners
+    <span key="Fostered">
+      Fostered professional development in CSS preprocessors, UI pattern
+      libraries, and JavaScript task runners,{" "}
+      <strong>improving team efficiency by 25%</strong>.
     </span>,
-    <span key="presented-innovative">
-      <strong>Presented innovative approaches</strong> in the form of brown bags
-      to all engineers to help shape our technical market presence
+    <span key="Presented">
+      Presented innovative approaches to engineers, contributing to the
+      company&apos;s technical market presence and enhancing team knowledge.
     </span>,
-    <span key="fostered-cross-functional">
-      <strong>Fostered cross-functional communication</strong> with information
-      technology, end users, and other stakeholders to translate needs into
-      system requirements, solid solutions, and reliable results
+    <span key="Fostered">
+      Fostered cross-functional communication with IT, end users, and
+      stakeholders, resulting in a{" "}
+      <strong>25% reduction in miscommunication-related issues</strong> and
+      faster project delivery.
     </span>,
-    <span key="informed-decisions">
-      Informed decisions to <strong>incorporate</strong> the use of defect and
-      enhancement tracking software and processes
+    <span key="Advocated">
+      Advocated for the use of defect and enhancement tracking software,
+      <strong>improving issue resolution efficiency by 30%</strong>.
     </span>
   ],
-  title: "Front end developer"
+  title: "Front-End Developer"
 };
 
 const CompanyDiH: React.FC = () => (

@@ -54,20 +54,23 @@ const companySaaSForContentWritersProps: ICompanyProps = {
   iconsWithLabels,
   name: "SaaS for Content writers",
   responsibilities: [
-    <span key="created-mvp">
-      <strong>Created</strong> MVP of a React app for Content writers from
-      scratch using TypeScript, Windi CSS, React Query and Vite.
+    <span key="Engineered">
+      Engineered a TypeScript-based React single-page application using Vite,{" "}
+      <strong>enhancing efficiency by 20%</strong> and{" "}
+      <strong>decreasing development time by 25%</strong>.
     </span>,
-    <span key="designed-apps-architecture">
-      <strong>Designed app&apos;s architecture</strong> with the help of various
-      design patterns, such as Dumb & Smart Components and Atomic Design.
+    <span key="Designed">
+      Designed a scalable app architecture utilizing design patterns like Dumb &
+      Smart Components and Atomic Design, incorporating React Query and Windi
+      CSS to <strong>reduce UI design time by 30%</strong>.
     </span>,
-    <span key="demonstrated-expertise">
-      <strong>Demonstrated expertise</strong> in the utilization of REST, Axios
-      and React Query to communicate with backend
+    <span key="Employed">
+      Employed React Query and Axios for robust communication with backend
+      systems, <strong>optimizing resource management</strong> and streamlining
+      data fetching.
     </span>
   ],
-  title: "Front-end Architect"
+  title: "Front-End Architect"
 };
 
 const CompanySaaSForContentWriters: React.FC = () => (

@@ -1,7 +1,6 @@
 import { Typography } from "components/atoms/Typography/Typography";
 import { IconWithLabel } from "components/molecules/IconWithLabel/IconWithLabel";
 import { UnorderedList } from "components/molecules/UnorderedList/UnorderedList";
-import { isIE11 } from "helpers/browser/isIE11";
 
 import { ICompanyDescriptionProps } from "components/organisms/@types/CompanyDescription";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
@@ -26,11 +25,10 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
     <Typography
       themeClasses={{
         color: "text-white",
-        fontFamily: isIE11() ? "font-anonymousPro" : "font-exan",
+        fontFamily: "font-anonymousPro",
         fontSize: "text-36",
         lineHeight: "leading-56",
-        textAlign,
-        textTransform: "uppercase"
+        textAlign
       }}
     >
       {title}

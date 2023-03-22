@@ -22,7 +22,7 @@ const useTypographyThemeClasses = ({
     }),
     ...(typographyBaseThemeClasses.color === "text-blue300" && {
       pseudoClasses: [
-        "childrenStrong:text-blue300",
+        "childrenStrong:text-blue100",
         ...(typographyBaseThemeClasses?.pseudoClasses
           ? (typographyBaseThemeClasses.pseudoClasses as TPseudoClasses)
           : [])

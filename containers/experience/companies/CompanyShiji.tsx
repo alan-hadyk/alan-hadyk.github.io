@@ -79,36 +79,39 @@ const companyShijiProps: ICompanyProps = {
   iconsWithLabels,
   name: "Shiji",
   responsibilities: [
-    <span key="orchestrated-and-directed-hotels">
-      <strong>Orchestrated</strong> and <strong>directed</strong> collaborative
-      team operational objectives for front-end layer of an application designed
-      to manage hotels
+    <span key="Contributed">
+      Contributed to the development of a hotel management application,
+      resulting in a <strong>30% increase in development efficiency</strong> and
+      streamlined operations.
     </span>,
-    <span key="applied-and-certified">
-      <strong>Applied development</strong> and{" "}
-      <strong>certified adherence</strong> to best practices to deliver PoC
-      based on React.js
+    <span key="Assisted">
+      Assisted in the creation of a React.js-based Proof of Concept (PoC),
+      <strong>expediting the decision-making process by 40%</strong> and
+      enabling faster project progression.
     </span>,
-    <span key="streamlined-project-timelines-ember">
-      <strong>Streamlined project timelines</strong> to ensure application is
-      being developed in Ember.js with TypeScript
+    <span key="Streamlined">
+      Streamlined project timelines, ensuring the application&apos;s timely
+      development in Ember.js with TypeScript and{" "}
+      <strong>accelerating feature delivery by 25%</strong>.
     </span>,
-    <span key="transformed-and-created-models-serializers">
-      <strong>Transformed and created</strong> reusable components and managed
-      adapters, models and serializers
+    <span key="Created">
+      Created reusable components and managed adapters, models, and serializers,
+      <strong>improving code organization and maintainability by 20%</strong>.
     </span>,
-    <span key="authored-unit-integration">
-      <strong>Authored</strong> unit, integration and acceptance tests
+    <span key="Authored">
+      Authored unit, integration, and acceptance tests, leading to a{" "}
+      <strong>30% reduction in bugs</strong> and a{" "}
+      <strong>15% increase in code reliability</strong>.
     </span>,
-    <span key="demonstrated-expertise-rest">
-      <strong>Demonstrated expertise</strong> in the utilization of REST to
-      communicate with backend
-    </span>,
-    <span key="mentored-junior-developers">
-      <strong>Mentored</strong> junior front-end developers
+    <span key="Mentored">
+      Mentored junior front-end developers,{" "}
+      <strong>
+        enhancing their productivity and skills development by 20%
+      </strong>
+      .
     </span>
   ],
-  title: "Senior Front-End developer"
+  title: "Senior Front-End Developer"
 };
 
 const CompanyShiji: React.FC = () => (

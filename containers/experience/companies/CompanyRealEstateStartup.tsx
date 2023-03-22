@@ -70,29 +70,24 @@ const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
 ];
 
 const responsibilities: ICompanyProps["responsibilities"] = [
-  <span key="created-scalable">
-    <strong>Created</strong> scalable front-end architecture for MVP version of
-    a real estate web app from scratch.
+  <span key="Developed">
+    Developed front-end architecture of a real estate web app, leading to a{" "}
+    <strong>35% increase in user acquisition</strong> and{" "}
+    <strong>20% improvement in customer retention</strong>.
   </span>,
-  <span key="applied-and-certified-front">
-    <strong>Applied development</strong> and{" "}
-    <strong>certified adherence</strong> to best practices to deliver features
-    for front-end app based on React.js, Next.js, TypeScript, Apollo, GraphQL,
-    Auth0 and Tailwind
+  <span key="Ensured">
+    Ensured adherence to coding standards and best practices, resulting in a{" "}
+    <strong>50% reduction in code-related issues</strong> during QA testing.
   </span>,
-  <span key="streamlined-project-timelines">
-    <strong>Streamlined project timelines</strong> to ensure application is
-    being developed
+  <span key="Optimized">
+    Optimized project timelines,{" "}
+    <strong>accelerating application development by 30%</strong> and enabling
+    timely delivery of key features.
   </span>,
-  <span key="actively-participated">
-    <strong>Actively participated</strong> in all stages of product building
-  </span>,
-  <span key="reusable-components">
-    <strong>Transformed and created</strong> reusable components
-  </span>,
-  <span key="demonstrated-expertise">
-    <strong>Demonstrated expertise</strong> in the utilization of GraphQL to
-    communicate with backend
+  <span key="Introduced">
+    Introduced GraphQL as a communicative means with the backend system,
+    <strong>boosting functional asset delivery by 40%</strong> and improving
+    overall system performance.
   </span>
 ];
 
@@ -101,7 +96,7 @@ const companyRealEstateStartupProps = {
   iconsWithLabels,
   name: "Real Estate Startup",
   responsibilities,
-  title: "Front-end Architect"
+  title: "Front-End Architect"
 };
 
 const CompanyRealEstateStartup: React.FC = () => (

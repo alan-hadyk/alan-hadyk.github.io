@@ -3,18 +3,21 @@ import { Section } from "components/molecules/Section/Section";
 import { HexagonWithDescription } from "components/molecules/HexagonWithDescription/HexagonWithDescription";
 
 const renderDescription = () => (
-  <div>
-    <strong>Proven talent</strong> for aligning software development strategy
-    and objectives with established user interface implementation and technology
-    management paradigms to achieve maximum operational impacts with minimum
-    resource expenditures. <strong>Growth-focused thought leader</strong> with
-    expertise spanning application layering, polygot language coding expertise,
-    best practice compliance, agile methodology, cross-functional team
-    leadership, REST & GraphQL architectural styles, comprehensive components,
-    and project management.{" "}
-    <strong>Exceptionally dedicated technical professional</strong> with keen
-    organizational skills.
-  </div>
+  <>
+    A <strong>highly skilled front-end architect</strong> with extensive
+    experience in designing and developing engaging user interfaces for a
+    diverse range of industries. Proficient in{" "}
+    <strong>HTML, CSS, JavaScript</strong>, and modern front-end frameworks such
+    as <strong>React</strong> and <strong>Next.js</strong>. Committed to
+    implementing <strong>best practices</strong> and driving{" "}
+    <strong>team collaboration</strong> to deliver exceptional products.
+    Demonstrated expertise in <strong>agile methodologies</strong>,{" "}
+    <strong>cross-functional leadership</strong>, and integrating{" "}
+    <strong>REST & GraphQL</strong> for seamless communication with backend
+    systems. A dedicated professional with a strong focus on{" "}
+    <strong>continuous improvement</strong> and the ability to adapt to the
+    latest technological trends.
+  </>
 );
 
 const AboutMeContainer: React.FC = () => (

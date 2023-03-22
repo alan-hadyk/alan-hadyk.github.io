@@ -5,7 +5,7 @@ const CVApiRoute = async (_: NextApiRequest, res: NextApiResponse) => {
   res.setHeader("Content-Disposition", "inline");
   res.setHeader("Content-Type", "application/pdf");
 
-  const pdf = await convertPageToPDF("http://localhost:3000/cv");
+  const pdf = await convertPageToPDF("http://localhost:3002/cv");
 
   return res.send(pdf);
 };

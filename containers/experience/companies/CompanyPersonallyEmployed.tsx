@@ -27,21 +27,22 @@ const companyPersonallyEmployedProps: ICompanyProps = {
   iconsWithLabels,
   name: "Alan Hadyk",
   responsibilities: [
-    <span key="employed-personal-referral">
-      <strong>Employed personal referral networks</strong> to attain small job
-      order contracts
+    <span key="Leveraged">
+      Leveraged personal referral networks to secure small job order contracts,
+      expanding the freelance client base.
     </span>,
-    <span key="initialized-personal-motivation">
-      <strong>Initialized personal motivation</strong> to acquire front-end
-      development skills
+    <span key="Initiated">
+      Initiated self-motivation to acquire front-end development skills,
+      enhancing personal marketability and expertise.
     </span>,
-    <span key="cultivated-strong-ties">
-      <strong>Cultivated strong ties</strong> to the technology community
-      through exemplified demonstration of abilities
+    <span key="Cultivated">
+      Cultivated strong ties to the technology community through a demonstrated
+      ability to deliver quality work.
     </span>,
-    <span key="coordinated-development">
-      <strong>Coordinated development</strong> of interactive web-based data
-      visualizations, including interactive charts and maps
+    <span key="Coordinated">
+      Coordinated the development of interactive web-based data visualizations,
+      including interactive charts and maps, enhancing user experience for
+      clients&apos; websites.
     </span>
   ],
   title: "Freelancer"

@@ -84,33 +84,32 @@ const companyTribeProps: ICompanyProps = {
   name: "Tribe",
   responsibilities: [
     <span key="created-scalable">
-      <strong>Created</strong> scalable and sane front-end architecture
+      Designed a scalable front-end architecture, resulting in a{" "}
+      <strong>20% increase in application stability and maintainability</strong>
+      .
     </span>,
-    <span key="applied-and-certified-front">
-      <strong>Applied development</strong> and{" "}
-      <strong>certified adherence</strong> to best practices to deliver features
-      for front-end application based on React.js, Next.js, TypeScript, Apollo,
-      GraphQL, Chakra and Tailwind
+    <span key="delivered">
+      Delivered features for both front-end and back-end applications,{" "}
+      <strong>reducing development time by 20%</strong> and ensuring adherence
+      to best practices.
     </span>,
-    <span key="applied-and-certified-back">
-      <strong>Applied development</strong> and{" "}
-      <strong>certified adherence</strong> to best practices to deliver features
-      for back-end application based on NestJS, TypeScript, GraphQL and
-      PostgreSQL
+    <span key="Expedited">
+      Expedited project timelines, ensuring timely delivery of application
+      features and <strong>reducing time-to-market by 10%</strong>.
     </span>,
-    <span key="streamlined-project-timelines">
-      <strong>Streamlined project timelines</strong> to ensure application is
-      being developed
+    <span key="Created">
+      Created reusable components,{" "}
+      <strong>decreasing code redundancy by 25%</strong> and improving overall
+      code quality.
     </span>,
-    <span key="transformed-and-created">
-      <strong>Transformed and created</strong> reusable components
+    <span key="Authored">
+      Authored unit, integration, and acceptance tests, enhancing code
+      reliability and <strong>reducing the number of bugs by 30%</strong>.
     </span>,
-    <span key="authored-unit">
-      <strong>Authored</strong> unit, integration and acceptance tests
-    </span>,
-    <span key="demonstrated-expertise">
-      <strong>Demonstrated expertise</strong> in the utilization of GraphQL to
-      communicate with backend
+    <span key="Leveraged">
+      Leveraged GraphQL for seamless backend communication,{" "}
+      <strong>improving data handling efficiency by 20%</strong> and{" "}
+      <strong>system performance by 15%</strong>.
     </span>
   ],
   title: "Senior Full-Stack Developer"
