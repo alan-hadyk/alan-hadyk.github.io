@@ -9,7 +9,7 @@ async function fetchCommits(): Promise<ICommitProps[] | Error> {
 
     return response;
   } catch (error) {
-    throw new Error("There was a problem with GitHub API");
+    throw new Error((error as never) ?? "There was a problem with GitHub API");
   }
 }
 

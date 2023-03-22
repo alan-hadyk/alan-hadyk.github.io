@@ -6,7 +6,7 @@ const axiosGet = async <TResponse>(
 ): Promise<TResponse> => {
   const response = await axios.get<TResponse>(url, config);
 
-  return response.data;
+  return response?.data;
 };
 
 export { axiosGet };

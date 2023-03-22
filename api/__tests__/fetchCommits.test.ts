@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { fetchCommits } from "api/fetchCommits";
 import { ICommitProps } from "components/molecules/ListOfCommits/@types/ListOfCommits";
-import fetch from "node-fetch";
+import axios from "axios";
 
-jest.mock("node-fetch");
+jest.mock("axios");
 
 const commitsList: ICommitProps[] = [
   {
@@ -33,55 +34,26 @@ afterEach(() => {
 
 describe("api / fetchCommits", () => {
   test("should return an array of commits if GitHub API call's status is 200", async () => {
-    const spyFetch = jest.fn();
-    const mockFetch = fetch as unknown as jest.Mock;
-
-    mockFetch.mockImplementation((args) => {
-      spyFetch(args);
-
-      return new Response(JSON.stringify(commitsList), {
-        status: 200
-      });
-    });
+    (axios.get as jest.Mock).mockResolvedValueOnce({ data: commitsList });
 
     const fetchCommitsResult = await fetchCommits();
 
-    expect(spyFetch).toHaveBeenCalledWith(
-      "https://api.github.com/repos/alan-hadyk/portfolio/commits"
+    expect(axios.get).toHaveBeenCalledWith(
+      "https://api.github.com/repos/alan-hadyk/portfolio/commits",
+      undefined
     );
     expect(fetchCommitsResult).toEqual(commitsList);
   });
 
   test("should return an error if GitHub API call fails", async () => {
-    const mockFetch = fetch as unknown as jest.Mock;
-
-    mockFetch.mockImplementation(() => {
-      return new Response(
-        JSON.stringify({
-          documentation_url:
-            "https://docs.github.com/rest/reference/repos#list-commits",
-          message: "Not Found"
-        }),
-        {
-          status: 404
-        }
-      );
-    });
+    (axios.get as jest.Mock).mockRejectedValueOnce(new Error("Not Found"));
 
     try {
       await fetchCommits();
 
       expect(true).toBe(false);
-    } catch (error) {
-      expect(error).toEqual(
-        new Error(
-          JSON.stringify({
-            documentation_url:
-              "https://docs.github.com/rest/reference/repos#list-commits",
-            message: "Not Found"
-          })
-        )
-      );
+    } catch (error: any) {
+      expect(error.message).toEqual("Error: Not Found");
     }
   });
 });
