@@ -1,5 +1,5 @@
 import { IconWithLabel } from "components/molecules/IconWithLabel/IconWithLabel";
-import { VerticalIconsWithLabels } from "components/molecules/VerticalIconsWithLabels";
+import { VerticalIconsWithLabels } from "components/molecules/VerticalIconsWithLabels/VerticalIconsWithLabels";
 
 import {
   IconsWithLabelsPosition,

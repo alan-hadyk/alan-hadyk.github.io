@@ -1,6 +1,6 @@
 import { Typography } from "components/atoms/Typography/Typography";
 import { IconWithLabel } from "components/molecules/IconWithLabel/IconWithLabel";
-import { UnorderedList } from "components/molecules/UnorderedList";
+import { UnorderedList } from "components/molecules/UnorderedList/UnorderedList";
 import { isIE11 } from "helpers/browser/isIE11";
 
 import { ICompanyDescriptionProps } from "components/organisms/@types/CompanyDescription";

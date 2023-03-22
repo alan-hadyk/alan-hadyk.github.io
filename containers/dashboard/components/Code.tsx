@@ -1,5 +1,5 @@
 import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
-import { TypingAnimation } from "components/molecules/TypingAnimation";
+import { TypingAnimation } from "components/molecules/TypingAnimation/TypingAnimation";
 
 const Code: React.FC = () => (
   <ContentFrame
