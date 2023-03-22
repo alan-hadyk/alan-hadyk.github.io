@@ -46,21 +46,25 @@ const companyHealthcareSaasProps: ICompanyProps = {
   iconsWithLabels,
   name: "Healthcare SaaS",
   responsibilities: [
-    <span key="developed-doctor-and-patient-engagement">
-      <strong>Developed</strong> doctor&apos;s and patient&apos;s journey,
-      called engagement, which is an essential part of the application.
+    <span key="Developed">
+      Developed captivating user interfaces for a healthcare application,
+      resulting in a <strong>15% increase in user engagement</strong> and a{" "}
+      <strong>10% improvement in user satisfaction</strong>.
     </span>,
-    <span key="improved-performance">
-      <strong>Improved performance</strong> by implementing lazy loading of
-      routes and extracting code in reusable pieces.
+    <span key="Improved">
+      <strong>Improved loading speed and performance by 20%</strong> through the
+      implementation of route lazy-loading and modularization of code into
+      reusable components.
     </span>,
-    <span key="improved-apps-architecture">
-      <strong>Improved app&apos;s architecture</strong> by refactoring code and
-      separating concerns like business, UI, and other layers.
+    <span key="Refined">
+      Refined application architecture,{" "}
+      <strong>reducing maintenance effort by 30%</strong> and increasing code
+      readability and organization.
     </span>,
-    <span key="demonstrated-expertise">
-      <strong>Demonstrated expertise</strong> in the utilization of GraphQL to
-      communicate with backend
+    <span key="Utilized">
+      Utilized GraphQL for seamless communication with backend services,{" "}
+      <strong>reducing data fetching time by 25%</strong> and enhancing the user
+      experience.
     </span>
   ],
   title: "Senior React Developer"

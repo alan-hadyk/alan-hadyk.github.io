@@ -7,6 +7,7 @@ import { PoweredBy } from "containers/dashboard/components/PoweredBy";
 import { Responsive } from "components/layout/Responsive/Responsive";
 import { Device } from "components/layout/Responsive/@types/Responsive";
 import { ConsoleTvDesktopAndTablet } from "components/molecules/Console/screens/ConsoleTvDesktopAndTablet";
+import { catchPhrase } from "containers/dashboard/config";
 
 const DashboardContainerTablet: React.FC = () => (
   <Responsive devices={[Device.Tablet]}>
@@ -18,10 +19,7 @@ const DashboardContainerTablet: React.FC = () => (
         <TechStack />
       </DashboardInnerContainer>
 
-      <ConsoleTvDesktopAndTablet>
-        Vision driven change agent with career-long record of front-end user
-        strategy and UI development
-      </ConsoleTvDesktopAndTablet>
+      <ConsoleTvDesktopAndTablet>{catchPhrase}</ConsoleTvDesktopAndTablet>
 
       <DashboardInnerContainer
         height="h-[calc(22.6vh+3.6rem)]"
