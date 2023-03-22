@@ -1,17 +1,15 @@
 import { ICommitProps } from "components/molecules/ListOfCommits/@types/ListOfCommits";
-import fetch, { Response } from "node-fetch";
+import { axiosGet } from "helpers/api/axiosGet";
 
 async function fetchCommits(): Promise<ICommitProps[] | Error> {
-  const response: Response = await fetch(
-    "https://api.github.com/repos/alan-hadyk/portfolio/commits"
-  );
+  try {
+    const response = await axiosGet<ICommitProps[]>(
+      "https://api.github.com/repos/alan-hadyk/portfolio/commits"
+    );
 
-  const responseAsJson = await response.json();
-
-  if (!response.ok || !Array.isArray(responseAsJson)) {
-    throw new Error(JSON.stringify(responseAsJson));
-  } else {
-    return responseAsJson as ICommitProps[];
+    return response;
+  } catch (error) {
+    throw new Error("There was a problem with GitHub API");
   }
 }
 
