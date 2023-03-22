@@ -86,7 +86,7 @@ const responsibilities: ICompanyProps["responsibilities"] = [
   </span>,
   <span key="Introduced">
     Introduced GraphQL as a communicative means with the backend system,
-    <strong>boosting functional asset delivery by 40%</strong> and improving
+    <strong> boosting functional asset delivery by 40%</strong> and improving
     overall system performance.
   </span>
 ];

@@ -44,7 +44,7 @@ const companyDiHProps: ICompanyProps = {
   name: "DiH",
   responsibilities: [
     <span key="Optimized">
-      Optimized UI development for various e-commerce projects, resulting in a
+      Optimized UI development for various e-commerce projects, resulting in a{" "}
       <strong>30% improvement in design consistency</strong> and a{" "}
       <strong>20% reduction in development time</strong>.
     </span>,
@@ -64,7 +64,7 @@ const companyDiHProps: ICompanyProps = {
       faster project delivery.
     </span>,
     <span key="Advocated">
-      Advocated for the use of defect and enhancement tracking software,
+      Advocated for the use of defect and enhancement tracking software,{" "}
       <strong>improving issue resolution efficiency by 30%</strong>.
     </span>
   ],

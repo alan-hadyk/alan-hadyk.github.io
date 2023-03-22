@@ -72,7 +72,7 @@ const companySAPProps: ICompanyProps = {
   name: "SAP",
   responsibilities: [
     <span key="Facilitated">
-      Facilitated UI development and monitoring across various projects,
+      Facilitated UI development and monitoring across various projects,{" "}
       <strong>improving cross-team communication by 30%</strong> and ensuring
       timely delivery of features.
     </span>,

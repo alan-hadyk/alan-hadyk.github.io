@@ -85,7 +85,7 @@ const companyShijiProps: ICompanyProps = {
       streamlined operations.
     </span>,
     <span key="Assisted">
-      Assisted in the creation of a React.js-based Proof of Concept (PoC),
+      Assisted in the creation of a React.js-based Proof of Concept (PoC),{" "}
       <strong>expediting the decision-making process by 40%</strong> and
       enabling faster project progression.
     </span>,
@@ -95,7 +95,7 @@ const companyShijiProps: ICompanyProps = {
       <strong>accelerating feature delivery by 25%</strong>.
     </span>,
     <span key="Created">
-      Created reusable components and managed adapters, models, and serializers,
+      Created reusable components and managed adapters, models, and serializers,{" "}
       <strong>improving code organization and maintainability by 20%</strong>.
     </span>,
     <span key="Authored">
