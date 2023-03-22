@@ -5,7 +5,7 @@ import { isIE11 } from "helpers/browser/isIE11";
 
 import { ICompanyDescriptionProps } from "components/organisms/@types/CompanyDescription";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
-import { TechStack } from "components/molecules/TechStack";
+import { TechStack } from "components/molecules/TechStack/TechStack";
 import { IconWithLabelSize } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 
