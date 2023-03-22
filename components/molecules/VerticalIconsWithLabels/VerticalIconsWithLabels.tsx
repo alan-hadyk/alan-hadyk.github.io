@@ -60,7 +60,6 @@ const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
             >
               <Typography
                 ellipsis
-                key={label}
                 themeClasses={verticalIconsWithLabelsLabelThemeClasses}
               >
                 {label}
