@@ -1,3 +1,8 @@
+export enum DashboardContainerFormat {
+  Pdf,
+  Web
+}
+
 export interface IDashboardContainerProps {
-  format?: "web" | "pdf";
+  format?: DashboardContainerFormat;
 }

@@ -1,7 +1,7 @@
 import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
 import { Earth } from "components/molecules/Earth/Earth";
 
-const Ip: React.FC = () => (
+const DashboardContainerIp: React.FC = () => (
   <ContentFrame
     shouldDisplayCorners
     title="IP: 127.0.0.1"
@@ -15,4 +15,4 @@ const Ip: React.FC = () => (
   </ContentFrame>
 );
 
-export { Ip };
+export { DashboardContainerIp };

@@ -1,18 +1,16 @@
-import { IDashboardInnerContainerProps } from "containers/dashboard/components/@types/DashboardInnerContainer";
+import { IDashboardInnerContainerProps } from "components/molecules/DashboardInnerContainer/@types/DashboardInnerContainer";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 
 const DashboardInnerContainer: React.FC<IDashboardInnerContainerProps> = ({
   children,
-  height,
-  marginBottom = "mb-0",
-  marginTop = "mt-0"
+  themeClasses
 }) => (
   <LayoutContainer
     themeClasses={{
-      height,
-      marginBottom,
-      marginTop,
-      width: "w-100%"
+      marginBottom: "mb-0",
+      marginTop: "mt-0",
+      width: "w-100%",
+      ...themeClasses
     }}
   >
     <LayoutContainer

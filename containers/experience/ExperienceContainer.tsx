@@ -21,11 +21,6 @@ const ExperienceContainer: React.FC<IExperienceContainerProps> = ({
   <Section
     id="experience"
     title="Experience"
-    themeClasses={{
-      ...(format === ExperienceContainerFormat.Pdf && {
-        paddingTop: "pt-0"
-      })
-    }}
     variant={
       format === ExperienceContainerFormat.Web
         ? SectionVariant.Dark

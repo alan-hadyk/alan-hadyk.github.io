@@ -1,7 +1,7 @@
 import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
 import { FluxChart } from "components/molecules/FluxChart/FluxChart";
 
-const Flux: React.FC = () => (
+const DashboardContainerFlux: React.FC = () => (
   <ContentFrame
     shouldDisplayCorners
     title="Flux"
@@ -15,4 +15,4 @@ const Flux: React.FC = () => (
   </ContentFrame>
 );
 
-export { Flux };
+export { DashboardContainerFlux };

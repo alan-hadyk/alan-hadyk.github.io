@@ -1,10 +1,8 @@
-// import { AboutMeContainer } from "containers/aboutMe/AboutMeContainer";
-// import { ContactContainer } from "containers/contact/ContactContainer";
+import { DashboardContainerFormat } from "containers/dashboard/@types/DashboardContainer";
 import { DashboardContainer } from "containers/dashboard/DashboardContainer";
 import { ExperienceContainerFormat } from "containers/experience/@types/ExperienceContainer";
 import { ExperienceContainer } from "containers/experience/ExperienceContainer";
 import { SidebarContainer } from "containers/sidebar/SidebarContainer";
-// import { SkillsContainer } from "containers/skills/SkillsContainer";
 import { PdfLayout } from "layouts/PdfLayout";
 import { TNextPageWithLayout } from "types/next";
 
@@ -12,11 +10,8 @@ import { TNextPageWithLayout } from "types/next";
 
 const CvPage: TNextPageWithLayout = () => (
   <>
-    <DashboardContainer format="pdf" />
+    <DashboardContainer format={DashboardContainerFormat.Pdf} />
     <ExperienceContainer format={ExperienceContainerFormat.Pdf} />
-    {/* <SkillsContainer />
-    <AboutMeContainer />
-    <ContactContainer /> */}
   </>
 );
 

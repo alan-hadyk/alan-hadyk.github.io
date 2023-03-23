@@ -1,4 +1,4 @@
-import { IDashboardOuterContainerProps } from "containers/dashboard/components/@types/DashboardOuterContainer";
+import { IDashboardOuterContainerProps } from "components/molecules/DashboardOuterContainer/@types/DashboardOuterContainer";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 
 const DashboardOuterContainer: React.FC<IDashboardOuterContainerProps> = ({
