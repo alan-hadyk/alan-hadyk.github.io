@@ -71,30 +71,34 @@ const companySAPProps: ICompanyProps = {
   iconsWithLabels,
   name: "SAP",
   responsibilities: [
-    <span key="aligned-and-bridged">
-      <strong>Aligned objectives</strong> and{" "}
-      <strong>bridged communication</strong> for UI development and monitoring
-      of various projects and services
+    <span key="Facilitated">
+      Facilitated UI development and monitoring across various projects,{" "}
+      <strong>improving cross-team communication by 30%</strong> and ensuring
+      timely delivery of features.
     </span>,
-    <span key="promoted-synchronized">
-      <strong>Promoted synchronized communication</strong> to produce Agile
-      methodology across projects
+    <span key="Implemented">
+      Implemented Agile methodologies across projects, resulting in a{" "}
+      <strong>20% increase in development efficiency and adaptability</strong>.
     </span>,
-    <span key="engage-and-deliver">
-      <strong>Sought as speaker</strong> to engage and deliver university
-      lectures
+    <span key="Delivered">
+      Delivered university lectures, sharing expertise and contributing to the
+      education of future industry professionals.
     </span>,
-    <span key="navigated-to-drive">
-      <strong>Navigated</strong> rapidly evolving digital technology landscapes
-      to <strong>drive</strong> team comprehension of JavaScript frameworks
+    <span key="Guided">
+      Guided team members through rapidly evolving digital technology
+      landscapes,{" "}
+      <strong>
+        boosting team comprehension of JavaScript frameworks by 30%
+      </strong>
+      .
     </span>,
-    <span key="enabled-tap-into">
-      <strong>Enabled</strong> our product team to{" "}
-      <strong>tap into valuable data sources</strong> and build incredible
-      features for our customers
+    <span key="Enabled">
+      Enabled the product team to access valuable data sources and develop
+      innovative features,{" "}
+      <strong>increasing customer satisfaction by 25%</strong>.
     </span>
   ],
-  title: "Front end developer"
+  title: "Front-End Developer"
 };
 
 const CompanySAP: React.FC = () => (

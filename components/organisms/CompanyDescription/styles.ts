@@ -8,11 +8,10 @@ export const companyDescriptionContainerDefaultThemeClasses: IThemeClasses = {
 
 export const companyDescriptionTitleDefaultThemeClasses: IThemeClasses = {
   color: "text-white",
-  fontFamily: isIE11() ? "font-anonymousPro" : "font-exan",
+  fontFamily: "font-anonymousPro",
   fontSize: "text-36",
   lineHeight: "leading-56",
-  textAlign: "text-left",
-  textTransform: "uppercase"
+  textAlign: "text-left"
 };
 
 export const companyDescriptionIconWithLabelWrapperDefaultThemeClasses: IThemeClasses =

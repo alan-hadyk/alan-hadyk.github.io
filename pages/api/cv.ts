@@ -1,13 +1,15 @@
 import { convertPageToPDF } from "helpers/browser/convertPageToPDF";
 import { NextApiRequest, NextApiResponse } from "next";
 
-const CVApiRoute = async (_: NextApiRequest, res: NextApiResponse) => {
+const ApiCvRoute = async (req: NextApiRequest, res: NextApiResponse) => {
   res.setHeader("Content-Disposition", "inline");
   res.setHeader("Content-Type", "application/pdf");
 
-  const pdf = await convertPageToPDF("http://localhost:3000/cv");
+  const host = req.headers.host;
+
+  const pdf = await convertPageToPDF(`http://${host}/cv`);
 
   return res.send(pdf);
 };
 
-export default CVApiRoute;
+export default ApiCvRoute;

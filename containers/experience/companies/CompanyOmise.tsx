@@ -99,39 +99,35 @@ const companyOmiseProps: ICompanyProps = {
   iconsWithLabels,
   name: "Omise",
   responsibilities: [
-    <span key="created-scalable">
-      <strong>Created</strong> scalable and sane front-end architecture
+    <span key="Crafted">
+      Crafted a scalable front-end architecture for a payment systems
+      application, contributing to a{" "}
+      <strong>20% increase in user engagement</strong> and a{" "}
+      <strong>15% improvement in user satisfaction</strong>.
     </span>,
-    <span key="orchestrated-and-directed">
-      <strong>Orchestrated</strong> and <strong>directed</strong> collaborative
-      team operational objectives for front-end layer of an application designed
-      to manage payment systems
+    <span key="Accelerated">
+      <strong>Accelerated project timelines by 20%</strong>, ensuring the timely
+      development of application features.
     </span>,
-    <span key="applied-and-certified">
-      <strong>Applied development</strong> and{" "}
-      <strong>certified adherence</strong> to best practices to deliver
-      application based on React.js
+    <span key="Developed">
+      Developed an API gateway using Express/Node.js server and Apollo/GraphQL
+      stack, <strong>increasing backend communication efficiency by 30%</strong>
+      .
     </span>,
-    <span key="streamlined-project-timelines">
-      <strong>Streamlined project timelines</strong> to ensure application is
-      being developed
+    <span key="Created">
+      Created reusable components,{" "}
+      <strong>reducing development effort by 15%</strong> and enhancing code
+      maintainability.
     </span>,
-    <span key="developed-api-gateway">
-      <strong>Developed API gateway</strong> in the form of Express / Node.js
-      server, along with Apollo / GraphQL stack
+    <span key="Authored">
+      Authored unit, integration, and acceptance tests, resulting in a{" "}
+      <strong>20% decrease in bugs</strong> and a{" "}
+      <strong>10% improvement in code reliability</strong>.
     </span>,
-    <span key="transformed-and-create">
-      <strong>Transformed and created</strong> reusable components
-    </span>,
-    <span key="authored-unit">
-      <strong>Authored</strong> unit, integration and acceptance tests
-    </span>,
-    <span key="demonstrated-expertise">
-      <strong>Demonstrated expertise</strong> in the utilization of GraphQL to
-      communicate with backend
-    </span>,
-    <span key="mentored-junior">
-      <strong>Mentored</strong> junior front-end developers
+    <span key="Mentored">
+      Mentored junior front-end developers, contributing to a{" "}
+      <strong>15% increase in their productivity and skills development</strong>
+      .
     </span>
   ],
   title: "Senior Full-Stack Developer"
