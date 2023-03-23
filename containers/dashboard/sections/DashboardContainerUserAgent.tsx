@@ -1,17 +1,13 @@
 import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
 import { BrowserInfo } from "components/molecules/BrowserInfo/BrowserInfo";
 import { useEffect, useState } from "react";
+import { getUserAgent } from "helpers/window/getUserAgent";
 
-const getDescription = () =>
-  typeof window !== "undefined"
-    ? window.navigator && window.navigator.userAgent
-    : "";
-
-const UserAgent: React.FC = () => {
+const DashboardContainerUserAgent: React.FC = () => {
   const [description, setDescription] = useState<string | undefined>(undefined);
 
   useEffect(() => {
-    setDescription(getDescription());
+    setDescription(getUserAgent());
   }, []);
 
   return (
@@ -30,4 +26,4 @@ const UserAgent: React.FC = () => {
   );
 };
 
-export { UserAgent };
+export { DashboardContainerUserAgent };

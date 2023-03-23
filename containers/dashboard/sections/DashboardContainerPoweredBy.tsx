@@ -2,7 +2,7 @@ import { IconDynamicName } from "components/atoms/IconDynamic/@types/IconDynamic
 import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
 import { LargeIcon } from "components/molecules/LargeIcon/LargeIcon";
 
-const PoweredBy: React.FC = () => (
+const DashboardContainerPoweredBy: React.FC = () => (
   <ContentFrame
     shouldDisplayCorners
     title="Powered by"
@@ -16,4 +16,4 @@ const PoweredBy: React.FC = () => (
   </ContentFrame>
 );
 
-export { PoweredBy };
+export { DashboardContainerPoweredBy };

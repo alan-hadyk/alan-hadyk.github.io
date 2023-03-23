@@ -4,7 +4,7 @@ import { CommitsState } from "hooks/@types/useCommits";
 
 import { useCommits } from "hooks/useCommits";
 
-const Commits: React.FC = () => {
+const DashboardContainerCommits: React.FC = () => {
   const { commitsList, commitsState } = useCommits();
 
   return (
@@ -23,4 +23,4 @@ const Commits: React.FC = () => {
   );
 };
 
-export { Commits };
+export { DashboardContainerCommits };

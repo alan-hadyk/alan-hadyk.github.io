@@ -1,7 +1,7 @@
 import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
 import { HorizontalIcons } from "components/molecules/HorizontalIcons/HorizontalIcons";
 
-const TechStack: React.FC = () => (
+const DashboardContainerTechStack: React.FC = () => (
   <ContentFrame
     shouldDisplayCorners
     title="Tech Stack"
@@ -15,4 +15,4 @@ const TechStack: React.FC = () => (
   </ContentFrame>
 );
 
-export { TechStack };
+export { DashboardContainerTechStack };

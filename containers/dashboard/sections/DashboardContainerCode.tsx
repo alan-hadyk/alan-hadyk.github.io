@@ -1,7 +1,7 @@
 import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
 import { TypingAnimation } from "components/molecules/TypingAnimation/TypingAnimation";
 
-const Code: React.FC = () => (
+const DashboardContainerCode: React.FC = () => (
   <ContentFrame
     title="Code"
     themeClasses={{
@@ -17,4 +17,4 @@ const Code: React.FC = () => (
   </ContentFrame>
 );
 
-export { Code };
+export { DashboardContainerCode };
