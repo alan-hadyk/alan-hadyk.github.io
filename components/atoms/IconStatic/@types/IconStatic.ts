@@ -36,6 +36,7 @@ export enum IconStaticName {
   Jira = "jira",
   LESS = "less",
   Link = "link",
+  LinkedIn = "linkedIn",
   NestJs = "nestJs",
   NextJs = "nextJs",
   NodeJs = "nodeJs",

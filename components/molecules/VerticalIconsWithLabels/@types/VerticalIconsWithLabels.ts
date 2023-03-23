@@ -5,7 +5,10 @@ import {
 import { IThemeClasses } from "types/theme";
 
 export interface IVerticalIconsWithLabelsProps {
-  iconsWithLabels: Pick<IIconWithLabelProps, "iconName" | "label">[];
+  iconsWithLabels: Pick<
+    IIconWithLabelProps,
+    "href" | "iconName" | "isExternal" | "label"
+  >[];
   size?: IconWithLabelSize;
   themeClasses?: {
     label?: Pick<IThemeClasses, "color">;

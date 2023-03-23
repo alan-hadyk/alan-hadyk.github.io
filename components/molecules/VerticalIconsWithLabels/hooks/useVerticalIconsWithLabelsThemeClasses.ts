@@ -4,7 +4,11 @@ import {
   mapSizeToTextFontSize
 } from "components/molecules/IconWithLabel/styles";
 import { IVerticalIconsWithLabelsProps } from "components/molecules/VerticalIconsWithLabels/@types/VerticalIconsWithLabels";
-import { verticalIconsWithLabelsLabelDefaultThemeClasses } from "components/molecules/VerticalIconsWithLabels/styles";
+import {
+  mapSizeToIconsWrapperStyles,
+  verticalIconsWithLabelsIconsWrapperDefaultThemeClasses,
+  verticalIconsWithLabelsLabelDefaultThemeClasses
+} from "components/molecules/VerticalIconsWithLabels/styles";
 import { IThemeClasses } from "types/theme";
 
 export const useVerticalIconsWithLabelsThemeClasses = ({
@@ -21,8 +25,14 @@ export const useVerticalIconsWithLabelsThemeClasses = ({
     ...themeClasses?.label
   };
 
+  const verticalIconsWithLabelsIconsWrapperThemeClasses: IThemeClasses = {
+    ...verticalIconsWithLabelsIconsWrapperDefaultThemeClasses,
+    ...mapSizeToIconsWrapperStyles[size]
+  };
+
   return {
     verticalIconsWithLabelsIconThemeClasses,
+    verticalIconsWithLabelsIconsWrapperThemeClasses,
     verticalIconsWithLabelsLabelThemeClasses
   };
 };

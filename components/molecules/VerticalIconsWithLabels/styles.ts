@@ -1,3 +1,4 @@
+import { IconWithLabelSize } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 import { IThemeClasses } from "types/theme";
 
 export const verticalIconsWithLabelsDefaultThemeClasses: IThemeClasses = {
@@ -36,4 +37,19 @@ export const verticalIconsWithLabelsLabelContainerDefaultThemeClasses: IThemeCla
 export const verticalIconsWithLabelsLabelDefaultThemeClasses: IThemeClasses = {
   color: "text-blue100",
   lineHeight: "leading-32"
+};
+
+export const mapSizeToIconsWrapperStyles: Record<
+  IconWithLabelSize,
+  IThemeClasses
+> = {
+  [IconWithLabelSize.Large]: {
+    flex: "flex-[0_0_9.2rem]"
+  },
+  [IconWithLabelSize.Medium]: {
+    flex: "flex-[0_0_9.2rem]"
+  },
+  [IconWithLabelSize.Small]: {
+    flex: "flex-[0_0_25%]"
+  }
 };

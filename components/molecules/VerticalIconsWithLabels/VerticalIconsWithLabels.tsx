@@ -10,11 +10,11 @@ import { IconStatic } from "components/atoms/IconStatic/IconStatic";
 import {
   verticalIconsWithLabelsDefaultThemeClasses,
   verticalIconsWithLabelsIconContainerDefaultThemeClasses,
-  verticalIconsWithLabelsIconsWrapperDefaultThemeClasses,
   verticalIconsWithLabelsLabelContainerDefaultThemeClasses,
   verticalIconsWithLabelsLabelsWrapperDefaultThemeClasses
 } from "components/molecules/VerticalIconsWithLabels/styles";
 import { useVerticalIconsWithLabelsThemeClasses } from "components/molecules/VerticalIconsWithLabels/hooks/useVerticalIconsWithLabelsThemeClasses";
+import { Link } from "components/molecules/Link/Link";
 
 const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
   iconsWithLabels,
@@ -23,13 +23,14 @@ const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
 }) => {
   const {
     verticalIconsWithLabelsIconThemeClasses,
+    verticalIconsWithLabelsIconsWrapperThemeClasses,
     verticalIconsWithLabelsLabelThemeClasses
   } = useVerticalIconsWithLabelsThemeClasses({ size, themeClasses });
 
   return (
     <LayoutContainer themeClasses={verticalIconsWithLabelsDefaultThemeClasses}>
       <LayoutContainer
-        themeClasses={verticalIconsWithLabelsIconsWrapperDefaultThemeClasses}
+        themeClasses={verticalIconsWithLabelsIconsWrapperThemeClasses}
       >
         {iconsWithLabels.map(
           ({ iconName }: IIconWithLabelProps, index: number): JSX.Element => (
@@ -51,19 +52,30 @@ const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
         themeClasses={verticalIconsWithLabelsLabelsWrapperDefaultThemeClasses}
       >
         {iconsWithLabels.map(
-          ({ label }: IIconWithLabelProps): JSX.Element => (
+          ({ href, isExternal, label }: IIconWithLabelProps): JSX.Element => (
             <LayoutContainer
               key={label}
               themeClasses={
                 verticalIconsWithLabelsLabelContainerDefaultThemeClasses
               }
             >
-              <Typography
-                ellipsis
-                themeClasses={verticalIconsWithLabelsLabelThemeClasses}
-              >
-                {label}
-              </Typography>
+              {href ? (
+                <Link href={href} isExternal={isExternal}>
+                  <Typography
+                    ellipsis
+                    themeClasses={verticalIconsWithLabelsLabelThemeClasses}
+                  >
+                    {label}
+                  </Typography>
+                </Link>
+              ) : (
+                <Typography
+                  ellipsis
+                  themeClasses={verticalIconsWithLabelsLabelThemeClasses}
+                >
+                  {label}
+                </Typography>
+              )}
             </LayoutContainer>
           )
         )}

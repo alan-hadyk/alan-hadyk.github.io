@@ -1,4 +1,4 @@
-import { PdfTemplate } from "components/templates/PdfTemplate";
+import { PdfTemplate } from "components/templates/PdfTemplate/PdfTemplate";
 import { IPdfLayoutProps } from "layouts/@types/PdfLayout";
 import React from "react";
 import Head from "next/head";

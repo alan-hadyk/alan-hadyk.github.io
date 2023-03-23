@@ -32,7 +32,8 @@ const useIconsWithLabelsThemeClasses = ({
       position === IconsWithLabelsPosition.Horizontal
         ? "max-w-unset"
         : "max-w-100%",
-    pseudoClasses: mapSizeToFlexContainerGap[position][size]
+    pseudoClasses: mapSizeToFlexContainerGap[position][size],
+    ...themeClasses?.wrapper
   };
 
   const iconsWithLabelsIconThemeClasses: IIconWithLabelProps["themeClasses"] = {
