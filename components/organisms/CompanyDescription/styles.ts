@@ -1,5 +1,4 @@
 import { IIconWithLabelProps } from "components/molecules/IconWithLabel/@types/IconWithLabel";
-import { isIE11 } from "helpers/browser/isIE11";
 import { IThemeClasses } from "types/theme";
 
 export const companyDescriptionContainerDefaultThemeClasses: IThemeClasses = {
