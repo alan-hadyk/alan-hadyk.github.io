@@ -1,6 +1,18 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
+  compiler: {
+    reactRemoveProperties: true,
+    removeConsole: {
+      exclude: ["error"]
+    }
+  },
+  modularizeImports: {
+    lodash: {
+      preventFullImport: true,
+      transform: "lodash/{{member}}"
+    }
+  },
   reactStrictMode: true,
   swcMinify: true,
 
