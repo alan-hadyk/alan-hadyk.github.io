@@ -1,19 +1,16 @@
 import { IconDynamicName } from "components/atoms/IconDynamic/@types/IconDynamic";
 import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
 import { LargeIcon } from "components/molecules/LargeIcon/LargeIcon";
+import { dashboardContainerPoweredByDefaultThemeClasses } from "containers/dashboard/styles";
 
-const PoweredBy: React.FC = () => (
+const DashboardContainerPoweredBy: React.FC = () => (
   <ContentFrame
     shouldDisplayCorners
     title="Powered by"
-    themeClasses={{
-      container: {
-        flex: "flex-[1_0_30%]"
-      }
-    }}
+    themeClasses={dashboardContainerPoweredByDefaultThemeClasses}
   >
     <LargeIcon iconName={IconDynamicName.NextJS} />
   </ContentFrame>
 );
 
-export { PoweredBy };
+export { DashboardContainerPoweredBy };

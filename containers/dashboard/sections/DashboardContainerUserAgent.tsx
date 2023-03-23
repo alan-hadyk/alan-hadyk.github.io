@@ -1,17 +1,14 @@
 import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
 import { BrowserInfo } from "components/molecules/BrowserInfo/BrowserInfo";
 import { useEffect, useState } from "react";
+import { dashboardContainerUserAgentDefaultThemeClasses } from "containers/dashboard/styles";
+import { getUserAgent } from "helpers/window/getUserAgent";
 
-const getDescription = () =>
-  typeof window !== "undefined"
-    ? window.navigator && window.navigator.userAgent
-    : "";
-
-const UserAgent: React.FC = () => {
+const DashboardContainerUserAgent: React.FC = () => {
   const [description, setDescription] = useState<string | undefined>(undefined);
 
   useEffect(() => {
-    setDescription(getDescription());
+    setDescription(getUserAgent());
   }, []);
 
   return (
@@ -19,15 +16,11 @@ const UserAgent: React.FC = () => {
       description={description}
       shouldDisplayCorners
       title="User Agent"
-      themeClasses={{
-        container: {
-          flex: "flex-[1_0_20%]"
-        }
-      }}
+      themeClasses={dashboardContainerUserAgentDefaultThemeClasses}
     >
       <BrowserInfo />
     </ContentFrame>
   );
 };
 
-export { UserAgent };
+export { DashboardContainerUserAgent };

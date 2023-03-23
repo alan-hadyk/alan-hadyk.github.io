@@ -1,18 +1,15 @@
 import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
 import { HorizontalIcons } from "components/molecules/HorizontalIcons/HorizontalIcons";
+import { dashboardContainerTechStackDefaultThemeClasses } from "containers/dashboard/styles";
 
-const TechStack: React.FC = () => (
+const DashboardContainerTechStack: React.FC = () => (
   <ContentFrame
     shouldDisplayCorners
     title="Tech Stack"
-    themeClasses={{
-      container: {
-        flex: "flex-[1_0_40%]"
-      }
-    }}
+    themeClasses={dashboardContainerTechStackDefaultThemeClasses}
   >
     <HorizontalIcons />
   </ContentFrame>
 );
 
-export { TechStack };
+export { DashboardContainerTechStack };

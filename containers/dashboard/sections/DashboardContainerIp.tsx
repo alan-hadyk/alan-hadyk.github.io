@@ -1,18 +1,15 @@
 import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
 import { Earth } from "components/molecules/Earth/Earth";
+import { dashboardContainerIpDefaultThemeClasses } from "containers/dashboard/styles";
 
-const Ip: React.FC = () => (
+const DashboardContainerIp: React.FC = () => (
   <ContentFrame
     shouldDisplayCorners
     title="IP: 127.0.0.1"
-    themeClasses={{
-      container: {
-        flex: "flex-[0_1_30%]"
-      }
-    }}
+    themeClasses={dashboardContainerIpDefaultThemeClasses}
   >
     <Earth />
   </ContentFrame>
 );
 
-export { Ip };
+export { DashboardContainerIp };
