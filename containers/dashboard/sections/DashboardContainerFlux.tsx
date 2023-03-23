@@ -1,12 +1,15 @@
 import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
 import { FluxChart } from "components/molecules/FluxChart/FluxChart";
-import { dashboardContainerFluxDefaultThemeClasses } from "containers/dashboard/styles";
 
 const DashboardContainerFlux: React.FC = () => (
   <ContentFrame
     shouldDisplayCorners
     title="Flux"
-    themeClasses={dashboardContainerFluxDefaultThemeClasses}
+    themeClasses={{
+      container: {
+        flex: "flex-[1_0_30%]"
+      }
+    }}
   >
     <FluxChart />
   </ContentFrame>

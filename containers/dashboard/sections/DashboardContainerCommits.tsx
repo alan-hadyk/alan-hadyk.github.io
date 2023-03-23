@@ -1,6 +1,5 @@
 import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
 import { ListOfCommits } from "components/molecules/ListOfCommits/ListOfCommits";
-import { dashboardContainerCommitsDefaultThemeClasses } from "containers/dashboard/styles";
 import { CommitsState } from "hooks/@types/useCommits";
 
 import { useCommits } from "hooks/useCommits";
@@ -12,7 +11,12 @@ const DashboardContainerCommits: React.FC = () => {
     <ContentFrame
       shouldDisplayCorners={commitsState === CommitsState.Error}
       title="Commits"
-      themeClasses={dashboardContainerCommitsDefaultThemeClasses}
+      themeClasses={{
+        container: {
+          flex: "flex-[1_0_20%]",
+          overflow: "overflow-hidden"
+        }
+      }}
     >
       <ListOfCommits commitsList={commitsList} commitsState={commitsState} />
     </ContentFrame>

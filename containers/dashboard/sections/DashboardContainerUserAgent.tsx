@@ -1,7 +1,6 @@
 import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
 import { BrowserInfo } from "components/molecules/BrowserInfo/BrowserInfo";
 import { useEffect, useState } from "react";
-import { dashboardContainerUserAgentDefaultThemeClasses } from "containers/dashboard/styles";
 import { getUserAgent } from "helpers/window/getUserAgent";
 
 const DashboardContainerUserAgent: React.FC = () => {
@@ -16,7 +15,11 @@ const DashboardContainerUserAgent: React.FC = () => {
       description={description}
       shouldDisplayCorners
       title="User Agent"
-      themeClasses={dashboardContainerUserAgentDefaultThemeClasses}
+      themeClasses={{
+        container: {
+          flex: "flex-[1_0_20%]"
+        }
+      }}
     >
       <BrowserInfo />
     </ContentFrame>

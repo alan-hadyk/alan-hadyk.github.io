@@ -7,12 +7,16 @@ import {
   IDashboardContainerProps
 } from "containers/dashboard/@types/DashboardContainer";
 import { DashboardContainerPdf } from "containers/dashboard/screens/DashboardContainerPdf";
-import { dashboardContainerDefaultThemeClasses } from "containers/dashboard/styles";
 
 const DashboardContainer: React.FC<IDashboardContainerProps> = ({
   format = DashboardContainerFormat.Web
 }) => (
-  <Section id="dashboard" themeClasses={dashboardContainerDefaultThemeClasses}>
+  <Section
+    id="dashboard"
+    themeClasses={{
+      marginBottom: "mb-12"
+    }}
+  >
     {format === DashboardContainerFormat.Web && (
       <>
         <DashboardContainerTvAndDesktop />
