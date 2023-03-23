@@ -15,16 +15,6 @@ export const consoleMobileConsoleTextWrapperDefaultThemeClasses: IThemeClasses =
     padding: "p-16"
   };
 
-export const consolePdfDefaultThemeClasses: IThemeClasses = {
-  paddingTop: "pt-48"
-};
-
-export const consolePdfInnerContainerDefaultThemeClasses: IThemeClasses = {
-  paddingX: "px-16",
-  paddingY: "py-8",
-  position: "relative"
-};
-
 export const consoleTvDesktopAndTabletDefaultThemeClasses: IThemeClasses = {
   left: "left-0",
   position: "absolute",

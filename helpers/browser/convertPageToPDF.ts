@@ -9,7 +9,8 @@ const convertPageToPDF = async (url: string) => {
   });
 
   const pdf = await page.pdf({
-    format: "a4"
+    format: "a4",
+    printBackground: true
   });
 
   await browser.close();

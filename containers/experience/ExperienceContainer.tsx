@@ -9,9 +9,29 @@ import { CompanyShiji } from "containers/experience/companies/CompanyShiji";
 import { CompanyTribe } from "containers/experience/companies/CompanyTribe";
 import { CompanyHealthcareSaas } from "containers/experience/companies/CompanyHealthcareSaas";
 import { CompanySaaSForContentWriters } from "containers/experience/companies/CompanySaaSForContentWriters";
+import {
+  ExperienceContainerFormat,
+  IExperienceContainerProps
+} from "containers/experience/@types/ExperienceContainer";
+import { SectionVariant } from "components/molecules/Section/@types/Section";
 
-const ExperienceContainer: React.FC = () => (
-  <Section id="experience" title="Experience">
+const ExperienceContainer: React.FC<IExperienceContainerProps> = ({
+  format = ExperienceContainerFormat.Web
+}) => (
+  <Section
+    id="experience"
+    title="Experience"
+    themeClasses={{
+      ...(format === ExperienceContainerFormat.Pdf && {
+        paddingTop: "pt-0"
+      })
+    }}
+    variant={
+      format === ExperienceContainerFormat.Web
+        ? SectionVariant.Dark
+        : SectionVariant.Light
+    }
+  >
     <CompanySaaSForContentWriters />
     <CompanyHealthcareSaas />
     <CompanyRealEstateStartup />

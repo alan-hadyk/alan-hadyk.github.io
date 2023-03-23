@@ -69,7 +69,7 @@ const Header: React.FC<IHeaderProps> = ({ children, zIndex = "z-400" }) => {
               <Responsive devices={[Device.Tv, Device.Desktop, Device.Tablet]}>
                 <LinkWithImage
                   href="/"
-                  iconName="logo"
+                  imageName="logo"
                   themeClasses={{
                     height: "h-48",
                     width: "w-248"
@@ -80,7 +80,7 @@ const Header: React.FC<IHeaderProps> = ({ children, zIndex = "z-400" }) => {
               <Responsive devices={[Device.Mobile]}>
                 <LinkWithImage
                   href="/"
-                  iconName="logoShortcut"
+                  imageName="logoShortcut"
                   themeClasses={{
                     width: "w-64"
                   }}

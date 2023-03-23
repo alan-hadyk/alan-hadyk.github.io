@@ -17,6 +17,8 @@ export interface ITypographyProps {
     | "fontWeight"
     | "groupHover"
     | "lineHeight"
+    | "marginBottom"
+    | "marginTop"
     | "maxHeight"
     | "overflow"
     | "padding"

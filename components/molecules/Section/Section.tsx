@@ -1,28 +1,28 @@
 import React, { Fragment } from "react";
 
 import { Responsive } from "components/layout/Responsive/Responsive";
-import { ISectionProps } from "components/molecules/Section/@types/Section";
+import {
+  ISectionProps,
+  SectionVariant
+} from "components/molecules/Section/@types/Section";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { Device } from "components/layout/Responsive/@types/Responsive";
 import { SectionTitle } from "components/molecules/SectionTitle/SectionTitle";
-import {
-  sectionDefaultThemeClasses,
-  sectionTitleMobileDefaultThemeClasses,
-  sectionTitleTvDesktopTabletDefaultThemeClasses
-} from "components/molecules/Section/styles";
-import { IThemeClasses } from "types/theme";
+import { SectionTitleVariant } from "components/molecules/SectionTitle/@types/SectionTitle";
+import { useSectionThemeClasses } from "components/molecules/Section/hooks/useSectionThemeClasses";
 
 const Section: React.FC<ISectionProps> = ({
   children,
   id,
+  themeClasses,
   title,
-  themeClasses
+  variant = SectionVariant.Dark
 }) => {
-  const sectionThemeClasses: IThemeClasses = {
-    ...sectionDefaultThemeClasses,
-    paddingTop: title ? "pt-96" : "pt-0",
-    ...themeClasses
-  };
+  const {
+    sectionThemeClasses,
+    sectionTitleMobileThemeClasses,
+    sectionTitleTvDesktopTabletThemeClasses
+  } = useSectionThemeClasses({ themeClasses, title, variant });
 
   return (
     <LayoutContainer id={id} themeClasses={sectionThemeClasses}>
@@ -30,14 +30,26 @@ const Section: React.FC<ISectionProps> = ({
         <Fragment>
           <Responsive devices={[Device.Tv, Device.Desktop, Device.Tablet]}>
             <SectionTitle
-              themeClasses={sectionTitleTvDesktopTabletDefaultThemeClasses}
+              themeClasses={sectionTitleTvDesktopTabletThemeClasses}
+              variant={
+                variant === SectionVariant.Dark
+                  ? SectionTitleVariant.Dark
+                  : SectionTitleVariant.Light
+              }
             >
               {title}
             </SectionTitle>
           </Responsive>
 
           <Responsive devices={[Device.Mobile]}>
-            <SectionTitle themeClasses={sectionTitleMobileDefaultThemeClasses}>
+            <SectionTitle
+              themeClasses={sectionTitleMobileThemeClasses}
+              variant={
+                variant === SectionVariant.Dark
+                  ? SectionTitleVariant.Dark
+                  : SectionTitleVariant.Light
+              }
+            >
               {title}
             </SectionTitle>
           </Responsive>

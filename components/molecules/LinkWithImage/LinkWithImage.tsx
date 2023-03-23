@@ -9,7 +9,7 @@ import { IThemeClasses } from "types/theme";
 
 const LinkWithImage: React.FC<ILinkWithImageProps> = ({
   href,
-  iconName,
+  imageName,
   isExternal = false,
   themeClasses
 }) => {
@@ -32,7 +32,7 @@ const LinkWithImage: React.FC<ILinkWithImageProps> = ({
       <ImageDynamic
         themeClasses={linkWithImageDynamicImageThemeClasses}
         isHeightResponsive
-        imageName={iconName}
+        imageName={imageName}
         shouldGlowOnHover
       />
     </Link>
