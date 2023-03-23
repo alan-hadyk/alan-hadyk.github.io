@@ -2,9 +2,6 @@ import { MenuButton } from "components/molecules/MenuButton/MenuButton";
 
 import { Button } from "components/molecules/Button/Button";
 import { Nav } from "components/molecules/Nav/Nav";
-
-import { SideMenu } from "components/organisms/SideMenu";
-
 import { Responsive } from "components/layout/Responsive/Responsive";
 
 import { Backdrop } from "components/atoms/Backdrop/Backdrop";
@@ -15,6 +12,7 @@ import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContain
 import { IHeaderContainerScreenProps } from "containers/header/@types/HeaderContainerScreen";
 import { IconDynamicName } from "components/atoms/IconDynamic/@types/IconDynamic";
 import { ButtonSize } from "components/molecules/Button/@types/Button";
+import { SideMenu } from "components/organisms/SideMenu/SideMenu";
 
 const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
   isMenuVisible,

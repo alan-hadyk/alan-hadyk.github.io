@@ -10,5 +10,7 @@ export interface IHeaderProps {
     isMenuVisible,
     toggleMenuVisibility
   }: IChildrenArgs) => JSX.Element;
-  zIndex?: IThemeClasses["zIndex"];
+  themeClasses?: {
+    wrapper?: Pick<IThemeClasses, "zIndex">;
+  };
 }

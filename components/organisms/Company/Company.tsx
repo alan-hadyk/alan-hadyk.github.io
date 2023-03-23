@@ -1,11 +1,10 @@
-import { CompanyTvDesktopAndTablet } from "components/organisms/Company/CompanyTvDesktopAndTablet";
-import { CompanyMobile } from "components/organisms/Company/CompanyMobile";
-
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
+import { CompanyTvDesktopAndTablet } from "components/organisms/Company/screens/CompanyTvDesktopAndTablet";
+import { CompanyMobile } from "components/organisms/Company/screens/CompanyMobile";
+import { companyContainerDefaultThemeClasses } from "components/organisms/Company/styles";
 
 const Company: React.FC<ICompanyProps> = ({
-  companyMobilePaddingBottom,
   date,
   iconsWithLabels,
   link,
@@ -15,19 +14,13 @@ const Company: React.FC<ICompanyProps> = ({
   title
 }) => (
   <LayoutContainer>
-    <LayoutContainer
-      themeClasses={{
-        position: "relative",
-        width: "w-100%"
-      }}
-    >
+    <LayoutContainer themeClasses={companyContainerDefaultThemeClasses}>
       <CompanyTvDesktopAndTablet
         date={date}
         iconsWithLabels={iconsWithLabels}
         link={link}
         name={name}
         responsibilities={responsibilities}
-        responsibilitiesPaddingBottom={companyMobilePaddingBottom}
         themeClasses={themeClasses}
         title={title}
       />
@@ -38,7 +31,7 @@ const Company: React.FC<ICompanyProps> = ({
         link={link}
         name={name}
         responsibilities={responsibilities}
-        responsibilitiesPaddingBottom={companyMobilePaddingBottom}
+        themeClasses={themeClasses}
         title={title}
       />
     </LayoutContainer>
