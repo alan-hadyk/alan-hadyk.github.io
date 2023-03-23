@@ -1,24 +1,31 @@
 import { IDashboardInnerContainerProps } from "components/molecules/DashboardInnerContainer/@types/DashboardInnerContainer";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
-import { dashboardInnerContainerChildrenWrapperDefaultThemeClasses } from "components/molecules/DashboardInnerContainer/styles";
-import { useDashboardInnerContainerThemeClasses } from "components/molecules/DashboardInnerContainer/hooks/useDashboardInnerContainerThemeClasses";
 
 const DashboardInnerContainer: React.FC<IDashboardInnerContainerProps> = ({
   children,
   themeClasses
-}) => {
-  const { dashboardInnerContainerThemeClasses } =
-    useDashboardInnerContainerThemeClasses({ themeClasses });
-
-  return (
-    <LayoutContainer themeClasses={dashboardInnerContainerThemeClasses}>
-      <LayoutContainer
-        themeClasses={dashboardInnerContainerChildrenWrapperDefaultThemeClasses}
-      >
-        {children}
-      </LayoutContainer>
+}) => (
+  <LayoutContainer
+    themeClasses={{
+      marginBottom: "mb-0",
+      marginTop: "mt-0",
+      width: "w-100%",
+      ...themeClasses
+    }}
+  >
+    <LayoutContainer
+      themeClasses={{
+        alignItems: "items-stretch",
+        display: "flex",
+        flexFlow: "flex-row-nowrap",
+        height: "h-100%",
+        justifyContent: "justify-center",
+        pseudoClasses: ["directChildren:ml-48", "firstdirectChild:ml-0"]
+      }}
+    >
+      {children}
     </LayoutContainer>
-  );
-};
+  </LayoutContainer>
+);
 
 export { DashboardInnerContainer };

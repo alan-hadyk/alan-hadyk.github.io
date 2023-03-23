@@ -1,24 +1,29 @@
 import { IDashboardOuterContainerProps } from "components/molecules/DashboardOuterContainer/@types/DashboardOuterContainer";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
-import {
-  dashboardOuterContainerChildrenInnerWrapperDefaultThemeClasses,
-  dashboardOuterContainerChildrenOuterWrapperDefaultThemeClasses,
-  dashboardOuterContainerDefaultThemeClasses
-} from "components/molecules/DashboardOuterContainer/styles";
 
 const DashboardOuterContainer: React.FC<IDashboardOuterContainerProps> = ({
   children
 }) => (
-  <LayoutContainer themeClasses={dashboardOuterContainerDefaultThemeClasses}>
+  <LayoutContainer
+    themeClasses={{
+      height: "h-100vh",
+      paddingTop: "pt-96"
+    }}
+  >
     <LayoutContainer
-      themeClasses={
-        dashboardOuterContainerChildrenOuterWrapperDefaultThemeClasses
-      }
+      themeClasses={{
+        height: "h-100%",
+        position: "relative"
+      }}
     >
       <LayoutContainer
-        themeClasses={
-          dashboardOuterContainerChildrenInnerWrapperDefaultThemeClasses
-        }
+        themeClasses={{
+          alignItems: "items-center",
+          display: "flex",
+          flexFlow: "flex-col-nowrap",
+          height: "h-100%",
+          justifyContent: "justify-between"
+        }}
       >
         {children}
       </LayoutContainer>
