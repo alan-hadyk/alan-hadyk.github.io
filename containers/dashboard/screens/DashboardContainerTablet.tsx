@@ -1,5 +1,5 @@
-import { DashboardInnerContainer } from "containers/dashboard/components/DashboardInnerContainer";
-import { DashboardOuterContainer } from "containers/dashboard/components/DashboardOuterContainer";
+import { DashboardInnerContainer } from "components/molecules/DashboardInnerContainer/DashboardInnerContainer";
+import { DashboardOuterContainer } from "components/molecules/DashboardOuterContainer/DashboardOuterContainer";
 import { TechStack } from "containers/dashboard/components/TechStack";
 import { Commits } from "containers/dashboard/components/Commits";
 import { PoweredBy } from "containers/dashboard/components/PoweredBy";
@@ -13,8 +13,10 @@ const DashboardContainerTablet: React.FC = () => (
   <Responsive devices={[Device.Tablet]}>
     <DashboardOuterContainer>
       <DashboardInnerContainer
-        height="h-[calc(17vh+3.6rem)]"
-        marginTop="mt-[2.22vh]"
+        themeClasses={{
+          height: "h-[calc(17vh+3.6rem)]",
+          marginTop: "mt-[2.22vh]"
+        }}
       >
         <TechStack />
       </DashboardInnerContainer>
@@ -22,8 +24,10 @@ const DashboardContainerTablet: React.FC = () => (
       <ConsoleTvDesktopAndTablet>{catchPhrase}</ConsoleTvDesktopAndTablet>
 
       <DashboardInnerContainer
-        height="h-[calc(22.6vh+3.6rem)]"
-        marginBottom="mb-[2.22vh]"
+        themeClasses={{
+          height: "h-[calc(22.6vh+3.6rem)]",
+          marginBottom: "mb-[2.22vh]"
+        }}
       >
         <Commits />
         <PoweredBy />
