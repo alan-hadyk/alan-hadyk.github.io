@@ -39,12 +39,11 @@ export const headerInnerContainerDefaultThemeClasses: IThemeClasses = {
   justifyContent: "justify-between"
 };
 
-export const headerLinkWithImageContainerDefaultThemeClasses: IThemeClasses = {
+export const headerLinkWithImageDefaultThemeClasses: IThemeClasses = {
   height: "h-48",
   width: "w-248"
 };
 
-export const headerMobileLinkWithImageContainerDefaultThemeClasses: IThemeClasses =
-  {
-    width: "w-64"
-  };
+export const headerMobileLinkWithImageDefaultThemeClasses: IThemeClasses = {
+  width: "w-64"
+};

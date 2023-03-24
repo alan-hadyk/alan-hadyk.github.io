@@ -9,7 +9,7 @@ import {
   companyMobileContainerDefaultThemeClasses,
   companyMobileNameDefaultThemeClasses
 } from "components/organisms/Company/styles";
-import { useCompanyThemeClasses } from "components/organisms/Company/hooks/useCompanyDescriptionThemeClasses";
+import { useCompanyThemeClasses } from "components/organisms/Company/hooks/useCompanyThemeClasses";
 
 const CompanyMobile: React.FC<ICompanyProps> = ({
   date,

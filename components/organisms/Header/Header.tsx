@@ -7,12 +7,12 @@ import { useHeaderThemeClasses } from "components/organisms/Header/hooks/useHead
 import {
   headerInnerContainerDefaultThemeClasses,
   headerInnerWrapperDefaultThemeClasses,
-  headerLinkWithImageContainerDefaultThemeClasses,
-  headerMobileLinkWithImageContainerDefaultThemeClasses,
+  headerLinkWithImageDefaultThemeClasses,
+  headerMobileLinkWithImageDefaultThemeClasses,
   headerOuterContainerDefaultThemeClasses,
   headerOuterWrapperDefaultThemeClasses
 } from "components/organisms/Header/styles";
-import { useHeaderState } from "components/organisms/Header/hooks/useTypingAnimationState";
+import { useHeaderState } from "components/organisms/Header/hooks/useHeaderState";
 
 const Header: React.FC<IHeaderProps> = ({ children, themeClasses }) => {
   const { isMenuVisible, toggleMenuVisibility } = useHeaderState();
@@ -38,7 +38,7 @@ const Header: React.FC<IHeaderProps> = ({ children, themeClasses }) => {
                 <LinkWithImage
                   href="/"
                   iconName="logo"
-                  themeClasses={headerLinkWithImageContainerDefaultThemeClasses}
+                  themeClasses={headerLinkWithImageDefaultThemeClasses}
                 />
               </Responsive>
 
@@ -46,9 +46,7 @@ const Header: React.FC<IHeaderProps> = ({ children, themeClasses }) => {
                 <LinkWithImage
                   href="/"
                   iconName="logoShortcut"
-                  themeClasses={
-                    headerMobileLinkWithImageContainerDefaultThemeClasses
-                  }
+                  themeClasses={headerMobileLinkWithImageDefaultThemeClasses}
                 />
               </Responsive>
 

@@ -1,20 +1,11 @@
-import { Typography } from "components/atoms/Typography/Typography";
-import { IconWithLabel } from "components/molecules/IconWithLabel/IconWithLabel";
-import { UnorderedList } from "components/molecules/UnorderedList/UnorderedList";
-
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { TechStack } from "components/molecules/TechStack/TechStack";
-import { IconWithLabelSize } from "components/molecules/IconWithLabel/@types/IconWithLabel";
-import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 import { ICompanyDescriptionProps } from "components/organisms/CompanyDescription/@types/CompanyDescription";
-import {
-  companyDescriptionContainerDefaultThemeClasses,
-  companyDescriptionIconWithLabelDefaultThemeClasses,
-  companyDescriptionLinkWrapperDefaultThemeClasses,
-  companyDescriptionResponsibilitiesDefaultThemeClasses,
-  companyDescriptionUnorderedListWrapperDefaultThemeClasses
-} from "components/organisms/CompanyDescription/styles";
-import { useCompanyDescriptionThemeClasses } from "components/organisms/CompanyDescription/hooks/useCompanyDescriptionThemeClasses";
+import { companyDescriptionContainerDefaultThemeClasses } from "components/organisms/CompanyDescription/styles";
+import { CompanyDescriptionTitle } from "components/molecules/CompanyDescriptionTitle/CompanyDescriptionTitle";
+import { CompanyDescriptionDate } from "components/molecules/CompanyDescriptionDate/CompanyDescriptionDate";
+import { CompanyDescriptionLink } from "components/molecules/CompanyDescriptionLink/CompanyDescriptionLink";
+import { CompanyDescriptionResponsibilities } from "components/molecules/CompanyDescriptionResponsibilities/CompanyDescriptionResponsibilities";
 
 const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
   date,
@@ -24,64 +15,29 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
   themeClasses,
   title
 }) => {
-  const {
-    companyDescriptionTitleThemeClasses,
-    companyDescriptionIconWithLabelWrapperThemeClasses,
-    companyDescriptionResponsibilitiesWrapperThemeClasses
-  } = useCompanyDescriptionThemeClasses({ link, themeClasses });
-
   return (
     <LayoutContainer
       themeClasses={companyDescriptionContainerDefaultThemeClasses}
     >
-      <Typography themeClasses={companyDescriptionTitleThemeClasses}>
+      <CompanyDescriptionTitle themeClasses={themeClasses?.title}>
         {title}
-      </Typography>
+      </CompanyDescriptionTitle>
 
-      <LayoutContainer
-        themeClasses={companyDescriptionIconWithLabelWrapperThemeClasses}
-      >
-        <IconWithLabel
-          iconName={IconStaticName.Calendar}
-          label={date}
-          size={IconWithLabelSize.Medium}
-          themeClasses={companyDescriptionIconWithLabelDefaultThemeClasses}
-        />
-      </LayoutContainer>
+      <CompanyDescriptionDate
+        label={date}
+        themeClasses={{
+          marginBottom: link ? "mb-16" : "mb-32"
+        }}
+      />
 
-      {link && (
-        <LayoutContainer
-          themeClasses={companyDescriptionLinkWrapperDefaultThemeClasses}
-        >
-          <IconWithLabel
-            href={link}
-            isExternal
-            iconName={IconStaticName.Link}
-            label={link}
-            size={IconWithLabelSize.Medium}
-            themeClasses={companyDescriptionIconWithLabelDefaultThemeClasses}
-          />
-        </LayoutContainer>
-      )}
+      {link && <CompanyDescriptionLink href={link} />}
 
       <TechStack iconsWithLabels={iconsWithLabels} />
 
-      <LayoutContainer
-        themeClasses={companyDescriptionResponsibilitiesWrapperThemeClasses}
-      >
-        <Typography
-          themeClasses={companyDescriptionResponsibilitiesDefaultThemeClasses}
-        >
-          Responsibilities
-        </Typography>
-        <LayoutContainer
-          themeClasses={
-            companyDescriptionUnorderedListWrapperDefaultThemeClasses
-          }
-        >
-          <UnorderedList items={responsibilities} />
-        </LayoutContainer>
-      </LayoutContainer>
+      <CompanyDescriptionResponsibilities
+        responsibilities={responsibilities}
+        themeClasses={themeClasses?.responsibilitiesWrapper}
+      />
     </LayoutContainer>
   );
 };

@@ -5,6 +5,7 @@ import { Responsive } from "components/layout/Responsive/Responsive";
 import { Device } from "components/layout/Responsive/@types/Responsive";
 import { IHeaderContainerScreenProps } from "containers/header/@types/HeaderContainerScreen";
 import { SideMenu } from "components/organisms/SideMenu/SideMenu";
+import { icons, navItems } from "containers/header/config";
 
 const HeaderContainerTabletAndMobile: React.FC<IHeaderContainerScreenProps> = ({
   isMenuVisible,
@@ -16,7 +17,12 @@ const HeaderContainerTabletAndMobile: React.FC<IHeaderContainerScreenProps> = ({
 
     {isMenuVisible && <Backdrop onClick={onClick} />}
 
-    <SideMenu isExpanded={isMenuVisible} onCVButtonClick={onCVButtonClick} />
+    <SideMenu
+      isExpanded={isMenuVisible}
+      navItems={navItems}
+      onCVButtonClick={onCVButtonClick}
+      icons={icons}
+    />
   </Responsive>
 );
 

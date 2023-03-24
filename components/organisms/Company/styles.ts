@@ -1,3 +1,4 @@
+import { ICompanyDescriptionProps } from "components/organisms/CompanyDescription/@types/CompanyDescription";
 import { isIE11 } from "helpers/browser/isIE11";
 import { IThemeClasses } from "types/theme";
 
@@ -22,7 +23,7 @@ export const companyMobileNameDefaultThemeClasses: IThemeClasses = {
   textAlign: "text-center"
 };
 
-export const companyMobileCompanyDescriptionDefaultThemeClasses: IThemeClasses =
+export const companyMobileCompanyDescriptionDefaultThemeClasses: ICompanyDescriptionProps["themeClasses"] =
   {
     textAlign: "text-center"
   };

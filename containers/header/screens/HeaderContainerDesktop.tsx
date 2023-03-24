@@ -13,6 +13,7 @@ import { IHeaderContainerScreenProps } from "containers/header/@types/HeaderCont
 import { IconDynamicName } from "components/atoms/IconDynamic/@types/IconDynamic";
 import { ButtonSize } from "components/molecules/Button/@types/Button";
 import { SideMenu } from "components/organisms/SideMenu/SideMenu";
+import { icons, navItems } from "containers/header/config";
 
 const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
   isMenuVisible,
@@ -31,26 +32,7 @@ const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
       }}
     >
       <LayoutContainer themeClasses={{ marginRight: "mr-24" }}>
-        <Nav
-          navItems={[
-            {
-              href: "#experience",
-              title: "Experience"
-            },
-            {
-              href: "#skills",
-              title: "Skills"
-            },
-            {
-              href: "#about-me",
-              title: "About me"
-            },
-            {
-              href: "#contact",
-              title: "Contact"
-            }
-          ]}
-        />
+        <Nav navItems={navItems} />
       </LayoutContainer>
 
       <Button
@@ -67,7 +49,7 @@ const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
 
       {isMenuVisible && <Backdrop onClick={onClick} />}
 
-      <SideMenu isExpanded={isMenuVisible} />
+      <SideMenu isExpanded={isMenuVisible} icons={icons} />
     </LayoutContainer>
   </Responsive>
 );

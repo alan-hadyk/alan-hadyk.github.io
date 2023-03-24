@@ -2,7 +2,7 @@ import { ISideMenuProps } from "components/organisms/SideMenu/@types/SideMenu";
 import { sideMenuOuterContainerDefaultThemeClasses } from "components/organisms/SideMenu/styles";
 import { IThemeClasses } from "types/theme";
 
-export const useSideMenuState = ({
+export const useSideMenuThemeClasses = ({
   isExpanded
 }: Pick<ISideMenuProps, "isExpanded">) => {
   const sideMenuOuterContainerThemeClasses: IThemeClasses = {
