@@ -8,6 +8,8 @@ const convertPageToPDF = async (url: string) => {
     waitUntil: "networkidle0"
   });
 
+  await page.emulateMediaType("screen");
+
   const pdf = await page.pdf({
     format: "a4",
     printBackground: true
