@@ -6,7 +6,11 @@ import { catchPhrase } from "containers/dashboard/config";
 
 const DashboardContainerMobile: React.FC = () => (
   <Responsive devices={[Device.Mobile]}>
-    <LayoutContainer themeClasses={{ paddingTop: "pt-96" }}>
+    <LayoutContainer
+      themeClasses={{
+        paddingTop: "pt-96"
+      }}
+    >
       <ConsoleMobile>{catchPhrase}</ConsoleMobile>
     </LayoutContainer>
   </Responsive>
