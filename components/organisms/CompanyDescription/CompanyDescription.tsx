@@ -14,31 +14,30 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
   responsibilities,
   themeClasses,
   title
-}) => {
-  return (
-    <LayoutContainer
-      themeClasses={companyDescriptionContainerDefaultThemeClasses}
-    >
-      <CompanyDescriptionTitle themeClasses={themeClasses?.title}>
-        {title}
-      </CompanyDescriptionTitle>
+}) => (
+  <LayoutContainer
+    themeClasses={companyDescriptionContainerDefaultThemeClasses}
+  >
+    <CompanyDescriptionTitle themeClasses={themeClasses?.title}>
+      {title}
+    </CompanyDescriptionTitle>
 
-      <CompanyDescriptionDate
-        label={date}
-        themeClasses={{
-          marginBottom: link ? "mb-16" : "mb-32"
-        }}
-      />
+    <CompanyDescriptionDate
+      label={date}
+      themeClasses={{
+        marginBottom: link ? "mb-16" : "mb-32"
+      }}
+    />
 
-      {link && <CompanyDescriptionLink href={link} />}
+    {link && <CompanyDescriptionLink href={link} />}
 
-      <TechStack iconsWithLabels={iconsWithLabels} />
+    <TechStack iconsWithLabels={iconsWithLabels} />
 
-      <CompanyDescriptionResponsibilities
-        responsibilities={responsibilities}
-        themeClasses={themeClasses?.responsibilitiesWrapper}
-      />
-    </LayoutContainer>
-  );
-};
+    <CompanyDescriptionResponsibilities
+      responsibilities={responsibilities}
+      themeClasses={themeClasses?.responsibilitiesWrapper}
+    />
+  </LayoutContainer>
+);
+
 export { CompanyDescription };

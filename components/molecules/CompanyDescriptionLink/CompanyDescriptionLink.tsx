@@ -6,28 +6,27 @@ import { IconWithLabel } from "components/molecules/IconWithLabel/IconWithLabel"
 
 const CompanyDescriptionLink: React.FC<ICompanyDescriptionLinkProps> = ({
   href
-}) => {
-  return (
-    <LayoutContainer
+}) => (
+  <LayoutContainer
+    themeClasses={{
+      marginBottom: "mb-32"
+    }}
+  >
+    <IconWithLabel
+      href={href}
+      isExternal
+      iconName={IconStaticName.Link}
+      label={href}
+      size={IconWithLabelSize.Medium}
       themeClasses={{
-        marginBottom: "mb-32"
-      }}
-    >
-      <IconWithLabel
-        href={href}
-        isExternal
-        iconName={IconStaticName.Link}
-        label={href}
-        size={IconWithLabelSize.Medium}
-        themeClasses={{
-          iconWithLabelContent: {
-            label: {
-              color: "text-blue300"
-            }
+        iconWithLabelContent: {
+          label: {
+            color: "text-blue300"
           }
-        }}
-      />
-    </LayoutContainer>
-  );
-};
+        }
+      }}
+    />
+  </LayoutContainer>
+);
+
 export { CompanyDescriptionLink };

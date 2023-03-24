@@ -2,7 +2,6 @@ import { ICompanyProps } from "components/organisms/Company/@types/Company";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { CompanyTvDesktopAndTablet } from "components/organisms/Company/screens/CompanyTvDesktopAndTablet";
 import { CompanyMobile } from "components/organisms/Company/screens/CompanyMobile";
-import { companyContainerDefaultThemeClasses } from "components/organisms/Company/styles";
 
 const Company: React.FC<ICompanyProps> = ({
   date,
@@ -14,7 +13,7 @@ const Company: React.FC<ICompanyProps> = ({
   title
 }) => (
   <LayoutContainer>
-    <LayoutContainer themeClasses={companyContainerDefaultThemeClasses}>
+    <LayoutContainer themeClasses={{ position: "relative", width: "w-100%" }}>
       <CompanyTvDesktopAndTablet
         date={date}
         iconsWithLabels={iconsWithLabels}

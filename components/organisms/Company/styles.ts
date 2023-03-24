@@ -1,11 +1,5 @@
-import { ICompanyDescriptionProps } from "components/organisms/CompanyDescription/@types/CompanyDescription";
 import { isIE11 } from "helpers/browser/isIE11";
 import { IThemeClasses } from "types/theme";
-
-export const companyContainerDefaultThemeClasses: IThemeClasses = {
-  position: "relative",
-  width: "w-100%"
-};
 
 export const companyMobileContainerDefaultThemeClasses: IThemeClasses = {
   alignItems: "items-center",
@@ -22,11 +16,6 @@ export const companyMobileNameDefaultThemeClasses: IThemeClasses = {
   lineHeight: "leading-48",
   textAlign: "text-center"
 };
-
-export const companyMobileCompanyDescriptionDefaultThemeClasses: ICompanyDescriptionProps["themeClasses"] =
-  {
-    textAlign: "text-center"
-  };
 
 export const companyTvDesktopAndTabletContainerDefaultThemeClasses: IThemeClasses =
   {

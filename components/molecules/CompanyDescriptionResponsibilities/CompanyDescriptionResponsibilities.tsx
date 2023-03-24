@@ -9,27 +9,26 @@ import { UnorderedList } from "components/molecules/UnorderedList/UnorderedList"
 
 const CompanyDescriptionResponsibilities: React.FC<
   ICompanyDescriptionResponsibilitiesProps
-> = ({ responsibilities, themeClasses }) => {
-  return (
-    <LayoutContainer
-      themeClasses={{
-        paddingBottom: "pb-68",
-        ...themeClasses
-      }}
+> = ({ responsibilities, themeClasses }) => (
+  <LayoutContainer
+    themeClasses={{
+      paddingBottom: "pb-68",
+      ...themeClasses
+    }}
+  >
+    <Typography
+      themeClasses={companyDescriptionResponsibilitiesDefaultThemeClasses}
     >
-      <Typography
-        themeClasses={companyDescriptionResponsibilitiesDefaultThemeClasses}
-      >
-        Responsibilities
-      </Typography>
-      <LayoutContainer
-        themeClasses={
-          companyDescriptionRespoisibilitiesListWrapperDefaultThemeClasses
-        }
-      >
-        <UnorderedList items={responsibilities} />
-      </LayoutContainer>
+      Responsibilities
+    </Typography>
+    <LayoutContainer
+      themeClasses={
+        companyDescriptionRespoisibilitiesListWrapperDefaultThemeClasses
+      }
+    >
+      <UnorderedList items={responsibilities} />
     </LayoutContainer>
-  );
-};
+  </LayoutContainer>
+);
+
 export { CompanyDescriptionResponsibilities };

@@ -9,7 +9,6 @@ import {
   companyMobileContainerDefaultThemeClasses,
   companyMobileNameDefaultThemeClasses
 } from "components/organisms/Company/styles";
-import { useCompanyThemeClasses } from "components/organisms/Company/hooks/useCompanyThemeClasses";
 
 const CompanyMobile: React.FC<ICompanyProps> = ({
   date,
@@ -19,28 +18,23 @@ const CompanyMobile: React.FC<ICompanyProps> = ({
   responsibilities,
   themeClasses,
   title
-}) => {
-  const { companyMobileCompanyDescriptionThemeClasses } =
-    useCompanyThemeClasses({ themeClasses });
+}) => (
+  <Responsive devices={[Device.Mobile]}>
+    <LayoutContainer themeClasses={companyMobileContainerDefaultThemeClasses}>
+      <Typography themeClasses={companyMobileNameDefaultThemeClasses}>
+        {name}
+      </Typography>
 
-  return (
-    <Responsive devices={[Device.Mobile]}>
-      <LayoutContainer themeClasses={companyMobileContainerDefaultThemeClasses}>
-        <Typography themeClasses={companyMobileNameDefaultThemeClasses}>
-          {name}
-        </Typography>
-
-        <CompanyDescription
-          date={date}
-          iconsWithLabels={iconsWithLabels}
-          link={link}
-          responsibilities={responsibilities}
-          themeClasses={companyMobileCompanyDescriptionThemeClasses}
-          title={title}
-        />
-      </LayoutContainer>
-    </Responsive>
-  );
-};
+      <CompanyDescription
+        date={date}
+        iconsWithLabels={iconsWithLabels}
+        link={link}
+        responsibilities={responsibilities}
+        themeClasses={themeClasses?.companyDescription}
+        title={title}
+      />
+    </LayoutContainer>
+  </Responsive>
+);
 
 export { CompanyMobile };
