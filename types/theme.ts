@@ -1,3 +1,4 @@
+/* eslint-disable import/exports-last */
 import tailwindConfig from "tailwind.config";
 
 const theme = tailwindConfig.theme;
@@ -72,7 +73,7 @@ type TTextColor = TUtility<"text", TColorValues>;
 type TTextFontSize = TUtilityWithArbitraryValues<"text", TFontSizeValues>;
 type TTextFontFamily = TUtility<"font", TFontFamilyValues>;
 type TTextFontWeight = TUtility<"font", TFontWeightValues>;
-type TTextAlign =
+export type TTextAlign =
   | "text-left"
   | "text-center"
   | "text-right"
