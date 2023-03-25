@@ -103,4 +103,4 @@ const CompanyRealEstateStartup: React.FC = () => (
   <Company {...companyRealEstateStartupProps} />
 );
 
-export { CompanyRealEstateStartup, companyRealEstateStartupProps };
+export { CompanyRealEstateStartup };

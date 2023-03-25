@@ -105,4 +105,4 @@ const CompanySAP: React.FC = () => (
   <Company link="https://www.sap.com/" {...companySAPProps} />
 );
 
-export { CompanySAP, companySAPProps };
+export { CompanySAP };

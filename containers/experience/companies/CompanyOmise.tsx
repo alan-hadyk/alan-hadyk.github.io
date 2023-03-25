@@ -137,4 +137,4 @@ const CompanyOmise: React.FC = () => (
   <Company link="https://www.omise.co/" {...companyOmiseProps} />
 );
 
-export { CompanyOmise, companyOmiseProps };
+export { CompanyOmise };
