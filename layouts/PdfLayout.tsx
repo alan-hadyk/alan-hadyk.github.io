@@ -3,12 +3,12 @@ import { IPdfLayoutProps } from "layouts/@types/PdfLayout";
 import React from "react";
 import Head from "next/head";
 
-const PdfLayout: React.FC<IPdfLayoutProps> = ({ children, title }) => (
+const PdfLayout: React.FC<IPdfLayoutProps> = ({ children, sidebar, title }) => (
   <>
     <Head>
       <title>{title}</title>
     </Head>
-    {children ? <PdfTemplate>{children}</PdfTemplate> : null}
+    {children ? <PdfTemplate sidebar={sidebar}>{children}</PdfTemplate> : null}
   </>
 );
 export { PdfLayout };

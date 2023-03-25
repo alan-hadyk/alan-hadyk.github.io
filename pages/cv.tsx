@@ -20,7 +20,9 @@ const CVPage: TNextPageWithLayout = () => (
 );
 
 CVPage.getLayout = (page) => (
-  <PdfLayout title="Alan Hadyk - Portfolio">{page}</PdfLayout>
+  <PdfLayout sidebar={<div />} title="Alan Hadyk - Portfolio">
+    {page}
+  </PdfLayout>
 );
 
 export default CVPage;
