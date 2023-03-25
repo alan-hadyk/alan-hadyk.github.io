@@ -16,7 +16,7 @@ const useCommits = () => {
     try {
       const commits = await fetchCommits();
 
-      if (!(commits instanceof Error)) {
+      if (Array.isArray(commits)) {
         setCommitsList(commits);
         setCommitsState(CommitsState.Loaded);
       } else {

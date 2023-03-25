@@ -1,8 +1,7 @@
-import { useEffect } from "react";
+import React, { ReactElement, useEffect } from "react";
 import ShuffleText, { ShuffleTextType } from "shuffle-text";
 
-import { IUseShuffleText } from "hooks/@types/useShuffleText";
-import { ReactElementLike } from "prop-types";
+import { IUseShuffleTextArgs } from "hooks/@types/useShuffleText";
 
 const useShuffleText = ({
   duration = 600,
@@ -12,14 +11,13 @@ const useShuffleText = ({
   shuffleDelay = 0,
   shuffleState,
   text
-}: IUseShuffleText): void => {
+}: IUseShuffleTextArgs): void => {
   useEffect(() => {
-    if ((ref && !ref.current) || shuffleState || !shouldInitialize) {
+    if (!ref.current || shuffleState || !shouldInitialize || !window) {
       return;
     }
 
-    const shuffle: ShuffleTextType | null =
-      ref && ref.current && new ShuffleText(ref.current);
+    const shuffle: ShuffleTextType | null = new ShuffleText(ref.current);
 
     if (!shuffle) {
       return;
@@ -27,16 +25,22 @@ const useShuffleText = ({
 
     if (typeof text === "string" || typeof text === "number") {
       shuffle.setText(String(text));
-    } else if (text) {
-      const { props } = text as ReactElementLike;
-      shuffle.setText(String(props?.children));
+    } else if (React.isValidElement(text)) {
+      const { props } = text as ReactElement;
+      shuffle.setText(String(props.children));
     }
 
     shuffle.duration = duration;
 
+    const startShuffle = () => setTimeout(() => shuffle.start(), shuffleDelay);
+
     onShuffleReady({
-      start: () => setTimeout(() => shuffle.start(), shuffleDelay)
+      start: startShuffle
     });
+
+    return () => {
+      clearTimeout(startShuffle());
+    };
   }, [
     duration,
     onShuffleReady,

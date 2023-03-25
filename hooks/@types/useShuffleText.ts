@@ -1,15 +1,14 @@
-import { MutableRefObject } from "react";
+import { Dispatch, MutableRefObject, SetStateAction } from "react";
 import { TChildren } from "types/props";
 
 export interface IShuffleState {
   start: VoidFunction;
 }
 
-export interface IUseShuffleText {
+export interface IUseShuffleTextArgs {
   duration?: number;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onShuffleReady: any;
-  ref: MutableRefObject<HTMLElement> | React.RefObject<HTMLElement> | null;
+  onShuffleReady: Dispatch<SetStateAction<IShuffleState | undefined>>;
+  ref: MutableRefObject<HTMLElement | null>;
   shouldInitialize?: boolean;
   shuffleDelay?: number;
   shuffleState: IShuffleState | undefined;
