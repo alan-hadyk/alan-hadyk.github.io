@@ -1,5 +1,6 @@
 import { TChildren } from "types/props";
 
-export interface IPDFTemplateProps {
+export interface IPdfTemplateProps {
   children: TChildren;
+  sidebar: TChildren;
 }
