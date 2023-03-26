@@ -2,9 +2,6 @@ import { MenuButton } from "components/molecules/MenuButton/MenuButton";
 
 import { Button } from "components/molecules/Button/Button";
 import { Nav } from "components/molecules/Nav/Nav";
-
-import { SideMenu } from "components/organisms/SideMenu";
-
 import { Responsive } from "components/layout/Responsive/Responsive";
 
 import { Backdrop } from "components/atoms/Backdrop/Backdrop";
@@ -15,6 +12,8 @@ import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContain
 import { IHeaderContainerScreenProps } from "containers/header/@types/HeaderContainerScreen";
 import { IconDynamicName } from "components/atoms/IconDynamic/@types/IconDynamic";
 import { ButtonSize } from "components/molecules/Button/@types/Button";
+import { SideMenu } from "components/organisms/SideMenu/SideMenu";
+import { icons, navItems } from "containers/header/config";
 
 const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
   isMenuVisible,
@@ -33,26 +32,7 @@ const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
       }}
     >
       <LayoutContainer themeClasses={{ marginRight: "mr-24" }}>
-        <Nav
-          navItems={[
-            {
-              href: "#experience",
-              title: "Experience"
-            },
-            {
-              href: "#skills",
-              title: "Skills"
-            },
-            {
-              href: "#about-me",
-              title: "About me"
-            },
-            {
-              href: "#contact",
-              title: "Contact"
-            }
-          ]}
-        />
+        <Nav navItems={navItems} />
       </LayoutContainer>
 
       <Button
@@ -69,7 +49,7 @@ const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
 
       {isMenuVisible && <Backdrop onClick={onClick} />}
 
-      <SideMenu isExpanded={isMenuVisible} />
+      <SideMenu isExpanded={isMenuVisible} icons={icons} />
     </LayoutContainer>
   </Responsive>
 );

@@ -1,4 +1,4 @@
-import { Header } from "components/organisms/Header";
+import { Header } from "components/organisms/Header/Header";
 import { openCV } from "containers/header/helpers/openCV";
 import { HeaderContainerDesktop } from "containers/header/screens/HeaderContainerDesktop";
 import { HeaderContainerTabletAndMobile } from "containers/header/screens/HeaderContainerTabletAndMobile";
