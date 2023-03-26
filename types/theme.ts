@@ -330,7 +330,7 @@ export type TPseudoClasses = `${string}:${string}`[];
 
 export type TClassStyleUtility = `${string}-${string}` | string;
 
-export interface IThemeClasses {
+export interface IThemeClasses extends Record<string, unknown> {
   active?: TActive | TActive[];
   after?: TAfter | TAfter[];
   alignItems?: TAlignItems;
