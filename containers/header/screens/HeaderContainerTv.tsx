@@ -11,6 +11,7 @@ import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContain
 import { IHeaderContainerTvProps } from "containers/header/@types/HeaderContainerTv";
 import { IconDynamicName } from "components/atoms/IconDynamic/@types/IconDynamic";
 import { ButtonSize } from "components/molecules/Button/@types/Button";
+import { icons, navItems } from "containers/header/config";
 
 const HeaderContainerTv: React.FC<IHeaderContainerTvProps> = ({
   onCVButtonClick
@@ -26,26 +27,7 @@ const HeaderContainerTv: React.FC<IHeaderContainerTvProps> = ({
       }}
     >
       <LayoutContainer themeClasses={{ marginRight: "mr-24" }}>
-        <Nav
-          navItems={[
-            {
-              href: "#experience",
-              title: "Experience"
-            },
-            {
-              href: "#skills",
-              title: "Skills"
-            },
-            {
-              href: "#about-me",
-              title: "About me"
-            },
-            {
-              href: "#contact",
-              title: "Contact"
-            }
-          ]}
-        />
+        <Nav navItems={navItems} />
       </LayoutContainer>
 
       <Button
@@ -58,25 +40,7 @@ const HeaderContainerTv: React.FC<IHeaderContainerTvProps> = ({
         cv
       </Button>
 
-      <HorizontalLinksWithIcons
-        icons={[
-          {
-            href: "https://github.com/alan-hadyk",
-            iconName: IconDynamicName.GitHub,
-            isExternal: true
-          },
-          {
-            href: "https://www.toptal.com/resume/alan-hadyk",
-            iconName: IconDynamicName.Toptal,
-            isExternal: true
-          },
-          {
-            href: "https://www.linkedin.com/in/alan-hadyk-78738099/",
-            iconName: IconDynamicName.LinkedIn,
-            isExternal: true
-          }
-        ]}
-      />
+      <HorizontalLinksWithIcons icons={icons} />
     </LayoutContainer>
   </Responsive>
 );

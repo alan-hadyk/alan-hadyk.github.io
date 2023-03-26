@@ -1,9 +1,17 @@
 import { ICompanyTimelineProps } from "components/molecules/CompanyTimeline/@types/CompanyTimeline";
-import { ICompanyDescriptionProps } from "components/organisms/@types/CompanyDescription";
-import { IThemeClasses } from "types/theme";
+import { IIconWithLabelProps } from "components/molecules/IconWithLabel/@types/IconWithLabel";
+import { IUnorderedListProps } from "components/molecules/UnorderedList/@types/UnorderedList";
+import { ICompanyDescriptionProps } from "components/organisms/CompanyDescription/@types/CompanyDescription";
 
-export interface ICompanyProps extends ICompanyDescriptionProps {
-  companyMobilePaddingBottom?: IThemeClasses["paddingBottom"];
+export interface ICompanyProps {
+  date: string;
+  iconsWithLabels: Pick<IIconWithLabelProps, "iconName" | "label">[];
+  link?: string;
   name: string;
-  themeClasses?: ICompanyTimelineProps["themeClasses"];
+  responsibilities: IUnorderedListProps["items"];
+  themeClasses?: {
+    companyDescription?: ICompanyDescriptionProps["themeClasses"];
+    timeline?: ICompanyTimelineProps["themeClasses"];
+  };
+  title: string;
 }

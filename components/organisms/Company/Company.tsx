@@ -1,11 +1,9 @@
-import { CompanyTvDesktopAndTablet } from "components/organisms/Company/CompanyTvDesktopAndTablet";
-import { CompanyMobile } from "components/organisms/Company/CompanyMobile";
-
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
+import { CompanyTvDesktopAndTablet } from "components/organisms/Company/screens/CompanyTvDesktopAndTablet";
+import { CompanyMobile } from "components/organisms/Company/screens/CompanyMobile";
 
 const Company: React.FC<ICompanyProps> = ({
-  companyMobilePaddingBottom,
   date,
   iconsWithLabels,
   link,
@@ -15,32 +13,21 @@ const Company: React.FC<ICompanyProps> = ({
   title
 }) => (
   <LayoutContainer>
-    <LayoutContainer
-      themeClasses={{
-        position: "relative",
-        width: "w-100%"
-      }}
-    >
-      <CompanyTvDesktopAndTablet
-        date={date}
-        iconsWithLabels={iconsWithLabels}
-        link={link}
-        name={name}
-        responsibilities={responsibilities}
-        responsibilitiesPaddingBottom={companyMobilePaddingBottom}
-        themeClasses={themeClasses}
-        title={title}
-      />
-
-      <CompanyMobile
-        date={date}
-        iconsWithLabels={iconsWithLabels}
-        link={link}
-        name={name}
-        responsibilities={responsibilities}
-        responsibilitiesPaddingBottom={companyMobilePaddingBottom}
-        title={title}
-      />
+    <LayoutContainer themeClasses={{ position: "relative", width: "w-100%" }}>
+      {[CompanyTvDesktopAndTablet, CompanyMobile].map(
+        (CompanyScreenComponent, index) => (
+          <CompanyScreenComponent
+            date={date}
+            iconsWithLabels={iconsWithLabels}
+            link={link}
+            key={index}
+            name={name}
+            responsibilities={responsibilities}
+            themeClasses={themeClasses}
+            title={title}
+          />
+        )
+      )}
     </LayoutContainer>
   </LayoutContainer>
 );
