@@ -14,25 +14,20 @@ const Company: React.FC<ICompanyProps> = ({
 }) => (
   <LayoutContainer>
     <LayoutContainer themeClasses={{ position: "relative", width: "w-100%" }}>
-      <CompanyTvDesktopAndTablet
-        date={date}
-        iconsWithLabels={iconsWithLabels}
-        link={link}
-        name={name}
-        responsibilities={responsibilities}
-        themeClasses={themeClasses}
-        title={title}
-      />
-
-      <CompanyMobile
-        date={date}
-        iconsWithLabels={iconsWithLabels}
-        link={link}
-        name={name}
-        responsibilities={responsibilities}
-        themeClasses={themeClasses}
-        title={title}
-      />
+      {[CompanyTvDesktopAndTablet, CompanyMobile].map(
+        (CompanyScreenComponent, index) => (
+          <CompanyScreenComponent
+            date={date}
+            iconsWithLabels={iconsWithLabels}
+            link={link}
+            key={index}
+            name={name}
+            responsibilities={responsibilities}
+            themeClasses={themeClasses}
+            title={title}
+          />
+        )
+      )}
     </LayoutContainer>
   </LayoutContainer>
 );

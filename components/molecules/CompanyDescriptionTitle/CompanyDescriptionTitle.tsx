@@ -1,5 +1,6 @@
 import { Typography } from "components/atoms/Typography/Typography";
 import { ICompanyDescriptionTitleProps } from "components/molecules/CompanyDescriptionTitle/@types/CompanyDescriptionTitle";
+import { companyDescriptionTitleDefaultThemeClasses } from "components/molecules/CompanyDescriptionTitle/styles";
 
 const CompanyDescriptionTitle: React.FC<ICompanyDescriptionTitleProps> = ({
   children,
@@ -7,11 +8,7 @@ const CompanyDescriptionTitle: React.FC<ICompanyDescriptionTitleProps> = ({
 }) => (
   <Typography
     themeClasses={{
-      color: "text-white",
-      fontFamily: "font-anonymousPro",
-      fontSize: "text-36",
-      lineHeight: "leading-56",
-      textAlign: "text-left",
+      ...companyDescriptionTitleDefaultThemeClasses,
       ...themeClasses
     }}
   >

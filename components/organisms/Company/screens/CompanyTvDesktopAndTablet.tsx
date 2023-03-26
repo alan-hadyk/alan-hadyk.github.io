@@ -1,6 +1,5 @@
 import React from "react";
 
-import { Typography } from "components/atoms/Typography/Typography";
 import { CompanyDescription } from "components/organisms/CompanyDescription/CompanyDescription";
 import { CompanyTimeline } from "components/molecules/CompanyTimeline/CompanyTimeline";
 import { Responsive } from "components/layout/Responsive/Responsive";
@@ -10,11 +9,11 @@ import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContain
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
 import { Device } from "components/layout/Responsive/@types/Responsive";
 import {
-  companyTvDesktopAndTabletCompanyDescriptionContainerDefaultThemeClasses,
-  companyTvDesktopAndTabletContainerDefaultThemeClasses,
-  companyTvDesktopAndTabletNameContainerDefaultThemeClasses,
-  companyTvDesktopAndTabletNameDefaultThemeClasses
+  companyDesktopCompanyDescriptionContainerDefaultThemeClasses,
+  companyDesktopContainerDefaultThemeClasses
 } from "components/organisms/Company/styles";
+import { CompanyName } from "components/molecules/CompanyName/CompanyName";
+import { CompanyNameDevices } from "components/molecules/CompanyName/@types/CompanyName";
 
 const CompanyTvDesktopAndTablet: React.FC<ICompanyProps> = ({
   date,
@@ -28,22 +27,14 @@ const CompanyTvDesktopAndTablet: React.FC<ICompanyProps> = ({
   <Responsive devices={[Device.Tv, Device.Desktop, Device.Tablet]}>
     <CompanyTimeline themeClasses={themeClasses?.timeline} />
 
-    <LayoutContainer
-      themeClasses={companyTvDesktopAndTabletContainerDefaultThemeClasses}
-    >
-      <LayoutContainer
-        themeClasses={companyTvDesktopAndTabletNameContainerDefaultThemeClasses}
-      >
-        <Typography
-          themeClasses={companyTvDesktopAndTabletNameDefaultThemeClasses}
-        >
-          {name}
-        </Typography>
-      </LayoutContainer>
+    <LayoutContainer themeClasses={companyDesktopContainerDefaultThemeClasses}>
+      <CompanyName devices={CompanyNameDevices.TvDesktopAndTablet}>
+        {name}
+      </CompanyName>
 
       <LayoutContainer
         themeClasses={
-          companyTvDesktopAndTabletCompanyDescriptionContainerDefaultThemeClasses
+          companyDesktopCompanyDescriptionContainerDefaultThemeClasses
         }
       >
         <CompanyDescription

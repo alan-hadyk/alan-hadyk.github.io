@@ -1,14 +1,12 @@
-import { Typography } from "components/atoms/Typography/Typography";
 import { CompanyDescription } from "components/organisms/CompanyDescription/CompanyDescription";
 import { Responsive } from "components/layout/Responsive/Responsive";
 
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
 import { Device } from "components/layout/Responsive/@types/Responsive";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
-import {
-  companyMobileContainerDefaultThemeClasses,
-  companyMobileNameDefaultThemeClasses
-} from "components/organisms/Company/styles";
+import { companyMobileContainerDefaultThemeClasses } from "components/organisms/Company/styles";
+import { CompanyName } from "components/molecules/CompanyName/CompanyName";
+import { CompanyNameDevices } from "components/molecules/CompanyName/@types/CompanyName";
 
 const CompanyMobile: React.FC<ICompanyProps> = ({
   date,
@@ -21,9 +19,7 @@ const CompanyMobile: React.FC<ICompanyProps> = ({
 }) => (
   <Responsive devices={[Device.Mobile]}>
     <LayoutContainer themeClasses={companyMobileContainerDefaultThemeClasses}>
-      <Typography themeClasses={companyMobileNameDefaultThemeClasses}>
-        {name}
-      </Typography>
+      <CompanyName devices={CompanyNameDevices.Mobile}>{name}</CompanyName>
 
       <CompanyDescription
         date={date}
