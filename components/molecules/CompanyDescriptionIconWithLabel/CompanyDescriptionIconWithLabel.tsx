@@ -1,22 +1,17 @@
-import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
-import { ICompanyDescriptionLinkProps } from "components/molecules/CompanyDescriptionLink/@types/CompanyDescriptionLink";
+import { ICompanyDescriptionIconWithLabelProps } from "components/molecules/CompanyDescriptionIconWithLabel/@types/CompanyDescriptionIconWithLabel";
 import { IconWithLabelSize } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 import { IconWithLabel } from "components/molecules/IconWithLabel/IconWithLabel";
 
-const CompanyDescriptionLink: React.FC<ICompanyDescriptionLinkProps> = ({
-  href
-}) => (
-  <LayoutContainer
-    themeClasses={{
-      marginBottom: "mb-32"
-    }}
-  >
+const CompanyDescriptionIconWithLabel: React.FC<
+  ICompanyDescriptionIconWithLabelProps
+> = ({ href, iconName, label, themeClasses }) => (
+  <LayoutContainer themeClasses={themeClasses}>
     <IconWithLabel
       href={href}
       isExternal
-      iconName={IconStaticName.Link}
-      label={href}
+      iconName={iconName}
+      label={label}
       size={IconWithLabelSize.Medium}
       themeClasses={{
         iconWithLabelContent: {
@@ -29,4 +24,4 @@ const CompanyDescriptionLink: React.FC<ICompanyDescriptionLinkProps> = ({
   </LayoutContainer>
 );
 
-export { CompanyDescriptionLink };
+export { CompanyDescriptionIconWithLabel };

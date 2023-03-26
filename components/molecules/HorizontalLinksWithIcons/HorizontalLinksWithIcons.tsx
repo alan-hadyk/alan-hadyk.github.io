@@ -7,7 +7,7 @@ const HorizontalLinksWithIcons: React.FC<IHorizontalLinksWithIconsProps> = ({
   icons
 }) => (
   <>
-    {icons?.map(({ href, iconName, isExternal }) => (
+    {icons.map(({ href, iconName, isExternal }) => (
       <LinkWithIcon
         href={href}
         iconName={iconName}

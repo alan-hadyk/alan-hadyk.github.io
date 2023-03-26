@@ -1,10 +1,7 @@
 import { Typography } from "components/atoms/Typography/Typography";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { ICompanyDescriptionResponsibilitiesProps } from "components/molecules/CompanyDescriptionResponsibilities/@types/CompanyDescriptionResponsibilities";
-import {
-  companyDescriptionRespoisibilitiesListWrapperDefaultThemeClasses,
-  companyDescriptionResponsibilitiesDefaultThemeClasses
-} from "components/molecules/CompanyDescriptionResponsibilities/styles";
+import { companyDescriptionResponsibilitiesDefaultThemeClasses } from "components/molecules/CompanyDescriptionResponsibilities/styles";
 import { UnorderedList } from "components/molecules/UnorderedList/UnorderedList";
 
 const CompanyDescriptionResponsibilities: React.FC<
@@ -22,9 +19,10 @@ const CompanyDescriptionResponsibilities: React.FC<
       Responsibilities
     </Typography>
     <LayoutContainer
-      themeClasses={
-        companyDescriptionRespoisibilitiesListWrapperDefaultThemeClasses
-      }
+      themeClasses={{
+        marginLeft: "ml-16",
+        marginTop: "mt-16"
+      }}
     >
       <UnorderedList items={responsibilities} />
     </LayoutContainer>

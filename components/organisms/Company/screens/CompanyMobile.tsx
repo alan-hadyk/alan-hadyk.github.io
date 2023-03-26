@@ -30,7 +30,13 @@ const CompanyMobile: React.FC<ICompanyProps> = ({
         iconsWithLabels={iconsWithLabels}
         link={link}
         responsibilities={responsibilities}
-        themeClasses={themeClasses?.companyDescription}
+        themeClasses={{
+          ...themeClasses?.companyDescription,
+          title: {
+            textAlign: "text-center",
+            ...themeClasses?.companyDescription?.title
+          }
+        }}
         title={title}
       />
     </LayoutContainer>

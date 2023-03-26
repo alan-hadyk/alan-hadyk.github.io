@@ -16,35 +16,32 @@ import {
   sideMenuMobileNavWrapperDefaultThemeClasses
 } from "components/organisms/SideMenu/styles";
 
-const SideMenuMobileAndTablet: React.FC<ISideMenuProps> = ({
-  navItems,
-  onCVButtonClick
-}) => {
-  return (
-    <LayoutContainer themeClasses={sideMenuMobileNavWrapperDefaultThemeClasses}>
-      {navItems && (
-        <LayoutContainer
-          themeClasses={sideMenuMobileNavOuterContainerDefaultThemeClasses}
-        >
-          <LayoutContainer
-            themeClasses={sideMenuMobileNavInnerContainerDefaultThemeClasses}
-          >
-            <Nav navItems={navItems} position={NavItemPosition.Vertical} />
-          </LayoutContainer>
-        </LayoutContainer>
-      )}
-      <Button
-        iconName={IconDynamicName.Download}
-        iconWidth={isIE11() ? "w-24" : "w-auto"}
-        onClick={onCVButtonClick}
-        size={ButtonSize.Medium}
-        tabIndex={0}
-        themeClasses={sideMenuCVButtonDefaultThemeClasses}
+const SideMenuMobileAndTablet: React.FC<
+  Pick<ISideMenuProps, "navItems" | "onCVButtonClick">
+> = ({ navItems, onCVButtonClick }) => (
+  <LayoutContainer themeClasses={sideMenuMobileNavWrapperDefaultThemeClasses}>
+    {navItems && (
+      <LayoutContainer
+        themeClasses={sideMenuMobileNavOuterContainerDefaultThemeClasses}
       >
-        cv
-      </Button>
-    </LayoutContainer>
-  );
-};
+        <LayoutContainer
+          themeClasses={sideMenuMobileNavInnerContainerDefaultThemeClasses}
+        >
+          <Nav navItems={navItems} position={NavItemPosition.Vertical} />
+        </LayoutContainer>
+      </LayoutContainer>
+    )}
+    <Button
+      iconName={IconDynamicName.Download}
+      iconWidth={isIE11() ? "w-24" : "w-auto"}
+      onClick={onCVButtonClick}
+      size={ButtonSize.Medium}
+      tabIndex={0}
+      themeClasses={sideMenuCVButtonDefaultThemeClasses}
+    >
+      cv
+    </Button>
+  </LayoutContainer>
+);
 
 export { SideMenuMobileAndTablet };

@@ -8,9 +8,3 @@ export const companyDescriptionResponsibilitiesDefaultThemeClasses: IThemeClasse
     fontWeight: "font-bold",
     lineHeight: "leading-32"
   };
-
-export const companyDescriptionRespoisibilitiesListWrapperDefaultThemeClasses: IThemeClasses =
-  {
-    marginLeft: "ml-16",
-    marginTop: "mt-16"
-  };
