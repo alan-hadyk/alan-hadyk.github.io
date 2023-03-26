@@ -4,9 +4,7 @@ import { ReactElement, ReactNode } from "react";
 
 type GetLayout = (page: ReactNode) => ReactElement<unknown, string> | null;
 
-type IPageProps = unknown;
-
-export type TNextPageWithLayout = NextPage<IPageProps> & {
+export type TNextPageWithLayout = NextPage<unknown> & {
   getLayout: GetLayout;
 };
 

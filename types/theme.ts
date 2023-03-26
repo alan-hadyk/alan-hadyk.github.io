@@ -3,7 +3,6 @@ import tailwindConfig from "tailwind.config";
 
 const theme = tailwindConfig.theme;
 
-type TAnimationNameValues = keyof typeof theme.animation;
 type TBorderWidthValues = keyof typeof theme.borderWidth;
 type TBoxShadowValues = keyof typeof theme.boxShadow;
 type TColorValues = keyof typeof theme.colors;
@@ -39,8 +38,6 @@ type TUtilityWithTransparency<TPrefix extends string, TSuffix> =
         ? `${TSuffix}/${number | `[${number}]`}`
         : string
     >;
-
-type TAnimate = TUtility<"animate", TAnimationNameValues>;
 
 type TBgColor = TUtilityWithArbitraryValues<
   "bg",
@@ -89,7 +86,6 @@ type TWhitespace = TUtility<
 >;
 
 type TLeading = TUtilityWithArbitraryValues<"leading", TLineHeightValues>;
-type TTracking = TUtilityWithArbitraryValues<"tracking", TSpacingValues>;
 
 type TMarginBottom = TUtilityWithArbitraryValues<"mb", TSpacingValues>;
 type TMarginLeft = TUtilityWithArbitraryValues<"ml", TSpacingValues>;
@@ -116,7 +112,6 @@ type THeight = TUtilityWithArbitraryValues<"h", TSpacingValues>;
 type TMinHeight = TUtilityWithArbitraryValues<"min-h", TSpacingValues>;
 type TMaxHeight = TUtilityWithArbitraryValues<"max-h", TSpacingValues>;
 type TWidth = TUtilityWithArbitraryValues<"w", TSpacingValues>;
-type TMinWidth = TUtilityWithArbitraryValues<"min-w", TSpacingValues>;
 type TMaxWidth = TUtilityWithArbitraryValues<"max-w", TSpacingValues>;
 
 type TBoxShadow = TUtility<"shadow", TBoxShadowValues>;
@@ -141,7 +136,6 @@ type TBorderBottomColor =
 type TBorderTopColor =
   | TUtilityWithArbitraryValues<"border-t", TColorValues>
   | TUtilityWithTransparency<"border-t", TColorValues>;
-type TBorderRadius = TUtilityWithArbitraryValues<"rounded", TSpacingValues>;
 
 type TBorderStyle = TUtility<
   "border",
@@ -179,8 +173,6 @@ type TFlex =
   | `flex-[${number}_${number}_${number}px]`
   | `flex-[${number}_${number}_${string}]`;
 
-type TFlexGrow = TUtility<"flex", "grow" | "grow-0">;
-
 type TAlignItems = TUtility<
   "items",
   "start" | "end" | "center" | "stretch" | "baseline"
@@ -194,11 +186,6 @@ type TAlignSelf = TUtility<
 type TJustifyContent = TUtility<
   "justify",
   "start" | "end" | "center" | "between" | "around" | "evenly"
->;
-
-type TJustifyItems = TUtility<
-  "justify-items",
-  "auto" | "start" | "end" | "center" | "stretch"
 >;
 
 type TOrder =
@@ -335,14 +322,10 @@ export interface IThemeClasses extends Record<string, unknown> {
   after?: TAfter | TAfter[];
   alignItems?: TAlignItems;
   alignSelf?: TAlignSelf;
-  animate?: TAnimate;
   background?: TBg | TBg[];
   backgroundColor?: TBgColor;
   borderBottomColor?: TBorderBottomColor;
   borderColor?: TBorderColor;
-  borderLeftColor?: TBorderLeftColor;
-  borderRadius?: TBorderRadius;
-  borderRightColor?: TBorderRightColor;
   borderStyle?: TBorderStyle;
   borderTopColor?: TBorderTopColor;
   borderWidth?: TBorderWidth | TBorderWidth[];
@@ -353,10 +336,8 @@ export interface IThemeClasses extends Record<string, unknown> {
   cursor?: TCursor;
   display?: TDisplay;
   dropShadow?: TDropShadow;
-  fill?: TFill;
   flex?: TFlex;
   flexFlow?: TFlexFlowValues;
-  flexGrow?: TFlexGrow;
   focus?: TFocus | TFocus[];
   fontFamily?: TTextFontFamily;
   fontSize?: TTextFontSize;
@@ -367,9 +348,7 @@ export interface IThemeClasses extends Record<string, unknown> {
   height?: THeight;
   hover?: THover | THover[];
   justifyContent?: TJustifyContent;
-  justifyItems?: TJustifyItems;
   left?: TLeft;
-  letterSpacing?: TTracking;
   lineHeight?: TLeading;
   listStyleType?: TListStyleType;
   marginBottom?: TMarginBottom;
@@ -382,7 +361,6 @@ export interface IThemeClasses extends Record<string, unknown> {
   maxWidth?: TMaxWidth;
   mediaQuery?: TMediaQuery | TMediaQuery[];
   minHeight?: TMinHeight;
-  minWidth?: TMinWidth;
   opacity?: TOpacity;
   order?: TOrder;
   outline?: TOutline;
