@@ -2,7 +2,7 @@ import { DashboardContainerFormat } from "containers/dashboard/@types/DashboardC
 import { DashboardContainer } from "containers/dashboard/DashboardContainer";
 import { ExperienceContainerFormat } from "containers/experience/@types/ExperienceContainer";
 import { ExperienceContainer } from "containers/experience/ExperienceContainer";
-import { SidebarContainer } from "containers/sidebar/SidebarContainer";
+import { SidebarPdfContainer } from "containers/sidebarPdf/SidebarPdfContainer";
 import { PdfLayout } from "layouts/PdfLayout";
 import { TNextPageWithLayout } from "types/next";
 
@@ -16,7 +16,7 @@ const CvPage: TNextPageWithLayout = () => (
 );
 
 CvPage.getLayout = (page) => (
-  <PdfLayout title="Alan Hadyk - Portfolio" sidebar={<SidebarContainer />}>
+  <PdfLayout title="Alan Hadyk - Portfolio" sidebar={<SidebarPdfContainer />}>
     {page}
   </PdfLayout>
 );

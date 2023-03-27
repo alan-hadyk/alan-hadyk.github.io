@@ -5,7 +5,7 @@ import { IconsWithLabelsPosition } from "components/molecules/IconsWithLabels/@t
 import { IconsWithLabels } from "components/molecules/IconsWithLabels/IconsWithLabels";
 import { IconWithLabelSize } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 
-const SidebarContainer: React.FC = () => (
+const SidebarPdfContainer: React.FC = () => (
   <>
     <ImageDynamic
       imageName="logo"
@@ -51,4 +51,4 @@ const SidebarContainer: React.FC = () => (
   </>
 );
 
-export { SidebarContainer };
+export { SidebarPdfContainer };
