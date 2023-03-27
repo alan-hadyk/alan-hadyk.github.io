@@ -1,4 +1,4 @@
-import { PageTemplate } from "components/templates/PageTemplate";
+import { PageTemplate } from "components/templates/PageTemplate/PageTemplate";
 import { IWebLayoutProps } from "layouts/@types/WebLayout";
 import Head from "next/head";
 import React from "react";
