@@ -37,7 +37,7 @@ const Header: React.FC<IHeaderProps> = ({ children, themeClasses }) => {
               <Responsive devices={[Device.Tv, Device.Desktop, Device.Tablet]}>
                 <LinkWithImage
                   href="/"
-                  iconName="logo"
+                  imageName="logo"
                   themeClasses={headerLinkWithImageDefaultThemeClasses}
                 />
               </Responsive>
@@ -45,7 +45,7 @@ const Header: React.FC<IHeaderProps> = ({ children, themeClasses }) => {
               <Responsive devices={[Device.Mobile]}>
                 <LinkWithImage
                   href="/"
-                  iconName="logoShortcut"
+                  imageName="logoShortcut"
                   themeClasses={headerMobileLinkWithImageDefaultThemeClasses}
                 />
               </Responsive>
