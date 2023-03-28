@@ -1,5 +1,6 @@
 import {
   IconWithLabelSize,
+  IconWithLabelVariant,
   IIconWithLabelProps
 } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 import { IThemeClasses, TPseudoClasses } from "types/theme";
@@ -20,6 +21,7 @@ export interface IIconsWithLabelsProps {
     iconWithLabel?: IIconWithLabelProps["themeClasses"];
     wrapper?: IThemeClasses;
   };
+  variant?: IconWithLabelVariant;
 }
 
 export type TMapSizeToFlexContainerGap = Record<

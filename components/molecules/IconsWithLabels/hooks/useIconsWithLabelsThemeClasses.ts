@@ -3,13 +3,9 @@ import {
   IIconsWithLabelsProps
 } from "components/molecules/IconsWithLabels/@types/IconsWithLabels";
 import { IThemeClasses } from "types/theme";
-import {
-  IconWithLabelSize,
-  IIconWithLabelProps
-} from "components/molecules/IconWithLabel/@types/IconWithLabel";
+import { IconWithLabelSize } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 import {
   iconsWithLabelsDefaultThemeClasses,
-  iconsWithLabelsIconDefaultThemeClasses,
   mapSizeToFlexContainerGap
 } from "components/molecules/IconsWithLabels/styles";
 
@@ -36,21 +32,7 @@ const useIconsWithLabelsThemeClasses = ({
     ...themeClasses?.wrapper
   };
 
-  const iconsWithLabelsIconThemeClasses: IIconWithLabelProps["themeClasses"] = {
-    ...iconsWithLabelsIconDefaultThemeClasses,
-    ...themeClasses?.iconWithLabel,
-    iconWithLabelContent: {
-      ...iconsWithLabelsIconDefaultThemeClasses?.iconWithLabelContent,
-      ...themeClasses?.iconWithLabel?.iconWithLabelContent,
-      label: {
-        ...iconsWithLabelsIconDefaultThemeClasses?.iconWithLabelContent?.label,
-        ...themeClasses?.iconWithLabel?.iconWithLabelContent?.label
-      }
-    }
-  };
-
   return {
-    iconsWithLabelsIconThemeClasses,
     iconsWithLabelsThemeClasses
   };
 };

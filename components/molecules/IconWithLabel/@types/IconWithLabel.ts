@@ -8,6 +8,11 @@ export enum IconWithLabelSize {
   Small
 }
 
+export enum IconWithLabelVariant {
+  Blue,
+  White
+}
+
 export interface IIconWithLabelProps {
   href?: ILinkProps["href"];
   iconName: IIconStaticProps["iconName"];
@@ -19,14 +24,5 @@ export interface IIconWithLabelProps {
       label?: Pick<IThemeClasses, "groupHover" | "color">;
     };
   };
+  variant?: IconWithLabelVariant;
 }
-
-export type TMapSizeToIconHeight = Record<
-  IconWithLabelSize,
-  IThemeClasses["height"]
->;
-
-export type TMapSizeToTextFontSize = Record<
-  IconWithLabelSize,
-  IThemeClasses["fontSize"]
->;

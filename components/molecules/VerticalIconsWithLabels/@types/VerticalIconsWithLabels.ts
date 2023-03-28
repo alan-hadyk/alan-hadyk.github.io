@@ -1,5 +1,6 @@
 import {
   IconWithLabelSize,
+  IconWithLabelVariant,
   IIconWithLabelProps
 } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 import { IThemeClasses } from "types/theme";
@@ -13,4 +14,5 @@ export interface IVerticalIconsWithLabelsProps {
   themeClasses?: {
     label?: Pick<IThemeClasses, "color">;
   };
+  variant?: IconWithLabelVariant;
 }

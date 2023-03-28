@@ -3,7 +3,10 @@ import { ImageDynamic } from "components/atoms/ImageDynamic/ImageDynamic";
 import { Typography } from "components/atoms/Typography/Typography";
 import { IconsWithLabelsPosition } from "components/molecules/IconsWithLabels/@types/IconsWithLabels";
 import { IconsWithLabels } from "components/molecules/IconsWithLabels/IconsWithLabels";
-import { IconWithLabelSize } from "components/molecules/IconWithLabel/@types/IconWithLabel";
+import {
+  IconWithLabelSize,
+  IconWithLabelVariant
+} from "components/molecules/IconWithLabel/@types/IconWithLabel";
 
 const SidebarPdfContainer: React.FC = () => (
   <>
@@ -47,6 +50,7 @@ const SidebarPdfContainer: React.FC = () => (
           height: "h-auto"
         }
       }}
+      variant={IconWithLabelVariant.White}
     />
   </>
 );

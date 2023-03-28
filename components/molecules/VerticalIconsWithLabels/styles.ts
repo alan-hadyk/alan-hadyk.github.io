@@ -23,11 +23,6 @@ export const verticalIconsWithLabelsIconContainerDefaultThemeClasses: IThemeClas
     marginBottom: "mb-12"
   };
 
-export const verticalIconsWithLabelsLabelsWrapperDefaultThemeClasses: IThemeClasses =
-  {
-    flex: "flex-[0_0_75%]"
-  };
-
 export const verticalIconsWithLabelsLabelContainerDefaultThemeClasses: IThemeClasses =
   {
     height: "h-32",
@@ -35,7 +30,6 @@ export const verticalIconsWithLabelsLabelContainerDefaultThemeClasses: IThemeCla
   };
 
 export const verticalIconsWithLabelsLabelDefaultThemeClasses: IThemeClasses = {
-  color: "text-blue100",
   lineHeight: "leading-32"
 };
 
@@ -50,6 +44,22 @@ export const mapSizeToIconsWrapperStyles: Record<
     flex: "flex-[0_0_9.2rem]"
   },
   [IconWithLabelSize.Small]: {
-    flex: "flex-[0_0_25%]"
+    alignItems: "items-start",
+    flex: "flex-[0_0_17.5%]"
+  }
+};
+
+export const mapSizeToLabelsWrapperStyles: Record<
+  IconWithLabelSize,
+  IThemeClasses
+> = {
+  [IconWithLabelSize.Large]: {
+    flex: "flex-[0_0_75%]"
+  },
+  [IconWithLabelSize.Medium]: {
+    flex: "flex-[0_0_75%]"
+  },
+  [IconWithLabelSize.Small]: {
+    flex: "flex-[0_0_82.5%]"
   }
 };

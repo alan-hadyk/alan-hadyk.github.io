@@ -13,10 +13,14 @@ const IconsWithLabels: React.FC<IIconsWithLabelsProps> = ({
   iconsWithLabels,
   position = IconsWithLabelsPosition.Vertical,
   size = IconWithLabelSize.Medium,
-  themeClasses
+  themeClasses,
+  variant
 }) => {
-  const { iconsWithLabelsIconThemeClasses, iconsWithLabelsThemeClasses } =
-    useIconsWithLabelsThemeClasses({ position, size, themeClasses });
+  const { iconsWithLabelsThemeClasses } = useIconsWithLabelsThemeClasses({
+    position,
+    size,
+    themeClasses
+  });
 
   return (
     <LayoutContainer themeClasses={iconsWithLabelsThemeClasses}>
@@ -28,14 +32,16 @@ const IconsWithLabels: React.FC<IIconsWithLabelsProps> = ({
             key={label}
             label={label}
             size={size}
-            themeClasses={iconsWithLabelsIconThemeClasses}
+            themeClasses={themeClasses?.iconWithLabel}
+            variant={variant}
           />
         ))
       ) : (
         <VerticalIconsWithLabels
-          themeClasses={iconsWithLabelsIconThemeClasses.iconWithLabelContent}
+          themeClasses={themeClasses?.iconWithLabel?.iconWithLabelContent}
           iconsWithLabels={iconsWithLabels}
           size={size}
+          variant={variant}
         />
       )}
     </LayoutContainer>

@@ -1,8 +1,11 @@
 import { IconStatic } from "components/atoms/IconStatic/IconStatic";
 import { Typography } from "components/atoms/Typography/Typography";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
-import { IconWithLabelSize } from "components/molecules/IconWithLabel/@types/IconWithLabel";
-import { IIconWithLabelContentProps } from "components/molecules/IconWithLabelContent/@types/IconWithLabelContent";
+import {
+  IconWithLabelContentSize,
+  IconWithLabelContentVariant,
+  IIconWithLabelContentProps
+} from "components/molecules/IconWithLabelContent/@types/IconWithLabelContent";
 import { useIconWithLabelContentThemeClasses } from "components/molecules/IconWithLabelContent/hooks/useIconWithLabelContentThemeClasses";
 import { iconWithLabelContentDefaultThemeClasses } from "components/molecules/IconWithLabelContent/styles";
 
@@ -10,14 +13,15 @@ const IconWithLabelContent: React.FC<IIconWithLabelContentProps> = ({
   iconName,
   isHoverable,
   label,
-  size = IconWithLabelSize.Medium,
-  themeClasses
+  size = IconWithLabelContentSize.Medium,
+  themeClasses,
+  variant = IconWithLabelContentVariant.Blue
 }) => {
   const {
     iconWithLabelContentIconThemeClasses,
     iconWithLabelContentIconWrapperThemeClasses,
     iconWithLabelContentLabelThemeClasses
-  } = useIconWithLabelContentThemeClasses({ size, themeClasses });
+  } = useIconWithLabelContentThemeClasses({ size, themeClasses, variant });
 
   return (
     <LayoutContainer themeClasses={iconWithLabelContentDefaultThemeClasses}>

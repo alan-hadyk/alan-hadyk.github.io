@@ -1,3 +1,9 @@
+import {
+  IconWithLabelContentSize,
+  IconWithLabelContentVariant,
+  TMapSizeToIconHeight,
+  TMapSizeToTextFontSize
+} from "components/molecules/IconWithLabelContent/@types/IconWithLabelContent";
 import { IThemeClasses } from "types/theme";
 
 export const iconWithLabelContentDefaultThemeClasses: IThemeClasses = {
@@ -9,6 +15,26 @@ export const iconWithLabelContentDefaultThemeClasses: IThemeClasses = {
   justifyContent: "justify-start"
 };
 
-export const iconWithLabelContentLabelDefaultThemeClasses: IThemeClasses = {
-  color: "text-blue100"
+export const mapSizeToIconHeight: TMapSizeToIconHeight = {
+  [IconWithLabelContentSize.Large]: "h-40",
+  [IconWithLabelContentSize.Medium]: "h-32",
+  [IconWithLabelContentSize.Small]: "h-28"
+};
+
+export const mapSizeToTextFontSize: TMapSizeToTextFontSize = {
+  [IconWithLabelContentSize.Large]: "text-24",
+  [IconWithLabelContentSize.Medium]: "text-20",
+  [IconWithLabelContentSize.Small]: "text-16"
+};
+
+export const mapIconWithLabelContentVariantToLabelStyles: Record<
+  IconWithLabelContentVariant,
+  IThemeClasses
+> = {
+  [IconWithLabelContentVariant.Blue]: {
+    color: "text-blue100"
+  },
+  [IconWithLabelContentVariant.White]: {
+    color: "text-white"
+  }
 };
