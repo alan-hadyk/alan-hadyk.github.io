@@ -1,21 +1,21 @@
 import { DashboardInnerContainer } from "components/molecules/DashboardInnerContainer/DashboardInnerContainer";
 import { DashboardOuterContainer } from "components/molecules/DashboardOuterContainer/DashboardOuterContainer";
-import { DashboardContainerTechStack } from "containers/dashboard/sections/DashboardContainerTechStack";
-import { DashboardContainerFlux } from "containers/dashboard/sections/DashboardContainerFlux";
-import { DashboardContainerCode } from "containers/dashboard/sections/DashboardContainerCode";
-import { DashboardContainerCommits } from "containers/dashboard/sections/DashboardContainerCommits";
-import { DashboardContainerIp } from "containers/dashboard/sections/DashboardContainerIp";
-import { DashboardContainerUserAgent } from "containers/dashboard/sections/DashboardContainerUserAgent";
-import { DashboardContainerPoweredBy } from "containers/dashboard/sections/DashboardContainerPoweredBy";
+import { DashboardContainerTechStack } from "containers/Dashboard/sections/DashboardContainerTechStack";
+import { DashboardContainerFlux } from "containers/Dashboard/sections/DashboardContainerFlux";
+import { DashboardContainerCode } from "containers/Dashboard/sections/DashboardContainerCode";
+import { DashboardContainerCommits } from "containers/Dashboard/sections/DashboardContainerCommits";
+import { DashboardContainerIp } from "containers/Dashboard/sections/DashboardContainerIp";
+import { DashboardContainerUserAgent } from "containers/Dashboard/sections/DashboardContainerUserAgent";
+import { DashboardContainerPoweredBy } from "containers/Dashboard/sections/DashboardContainerPoweredBy";
 
 import { Responsive } from "components/layout/Responsive/Responsive";
 import { Device } from "components/layout/Responsive/@types/Responsive";
 import { ConsoleTvDesktopAndTablet } from "components/molecules/Console/screens/ConsoleTvDesktopAndTablet";
-import { catchPhrase } from "containers/dashboard/config";
+import { catchPhrase } from "containers/Dashboard/config";
 import {
   dashboardContainerBottomInnerContainerDefaultThemeClasses,
   dashboardContainerTopInnerContainerDefaultThemeClasses
-} from "containers/dashboard/styles";
+} from "containers/Dashboard/styles";
 
 const DashboardContainerTvAndDesktop: React.FC = () => (
   <Responsive devices={[Device.Tv, Device.Desktop]}>

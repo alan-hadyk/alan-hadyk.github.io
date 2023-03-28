@@ -9,11 +9,12 @@ import { isIE11 } from "helpers/browser/isIE11";
 
 import { Device } from "components/layout/Responsive/@types/Responsive";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
-import { IHeaderContainerScreenProps } from "containers/header/@types/HeaderContainerScreen";
+import { IHeaderContainerScreenProps } from "containers/Header/@types/HeaderContainerScreen";
 import { IconDynamicName } from "components/atoms/IconDynamic/@types/IconDynamic";
 import { ButtonSize } from "components/molecules/Button/@types/Button";
 import { SideMenu } from "components/organisms/SideMenu/SideMenu";
-import { icons, navItems } from "containers/header/config";
+import { icons, navItems } from "containers/Header/config";
+import { HeaderContainerDesktopDefaultThemeClasses } from "containers/Header/styles";
 
 const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
   isMenuVisible,
@@ -21,16 +22,7 @@ const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
   onClick
 }) => (
   <Responsive devices={[Device.Desktop]}>
-    <LayoutContainer
-      themeClasses={{
-        alignItems: "items-center",
-        display: "flex",
-        flexFlow: "flex-row-nowrap",
-        height: "h-48",
-        justifyContent: "justify-start",
-        pseudoClasses: ["directChildren:ml-24", "firstdirectChild:ml-0"]
-      }}
-    >
+    <LayoutContainer themeClasses={HeaderContainerDesktopDefaultThemeClasses}>
       <LayoutContainer themeClasses={{ marginRight: "mr-24" }}>
         <Nav navItems={navItems} />
       </LayoutContainer>

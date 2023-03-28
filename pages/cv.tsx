@@ -1,9 +1,9 @@
-import { AboutMeContainer } from "containers/aboutMe/AboutMeContainer";
-import { ContactContainer } from "containers/contact/ContactContainer";
-import { DashboardContainerFormat } from "containers/dashboard/@types/DashboardContainer";
-import { DashboardContainer } from "containers/dashboard/DashboardContainer";
+import { AboutMeContainer } from "containers/AboutMe/AboutMeContainer";
+import { ContactContainer } from "containers/Contact/ContactContainer";
+import { DashboardContainerFormat } from "containers/Dashboard/@types/DashboardContainer";
+import { DashboardContainer } from "containers/Dashboard/DashboardContainer";
 import { ExperienceContainer } from "containers/experience/ExperienceContainer";
-import { SkillsContainer } from "containers/skills/SkillsContainer";
+import { SkillsContainer } from "containers/Skills/SkillsContainer";
 import { PdfLayout } from "layouts/PdfLayout";
 import { TNextPageWithLayout } from "types/next";
 
