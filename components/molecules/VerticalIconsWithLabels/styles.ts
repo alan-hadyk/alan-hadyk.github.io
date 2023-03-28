@@ -18,19 +18,19 @@ export const verticalIconsWithLabelsIconsWrapperDefaultThemeClasses: IThemeClass
     flexFlow: "flex-col-nowrap"
   };
 
-export const verticalIconsWithLabelsIconContainerDefaultThemeClasses: IThemeClasses =
-  {
+export const mapSizeToContainerStyles: Record<
+  IconWithLabelSize,
+  IThemeClasses
+> = {
+  [IconWithLabelSize.Large]: {
     marginBottom: "mb-12"
-  };
-
-export const verticalIconsWithLabelsLabelContainerDefaultThemeClasses: IThemeClasses =
-  {
-    height: "h-32",
+  },
+  [IconWithLabelSize.Medium]: {
     marginBottom: "mb-12"
-  };
-
-export const verticalIconsWithLabelsLabelDefaultThemeClasses: IThemeClasses = {
-  lineHeight: "leading-32"
+  },
+  [IconWithLabelSize.Small]: {
+    marginBottom: "mb-0"
+  }
 };
 
 export const mapSizeToIconsWrapperStyles: Record<
@@ -45,7 +45,15 @@ export const mapSizeToIconsWrapperStyles: Record<
   },
   [IconWithLabelSize.Small]: {
     alignItems: "items-start",
-    flex: "flex-[0_0_17.5%]"
+    flex: "flex-[0_0_12.5%]"
+  }
+};
+
+export const mapSizeToIconStyles: Record<IconWithLabelSize, IThemeClasses> = {
+  [IconWithLabelSize.Large]: {},
+  [IconWithLabelSize.Medium]: {},
+  [IconWithLabelSize.Small]: {
+    maxWidth: "max-w-16"
   }
 };
 
@@ -60,6 +68,18 @@ export const mapSizeToLabelsWrapperStyles: Record<
     flex: "flex-[0_0_75%]"
   },
   [IconWithLabelSize.Small]: {
-    flex: "flex-[0_0_82.5%]"
+    flex: "flex-[0_0_87.5%]"
+  }
+};
+
+export const mapSizeToLabelStyles: Record<IconWithLabelSize, IThemeClasses> = {
+  [IconWithLabelSize.Large]: {
+    lineHeight: "leading-40"
+  },
+  [IconWithLabelSize.Medium]: {
+    lineHeight: "leading-32"
+  },
+  [IconWithLabelSize.Small]: {
+    lineHeight: "leading-28"
   }
 };

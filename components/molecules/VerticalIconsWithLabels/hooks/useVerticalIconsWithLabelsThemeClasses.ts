@@ -9,10 +9,12 @@ import {
 } from "components/molecules/IconWithLabelContent/styles";
 import { IVerticalIconsWithLabelsProps } from "components/molecules/VerticalIconsWithLabels/@types/VerticalIconsWithLabels";
 import {
+  mapSizeToContainerStyles,
+  mapSizeToIconStyles,
   mapSizeToIconsWrapperStyles,
+  mapSizeToLabelStyles,
   mapSizeToLabelsWrapperStyles,
-  verticalIconsWithLabelsIconsWrapperDefaultThemeClasses,
-  verticalIconsWithLabelsLabelDefaultThemeClasses
+  verticalIconsWithLabelsIconsWrapperDefaultThemeClasses
 } from "components/molecules/VerticalIconsWithLabels/styles";
 import { IThemeClasses } from "types/theme";
 
@@ -24,28 +26,48 @@ export const useVerticalIconsWithLabelsThemeClasses = ({
   IVerticalIconsWithLabelsProps,
   "size" | "themeClasses" | "variant"
 >) => {
-  const verticalIconsWithLabelsIconThemeClasses: IThemeClasses = {
-    height: mapSizeToIconHeight[size]
-  };
-
+  // Icons wrapper
   const verticalIconsWithLabelsIconsWrapperThemeClasses: IThemeClasses = {
     ...verticalIconsWithLabelsIconsWrapperDefaultThemeClasses,
     ...mapSizeToIconsWrapperStyles[size]
   };
 
-  const verticalIconsWithLabelsLabelThemeClasses: IThemeClasses = {
-    ...verticalIconsWithLabelsLabelDefaultThemeClasses,
-    ...mapIconWithLabelContentVariantToLabelStyles[variant],
-    fontSize: mapSizeToTextFontSize[size],
-    ...themeClasses?.label
+  // Icon container
+  const verticalIconsWithLabelsIconContainerThemeClasses: IThemeClasses = {
+    ...mapSizeToContainerStyles[size],
+    height: mapSizeToIconHeight[size]
   };
 
+  // Icon
+  const verticalIconsWithLabelsIconThemeClasses: IThemeClasses = {
+    ...mapSizeToIconStyles[size],
+    height: mapSizeToIconHeight[size]
+  };
+
+  // Labels wrapper
   const verticalIconsWithLabelsLabelsWrapperThemeClasses: IThemeClasses =
     mapSizeToLabelsWrapperStyles[size];
 
+  // Label container
+  const verticalIconsWithLabelsLabelContainerThemeClasses: IThemeClasses = {
+    ...mapSizeToContainerStyles[size],
+    height: mapSizeToIconHeight[size]
+  };
+
+  // Label
+  const verticalIconsWithLabelsLabelThemeClasses: IThemeClasses = {
+    ...mapIconWithLabelContentVariantToLabelStyles[variant],
+    ...mapSizeToLabelStyles[size],
+    fontSize: mapSizeToTextFontSize[size],
+    height: mapSizeToIconHeight[size],
+    ...themeClasses?.label
+  };
+
   return {
+    verticalIconsWithLabelsIconContainerThemeClasses,
     verticalIconsWithLabelsIconThemeClasses,
     verticalIconsWithLabelsIconsWrapperThemeClasses,
+    verticalIconsWithLabelsLabelContainerThemeClasses,
     verticalIconsWithLabelsLabelThemeClasses,
     verticalIconsWithLabelsLabelsWrapperThemeClasses
   };

@@ -8,11 +8,7 @@ import {
 } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { IconStatic } from "components/atoms/IconStatic/IconStatic";
-import {
-  verticalIconsWithLabelsDefaultThemeClasses,
-  verticalIconsWithLabelsIconContainerDefaultThemeClasses,
-  verticalIconsWithLabelsLabelContainerDefaultThemeClasses
-} from "components/molecules/VerticalIconsWithLabels/styles";
+import { verticalIconsWithLabelsDefaultThemeClasses } from "components/molecules/VerticalIconsWithLabels/styles";
 import { useVerticalIconsWithLabelsThemeClasses } from "components/molecules/VerticalIconsWithLabels/hooks/useVerticalIconsWithLabelsThemeClasses";
 import { Link } from "components/molecules/Link/Link";
 
@@ -23,8 +19,10 @@ const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
   variant = IconWithLabelVariant.Blue
 }) => {
   const {
+    verticalIconsWithLabelsIconContainerThemeClasses,
     verticalIconsWithLabelsIconThemeClasses,
     verticalIconsWithLabelsIconsWrapperThemeClasses,
+    verticalIconsWithLabelsLabelContainerThemeClasses,
     verticalIconsWithLabelsLabelThemeClasses,
     verticalIconsWithLabelsLabelsWrapperThemeClasses
   } = useVerticalIconsWithLabelsThemeClasses({ size, themeClasses, variant });
@@ -38,9 +36,7 @@ const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
           ({ iconName }: IIconWithLabelProps, index: number): JSX.Element => (
             <LayoutContainer
               key={iconName + index}
-              themeClasses={
-                verticalIconsWithLabelsIconContainerDefaultThemeClasses
-              }
+              themeClasses={verticalIconsWithLabelsIconContainerThemeClasses}
             >
               <IconStatic
                 themeClasses={verticalIconsWithLabelsIconThemeClasses}
@@ -57,9 +53,7 @@ const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
           ({ href, isExternal, label }: IIconWithLabelProps): JSX.Element => (
             <LayoutContainer
               key={label}
-              themeClasses={
-                verticalIconsWithLabelsLabelContainerDefaultThemeClasses
-              }
+              themeClasses={verticalIconsWithLabelsLabelContainerThemeClasses}
             >
               {href ? (
                 <Link href={href} isExternal={isExternal}>
