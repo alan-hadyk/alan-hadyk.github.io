@@ -2,10 +2,7 @@ import React from "react";
 import { IThemeClasses } from "types/theme";
 import { TChildren } from "types/props";
 
-export type TLayoutContainerElementType =
-  | HTMLDivElement
-  | HTMLElement
-  | HTMLFormElement;
+export type TLayoutContainerElementType = HTMLDivElement | HTMLElement;
 
 export interface ILayoutContainerProps {
   as?: "div" | "nav" | "header" | "main";

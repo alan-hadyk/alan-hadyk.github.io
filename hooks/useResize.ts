@@ -14,15 +14,14 @@ const useResize = ({ breakpoint, callback }: IUseResizeArgs) => {
   }, []);
 
   useEffect(() => {
-    if (targetElement.current) {
+    targetElement.current &&
       setSize(targetElement.current.getBoundingClientRect());
-    }
   }, [targetElement]);
 
   useResizeObserver(targetElement, (entry) => setSize(entry?.contentRect));
 
   useEffect(() => {
-    if (size && size?.width >= parseInt(breakpoint) && !called.current) {
+    if (size?.width && size.width >= parseInt(breakpoint) && !called.current) {
       callback?.();
       called.current = true;
     } else {

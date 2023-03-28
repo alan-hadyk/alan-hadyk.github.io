@@ -74,4 +74,4 @@ const CompanyHealthcareSaas: React.FC = () => (
   <Company {...companyHealthcareSaasProps} />
 );
 
-export { CompanyHealthcareSaas, companyHealthcareSaasProps };
+export { CompanyHealthcareSaas };

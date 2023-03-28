@@ -8,10 +8,6 @@ export interface IButtonTextProps {
   themeClasses?: Pick<IThemeClasses, "fontFamily" | "textTransform">;
 }
 
-export interface ITextProps {
-  fontSize: IThemeClasses["fontSize"];
-}
-
 export type TMapSizeToButtonTextProps = Record<
   ButtonSize,
   Pick<IThemeClasses, "fontSize">

@@ -64,4 +64,4 @@ const CompanyPersonallyEmployed: React.FC = () => (
   />
 );
 
-export { CompanyPersonallyEmployed, companyPersonallyEmployedProps };
+export { CompanyPersonallyEmployed };

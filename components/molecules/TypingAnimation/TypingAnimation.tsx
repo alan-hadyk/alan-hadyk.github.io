@@ -1,6 +1,5 @@
 import React from "react";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
-import { animatedCode } from "components/molecules/TypingAnimation/config";
 import { useTypingAnimationState } from "components/molecules/TypingAnimation/hooks/useTypingAnimationState";
 import {
   typingAnimationCodeDefaultThemeClasses,
@@ -25,4 +24,4 @@ const TypingAnimation: React.FC = () => {
   );
 };
 
-export { TypingAnimation, animatedCode };
+export { TypingAnimation };

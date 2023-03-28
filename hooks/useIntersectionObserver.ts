@@ -10,29 +10,25 @@ const useIntersectionObserver = ({
   selectors
 }: IUseIntersectionObserver): void => {
   useEffect(() => {
-    const observer: IIntersectionObserverWithPolyfill =
-      new window.IntersectionObserver(
-        (entries: IntersectionObserverEntry[]): void => {
-          const intersectingElements: IntersectionObserverEntry[] =
-            entries.filter(({ isIntersecting }) => isIntersecting);
-          const highestIntersection: IntersectionObserverEntry | false =
-            intersectingElements.length > 0 &&
-            intersectingElements.reduce((prev, current) =>
-              prev.intersectionRatio > current.intersectionRatio
-                ? prev
-                : current
-            );
-
-          if (highestIntersection) {
-            onElementVisible(`#${highestIntersection.target.id}`);
-          } else {
-            onElementVisible("");
-          }
-        },
-        {
-          threshold: [0, 0.4]
-        }
+    const handleIntersect = (entries: IntersectionObserverEntry[]): void => {
+      const intersectingElements = entries.filter(
+        ({ isIntersecting }) => isIntersecting
       );
+      const highestIntersection = intersectingElements.length
+        ? intersectingElements.reduce((prev, current) =>
+            prev.intersectionRatio > current.intersectionRatio ? prev : current
+          )
+        : null;
+
+      onElementVisible(
+        highestIntersection ? `#${highestIntersection.target.id}` : ""
+      );
+    };
+
+    const observer: IIntersectionObserverWithPolyfill =
+      new window.IntersectionObserver(handleIntersect, {
+        threshold: [0, 0.4]
+      });
 
     observer.POLL_INTERVAL = 100;
 
