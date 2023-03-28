@@ -70,7 +70,7 @@ type TTextColor = TUtility<"text", TColorValues>;
 type TTextFontSize = TUtilityWithArbitraryValues<"text", TFontSizeValues>;
 type TTextFontFamily = TUtility<"font", TFontFamilyValues>;
 type TTextFontWeight = TUtility<"font", TFontWeightValues>;
-export type TTextAlign =
+type TTextAlign =
   | "text-left"
   | "text-center"
   | "text-right"
