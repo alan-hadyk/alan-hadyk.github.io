@@ -20,8 +20,3 @@ export const linkDefaultThemeClasses: IThemeClasses = {
   ],
   width: "w-unset"
 };
-
-export const linkLinesContainerDefaultThemeClasses: IThemeClasses = {
-  position: "relative",
-  width: "w-auto"
-};

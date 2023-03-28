@@ -3,8 +3,6 @@ export interface IUseIntersectionObserver {
   selectors: string[];
 }
 
-export type TIntersectionObserverType = IntersectionObserver;
-
 export interface IIntersectionObserverWithPolyfill
   extends IntersectionObserver {
   POLL_INTERVAL?: number;
