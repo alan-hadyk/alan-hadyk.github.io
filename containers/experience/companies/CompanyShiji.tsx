@@ -1,82 +1,31 @@
 import { Company } from "components/organisms/Company/Company";
 
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
-import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
-
-const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
-  {
-    iconName: IconStaticName.HTML,
-    label: "HTML"
-  },
-  {
-    iconName: IconStaticName.CSS,
-    label: "CSS"
-  },
-  {
-    iconName: IconStaticName.JavaScript,
-    label: "Javascript"
-  },
-  {
-    iconName: IconStaticName.TypeScript,
-    label: "Typescript"
-  },
-  {
-    iconName: IconStaticName.React,
-    label: "React"
-  },
-  {
-    iconName: IconStaticName.Redux,
-    label: "Redux"
-  },
-  {
-    iconName: IconStaticName.Ember,
-    label: "Ember"
-  },
-  {
-    iconName: IconStaticName.Sass,
-    label: "Sass"
-  },
-  {
-    iconName: IconStaticName.Docker,
-    label: "Docker"
-  },
-  {
-    iconName: IconStaticName.QUnit,
-    label: "QUnit"
-  },
-  {
-    iconName: IconStaticName.Webpack,
-    label: "Webpack"
-  },
-  {
-    iconName: IconStaticName.NodeJs,
-    label: "Node.js"
-  },
-  {
-    iconName: IconStaticName.REST,
-    label: "REST"
-  },
-  {
-    iconName: IconStaticName.Zeplin,
-    label: "Zeplin"
-  },
-  {
-    iconName: IconStaticName.Jira,
-    label: "JIRA"
-  },
-  {
-    iconName: IconStaticName.Jenkins,
-    label: "Jenkins"
-  },
-  {
-    iconName: IconStaticName.GitLab,
-    label: "GitLab"
-  }
-];
+import { experience } from "containers/experience/config";
 
 const companyShijiProps: ICompanyProps = {
   date: "June 2017 to July 2018",
-  iconsWithLabels,
+  iconsWithLabels: experience.filter(({ iconName }) => {
+    return [
+      "html",
+      "css",
+      "javaScript",
+      "typeScript",
+      "react",
+      "redux",
+      "ember",
+      "sass",
+      "docker",
+      "qUnit",
+      "webpack",
+      "nodeJs",
+      "rest",
+      "zeplin",
+      "jira",
+      "jenkins",
+      "gitlab"
+    ].includes(iconName);
+  }),
   name: "Shiji",
   responsibilities: [
     <span key="Contributed">

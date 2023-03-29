@@ -1,46 +1,22 @@
 import { Company } from "components/organisms/Company/Company";
 
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
-import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
-
-const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
-  {
-    iconName: IconStaticName.HTML,
-    label: "HTML"
-  },
-  {
-    iconName: IconStaticName.CSS,
-    label: "CSS"
-  },
-  {
-    iconName: IconStaticName.JavaScript,
-    label: "Javascript"
-  },
-  {
-    iconName: IconStaticName.Sass,
-    label: "Sass"
-  },
-  {
-    iconName: IconStaticName.LESS,
-    label: "LESS"
-  },
-  {
-    iconName: IconStaticName.JQuery,
-    label: "jQuery"
-  },
-  {
-    iconName: IconStaticName.Prestashop,
-    label: "PrestaShop"
-  },
-  {
-    iconName: IconStaticName.Redmine,
-    label: "Redmine"
-  }
-];
+import { experience } from "containers/experience/config";
 
 const companyDiHProps: ICompanyProps = {
   date: "October 2010 to October 2015",
-  iconsWithLabels,
+  iconsWithLabels: experience.filter(({ iconName }) => {
+    return [
+      "html",
+      "css",
+      "javaScript",
+      "sass",
+      "less",
+      "jQuery",
+      "prestashop",
+      "redmine"
+    ].includes(iconName);
+  }),
   name: "DiH",
   responsibilities: [
     <span key="Optimized">

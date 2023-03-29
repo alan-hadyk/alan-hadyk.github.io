@@ -9,12 +9,12 @@ import { isIE11 } from "helpers/browser/isIE11";
 
 import { Device } from "components/layout/Responsive/@types/Responsive";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
-import { IHeaderContainerScreenProps } from "containers/Header/@types/HeaderContainerScreen";
+import { IHeaderContainerScreenProps } from "containers/header/@types/HeaderContainerScreen";
 import { IconDynamicName } from "components/atoms/IconDynamic/@types/IconDynamic";
 import { ButtonSize } from "components/molecules/Button/@types/Button";
 import { SideMenu } from "components/organisms/SideMenu/SideMenu";
-import { icons, navItems } from "containers/Header/config";
-import { HeaderContainerDesktopDefaultThemeClasses } from "containers/Header/styles";
+import { icons, navItems } from "containers/header/config";
+import { HeaderContainerDesktopDefaultThemeClasses } from "containers/header/styles";
 
 const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
   isMenuVisible,

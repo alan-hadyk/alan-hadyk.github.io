@@ -1,73 +1,6 @@
-import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
 import { Company } from "components/organisms/Company/Company";
-
-const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
-  {
-    iconName: IconStaticName.HTML,
-    label: "HTML"
-  },
-  {
-    iconName: IconStaticName.CSS,
-    label: "CSS"
-  },
-  {
-    iconName: IconStaticName.JavaScript,
-    label: "Javascript"
-  },
-  {
-    iconName: IconStaticName.TypeScript,
-    label: "Typescript"
-  },
-  {
-    iconName: IconStaticName.React,
-    label: "React"
-  },
-  {
-    iconName: IconStaticName.NextJs,
-    label: "Next.js"
-  },
-  {
-    iconName: IconStaticName.Tailwind,
-    label: "Tailwind"
-  },
-  {
-    iconName: IconStaticName.Auth0,
-    label: "Auth0"
-  },
-  {
-    iconName: IconStaticName.Webpack,
-    label: "Webpack"
-  },
-  {
-    iconName: IconStaticName.JEST,
-    label: "JEST"
-  },
-  {
-    iconName: IconStaticName.ReactTestingLibrary,
-    label: "React Testing Library"
-  },
-  {
-    iconName: IconStaticName.Cypress,
-    label: "Cypress"
-  },
-  {
-    iconName: IconStaticName.NodeJs,
-    label: "Node.js"
-  },
-  {
-    iconName: IconStaticName.Apollo,
-    label: "Apollo"
-  },
-  {
-    iconName: IconStaticName.GraphQL,
-    label: "GraphQL"
-  },
-  {
-    iconName: IconStaticName.Docker,
-    label: "Docker"
-  }
-];
+import { experience } from "containers/experience/config";
 
 const responsibilities: ICompanyProps["responsibilities"] = [
   <span key="Developed">
@@ -93,7 +26,26 @@ const responsibilities: ICompanyProps["responsibilities"] = [
 
 const companyRealEstateStartupProps = {
   date: "December 2021 to March 2022",
-  iconsWithLabels,
+  iconsWithLabels: experience.filter(({ iconName }) => {
+    return [
+      "html",
+      "css",
+      "javaScript",
+      "typeScript",
+      "react",
+      "nextJs",
+      "tailwind",
+      "auth0",
+      "webpack",
+      "jest",
+      "reactTestingLibrary",
+      "cypress",
+      "nodeJs",
+      "apollo",
+      "graphQL",
+      "docker"
+    ].includes(iconName);
+  }),
   name: "Real Estate Startup",
   responsibilities,
   title: "Front-End Architect"

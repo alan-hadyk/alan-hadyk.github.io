@@ -1,49 +1,22 @@
-import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
 import { Company } from "components/organisms/Company/Company";
-
-const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
-  {
-    iconName: IconStaticName.HTML,
-    label: "HTML"
-  },
-  {
-    iconName: IconStaticName.CSS,
-    label: "CSS"
-  },
-  {
-    iconName: IconStaticName.JavaScript,
-    label: "Javascript"
-  },
-  {
-    iconName: IconStaticName.TypeScript,
-    label: "Typescript"
-  },
-  {
-    iconName: IconStaticName.React,
-    label: "React"
-  },
-  {
-    iconName: IconStaticName.Tailwind,
-    label: "Tailwind"
-  },
-  {
-    iconName: IconStaticName.GraphQL,
-    label: "GraphQL"
-  },
-  {
-    iconName: IconStaticName.Apollo,
-    label: "Apollo"
-  },
-  {
-    iconName: IconStaticName.Prisma,
-    label: "Prisma"
-  }
-];
+import { experience } from "containers/experience/config";
 
 const companyHealthcareSaasProps: ICompanyProps = {
   date: "May 2022 to June 2022",
-  iconsWithLabels,
+  iconsWithLabels: experience.filter(({ iconName }) => {
+    return [
+      "html",
+      "css",
+      "javaScript",
+      "typescript",
+      "react",
+      "tailwind",
+      "graphQL",
+      "apollo",
+      "prisma"
+    ].includes(iconName);
+  }),
   name: "Healthcare SaaS",
   responsibilities: [
     <span key="Developed">

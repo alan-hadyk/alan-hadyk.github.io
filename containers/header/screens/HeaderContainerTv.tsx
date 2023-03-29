@@ -8,11 +8,11 @@ import { isIE11 } from "helpers/browser/isIE11";
 
 import { Device } from "components/layout/Responsive/@types/Responsive";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
-import { IHeaderContainerTvProps } from "containers/Header/@types/HeaderContainerTv";
+import { IHeaderContainerTvProps } from "containers/header/@types/HeaderContainerTv";
 import { IconDynamicName } from "components/atoms/IconDynamic/@types/IconDynamic";
 import { ButtonSize } from "components/molecules/Button/@types/Button";
-import { icons, navItems } from "containers/Header/config";
-import { headerContainerTvDefaultThemeClasses } from "containers/Header/styles";
+import { icons, navItems } from "containers/header/config";
+import { headerContainerTvDefaultThemeClasses } from "containers/header/styles";
 
 const HeaderContainerTv: React.FC<IHeaderContainerTvProps> = ({
   onCVButtonClick

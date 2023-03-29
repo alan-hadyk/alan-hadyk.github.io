@@ -1,4 +1,4 @@
-import { IHeaderContainerScreenProps } from "containers/Header/@types/HeaderContainerScreen";
+import { IHeaderContainerScreenProps } from "containers/header/@types/HeaderContainerScreen";
 
 export interface IHeaderContainerTvProps {
   onCVButtonClick: IHeaderContainerScreenProps["onCVButtonClick"];

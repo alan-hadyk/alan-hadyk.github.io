@@ -1,74 +1,29 @@
 import { Company } from "components/organisms/Company/Company";
 
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
-import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
-
-const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
-  {
-    iconName: IconStaticName.HTML,
-    label: "HTML"
-  },
-  {
-    iconName: IconStaticName.CSS,
-    label: "CSS"
-  },
-  {
-    iconName: IconStaticName.JavaScript,
-    label: "Javascript"
-  },
-  {
-    iconName: IconStaticName.CoffeeScript,
-    label: "CoffeeScript"
-  },
-  {
-    iconName: IconStaticName.React,
-    label: "React"
-  },
-  {
-    iconName: IconStaticName.Redux,
-    label: "Redux"
-  },
-  {
-    iconName: IconStaticName.CSSModules,
-    label: "CSS Modules"
-  },
-  {
-    iconName: IconStaticName.Webpack,
-    label: "Webpack"
-  },
-  {
-    iconName: IconStaticName.NodeJs,
-    label: "Node.js"
-  },
-  {
-    iconName: IconStaticName.Docpad,
-    label: "DocPad"
-  },
-  {
-    iconName: IconStaticName.JEST,
-    label: "JEST"
-  },
-  {
-    iconName: IconStaticName.AirBnb,
-    label: "Enzyme"
-  },
-  {
-    iconName: IconStaticName.Jira,
-    label: "JIRA"
-  },
-  {
-    iconName: IconStaticName.Stash,
-    label: "Stash"
-  },
-  {
-    iconName: IconStaticName.Bamboo,
-    label: "Bamboo"
-  }
-];
+import { experience } from "containers/experience/config";
 
 const companySAPProps: ICompanyProps = {
   date: "November 2015 to May 2017",
-  iconsWithLabels,
+  iconsWithLabels: experience.filter(({ iconName }) => {
+    return [
+      "html",
+      "css",
+      "javaScript",
+      "coffeeScript",
+      "react",
+      "redux",
+      "cssModules",
+      "webpack",
+      "nodeJs",
+      "docpad",
+      "jest",
+      "airbnb",
+      "jira",
+      "stash",
+      "bamboo"
+    ].includes(iconName);
+  }),
   name: "SAP",
   responsibilities: [
     <span key="Facilitated">
