@@ -15,9 +15,20 @@ import { bundlersCategory } from "containers/skills/categories/bundlersCategory"
 import { taskManagementCategory } from "containers/skills/categories/taskManagementCategory";
 import { designToolsCategory } from "containers/skills/categories/designToolsCategory";
 
-import { ISkillsItemProps } from "components/molecules/SkillsItem/@types/SkillsItem";
-import { IRenderColumnsArgs } from "containers/skills/@types/SkillsContainer";
+import {
+  ISkillsItemProps,
+  SkillsItemVariant
+} from "components/molecules/SkillsItem/@types/SkillsItem";
+import {
+  IRenderColumnsArgs,
+  ISkillsContainerProps,
+  SkillsContainerFormat
+} from "containers/skills/@types/SkillsContainer";
 import { Device } from "components/layout/Responsive/@types/Responsive";
+import {
+  SectionSize,
+  SectionVariant
+} from "components/molecules/Section/@types/Section";
 
 const items: ISkillsItemProps[] = [
   languagesCategory,
@@ -62,26 +73,61 @@ const SkillsColumns: React.FC<IRenderColumnsArgs> = ({
   </Responsive>
 );
 
-const SkillsContainer: React.FC = () => (
-  <Section id="skills" title="Skills">
-    <SkillsColumns columnCount="columns-5" devices={[Device.Tv]} />
+const SkillsContainer: React.FC<ISkillsContainerProps> = ({
+  format = SkillsContainerFormat.Web
+}) => (
+  <Section
+    id="skills"
+    title="Skills"
+    size={
+      format === SkillsContainerFormat.Web
+        ? SectionSize.Large
+        : SectionSize.Small
+    }
+    variant={
+      format === SkillsContainerFormat.Web
+        ? SectionVariant.Blue
+        : SectionVariant.Light
+    }
+  >
+    {format === SkillsContainerFormat.Web && (
+      <>
+        <SkillsColumns columnCount="columns-5" devices={[Device.Tv]} />
 
-    <SkillsColumns columnCount="columns-3" devices={[Device.Desktop]} />
+        <SkillsColumns columnCount="columns-3" devices={[Device.Desktop]} />
 
-    <SkillsColumns columnCount="columns-2" devices={[Device.Tablet]} />
+        <SkillsColumns columnCount="columns-2" devices={[Device.Tablet]} />
 
-    <Responsive devices={[Device.Mobile]}>
-      {items.map(({ iconsWithLabels, title }: ISkillsItemProps) => (
+        <Responsive devices={[Device.Mobile]}>
+          {items.map(({ iconsWithLabels, title }: ISkillsItemProps) => (
+            <LayoutContainer
+              key={title}
+              themeClasses={{
+                marginBottom: "mb-32"
+              }}
+            >
+              <SkillsItem iconsWithLabels={iconsWithLabels} title={title} />
+            </LayoutContainer>
+          ))}
+        </Responsive>
+      </>
+    )}
+
+    {format === SkillsContainerFormat.Pdf &&
+      items.map(({ iconsWithLabels, title }: ISkillsItemProps) => (
         <LayoutContainer
           key={title}
           themeClasses={{
-            marginBottom: "mb-32"
+            marginBottom: "mb-24"
           }}
         >
-          <SkillsItem iconsWithLabels={iconsWithLabels} title={title} />
+          <SkillsItem
+            iconsWithLabels={iconsWithLabels}
+            title={title}
+            variant={SkillsItemVariant.Limited}
+          />
         </LayoutContainer>
       ))}
-    </Responsive>
   </Section>
 );
 

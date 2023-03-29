@@ -9,6 +9,7 @@ const iconStaticDefaultThemeClasses: IIconStaticProps["themeClasses"] = {
 
 const iconStaticPictureDefaultThemeClasses: IThemeClasses = {
   ...iconStaticDefaultThemeClasses,
+  display: "inline-block",
   marginX: "mx-auto",
   marginY: "my-auto",
   position: "relative"

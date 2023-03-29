@@ -18,9 +18,7 @@ export interface IContentFrameProps {
     container?: Pick<IThemeClasses, "alignSelf" | "flex" | "order"> & {
       overflow?: TOverflow;
     };
-    title?: {
-      fontSize?: Extract<IThemeClasses["fontSize"], "text-16" | "text-28">;
-    };
+    title?: IThemeClasses;
   };
   title?: string;
 }

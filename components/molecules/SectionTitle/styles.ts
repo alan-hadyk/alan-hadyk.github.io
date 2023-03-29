@@ -1,10 +1,75 @@
+import {
+  SectionTitleSize,
+  SectionTitleVariant
+} from "components/molecules/SectionTitle/@types/SectionTitle";
 import { isIE11 } from "helpers/browser/isIE11";
 import { IThemeClasses } from "types/theme";
 
 export const sectionTitleTypographyDefaultThemeClasses: IThemeClasses = {
-  color: "text-blue100",
   fontFamily: isIE11() ? "font-anonymousPro" : "font-exan",
-  lineHeight: "leading-80",
   textAlign: "text-center",
   textTransform: isIE11() ? "uppercase" : "lowercase"
+};
+
+export const mapVariantToTypographyStyles: Record<
+  SectionTitleVariant,
+  IThemeClasses
+> = {
+  [SectionTitleVariant.Blue]: {
+    color: "text-blue100"
+  },
+  [SectionTitleVariant.Dark]: {
+    color: "text-blue600"
+  },
+  [SectionTitleVariant.Light]: {
+    color: "text-white"
+  }
+};
+
+export const mapSizeToTypographyStyles: Record<
+  SectionTitleSize,
+  Record<"mobile" | "tvDesktopAndTablet", IThemeClasses>
+> = {
+  [SectionTitleSize.Large]: {
+    mobile: {
+      fontSize: "text-48",
+      lineHeight: "leading-80"
+    },
+    tvDesktopAndTablet: {
+      fontSize: "text-72",
+      lineHeight: "leading-80"
+    }
+  },
+  [SectionTitleSize.Small]: {
+    mobile: {
+      fontSize: "text-28",
+      lineHeight: "leading-28"
+    },
+    tvDesktopAndTablet: {
+      fontSize: "text-28",
+      lineHeight: "leading-28"
+    }
+  }
+};
+
+export const mapSizeToWrapperStyles: Record<
+  SectionTitleSize,
+  Record<"mobile" | "tvDesktopAndTablet", IThemeClasses>
+> = {
+  [SectionTitleSize.Large]: {
+    mobile: {
+      marginBottom: "mb-48"
+    },
+    tvDesktopAndTablet: {
+      marginBottom: "mb-96"
+    }
+  },
+  [SectionTitleSize.Small]: {
+    mobile: {
+      marginBottom: "mb-20"
+    },
+    tvDesktopAndTablet: {
+      marginBottom: "mb-20"
+    }
+  }
 };

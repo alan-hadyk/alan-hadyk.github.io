@@ -1,12 +1,13 @@
 import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 import { ImageDynamic } from "components/atoms/ImageDynamic/ImageDynamic";
 import { Typography } from "components/atoms/Typography/Typography";
-import { IconsWithLabelsPosition } from "components/molecules/IconsWithLabels/@types/IconsWithLabels";
-import { IconsWithLabels } from "components/molecules/IconsWithLabels/IconsWithLabels";
 import {
   IconWithLabelSize,
   IconWithLabelVariant
 } from "components/molecules/IconWithLabel/@types/IconWithLabel";
+import { VerticalIconsWithLabels } from "components/molecules/VerticalIconsWithLabels/VerticalIconsWithLabels";
+import { SkillsContainerFormat } from "containers/skills/@types/SkillsContainer";
+import { SkillsContainer } from "containers/skills/SkillsContainer";
 
 const SidebarPdfContainer: React.FC = () => (
   <>
@@ -14,7 +15,8 @@ const SidebarPdfContainer: React.FC = () => (
       imageName="logo"
       themeClasses={{
         height: "h-auto",
-        marginBottom: "mb-4"
+        marginBottom: "mb-4",
+        maxWidth: "max-w-100%"
       }}
     />
 
@@ -22,13 +24,14 @@ const SidebarPdfContainer: React.FC = () => (
       themeClasses={{
         color: "text-white",
         fontSize: "text-12",
-        lineHeight: "leading-16"
+        lineHeight: "leading-16",
+        marginBottom: "mb-16"
       }}
     >
       Front-End Architect
     </Typography>
 
-    <IconsWithLabels
+    <VerticalIconsWithLabels
       iconsWithLabels={[
         {
           iconName: IconStaticName.Pin,
@@ -59,15 +62,17 @@ const SidebarPdfContainer: React.FC = () => (
           label: "LinkedIn"
         }
       ]}
-      position={IconsWithLabelsPosition.Vertical}
       size={IconWithLabelSize.Small}
       themeClasses={{
         wrapper: {
-          height: "h-auto"
+          height: "h-auto",
+          marginBottom: "mb-28"
         }
       }}
       variant={IconWithLabelVariant.White}
     />
+
+    <SkillsContainer format={SkillsContainerFormat.Pdf} />
   </>
 );
 

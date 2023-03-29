@@ -6,13 +6,13 @@ import {
 
 import { Link } from "components/molecules/Link/Link";
 import { IconWithLabelContent } from "components/molecules/IconWithLabelContent/IconWithLabelContent";
-import { IThemeClasses } from "types/theme";
 import { IIconWithLabelContentProps } from "components/molecules/IconWithLabelContent/@types/IconWithLabelContent";
 import {
   mapIconWithLabelSizeToIconWithLabelContentSize,
   mapIconWithLabelVariantToIconWithLabelContentVariant
 } from "components/molecules/IconWithLabel/config";
 import { mapSizeToIconHeight } from "components/molecules/IconWithLabelContent/styles";
+import { useIconWithLabelThemeClasses } from "components/molecules/IconWithLabel/hooks/useIconWithLabelThemeClasses";
 
 const IconWithLabel: React.FC<IIconWithLabelProps> = ({
   href,
@@ -23,17 +23,17 @@ const IconWithLabel: React.FC<IIconWithLabelProps> = ({
   themeClasses,
   variant = IconWithLabelVariant.Blue
 }) => {
+  const { iconWithLabelContentThemeClasses } = useIconWithLabelThemeClasses({
+    href,
+    themeClasses
+  });
+
   const iconWithLabelContentProps: IIconWithLabelContentProps = {
     iconName,
     isHoverable: !!href,
     label,
     size: mapIconWithLabelSizeToIconWithLabelContentSize[size],
-    themeClasses: {
-      label: {
-        groupHover: href ? "group-hover:text-white" : "",
-        ...themeClasses?.iconWithLabelContent?.label
-      } as Pick<IThemeClasses, "groupHover">
-    },
+    themeClasses: iconWithLabelContentThemeClasses,
     variant: mapIconWithLabelVariantToIconWithLabelContentVariant[variant]
   };
 

@@ -24,7 +24,12 @@ const IconWithLabelContent: React.FC<IIconWithLabelContentProps> = ({
   } = useIconWithLabelContentThemeClasses({ size, themeClasses, variant });
 
   return (
-    <LayoutContainer themeClasses={iconWithLabelContentDefaultThemeClasses}>
+    <LayoutContainer
+      themeClasses={{
+        ...iconWithLabelContentDefaultThemeClasses,
+        ...themeClasses?.wrapper
+      }}
+    >
       <LayoutContainer
         themeClasses={iconWithLabelContentIconWrapperThemeClasses}
       >

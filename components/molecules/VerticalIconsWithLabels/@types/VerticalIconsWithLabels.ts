@@ -13,6 +13,7 @@ export interface IVerticalIconsWithLabelsProps {
   size?: IconWithLabelSize;
   themeClasses?: {
     label?: Pick<IThemeClasses, "color">;
+    wrapper?: IThemeClasses;
   };
   variant?: IconWithLabelVariant;
 }

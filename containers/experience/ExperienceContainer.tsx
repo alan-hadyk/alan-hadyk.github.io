@@ -13,7 +13,10 @@ import {
   ExperienceContainerFormat,
   IExperienceContainerProps
 } from "containers/experience/@types/ExperienceContainer";
-import { SectionVariant } from "components/molecules/Section/@types/Section";
+import {
+  SectionSize,
+  SectionVariant
+} from "components/molecules/Section/@types/Section";
 
 const ExperienceContainer: React.FC<IExperienceContainerProps> = ({
   format = ExperienceContainerFormat.Web
@@ -21,10 +24,15 @@ const ExperienceContainer: React.FC<IExperienceContainerProps> = ({
   <Section
     id="experience"
     title="Experience"
+    size={
+      format === ExperienceContainerFormat.Web
+        ? SectionSize.Large
+        : SectionSize.Small
+    }
     variant={
       format === ExperienceContainerFormat.Web
-        ? SectionVariant.Dark
-        : SectionVariant.Light
+        ? SectionVariant.Blue
+        : SectionVariant.Dark
     }
   >
     <CompanySaaSForContentWriters />

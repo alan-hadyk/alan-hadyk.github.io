@@ -8,6 +8,7 @@ const useIconStaticThemeClasses = ({
     ...iconStaticDefaultThemeClasses,
     ...themeClasses
   };
+
   return { iconStaticThemeClasses };
 };
 

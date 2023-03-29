@@ -1,8 +1,9 @@
 import { ILinkProps } from "components/molecules/Link/@types/Link";
 import { IIconStaticProps } from "components/atoms/IconStatic/@types/IconStatic";
-import { IThemeClasses } from "types/theme";
+import { IIconWithLabelContentProps } from "components/molecules/IconWithLabelContent/@types/IconWithLabelContent";
 
 export enum IconWithLabelSize {
+  ExtraSmall,
   Large,
   Medium,
   Small
@@ -20,9 +21,7 @@ export interface IIconWithLabelProps {
   label: string;
   size?: IconWithLabelSize;
   themeClasses?: {
-    iconWithLabelContent?: {
-      label?: Pick<IThemeClasses, "groupHover" | "color">;
-    };
+    iconWithLabelContent?: IIconWithLabelContentProps["themeClasses"];
   };
   variant?: IconWithLabelVariant;
 }

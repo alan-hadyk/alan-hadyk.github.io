@@ -28,7 +28,12 @@ const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
   } = useVerticalIconsWithLabelsThemeClasses({ size, themeClasses, variant });
 
   return (
-    <LayoutContainer themeClasses={verticalIconsWithLabelsDefaultThemeClasses}>
+    <LayoutContainer
+      themeClasses={{
+        ...verticalIconsWithLabelsDefaultThemeClasses,
+        ...themeClasses?.wrapper
+      }}
+    >
       <LayoutContainer
         themeClasses={verticalIconsWithLabelsIconsWrapperThemeClasses}
       >

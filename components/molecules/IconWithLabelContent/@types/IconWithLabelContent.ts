@@ -7,6 +7,7 @@ export enum IconWithLabelContentVariant {
 }
 
 export enum IconWithLabelContentSize {
+  ExtraSmall,
   Large,
   Medium,
   Small
@@ -19,6 +20,7 @@ export interface IIconWithLabelContentProps {
   size?: IconWithLabelContentSize;
   themeClasses?: {
     label?: Pick<IThemeClasses, "groupHover" | "color">;
+    wrapper?: IThemeClasses;
   };
   variant?: IconWithLabelContentVariant;
 }

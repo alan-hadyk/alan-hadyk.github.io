@@ -1,59 +1,41 @@
 import React, { Fragment } from "react";
 
-import { Responsive } from "components/layout/Responsive/Responsive";
 import {
   ISectionProps,
+  SectionSize,
   SectionVariant
 } from "components/molecules/Section/@types/Section";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
-import { Device } from "components/layout/Responsive/@types/Responsive";
 import { SectionTitle } from "components/molecules/SectionTitle/SectionTitle";
-import { SectionTitleVariant } from "components/molecules/SectionTitle/@types/SectionTitle";
 import { useSectionThemeClasses } from "components/molecules/Section/hooks/useSectionThemeClasses";
+import {
+  mapSectionSizeToSectionTitleSize,
+  mapSectionVariantToSectionTitleVariant
+} from "components/molecules/Section/config";
 
 const Section: React.FC<ISectionProps> = ({
   children,
   id,
+  size = SectionSize.Large,
   themeClasses,
   title,
-  variant = SectionVariant.Dark
+  variant = SectionVariant.Blue
 }) => {
-  const {
-    sectionThemeClasses,
-    sectionTitleMobileThemeClasses,
-    sectionTitleTvDesktopTabletThemeClasses
-  } = useSectionThemeClasses({ themeClasses, title, variant });
+  const { sectionThemeClasses } = useSectionThemeClasses({
+    size,
+    themeClasses,
+    title
+  });
 
   return (
     <LayoutContainer id={id} themeClasses={sectionThemeClasses}>
       {title && (
-        <Fragment>
-          <Responsive devices={[Device.Tv, Device.Desktop, Device.Tablet]}>
-            <SectionTitle
-              themeClasses={sectionTitleTvDesktopTabletThemeClasses}
-              variant={
-                variant === SectionVariant.Dark
-                  ? SectionTitleVariant.Dark
-                  : SectionTitleVariant.Light
-              }
-            >
-              {title}
-            </SectionTitle>
-          </Responsive>
-
-          <Responsive devices={[Device.Mobile]}>
-            <SectionTitle
-              themeClasses={sectionTitleMobileThemeClasses}
-              variant={
-                variant === SectionVariant.Dark
-                  ? SectionTitleVariant.Dark
-                  : SectionTitleVariant.Light
-              }
-            >
-              {title}
-            </SectionTitle>
-          </Responsive>
-        </Fragment>
+        <SectionTitle
+          size={mapSectionSizeToSectionTitleSize[size]}
+          variant={mapSectionVariantToSectionTitleVariant[variant]}
+        >
+          {title}
+        </SectionTitle>
       )}
 
       <Fragment>{children}</Fragment>

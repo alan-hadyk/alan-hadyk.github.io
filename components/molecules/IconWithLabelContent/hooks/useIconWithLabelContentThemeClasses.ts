@@ -6,9 +6,10 @@ import {
 import {
   mapIconWithLabelContentVariantToLabelStyles,
   mapSizeToIconHeight,
+  mapSizeToIconStyles,
+  mapSizeToIconWrapperStyles,
   mapSizeToTextFontSize
 } from "components/molecules/IconWithLabelContent/styles";
-import { isIE11 } from "helpers/browser/isIE11";
 import { IThemeClasses } from "types/theme";
 
 const useIconWithLabelContentThemeClasses = ({
@@ -17,12 +18,12 @@ const useIconWithLabelContentThemeClasses = ({
   variant = IconWithLabelContentVariant.Blue
 }: Pick<IIconWithLabelContentProps, "size" | "themeClasses" | "variant">) => {
   const iconWithLabelContentIconWrapperThemeClasses: IThemeClasses = {
-    paddingRight: size === IconWithLabelContentSize.Small ? "pr-8" : "pr-12"
+    ...mapSizeToIconWrapperStyles[size]
   };
 
   const iconWithLabelContentIconThemeClasses: IThemeClasses = {
-    height: mapSizeToIconHeight[size],
-    width: isIE11() ? "w-32" : "w-auto"
+    ...mapSizeToIconStyles[size],
+    height: mapSizeToIconHeight[size]
   };
 
   const iconWithLabelContentLabelThemeClasses: IThemeClasses = {

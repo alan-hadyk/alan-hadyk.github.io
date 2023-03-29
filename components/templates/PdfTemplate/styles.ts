@@ -23,5 +23,5 @@ export const pdfTemplateSidebarDefaultThemeClasses: IThemeClasses = {
   flex: "flex-[0_0_35%]",
   flexFlow: "flex-col-nowrap",
   paddingX: "px-24",
-  paddingY: "py-40"
+  paddingY: "py-16"
 };

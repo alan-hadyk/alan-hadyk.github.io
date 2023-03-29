@@ -2,10 +2,7 @@
 
 const nextConfig = {
   compiler: {
-    reactRemoveProperties: true,
-    removeConsole: {
-      exclude: ["error"]
-    }
+    reactRemoveProperties: true
   },
   modularizeImports: {
     lodash: {

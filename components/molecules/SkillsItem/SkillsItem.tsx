@@ -1,29 +1,52 @@
 import { IconsWithLabels } from "components/molecules/IconsWithLabels/IconsWithLabels";
 import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
 
-import { ISkillsItemProps } from "components/molecules/SkillsItem/@types/SkillsItem";
+import {
+  ISkillsItemProps,
+  SkillsItemVariant
+} from "components/molecules/SkillsItem/@types/SkillsItem";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { IconWithLabelSize } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 import { IconsWithLabelsPosition } from "components/molecules/IconsWithLabels/@types/IconsWithLabels";
-import {
-  skillsItemDefaultThemeClasses,
-  skillsItemIconsWrapperDefaultThemeClasses
-} from "components/molecules/SkillsItem/styles";
+import { useSkillsItemThemeClasses } from "components/molecules/SkillsItem/hooks/useSkillsItemThemeClasses";
 
-const SkillsItem: React.FC<ISkillsItemProps> = ({ iconsWithLabels, title }) => (
-  <ContentFrame
-    shouldDisplayBorder
-    title={title}
-    themeClasses={skillsItemDefaultThemeClasses}
-  >
-    <LayoutContainer themeClasses={skillsItemIconsWrapperDefaultThemeClasses}>
-      <IconsWithLabels
-        iconsWithLabels={iconsWithLabels}
-        position={IconsWithLabelsPosition.Vertical}
-        size={IconWithLabelSize.Medium}
-      />
-    </LayoutContainer>
-  </ContentFrame>
-);
+const SkillsItem: React.FC<ISkillsItemProps> = ({
+  iconsWithLabels,
+  title,
+  variant = SkillsItemVariant.Full
+}) => {
+  const {
+    skillsItemIconsWithLabelsThemeClasses,
+    skillsItemIconsWrapperThemeClasses,
+    skillsItemThemeClasses
+  } = useSkillsItemThemeClasses({
+    variant
+  });
+
+  return (
+    <ContentFrame
+      shouldDisplayBorder={variant === SkillsItemVariant.Full}
+      title={title}
+      themeClasses={skillsItemThemeClasses}
+    >
+      <LayoutContainer themeClasses={skillsItemIconsWrapperThemeClasses}>
+        <IconsWithLabels
+          iconsWithLabels={iconsWithLabels}
+          position={
+            variant === SkillsItemVariant.Full
+              ? IconsWithLabelsPosition.Vertical
+              : IconsWithLabelsPosition.Horizontal
+          }
+          size={
+            variant === SkillsItemVariant.Full
+              ? IconWithLabelSize.Medium
+              : IconWithLabelSize.ExtraSmall
+          }
+          themeClasses={skillsItemIconsWithLabelsThemeClasses}
+        />
+      </LayoutContainer>
+    </ContentFrame>
+  );
+};
 
 export { SkillsItem };

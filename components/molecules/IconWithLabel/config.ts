@@ -19,6 +19,7 @@ export const mapIconWithLabelSizeToIconWithLabelContentSize: Record<
   IconWithLabelSize,
   IconWithLabelContentSize
 > = {
+  [IconWithLabelSize.ExtraSmall]: IconWithLabelContentSize.ExtraSmall,
   [IconWithLabelSize.Large]: IconWithLabelContentSize.Large,
   [IconWithLabelSize.Medium]: IconWithLabelContentSize.Medium,
   [IconWithLabelSize.Small]: IconWithLabelContentSize.Small

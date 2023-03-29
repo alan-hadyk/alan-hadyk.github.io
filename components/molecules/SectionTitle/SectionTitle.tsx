@@ -1,30 +1,47 @@
 import { Typography } from "components/atoms/Typography/Typography";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
+import { Device } from "components/layout/Responsive/@types/Responsive";
+import { Responsive } from "components/layout/Responsive/Responsive";
 import {
   ISectionTitleProps,
+  SectionTitleSize,
   SectionTitleVariant
 } from "components/molecules/SectionTitle/@types/SectionTitle";
-import { sectionTitleTypographyDefaultThemeClasses } from "components/molecules/SectionTitle/styles";
-import { IThemeClasses } from "types/theme";
+import { useSectionTitleThemeClasses } from "components/molecules/SectionTitle/hooks/useSectionTitleThemeClasses";
 
 const SectionTitle: React.FC<ISectionTitleProps> = ({
   children,
+  size = SectionTitleSize.Large,
   themeClasses,
-  variant = SectionTitleVariant.Dark
+  variant = SectionTitleVariant.Blue
 }) => {
-  const sectionTitleTypographyThemeClasses: IThemeClasses = {
-    ...sectionTitleTypographyDefaultThemeClasses,
-    color:
-      variant === SectionTitleVariant.Dark ? "text-blue100" : "text-blue600",
-    ...themeClasses.title
-  };
+  const {
+    sectionTitleMobileThemeClasses,
+    sectionTitleTvDesktopTabletThemeClasses
+  } = useSectionTitleThemeClasses({ size, themeClasses, variant });
 
   return (
-    <LayoutContainer themeClasses={themeClasses.wrapper}>
-      <Typography themeClasses={sectionTitleTypographyThemeClasses}>
-        {children}
-      </Typography>
-    </LayoutContainer>
+    <>
+      <Responsive devices={[Device.Tv, Device.Desktop, Device.Tablet]}>
+        <LayoutContainer
+          themeClasses={sectionTitleTvDesktopTabletThemeClasses.wrapper}
+        >
+          <Typography
+            themeClasses={sectionTitleTvDesktopTabletThemeClasses.title}
+          >
+            {children}
+          </Typography>
+        </LayoutContainer>
+      </Responsive>
+
+      <Responsive devices={[Device.Mobile]}>
+        <LayoutContainer themeClasses={sectionTitleMobileThemeClasses.wrapper}>
+          <Typography themeClasses={sectionTitleMobileThemeClasses.title}>
+            {children}
+          </Typography>
+        </LayoutContainer>
+      </Responsive>
+    </>
   );
 };
 
