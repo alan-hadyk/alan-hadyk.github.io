@@ -1,31 +1,32 @@
 import { Company } from "components/organisms/Company/Company";
 
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
-import { experience } from "containers/experience/config";
+import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
+import { iconsWithLabels } from "components/molecules/IconsWithLabels/config";
 
 const companyShijiProps: ICompanyProps = {
   date: "June 2017 to July 2018",
-  iconsWithLabels: experience.filter(({ iconName }) => {
-    return [
-      "html",
-      "css",
-      "javaScript",
-      "typeScript",
-      "react",
-      "redux",
-      "ember",
-      "sass",
-      "docker",
-      "qUnit",
-      "webpack",
-      "nodeJs",
-      "rest",
-      "zeplin",
-      "jira",
-      "jenkins",
-      "gitlab"
-    ].includes(iconName);
-  }),
+  iconsWithLabels: iconsWithLabels.filter(({ iconName }) =>
+    [
+      IconStaticName.HTML,
+      IconStaticName.CSS,
+      IconStaticName.JavaScript,
+      IconStaticName.TypeScript,
+      IconStaticName.React,
+      IconStaticName.Redux,
+      IconStaticName.Ember,
+      IconStaticName.Sass,
+      IconStaticName.Docker,
+      IconStaticName.QUnit,
+      IconStaticName.Webpack,
+      IconStaticName.NodeJs,
+      IconStaticName.REST,
+      IconStaticName.Zeplin,
+      IconStaticName.Jira,
+      IconStaticName.Jenkins,
+      IconStaticName.GitLab
+    ].includes(iconName)
+  ),
   name: "Shiji",
   responsibilities: [
     <span key="Contributed">

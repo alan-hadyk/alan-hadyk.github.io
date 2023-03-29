@@ -1,26 +1,14 @@
 import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
-import { IIconWithLabelProps } from "components/molecules/IconWithLabel/@types/IconWithLabel";
-
-const iconsWithLabels: IIconWithLabelProps[] = [
-  {
-    iconName: IconStaticName.Axios,
-    label: "Axios"
-  },
-  {
-    iconName: IconStaticName.GraphQL,
-    label: "GraphQL"
-  },
-  {
-    iconName: IconStaticName.REST,
-    label: "REST"
-  },
-  {
-    iconName: IconStaticName.Websocket,
-    label: "WebSockets"
-  }
-];
+import { iconsWithLabels } from "components/molecules/IconsWithLabels/config";
 
 export const webApisCategory = {
-  iconsWithLabels,
+  iconsWithLabels: iconsWithLabels.filter(({ iconName }) =>
+    [
+      IconStaticName.Axios,
+      IconStaticName.GraphQL,
+      IconStaticName.REST,
+      IconStaticName.Websocket
+    ].includes(iconName)
+  ),
   title: "Web APIs"
 };

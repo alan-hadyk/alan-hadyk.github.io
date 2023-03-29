@@ -1,32 +1,33 @@
 import { Company } from "components/organisms/Company/Company";
 
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
-import { experience } from "containers/experience/config";
+import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
+import { iconsWithLabels } from "components/molecules/IconsWithLabels/config";
 
 const companyTribeProps: ICompanyProps = {
   date: "April 2021 to October 2021",
-  iconsWithLabels: experience.filter(({ iconName }) => {
-    return [
-      "html",
-      "css",
-      "javaScript",
-      "typeScript",
-      "react",
-      "nextJs",
-      "tailwind",
-      "chakra",
-      "webpack",
-      "jest",
-      "reactTestingLibrary",
-      "cypress",
-      "nodeJs",
-      "nestJs",
-      "apollo",
-      "graphQL",
-      "docker",
-      "gitlab"
-    ].includes(iconName);
-  }),
+  iconsWithLabels: iconsWithLabels.filter(({ iconName }) =>
+    [
+      IconStaticName.HTML,
+      IconStaticName.CSS,
+      IconStaticName.JavaScript,
+      IconStaticName.TypeScript,
+      IconStaticName.React,
+      IconStaticName.NextJs,
+      IconStaticName.Tailwind,
+      IconStaticName.Chakra,
+      IconStaticName.Webpack,
+      IconStaticName.JEST,
+      IconStaticName.ReactTestingLibrary,
+      IconStaticName.Cypress,
+      IconStaticName.NodeJs,
+      IconStaticName.NestJs,
+      IconStaticName.Apollo,
+      IconStaticName.GraphQL,
+      IconStaticName.Docker,
+      IconStaticName.GitLab
+    ].includes(iconName)
+  ),
   name: "Tribe",
   responsibilities: [
     <span key="created-scalable">

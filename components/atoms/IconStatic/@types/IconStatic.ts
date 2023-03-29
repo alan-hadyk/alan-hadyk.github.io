@@ -47,6 +47,7 @@ export enum IconStaticName {
   Quire = "quire",
   REST = "rest",
   React = "react",
+  ReactNative = "react",
   ReactQuery = "reactQuery",
   ReactTestingLibrary = "reactTestingLibrary",
   Redmine = "redmine",

@@ -1,29 +1,30 @@
 import { Company } from "components/organisms/Company/Company";
 
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
-import { experience } from "containers/experience/config";
+import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
+import { iconsWithLabels } from "components/molecules/IconsWithLabels/config";
 
 const companySAPProps: ICompanyProps = {
   date: "November 2015 to May 2017",
-  iconsWithLabels: experience.filter(({ iconName }) => {
-    return [
-      "html",
-      "css",
-      "javaScript",
-      "coffeeScript",
-      "react",
-      "redux",
-      "cssModules",
-      "webpack",
-      "nodeJs",
-      "docpad",
-      "jest",
-      "airbnb",
-      "jira",
-      "stash",
-      "bamboo"
-    ].includes(iconName);
-  }),
+  iconsWithLabels: iconsWithLabels.filter(({ iconName }) =>
+    [
+      IconStaticName.HTML,
+      IconStaticName.CSS,
+      IconStaticName.JavaScript,
+      IconStaticName.CoffeeScript,
+      IconStaticName.React,
+      IconStaticName.Redux,
+      IconStaticName.CSSModules,
+      IconStaticName.Webpack,
+      IconStaticName.NodeJs,
+      IconStaticName.Docpad,
+      IconStaticName.JEST,
+      IconStaticName.AirBnb,
+      IconStaticName.Jira,
+      IconStaticName.Stash,
+      IconStaticName.Bamboo
+    ].includes(iconName)
+  ),
   name: "SAP",
   responsibilities: [
     <span key="Facilitated">

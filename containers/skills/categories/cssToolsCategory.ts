@@ -1,38 +1,17 @@
 import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
-import { IIconWithLabelProps } from "components/molecules/IconWithLabel/@types/IconWithLabel";
-
-const iconsWithLabels: IIconWithLabelProps[] = [
-  {
-    iconName: IconStaticName.WindiCSS,
-    label: "Windi CSS"
-  },
-  {
-    iconName: IconStaticName.StyledComponents,
-    label: "styled components"
-  },
-  {
-    iconName: IconStaticName.Tailwind,
-    label: "Tailwind"
-  },
-  {
-    iconName: IconStaticName.Chakra,
-    label: "Chakra"
-  },
-  {
-    iconName: IconStaticName.Sass,
-    label: "Sass"
-  },
-  {
-    iconName: IconStaticName.CSSModules,
-    label: "CSS Modules"
-  },
-  {
-    iconName: IconStaticName.LESS,
-    label: "LESS"
-  }
-];
+import { iconsWithLabels } from "components/molecules/IconsWithLabels/config";
 
 export const cssToolsCategory = {
-  iconsWithLabels,
+  iconsWithLabels: iconsWithLabels.filter(({ iconName }) =>
+    [
+      IconStaticName.WindiCSS,
+      IconStaticName.StyledComponents,
+      IconStaticName.Tailwind,
+      IconStaticName.Chakra,
+      IconStaticName.Sass,
+      IconStaticName.CSSModules,
+      IconStaticName.LESS
+    ].includes(iconName)
+  ),
   title: "CSS Tools"
 };

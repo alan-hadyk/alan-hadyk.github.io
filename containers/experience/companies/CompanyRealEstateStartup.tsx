@@ -1,6 +1,7 @@
+import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
+import { iconsWithLabels } from "components/molecules/IconsWithLabels/config";
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
 import { Company } from "components/organisms/Company/Company";
-import { experience } from "containers/experience/config";
 
 const responsibilities: ICompanyProps["responsibilities"] = [
   <span key="Developed">
@@ -26,26 +27,26 @@ const responsibilities: ICompanyProps["responsibilities"] = [
 
 const companyRealEstateStartupProps = {
   date: "December 2021 to March 2022",
-  iconsWithLabels: experience.filter(({ iconName }) => {
-    return [
-      "html",
-      "css",
-      "javaScript",
-      "typeScript",
-      "react",
-      "nextJs",
-      "tailwind",
-      "auth0",
-      "webpack",
-      "jest",
-      "reactTestingLibrary",
-      "cypress",
-      "nodeJs",
-      "apollo",
-      "graphQL",
-      "docker"
-    ].includes(iconName);
-  }),
+  iconsWithLabels: iconsWithLabels.filter(({ iconName }) =>
+    [
+      IconStaticName.HTML,
+      IconStaticName.CSS,
+      IconStaticName.JavaScript,
+      IconStaticName.TypeScript,
+      IconStaticName.React,
+      IconStaticName.NextJs,
+      IconStaticName.Tailwind,
+      IconStaticName.Auth0,
+      IconStaticName.Webpack,
+      IconStaticName.JEST,
+      IconStaticName.ReactTestingLibrary,
+      IconStaticName.Cypress,
+      IconStaticName.NodeJs,
+      IconStaticName.Apollo,
+      IconStaticName.GraphQL,
+      IconStaticName.Docker
+    ].includes(iconName)
+  ),
   name: "Real Estate Startup",
   responsibilities,
   title: "Front-End Architect"

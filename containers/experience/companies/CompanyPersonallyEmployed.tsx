@@ -1,13 +1,19 @@
 import { Company } from "components/organisms/Company/Company";
 
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
-import { experience } from "containers/experience/config";
+import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
+import { iconsWithLabels } from "components/molecules/IconsWithLabels/config";
 
 const companyPersonallyEmployedProps: ICompanyProps = {
   date: "May 2008 to September 2010",
-  iconsWithLabels: experience.filter(({ iconName }) => {
-    return ["html", "css", "javaScript", "jQuery"].includes(iconName);
-  }),
+  iconsWithLabels: iconsWithLabels.filter(({ iconName }) =>
+    [
+      IconStaticName.HTML,
+      IconStaticName.CSS,
+      IconStaticName.JavaScript,
+      IconStaticName.JQuery
+    ].includes(iconName)
+  ),
   name: "Alan Hadyk",
   responsibilities: [
     <span key="Leveraged">

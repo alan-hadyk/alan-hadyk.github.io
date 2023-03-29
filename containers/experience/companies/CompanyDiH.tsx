@@ -1,22 +1,23 @@
 import { Company } from "components/organisms/Company/Company";
 
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
-import { experience } from "containers/experience/config";
+import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
+import { iconsWithLabels } from "components/molecules/IconsWithLabels/config";
 
 const companyDiHProps: ICompanyProps = {
   date: "October 2010 to October 2015",
-  iconsWithLabels: experience.filter(({ iconName }) => {
-    return [
-      "html",
-      "css",
-      "javaScript",
-      "sass",
-      "less",
-      "jQuery",
-      "prestashop",
-      "redmine"
-    ].includes(iconName);
-  }),
+  iconsWithLabels: iconsWithLabels.filter(({ iconName }) =>
+    [
+      IconStaticName.HTML,
+      IconStaticName.CSS,
+      IconStaticName.JavaScript,
+      IconStaticName.Sass,
+      IconStaticName.LESS,
+      IconStaticName.JQuery,
+      IconStaticName.Prestashop,
+      IconStaticName.Redmine
+    ].includes(iconName)
+  ),
   name: "DiH",
   responsibilities: [
     <span key="Optimized">

@@ -1,38 +1,17 @@
 import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
-import { IIconWithLabelProps } from "components/molecules/IconWithLabel/@types/IconWithLabel";
-
-const iconsWithLabels: IIconWithLabelProps[] = [
-  {
-    iconName: IconStaticName.Jira,
-    label: "JIRA"
-  },
-  {
-    iconName: IconStaticName.Phabricator,
-    label: "Phabricator"
-  },
-  {
-    iconName: IconStaticName.Redmine,
-    label: "Redmine"
-  },
-  {
-    iconName: IconStaticName.Quire,
-    label: "Quire"
-  },
-  {
-    iconName: IconStaticName.Trello,
-    label: "Trello"
-  },
-  {
-    iconName: IconStaticName.Taskade,
-    label: "Taskade"
-  },
-  {
-    iconName: IconStaticName.Basecamp,
-    label: "Basecamp"
-  }
-];
+import { iconsWithLabels } from "components/molecules/IconsWithLabels/config";
 
 export const taskManagementCategory = {
-  iconsWithLabels,
+  iconsWithLabels: iconsWithLabels.filter(({ iconName }) =>
+    [
+      IconStaticName.Jira,
+      IconStaticName.Phabricator,
+      IconStaticName.Redmine,
+      IconStaticName.Quire,
+      IconStaticName.Trello,
+      IconStaticName.Taskade,
+      IconStaticName.Basecamp
+    ].includes(iconName)
+  ),
   title: "Task Management"
 };

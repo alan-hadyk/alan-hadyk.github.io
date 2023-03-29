@@ -1,36 +1,37 @@
 import { Company } from "components/organisms/Company/Company";
 
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
-import { experience } from "containers/experience/config";
+import { iconsWithLabels } from "components/molecules/IconsWithLabels/config";
+import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 
 const companyOmiseProps: ICompanyProps = {
   date: "August 2018 to March 2021",
-  iconsWithLabels: experience.filter(({ iconName }) => {
-    return [
-      "html",
-      "css",
-      "javaScript",
-      "ruby",
-      "react",
-      "rubyOnRails",
-      "sinatra",
-      "styledComponents",
-      "webpack",
-      "jest",
-      "airbnb",
-      "reactTestingLibrary",
-      "cypress",
-      "nodeJs",
-      "express",
-      "apollo",
-      "graphQL",
-      "docker",
-      "jenkins",
-      "buildkite",
-      "basecamp",
-      "gallery"
-    ].includes(iconName);
-  }),
+  iconsWithLabels: iconsWithLabels.filter(({ iconName }) =>
+    [
+      IconStaticName.HTML,
+      IconStaticName.CSS,
+      IconStaticName.JavaScript,
+      IconStaticName.Ruby,
+      IconStaticName.React,
+      IconStaticName.RubyOnRails,
+      IconStaticName.Sinatra,
+      IconStaticName.StyledComponents,
+      IconStaticName.Webpack,
+      IconStaticName.JEST,
+      IconStaticName.AirBnb,
+      IconStaticName.ReactTestingLibrary,
+      IconStaticName.Cypress,
+      IconStaticName.NodeJs,
+      IconStaticName.Express,
+      IconStaticName.Apollo,
+      IconStaticName.GraphQL,
+      IconStaticName.Docker,
+      IconStaticName.Jenkins,
+      IconStaticName.Buildkite,
+      IconStaticName.Basecamp,
+      IconStaticName.Gallery
+    ].includes(iconName)
+  ),
   name: "Omise",
   responsibilities: [
     <span key="Crafted">

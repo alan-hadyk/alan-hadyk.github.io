@@ -31,10 +31,6 @@ export const iconsWithLabels: IIconsWithLabelsProps["iconsWithLabels"] = [
     label: "Windi CSS"
   },
   {
-    iconName: IconStaticName.JavaScript,
-    label: "Javascript"
-  },
-  {
     iconName: IconStaticName.CoffeeScript,
     label: "CoffeeScript"
   },
@@ -193,5 +189,33 @@ export const iconsWithLabels: IIconsWithLabelsProps["iconsWithLabels"] = [
   {
     iconName: IconStaticName.Zeplin,
     label: "Zeplin"
+  },
+  {
+    iconName: IconStaticName.GitHubActions,
+    label: "GitHub Actions"
+  },
+  {
+    iconName: IconStaticName.GitHubEnterprise,
+    label: "GitHub Enterprise"
+  },
+  {
+    iconName: IconStaticName.Sinatra,
+    label: "Sinatra"
+  },
+  {
+    iconName: IconStaticName.RubyOnRails,
+    label: "Ruby on Rails"
+  },
+  {
+    iconName: IconStaticName.StyledComponents,
+    label: "styled components"
+  },
+  {
+    iconName: IconStaticName.Photoshop,
+    label: "Photoshop"
+  },
+  {
+    iconName: IconStaticName.Sketch,
+    label: "Sketch"
   }
 ];
