@@ -217,5 +217,21 @@ export const iconsWithLabels: IIconsWithLabelsProps["iconsWithLabels"] = [
   {
     iconName: IconStaticName.Sketch,
     label: "Sketch"
+  },
+  {
+    iconName: IconStaticName.Figma,
+    label: "Figma"
+  },
+  {
+    iconName: IconStaticName.CorelDraw,
+    label: "CorelDRAW"
+  },
+  {
+    iconName: IconStaticName.AfterEffects,
+    label: "After Effects"
+  },
+  {
+    iconName: IconStaticName.NextJs,
+    label: "Next.js"
   }
 ];
