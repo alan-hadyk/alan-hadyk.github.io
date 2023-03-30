@@ -68,4 +68,4 @@ const CompanyShiji: React.FC = () => (
   <Company link="https://shijigroup.com/" {...companyShijiProps} />
 );
 
-export { CompanyShiji, companyShijiProps };
+export { CompanyShiji };

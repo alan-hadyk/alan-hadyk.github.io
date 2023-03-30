@@ -52,4 +52,4 @@ const CompanyDiH: React.FC = () => (
   <Company link="https://dih.pl/" {...companyDiHProps} />
 );
 
-export { CompanyDiH, companyDiHProps };
+export { CompanyDiH };

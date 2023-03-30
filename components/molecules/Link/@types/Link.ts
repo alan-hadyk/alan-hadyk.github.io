@@ -11,10 +11,3 @@ export interface ILinkProps {
     "alignItems" | "display" | "height" | "justifyContent" | "width"
   >;
 }
-
-export type LinkContainerProps = Partial<ILinkProps>;
-
-export interface RenderChildrenArgs {
-  children: ILinkProps["children"];
-  isHoverable?: ILinkProps["isHoverable"];
-}

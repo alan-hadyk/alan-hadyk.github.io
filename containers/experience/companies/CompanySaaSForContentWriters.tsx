@@ -45,4 +45,4 @@ const CompanySaaSForContentWriters: React.FC = () => (
   <Company {...companySaaSForContentWritersProps} />
 );
 
-export { CompanySaaSForContentWriters, companySaaSForContentWritersProps };
+export { CompanySaaSForContentWriters };

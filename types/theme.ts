@@ -1,50 +1,28 @@
+/* eslint-disable import/exports-last */
 import tailwindConfig from "tailwind.config";
 
 const theme = tailwindConfig.theme;
 
-export type TAnimationNameValues = keyof typeof theme.animation;
-export type TBorderRadiusValues = keyof typeof theme.borderRadius;
-export type TBorderWidthValues = keyof typeof theme.borderWidth;
-export type TBoxShadowValues = keyof typeof theme.boxShadow;
-export type TColorValues = keyof typeof theme.colors;
-export type TDropShadowValues = keyof typeof theme.dropShadow;
-export type TFontFamilyValues = keyof typeof theme.fontFamily;
-export type TFontSizeValues = keyof typeof theme.fontSize;
-export type TFontWeightValues = keyof typeof theme.fontWeight;
-export type TKeyframesValues = keyof typeof theme.keyframes;
-export type TLineHeightValues = keyof typeof theme.lineHeight;
-export type TScreensValues = keyof typeof theme.screens;
-export type TSpacingValues = keyof typeof theme.spacing;
-export type TTransitionDurationValues = keyof typeof theme.transitionDuration;
-export type TTransitionTimingValues =
-  keyof typeof theme.transitionTimingFunction;
-export type TZIndexValues = keyof typeof theme.zIndex;
+type TBorderWidthValues = keyof typeof theme.borderWidth;
+type TBoxShadowValues = keyof typeof theme.boxShadow;
+type TColorValues = keyof typeof theme.colors;
+type TDropShadowValues = keyof typeof theme.dropShadow;
+type TFontFamilyValues = keyof typeof theme.fontFamily;
+type TFontSizeValues = keyof typeof theme.fontSize;
+type TFontWeightValues = keyof typeof theme.fontWeight;
+type TLineHeightValues = keyof typeof theme.lineHeight;
+type TScreensValues = keyof typeof theme.screens;
+type TSpacingValues = keyof typeof theme.spacing;
+type TTransitionDurationValues = keyof typeof theme.transitionDuration;
+type TZIndexValues = keyof typeof theme.zIndex;
 
-export type TThemeValue =
-  | TAnimationNameValues
-  | TBorderRadiusValues
-  | TBorderWidthValues
-  | TBoxShadowValues
-  | TColorValues
-  | TDropShadowValues
-  | TFontFamilyValues
-  | TFontSizeValues
-  | TFontWeightValues
-  | TKeyframesValues
-  | TLineHeightValues
-  | TScreensValues
-  | TSpacingValues
-  | TTransitionDurationValues
-  | TTransitionTimingValues
-  | TZIndexValues;
-
-export type TUtility<
+type TUtility<
   TPrefix extends string,
   TSuffix,
   TSign extends string = "-"
 > = `${TPrefix}${TSign}${TSuffix extends string | number ? TSuffix : never}`;
 
-export type TUtilityWithArbitraryValues<
+type TUtilityWithArbitraryValues<
   TPrefix extends string,
   TSuffix,
   TSign extends string = "-"
@@ -52,7 +30,7 @@ export type TUtilityWithArbitraryValues<
   | TUtility<TPrefix, TSuffix, TSign>
   | `${TPrefix}${TSign}[${string | number}]`;
 
-export type TUtilityWithTransparency<TPrefix extends string, TSuffix> =
+type TUtilityWithTransparency<TPrefix extends string, TSuffix> =
   | TUtility<TPrefix, TSuffix>
   | TUtility<
       TPrefix,
@@ -61,9 +39,7 @@ export type TUtilityWithTransparency<TPrefix extends string, TSuffix> =
         : string
     >;
 
-export type TAnimate = TUtility<"animate", TAnimationNameValues>;
-
-export type TBgColor = TUtilityWithArbitraryValues<
+type TBgColor = TUtilityWithArbitraryValues<
   "bg",
   | TColorValues
   | `${TColorValues}/${number}`
@@ -72,7 +48,7 @@ export type TBgColor = TUtilityWithArbitraryValues<
   | `gradient-to-${string}`
 >;
 
-export type TBg = TUtilityWithArbitraryValues<
+type TBg = TUtilityWithArbitraryValues<
   "bg",
   | `[url(${string})]`
   | "bottom"
@@ -88,15 +64,12 @@ export type TBg = TUtilityWithArbitraryValues<
   | `[length:${string}]`
 >;
 
-export type TFill = TUtility<"fill", TColorValues>;
+type TFill = TUtility<"fill", TColorValues>;
 
-export type TTextColor = TUtility<"text", TColorValues>;
-export type TTextFontSize = TUtilityWithArbitraryValues<
-  "text",
-  TFontSizeValues
->;
-export type TTextFontFamily = TUtility<"font", TFontFamilyValues>;
-export type TTextFontWeight = TUtility<"font", TFontWeightValues>;
+type TTextColor = TUtility<"text", TColorValues>;
+type TTextFontSize = TUtilityWithArbitraryValues<"text", TFontSizeValues>;
+type TTextFontFamily = TUtility<"font", TFontFamilyValues>;
+type TTextFontWeight = TUtility<"font", TFontWeightValues>;
 export type TTextAlign =
   | "text-left"
   | "text-center"
@@ -104,87 +77,74 @@ export type TTextAlign =
   | "text-justify"
   | "text-start"
   | "text-end";
-export type TTextTransform =
-  | "uppercase"
-  | "lowercase"
-  | "capitalize"
-  | "normal-case";
-export type TTextOverflow = TUtility<"text", "ellipsis" | "clip">;
+type TTextTransform = "uppercase" | "lowercase" | "capitalize" | "normal-case";
+type TTextOverflow = TUtility<"text", "ellipsis" | "clip">;
 
-export type TWhitespace = TUtility<
+type TWhitespace = TUtility<
   "whitespace",
   "normal" | "nowrap" | "pre" | "pre-line" | "pre-wrap"
 >;
 
-export type TLeading = TUtilityWithArbitraryValues<
-  "leading",
-  TLineHeightValues
->;
-export type TTracking = TUtilityWithArbitraryValues<"tracking", TSpacingValues>;
+type TLeading = TUtilityWithArbitraryValues<"leading", TLineHeightValues>;
 
-export type TMarginBottom = TUtilityWithArbitraryValues<"mb", TSpacingValues>;
-export type TMarginLeft = TUtilityWithArbitraryValues<"ml", TSpacingValues>;
-export type TMarginRight = TUtilityWithArbitraryValues<"mr", TSpacingValues>;
-export type TMarginTop = TUtilityWithArbitraryValues<"mt", TSpacingValues>;
-export type TMarginX = TUtilityWithArbitraryValues<"mx", TSpacingValues>;
-export type TMarginY = TUtilityWithArbitraryValues<"my", TSpacingValues>;
+type TMarginBottom = TUtilityWithArbitraryValues<"mb", TSpacingValues>;
+type TMarginLeft = TUtilityWithArbitraryValues<"ml", TSpacingValues>;
+type TMarginRight = TUtilityWithArbitraryValues<"mr", TSpacingValues>;
+type TMarginTop = TUtilityWithArbitraryValues<"mt", TSpacingValues>;
+type TMarginX = TUtilityWithArbitraryValues<"mx", TSpacingValues>;
+type TMarginY = TUtilityWithArbitraryValues<"my", TSpacingValues>;
 
-export type TPaddingBottom = TUtilityWithArbitraryValues<"pb", TSpacingValues>;
-export type TPaddingLeft = TUtilityWithArbitraryValues<"pl", TSpacingValues>;
-export type TPaddingRight = TUtilityWithArbitraryValues<"pr", TSpacingValues>;
-export type TPaddingTop = TUtilityWithArbitraryValues<"pt", TSpacingValues>;
-export type TPaddingX = TUtilityWithArbitraryValues<"px", TSpacingValues>;
-export type TPaddingY = TUtilityWithArbitraryValues<"py", TSpacingValues>;
+type TPaddingBottom = TUtilityWithArbitraryValues<"pb", TSpacingValues>;
+type TPaddingLeft = TUtilityWithArbitraryValues<"pl", TSpacingValues>;
+type TPaddingRight = TUtilityWithArbitraryValues<"pr", TSpacingValues>;
+type TPaddingTop = TUtilityWithArbitraryValues<"pt", TSpacingValues>;
+type TPaddingX = TUtilityWithArbitraryValues<"px", TSpacingValues>;
+type TPaddingY = TUtilityWithArbitraryValues<"py", TSpacingValues>;
 
-export type TPadding = TUtilityWithArbitraryValues<"p", TSpacingValues>;
+type TPadding = TUtilityWithArbitraryValues<"p", TSpacingValues>;
 
-export type TBottom = TUtilityWithArbitraryValues<"bottom", TSpacingValues>;
-export type TLeft = TUtilityWithArbitraryValues<"left", TSpacingValues>;
-export type TRight = TUtilityWithArbitraryValues<"right", TSpacingValues>;
-export type TTop = TUtilityWithArbitraryValues<"top", TSpacingValues>;
+type TBottom = TUtilityWithArbitraryValues<"bottom", TSpacingValues>;
+type TLeft = TUtilityWithArbitraryValues<"left", TSpacingValues>;
+type TRight = TUtilityWithArbitraryValues<"right", TSpacingValues>;
+type TTop = TUtilityWithArbitraryValues<"top", TSpacingValues>;
 
-export type THeight = TUtilityWithArbitraryValues<"h", TSpacingValues>;
-export type TMinHeight = TUtilityWithArbitraryValues<"min-h", TSpacingValues>;
-export type TMaxHeight = TUtilityWithArbitraryValues<"max-h", TSpacingValues>;
-export type TWidth = TUtilityWithArbitraryValues<"w", TSpacingValues>;
-export type TMinWidth = TUtilityWithArbitraryValues<"min-w", TSpacingValues>;
-export type TMaxWidth = TUtilityWithArbitraryValues<"max-w", TSpacingValues>;
+type THeight = TUtilityWithArbitraryValues<"h", TSpacingValues>;
+type TMinHeight = TUtilityWithArbitraryValues<"min-h", TSpacingValues>;
+type TMaxHeight = TUtilityWithArbitraryValues<"max-h", TSpacingValues>;
+type TWidth = TUtilityWithArbitraryValues<"w", TSpacingValues>;
+type TMaxWidth = TUtilityWithArbitraryValues<"max-w", TSpacingValues>;
 
-export type TBoxShadow = TUtility<"shadow", TBoxShadowValues>;
-export type TDropShadow = TUtility<"drop-shadow", TDropShadowValues>;
+type TBoxShadow = TUtility<"shadow", TBoxShadowValues>;
+type TDropShadow = TUtility<"drop-shadow", TDropShadowValues>;
 
-export type TBorderWidth = TUtilityWithArbitraryValues<
+type TBorderWidth = TUtilityWithArbitraryValues<
   "border" | "border-l" | "border-r" | "border-t" | "border-b",
   TBorderWidthValues
 >;
-export type TBorderColor =
+type TBorderColor =
   | TUtilityWithArbitraryValues<"border", TColorValues>
   | TUtilityWithTransparency<"border", TColorValues>;
-export type TBorderLeftColor =
+type TBorderLeftColor =
   | TUtilityWithArbitraryValues<"border-l", TColorValues>
   | TUtilityWithTransparency<"border-l", TColorValues>;
-export type TBorderRightColor =
+type TBorderRightColor =
   | TUtilityWithArbitraryValues<"border-r", TColorValues>
   | TUtilityWithTransparency<"border-r", TColorValues>;
-export type TBorderBottomColor =
+type TBorderBottomColor =
   | TUtilityWithArbitraryValues<"border-b", TColorValues>
   | TUtilityWithTransparency<"border-b", TColorValues>;
-export type TBorderTopColor =
+type TBorderTopColor =
   | TUtilityWithArbitraryValues<"border-t", TColorValues>
   | TUtilityWithTransparency<"border-t", TColorValues>;
-export type TBorderRadius = TUtilityWithArbitraryValues<
-  "rounded",
-  TSpacingValues
->;
 
-export type TBorderStyle = TUtility<
+type TBorderStyle = TUtility<
   "border",
   "solid" | "dashed" | "dotted" | "double" | "none"
 >;
 
-export type TZIndex = TUtilityWithArbitraryValues<"z", TZIndexValues>;
+type TZIndex = TUtilityWithArbitraryValues<"z", TZIndexValues>;
 
-export type TDisplay =
+type TDisplay =
   | "block"
   | "inline-block"
   | "inline"
@@ -207,58 +167,37 @@ export type TDisplay =
   | "list-item"
   | "hidden";
 
-export type TFlex =
+type TFlex =
   | `flex-[${number}_${number}_${number}%]`
   | `flex-[${number}_${number}_${number}rem]`
   | `flex-[${number}_${number}_${number}px]`
   | `flex-[${number}_${number}_${string}]`;
 
-export type TFlexGrow = TUtility<"flex", "grow" | "grow-0">;
-
-export type TFlexFlow =
-  | "flex-row flex-wrap"
-  | "flex-row-reverse flex-wrap"
-  | "flex-col flex-wrap"
-  | "flex-col-reverse flex-wrap"
-  | "flex-row flex-wrap-reverse"
-  | "flex-row-reverse flex-wrap-reverse"
-  | "flex-col flex-wrap-reverse"
-  | "flex-col-reverse flex-wrap-reverse"
-  | "flex-row flex-nowrap"
-  | "flex-row-reverse flex-nowrap"
-  | "flex-col flex-nowrap"
-  | "flex-col-reverse flex-nowrap";
-
-export type TAlignItems = TUtility<
+type TAlignItems = TUtility<
   "items",
   "start" | "end" | "center" | "stretch" | "baseline"
 >;
 
-export type TAlignSelf = TUtility<
+type TAlignSelf = TUtility<
   "self",
   "auto" | "start" | "end" | "center" | "stretch"
 >;
 
-export type TJustifyContent = TUtility<
+type TJustifyContent = TUtility<
   "justify",
   "start" | "end" | "center" | "between" | "around" | "evenly"
 >;
 
-export type TJustifyItems = TUtility<
-  "justify-items",
-  "auto" | "start" | "end" | "center" | "stretch"
->;
-
-export type TOrder =
+type TOrder =
   | `-order-${number}`
   | `order-${number}`
   | "order-first"
   | "order-last"
   | "order-none";
 
-export type TGap = TUtilityWithArbitraryValues<"gap", TSpacingValues>;
+type TGap = TUtilityWithArbitraryValues<"gap", TSpacingValues>;
 
-export type TOverflow = TUtility<
+type TOverflow = TUtility<
   "overflow",
   | "auto"
   | "hidden"
@@ -274,9 +213,9 @@ export type TOverflow = TUtility<
   | "y-scroll"
 >;
 
-export type TPosition = "static" | "relative" | "absolute" | "fixed" | "sticky";
+type TPosition = "static" | "relative" | "absolute" | "fixed" | "sticky";
 
-export type TTransition =
+type TTransition =
   | "default"
   | "transition-all"
   | "transition-colors"
@@ -285,16 +224,10 @@ export type TTransition =
   | "transition-shadow"
   | "transition-transform"
   | "transition-none";
-export type TTransitionDuration = TUtility<
-  "duration",
-  TTransitionDurationValues
->;
-export type TTransitionTiming = TUtility<
-  "ease",
-  "linear" | "in" | "out" | "in-out"
->;
+type TTransitionDuration = TUtility<"duration", TTransitionDurationValues>;
+type TTransitionTiming = TUtility<"ease", "linear" | "in" | "out" | "in-out">;
 
-export type TColorProperties =
+type TColorProperties =
   | TBgColor
   | TBorderBottomColor
   | TBorderColor
@@ -304,39 +237,39 @@ export type TColorProperties =
   | TTextColor
   | TFill;
 
-export type TGroupHover = TUtility<"group-hover", TColorProperties, ":">;
+type TGroupHover = TUtility<"group-hover", TColorProperties, ":">;
 
-export type THover = TUtility<
+type THover = TUtility<
   "hover",
   TColorProperties | TBoxShadow | TDropShadow,
   ":"
 >;
 
-export type TActive = TUtility<
+type TActive = TUtility<
   "active",
   TColorProperties | TBoxShadow | TDropShadow,
   ":"
 >;
 
-export type TFocus = TUtility<
+type TFocus = TUtility<
   "focus",
   TColorProperties | TBoxShadow | TDropShadow,
   ":"
 >;
 
-export type TTransform = "transform" | "transform-gpu" | "transform-none";
+type TTransform = "transform" | "transform-gpu" | "transform-none";
 
-export type TTranslate = TUtilityWithArbitraryValues<
+type TTranslate = TUtilityWithArbitraryValues<
   `translate-${"x" | "y" | "z"}`,
   TSpacingValues
 >;
 
-export type TRotate =
+type TRotate =
   | `rotate-${number}`
   | `-rotate-${number}`
   | `rotate-[${number}deg]`;
 
-export type TCursor = TUtility<
+type TCursor = TUtility<
   "cursor",
   | "auto"
   | "default"
@@ -348,11 +281,11 @@ export type TCursor = TUtility<
   | "not-allowed"
 >;
 
-export type TListStyleType = TUtility<"list", "none" | "disc" | "decimal">;
+type TListStyleType = TUtility<"list", "none" | "disc" | "decimal">;
 
-export type TUserSelect = TUtility<"select", "none" | "text" | "all" | "auto">;
+type TUserSelect = TUtility<"select", "none" | "text" | "all" | "auto">;
 
-export type TFlexFlowValues =
+type TFlexFlowValues =
   | "flex-row-wrap"
   | "flex-row-reverse-wrap"
   | "flex-col-wrap"
@@ -366,38 +299,33 @@ export type TFlexFlowValues =
   | "flex-col-nowrap"
   | "flex-col-reverse-nowrap";
 
+type TAfter = TUtilityWithArbitraryValues<"after", string, ":">;
+
+type TOpacity = `opacity-${number}`;
+
+type TColumns = `columns-${number}`;
+
+type TOutline = `outline-${number}`;
+
 export type TMediaQuery = TUtilityWithArbitraryValues<
   TScreensValues,
   string,
   ":"
 >;
 
-export type TAfter = TUtilityWithArbitraryValues<"after", string, ":">;
 export type TPseudoClasses = `${string}:${string}`[];
-
-export type TContent = `content-[${string}]`;
-
-export type TOpacity = `opacity-${number}`;
-
-export type TColumns = `columns-${number}`;
-
-export type TOutline = `outline-${number}`;
 
 export type TClassStyleUtility = `${string}-${string}` | string;
 
-export interface IThemeClasses {
+export interface IThemeClasses extends Record<string, unknown> {
   active?: TActive | TActive[];
   after?: TAfter | TAfter[];
   alignItems?: TAlignItems;
   alignSelf?: TAlignSelf;
-  animate?: TAnimate;
   background?: TBg | TBg[];
   backgroundColor?: TBgColor;
   borderBottomColor?: TBorderBottomColor;
   borderColor?: TBorderColor;
-  borderLeftColor?: TBorderLeftColor;
-  borderRadius?: TBorderRadius;
-  borderRightColor?: TBorderRightColor;
   borderStyle?: TBorderStyle;
   borderTopColor?: TBorderTopColor;
   borderWidth?: TBorderWidth | TBorderWidth[];
@@ -408,10 +336,8 @@ export interface IThemeClasses {
   cursor?: TCursor;
   display?: TDisplay;
   dropShadow?: TDropShadow;
-  fill?: TFill;
   flex?: TFlex;
   flexFlow?: TFlexFlowValues;
-  flexGrow?: TFlexGrow;
   focus?: TFocus | TFocus[];
   fontFamily?: TTextFontFamily;
   fontSize?: TTextFontSize;
@@ -422,9 +348,7 @@ export interface IThemeClasses {
   height?: THeight;
   hover?: THover | THover[];
   justifyContent?: TJustifyContent;
-  justifyItems?: TJustifyItems;
   left?: TLeft;
-  letterSpacing?: TTracking;
   lineHeight?: TLeading;
   listStyleType?: TListStyleType;
   marginBottom?: TMarginBottom;
@@ -437,7 +361,6 @@ export interface IThemeClasses {
   maxWidth?: TMaxWidth;
   mediaQuery?: TMediaQuery | TMediaQuery[];
   minHeight?: TMinHeight;
-  minWidth?: TMinWidth;
   opacity?: TOpacity;
   order?: TOrder;
   outline?: TOutline;

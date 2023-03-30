@@ -66,4 +66,4 @@ const CompanyTribe: React.FC = () => (
   <Company link="https://tribe.so/" {...companyTribeProps} />
 );
 
-export { CompanyTribe, companyTribeProps };
+export { CompanyTribe };

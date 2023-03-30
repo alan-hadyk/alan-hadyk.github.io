@@ -3,26 +3,18 @@ import { useEffect } from "react";
 const useLoader = () => {
   useEffect(() => {
     if (typeof window === undefined) return;
+    const hideLoader = () => {
+      const loader = document.querySelector(".loader") as HTMLElement | null;
+      if (!loader) return;
 
-    let timeout: number | undefined;
+      loader.style.opacity = "0";
+      setTimeout(() => loader.remove(), 300);
+    };
 
-    const initialTimeout = window.setTimeout(() => {
-      const loader: HTMLElement | null = document.querySelector(".loader");
-
-      if (loader) {
-        loader.style.opacity = "0";
-
-        timeout = window.setTimeout(() => {
-          loader?.parentNode?.removeChild(loader);
-        }, 300);
-      }
-    }, 600);
+    const initialTimeout = window.setTimeout(hideLoader, 600);
 
     return () => {
-      if (typeof window !== undefined) {
-        window.clearTimeout(timeout);
-        window.clearTimeout(initialTimeout);
-      }
+      window.clearTimeout(initialTimeout);
     };
   }, []);
 };

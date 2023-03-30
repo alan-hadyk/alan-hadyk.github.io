@@ -1,9 +1,12 @@
-import { ILayoutContainerProps } from "components/layout/LayoutContainer/@types/LayoutContainer";
+import {
+  ILayoutContainerProps,
+  TLayoutContainerElementType
+} from "components/layout/LayoutContainer/@types/LayoutContainer";
 import { useLayoutContainerThemeClasses } from "components/layout/LayoutContainer/hooks/useLayoutContainerThemeClasses";
 import { forwardRef, LegacyRef } from "react";
 
 const _LayoutContainer: React.ForwardRefRenderFunction<
-  HTMLDivElement | HTMLElement,
+  TLayoutContainerElementType,
   ILayoutContainerProps
 > = (
   { as = "div", children, id, onClick, onFocus, style, tabIndex, themeClasses },
@@ -32,7 +35,7 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
 };
 
 const LayoutContainer = forwardRef<
-  HTMLDivElement | HTMLElement,
+  TLayoutContainerElementType,
   ILayoutContainerProps
 >(_LayoutContainer);
 
