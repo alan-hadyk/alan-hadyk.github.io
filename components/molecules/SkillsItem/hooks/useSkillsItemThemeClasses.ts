@@ -24,9 +24,7 @@ const useSkillsItemThemeClasses = ({
         iconWithLabelContent: {
           wrapper: {
             ...(variant === SkillsItemVariant.Limited && {
-              flex: "flex-[0_0_50%]",
-              marginBottom: "mb-8",
-              paddingRight: "pr-8"
+              flex: "flex-[0_0_calc(50%-0.8rem)]"
             })
           }
         }

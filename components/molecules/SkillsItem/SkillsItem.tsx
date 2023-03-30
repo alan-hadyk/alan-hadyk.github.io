@@ -6,9 +6,11 @@ import {
   SkillsItemVariant
 } from "components/molecules/SkillsItem/@types/SkillsItem";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
-import { IconWithLabelSize } from "components/molecules/IconWithLabel/@types/IconWithLabel";
-import { IconsWithLabelsPosition } from "components/molecules/IconsWithLabels/@types/IconsWithLabels";
 import { useSkillsItemThemeClasses } from "components/molecules/SkillsItem/hooks/useSkillsItemThemeClasses";
+import {
+  mapSkillsItemVariantToContentFrameProps,
+  mapSkillsItemVariantToIconsWithLabelsProps
+} from "components/molecules/SkillsItem/config";
 
 const SkillsItem: React.FC<ISkillsItemProps> = ({
   iconsWithLabels,
@@ -25,24 +27,15 @@ const SkillsItem: React.FC<ISkillsItemProps> = ({
 
   return (
     <ContentFrame
-      shouldDisplayBorder={variant === SkillsItemVariant.Full}
       title={title}
       themeClasses={skillsItemThemeClasses}
+      {...mapSkillsItemVariantToContentFrameProps[variant]}
     >
       <LayoutContainer themeClasses={skillsItemIconsWrapperThemeClasses}>
         <IconsWithLabels
           iconsWithLabels={iconsWithLabels}
-          position={
-            variant === SkillsItemVariant.Full
-              ? IconsWithLabelsPosition.Vertical
-              : IconsWithLabelsPosition.Horizontal
-          }
-          size={
-            variant === SkillsItemVariant.Full
-              ? IconWithLabelSize.Medium
-              : IconWithLabelSize.ExtraSmall
-          }
           themeClasses={skillsItemIconsWithLabelsThemeClasses}
+          {...mapSkillsItemVariantToIconsWithLabelsProps[variant]}
         />
       </LayoutContainer>
     </ContentFrame>

@@ -6,11 +6,22 @@ type TOverflow = Extract<
   "overflow-visible" | "overflow-hidden"
 >;
 
+export enum ContentFrameVariant {
+  Border,
+  Corners,
+  CornersWithBorder,
+  Empty
+}
+
+export enum ContentFrameTitleVariant {
+  Small,
+  Medium,
+  Large
+}
+
 export interface IContentFrameProps {
   children: TChildren;
   description?: string;
-  shouldDisplayBorder?: boolean;
-  shouldDisplayCorners?: boolean;
   themeClasses?: {
     children?: {
       overflow?: TOverflow;
@@ -21,4 +32,6 @@ export interface IContentFrameProps {
     title?: IThemeClasses;
   };
   title?: string;
+  titleVariant?: ContentFrameTitleVariant;
+  variant?: ContentFrameVariant;
 }

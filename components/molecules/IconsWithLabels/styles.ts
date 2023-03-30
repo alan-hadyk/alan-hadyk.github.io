@@ -7,26 +7,16 @@ import { IThemeClasses } from "types/theme";
 
 export const mapSizeToFlexContainerGap: TMapSizeToFlexContainerGap = {
   [IconsWithLabelsPosition.Horizontal]: {
-    [IconWithLabelSize.Large]: ["directChildren:mr-28", "directChildren:mb-28"],
-    [IconWithLabelSize.Medium]: [
-      "directChildren:mr-12",
-      "directChildren:mb-12"
-    ],
-    [IconWithLabelSize.Small]: ["directChildren:mr-16", "directChildren:mb-16"]
+    [IconWithLabelSize.ExtraSmall]: "gap-8",
+    [IconWithLabelSize.Large]: "gap-28",
+    [IconWithLabelSize.Medium]: "gap-12",
+    [IconWithLabelSize.Small]: "gap-16"
   },
   [IconsWithLabelsPosition.Vertical]: {
-    [IconWithLabelSize.Large]: [
-      "directChildren:mt-28",
-      "firstdirectChild:mt-28"
-    ],
-    [IconWithLabelSize.Medium]: [
-      "directChildren:mt-12",
-      "firstdirectChild:mt-12"
-    ],
-    [IconWithLabelSize.Small]: [
-      "directChildren:mt-16",
-      "firstdirectChild:mt-16"
-    ]
+    [IconWithLabelSize.ExtraSmall]: "gap-0",
+    [IconWithLabelSize.Large]: "gap-0",
+    [IconWithLabelSize.Medium]: "gap-0",
+    [IconWithLabelSize.Small]: "gap-0"
   }
 };
 

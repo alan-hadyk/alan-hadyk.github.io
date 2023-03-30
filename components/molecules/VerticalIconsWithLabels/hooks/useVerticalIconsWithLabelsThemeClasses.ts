@@ -9,12 +9,13 @@ import {
 } from "components/molecules/IconWithLabelContent/styles";
 import { IVerticalIconsWithLabelsProps } from "components/molecules/VerticalIconsWithLabels/@types/VerticalIconsWithLabels";
 import {
-  mapSizeToContainerStyles,
+  mapSizeToWrapperStyles,
   mapSizeToIconStyles,
   mapSizeToIconsWrapperStyles,
   mapSizeToLabelStyles,
   mapSizeToLabelsWrapperStyles,
-  verticalIconsWithLabelsIconsWrapperDefaultThemeClasses
+  verticalIconsWithLabelsIconsWrapperDefaultThemeClasses,
+  verticalIconsWithLabelsLabelsWrapperDefaultThemeClasses
 } from "components/molecules/VerticalIconsWithLabels/styles";
 import { IThemeClasses } from "types/theme";
 
@@ -29,12 +30,12 @@ export const useVerticalIconsWithLabelsThemeClasses = ({
   // Icons wrapper
   const verticalIconsWithLabelsIconsWrapperThemeClasses: IThemeClasses = {
     ...verticalIconsWithLabelsIconsWrapperDefaultThemeClasses,
+    ...mapSizeToWrapperStyles[size],
     ...mapSizeToIconsWrapperStyles[size]
   };
 
   // Icon container
   const verticalIconsWithLabelsIconContainerThemeClasses: IThemeClasses = {
-    ...mapSizeToContainerStyles[size],
     height: mapSizeToIconHeight[size]
   };
 
@@ -45,12 +46,14 @@ export const useVerticalIconsWithLabelsThemeClasses = ({
   };
 
   // Labels wrapper
-  const verticalIconsWithLabelsLabelsWrapperThemeClasses: IThemeClasses =
-    mapSizeToLabelsWrapperStyles[size];
+  const verticalIconsWithLabelsLabelsWrapperThemeClasses: IThemeClasses = {
+    ...verticalIconsWithLabelsLabelsWrapperDefaultThemeClasses,
+    ...mapSizeToLabelsWrapperStyles[size],
+    ...mapSizeToWrapperStyles[size]
+  };
 
   // Label container
   const verticalIconsWithLabelsLabelContainerThemeClasses: IThemeClasses = {
-    ...mapSizeToContainerStyles[size],
     height: mapSizeToIconHeight[size]
   };
 

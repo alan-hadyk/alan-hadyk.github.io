@@ -1,3 +1,4 @@
+import { ContentFrameVariant } from "components/molecules/ContentFrame/@types/ContentFrame";
 import { ContentFrame } from "components/molecules/ContentFrame/ContentFrame";
 import { ListOfCommits } from "components/molecules/ListOfCommits/ListOfCommits";
 import { CommitsState } from "hooks/@types/useCommits";
@@ -9,7 +10,6 @@ const DashboardContainerCommits: React.FC = () => {
 
   return (
     <ContentFrame
-      shouldDisplayCorners={commitsState === CommitsState.Error}
       title="Commits"
       themeClasses={{
         container: {
@@ -17,6 +17,11 @@ const DashboardContainerCommits: React.FC = () => {
           overflow: "overflow-hidden"
         }
       }}
+      variant={
+        commitsState === CommitsState.Error
+          ? ContentFrameVariant.Corners
+          : ContentFrameVariant.Empty
+      }
     >
       <ListOfCommits commitsList={commitsList} commitsState={commitsState} />
     </ContentFrame>

@@ -3,7 +3,7 @@ import {
   IconWithLabelVariant,
   IIconWithLabelProps
 } from "components/molecules/IconWithLabel/@types/IconWithLabel";
-import { IThemeClasses, TPseudoClasses } from "types/theme";
+import { IThemeClasses } from "types/theme";
 
 export enum IconsWithLabelsPosition {
   Horizontal,
@@ -26,5 +26,5 @@ export interface IIconsWithLabelsProps {
 
 export type TMapSizeToFlexContainerGap = Record<
   IconsWithLabelsPosition,
-  Record<IconWithLabelSize, TPseudoClasses>
+  Record<IconWithLabelSize, IThemeClasses["gap"]>
 >;

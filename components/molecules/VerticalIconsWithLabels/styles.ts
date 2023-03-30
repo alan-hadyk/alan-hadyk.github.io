@@ -1,6 +1,11 @@
 import { IconWithLabelSize } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 import { IThemeClasses } from "types/theme";
 
+const verticalIconsWithLabelsWrapperDefaultThemeClasses: IThemeClasses = {
+  display: "flex",
+  flexFlow: "flex-col-nowrap"
+};
+
 export const verticalIconsWithLabelsDefaultThemeClasses: IThemeClasses = {
   alignItems: "items-center",
   display: "flex",
@@ -12,31 +17,39 @@ export const verticalIconsWithLabelsDefaultThemeClasses: IThemeClasses = {
 
 export const verticalIconsWithLabelsIconsWrapperDefaultThemeClasses: IThemeClasses =
   {
-    alignItems: "items-center",
-    display: "flex",
-    flex: "flex-[0_0_9.2rem]",
-    flexFlow: "flex-col-nowrap"
+    ...verticalIconsWithLabelsWrapperDefaultThemeClasses,
+    alignItems: "items-center"
   };
 
-export const mapSizeToContainerStyles: Record<
-  IconWithLabelSize,
-  IThemeClasses
-> = {
-  [IconWithLabelSize.Large]: {
-    marginBottom: "mb-12"
-  },
-  [IconWithLabelSize.Medium]: {
-    marginBottom: "mb-12"
-  },
-  [IconWithLabelSize.Small]: {
-    marginBottom: "mb-0"
-  }
-};
+export const verticalIconsWithLabelsLabelsWrapperDefaultThemeClasses: IThemeClasses =
+  {
+    ...verticalIconsWithLabelsWrapperDefaultThemeClasses,
+    alignItems: "items-start"
+  };
+
+export const mapSizeToWrapperStyles: Record<IconWithLabelSize, IThemeClasses> =
+  {
+    [IconWithLabelSize.ExtraSmall]: {
+      gap: "gap-0"
+    },
+    [IconWithLabelSize.Large]: {
+      gap: "gap-12"
+    },
+    [IconWithLabelSize.Medium]: {
+      gap: "gap-12"
+    },
+    [IconWithLabelSize.Small]: {
+      gap: "gap-0"
+    }
+  };
 
 export const mapSizeToIconsWrapperStyles: Record<
   IconWithLabelSize,
   IThemeClasses
 > = {
+  [IconWithLabelSize.ExtraSmall]: {
+    flex: "flex-[0_0_2.4rem]"
+  },
   [IconWithLabelSize.Large]: {
     flex: "flex-[0_0_9.2rem]"
   },
@@ -50,6 +63,7 @@ export const mapSizeToIconsWrapperStyles: Record<
 };
 
 export const mapSizeToIconStyles: Record<IconWithLabelSize, IThemeClasses> = {
+  [IconWithLabelSize.ExtraSmall]: {},
   [IconWithLabelSize.Large]: {},
   [IconWithLabelSize.Medium]: {},
   [IconWithLabelSize.Small]: {
@@ -61,6 +75,9 @@ export const mapSizeToLabelsWrapperStyles: Record<
   IconWithLabelSize,
   IThemeClasses
 > = {
+  [IconWithLabelSize.ExtraSmall]: {
+    flex: "flex-[1_0_auto]"
+  },
   [IconWithLabelSize.Large]: {
     flex: "flex-[0_0_75%]"
   },
@@ -73,6 +90,9 @@ export const mapSizeToLabelsWrapperStyles: Record<
 };
 
 export const mapSizeToLabelStyles: Record<IconWithLabelSize, IThemeClasses> = {
+  [IconWithLabelSize.ExtraSmall]: {
+    lineHeight: "leading-24"
+  },
   [IconWithLabelSize.Large]: {
     lineHeight: "leading-40"
   },

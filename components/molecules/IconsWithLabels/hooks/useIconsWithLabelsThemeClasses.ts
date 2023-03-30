@@ -20,6 +20,7 @@ const useIconsWithLabelsThemeClasses = ({
       position === IconsWithLabelsPosition.Horizontal
         ? "flex-row-wrap"
         : "flex-row-nowrap",
+    gap: mapSizeToFlexContainerGap[position][size],
     justifyContent:
       position === IconsWithLabelsPosition.Horizontal
         ? "justify-start"
@@ -28,7 +29,6 @@ const useIconsWithLabelsThemeClasses = ({
       position === IconsWithLabelsPosition.Horizontal
         ? "max-w-unset"
         : "max-w-100%",
-    pseudoClasses: mapSizeToFlexContainerGap[position][size],
     ...themeClasses?.wrapper
   };
 

@@ -3,7 +3,11 @@ import React from "react";
 import { Typography } from "components/atoms/Typography/Typography";
 import { Corners } from "components/molecules/Corners/Corners";
 
-import { IContentFrameProps } from "components/molecules/ContentFrame/@types/ContentFrame";
+import {
+  ContentFrameTitleVariant,
+  ContentFrameVariant,
+  IContentFrameProps
+} from "components/molecules/ContentFrame/@types/ContentFrame";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import {
   contentFrameChildrenCornersContainerDefaultThemeClasses,
@@ -16,10 +20,10 @@ import { useContentFrameThemeClasses } from "components/molecules/ContentFrame/h
 const ContentFrame: React.FC<IContentFrameProps> = ({
   children,
   description,
-  shouldDisplayBorder = false,
-  shouldDisplayCorners = false,
   themeClasses,
-  title
+  title,
+  titleVariant = ContentFrameTitleVariant.Small,
+  variant = ContentFrameVariant.Empty
 }) => {
   const {
     contentFrameChildrenOuterContainerThemeClasses,
@@ -28,10 +32,14 @@ const ContentFrame: React.FC<IContentFrameProps> = ({
     contentFrameTitleThemeClasses
   } = useContentFrameThemeClasses({
     description,
-    shouldDisplayBorder,
-    shouldDisplayCorners,
-    themeClasses
+    themeClasses,
+    titleVariant,
+    variant
   });
+
+  const shouldDisplayCorners =
+    variant === ContentFrameVariant.Corners ||
+    variant === ContentFrameVariant.CornersWithBorder;
 
   return (
     <LayoutContainer themeClasses={contentFrameThemeClasses}>
