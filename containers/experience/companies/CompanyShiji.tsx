@@ -114,8 +114,14 @@ const companyShijiProps: ICompanyProps = {
   title: "Senior Front-End Developer"
 };
 
-const CompanyShiji: React.FC = () => (
-  <Company link="https://shijigroup.com/" {...companyShijiProps} />
+const CompanyShiji: React.FC<Pick<ICompanyProps, "variant">> = ({
+  variant
+}) => (
+  <Company
+    link="https://shijigroup.com/"
+    {...companyShijiProps}
+    variant={variant}
+  />
 );
 
 export { CompanyShiji };

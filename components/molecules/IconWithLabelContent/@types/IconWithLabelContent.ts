@@ -3,6 +3,7 @@ import { IThemeClasses } from "types/theme";
 
 export enum IconWithLabelContentVariant {
   Blue,
+  Dark,
   White
 }
 

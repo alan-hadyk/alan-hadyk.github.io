@@ -1,14 +1,22 @@
 import { Typography } from "components/atoms/Typography/Typography";
-import { ICompanyDescriptionTitleProps } from "components/molecules/CompanyDescriptionTitle/@types/CompanyDescriptionTitle";
-import { companyDescriptionTitleDefaultThemeClasses } from "components/molecules/CompanyDescriptionTitle/styles";
+import {
+  CompanyDescriptionTitleVariant,
+  ICompanyDescriptionTitleProps
+} from "components/molecules/CompanyDescriptionTitle/@types/CompanyDescriptionTitle";
+import {
+  companyDescriptionTitleDefaultThemeClasses,
+  mapCompanyDescriptionTitleVariantToStyles
+} from "components/molecules/CompanyDescriptionTitle/styles";
 
 const CompanyDescriptionTitle: React.FC<ICompanyDescriptionTitleProps> = ({
   children,
-  themeClasses
+  themeClasses,
+  variant = CompanyDescriptionTitleVariant.Light
 }) => (
   <Typography
     themeClasses={{
       ...companyDescriptionTitleDefaultThemeClasses,
+      ...mapCompanyDescriptionTitleVariantToStyles[variant],
       ...themeClasses
     }}
   >

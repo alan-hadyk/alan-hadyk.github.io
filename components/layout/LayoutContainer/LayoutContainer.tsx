@@ -27,7 +27,7 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
       onFocus={onFocus}
       style={style}
       tabIndex={tabIndex}
-      ref={ref as LegacyRef<HTMLDivElement>}
+      ref={ref as LegacyRef<never>}
     >
       {children}
     </HTMLTag>

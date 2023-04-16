@@ -101,8 +101,8 @@ const companySAPProps: ICompanyProps = {
   title: "Front-End Developer"
 };
 
-const CompanySAP: React.FC = () => (
-  <Company link="https://www.sap.com/" {...companySAPProps} />
+const CompanySAP: React.FC<Pick<ICompanyProps, "variant">> = ({ variant }) => (
+  <Company link="https://www.sap.com/" {...companySAPProps} variant={variant} />
 );
 
 export { CompanySAP };

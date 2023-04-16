@@ -1,4 +1,7 @@
-import { ICompanyProps } from "components/organisms/Company/@types/Company";
+import {
+  CompanyVariant,
+  ICompanyProps
+} from "components/organisms/Company/@types/Company";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { CompanyTvDesktopAndTablet } from "components/organisms/Company/screens/CompanyTvDesktopAndTablet";
 import { CompanyMobile } from "components/organisms/Company/screens/CompanyMobile";
@@ -10,7 +13,8 @@ const Company: React.FC<ICompanyProps> = ({
   name,
   responsibilities,
   themeClasses,
-  title
+  title,
+  variant = CompanyVariant.Blue
 }) => (
   <LayoutContainer>
     <LayoutContainer themeClasses={{ position: "relative", width: "w-100%" }}>
@@ -25,6 +29,7 @@ const Company: React.FC<ICompanyProps> = ({
             responsibilities={responsibilities}
             themeClasses={themeClasses}
             title={title}
+            variant={variant}
           />
         )
       )}

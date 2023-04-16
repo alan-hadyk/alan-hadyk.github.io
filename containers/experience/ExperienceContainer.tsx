@@ -17,6 +17,7 @@ import {
   SectionSize,
   SectionVariant
 } from "components/molecules/Section/@types/Section";
+import { mapExperienceContainerFormatToCompanyVariant } from "containers/experience/config";
 
 const ExperienceContainer: React.FC<IExperienceContainerProps> = ({
   format = ExperienceContainerFormat.Web
@@ -35,15 +36,33 @@ const ExperienceContainer: React.FC<IExperienceContainerProps> = ({
         : SectionVariant.Dark
     }
   >
-    <CompanySaaSForContentWriters />
-    <CompanyHealthcareSaas />
-    <CompanyRealEstateStartup />
-    <CompanyTribe />
-    <CompanyOmise />
-    <CompanyShiji />
-    <CompanySAP />
-    <CompanyDiH />
-    <CompanyPersonallyEmployed />
+    <CompanySaaSForContentWriters
+      variant={mapExperienceContainerFormatToCompanyVariant[format]}
+    />
+    <CompanyHealthcareSaas
+      variant={mapExperienceContainerFormatToCompanyVariant[format]}
+    />
+    <CompanyRealEstateStartup
+      variant={mapExperienceContainerFormatToCompanyVariant[format]}
+    />
+    <CompanyTribe
+      variant={mapExperienceContainerFormatToCompanyVariant[format]}
+    />
+    <CompanyOmise
+      variant={mapExperienceContainerFormatToCompanyVariant[format]}
+    />
+    <CompanyShiji
+      variant={mapExperienceContainerFormatToCompanyVariant[format]}
+    />
+    <CompanySAP
+      variant={mapExperienceContainerFormatToCompanyVariant[format]}
+    />
+    <CompanyDiH
+      variant={mapExperienceContainerFormatToCompanyVariant[format]}
+    />
+    <CompanyPersonallyEmployed
+      variant={mapExperienceContainerFormatToCompanyVariant[format]}
+    />
   </Section>
 );
 

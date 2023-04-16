@@ -3,6 +3,11 @@ import { IIconWithLabelProps } from "components/molecules/IconWithLabel/@types/I
 import { IUnorderedListProps } from "components/molecules/UnorderedList/@types/UnorderedList";
 import { ICompanyDescriptionProps } from "components/organisms/CompanyDescription/@types/CompanyDescription";
 
+export enum CompanyVariant {
+  Blue,
+  Dark
+}
+
 export interface ICompanyProps {
   date: string;
   iconsWithLabels: Pick<IIconWithLabelProps, "iconName" | "label">[];
@@ -14,4 +19,5 @@ export interface ICompanyProps {
     timeline?: ICompanyTimelineProps["themeClasses"];
   };
   title: string;
+  variant?: CompanyVariant;
 }

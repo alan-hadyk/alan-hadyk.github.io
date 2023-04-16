@@ -48,7 +48,9 @@ const companyPersonallyEmployedProps: ICompanyProps = {
   title: "Freelancer"
 };
 
-const CompanyPersonallyEmployed: React.FC = () => (
+const CompanyPersonallyEmployed: React.FC<Pick<ICompanyProps, "variant">> = ({
+  variant
+}) => (
   <Company
     themeClasses={{
       companyDescription: {
@@ -61,6 +63,7 @@ const CompanyPersonallyEmployed: React.FC = () => (
       }
     }}
     {...companyPersonallyEmployedProps}
+    variant={variant}
   />
 );
 

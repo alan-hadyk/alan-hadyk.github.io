@@ -1,6 +1,6 @@
 import { IThemeClasses } from "types/theme";
 
-export const companyDescriptionResponsibilitiesDefaultThemeClasses: IThemeClasses =
+export const companyDescriptionResponsibilitiesTitleDefaultThemeClasses: IThemeClasses =
   {
     color: "text-blue100",
     fontFamily: "font-anonymousPro",

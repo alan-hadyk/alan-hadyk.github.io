@@ -73,8 +73,10 @@ const companySaaSForContentWritersProps: ICompanyProps = {
   title: "Front-End Architect"
 };
 
-const CompanySaaSForContentWriters: React.FC = () => (
-  <Company {...companySaaSForContentWritersProps} />
+const CompanySaaSForContentWriters: React.FC<
+  Pick<ICompanyProps, "variant">
+> = ({ variant }) => (
+  <Company {...companySaaSForContentWritersProps} variant={variant} />
 );
 
 export { CompanySaaSForContentWriters };

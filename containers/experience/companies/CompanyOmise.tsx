@@ -133,8 +133,14 @@ const companyOmiseProps: ICompanyProps = {
   title: "Senior Full-Stack Developer"
 };
 
-const CompanyOmise: React.FC = () => (
-  <Company link="https://www.omise.co/" {...companyOmiseProps} />
+const CompanyOmise: React.FC<Pick<ICompanyProps, "variant">> = ({
+  variant
+}) => (
+  <Company
+    link="https://www.omise.co/"
+    {...companyOmiseProps}
+    variant={variant}
+  />
 );
 
 export { CompanyOmise };

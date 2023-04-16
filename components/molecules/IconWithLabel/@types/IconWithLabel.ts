@@ -11,6 +11,7 @@ export enum IconWithLabelSize {
 
 export enum IconWithLabelVariant {
   Blue,
+  Dark,
   White
 }
 

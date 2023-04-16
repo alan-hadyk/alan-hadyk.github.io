@@ -3,7 +3,13 @@ export enum CompanyNameDevices {
   TvDesktopAndTablet
 }
 
+export enum CompanyNameVariant {
+  Dark,
+  Light
+}
+
 export interface ICompanyNameProps {
   children: string;
   devices: CompanyNameDevices;
+  variant?: CompanyNameVariant;
 }

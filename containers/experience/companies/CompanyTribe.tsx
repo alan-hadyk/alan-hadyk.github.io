@@ -115,8 +115,10 @@ const companyTribeProps: ICompanyProps = {
   title: "Senior Full-Stack Developer"
 };
 
-const CompanyTribe: React.FC = () => (
-  <Company link="https://tribe.so/" {...companyTribeProps} />
+const CompanyTribe: React.FC<Pick<ICompanyProps, "variant">> = ({
+  variant
+}) => (
+  <Company link="https://tribe.so/" {...companyTribeProps} variant={variant} />
 );
 
 export { CompanyTribe };

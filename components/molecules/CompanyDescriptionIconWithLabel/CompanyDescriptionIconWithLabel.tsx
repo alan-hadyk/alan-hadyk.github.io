@@ -1,11 +1,20 @@
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
-import { ICompanyDescriptionIconWithLabelProps } from "components/molecules/CompanyDescriptionIconWithLabel/@types/CompanyDescriptionIconWithLabel";
+import {
+  CompanyDescriptionIconWithLabelVariant,
+  ICompanyDescriptionIconWithLabelProps
+} from "components/molecules/CompanyDescriptionIconWithLabel/@types/CompanyDescriptionIconWithLabel";
 import { IconWithLabelSize } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 import { IconWithLabel } from "components/molecules/IconWithLabel/IconWithLabel";
 
 const CompanyDescriptionIconWithLabel: React.FC<
   ICompanyDescriptionIconWithLabelProps
-> = ({ href, iconName, label, themeClasses }) => (
+> = ({
+  href,
+  iconName,
+  label,
+  themeClasses,
+  variant = CompanyDescriptionIconWithLabelVariant.Blue
+}) => (
   <LayoutContainer themeClasses={themeClasses}>
     <IconWithLabel
       href={href}
@@ -16,7 +25,10 @@ const CompanyDescriptionIconWithLabel: React.FC<
       themeClasses={{
         iconWithLabelContent: {
           label: {
-            color: "text-blue300"
+            color:
+              variant === CompanyDescriptionIconWithLabelVariant.Blue
+                ? "text-blue300"
+                : "text-blue600"
           }
         }
       }}

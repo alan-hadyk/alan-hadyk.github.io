@@ -1,6 +1,9 @@
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { TechStack } from "components/molecules/TechStack/TechStack";
-import { ICompanyDescriptionProps } from "components/organisms/CompanyDescription/@types/CompanyDescription";
+import {
+  CompanyDescriptionVariant,
+  ICompanyDescriptionProps
+} from "components/organisms/CompanyDescription/@types/CompanyDescription";
 import {
   companyDescriptionContainerDefaultThemeClasses,
   companyDescriptionIconsWithLabelsContainerDefaultThemeClasses
@@ -9,6 +12,12 @@ import { CompanyDescriptionTitle } from "components/molecules/CompanyDescription
 import { CompanyDescriptionResponsibilities } from "components/molecules/CompanyDescriptionResponsibilities/CompanyDescriptionResponsibilities";
 import { CompanyDescriptionIconWithLabel } from "components/molecules/CompanyDescriptionIconWithLabel/CompanyDescriptionIconWithLabel";
 import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
+import {
+  mapCompanyDescriptionVariantToCompanyDescriptionIconWithLabelVariant,
+  mapCompanyDescriptionVariantToCompanyDescriptionResponsibilitiesVariant,
+  mapCompanyDescriptionVariantToCompanyDescriptionTitleVariant,
+  mapCompanyDescriptionVariantToTechStackVariant
+} from "components/organisms/CompanyDescription/config";
 
 const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
   date,
@@ -16,12 +25,18 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
   link,
   responsibilities,
   themeClasses,
-  title
+  title,
+  variant = CompanyDescriptionVariant.Blue
 }) => (
   <LayoutContainer
     themeClasses={companyDescriptionContainerDefaultThemeClasses}
   >
-    <CompanyDescriptionTitle themeClasses={themeClasses?.title}>
+    <CompanyDescriptionTitle
+      themeClasses={themeClasses?.title}
+      variant={
+        mapCompanyDescriptionVariantToCompanyDescriptionTitleVariant[variant]
+      }
+    >
       {title}
     </CompanyDescriptionTitle>
 
@@ -33,6 +48,11 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
       <CompanyDescriptionIconWithLabel
         iconName={IconStaticName.Calendar}
         label={date}
+        variant={
+          mapCompanyDescriptionVariantToCompanyDescriptionIconWithLabelVariant[
+            variant
+          ]
+        }
       />
 
       {link && (
@@ -40,15 +60,28 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
           href={link}
           label={link}
           iconName={IconStaticName.Link}
+          variant={
+            mapCompanyDescriptionVariantToCompanyDescriptionIconWithLabelVariant[
+              variant
+            ]
+          }
         />
       )}
     </LayoutContainer>
 
-    <TechStack iconsWithLabels={iconsWithLabels} />
+    <TechStack
+      iconsWithLabels={iconsWithLabels}
+      variant={mapCompanyDescriptionVariantToTechStackVariant[variant]}
+    />
 
     <CompanyDescriptionResponsibilities
       responsibilities={responsibilities}
       themeClasses={themeClasses?.responsibilitiesWrapper}
+      variant={
+        mapCompanyDescriptionVariantToCompanyDescriptionResponsibilitiesVariant[
+          variant
+        ]
+      }
     />
   </LayoutContainer>
 );

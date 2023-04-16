@@ -12,6 +12,7 @@ export const mapIconWithLabelVariantToIconWithLabelContentVariant: Record<
   IconWithLabelContentVariant
 > = {
   [IconWithLabelVariant.Blue]: IconWithLabelContentVariant.Blue,
+  [IconWithLabelVariant.Dark]: IconWithLabelContentVariant.Dark,
   [IconWithLabelVariant.White]: IconWithLabelContentVariant.White
 };
 

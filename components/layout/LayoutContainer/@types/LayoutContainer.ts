@@ -5,7 +5,7 @@ import { TChildren } from "types/props";
 export type TLayoutContainerElementType = HTMLDivElement | HTMLElement;
 
 export interface ILayoutContainerProps {
-  as?: "div" | "nav" | "header" | "main";
+  as?: "div" | "nav" | "header" | "main" | "ul";
   children?: TChildren;
   id?: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
