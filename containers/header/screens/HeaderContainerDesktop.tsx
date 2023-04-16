@@ -14,7 +14,7 @@ import { IconDynamicName } from "components/atoms/IconDynamic/@types/IconDynamic
 import { ButtonSize } from "components/molecules/Button/@types/Button";
 import { SideMenu } from "components/organisms/SideMenu/SideMenu";
 import { icons, navItems } from "containers/header/config";
-import { HeaderContainerDesktopDefaultThemeClasses } from "containers/header/styles";
+import { headerContainerDesktopDefaultThemeClasses } from "containers/header/styles";
 
 const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
   isMenuVisible,
@@ -22,7 +22,7 @@ const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
   onClick
 }) => (
   <Responsive devices={[Device.Desktop]}>
-    <LayoutContainer themeClasses={HeaderContainerDesktopDefaultThemeClasses}>
+    <LayoutContainer themeClasses={headerContainerDesktopDefaultThemeClasses}>
       <LayoutContainer themeClasses={{ marginRight: "mr-24" }}>
         <Nav navItems={navItems} />
       </LayoutContainer>

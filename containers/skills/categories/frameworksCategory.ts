@@ -10,7 +10,7 @@ export const frameworksCategory = {
       IconStaticName.NodeJs,
       IconStaticName.NestJs,
       IconStaticName.Prisma,
-      IconStaticName.NodeJs,
+      IconStaticName.Express,
       IconStaticName.Ember,
       IconStaticName.Prestashop,
       IconStaticName.JQuery,
