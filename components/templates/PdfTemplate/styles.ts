@@ -4,9 +4,9 @@ export const pdfTemplateDefaultThemeClasses: IThemeClasses = {
   backgroundColor: "bg-white",
   display: "flex",
   flexFlow: "flex-row-nowrap",
+  height: "h-[fit-content]",
   marginX: "mx-auto",
   marginY: "my-0",
-  minHeight: "min-h-screenSm",
   width: "w-full"
 };
 

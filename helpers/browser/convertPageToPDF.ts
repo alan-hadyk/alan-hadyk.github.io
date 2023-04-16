@@ -5,14 +5,16 @@ const convertPageToPDF = async (url: string) => {
   const page = await browser.newPage();
 
   await page.goto(url, {
-    waitUntil: "networkidle0"
+    waitUntil: "networkidle2"
   });
 
   await page.emulateMediaType("screen");
 
   const pdf = await page.pdf({
-    format: "a4",
-    printBackground: true
+    height: "11650px",
+    pageRanges: "1",
+    printBackground: true,
+    width: "210mm"
   });
 
   await browser.close();
