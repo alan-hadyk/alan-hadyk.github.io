@@ -18,6 +18,7 @@ export enum IconWithLabelVariant {
 export interface IIconWithLabelProps {
   href?: ILinkProps["href"];
   iconName: IIconStaticProps["iconName"];
+  iconVariant?: IIconStaticProps["variant"];
   isExternal?: ILinkProps["isExternal"];
   label: string;
   size?: IconWithLabelSize;

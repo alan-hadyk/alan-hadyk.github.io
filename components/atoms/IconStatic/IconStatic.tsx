@@ -1,5 +1,8 @@
 import React from "react";
-import { IIconStaticProps } from "components/atoms/IconStatic/@types/IconStatic";
+import {
+  IIconStaticProps,
+  IconStaticVariant
+} from "components/atoms/IconStatic/@types/IconStatic";
 import { convertObjectValuesToString } from "helpers/objects/convertObjectValuesToString";
 import { useIconStaticThemeClasses } from "components/atoms/IconStatic/hooks/useIconStaticThemeClasses";
 import Image from "next/image";
@@ -8,10 +11,12 @@ import { useIconStaticState } from "components/atoms/IconStatic/hooks/useIconSta
 const IconStatic: React.FC<IIconStaticProps> = ({
   iconName,
   style,
-  themeClasses
+  themeClasses,
+  variant = IconStaticVariant.Default
 }) => {
   const { iconStaticThemeClasses } = useIconStaticThemeClasses({
-    themeClasses
+    themeClasses,
+    variant
   });
   const { iconStaticDimensions, src } = useIconStaticState({ iconName });
 

@@ -13,7 +13,7 @@ export enum IconsWithLabelsPosition {
 export interface IIconsWithLabelsProps {
   iconsWithLabels: Pick<
     IIconWithLabelProps,
-    "href" | "iconName" | "isExternal" | "label"
+    "href" | "iconName" | "iconVariant" | "isExternal" | "label"
   >[];
   position?: IconsWithLabelsPosition;
   size?: IIconWithLabelProps["size"];

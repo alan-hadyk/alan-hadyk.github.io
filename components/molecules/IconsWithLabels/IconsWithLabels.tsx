@@ -26,9 +26,10 @@ const IconsWithLabels: React.FC<IIconsWithLabelsProps> = ({
     <LayoutContainer themeClasses={iconsWithLabelsThemeClasses}>
       {position === IconsWithLabelsPosition.Horizontal ? (
         iconsWithLabels &&
-        iconsWithLabels.map(({ iconName, label }) => (
+        iconsWithLabels.map(({ iconName, iconVariant, label }) => (
           <IconWithLabel
             iconName={iconName}
+            iconVariant={iconVariant}
             key={label}
             label={label}
             size={size}

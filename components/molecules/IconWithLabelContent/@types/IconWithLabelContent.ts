@@ -16,6 +16,7 @@ export enum IconWithLabelContentSize {
 
 export interface IIconWithLabelContentProps {
   iconName: IIconStaticProps["iconName"];
+  iconVariant?: IIconStaticProps["variant"];
   isHoverable?: boolean;
   label: string;
   size?: IconWithLabelContentSize;

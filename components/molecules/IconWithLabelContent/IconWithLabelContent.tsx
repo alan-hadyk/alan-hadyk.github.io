@@ -11,6 +11,7 @@ import { iconWithLabelContentDefaultThemeClasses } from "components/molecules/Ic
 
 const IconWithLabelContent: React.FC<IIconWithLabelContentProps> = ({
   iconName,
+  iconVariant,
   isHoverable,
   label,
   size = IconWithLabelContentSize.Medium,
@@ -36,6 +37,7 @@ const IconWithLabelContent: React.FC<IIconWithLabelContentProps> = ({
         <IconStatic
           themeClasses={iconWithLabelContentIconThemeClasses}
           iconName={iconName}
+          variant={iconVariant}
         />
       </LayoutContainer>
 
