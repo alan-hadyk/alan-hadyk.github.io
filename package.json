@@ -35,7 +35,7 @@
     "@types/cypress-image-snapshot": "^3.1.6",
     "@types/detect-browser": "^4.0.0",
     "@types/jest": "^29.5.0",
-    "@types/lodash": "^4.14.184",
+    "@types/lodash": "^4.14.194",
     "@types/node": "^18.15.11",
     "@types/react": "18.0.18",
     "@types/react-dom": "18.0.6",
