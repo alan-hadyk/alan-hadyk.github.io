@@ -71,7 +71,7 @@ export const iconsWithLabels: IIconsWithLabelsProps["iconsWithLabels"] = [
     label: "Ember"
   },
   {
-    iconName: IconStaticName.NodeJs,
+    iconName: IconStaticName.Express,
     label: "Express"
   },
   {
@@ -173,6 +173,10 @@ export const iconsWithLabels: IIconsWithLabelsProps["iconsWithLabels"] = [
   {
     iconName: IconStaticName.React,
     label: "React"
+  },
+  {
+    iconName: IconStaticName.ReactNative,
+    label: "React Native"
   },
   {
     iconName: IconStaticName.ReactQuery,

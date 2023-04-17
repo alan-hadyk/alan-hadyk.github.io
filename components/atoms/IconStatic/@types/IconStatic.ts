@@ -20,7 +20,7 @@ export enum IconStaticName {
   Docker = "docker",
   Docpad = "docpad",
   Ember = "ember",
-  Express = "express",
+  Express = "nodeJs",
   Figma = "figma",
   Gallery = "gallery",
   GitHubActions = "github",
