@@ -1,7 +1,7 @@
 import { IThemeClasses } from "types/theme";
 
 export const techStackDefaultThemeClasses: IThemeClasses = {
-  marginBottom: "mb-16"
+  marginBottom: "mb-32"
 };
 
 export const techStackTitleDefaultThemeClasses: IThemeClasses = {

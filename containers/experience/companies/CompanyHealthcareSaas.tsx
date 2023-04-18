@@ -44,8 +44,10 @@ const companyHealthcareSaasProps: ICompanyProps = {
   title: "Senior React Developer"
 };
 
-const CompanyHealthcareSaas: React.FC<Pick<ICompanyProps, "variant">> = ({
-  variant
-}) => <Company {...companyHealthcareSaasProps} variant={variant} />;
+const CompanyHealthcareSaas: React.FC<
+  Pick<ICompanyProps, "format" | "variant">
+> = ({ format, variant }) => (
+  <Company {...companyHealthcareSaasProps} format={format} variant={variant} />
+);
 
 export { CompanyHealthcareSaas };

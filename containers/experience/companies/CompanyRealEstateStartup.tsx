@@ -52,8 +52,14 @@ const companyRealEstateStartupProps = {
   title: "Front-End Architect"
 };
 
-const CompanyRealEstateStartup: React.FC<Pick<ICompanyProps, "variant">> = ({
-  variant
-}) => <Company {...companyRealEstateStartupProps} variant={variant} />;
+const CompanyRealEstateStartup: React.FC<
+  Pick<ICompanyProps, "format" | "variant">
+> = ({ format, variant }) => (
+  <Company
+    format={format}
+    {...companyRealEstateStartupProps}
+    variant={variant}
+  />
+);
 
 export { CompanyRealEstateStartup };

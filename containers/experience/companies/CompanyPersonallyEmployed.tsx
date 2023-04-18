@@ -37,10 +37,11 @@ const companyPersonallyEmployedProps: ICompanyProps = {
   title: "Freelancer"
 };
 
-const CompanyPersonallyEmployed: React.FC<Pick<ICompanyProps, "variant">> = ({
-  variant
-}) => (
+const CompanyPersonallyEmployed: React.FC<
+  Pick<ICompanyProps, "format" | "variant">
+> = ({ format, variant }) => (
   <Company
+    format={format}
     themeClasses={{
       companyDescription: {
         responsibilitiesWrapper: {

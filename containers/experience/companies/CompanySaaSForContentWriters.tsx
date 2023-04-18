@@ -42,9 +42,13 @@ const companySaaSForContentWritersProps: ICompanyProps = {
 };
 
 const CompanySaaSForContentWriters: React.FC<
-  Pick<ICompanyProps, "variant">
-> = ({ variant }) => (
-  <Company {...companySaaSForContentWritersProps} variant={variant} />
+  Pick<ICompanyProps, "format" | "variant">
+> = ({ format, variant }) => (
+  <Company
+    {...companySaaSForContentWritersProps}
+    format={format}
+    variant={variant}
+  />
 );
 
 export { CompanySaaSForContentWriters };

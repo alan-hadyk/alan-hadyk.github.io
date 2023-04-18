@@ -3,6 +3,11 @@ import { IIconWithLabelProps } from "components/molecules/IconWithLabel/@types/I
 import { IUnorderedListProps } from "components/molecules/UnorderedList/@types/UnorderedList";
 import { ICompanyDescriptionProps } from "components/organisms/CompanyDescription/@types/CompanyDescription";
 
+export enum CompanyFormat {
+  Pdf,
+  Web
+}
+
 export enum CompanyVariant {
   Blue,
   Dark
@@ -10,6 +15,7 @@ export enum CompanyVariant {
 
 export interface ICompanyProps {
   date: string;
+  format?: CompanyFormat;
   iconsWithLabels: Pick<IIconWithLabelProps, "iconName" | "label">[];
   link?: string;
   name: string;

@@ -48,8 +48,16 @@ const companyDiHProps: ICompanyProps = {
   title: "Front-End Developer"
 };
 
-const CompanyDiH: React.FC<Pick<ICompanyProps, "variant">> = ({ variant }) => (
-  <Company link="https://dih.pl/" {...companyDiHProps} variant={variant} />
+const CompanyDiH: React.FC<Pick<ICompanyProps, "format" | "variant">> = ({
+  format,
+  variant
+}) => (
+  <Company
+    link="https://dih.pl/"
+    {...companyDiHProps}
+    format={format}
+    variant={variant}
+  />
 );
 
 export { CompanyDiH };
