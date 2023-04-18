@@ -2,11 +2,10 @@ import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 import { iconsWithLabels } from "components/molecules/IconsWithLabels/config";
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
 import { Company } from "components/organisms/Company/Company";
-import filter from "lodash/filter";
 
 const companySaaSForContentWritersProps: ICompanyProps = {
   date: "September 2022 - January 2023",
-  iconsWithLabels: filter(iconsWithLabels, ({ iconName }) =>
+  iconsWithLabels: iconsWithLabels.filter(({ iconName }) =>
     [
       IconStaticName.HTML,
       IconStaticName.CSS,
