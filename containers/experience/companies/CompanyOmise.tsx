@@ -1,102 +1,37 @@
 import { Company } from "components/organisms/Company/Company";
 
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
+import { iconsWithLabels } from "components/molecules/IconsWithLabels/config";
 import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
-
-const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
-  {
-    iconName: IconStaticName.HTML,
-    label: "HTML"
-  },
-  {
-    iconName: IconStaticName.CSS,
-    label: "CSS"
-  },
-  {
-    iconName: IconStaticName.JavaScript,
-    label: "Javascript"
-  },
-  {
-    iconName: IconStaticName.Ruby,
-    label: "Ruby"
-  },
-  {
-    iconName: IconStaticName.React,
-    label: "React"
-  },
-  {
-    iconName: IconStaticName.RubyOnRails,
-    label: "Ruby on Rails"
-  },
-  {
-    iconName: IconStaticName.Sinatra,
-    label: "Sinatra"
-  },
-  {
-    iconName: IconStaticName.StyledComponents,
-    label: "styled components"
-  },
-  {
-    iconName: IconStaticName.Webpack,
-    label: "Webpack"
-  },
-  {
-    iconName: IconStaticName.JEST,
-    label: "JEST"
-  },
-  {
-    iconName: IconStaticName.AirBnb,
-    label: "Enzyme"
-  },
-  {
-    iconName: IconStaticName.ReactTestingLibrary,
-    label: "React Testing Library"
-  },
-  {
-    iconName: IconStaticName.Cypress,
-    label: "Cypress"
-  },
-  {
-    iconName: IconStaticName.NodeJs,
-    label: "Node.js"
-  },
-  {
-    iconName: IconStaticName.Express,
-    label: "Express"
-  },
-  {
-    iconName: IconStaticName.Apollo,
-    label: "Apollo"
-  },
-  {
-    iconName: IconStaticName.GraphQL,
-    label: "GraphQL"
-  },
-  {
-    iconName: IconStaticName.Docker,
-    label: "Docker"
-  },
-  {
-    iconName: IconStaticName.Jenkins,
-    label: "Jenkins"
-  },
-  {
-    iconName: IconStaticName.Buildkite,
-    label: "Buildkite"
-  },
-  {
-    iconName: IconStaticName.Basecamp,
-    label: "Basecamp"
-  },
-  {
-    iconName: IconStaticName.Gallery,
-    label: "Gallery"
-  }
-];
 
 const companyOmiseProps: ICompanyProps = {
   date: "August 2018 to March 2021",
-  iconsWithLabels,
+  iconsWithLabels: iconsWithLabels.filter(({ iconName }) =>
+    [
+      IconStaticName.HTML,
+      IconStaticName.CSS,
+      IconStaticName.JavaScript,
+      IconStaticName.Ruby,
+      IconStaticName.React,
+      IconStaticName.RubyOnRails,
+      IconStaticName.Sinatra,
+      IconStaticName.StyledComponents,
+      IconStaticName.Webpack,
+      IconStaticName.JEST,
+      IconStaticName.AirBnb,
+      IconStaticName.ReactTestingLibrary,
+      IconStaticName.Cypress,
+      IconStaticName.NodeJs,
+      IconStaticName.Express,
+      IconStaticName.Apollo,
+      IconStaticName.GraphQL,
+      IconStaticName.Docker,
+      IconStaticName.Jenkins,
+      IconStaticName.Buildkite,
+      IconStaticName.Basecamp,
+      IconStaticName.Gallery
+    ].includes(iconName)
+  ),
   name: "Omise",
   responsibilities: [
     <span key="Crafted">

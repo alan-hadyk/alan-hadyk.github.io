@@ -1,26 +1,14 @@
 import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
-import { IIconWithLabelProps } from "components/molecules/IconWithLabel/@types/IconWithLabel";
-
-const iconsWithLabels: IIconWithLabelProps[] = [
-  {
-    iconName: IconStaticName.JavaScript,
-    label: "JavaScript"
-  },
-  {
-    iconName: IconStaticName.TypeScript,
-    label: "TypeScript"
-  },
-  {
-    iconName: IconStaticName.CoffeeScript,
-    label: "CoffeeScript"
-  },
-  {
-    iconName: IconStaticName.Ruby,
-    label: "Ruby"
-  }
-];
+import { iconsWithLabels } from "components/molecules/IconsWithLabels/config";
 
 export const languagesCategory = {
-  iconsWithLabels,
+  iconsWithLabels: iconsWithLabels.filter(({ iconName }) =>
+    [
+      IconStaticName.JavaScript,
+      IconStaticName.TypeScript,
+      IconStaticName.CoffeeScript,
+      IconStaticName.Ruby
+    ].includes(iconName)
+  ),
   title: "Languages"
 };

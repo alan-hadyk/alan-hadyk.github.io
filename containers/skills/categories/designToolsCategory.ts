@@ -1,38 +1,17 @@
 import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
-import { IIconWithLabelProps } from "components/molecules/IconWithLabel/@types/IconWithLabel";
-
-const iconsWithLabels: IIconWithLabelProps[] = [
-  {
-    iconName: IconStaticName.Photoshop,
-    label: "Photoshop"
-  },
-  {
-    iconName: IconStaticName.Sketch,
-    label: "Sketch"
-  },
-  {
-    iconName: IconStaticName.Figma,
-    label: "Figma"
-  },
-  {
-    iconName: IconStaticName.CorelDraw,
-    label: "CorelDRAW"
-  },
-  {
-    iconName: IconStaticName.AfterEffects,
-    label: "After Effects"
-  },
-  {
-    iconName: IconStaticName.Zeplin,
-    label: "Zeplin"
-  },
-  {
-    iconName: IconStaticName.Gallery,
-    label: "Gallery"
-  }
-];
+import { iconsWithLabels } from "components/molecules/IconsWithLabels/config";
 
 export const designToolsCategory = {
-  iconsWithLabels,
+  iconsWithLabels: iconsWithLabels.filter(({ iconName }) =>
+    [
+      IconStaticName.Photoshop,
+      IconStaticName.Sketch,
+      IconStaticName.Figma,
+      IconStaticName.CorelDraw,
+      IconStaticName.AfterEffects,
+      IconStaticName.Zeplin,
+      IconStaticName.Gallery
+    ].includes(iconName)
+  ),
   title: "Design Tools"
 };

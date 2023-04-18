@@ -1,18 +1,9 @@
 import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
-import { IIconWithLabelProps } from "components/molecules/IconWithLabel/@types/IconWithLabel";
-
-const iconsWithLabels: IIconWithLabelProps[] = [
-  {
-    iconName: IconStaticName.HTML,
-    label: "HTML"
-  },
-  {
-    iconName: IconStaticName.CSS,
-    label: "CSS"
-  }
-];
+import { iconsWithLabels } from "components/molecules/IconsWithLabels/config";
 
 export const webTechnologiesCategory = {
-  iconsWithLabels,
+  iconsWithLabels: iconsWithLabels.filter(({ iconName }) =>
+    [IconStaticName.HTML, IconStaticName.CSS].includes(iconName)
+  ),
   title: "Web Technologies"
 };

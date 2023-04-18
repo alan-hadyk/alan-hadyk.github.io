@@ -57,5 +57,5 @@ export const sideMenuDesktopNavInnerContainerDefaultThemeClasses: IThemeClasses 
   {
     display: "flex",
     flexFlow: "flex-row-nowrap",
-    pseudoClasses: ["directChildren:ml-24", "firstdirectChild:ml-0"]
+    gap: "gap-24"
   };

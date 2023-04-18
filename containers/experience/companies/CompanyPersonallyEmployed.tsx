@@ -2,29 +2,18 @@ import { Company } from "components/organisms/Company/Company";
 
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
 import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
-
-const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
-  {
-    iconName: IconStaticName.HTML,
-    label: "HTML"
-  },
-  {
-    iconName: IconStaticName.CSS,
-    label: "CSS"
-  },
-  {
-    iconName: IconStaticName.JavaScript,
-    label: "Javascript"
-  },
-  {
-    iconName: IconStaticName.JQuery,
-    label: "jQuery"
-  }
-];
+import { iconsWithLabels } from "components/molecules/IconsWithLabels/config";
 
 const companyPersonallyEmployedProps: ICompanyProps = {
   date: "May 2008 to September 2010",
-  iconsWithLabels,
+  iconsWithLabels: iconsWithLabels.filter(({ iconName }) =>
+    [
+      IconStaticName.HTML,
+      IconStaticName.CSS,
+      IconStaticName.JavaScript,
+      IconStaticName.JQuery
+    ].includes(iconName)
+  ),
   name: "Alan Hadyk",
   responsibilities: [
     <span key="Leveraged">
