@@ -21,7 +21,7 @@ export const mainIconsWithLabels: IVerticalIconsWithLabelsProps["iconsWithLabels
     },
     {
       href: "https://github.com/alan-hadyk",
-      iconName: IconStaticName.GitHub,
+      iconName: IconStaticName.GitHubEnterprise,
       isExternal: true,
       label: "GitHub"
     },
