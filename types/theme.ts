@@ -70,7 +70,7 @@ type TTextColor = TUtility<"text", TColorValues>;
 type TTextFontSize = TUtilityWithArbitraryValues<"text", TFontSizeValues>;
 type TTextFontFamily = TUtility<"font", TFontFamilyValues>;
 type TTextFontWeight = TUtility<"font", TFontWeightValues>;
-export type TTextAlign =
+type TTextAlign =
   | "text-left"
   | "text-center"
   | "text-right"
@@ -195,7 +195,7 @@ type TOrder =
   | "order-last"
   | "order-none";
 
-type TGap = TUtilityWithArbitraryValues<"gap", TSpacingValues>;
+export type TGap = TUtilityWithArbitraryValues<"gap", TSpacingValues>;
 
 type TOverflow = TUtility<
   "overflow",

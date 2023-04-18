@@ -1,26 +1,14 @@
 import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
-import { IIconWithLabelProps } from "components/molecules/IconWithLabel/@types/IconWithLabel";
-
-const iconsWithLabels: IIconWithLabelProps[] = [
-  {
-    iconName: IconStaticName.Vite,
-    label: "Vite"
-  },
-  {
-    iconName: IconStaticName.Webpack,
-    label: "Webpack"
-  },
-  {
-    iconName: IconStaticName.Grunt,
-    label: "Grunt"
-  },
-  {
-    iconName: IconStaticName.Gulp,
-    label: "Gulp"
-  }
-];
+import { iconsWithLabels } from "components/molecules/IconsWithLabels/config";
 
 export const bundlersCategory = {
-  iconsWithLabels,
+  iconsWithLabels: iconsWithLabels.filter(({ iconName }) =>
+    [
+      IconStaticName.Vite,
+      IconStaticName.Webpack,
+      IconStaticName.Grunt,
+      IconStaticName.Gulp
+    ].includes(iconName)
+  ),
   title: "Bundlers"
 };

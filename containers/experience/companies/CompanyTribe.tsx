@@ -2,85 +2,32 @@ import { Company } from "components/organisms/Company/Company";
 
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
 import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
-
-const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
-  {
-    iconName: IconStaticName.HTML,
-    label: "HTML"
-  },
-  {
-    iconName: IconStaticName.CSS,
-    label: "CSS"
-  },
-  {
-    iconName: IconStaticName.JavaScript,
-    label: "Javascript"
-  },
-  {
-    iconName: IconStaticName.TypeScript,
-    label: "Typescript"
-  },
-  {
-    iconName: IconStaticName.React,
-    label: "React"
-  },
-  {
-    iconName: IconStaticName.NextJs,
-    label: "Next.js"
-  },
-  {
-    iconName: IconStaticName.Tailwind,
-    label: "Tailwind"
-  },
-  {
-    iconName: IconStaticName.Chakra,
-    label: "Chakra"
-  },
-  {
-    iconName: IconStaticName.Webpack,
-    label: "Webpack"
-  },
-  {
-    iconName: IconStaticName.JEST,
-    label: "JEST"
-  },
-  {
-    iconName: IconStaticName.ReactTestingLibrary,
-    label: "React Testing Library"
-  },
-  {
-    iconName: IconStaticName.Cypress,
-    label: "Cypress"
-  },
-  {
-    iconName: IconStaticName.NodeJs,
-    label: "Node.js"
-  },
-  {
-    iconName: IconStaticName.NestJs,
-    label: "NestJS"
-  },
-  {
-    iconName: IconStaticName.Apollo,
-    label: "Apollo"
-  },
-  {
-    iconName: IconStaticName.GraphQL,
-    label: "GraphQL"
-  },
-  {
-    iconName: IconStaticName.Docker,
-    label: "Docker"
-  },
-  {
-    iconName: IconStaticName.GitLab,
-    label: "GitLab"
-  }
-];
+import { iconsWithLabels } from "components/molecules/IconsWithLabels/config";
 
 const companyTribeProps: ICompanyProps = {
   date: "April 2021 to October 2021",
-  iconsWithLabels,
+  iconsWithLabels: iconsWithLabels.filter(({ iconName }) =>
+    [
+      IconStaticName.HTML,
+      IconStaticName.CSS,
+      IconStaticName.JavaScript,
+      IconStaticName.TypeScript,
+      IconStaticName.React,
+      IconStaticName.NextJs,
+      IconStaticName.Tailwind,
+      IconStaticName.Chakra,
+      IconStaticName.Webpack,
+      IconStaticName.JEST,
+      IconStaticName.ReactTestingLibrary,
+      IconStaticName.Cypress,
+      IconStaticName.NodeJs,
+      IconStaticName.NestJs,
+      IconStaticName.Apollo,
+      IconStaticName.GraphQL,
+      IconStaticName.Docker,
+      IconStaticName.GitLab
+    ].includes(iconName)
+  ),
   name: "Tribe",
   responsibilities: [
     <span key="created-scalable">

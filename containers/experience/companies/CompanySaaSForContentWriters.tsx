@@ -1,57 +1,25 @@
 import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
+import { iconsWithLabels } from "components/molecules/IconsWithLabels/config";
 import { ICompanyProps } from "components/organisms/Company/@types/Company";
 import { Company } from "components/organisms/Company/Company";
 
-const iconsWithLabels: ICompanyProps["iconsWithLabels"] = [
-  {
-    iconName: IconStaticName.HTML,
-    label: "HTML"
-  },
-  {
-    iconName: IconStaticName.CSS,
-    label: "CSS"
-  },
-  {
-    iconName: IconStaticName.JavaScript,
-    label: "Javascript"
-  },
-  {
-    iconName: IconStaticName.TypeScript,
-    label: "Typescript"
-  },
-  {
-    iconName: IconStaticName.React,
-    label: "React"
-  },
-  {
-    iconName: IconStaticName.WindiCSS,
-    label: "Windi CSS"
-  },
-  {
-    iconName: IconStaticName.ReactQuery,
-    label: "React Query"
-  },
-  {
-    iconName: IconStaticName.Vite,
-    label: "Vite"
-  },
-  {
-    iconName: IconStaticName.Axios,
-    label: "Axios"
-  },
-  {
-    iconName: IconStaticName.REST,
-    label: "REST"
-  },
-  {
-    iconName: IconStaticName.Prisma,
-    label: "Prisma"
-  }
-];
-
 const companySaaSForContentWritersProps: ICompanyProps = {
   date: "September 2022 - January 2023",
-  iconsWithLabels,
+  iconsWithLabels: iconsWithLabels.filter(({ iconName }) =>
+    [
+      IconStaticName.HTML,
+      IconStaticName.CSS,
+      IconStaticName.JavaScript,
+      IconStaticName.TypeScript,
+      IconStaticName.React,
+      IconStaticName.WindiCSS,
+      IconStaticName.ReactQuery,
+      IconStaticName.Vite,
+      IconStaticName.Axios,
+      IconStaticName.REST,
+      IconStaticName.Prisma
+    ].includes(iconName)
+  ),
   name: "SaaS for Content writers",
   responsibilities: [
     <span key="Engineered">
