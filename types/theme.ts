@@ -195,7 +195,7 @@ type TOrder =
   | "order-last"
   | "order-none";
 
-type TGap = TUtilityWithArbitraryValues<"gap", TSpacingValues>;
+export type TGap = TUtilityWithArbitraryValues<"gap", TSpacingValues>;
 
 type TOverflow = TUtility<
   "overflow",

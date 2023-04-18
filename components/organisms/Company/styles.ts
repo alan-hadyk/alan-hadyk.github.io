@@ -5,8 +5,8 @@ export const companyMobileContainerDefaultThemeClasses: IThemeClasses = {
   alignItems: "items-center",
   display: "flex",
   flexFlow: "flex-col-nowrap",
-  maxWidth: "max-w-1056",
-  pseudoClasses: ["directChildren:mt-48", "firstdirectChild:mt-48"]
+  gap: "gap-48",
+  maxWidth: "max-w-1056"
 };
 
 export const companyDesktopContainerDefaultThemeClasses: IThemeClasses = {
