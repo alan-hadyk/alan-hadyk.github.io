@@ -1,12 +1,14 @@
 /* eslint-disable import/exports-last */
-import { CompanyNameVariant } from "components/molecules/CompanyName/@types/CompanyName";
+import {
+  CompanyNameDevices,
+  CompanyNameSize,
+  CompanyNameVariant
+} from "components/molecules/CompanyName/@types/CompanyName";
 import { isIE11 } from "helpers/browser/isIE11";
 import { IThemeClasses } from "types/theme";
 
 export const companyTvDesktopAndTabletNameContainerDefaultThemeClasses: IThemeClasses =
   {
-    flex: "flex-[0_0_50%]",
-    paddingRight: "pr-40",
     pseudoClasses: isIE11()
       ? [
           "msHighContrastNone:flex-none",
@@ -18,8 +20,7 @@ export const companyTvDesktopAndTabletNameContainerDefaultThemeClasses: IThemeCl
   };
 
 const companyNameCommonThemeClasses: IThemeClasses = {
-  fontFamily: isIE11() ? "font-anonymousPro" : "font-exan",
-  fontSize: "text-48"
+  fontFamily: isIE11() ? "font-anonymousPro" : "font-exan"
 };
 
 export const companyTvDesktopAndTabletNameDefaultThemeClasses: IThemeClasses = {
@@ -43,5 +44,45 @@ export const mapCompanyNameVariantToStyles: Record<
   },
   [CompanyNameVariant.Light]: {
     color: "text-white"
+  }
+};
+
+export const mapCompanyNameSizeToNameStyles: Record<
+  CompanyNameSize,
+  Record<CompanyNameDevices, IThemeClasses>
+> = {
+  [CompanyNameSize.Medium]: {
+    [CompanyNameDevices.Mobile]: {
+      fontSize: "text-24",
+      lineHeight: "leading-28"
+    },
+    [CompanyNameDevices.TvDesktopAndTablet]: {
+      fontSize: "text-24",
+      lineHeight: "leading-28"
+    }
+  },
+  [CompanyNameSize.Large]: {
+    [CompanyNameDevices.Mobile]: {
+      fontSize: "text-48",
+      lineHeight: "leading-48"
+    },
+    [CompanyNameDevices.TvDesktopAndTablet]: {
+      fontSize: "text-48",
+      lineHeight: "leading-56"
+    }
+  }
+};
+
+export const mapCompanyNameSizeToContainerStyles: Record<
+  CompanyNameSize,
+  IThemeClasses
+> = {
+  [CompanyNameSize.Medium]: {
+    flex: "flex-[0_0_35%]",
+    paddingRight: "pr-20"
+  },
+  [CompanyNameSize.Large]: {
+    flex: "flex-[0_0_50%]",
+    paddingRight: "pr-40"
   }
 };

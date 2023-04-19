@@ -9,7 +9,7 @@ export const companyMobileContainerDefaultThemeClasses: IThemeClasses = {
   maxWidth: "max-w-1056"
 };
 
-export const companyDesktopContainerDefaultThemeClasses: IThemeClasses = {
+export const companyBasicContainerDefaultThemeClasses: IThemeClasses = {
   alignItems: "items-start",
   display: "flex",
   flexFlow: "flex-row-nowrap",
@@ -31,3 +31,14 @@ export const companyDesktopCompanyDescriptionContainerDefaultThemeClasses: IThem
         ]
       : []
   };
+
+export const companyPdfCompanyDescriptionContainerDefaultThemeClasses: IThemeClasses =
+  {
+    flex: "flex-[0_0_65%]",
+    paddingLeft: "pl-20"
+  };
+
+export const companyPdfCompanyTimelineDefaultThemeClasses: IThemeClasses = {
+  left: "left-[35%]",
+  top: "top-[.6rem]"
+};

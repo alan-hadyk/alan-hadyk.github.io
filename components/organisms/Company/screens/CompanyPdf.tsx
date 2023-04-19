@@ -10,11 +10,15 @@ import {
   ICompanyProps
 } from "components/organisms/Company/@types/Company";
 import {
-  companyDesktopCompanyDescriptionContainerDefaultThemeClasses,
-  companyDesktopContainerDefaultThemeClasses
+  companyBasicContainerDefaultThemeClasses,
+  companyPdfCompanyTimelineDefaultThemeClasses,
+  companyPdfCompanyDescriptionContainerDefaultThemeClasses
 } from "components/organisms/Company/styles";
 import { CompanyName } from "components/molecules/CompanyName/CompanyName";
-import { CompanyNameDevices } from "components/molecules/CompanyName/@types/CompanyName";
+import {
+  CompanyNameDevices,
+  CompanyNameSize
+} from "components/molecules/CompanyName/@types/CompanyName";
 import {
   mapCompanyVariantToCompanyDescriptionVariant,
   mapCompanyVariantToCompanyNameVariant
@@ -28,23 +32,27 @@ const CompanyPdf: React.FC<ICompanyProps> = ({
   responsibilities,
   themeClasses,
   title,
-  variant = CompanyVariant.Blue
+  variant = CompanyVariant.Dark
 }) => (
   <>
-    <CompanyTimeline themeClasses={themeClasses?.timeline} />
+    <CompanyTimeline
+      themeClasses={{
+        ...companyPdfCompanyTimelineDefaultThemeClasses,
+        ...themeClasses?.timeline
+      }}
+    />
 
-    <LayoutContainer themeClasses={companyDesktopContainerDefaultThemeClasses}>
+    <LayoutContainer themeClasses={companyBasicContainerDefaultThemeClasses}>
       <CompanyName
         devices={CompanyNameDevices.TvDesktopAndTablet}
+        size={CompanyNameSize.Medium}
         variant={mapCompanyVariantToCompanyNameVariant[variant]}
       >
         {name}
       </CompanyName>
 
       <LayoutContainer
-        themeClasses={
-          companyDesktopCompanyDescriptionContainerDefaultThemeClasses
-        }
+        themeClasses={companyPdfCompanyDescriptionContainerDefaultThemeClasses}
       >
         <CompanyDescription
           date={date}

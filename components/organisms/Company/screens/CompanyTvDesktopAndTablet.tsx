@@ -13,7 +13,7 @@ import {
 import { Device } from "components/layout/Responsive/@types/Responsive";
 import {
   companyDesktopCompanyDescriptionContainerDefaultThemeClasses,
-  companyDesktopContainerDefaultThemeClasses
+  companyBasicContainerDefaultThemeClasses
 } from "components/organisms/Company/styles";
 import { CompanyName } from "components/molecules/CompanyName/CompanyName";
 import { CompanyNameDevices } from "components/molecules/CompanyName/@types/CompanyName";
@@ -35,7 +35,7 @@ const CompanyTvDesktopAndTablet: React.FC<ICompanyProps> = ({
   <Responsive devices={[Device.Tv, Device.Desktop, Device.Tablet]}>
     <CompanyTimeline themeClasses={themeClasses?.timeline} />
 
-    <LayoutContainer themeClasses={companyDesktopContainerDefaultThemeClasses}>
+    <LayoutContainer themeClasses={companyBasicContainerDefaultThemeClasses}>
       <CompanyName
         devices={CompanyNameDevices.TvDesktopAndTablet}
         variant={mapCompanyVariantToCompanyNameVariant[variant]}

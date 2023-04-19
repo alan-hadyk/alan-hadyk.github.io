@@ -42,12 +42,12 @@ export const mapSizeToTypographyStyles: Record<
   },
   [SectionTitleSize.Small]: {
     mobile: {
-      fontSize: "text-28",
-      lineHeight: "leading-28"
+      fontSize: "text-36",
+      lineHeight: "leading-44"
     },
     tvDesktopAndTablet: {
-      fontSize: "text-28",
-      lineHeight: "leading-28"
+      fontSize: "text-36",
+      lineHeight: "leading-44"
     }
   }
 };

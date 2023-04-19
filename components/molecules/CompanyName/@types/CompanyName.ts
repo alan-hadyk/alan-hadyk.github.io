@@ -8,8 +8,14 @@ export enum CompanyNameVariant {
   Light
 }
 
+export enum CompanyNameSize {
+  Medium,
+  Large
+}
+
 export interface ICompanyNameProps {
   children: string;
   devices: CompanyNameDevices;
+  size?: CompanyNameSize;
   variant?: CompanyNameVariant;
 }
