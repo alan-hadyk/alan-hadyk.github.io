@@ -8,11 +8,17 @@ export enum CompanyDescriptionVariant {
   Dark
 }
 
+export enum CompanyDescriptionSize {
+  Medium,
+  Large
+}
+
 export interface ICompanyDescriptionProps {
   date: string;
   iconsWithLabels: Pick<IIconWithLabelProps, "iconName" | "label">[];
   link?: string;
   responsibilities: IUnorderedListProps["items"];
+  size?: CompanyDescriptionSize;
   themeClasses?: {
     responsibilitiesWrapper?: Pick<IThemeClasses, "paddingBottom">;
     title?: Pick<IThemeClasses, "textAlign">;

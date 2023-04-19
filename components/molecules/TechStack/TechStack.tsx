@@ -1,39 +1,40 @@
-import { Typography } from "components/atoms/Typography/Typography";
 import { IconsWithLabels } from "components/molecules/IconsWithLabels/IconsWithLabels";
-import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import {
   ITechStackProps,
+  TechStackSize,
   TechStackVariant
 } from "components/molecules/TechStack/@types/TechStack";
-import { IconWithLabelSize } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 import { IconsWithLabelsPosition } from "components/molecules/IconsWithLabels/@types/IconsWithLabels";
 import {
-  techStackDefaultThemeClasses,
-  techStackIconsWrapperDefaultThemeClasses
-} from "components/molecules/TechStack/styles";
-import { useTechStackThemeClasses } from "components/molecules/TechStack/hooks/useTechStackThemeClasses";
-import { mapTechStackVariantToIconsWithLabelsVariant } from "components/molecules/TechStack/config";
+  mapTechStackSizeToCompanyDescriptionSectionSize,
+  mapTechStackSizeToIconsWithLabelsSize,
+  mapTechStackVariantToCompanyDescriptionSectionVariant,
+  mapTechStackVariantToIconsWithLabelsVariant
+} from "components/molecules/TechStack/config";
+import { CompanyDescriptionSection } from "components/molecules/CompanyDescriptionSection/CompanyDescriptionSection";
+import { mapTechStackSizeToStyles } from "components/molecules/TechStack/styles";
 
 const TechStack: React.FC<ITechStackProps> = ({
   iconsWithLabels,
+  size = TechStackSize.Large,
   variant = TechStackVariant.Blue
 }) => {
-  const { techStackTitleThemeClasses } = useTechStackThemeClasses({ variant });
+  const techStackThemeClasses = mapTechStackSizeToStyles[size];
 
   return (
-    <LayoutContainer themeClasses={techStackDefaultThemeClasses}>
-      <Typography themeClasses={techStackTitleThemeClasses}>
-        Tech stack
-      </Typography>
-      <LayoutContainer themeClasses={techStackIconsWrapperDefaultThemeClasses}>
-        <IconsWithLabels
-          iconsWithLabels={iconsWithLabels}
-          position={IconsWithLabelsPosition.Horizontal}
-          size={IconWithLabelSize.Small}
-          variant={mapTechStackVariantToIconsWithLabelsVariant[variant]}
-        />
-      </LayoutContainer>
-    </LayoutContainer>
+    <CompanyDescriptionSection
+      size={mapTechStackSizeToCompanyDescriptionSectionSize[size]}
+      themeClasses={techStackThemeClasses}
+      title="Tech stack"
+      variant={mapTechStackVariantToCompanyDescriptionSectionVariant[variant]}
+    >
+      <IconsWithLabels
+        iconsWithLabels={iconsWithLabels}
+        position={IconsWithLabelsPosition.Horizontal}
+        size={mapTechStackSizeToIconsWithLabelsSize[size]}
+        variant={mapTechStackVariantToIconsWithLabelsVariant[variant]}
+      />
+    </CompanyDescriptionSection>
   );
 };
 

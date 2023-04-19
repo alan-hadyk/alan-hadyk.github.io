@@ -1,6 +1,6 @@
 /* eslint-disable import/exports-last */
 import {
-  CompanyNameDevices,
+  CompanyNameFormat,
   CompanyNameSize,
   CompanyNameVariant
 } from "components/molecules/CompanyName/@types/CompanyName";
@@ -49,24 +49,32 @@ export const mapCompanyNameVariantToStyles: Record<
 
 export const mapCompanyNameSizeToNameStyles: Record<
   CompanyNameSize,
-  Record<CompanyNameDevices, IThemeClasses>
+  Record<CompanyNameFormat, IThemeClasses>
 > = {
   [CompanyNameSize.Medium]: {
-    [CompanyNameDevices.Mobile]: {
+    [CompanyNameFormat.Mobile]: {
       fontSize: "text-24",
       lineHeight: "leading-28"
     },
-    [CompanyNameDevices.TvDesktopAndTablet]: {
+    [CompanyNameFormat.Pdf]: {
+      fontSize: "text-24",
+      lineHeight: "leading-28"
+    },
+    [CompanyNameFormat.TvDesktopAndTablet]: {
       fontSize: "text-24",
       lineHeight: "leading-28"
     }
   },
   [CompanyNameSize.Large]: {
-    [CompanyNameDevices.Mobile]: {
+    [CompanyNameFormat.Mobile]: {
       fontSize: "text-48",
       lineHeight: "leading-48"
     },
-    [CompanyNameDevices.TvDesktopAndTablet]: {
+    [CompanyNameFormat.Pdf]: {
+      fontSize: "text-48",
+      lineHeight: "leading-56"
+    },
+    [CompanyNameFormat.TvDesktopAndTablet]: {
       fontSize: "text-48",
       lineHeight: "leading-56"
     }

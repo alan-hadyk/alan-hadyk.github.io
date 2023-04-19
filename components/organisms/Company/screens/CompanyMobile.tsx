@@ -9,7 +9,7 @@ import { Device } from "components/layout/Responsive/@types/Responsive";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { companyMobileContainerDefaultThemeClasses } from "components/organisms/Company/styles";
 import { CompanyName } from "components/molecules/CompanyName/CompanyName";
-import { CompanyNameDevices } from "components/molecules/CompanyName/@types/CompanyName";
+import { CompanyNameFormat } from "components/molecules/CompanyName/@types/CompanyName";
 import {
   mapCompanyVariantToCompanyDescriptionVariant,
   mapCompanyVariantToCompanyNameVariant
@@ -28,7 +28,7 @@ const CompanyMobile: React.FC<ICompanyProps> = ({
   <Responsive devices={[Device.Mobile]}>
     <LayoutContainer themeClasses={companyMobileContainerDefaultThemeClasses}>
       <CompanyName
-        devices={CompanyNameDevices.Mobile}
+        format={CompanyNameFormat.Mobile}
         variant={mapCompanyVariantToCompanyNameVariant[variant]}
       >
         {name}

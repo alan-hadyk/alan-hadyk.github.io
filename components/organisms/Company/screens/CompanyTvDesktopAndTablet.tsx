@@ -16,7 +16,7 @@ import {
   companyBasicContainerDefaultThemeClasses
 } from "components/organisms/Company/styles";
 import { CompanyName } from "components/molecules/CompanyName/CompanyName";
-import { CompanyNameDevices } from "components/molecules/CompanyName/@types/CompanyName";
+import { CompanyNameFormat } from "components/molecules/CompanyName/@types/CompanyName";
 import {
   mapCompanyVariantToCompanyDescriptionVariant,
   mapCompanyVariantToCompanyNameVariant
@@ -37,7 +37,7 @@ const CompanyTvDesktopAndTablet: React.FC<ICompanyProps> = ({
 
     <LayoutContainer themeClasses={companyBasicContainerDefaultThemeClasses}>
       <CompanyName
-        devices={CompanyNameDevices.TvDesktopAndTablet}
+        format={CompanyNameFormat.TvDesktopAndTablet}
         variant={mapCompanyVariantToCompanyNameVariant[variant]}
       >
         {name}

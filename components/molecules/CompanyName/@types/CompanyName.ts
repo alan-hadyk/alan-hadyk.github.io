@@ -1,5 +1,6 @@
-export enum CompanyNameDevices {
+export enum CompanyNameFormat {
   Mobile,
+  Pdf,
   TvDesktopAndTablet
 }
 
@@ -15,7 +16,7 @@ export enum CompanyNameSize {
 
 export interface ICompanyNameProps {
   children: string;
-  devices: CompanyNameDevices;
+  format: CompanyNameFormat;
   size?: CompanyNameSize;
   variant?: CompanyNameVariant;
 }

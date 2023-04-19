@@ -1,3 +1,4 @@
+import { CompanyDescriptionSize } from "components/organisms/CompanyDescription/@types/CompanyDescription";
 import { IThemeClasses } from "types/theme";
 
 export const companyDescriptionContainerDefaultThemeClasses: IThemeClasses = {
@@ -11,3 +12,17 @@ export const companyDescriptionIconsWithLabelsContainerDefaultThemeClasses: IThe
     gap: "gap-16",
     marginY: "my-32"
   };
+
+export const mapCompanyDescriptionSizeToIconsWithLabelContainerStyles: Record<
+  CompanyDescriptionSize,
+  IThemeClasses
+> = {
+  [CompanyDescriptionSize.Medium]: {
+    gap: "gap-8",
+    marginY: "my-16"
+  },
+  [CompanyDescriptionSize.Large]: {
+    gap: "gap-16",
+    marginY: "my-32"
+  }
+};

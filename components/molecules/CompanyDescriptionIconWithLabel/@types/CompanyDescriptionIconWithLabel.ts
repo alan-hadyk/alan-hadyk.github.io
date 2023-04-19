@@ -10,6 +10,7 @@ export interface ICompanyDescriptionIconWithLabelProps {
   href?: IIconWithLabelProps["href"];
   iconName: IIconWithLabelProps["iconName"];
   label: IIconWithLabelProps["label"];
+  size?: IIconWithLabelProps["size"];
   themeClasses?: Pick<IThemeClasses, "marginBottom" | "marginTop">;
   variant?: CompanyDescriptionIconWithLabelVariant;
 }

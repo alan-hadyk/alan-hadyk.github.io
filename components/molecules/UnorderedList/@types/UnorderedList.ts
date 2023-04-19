@@ -5,7 +5,13 @@ export enum UnorderedListVariant {
   Dark
 }
 
+export enum UnorderedListSize {
+  Medium,
+  Large
+}
+
 export interface IUnorderedListProps {
   items: Array<IListItemProps["children"]>;
+  size?: UnorderedListSize;
   variant?: UnorderedListVariant;
 }

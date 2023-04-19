@@ -1,7 +1,7 @@
 import { Typography } from "components/atoms/Typography/Typography";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import {
-  CompanyNameDevices,
+  CompanyNameFormat,
   CompanyNameSize,
   CompanyNameVariant,
   ICompanyNameProps
@@ -10,7 +10,7 @@ import { useCompanyNameThemeClasses } from "components/molecules/CompanyName/hoo
 
 const CompanyName: React.FC<ICompanyNameProps> = ({
   children,
-  devices,
+  format,
   size = CompanyNameSize.Large,
   variant = CompanyNameVariant.Light
 }) => {
@@ -22,7 +22,9 @@ const CompanyName: React.FC<ICompanyNameProps> = ({
 
   return (
     <>
-      {devices === CompanyNameDevices.TvDesktopAndTablet && (
+      {[CompanyNameFormat.TvDesktopAndTablet, CompanyNameFormat.Pdf].includes(
+        format
+      ) && (
         <LayoutContainer
           themeClasses={companyTvDesktopAndTabletNameContainerThemeClasses}
         >
@@ -31,7 +33,7 @@ const CompanyName: React.FC<ICompanyNameProps> = ({
           </Typography>
         </LayoutContainer>
       )}
-      {devices === CompanyNameDevices.Mobile && (
+      {format === CompanyNameFormat.Mobile && (
         <Typography themeClasses={companyMobileNameThemeClasses}>
           {children}
         </Typography>

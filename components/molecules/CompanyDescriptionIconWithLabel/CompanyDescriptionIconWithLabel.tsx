@@ -12,6 +12,7 @@ const CompanyDescriptionIconWithLabel: React.FC<
   href,
   iconName,
   label,
+  size = IconWithLabelSize.Medium,
   themeClasses,
   variant = CompanyDescriptionIconWithLabelVariant.Blue
 }) => (
@@ -21,7 +22,7 @@ const CompanyDescriptionIconWithLabel: React.FC<
       isExternal
       iconName={iconName}
       label={label}
-      size={IconWithLabelSize.Medium}
+      size={size}
       themeClasses={{
         iconWithLabelContent: {
           label: {

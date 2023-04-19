@@ -1,5 +1,11 @@
-import { ListItemVariant } from "components/atoms/ListItem/@types/ListItem";
-import { UnorderedListVariant } from "components/molecules/UnorderedList/@types/UnorderedList";
+import {
+  ListItemSize,
+  ListItemVariant
+} from "components/atoms/ListItem/@types/ListItem";
+import {
+  UnorderedListSize,
+  UnorderedListVariant
+} from "components/molecules/UnorderedList/@types/UnorderedList";
 
 export const mapUnorderedListVariantToListItemVariant: Record<
   UnorderedListVariant,
@@ -7,4 +13,12 @@ export const mapUnorderedListVariantToListItemVariant: Record<
 > = {
   [UnorderedListVariant.Blue]: ListItemVariant.Blue,
   [UnorderedListVariant.Dark]: ListItemVariant.Dark
+};
+
+export const mapUnorderedListSizeToListItemSize: Record<
+  UnorderedListSize,
+  ListItemSize
+> = {
+  [UnorderedListSize.Medium]: ListItemSize.Medium,
+  [UnorderedListSize.Large]: ListItemSize.Large
 };

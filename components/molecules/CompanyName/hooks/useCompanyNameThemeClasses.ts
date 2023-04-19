@@ -1,5 +1,5 @@
 import {
-  CompanyNameDevices,
+  CompanyNameFormat,
   CompanyNameSize,
   CompanyNameVariant,
   ICompanyNameProps
@@ -21,14 +21,14 @@ const useCompanyNameThemeClasses = ({
   const companyTvDesktopAndTabletNameThemeClasses: IThemeClasses = {
     ...companyTvDesktopAndTabletNameDefaultThemeClasses,
     ...mapCompanyNameSizeToNameStyles[size][
-      CompanyNameDevices.TvDesktopAndTablet
+      CompanyNameFormat.TvDesktopAndTablet
     ],
     ...mapCompanyNameVariantToStyles[variant]
   };
 
   const companyMobileNameThemeClasses: IThemeClasses = {
     ...companyMobileNameDefaultThemeClasses,
-    ...mapCompanyNameSizeToNameStyles[size][CompanyNameDevices.Mobile],
+    ...mapCompanyNameSizeToNameStyles[size][CompanyNameFormat.Mobile],
     ...mapCompanyNameVariantToStyles[variant]
   };
 

@@ -16,13 +16,15 @@ import {
 } from "components/organisms/Company/styles";
 import { CompanyName } from "components/molecules/CompanyName/CompanyName";
 import {
-  CompanyNameDevices,
+  CompanyNameFormat,
   CompanyNameSize
 } from "components/molecules/CompanyName/@types/CompanyName";
 import {
   mapCompanyVariantToCompanyDescriptionVariant,
   mapCompanyVariantToCompanyNameVariant
 } from "components/organisms/Company/config";
+import { IThemeClasses } from "types/theme";
+import { CompanyDescriptionSize } from "components/organisms/CompanyDescription/@types/CompanyDescription";
 
 const CompanyPdf: React.FC<ICompanyProps> = ({
   date,
@@ -33,39 +35,44 @@ const CompanyPdf: React.FC<ICompanyProps> = ({
   themeClasses,
   title,
   variant = CompanyVariant.Dark
-}) => (
-  <>
-    <CompanyTimeline
-      themeClasses={{
-        ...companyPdfCompanyTimelineDefaultThemeClasses,
-        ...themeClasses?.timeline
-      }}
-    />
+}) => {
+  const companyTimelineThemeClasses: IThemeClasses = {
+    ...companyPdfCompanyTimelineDefaultThemeClasses,
+    ...themeClasses?.timeline
+  };
 
-    <LayoutContainer themeClasses={companyBasicContainerDefaultThemeClasses}>
-      <CompanyName
-        devices={CompanyNameDevices.TvDesktopAndTablet}
-        size={CompanyNameSize.Medium}
-        variant={mapCompanyVariantToCompanyNameVariant[variant]}
-      >
-        {name}
-      </CompanyName>
+  return (
+    <>
+      <CompanyTimeline themeClasses={companyTimelineThemeClasses} />
 
-      <LayoutContainer
-        themeClasses={companyPdfCompanyDescriptionContainerDefaultThemeClasses}
-      >
-        <CompanyDescription
-          date={date}
-          iconsWithLabels={iconsWithLabels}
-          link={link}
-          responsibilities={responsibilities}
-          themeClasses={themeClasses?.companyDescription}
-          title={title}
-          variant={mapCompanyVariantToCompanyDescriptionVariant[variant]}
-        />
+      <LayoutContainer themeClasses={companyBasicContainerDefaultThemeClasses}>
+        <CompanyName
+          format={CompanyNameFormat.Pdf}
+          size={CompanyNameSize.Medium}
+          variant={mapCompanyVariantToCompanyNameVariant[variant]}
+        >
+          {name}
+        </CompanyName>
+
+        <LayoutContainer
+          themeClasses={
+            companyPdfCompanyDescriptionContainerDefaultThemeClasses
+          }
+        >
+          <CompanyDescription
+            date={date}
+            iconsWithLabels={iconsWithLabels}
+            link={link}
+            responsibilities={responsibilities}
+            size={CompanyDescriptionSize.Medium}
+            themeClasses={themeClasses?.companyDescription}
+            title={title}
+            variant={mapCompanyVariantToCompanyDescriptionVariant[variant]}
+          />
+        </LayoutContainer>
       </LayoutContainer>
-    </LayoutContainer>
-  </>
-);
+    </>
+  );
+};
 
 export { CompanyPdf };

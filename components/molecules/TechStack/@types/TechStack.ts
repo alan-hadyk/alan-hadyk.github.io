@@ -5,7 +5,13 @@ export enum TechStackVariant {
   Dark
 }
 
+export enum TechStackSize {
+  Medium,
+  Large
+}
+
 export interface ITechStackProps {
   iconsWithLabels: IIconsWithLabelsProps["iconsWithLabels"];
+  size?: TechStackSize;
   variant?: TechStackVariant;
 }
