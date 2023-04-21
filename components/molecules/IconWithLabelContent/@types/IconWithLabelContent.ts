@@ -26,13 +26,3 @@ export interface IIconWithLabelContentProps {
   };
   variant?: IconWithLabelContentVariant;
 }
-
-export type TMapSizeToIconHeight = Record<
-  IconWithLabelContentSize,
-  IThemeClasses["height"]
->;
-
-export type TMapSizeToTextFontSize = Record<
-  IconWithLabelContentSize,
-  IThemeClasses["fontSize"]
->;

@@ -1,8 +1,6 @@
 import {
   IconWithLabelContentSize,
-  IconWithLabelContentVariant,
-  TMapSizeToIconHeight,
-  TMapSizeToTextFontSize
+  IconWithLabelContentVariant
 } from "components/molecules/IconWithLabelContent/@types/IconWithLabelContent";
 import { isIE11 } from "helpers/browser/isIE11";
 import { IThemeClasses } from "types/theme";
@@ -54,14 +52,20 @@ export const mapSizeToIconStyles: Record<
   }
 };
 
-export const mapSizeToIconHeight: TMapSizeToIconHeight = {
+export const mapSizeToIconHeight: Record<
+  IconWithLabelContentSize,
+  IThemeClasses["height"]
+> = {
   [IconWithLabelContentSize.ExtraSmall]: "h-24",
   [IconWithLabelContentSize.Large]: "h-40",
   [IconWithLabelContentSize.Medium]: "h-32",
   [IconWithLabelContentSize.Small]: "h-28"
 };
 
-export const mapSizeToTextFontSize: TMapSizeToTextFontSize = {
+export const mapSizeToTextFontSize: Record<
+  IconWithLabelContentSize,
+  IThemeClasses["fontSize"]
+> = {
   [IconWithLabelContentSize.ExtraSmall]: "text-12",
   [IconWithLabelContentSize.Large]: "text-24",
   [IconWithLabelContentSize.Medium]: "text-20",
