@@ -1,6 +1,6 @@
-import puppeteer from "puppeteer";
+import puppeteer, { PDFOptions } from "puppeteer";
 
-const convertPageToPDF = async (url: string) => {
+const convertPageToPDF = async (url: string, options?: PDFOptions) => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
@@ -10,12 +10,7 @@ const convertPageToPDF = async (url: string) => {
 
   await page.emulateMediaType("screen");
 
-  const pdf = await page.pdf({
-    height: "11650px",
-    pageRanges: "1",
-    printBackground: true,
-    width: "210mm"
-  });
+  const pdf = await page.pdf(options);
 
   await browser.close();
 

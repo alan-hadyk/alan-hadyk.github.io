@@ -1,5 +1,6 @@
 import { DashboardContainerFormat } from "containers/dashboard/@types/DashboardContainer";
 import { DashboardContainer } from "containers/dashboard/DashboardContainer";
+import { DisclaimerContainer } from "containers/disclaimer/DisclaimerContainer";
 import { EducationContainer } from "containers/education/EducationContainer";
 import { ExperienceContainerFormat } from "containers/experience/@types/ExperienceContainer";
 import { ExperienceContainer } from "containers/experience/ExperienceContainer";
@@ -14,6 +15,7 @@ const CvPage: TNextPageWithLayout = () => (
     <DashboardContainer format={DashboardContainerFormat.Pdf} />
     <ExperienceContainer format={ExperienceContainerFormat.Pdf} />
     <EducationContainer />
+    <DisclaimerContainer />
   </>
 );
 
