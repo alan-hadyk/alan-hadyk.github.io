@@ -16,20 +16,20 @@ export const mapTitleVariantToTitleStyles: Record<
   ContentFrameTitleVariant,
   IThemeClasses
 > = {
-  [ContentFrameTitleVariant.Small]: {
+  [ContentFrameTitleVariant.SmallDarkBlue]: {
     color: "text-blue300",
     fontSize: "text-16",
     lineHeight: "leading-36",
     textTransform: "uppercase"
   },
-  [ContentFrameTitleVariant.Medium]: {
+  [ContentFrameTitleVariant.MediumWhite]: {
     color: "text-white",
     fontSize: "text-20",
     lineHeight: "leading-28",
     marginBottom: "mb-12",
     textTransform: "normal-case"
   },
-  [ContentFrameTitleVariant.Large]: {
+  [ContentFrameTitleVariant.LargeLightBlue]: {
     color: "text-blue100",
     fontSize: "text-28",
     lineHeight: "leading-36",

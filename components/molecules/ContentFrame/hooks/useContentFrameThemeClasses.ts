@@ -16,7 +16,7 @@ import {
 const useContentFrameThemeClasses = ({
   description,
   themeClasses,
-  titleVariant = ContentFrameTitleVariant.Small,
+  titleVariant = ContentFrameTitleVariant.SmallDarkBlue,
   variant = ContentFrameVariant.Empty
 }: Pick<
   IContentFrameProps,

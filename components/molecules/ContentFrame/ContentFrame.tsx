@@ -22,7 +22,7 @@ const ContentFrame: React.FC<IContentFrameProps> = ({
   description,
   themeClasses,
   title,
-  titleVariant = ContentFrameTitleVariant.Small,
+  titleVariant = ContentFrameTitleVariant.SmallDarkBlue,
   variant = ContentFrameVariant.Empty
 }) => {
   const {

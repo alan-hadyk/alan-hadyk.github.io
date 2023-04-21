@@ -18,11 +18,11 @@ export const mapSkillsItemVariantToContentFrameProps: Record<
   Pick<IContentFrameProps, "variant" | "titleVariant">
 > = {
   [SkillsItemVariant.Full]: {
-    titleVariant: ContentFrameTitleVariant.Large,
+    titleVariant: ContentFrameTitleVariant.LargeLightBlue,
     variant: ContentFrameVariant.Border
   },
   [SkillsItemVariant.Limited]: {
-    titleVariant: ContentFrameTitleVariant.Medium,
+    titleVariant: ContentFrameTitleVariant.MediumWhite,
     variant: ContentFrameVariant.Empty
   }
 };

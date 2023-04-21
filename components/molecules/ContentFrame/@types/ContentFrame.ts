@@ -14,9 +14,9 @@ export enum ContentFrameVariant {
 }
 
 export enum ContentFrameTitleVariant {
-  Small,
-  Medium,
-  Large
+  SmallDarkBlue,
+  MediumWhite,
+  LargeLightBlue
 }
 
 export interface IContentFrameProps {
