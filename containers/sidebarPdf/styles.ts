@@ -16,7 +16,6 @@ export const sidebarPdfContainerTitleDefaultThemeClasses: IThemeClasses = {
 export const sidebarPdfContainerMainIconsDefaultThemeClasses: IVerticalIconsWithLabelsProps["themeClasses"] =
   {
     wrapper: {
-      height: "h-auto",
-      marginBottom: "mb-28"
+      height: "h-auto"
     }
   };

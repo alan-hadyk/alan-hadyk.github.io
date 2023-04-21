@@ -14,7 +14,7 @@ const DashboardContainer: React.FC<IDashboardContainerProps> = ({
   <Section
     id="dashboard"
     themeClasses={{
-      marginBottom: DashboardContainerFormat.Web ? "mb-28" : "mb-12"
+      paddingTop: "pt-0"
     }}
   >
     {format === DashboardContainerFormat.Web && (

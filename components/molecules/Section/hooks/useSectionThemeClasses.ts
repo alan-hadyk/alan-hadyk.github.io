@@ -12,7 +12,7 @@ const useSectionThemeClasses = ({
 }: Pick<ISectionProps, "size" | "themeClasses" | "title">) => {
   const sectionThemeClasses: IThemeClasses = {
     ...sectionDefaultThemeClasses,
-    paddingTop: title && size === SectionSize.Large ? "pt-96" : "pt-0",
+    paddingTop: title && size === SectionSize.Large ? "pt-96" : "pt-48",
     ...themeClasses
   };
 

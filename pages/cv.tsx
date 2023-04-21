@@ -1,5 +1,6 @@
 import { DashboardContainerFormat } from "containers/dashboard/@types/DashboardContainer";
 import { DashboardContainer } from "containers/dashboard/DashboardContainer";
+import { EducationContainer } from "containers/education/EducationContainer";
 import { ExperienceContainerFormat } from "containers/experience/@types/ExperienceContainer";
 import { ExperienceContainer } from "containers/experience/ExperienceContainer";
 import { SidebarPdfContainer } from "containers/sidebarPdf/SidebarPdfContainer";
@@ -12,6 +13,7 @@ const CvPage: TNextPageWithLayout = () => (
   <>
     <DashboardContainer format={DashboardContainerFormat.Pdf} />
     <ExperienceContainer format={ExperienceContainerFormat.Pdf} />
+    <EducationContainer />
   </>
 );
 
