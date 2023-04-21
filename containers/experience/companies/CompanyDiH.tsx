@@ -18,6 +18,7 @@ const CompanyDiH: React.FC<Pick<ICompanyProps, "format" | "variant">> = ({
   const icons = iconsWithLabels
     .filter(({ iconName }) =>
       [
+        IconStaticName.Grunt,
         IconStaticName.HTML,
         IconStaticName.CSS,
         IconStaticName.JavaScript,

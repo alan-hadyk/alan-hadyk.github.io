@@ -18,6 +18,7 @@ const CompanySAP: React.FC<Pick<ICompanyProps, "format" | "variant">> = ({
   const icons = iconsWithLabels
     .filter(({ iconName }) =>
       [
+        IconStaticName.Gulp,
         IconStaticName.HTML,
         IconStaticName.CSS,
         IconStaticName.JavaScript,
