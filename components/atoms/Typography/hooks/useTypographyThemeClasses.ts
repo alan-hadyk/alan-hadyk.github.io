@@ -1,6 +1,6 @@
 import { ITypographyProps } from "components/atoms/Typography/@types/Typography";
 import { typographyDefaultThemeClasses } from "components/atoms/Typography/styles";
-import { IThemeClasses, TPseudoClasses } from "types/theme";
+import { IThemeClasses } from "types/theme";
 import { convertObjectValuesToString } from "helpers/objects/convertObjectValuesToString";
 
 const useTypographyThemeClasses = ({
@@ -24,7 +24,7 @@ const useTypographyThemeClasses = ({
       pseudoClasses: [
         "childrenStrong:text-blue100",
         ...(typographyBaseThemeClasses?.pseudoClasses
-          ? (typographyBaseThemeClasses.pseudoClasses as TPseudoClasses)
+          ? typographyBaseThemeClasses.pseudoClasses
           : [])
       ]
     }),

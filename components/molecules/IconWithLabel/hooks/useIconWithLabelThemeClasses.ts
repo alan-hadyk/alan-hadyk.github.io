@@ -1,6 +1,5 @@
 import { IIconWithLabelProps } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 import { IIconWithLabelContentProps } from "components/molecules/IconWithLabelContent/@types/IconWithLabelContent";
-import { IThemeClasses } from "types/theme";
 
 const useIconWithLabelThemeClasses = ({
   href,
@@ -10,9 +9,9 @@ const useIconWithLabelThemeClasses = ({
     {
       ...themeClasses?.iconWithLabelContent,
       label: {
-        groupHover: href ? "group-hover:text-white" : "",
+        groupHover: href ? "group-hover:text-white" : undefined,
         ...themeClasses?.iconWithLabelContent?.label
-      } as Pick<IThemeClasses, "groupHover">
+      }
     };
 
   return { iconWithLabelContentThemeClasses };

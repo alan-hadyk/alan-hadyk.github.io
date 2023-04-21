@@ -334,7 +334,7 @@ export type TMediaQuery = TUtilityWithArbitraryValues<
   ":"
 >;
 
-export type TPseudoClasses = `${string}:${string}`[];
+export type TPseudoClasses = `${string}:${string}`[] | string[];
 
 export type TClassStyleUtility = `${string}-${string}` | string;
 
