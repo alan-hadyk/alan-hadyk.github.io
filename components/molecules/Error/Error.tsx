@@ -17,6 +17,7 @@ const Error: React.FC<IErrorProps> = ({ description, title }) => (
     <LayoutContainer themeClasses={errorContainerDefaultThemeClasses}>
       <IconDynamic
         iconName={IconDynamicName.Warning}
+        isHeightResponsive
         shouldDisplayGlowAnimation
         themeClasses={errorIconDefaultThemeClasses}
       />
