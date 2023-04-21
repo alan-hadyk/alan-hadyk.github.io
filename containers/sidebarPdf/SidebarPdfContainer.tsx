@@ -1,3 +1,4 @@
+import { SidebarPdfContainerLanguagesSection } from "containers/sidebarPdf/sections/SidebarPdfContainerLanguagesSection";
 import { SidebarPdfContainerLogoSection } from "containers/sidebarPdf/sections/SidebarPdfContainerLogoSection";
 import { SidebarPdfContainerMainIconsSection } from "containers/sidebarPdf/sections/SidebarPdfContainerMainIconsSection";
 import { SkillsContainerFormat } from "containers/skills/@types/SkillsContainer";
@@ -10,6 +11,8 @@ const SidebarPdfContainer: React.FC = () => (
     <SidebarPdfContainerMainIconsSection />
 
     <SkillsContainer format={SkillsContainerFormat.Pdf} />
+
+    <SidebarPdfContainerLanguagesSection />
   </>
 );
 

@@ -1,4 +1,8 @@
 import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
+import {
+  ILanguagesGroupProps,
+  LanguageLevel
+} from "components/molecules/LanguagesGroup/@types/LanguagesGroup";
 import { IVerticalIconsWithLabelsProps } from "components/molecules/VerticalIconsWithLabels/@types/VerticalIconsWithLabels";
 
 export const mainIconsWithLabels: IVerticalIconsWithLabelsProps["iconsWithLabels"] =
@@ -32,3 +36,14 @@ export const mainIconsWithLabels: IVerticalIconsWithLabelsProps["iconsWithLabels
       label: "LinkedIn"
     }
   ];
+
+export const languages: ILanguagesGroupProps["languages"] = [
+  {
+    level: LanguageLevel.C2,
+    name: "Polish"
+  },
+  {
+    level: LanguageLevel.C1,
+    name: "English"
+  }
+];
