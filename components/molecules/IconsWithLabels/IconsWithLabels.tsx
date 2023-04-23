@@ -39,7 +39,7 @@ const IconsWithLabels: React.FC<IIconsWithLabelsProps> = ({
         ))
       ) : (
         <VerticalIconsWithLabels
-          themeClasses={themeClasses?.iconWithLabel?.iconWithLabelContent}
+          themeClasses={themeClasses?.iconWithLabel?.content}
           iconsWithLabels={iconsWithLabels}
           size={size}
           variant={variant}

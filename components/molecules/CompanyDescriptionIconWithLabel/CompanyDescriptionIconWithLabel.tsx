@@ -24,7 +24,7 @@ const CompanyDescriptionIconWithLabel: React.FC<
       label={label}
       size={size}
       themeClasses={{
-        iconWithLabelContent: {
+        content: {
           label: {
             color:
               variant === CompanyDescriptionIconWithLabelVariant.Blue

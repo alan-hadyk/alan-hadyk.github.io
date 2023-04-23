@@ -38,7 +38,7 @@ export const mapVariantToSkillsItemIconsWithLabelsStyles: Record<
   [SkillsItemVariant.Full]: {},
   [SkillsItemVariant.Limited]: {
     iconWithLabel: {
-      iconWithLabelContent: {
+      content: {
         wrapper: {
           flex: "flex-[0_0_calc(50%-0.8rem)]"
         }

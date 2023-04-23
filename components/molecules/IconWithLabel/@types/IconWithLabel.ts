@@ -23,7 +23,7 @@ export interface IIconWithLabelProps {
   label: string;
   size?: IconWithLabelSize;
   themeClasses?: {
-    iconWithLabelContent?: IIconWithLabelContentProps["themeClasses"];
+    content?: IIconWithLabelContentProps["themeClasses"];
   };
   variant?: IconWithLabelVariant;
 }

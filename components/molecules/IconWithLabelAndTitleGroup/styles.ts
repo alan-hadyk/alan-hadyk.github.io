@@ -18,7 +18,7 @@ export const iconWithLabelAndTitleGroupTitleDefaultThemeClasses: IThemeClasses =
 
 export const iconWithLabelAndTitleGroupIconDefaultThemeClasses: IIconWithLabelProps["themeClasses"] =
   {
-    iconWithLabelContent: {
+    content: {
       label: {
         color: "text-blue600"
       }

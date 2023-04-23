@@ -7,10 +7,10 @@ const useIconWithLabelThemeClasses = ({
 }: Pick<IIconWithLabelProps, "href" | "themeClasses">) => {
   const iconWithLabelContentThemeClasses: IIconWithLabelContentProps["themeClasses"] =
     {
-      ...themeClasses?.iconWithLabelContent,
+      ...themeClasses?.content,
       label: {
         groupHover: href ? "group-hover:text-white" : undefined,
-        ...themeClasses?.iconWithLabelContent?.label
+        ...themeClasses?.content?.label
       }
     };
 
