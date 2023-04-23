@@ -18,39 +18,32 @@ const Company: React.FC<ICompanyProps> = ({
   themeClasses,
   title,
   variant = CompanyVariant.Blue
-}) => (
-  <LayoutContainer>
-    <LayoutContainer themeClasses={{ position: "relative", width: "w-100%" }}>
-      {format === CompanyFormat.Pdf && (
-        <CompanyPdf
-          date={date}
-          iconsWithLabels={iconsWithLabels}
-          link={link}
-          name={name}
-          responsibilities={responsibilities}
-          themeClasses={themeClasses}
-          title={title}
-          variant={variant}
-        />
-      )}
-      {format === CompanyFormat.Web &&
-        [CompanyTvDesktopAndTablet, CompanyMobile].map(
-          (CompanyScreenComponent, index) => (
-            <CompanyScreenComponent
-              date={date}
-              iconsWithLabels={iconsWithLabels}
-              link={link}
-              key={index}
-              name={name}
-              responsibilities={responsibilities}
-              themeClasses={themeClasses}
-              title={title}
-              variant={variant}
-            />
-          )
-        )}
+}) => {
+  const commonCompanyProps: ICompanyProps = {
+    date,
+    iconsWithLabels,
+    link,
+    name,
+    responsibilities,
+    themeClasses,
+    title,
+    variant
+  };
+
+  return (
+    <LayoutContainer>
+      <LayoutContainer themeClasses={{ position: "relative", width: "w-100%" }}>
+        {format === CompanyFormat.Pdf && <CompanyPdf {...commonCompanyProps} />}
+
+        {format === CompanyFormat.Web &&
+          [CompanyTvDesktopAndTablet, CompanyMobile].map(
+            (CompanyScreenComponent, index) => (
+              <CompanyScreenComponent key={index} {...commonCompanyProps} />
+            )
+          )}
+      </LayoutContainer>
     </LayoutContainer>
-  </LayoutContainer>
-);
+  );
+};
 
 export { Company };
