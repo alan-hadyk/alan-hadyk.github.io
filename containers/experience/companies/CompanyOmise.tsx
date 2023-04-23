@@ -1,15 +1,9 @@
 import { Company } from "components/organisms/Company/Company";
 
-import {
-  CompanyFormat,
-  ICompanyProps
-} from "components/organisms/Company/@types/Company";
+import { ICompanyProps } from "components/organisms/Company/@types/Company";
 import { iconsWithLabels } from "components/molecules/IconsWithLabels/config";
-import {
-  IconStaticName,
-  IconStaticVariant
-} from "components/atoms/IconStatic/@types/IconStatic";
-import { IIconWithLabelProps } from "components/molecules/IconWithLabel/@types/IconWithLabel";
+import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
+import { invertIcon } from "containers/experience/helpers/invertIcon";
 
 const CompanyOmise: React.FC<Pick<ICompanyProps, "format" | "variant">> = ({
   format,
@@ -42,31 +36,18 @@ const CompanyOmise: React.FC<Pick<ICompanyProps, "format" | "variant">> = ({
         IconStaticName.Gallery
       ].includes(iconName)
     )
-    .map(({ iconName, label }) => {
-      const icon: Pick<
-        IIconWithLabelProps,
-        "iconName" | "iconVariant" | "label"
-      > = {
-        iconName,
-        label
-      };
-
-      if (
+    .map(
+      invertIcon(
         [
           IconStaticName.Apollo,
           IconStaticName.Basecamp,
           IconStaticName.Cypress,
-          IconStaticName.Express,
           IconStaticName.StyledComponents,
           IconStaticName.Sinatra
-        ].includes(iconName) &&
-        format === CompanyFormat.Pdf
-      ) {
-        icon.iconVariant = IconStaticVariant.Inverted;
-      }
-
-      return icon;
-    });
+        ],
+        format
+      )
+    );
 
   return (
     <Company

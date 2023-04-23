@@ -1,14 +1,8 @@
-import {
-  IconStaticName,
-  IconStaticVariant
-} from "components/atoms/IconStatic/@types/IconStatic";
-import { IIconWithLabelProps } from "components/molecules/IconWithLabel/@types/IconWithLabel";
+import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 import { iconsWithLabels } from "components/molecules/IconsWithLabels/config";
-import {
-  CompanyFormat,
-  ICompanyProps
-} from "components/organisms/Company/@types/Company";
+import { ICompanyProps } from "components/organisms/Company/@types/Company";
 import { Company } from "components/organisms/Company/Company";
+import { invertIcon } from "containers/experience/helpers/invertIcon";
 
 const CompanySaaSForContentWriters: React.FC<
   Pick<ICompanyProps, "format" | "variant">
@@ -29,24 +23,7 @@ const CompanySaaSForContentWriters: React.FC<
         IconStaticName.Prisma
       ].includes(iconName)
     )
-    .map(({ iconName, label }) => {
-      const icon: Pick<
-        IIconWithLabelProps,
-        "iconName" | "iconVariant" | "label"
-      > = {
-        iconName,
-        label
-      };
-
-      if (
-        [IconStaticName.Prisma].includes(iconName) &&
-        format === CompanyFormat.Pdf
-      ) {
-        icon.iconVariant = IconStaticVariant.Inverted;
-      }
-
-      return icon;
-    });
+    .map(invertIcon([IconStaticName.Prisma], format));
 
   return (
     <Company
