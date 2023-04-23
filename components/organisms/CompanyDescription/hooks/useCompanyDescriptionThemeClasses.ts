@@ -3,21 +3,28 @@ import {
   ICompanyDescriptionProps
 } from "components/organisms/CompanyDescription/@types/CompanyDescription";
 import {
-  outstandingVerticalIconsWithLabelsDefaultThemeClasses,
-  mapCompanyDescriptionSizeToOutstandingVerticalIconsWithLabelsStyles
+  mapCompanyDescriptionSizeToOutstandingVerticalIconsWithLabelsStyles,
+  companyDescriptionDefaultThemeClasses
 } from "components/organisms/CompanyDescription/styles";
 import { IThemeClasses } from "types/theme";
 
 const useCompanyDescriptionThemeClasses = ({
   size = CompanyDescriptionSize.Large
 }: Pick<ICompanyDescriptionProps, "size">) => {
-  const outstandingVerticalIconsWithLabelsThemeClasses: IThemeClasses = {
-    ...outstandingVerticalIconsWithLabelsDefaultThemeClasses,
-    ...mapCompanyDescriptionSizeToOutstandingVerticalIconsWithLabelsStyles[size]
+  const companyDescriptionThemeClasses: Record<
+    "outstandingIcons",
+    IThemeClasses
+  > = {
+    outstandingIcons: {
+      ...companyDescriptionDefaultThemeClasses.outstandingIcons,
+      ...mapCompanyDescriptionSizeToOutstandingVerticalIconsWithLabelsStyles[
+        size
+      ]
+    }
   };
 
   return {
-    outstandingVerticalIconsWithLabelsThemeClasses
+    companyDescriptionThemeClasses
   };
 };
 

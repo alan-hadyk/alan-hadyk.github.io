@@ -5,7 +5,7 @@ import {
   CompanyDescriptionVariant,
   ICompanyDescriptionProps
 } from "components/organisms/CompanyDescription/@types/CompanyDescription";
-import { companyDescriptionContainerDefaultThemeClasses } from "components/organisms/CompanyDescription/styles";
+import { companyDescriptionDefaultThemeClasses } from "components/organisms/CompanyDescription/styles";
 import { CompanyDescriptionTitle } from "components/molecules/CompanyDescriptionTitle/CompanyDescriptionTitle";
 import { CompanyResponsibilities } from "components/molecules/CompanyResponsibilities/CompanyResponsibilities";
 import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
@@ -32,12 +32,13 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
   title,
   variant = CompanyDescriptionVariant.Blue
 }) => {
-  const { outstandingVerticalIconsWithLabelsThemeClasses } =
-    useCompanyDescriptionThemeClasses({ size });
+  const { companyDescriptionThemeClasses } = useCompanyDescriptionThemeClasses({
+    size
+  });
 
   return (
     <LayoutContainer
-      themeClasses={companyDescriptionContainerDefaultThemeClasses}
+      themeClasses={companyDescriptionDefaultThemeClasses.container}
     >
       <CompanyDescriptionTitle
         size={mapCompanyDescriptionSizeToCompanyDescriptionTitleSize[size]}
@@ -71,7 +72,7 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
             variant
           ]
         }
-        themeClasses={outstandingVerticalIconsWithLabelsThemeClasses}
+        themeClasses={companyDescriptionThemeClasses.outstandingIcons}
       />
 
       <TechStack
