@@ -6,6 +6,7 @@ import {
 } from "components/molecules/SkillsItem/@types/SkillsItem";
 import {
   mapVariantToSkillsItemContentFrameStyles,
+  mapVariantToSkillsItemIconsWithLabelsStyles,
   mapVariantToSkillsItemIconsWrapperStyles
 } from "components/molecules/SkillsItem/styles";
 
@@ -19,20 +20,7 @@ const useSkillsItemThemeClasses = ({
     mapVariantToSkillsItemIconsWrapperStyles[variant];
 
   const skillsItemIconsWithLabelsThemeClasses: IIconsWithLabelsProps["themeClasses"] =
-    {
-      iconWithLabel: {
-        iconWithLabelContent: {
-          wrapper: {
-            ...(variant === SkillsItemVariant.Limited && {
-              flex: "flex-[0_0_calc(50%-0.8rem)]"
-            })
-          }
-        }
-      },
-      wrapper: {
-        pseudoClasses: []
-      }
-    };
+    mapVariantToSkillsItemIconsWithLabelsStyles[variant];
 
   return {
     skillsItemIconsWithLabelsThemeClasses,

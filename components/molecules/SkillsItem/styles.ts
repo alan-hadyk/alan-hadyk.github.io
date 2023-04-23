@@ -1,4 +1,5 @@
 import { IContentFrameProps } from "components/molecules/ContentFrame/@types/ContentFrame";
+import { IIconsWithLabelsProps } from "components/molecules/IconsWithLabels/@types/IconsWithLabels";
 import { SkillsItemVariant } from "components/molecules/SkillsItem/@types/SkillsItem";
 import { IThemeClasses } from "types/theme";
 
@@ -27,5 +28,21 @@ export const mapVariantToSkillsItemIconsWrapperStyles: Record<
   },
   [SkillsItemVariant.Limited]: {
     padding: "p-0"
+  }
+};
+
+export const mapVariantToSkillsItemIconsWithLabelsStyles: Record<
+  SkillsItemVariant,
+  IIconsWithLabelsProps["themeClasses"]
+> = {
+  [SkillsItemVariant.Full]: {},
+  [SkillsItemVariant.Limited]: {
+    iconWithLabel: {
+      iconWithLabelContent: {
+        wrapper: {
+          flex: "flex-[0_0_calc(50%-0.8rem)]"
+        }
+      }
+    }
   }
 };
