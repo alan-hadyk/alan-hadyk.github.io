@@ -5,7 +5,7 @@ export const companyDescriptionContainerDefaultThemeClasses: IThemeClasses = {
   mediaQuery: ["msHighContrastNone:w-100%", "msHighContrastActive:w-100%"]
 };
 
-export const companyDescriptionIconsWithLabelsContainerDefaultThemeClasses: IThemeClasses =
+export const outstandingVerticalIconsWithLabelsDefaultThemeClasses: IThemeClasses =
   {
     display: "flex",
     flexFlow: "flex-col-nowrap",
@@ -13,7 +13,7 @@ export const companyDescriptionIconsWithLabelsContainerDefaultThemeClasses: IThe
     marginY: "my-32"
   };
 
-export const mapCompanyDescriptionSizeToIconsWithLabelContainerStyles: Record<
+export const mapCompanyDescriptionSizeToOutstandingVerticalIconsWithLabelsStyles: Record<
   CompanyDescriptionSize,
   IThemeClasses
 > = {

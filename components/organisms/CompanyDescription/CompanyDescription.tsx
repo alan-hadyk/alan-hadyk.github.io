@@ -8,19 +8,19 @@ import {
 import { companyDescriptionContainerDefaultThemeClasses } from "components/organisms/CompanyDescription/styles";
 import { CompanyDescriptionTitle } from "components/molecules/CompanyDescriptionTitle/CompanyDescriptionTitle";
 import { CompanyResponsibilities } from "components/molecules/CompanyResponsibilities/CompanyResponsibilities";
-import { CompanyDescriptionIconWithLabel } from "components/molecules/CompanyDescriptionIconWithLabel/CompanyDescriptionIconWithLabel";
 import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
 import {
   mapCompanyDescriptionSizeToCompanyDescriptionTitleSize,
   mapCompanyDescriptionSizeToIconWithLabelSize,
   mapCompanyDescriptionSizeToTechStackSize,
-  mapCompanyDescriptionVariantToCompanyDescriptionIconWithLabelVariant,
+  mapCompanyDescriptionVariantToOutstandingVerticalIconsWithLabelsVariant,
   mapCompanyDescriptionVariantToCompanyResponsibilitiesVariant,
   mapCompanyDescriptionVariantToCompanyDescriptionTitleVariant,
   mapCompanyDescriptionVariantToTechStackVariant,
   mapCompanyDescriptionSizeToCompanyResponsibilitiesSize
 } from "components/organisms/CompanyDescription/config";
 import { useCompanyDescriptionThemeClasses } from "components/organisms/CompanyDescription/hooks/useCompanyDescriptionThemeClasses";
+import { OutstandingVerticalIconsWithLabels } from "components/molecules/OutstandingVerticalIconsWithLabels/OutstandingVerticalIconsWithLabels";
 
 const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
   date,
@@ -32,16 +32,8 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
   title,
   variant = CompanyDescriptionVariant.Blue
 }) => {
-  const { companyDescriptionIconsWithLabelsContainerThemeClasses } =
+  const { outstandingVerticalIconsWithLabelsThemeClasses } =
     useCompanyDescriptionThemeClasses({ size });
-
-  const iconWithLabelCommonProps = {
-    size: mapCompanyDescriptionSizeToIconWithLabelSize[size],
-    variant:
-      mapCompanyDescriptionVariantToCompanyDescriptionIconWithLabelVariant[
-        variant
-      ]
-  };
 
   return (
     <LayoutContainer
@@ -57,24 +49,30 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
         {title}
       </CompanyDescriptionTitle>
 
-      <LayoutContainer
-        themeClasses={companyDescriptionIconsWithLabelsContainerThemeClasses}
-      >
-        <CompanyDescriptionIconWithLabel
-          iconName={IconStaticName.Calendar}
-          label={date}
-          {...iconWithLabelCommonProps}
-        />
-
-        {link && (
-          <CompanyDescriptionIconWithLabel
-            href={link}
-            iconName={IconStaticName.Link}
-            label={link}
-            {...iconWithLabelCommonProps}
-          />
-        )}
-      </LayoutContainer>
+      <OutstandingVerticalIconsWithLabels
+        iconsWithLabels={[
+          {
+            iconName: IconStaticName.Calendar,
+            label: date
+          },
+          ...(link
+            ? [
+                {
+                  href: link,
+                  iconName: IconStaticName.Link,
+                  label: link
+                }
+              ]
+            : [])
+        ]}
+        size={mapCompanyDescriptionSizeToIconWithLabelSize[size]}
+        variant={
+          mapCompanyDescriptionVariantToOutstandingVerticalIconsWithLabelsVariant[
+            variant
+          ]
+        }
+        themeClasses={outstandingVerticalIconsWithLabelsThemeClasses}
+      />
 
       <TechStack
         iconsWithLabels={iconsWithLabels}

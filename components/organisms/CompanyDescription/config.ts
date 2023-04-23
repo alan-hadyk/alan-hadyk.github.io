@@ -1,4 +1,3 @@
-import { CompanyDescriptionIconWithLabelVariant } from "components/molecules/CompanyDescriptionIconWithLabel/@types/CompanyDescriptionIconWithLabel";
 import {
   CompanyResponsibilitiesSize,
   CompanyResponsibilitiesVariant
@@ -16,6 +15,7 @@ import {
   CompanyDescriptionSize,
   CompanyDescriptionVariant
 } from "components/organisms/CompanyDescription/@types/CompanyDescription";
+import { OutstandingVerticalIconsWithLabelsVariant } from "components/molecules/OutstandingVerticalIconsWithLabels/@types/OutstandingVerticalIconsWithLabels";
 
 export const mapCompanyDescriptionVariantToCompanyDescriptionTitleVariant: Record<
   CompanyDescriptionVariant,
@@ -25,12 +25,14 @@ export const mapCompanyDescriptionVariantToCompanyDescriptionTitleVariant: Recor
   [CompanyDescriptionVariant.Dark]: CompanyDescriptionTitleVariant.Dark
 };
 
-export const mapCompanyDescriptionVariantToCompanyDescriptionIconWithLabelVariant: Record<
+export const mapCompanyDescriptionVariantToOutstandingVerticalIconsWithLabelsVariant: Record<
   CompanyDescriptionVariant,
-  CompanyDescriptionIconWithLabelVariant
+  OutstandingVerticalIconsWithLabelsVariant
 > = {
-  [CompanyDescriptionVariant.Blue]: CompanyDescriptionIconWithLabelVariant.Blue,
-  [CompanyDescriptionVariant.Dark]: CompanyDescriptionIconWithLabelVariant.Dark
+  [CompanyDescriptionVariant.Blue]:
+    OutstandingVerticalIconsWithLabelsVariant.Blue,
+  [CompanyDescriptionVariant.Dark]:
+    OutstandingVerticalIconsWithLabelsVariant.Dark
 };
 
 export const mapCompanyDescriptionVariantToTechStackVariant: Record<
