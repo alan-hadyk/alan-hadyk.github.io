@@ -11,32 +11,32 @@ import {
   IconWithLabelSize,
   IconWithLabelVariant
 } from "components/molecules/IconWithLabel/@types/IconWithLabel";
-import { SkillsItemVariant } from "components/molecules/SkillsItem/@types/SkillsItem";
+import { ContentFrameWithIconsVariant } from "components/molecules/ContentFrameWithIcons/@types/ContentFrameWithIcons";
 
-export const mapSkillsItemVariantToContentFrameProps: Record<
-  SkillsItemVariant,
+export const mapContentFrameWithIconsVariantToContentFrameProps: Record<
+  ContentFrameWithIconsVariant,
   Pick<IContentFrameProps, "variant" | "titleVariant">
 > = {
-  [SkillsItemVariant.Full]: {
+  [ContentFrameWithIconsVariant.Full]: {
     titleVariant: ContentFrameTitleVariant.LargeLightBlue,
     variant: ContentFrameVariant.Border
   },
-  [SkillsItemVariant.Limited]: {
+  [ContentFrameWithIconsVariant.Limited]: {
     titleVariant: ContentFrameTitleVariant.MediumWhite,
     variant: ContentFrameVariant.Empty
   }
 };
 
-export const mapSkillsItemVariantToIconsWithLabelsProps: Record<
-  SkillsItemVariant,
+export const mapContentFrameWithIconsVariantToIconsWithLabelsProps: Record<
+  ContentFrameWithIconsVariant,
   Pick<IIconsWithLabelsProps, "position" | "size" | "variant">
 > = {
-  [SkillsItemVariant.Full]: {
+  [ContentFrameWithIconsVariant.Full]: {
     position: IconsWithLabelsPosition.Vertical,
     size: IconWithLabelSize.Medium,
     variant: IconWithLabelVariant.Blue
   },
-  [SkillsItemVariant.Limited]: {
+  [ContentFrameWithIconsVariant.Limited]: {
     position: IconsWithLabelsPosition.Horizontal,
     size: IconWithLabelSize.ExtraSmall,
     variant: IconWithLabelVariant.White

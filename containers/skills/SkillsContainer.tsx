@@ -1,26 +1,5 @@
 import { Section } from "components/molecules/Section/Section";
-import { SkillsItem } from "components/molecules/SkillsItem/SkillsItem";
-import { Responsive } from "components/layout/Responsive/Responsive";
-import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
-
-import { languagesCategory } from "containers/skills/categories/languagesCategory";
-import { frameworksCategory } from "containers/skills/categories/frameworksCategory";
-import { stateManagementCategory } from "containers/skills/categories/stateManagementCategory";
-import { webApisCategory } from "containers/skills/categories/webApisCategory";
-import { webTechnologiesCategory } from "containers/skills/categories/webTechnologiesCategory";
-import { cssToolsCategory } from "containers/skills/categories/cssToolsCategory";
-import { testingCategory } from "containers/skills/categories/testingCategory";
-import { cicdCategory } from "containers/skills/categories/cicdCategory";
-import { bundlersCategory } from "containers/skills/categories/bundlersCategory";
-import { taskManagementCategory } from "containers/skills/categories/taskManagementCategory";
-import { designToolsCategory } from "containers/skills/categories/designToolsCategory";
-
 import {
-  ISkillsItemProps,
-  SkillsItemVariant
-} from "components/molecules/SkillsItem/@types/SkillsItem";
-import {
-  IRenderColumnsArgs,
   ISkillsContainerProps,
   SkillsContainerFormat
 } from "containers/skills/@types/SkillsContainer";
@@ -29,49 +8,8 @@ import {
   SectionSize,
   SectionVariant
 } from "components/molecules/Section/@types/Section";
-
-const items: ISkillsItemProps[] = [
-  languagesCategory,
-  frameworksCategory,
-  stateManagementCategory,
-  webApisCategory,
-  webTechnologiesCategory,
-  cssToolsCategory,
-  testingCategory,
-  cicdCategory,
-  bundlersCategory,
-  taskManagementCategory,
-  designToolsCategory
-];
-
-const SkillsColumns: React.FC<IRenderColumnsArgs> = ({
-  columnCount,
-  devices
-}) => (
-  <Responsive devices={devices}>
-    <LayoutContainer
-      themeClasses={{
-        columns: columnCount,
-        gap: "gap-32",
-        pseudoClasses: [
-          "directChildren:break-inside-avoid-column",
-          "directChildren:page-break-inside-avoid"
-        ]
-      }}
-    >
-      {items.map(({ iconsWithLabels, title }: ISkillsItemProps) => (
-        <LayoutContainer
-          key={title}
-          themeClasses={{
-            marginBottom: "mb-32"
-          }}
-        >
-          <SkillsItem iconsWithLabels={iconsWithLabels} title={title} />
-        </LayoutContainer>
-      ))}
-    </LayoutContainer>
-  </Responsive>
-);
+import { ContentFrameWithIconsGroup } from "components/molecules/ContentFrameWithIconsGroup/ContentFrameWithIconsGroup";
+import { skillsItems } from "containers/skills/config";
 
 const SkillsContainer: React.FC<ISkillsContainerProps> = ({
   format = SkillsContainerFormat.Web
@@ -92,42 +30,34 @@ const SkillsContainer: React.FC<ISkillsContainerProps> = ({
   >
     {format === SkillsContainerFormat.Web && (
       <>
-        <SkillsColumns columnCount="columns-5" devices={[Device.Tv]} />
+        <ContentFrameWithIconsGroup
+          columnCount="columns-5"
+          device={Device.Tv}
+          items={skillsItems}
+        />
 
-        <SkillsColumns columnCount="columns-3" devices={[Device.Desktop]} />
+        <ContentFrameWithIconsGroup
+          columnCount="columns-3"
+          device={Device.Desktop}
+          items={skillsItems}
+        />
 
-        <SkillsColumns columnCount="columns-2" devices={[Device.Tablet]} />
+        <ContentFrameWithIconsGroup
+          columnCount="columns-2"
+          device={Device.Tablet}
+          items={skillsItems}
+        />
 
-        <Responsive devices={[Device.Mobile]}>
-          {items.map(({ iconsWithLabels, title }: ISkillsItemProps) => (
-            <LayoutContainer
-              key={title}
-              themeClasses={{
-                marginBottom: "mb-32"
-              }}
-            >
-              <SkillsItem iconsWithLabels={iconsWithLabels} title={title} />
-            </LayoutContainer>
-          ))}
-        </Responsive>
+        <ContentFrameWithIconsGroup
+          device={Device.Mobile}
+          items={skillsItems}
+        />
       </>
     )}
 
-    {format === SkillsContainerFormat.Pdf &&
-      items.map(({ iconsWithLabels, title }: ISkillsItemProps) => (
-        <LayoutContainer
-          key={title}
-          themeClasses={{
-            marginBottom: "mb-24"
-          }}
-        >
-          <SkillsItem
-            iconsWithLabels={iconsWithLabels}
-            title={title}
-            variant={SkillsItemVariant.Limited}
-          />
-        </LayoutContainer>
-      ))}
+    {format === SkillsContainerFormat.Pdf && (
+      <ContentFrameWithIconsGroup items={skillsItems} />
+    )}
   </Section>
 );
 
