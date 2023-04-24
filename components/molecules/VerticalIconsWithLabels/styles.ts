@@ -1,31 +1,29 @@
 import { IconWithLabelSize } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 import { IThemeClasses } from "types/theme";
 
-const verticalIconsWithLabelsWrapperDefaultThemeClasses: IThemeClasses = {
-  display: "flex",
-  flexFlow: "flex-col-nowrap"
+export const verticalIconsWithLabelsDefaultThemeClasses: Record<
+  "wrapper" | "iconsWrapper" | "labelsWrapper",
+  IThemeClasses
+> = {
+  iconsWrapper: {
+    alignItems: "items-center",
+    display: "flex",
+    flexFlow: "flex-col-nowrap"
+  },
+  labelsWrapper: {
+    alignItems: "items-start",
+    display: "flex",
+    flexFlow: "flex-col-nowrap"
+  },
+  wrapper: {
+    alignItems: "items-center",
+    display: "flex",
+    flexFlow: "flex-row-nowrap",
+    height: "h-100%",
+    justifyContent: "justify-center",
+    width: "w-100%"
+  }
 };
-
-export const verticalIconsWithLabelsDefaultThemeClasses: IThemeClasses = {
-  alignItems: "items-center",
-  display: "flex",
-  flexFlow: "flex-row-nowrap",
-  height: "h-100%",
-  justifyContent: "justify-center",
-  width: "w-100%"
-};
-
-export const verticalIconsWithLabelsIconsWrapperDefaultThemeClasses: IThemeClasses =
-  {
-    ...verticalIconsWithLabelsWrapperDefaultThemeClasses,
-    alignItems: "items-center"
-  };
-
-export const verticalIconsWithLabelsLabelsWrapperDefaultThemeClasses: IThemeClasses =
-  {
-    ...verticalIconsWithLabelsWrapperDefaultThemeClasses,
-    alignItems: "items-start"
-  };
 
 export const mapSizeToWrapperStyles: Record<IconWithLabelSize, IThemeClasses> =
   {

@@ -14,18 +14,16 @@ const CompanyDescriptionSection: React.FC<ICompanyDescriptionSectionProps> = ({
   title,
   variant = CompanyDescriptionSectionVariant.Blue
 }) => {
-  const {
-    companyDescriptionSectionContentWrapperThemeClasses,
-    companyDescriptionSectionTitleThemeClasses
-  } = useCompanyDescriptionSectionThemeClasses({ size, variant });
+  const { companyDescriptionSectionThemeClasses } =
+    useCompanyDescriptionSectionThemeClasses({ size, variant });
 
   return (
     <LayoutContainer themeClasses={themeClasses}>
-      <Typography themeClasses={companyDescriptionSectionTitleThemeClasses}>
+      <Typography themeClasses={companyDescriptionSectionThemeClasses.title}>
         {title}
       </Typography>
       <LayoutContainer
-        themeClasses={companyDescriptionSectionContentWrapperThemeClasses}
+        themeClasses={companyDescriptionSectionThemeClasses.contentWrapper}
       >
         {children}
       </LayoutContainer>

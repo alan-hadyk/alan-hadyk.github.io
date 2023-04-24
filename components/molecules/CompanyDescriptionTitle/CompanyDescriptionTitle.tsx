@@ -4,7 +4,12 @@ import {
   CompanyDescriptionTitleVariant,
   ICompanyDescriptionTitleProps
 } from "components/molecules/CompanyDescriptionTitle/@types/CompanyDescriptionTitle";
-import { useCompanyDescriptionTitleThemeClasses } from "components/molecules/CompanyDescriptionTitle/hooks/useCompanyDescriptionTitleThemeClasses";
+import {
+  companyDescriptionTitleDefaultThemeClasses,
+  mapCompanyDescriptionTitleVariantToStyles,
+  mapCompanyDescriptionTitleSizeToStyles
+} from "components/molecules/CompanyDescriptionTitle/styles";
+import { IThemeClasses } from "types/theme";
 
 const CompanyDescriptionTitle: React.FC<ICompanyDescriptionTitleProps> = ({
   children,
@@ -12,11 +17,20 @@ const CompanyDescriptionTitle: React.FC<ICompanyDescriptionTitleProps> = ({
   themeClasses,
   variant = CompanyDescriptionTitleVariant.Light
 }) => {
-  const { companyDescriptionTitleThemeClasses } =
-    useCompanyDescriptionTitleThemeClasses({ size, themeClasses, variant });
+  const companyDescriptionTitleThemeClasses: Record<
+    "typography",
+    IThemeClasses
+  > = {
+    typography: {
+      ...companyDescriptionTitleDefaultThemeClasses,
+      ...mapCompanyDescriptionTitleVariantToStyles[variant],
+      ...mapCompanyDescriptionTitleSizeToStyles[size],
+      ...themeClasses
+    }
+  };
 
   return (
-    <Typography themeClasses={companyDescriptionTitleThemeClasses}>
+    <Typography themeClasses={companyDescriptionTitleThemeClasses.typography}>
       {children}
     </Typography>
   );

@@ -1,10 +1,17 @@
-import { CompanyDescriptionSectionSize } from "components/molecules/CompanyDescriptionSection/@types/CompanyDescriptionSection";
+import {
+  CompanyDescriptionSectionSize,
+  CompanyDescriptionSectionVariant
+} from "components/molecules/CompanyDescriptionSection/@types/CompanyDescriptionSection";
 import { IThemeClasses } from "types/theme";
 
-export const companyDescriptionSectionTitleDefaultThemeClasses: IThemeClasses =
-  {
+export const companyDescriptionSectionDefaultThemeClasses: Record<
+  "title",
+  IThemeClasses
+> = {
+  title: {
     fontFamily: "font-anonymousPro"
-  };
+  }
+};
 
 export const mapCompanyDescriptionSectionSizeToTitleStyles: Record<
   CompanyDescriptionSectionSize,
@@ -18,6 +25,18 @@ export const mapCompanyDescriptionSectionSizeToTitleStyles: Record<
     fontSize: "text-24",
     fontWeight: "font-bold",
     lineHeight: "leading-32"
+  }
+};
+
+export const mapCompanyDescriptionSectionVariantToTitleStyles: Record<
+  CompanyDescriptionSectionVariant,
+  IThemeClasses
+> = {
+  [CompanyDescriptionSectionVariant.Blue]: {
+    color: "text-blue100"
+  },
+  [CompanyDescriptionSectionVariant.Dark]: {
+    color: "text-blue600"
   }
 };
 

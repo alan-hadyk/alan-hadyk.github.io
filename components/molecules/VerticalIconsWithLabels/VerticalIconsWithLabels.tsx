@@ -18,33 +18,27 @@ const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
   themeClasses,
   variant = IconWithLabelVariant.Blue
 }) => {
-  const {
-    verticalIconsWithLabelsIconContainerThemeClasses,
-    verticalIconsWithLabelsIconThemeClasses,
-    verticalIconsWithLabelsIconsWrapperThemeClasses,
-    verticalIconsWithLabelsLabelContainerThemeClasses,
-    verticalIconsWithLabelsLabelThemeClasses,
-    verticalIconsWithLabelsLabelsWrapperThemeClasses
-  } = useVerticalIconsWithLabelsThemeClasses({ size, themeClasses, variant });
+  const { verticalIconsWithLabelsThemeClasses } =
+    useVerticalIconsWithLabelsThemeClasses({ size, themeClasses, variant });
 
   return (
     <LayoutContainer
       themeClasses={{
-        ...verticalIconsWithLabelsDefaultThemeClasses,
+        ...verticalIconsWithLabelsDefaultThemeClasses.wrapper,
         ...themeClasses?.wrapper
       }}
     >
       <LayoutContainer
-        themeClasses={verticalIconsWithLabelsIconsWrapperThemeClasses}
+        themeClasses={verticalIconsWithLabelsThemeClasses.iconsWrapper}
       >
         {iconsWithLabels.map(
           ({ iconName }: IIconWithLabelProps, index: number): JSX.Element => (
             <LayoutContainer
               key={iconName + index}
-              themeClasses={verticalIconsWithLabelsIconContainerThemeClasses}
+              themeClasses={verticalIconsWithLabelsThemeClasses.iconContainer}
             >
               <IconStatic
-                themeClasses={verticalIconsWithLabelsIconThemeClasses}
+                themeClasses={verticalIconsWithLabelsThemeClasses.icon}
                 iconName={iconName}
               />
             </LayoutContainer>
@@ -52,19 +46,19 @@ const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
         )}
       </LayoutContainer>
       <LayoutContainer
-        themeClasses={verticalIconsWithLabelsLabelsWrapperThemeClasses}
+        themeClasses={verticalIconsWithLabelsThemeClasses.labelsWrapper}
       >
         {iconsWithLabels.map(
           ({ href, isExternal, label }: IIconWithLabelProps): JSX.Element => (
             <LayoutContainer
               key={label}
-              themeClasses={verticalIconsWithLabelsLabelContainerThemeClasses}
+              themeClasses={verticalIconsWithLabelsThemeClasses.labelContainer}
             >
               {href ? (
                 <Link href={href} isExternal={isExternal}>
                   <Typography
                     ellipsis
-                    themeClasses={verticalIconsWithLabelsLabelThemeClasses}
+                    themeClasses={verticalIconsWithLabelsThemeClasses.label}
                   >
                     {label}
                   </Typography>
@@ -72,7 +66,7 @@ const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
               ) : (
                 <Typography
                   ellipsis
-                  themeClasses={verticalIconsWithLabelsLabelThemeClasses}
+                  themeClasses={verticalIconsWithLabelsThemeClasses.label}
                 >
                   {label}
                 </Typography>

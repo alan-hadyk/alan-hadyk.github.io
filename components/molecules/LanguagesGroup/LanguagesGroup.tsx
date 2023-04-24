@@ -2,26 +2,21 @@ import { Typography } from "components/atoms/Typography/Typography";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { Corners } from "components/molecules/Corners/Corners";
 import { ILanguagesGroupProps } from "components/molecules/LanguagesGroup/@types/LanguagesGroup";
-import {
-  languagesGroupDefaultThemeClasses,
-  languagesGroupLanguageWrapperDefaultThemeClasses,
-  languagesGroupLevelDefaultThemeClasses,
-  languagesGroupNameDefaultThemeClasses
-} from "components/molecules/LanguagesGroup/styles";
+import { languagesGroupDefaultThemeClasses } from "components/molecules/LanguagesGroup/styles";
 
 const LanguagesGroup: React.FC<ILanguagesGroupProps> = ({ languages }) => (
-  <LayoutContainer themeClasses={languagesGroupDefaultThemeClasses}>
+  <LayoutContainer themeClasses={languagesGroupDefaultThemeClasses.wrapper}>
     {languages.map(({ level, name }) => (
       <LayoutContainer
         key={level + name}
-        themeClasses={languagesGroupLanguageWrapperDefaultThemeClasses}
+        themeClasses={languagesGroupDefaultThemeClasses.languageWrapper}
       >
-        <LayoutContainer themeClasses={languagesGroupLevelDefaultThemeClasses}>
+        <LayoutContainer themeClasses={languagesGroupDefaultThemeClasses.level}>
           <Corners />
           {level}
         </LayoutContainer>
 
-        <Typography themeClasses={languagesGroupNameDefaultThemeClasses}>
+        <Typography themeClasses={languagesGroupDefaultThemeClasses.name}>
           {name}
         </Typography>
       </LayoutContainer>
