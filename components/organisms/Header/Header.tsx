@@ -25,6 +25,7 @@ const Header: React.FC<IHeaderProps> = ({ children, themeClasses }) => {
     <LayoutContainer themeClasses={headerContainerThemeClasses}>
       <LayoutContainer
         as="header"
+        id="header"
         themeClasses={headerOuterWrapperDefaultThemeClasses}
       >
         <LayoutContainer themeClasses={headerInnerWrapperDefaultThemeClasses}>

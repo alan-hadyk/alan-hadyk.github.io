@@ -1,32 +1,105 @@
+import { apiGithubCom } from "../../mock/apiGithubCom";
+
 describe("Header", () => {
-  it("should match snapshot at tv width", () => {
+  beforeEach(() => {
+    cy.intercept(
+      "https://api.github.com/repos/alan-hadyk/portfolio/commits",
+      (req) => {
+        req.reply(apiGithubCom["repos/alan-hadyk/portfolio/commits"]);
+      }
+    );
+  });
+
+  it("should display header at tv width", () => {
     cy.viewport(1921, 1080);
 
     cy.visit("/");
 
-    cy.get(".Header").matchImageSnapshot();
+    cy.wait(1000);
+
+    cy.get("#header").matchImageSnapshot();
+    cy.get("#side-menu-desktop").should("not.be.visible");
   });
 
-  it("should match snapshot at desktop width", () => {
-    cy.viewport(1681, 1080);
+  it("should display header at wide desktop width", () => {
+    cy.viewport(1700, 1080);
 
     cy.visit("/");
 
-    cy.get(".Header").matchImageSnapshot();
+    cy.wait(1000);
+
+    cy.get("#header").matchImageSnapshot();
+    cy.get("#side-menu-desktop").should("not.be.visible");
   });
 
-  it("should match snapshot at tablet width", () => {
-    cy.viewport(1681, 1080);
+  it("should display header at narrow desktop width", () => {
+    cy.viewport(1300, 1080);
 
     cy.visit("/");
 
-    cy.get(".Header").matchImageSnapshot();
+    cy.wait(1000);
 
-    cy.dataCy("MenuButton")
-      .should("be.visible")
-      .should("not.be.disabled")
-      .click();
+    cy.get("#header").matchImageSnapshot();
+  });
 
-    cy.dataCy("SideMenu").matchImageSnapshot();
+  it("should display side menu at narrow desktop width", () => {
+    cy.viewport(1300, 1080);
+
+    cy.visit("/");
+    cy.get("#side-menu-desktop").should("not.be.visible");
+
+    cy.get("#menu-button-desktop").click();
+
+    cy.wait(1000);
+
+    cy.get("#side-menu-desktop").matchImageSnapshot();
+  });
+
+  it("should display header at tablet width", () => {
+    cy.viewport(1000, 1080);
+
+    cy.visit("/");
+
+    cy.wait(1000);
+
+    cy.get("#header").matchImageSnapshot();
+  });
+
+  it("should display side menu at tablet width", () => {
+    cy.viewport(1000, 1080);
+
+    cy.visit("/");
+
+    cy.get("#side-menu-tablet-mobile").should("not.be.visible");
+
+    cy.get("#menu-button-tablet-mobile").click();
+
+    cy.wait(1000);
+
+    cy.get("#side-menu-tablet-mobile").matchImageSnapshot();
+  });
+
+  it("should display header at mobile width", () => {
+    cy.viewport(650, 1080);
+
+    cy.visit("/");
+
+    cy.wait(1000);
+
+    cy.get("#header").matchImageSnapshot();
+  });
+
+  it("should display side menu at mobile width", () => {
+    cy.viewport(650, 1080);
+
+    cy.visit("/");
+
+    cy.get("#side-menu-tablet-mobile").should("not.be.visible");
+
+    cy.get("#menu-button-tablet-mobile").click();
+
+    cy.wait(1000);
+
+    cy.get("#side-menu-tablet-mobile").matchImageSnapshot();
   });
 });
