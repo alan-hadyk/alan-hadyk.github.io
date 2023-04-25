@@ -1,9 +1,36 @@
+import {
+  CompanyDescriptionTitleSize,
+  CompanyDescriptionTitleVariant
+} from "components/molecules/CompanyDescriptionTitle/@types/CompanyDescriptionTitle";
 import { IThemeClasses } from "types/theme";
 
 export const companyDescriptionTitleDefaultThemeClasses: IThemeClasses = {
-  color: "text-white",
   fontFamily: "font-anonymousPro",
-  fontSize: "text-36",
-  lineHeight: "leading-56",
   textAlign: "text-left"
+};
+
+export const mapCompanyDescriptionTitleVariantToStyles: Record<
+  CompanyDescriptionTitleVariant,
+  IThemeClasses
+> = {
+  [CompanyDescriptionTitleVariant.Dark]: {
+    color: "text-blue600"
+  },
+  [CompanyDescriptionTitleVariant.Light]: {
+    color: "text-white"
+  }
+};
+
+export const mapCompanyDescriptionTitleSizeToStyles: Record<
+  CompanyDescriptionTitleSize,
+  IThemeClasses
+> = {
+  [CompanyDescriptionTitleSize.Medium]: {
+    fontSize: "text-24",
+    lineHeight: "leading-28"
+  },
+  [CompanyDescriptionTitleSize.Large]: {
+    fontSize: "text-36",
+    lineHeight: "leading-56"
+  }
 };

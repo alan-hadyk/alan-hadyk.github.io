@@ -9,26 +9,5 @@ export interface ITypographyProps {
   shouldShuffleOnHover?: boolean;
   shuffleDelay?: number;
   shuffleInterval?: number;
-  themeClasses?: Pick<
-    IThemeClasses,
-    | "color"
-    | "fontFamily"
-    | "fontSize"
-    | "fontWeight"
-    | "groupHover"
-    | "lineHeight"
-    | "maxHeight"
-    | "overflow"
-    | "padding"
-    | "paddingX"
-    | "paddingY"
-    | "paddingBottom"
-    | "paddingLeft"
-    | "paddingRight"
-    | "paddingTop"
-    | "pseudoClasses"
-    | "textAlign"
-    | "textTransform"
-    | "width"
-  >;
+  themeClasses?: IThemeClasses;
 }

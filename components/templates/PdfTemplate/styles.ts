@@ -4,9 +4,9 @@ export const pdfTemplateDefaultThemeClasses: IThemeClasses = {
   backgroundColor: "bg-white",
   display: "flex",
   flexFlow: "flex-row-nowrap",
+  height: "h-[fit-content]",
   marginX: "mx-auto",
   marginY: "my-0",
-  minHeight: "min-h-screenSm",
   width: "w-full"
 };
 
@@ -22,6 +22,7 @@ export const pdfTemplateSidebarDefaultThemeClasses: IThemeClasses = {
   display: "flex",
   flex: "flex-[0_0_35%]",
   flexFlow: "flex-col-nowrap",
-  paddingX: "px-24",
-  paddingY: "py-40"
+  paddingBottom: "pb-16",
+  paddingTop: "pt-40",
+  paddingX: "px-24"
 };

@@ -3,7 +3,7 @@ import {
   IResponsiveProps
 } from "components/layout/Responsive/@types/Responsive";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
-import { IThemeClasses, TPseudoClasses } from "types/theme";
+import { IThemeClasses } from "types/theme";
 import { responsiveDefaultThemeClasses } from "components/layout/Responsive/styles";
 
 const Responsive: React.FC<IResponsiveProps> = ({ children, devices }) => {
@@ -14,7 +14,7 @@ const Responsive: React.FC<IResponsiveProps> = ({ children, devices }) => {
       ...(devices.includes(Device.Desktop) ? ["screenMdLg:block"] : []),
       ...(devices.includes(Device.Tablet) ? ["screenSmMd:block"] : []),
       ...(devices.includes(Device.Mobile) ? ["screenMaxSm:block"] : [])
-    ] as TPseudoClasses
+    ]
   };
 
   return (

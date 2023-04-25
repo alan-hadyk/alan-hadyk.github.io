@@ -1,16 +1,16 @@
-import puppeteer from "puppeteer";
+import puppeteer, { PDFOptions } from "puppeteer";
 
-const convertPageToPDF = async (url: string) => {
+const convertPageToPDF = async (url: string, options?: PDFOptions) => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
   await page.goto(url, {
-    waitUntil: "networkidle0"
+    waitUntil: "networkidle2"
   });
 
-  const pdf = await page.pdf({
-    format: "a4"
-  });
+  await page.emulateMediaType("screen");
+
+  const pdf = await page.pdf(options);
 
   await browser.close();
 

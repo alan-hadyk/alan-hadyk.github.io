@@ -27,7 +27,6 @@ export const errorTitleDefaultThemeClasses: IThemeClasses = {
 
 export const errorDescriptionDefaultThemeClasses: IThemeClasses = {
   fontSize: "text-24",
-  fontWeight: "font-bold",
   lineHeight: "leading-24",
   paddingTop: "pt-12",
   textTransform: "uppercase"

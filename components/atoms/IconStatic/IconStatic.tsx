@@ -1,31 +1,33 @@
 import React from "react";
-import { IIconStaticProps } from "components/atoms/IconStatic/@types/IconStatic";
-import { iconStaticPictureDefaultThemeClasses } from "components/atoms/IconStatic/styles";
+import {
+  IIconStaticProps,
+  IconStaticVariant
+} from "components/atoms/IconStatic/@types/IconStatic";
 import { convertObjectValuesToString } from "helpers/objects/convertObjectValuesToString";
 import { useIconStaticThemeClasses } from "components/atoms/IconStatic/hooks/useIconStaticThemeClasses";
+import Image from "next/image";
+import { useIconStaticState } from "components/atoms/IconStatic/hooks/useIconStaticState";
 
 const IconStatic: React.FC<IIconStaticProps> = ({
   iconName,
   style,
-  themeClasses
+  themeClasses,
+  variant = IconStaticVariant.Default
 }) => {
   const { iconStaticThemeClasses } = useIconStaticThemeClasses({
-    themeClasses
+    themeClasses,
+    variant
   });
+  const { iconStaticDimensions, src } = useIconStaticState({ iconName });
 
   return (
-    <picture
-      className={convertObjectValuesToString(
-        iconStaticPictureDefaultThemeClasses
-      )}
-    >
-      <img
-        alt={iconName}
-        className={convertObjectValuesToString(iconStaticThemeClasses)}
-        src={`/icons/static/${iconName}.svg`}
-        style={style}
-      />
-    </picture>
+    <Image
+      alt={iconName}
+      className={convertObjectValuesToString(iconStaticThemeClasses)}
+      src={src}
+      style={style}
+      {...iconStaticDimensions}
+    />
   );
 };
 export { IconStatic };

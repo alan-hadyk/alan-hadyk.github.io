@@ -1,6 +1,6 @@
 import { IMenuButtonLineProps } from "components/atoms/MenuButtonLine/@types/MenuButtonLine";
 import { menuButtonLineDefaultThemeClasses } from "components/atoms/MenuButtonLine/styles";
-import { IThemeClasses, TPseudoClasses } from "types/theme";
+import { IThemeClasses } from "types/theme";
 
 const useMenuButtonLineThemeClasses = ({
   isOpen
@@ -23,7 +23,7 @@ const useMenuButtonLineThemeClasses = ({
             "fourthChild:w-0"
           ]
         : [])
-    ] as TPseudoClasses | undefined
+    ]
   };
   return {
     menuButtonLineThemeClasses

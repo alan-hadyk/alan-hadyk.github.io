@@ -3,44 +3,42 @@ import { Typography } from "components/atoms/Typography/Typography";
 import { IVerticalIconsWithLabelsProps } from "components/molecules/VerticalIconsWithLabels/@types/VerticalIconsWithLabels";
 import {
   IconWithLabelSize,
+  IconWithLabelVariant,
   IIconWithLabelProps
 } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { IconStatic } from "components/atoms/IconStatic/IconStatic";
-import {
-  verticalIconsWithLabelsDefaultThemeClasses,
-  verticalIconsWithLabelsIconContainerDefaultThemeClasses,
-  verticalIconsWithLabelsIconsWrapperDefaultThemeClasses,
-  verticalIconsWithLabelsLabelContainerDefaultThemeClasses,
-  verticalIconsWithLabelsLabelsWrapperDefaultThemeClasses
-} from "components/molecules/VerticalIconsWithLabels/styles";
+import { verticalIconsWithLabelsDefaultThemeClasses } from "components/molecules/VerticalIconsWithLabels/styles";
 import { useVerticalIconsWithLabelsThemeClasses } from "components/molecules/VerticalIconsWithLabels/hooks/useVerticalIconsWithLabelsThemeClasses";
+import { Link } from "components/molecules/Link/Link";
 
 const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
   iconsWithLabels,
   size = IconWithLabelSize.Medium,
-  themeClasses
+  themeClasses,
+  variant = IconWithLabelVariant.Blue
 }) => {
-  const {
-    verticalIconsWithLabelsIconThemeClasses,
-    verticalIconsWithLabelsLabelThemeClasses
-  } = useVerticalIconsWithLabelsThemeClasses({ size, themeClasses });
+  const { verticalIconsWithLabelsThemeClasses } =
+    useVerticalIconsWithLabelsThemeClasses({ size, themeClasses, variant });
 
   return (
-    <LayoutContainer themeClasses={verticalIconsWithLabelsDefaultThemeClasses}>
+    <LayoutContainer
+      themeClasses={{
+        ...verticalIconsWithLabelsDefaultThemeClasses.wrapper,
+        ...themeClasses?.wrapper
+      }}
+    >
       <LayoutContainer
-        themeClasses={verticalIconsWithLabelsIconsWrapperDefaultThemeClasses}
+        themeClasses={verticalIconsWithLabelsThemeClasses.iconsWrapper}
       >
         {iconsWithLabels.map(
           ({ iconName }: IIconWithLabelProps, index: number): JSX.Element => (
             <LayoutContainer
               key={iconName + index}
-              themeClasses={
-                verticalIconsWithLabelsIconContainerDefaultThemeClasses
-              }
+              themeClasses={verticalIconsWithLabelsThemeClasses.iconContainer}
             >
               <IconStatic
-                themeClasses={verticalIconsWithLabelsIconThemeClasses}
+                themeClasses={verticalIconsWithLabelsThemeClasses.icon}
                 iconName={iconName}
               />
             </LayoutContainer>
@@ -48,22 +46,31 @@ const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
         )}
       </LayoutContainer>
       <LayoutContainer
-        themeClasses={verticalIconsWithLabelsLabelsWrapperDefaultThemeClasses}
+        themeClasses={verticalIconsWithLabelsThemeClasses.labelsWrapper}
       >
         {iconsWithLabels.map(
-          ({ label }: IIconWithLabelProps): JSX.Element => (
+          ({ href, isExternal, label }: IIconWithLabelProps): JSX.Element => (
             <LayoutContainer
               key={label}
-              themeClasses={
-                verticalIconsWithLabelsLabelContainerDefaultThemeClasses
-              }
+              themeClasses={verticalIconsWithLabelsThemeClasses.labelContainer}
             >
-              <Typography
-                ellipsis
-                themeClasses={verticalIconsWithLabelsLabelThemeClasses}
-              >
-                {label}
-              </Typography>
+              {href ? (
+                <Link href={href} isExternal={isExternal}>
+                  <Typography
+                    ellipsis
+                    themeClasses={verticalIconsWithLabelsThemeClasses.label}
+                  >
+                    {label}
+                  </Typography>
+                </Link>
+              ) : (
+                <Typography
+                  ellipsis
+                  themeClasses={verticalIconsWithLabelsThemeClasses.label}
+                >
+                  {label}
+                </Typography>
+              )}
             </LayoutContainer>
           )
         )}

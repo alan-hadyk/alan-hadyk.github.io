@@ -1,3 +1,4 @@
+import { ContentFrameTitleVariant } from "components/molecules/ContentFrame/@types/ContentFrame";
 import { IThemeClasses } from "types/theme";
 
 export const contentFrameDefaultThemeClasses: IThemeClasses = {
@@ -8,10 +9,32 @@ export const contentFrameDefaultThemeClasses: IThemeClasses = {
 
 export const contentFrameTitleDefaultThemeClasses: IThemeClasses = {
   fontFamily: "font-anonymousPro",
-  fontSize: "text-16",
-  lineHeight: "leading-36",
-  paddingLeft: "pl-2",
-  textTransform: "uppercase"
+  paddingLeft: "pl-2"
+};
+
+export const mapTitleVariantToTitleStyles: Record<
+  ContentFrameTitleVariant,
+  IThemeClasses
+> = {
+  [ContentFrameTitleVariant.SmallDarkBlue]: {
+    color: "text-blue300",
+    fontSize: "text-16",
+    lineHeight: "leading-36",
+    textTransform: "uppercase"
+  },
+  [ContentFrameTitleVariant.MediumWhite]: {
+    color: "text-white",
+    fontSize: "text-20",
+    lineHeight: "leading-28",
+    marginBottom: "mb-12",
+    textTransform: "normal-case"
+  },
+  [ContentFrameTitleVariant.LargeLightBlue]: {
+    color: "text-blue100",
+    fontSize: "text-28",
+    lineHeight: "leading-36",
+    textTransform: "uppercase"
+  }
 };
 
 export const contentFrameDescriptionWrapperDefaultThemeClasses: IThemeClasses =

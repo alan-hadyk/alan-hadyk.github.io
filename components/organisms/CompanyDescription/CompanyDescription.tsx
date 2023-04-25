@@ -1,56 +1,96 @@
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { TechStack } from "components/molecules/TechStack/TechStack";
-import { ICompanyDescriptionProps } from "components/organisms/CompanyDescription/@types/CompanyDescription";
 import {
-  companyDescriptionContainerDefaultThemeClasses,
-  companyDescriptionIconsWithLabelsContainerDefaultThemeClasses
-} from "components/organisms/CompanyDescription/styles";
+  CompanyDescriptionSize,
+  CompanyDescriptionVariant,
+  ICompanyDescriptionProps
+} from "components/organisms/CompanyDescription/@types/CompanyDescription";
+import { companyDescriptionDefaultThemeClasses } from "components/organisms/CompanyDescription/styles";
 import { CompanyDescriptionTitle } from "components/molecules/CompanyDescriptionTitle/CompanyDescriptionTitle";
-import { CompanyDescriptionResponsibilities } from "components/molecules/CompanyDescriptionResponsibilities/CompanyDescriptionResponsibilities";
-import { CompanyDescriptionIconWithLabel } from "components/molecules/CompanyDescriptionIconWithLabel/CompanyDescriptionIconWithLabel";
+import { CompanyResponsibilities } from "components/molecules/CompanyResponsibilities/CompanyResponsibilities";
 import { IconStaticName } from "components/atoms/IconStatic/@types/IconStatic";
+import {
+  mapCompanyDescriptionSizeToCompanyDescriptionTitleSize,
+  mapCompanyDescriptionSizeToIconWithLabelSize,
+  mapCompanyDescriptionSizeToTechStackSize,
+  mapCompanyDescriptionVariantToOutstandingVerticalIconsWithLabelsVariant,
+  mapCompanyDescriptionVariantToCompanyResponsibilitiesVariant,
+  mapCompanyDescriptionVariantToCompanyDescriptionTitleVariant,
+  mapCompanyDescriptionVariantToTechStackVariant,
+  mapCompanyDescriptionSizeToCompanyResponsibilitiesSize
+} from "components/organisms/CompanyDescription/config";
+import { useCompanyDescriptionThemeClasses } from "components/organisms/CompanyDescription/hooks/useCompanyDescriptionThemeClasses";
+import { OutstandingVerticalIconsWithLabels } from "components/molecules/OutstandingVerticalIconsWithLabels/OutstandingVerticalIconsWithLabels";
 
 const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
   date,
   iconsWithLabels,
   link,
   responsibilities,
+  size = CompanyDescriptionSize.Large,
   themeClasses,
-  title
-}) => (
-  <LayoutContainer
-    themeClasses={companyDescriptionContainerDefaultThemeClasses}
-  >
-    <CompanyDescriptionTitle themeClasses={themeClasses?.title}>
-      {title}
-    </CompanyDescriptionTitle>
+  title,
+  variant = CompanyDescriptionVariant.Blue
+}) => {
+  const { companyDescriptionThemeClasses } = useCompanyDescriptionThemeClasses({
+    size
+  });
 
+  return (
     <LayoutContainer
-      themeClasses={
-        companyDescriptionIconsWithLabelsContainerDefaultThemeClasses
-      }
+      themeClasses={companyDescriptionDefaultThemeClasses.container}
     >
-      <CompanyDescriptionIconWithLabel
-        iconName={IconStaticName.Calendar}
-        label={date}
+      <CompanyDescriptionTitle
+        size={mapCompanyDescriptionSizeToCompanyDescriptionTitleSize[size]}
+        themeClasses={themeClasses?.title}
+        variant={
+          mapCompanyDescriptionVariantToCompanyDescriptionTitleVariant[variant]
+        }
+      >
+        {title}
+      </CompanyDescriptionTitle>
+
+      <OutstandingVerticalIconsWithLabels
+        iconsWithLabels={[
+          {
+            iconName: IconStaticName.Calendar,
+            label: date
+          },
+          ...(link
+            ? [
+                {
+                  href: link,
+                  iconName: IconStaticName.Link,
+                  label: link
+                }
+              ]
+            : [])
+        ]}
+        size={mapCompanyDescriptionSizeToIconWithLabelSize[size]}
+        variant={
+          mapCompanyDescriptionVariantToOutstandingVerticalIconsWithLabelsVariant[
+            variant
+          ]
+        }
+        themeClasses={companyDescriptionThemeClasses.outstandingIcons}
       />
 
-      {link && (
-        <CompanyDescriptionIconWithLabel
-          href={link}
-          label={link}
-          iconName={IconStaticName.Link}
-        />
-      )}
+      <TechStack
+        iconsWithLabels={iconsWithLabels}
+        size={mapCompanyDescriptionSizeToTechStackSize[size]}
+        variant={mapCompanyDescriptionVariantToTechStackVariant[variant]}
+      />
+
+      <CompanyResponsibilities
+        responsibilities={responsibilities}
+        size={mapCompanyDescriptionSizeToCompanyResponsibilitiesSize[size]}
+        themeClasses={themeClasses?.responsibilitiesWrapper}
+        variant={
+          mapCompanyDescriptionVariantToCompanyResponsibilitiesVariant[variant]
+        }
+      />
     </LayoutContainer>
-
-    <TechStack iconsWithLabels={iconsWithLabels} />
-
-    <CompanyDescriptionResponsibilities
-      responsibilities={responsibilities}
-      themeClasses={themeClasses?.responsibilitiesWrapper}
-    />
-  </LayoutContainer>
-);
+  );
+};
 
 export { CompanyDescription };

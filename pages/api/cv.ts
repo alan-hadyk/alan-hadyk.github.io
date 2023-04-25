@@ -7,7 +7,12 @@ const ApiCvRoute = async (req: NextApiRequest, res: NextApiResponse) => {
 
   const host = req.headers.host;
 
-  const pdf = await convertPageToPDF(`http://${host}/cv`);
+  const pdf = await convertPageToPDF(`http://${host}/cv`, {
+    height: "6720px",
+    pageRanges: "1",
+    printBackground: true,
+    width: "210mm"
+  });
 
   return res.send(pdf);
 };

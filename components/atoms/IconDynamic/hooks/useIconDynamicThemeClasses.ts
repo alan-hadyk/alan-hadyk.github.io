@@ -59,7 +59,7 @@ const useIconDynamicThemeClasses = ({
             "childrenSvg:active:drop-shadow-lg"
           ]
         : [])
-    ] as TPseudoClasses | undefined
+    ] as TPseudoClasses
   };
 
   const iconDynamicWrapperClassName = iconDynamicThemeClasses

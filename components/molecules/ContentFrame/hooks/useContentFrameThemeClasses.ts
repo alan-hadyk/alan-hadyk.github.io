@@ -2,40 +2,34 @@ import { calculateChildrenHeight } from "components/molecules/ContentFrame/helpe
 import {
   contentFrameChildrenOuterContainerDefaultThemeClasses,
   contentFrameDefaultThemeClasses,
-  contentFrameTitleDefaultThemeClasses
+  contentFrameTitleDefaultThemeClasses,
+  mapTitleVariantToTitleStyles
 } from "components/molecules/ContentFrame/styles";
 import { ITypographyProps } from "components/atoms/Typography/@types/Typography";
 import { IThemeClasses } from "types/theme";
-import { IContentFrameProps } from "components/molecules/ContentFrame/@types/ContentFrame";
+import {
+  ContentFrameTitleVariant,
+  ContentFrameVariant,
+  IContentFrameProps
+} from "components/molecules/ContentFrame/@types/ContentFrame";
 
 const useContentFrameThemeClasses = ({
   description,
-  shouldDisplayBorder,
-  shouldDisplayCorners,
-  themeClasses
+  themeClasses,
+  titleVariant = ContentFrameTitleVariant.SmallDarkBlue,
+  variant = ContentFrameVariant.Empty
 }: Pick<
   IContentFrameProps,
-  | "description"
-  | "shouldDisplayBorder"
-  | "shouldDisplayCorners"
-  | "themeClasses"
+  "description" | "themeClasses" | "titleVariant" | "variant"
 >) => {
   const contentFrameThemeClasses: IThemeClasses = {
     ...contentFrameDefaultThemeClasses,
     ...themeClasses?.container
   };
 
-  const contentFrameTitleBaseThemeClasses: ITypographyProps["themeClasses"] = {
-    ...contentFrameTitleDefaultThemeClasses,
-    ...themeClasses?.title
-  };
-
   const contentFrameTitleThemeClasses: ITypographyProps["themeClasses"] = {
-    ...contentFrameTitleBaseThemeClasses,
-    color:
-      contentFrameTitleBaseThemeClasses?.fontSize === "text-28"
-        ? "text-blue100"
-        : "text-blue300",
+    ...contentFrameTitleDefaultThemeClasses,
+    ...mapTitleVariantToTitleStyles[titleVariant],
     ...themeClasses?.title
   };
 
@@ -47,12 +41,15 @@ const useContentFrameThemeClasses = ({
 
   const contentFrameChildrenOuterContainerThemeClasses: IThemeClasses = {
     ...contentFrameChildrenOuterContainerDefaultThemeClasses,
-    ...(shouldDisplayBorder && {
-      borderColor: "border-blue300",
-      borderStyle: "border-solid",
-      borderWidth: "border-thin"
-    }),
-    ...((shouldDisplayCorners || shouldDisplayBorder) && {
+    ...(variant === ContentFrameVariant.Border ||
+    variant === ContentFrameVariant.CornersWithBorder
+      ? {
+          borderColor: "border-blue300",
+          borderStyle: "border-solid",
+          borderWidth: "border-thin"
+        }
+      : {}),
+    ...(variant !== ContentFrameVariant.Empty && {
       background: [
         "bg-[url('/images/static/cross.svg')]",
         "bg-center",

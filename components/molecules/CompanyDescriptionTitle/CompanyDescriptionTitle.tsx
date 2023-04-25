@@ -1,19 +1,39 @@
 import { Typography } from "components/atoms/Typography/Typography";
-import { ICompanyDescriptionTitleProps } from "components/molecules/CompanyDescriptionTitle/@types/CompanyDescriptionTitle";
-import { companyDescriptionTitleDefaultThemeClasses } from "components/molecules/CompanyDescriptionTitle/styles";
+import {
+  CompanyDescriptionTitleSize,
+  CompanyDescriptionTitleVariant,
+  ICompanyDescriptionTitleProps
+} from "components/molecules/CompanyDescriptionTitle/@types/CompanyDescriptionTitle";
+import {
+  companyDescriptionTitleDefaultThemeClasses,
+  mapCompanyDescriptionTitleVariantToStyles,
+  mapCompanyDescriptionTitleSizeToStyles
+} from "components/molecules/CompanyDescriptionTitle/styles";
+import { IThemeClasses } from "types/theme";
 
 const CompanyDescriptionTitle: React.FC<ICompanyDescriptionTitleProps> = ({
   children,
-  themeClasses
-}) => (
-  <Typography
-    themeClasses={{
+  size = CompanyDescriptionTitleSize.Large,
+  themeClasses,
+  variant = CompanyDescriptionTitleVariant.Light
+}) => {
+  const companyDescriptionTitleThemeClasses: Record<
+    "typography",
+    IThemeClasses
+  > = {
+    typography: {
       ...companyDescriptionTitleDefaultThemeClasses,
+      ...mapCompanyDescriptionTitleVariantToStyles[variant],
+      ...mapCompanyDescriptionTitleSizeToStyles[size],
       ...themeClasses
-    }}
-  >
-    {children}
-  </Typography>
-);
+    }
+  };
+
+  return (
+    <Typography themeClasses={companyDescriptionTitleThemeClasses.typography}>
+      {children}
+    </Typography>
+  );
+};
 
 export { CompanyDescriptionTitle };

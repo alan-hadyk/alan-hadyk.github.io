@@ -15,7 +15,7 @@ const ListOfCommits: React.FC<IListOfCommitsProps> = ({
 }) => {
   switch (commitsState) {
     case CommitsState.Error:
-      return <Error title="Error" description="Github API is offline" />;
+      return <Error title="Error" description="GitHub API issue" />;
 
     case CommitsState.Loaded:
       return (

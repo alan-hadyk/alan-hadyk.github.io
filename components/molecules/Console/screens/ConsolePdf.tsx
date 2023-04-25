@@ -6,16 +6,18 @@ import { CornerVariant } from "components/atoms/Corner/@types/Corner";
 import { ConsoleText } from "components/atoms/ConsoleText/ConsoleText";
 import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
 import { Corners } from "components/molecules/Corners/Corners";
-import {
-  consolePdfDefaultThemeClasses,
-  consolePdfInnerContainerDefaultThemeClasses
-} from "components/molecules/Console/styles";
 
 const ConsolePdf: React.FC<Pick<IConsoleTextProps, "children">> = ({
   children
 }) => (
-  <LayoutContainer themeClasses={consolePdfDefaultThemeClasses}>
-    <LayoutContainer themeClasses={consolePdfInnerContainerDefaultThemeClasses}>
+  <LayoutContainer>
+    <LayoutContainer
+      themeClasses={{
+        paddingX: "px-16",
+        paddingY: "py-8",
+        position: "relative"
+      }}
+    >
       <Corners variant={CornerVariant.Dark} />
       <ConsoleText variant={ConsoleTextVariant.Pdf}>{children}</ConsoleText>
     </LayoutContainer>

@@ -1,8 +1,9 @@
 import {
   IconWithLabelSize,
+  IconWithLabelVariant,
   IIconWithLabelProps
 } from "components/molecules/IconWithLabel/@types/IconWithLabel";
-import { TGap } from "types/theme";
+import { IThemeClasses, TGap } from "types/theme";
 
 export enum IconsWithLabelsPosition {
   Horizontal,
@@ -10,12 +11,17 @@ export enum IconsWithLabelsPosition {
 }
 
 export interface IIconsWithLabelsProps {
-  iconsWithLabels: Pick<IIconWithLabelProps, "iconName" | "label">[];
+  iconsWithLabels: Pick<
+    IIconWithLabelProps,
+    "href" | "iconName" | "iconVariant" | "isExternal" | "label"
+  >[];
   position?: IconsWithLabelsPosition;
   size?: IIconWithLabelProps["size"];
   themeClasses?: {
     iconWithLabel?: IIconWithLabelProps["themeClasses"];
+    wrapper?: IThemeClasses;
   };
+  variant?: IconWithLabelVariant;
 }
 
 export type TMapSizeToFlexContainerGap = Record<

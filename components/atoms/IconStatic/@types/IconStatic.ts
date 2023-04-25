@@ -20,12 +20,14 @@ export enum IconStaticName {
   Docker = "docker",
   Docpad = "docpad",
   Ember = "ember",
+  Envelope = "envelope",
   Express = "express",
   Figma = "figma",
   Gallery = "gallery",
   GitHubActions = "githubActions",
   GitHubEnterprise = "githubEnterprise",
   GitLab = "gitlab",
+  Globe = "globe",
   GraphQL = "graphQL",
   Grunt = "grunt",
   Gulp = "gulp",
@@ -37,11 +39,13 @@ export enum IconStaticName {
   Jira = "jira",
   LESS = "less",
   Link = "link",
+  LinkedIn = "linkedIn",
   NestJs = "nestJs",
   NextJs = "nextJs",
   NodeJs = "nodeJs",
   Phabricator = "phabricator",
   Photoshop = "photoshop",
+  Pin = "pin",
   Prestashop = "prestashop",
   Prisma = "prisma",
   QUnit = "qUnit",
@@ -71,8 +75,14 @@ export enum IconStaticName {
   Zeplin = "zeplin"
 }
 
+export enum IconStaticVariant {
+  Default,
+  Inverted
+}
+
 export interface IIconStaticProps {
   iconName: IconStaticName;
   style?: CSSProperties;
   themeClasses?: Pick<IThemeClasses, "height" | "overflow" | "width">;
+  variant?: IconStaticVariant;
 }

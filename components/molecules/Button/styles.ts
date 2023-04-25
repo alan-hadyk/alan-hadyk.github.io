@@ -4,6 +4,7 @@ import {
   ButtonSize
 } from "components/molecules/Button/@types/Button";
 import { IThemeClasses } from "types/theme";
+
 export const mapTypeToButtonContainerProps: IMapTypeToButtonContainerProps = {
   primary: {
     backgroundColor: "bg-blue500",

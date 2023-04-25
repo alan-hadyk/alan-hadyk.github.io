@@ -307,13 +307,34 @@ type TColumns = `columns-${number}`;
 
 type TOutline = `outline-${number}`;
 
+type TMixBlendMode = TUtility<
+  "mix-blend",
+  | "normal"
+  | "multiply"
+  | "screen"
+  | "overlay"
+  | "darken"
+  | "lighten"
+  | "color-dodge"
+  | "color-burn"
+  | "hard-light"
+  | "soft-light"
+  | "difference"
+  | "exclusion"
+  | "hue"
+  | "saturation"
+  | "color"
+  | "luminosity"
+  | "plus-lighter"
+>;
+
 export type TMediaQuery = TUtilityWithArbitraryValues<
   TScreensValues,
   string,
   ":"
 >;
 
-export type TPseudoClasses = `${string}:${string}`[];
+export type TPseudoClasses = `${string}:${string}`[] | string[];
 
 export type TClassStyleUtility = `${string}-${string}` | string;
 
@@ -361,6 +382,7 @@ export interface IThemeClasses extends Record<string, unknown> {
   maxWidth?: TMaxWidth;
   mediaQuery?: TMediaQuery | TMediaQuery[];
   minHeight?: TMinHeight;
+  mixBlendMode?: TMixBlendMode;
   opacity?: TOpacity;
   order?: TOrder;
   outline?: TOutline;

@@ -19,10 +19,7 @@ export interface IImageDynamicProps {
   shouldGlow?: boolean;
   shouldGlowOnHover?: boolean;
   style?: CSSProperties;
-  themeClasses?: Pick<
-    IThemeClasses,
-    "height" | "overflow" | "width" | "pseudoClasses"
-  >;
+  themeClasses?: IThemeClasses;
 }
 
 export type TImageComponents = Record<

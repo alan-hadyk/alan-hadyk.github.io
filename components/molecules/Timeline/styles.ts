@@ -19,7 +19,7 @@ export const timelineLineDefaultThemeClasses: IThemeClasses = {
   bottom: "bottom-0",
   left: "left-50%",
   position: "absolute",
-  top: "top-0",
+  top: "top-2",
   translate: "translate-x-negative50%",
   width: "w-2"
 };

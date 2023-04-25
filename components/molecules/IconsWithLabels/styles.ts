@@ -2,22 +2,21 @@ import {
   IconsWithLabelsPosition,
   TMapSizeToFlexContainerGap
 } from "components/molecules/IconsWithLabels/@types/IconsWithLabels";
-import {
-  IconWithLabelSize,
-  IIconWithLabelProps
-} from "components/molecules/IconWithLabel/@types/IconWithLabel";
+import { IconWithLabelSize } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 import { IThemeClasses } from "types/theme";
 
 export const mapSizeToFlexContainerGap: TMapSizeToFlexContainerGap = {
   [IconsWithLabelsPosition.Horizontal]: {
+    [IconWithLabelSize.ExtraSmall]: "gap-8",
     [IconWithLabelSize.Large]: "gap-28",
     [IconWithLabelSize.Medium]: "gap-12",
     [IconWithLabelSize.Small]: "gap-16"
   },
   [IconsWithLabelsPosition.Vertical]: {
-    [IconWithLabelSize.Large]: "gap-28",
-    [IconWithLabelSize.Medium]: "gap-12",
-    [IconWithLabelSize.Small]: "gap-16"
+    [IconWithLabelSize.ExtraSmall]: "gap-0",
+    [IconWithLabelSize.Large]: "gap-0",
+    [IconWithLabelSize.Medium]: "gap-0",
+    [IconWithLabelSize.Small]: "gap-0"
   }
 };
 
@@ -26,12 +25,3 @@ export const iconsWithLabelsDefaultThemeClasses: IThemeClasses = {
   display: "flex",
   height: "h-100%"
 };
-
-export const iconsWithLabelsIconDefaultThemeClasses: IIconWithLabelProps["themeClasses"] =
-  {
-    iconWithLabelContent: {
-      label: {
-        color: "text-blue100"
-      }
-    }
-  };

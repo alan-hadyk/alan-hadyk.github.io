@@ -4,7 +4,7 @@ import { IThemeClasses } from "types/theme";
 
 export interface ILinkWithImageProps {
   href: ILinkProps["href"];
-  iconName: IImageDynamicProps["imageName"];
+  imageName: IImageDynamicProps["imageName"];
   isExternal?: ILinkProps["isExternal"];
   themeClasses?: Pick<IThemeClasses, "height" | "width">;
 }

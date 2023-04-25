@@ -1,47 +1,41 @@
 import React, { Fragment } from "react";
 
-import { Responsive } from "components/layout/Responsive/Responsive";
-import { ISectionProps } from "components/molecules/Section/@types/Section";
-import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
-import { Device } from "components/layout/Responsive/@types/Responsive";
-import { SectionTitle } from "components/molecules/SectionTitle/SectionTitle";
 import {
-  sectionDefaultThemeClasses,
-  sectionTitleMobileDefaultThemeClasses,
-  sectionTitleTvDesktopTabletDefaultThemeClasses
-} from "components/molecules/Section/styles";
-import { IThemeClasses } from "types/theme";
+  ISectionProps,
+  SectionSize,
+  SectionVariant
+} from "components/molecules/Section/@types/Section";
+import { LayoutContainer } from "components/layout/LayoutContainer/LayoutContainer";
+import { SectionTitle } from "components/molecules/SectionTitle/SectionTitle";
+import { useSectionThemeClasses } from "components/molecules/Section/hooks/useSectionThemeClasses";
+import {
+  mapSectionSizeToSectionTitleSize,
+  mapSectionVariantToSectionTitleVariant
+} from "components/molecules/Section/config";
 
 const Section: React.FC<ISectionProps> = ({
   children,
   id,
+  size = SectionSize.Large,
+  themeClasses,
   title,
-  themeClasses
+  variant = SectionVariant.Blue
 }) => {
-  const sectionThemeClasses: IThemeClasses = {
-    ...sectionDefaultThemeClasses,
-    paddingTop: title ? "pt-96" : "pt-0",
-    ...themeClasses
-  };
+  const { sectionThemeClasses } = useSectionThemeClasses({
+    size,
+    themeClasses,
+    title
+  });
 
   return (
     <LayoutContainer id={id} themeClasses={sectionThemeClasses}>
       {title && (
-        <Fragment>
-          <Responsive devices={[Device.Tv, Device.Desktop, Device.Tablet]}>
-            <SectionTitle
-              themeClasses={sectionTitleTvDesktopTabletDefaultThemeClasses}
-            >
-              {title}
-            </SectionTitle>
-          </Responsive>
-
-          <Responsive devices={[Device.Mobile]}>
-            <SectionTitle themeClasses={sectionTitleMobileDefaultThemeClasses}>
-              {title}
-            </SectionTitle>
-          </Responsive>
-        </Fragment>
+        <SectionTitle
+          size={mapSectionSizeToSectionTitleSize[size]}
+          variant={mapSectionVariantToSectionTitleVariant[variant]}
+        >
+          {title}
+        </SectionTitle>
       )}
 
       <Fragment>{children}</Fragment>

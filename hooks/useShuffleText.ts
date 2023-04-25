@@ -27,6 +27,7 @@ const useShuffleText = ({
       shuffle.setText(String(text));
     } else if (React.isValidElement(text)) {
       const { props } = text as ReactElement;
+
       shuffle.setText(String(props.children));
     }
 

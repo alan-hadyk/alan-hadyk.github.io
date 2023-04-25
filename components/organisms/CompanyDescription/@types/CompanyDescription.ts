@@ -3,14 +3,26 @@ import { IUnorderedListProps } from "components/molecules/UnorderedList/@types/U
 
 import { IThemeClasses } from "types/theme";
 
+export enum CompanyDescriptionVariant {
+  Blue,
+  Dark
+}
+
+export enum CompanyDescriptionSize {
+  Medium,
+  Large
+}
+
 export interface ICompanyDescriptionProps {
   date: string;
   iconsWithLabels: Pick<IIconWithLabelProps, "iconName" | "label">[];
   link?: string;
   responsibilities: IUnorderedListProps["items"];
+  size?: CompanyDescriptionSize;
   themeClasses?: {
     responsibilitiesWrapper?: Pick<IThemeClasses, "paddingBottom">;
     title?: Pick<IThemeClasses, "textAlign">;
   };
   title: string;
+  variant?: CompanyDescriptionVariant;
 }

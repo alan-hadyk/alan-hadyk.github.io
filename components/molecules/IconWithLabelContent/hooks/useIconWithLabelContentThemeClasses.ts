@@ -1,29 +1,34 @@
-import { IconWithLabelSize } from "components/molecules/IconWithLabel/@types/IconWithLabel";
 import {
+  IconWithLabelContentSize,
+  IconWithLabelContentVariant,
+  IIconWithLabelContentProps
+} from "components/molecules/IconWithLabelContent/@types/IconWithLabelContent";
+import {
+  mapIconWithLabelContentVariantToLabelStyles,
   mapSizeToIconHeight,
+  mapSizeToIconStyles,
+  mapSizeToIconWrapperStyles,
   mapSizeToTextFontSize
-} from "components/molecules/IconWithLabel/styles";
-import { IIconWithLabelContentProps } from "components/molecules/IconWithLabelContent/@types/IconWithLabelContent";
-import { iconWithLabelContentLabelDefaultThemeClasses } from "components/molecules/IconWithLabelContent/styles";
-import { isIE11 } from "helpers/browser/isIE11";
+} from "components/molecules/IconWithLabelContent/styles";
 import { IThemeClasses } from "types/theme";
 
 const useIconWithLabelContentThemeClasses = ({
-  size = IconWithLabelSize.Medium,
-  themeClasses
-}: Pick<IIconWithLabelContentProps, "size" | "themeClasses">) => {
+  size = IconWithLabelContentSize.Medium,
+  themeClasses,
+  variant = IconWithLabelContentVariant.Blue
+}: Pick<IIconWithLabelContentProps, "size" | "themeClasses" | "variant">) => {
   const iconWithLabelContentIconWrapperThemeClasses: IThemeClasses = {
-    paddingRight: size === IconWithLabelSize.Small ? "pr-8" : "pr-12"
+    ...mapSizeToIconWrapperStyles[size]
   };
 
   const iconWithLabelContentIconThemeClasses: IThemeClasses = {
-    height: mapSizeToIconHeight[size],
-    width: isIE11() ? "w-32" : "w-auto"
+    ...mapSizeToIconStyles[size],
+    height: mapSizeToIconHeight[size]
   };
 
   const iconWithLabelContentLabelThemeClasses: IThemeClasses = {
-    ...iconWithLabelContentLabelDefaultThemeClasses,
-    fontSize: size ? mapSizeToTextFontSize[size] : undefined,
+    ...mapIconWithLabelContentVariantToLabelStyles[variant],
+    fontSize: mapSizeToTextFontSize[size],
     ...themeClasses?.label
   };
 

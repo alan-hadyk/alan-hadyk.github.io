@@ -16,7 +16,6 @@ export default defineConfig({
     specPattern: "cypress/e2e/**/*.spec.ts"
   },
   fixturesFolder: "cypress/fixtures",
-  // modifyObstructiveCode: false,
   numTestsKeptInMemory: 2,
   projectId: "vmrh43",
   retries: {

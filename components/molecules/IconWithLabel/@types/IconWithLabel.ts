@@ -1,32 +1,29 @@
 import { ILinkProps } from "components/molecules/Link/@types/Link";
 import { IIconStaticProps } from "components/atoms/IconStatic/@types/IconStatic";
-import { IThemeClasses } from "types/theme";
+import { IIconWithLabelContentProps } from "components/molecules/IconWithLabelContent/@types/IconWithLabelContent";
 
 export enum IconWithLabelSize {
+  ExtraSmall,
   Large,
   Medium,
   Small
 }
 
+export enum IconWithLabelVariant {
+  Blue,
+  Dark,
+  White
+}
+
 export interface IIconWithLabelProps {
   href?: ILinkProps["href"];
   iconName: IIconStaticProps["iconName"];
+  iconVariant?: IIconStaticProps["variant"];
   isExternal?: ILinkProps["isExternal"];
   label: string;
   size?: IconWithLabelSize;
   themeClasses?: {
-    iconWithLabelContent?: {
-      label?: Pick<IThemeClasses, "groupHover" | "color">;
-    };
+    content?: IIconWithLabelContentProps["themeClasses"];
   };
+  variant?: IconWithLabelVariant;
 }
-
-export type TMapSizeToIconHeight = Record<
-  IconWithLabelSize,
-  IThemeClasses["height"]
->;
-
-export type TMapSizeToTextFontSize = Record<
-  IconWithLabelSize,
-  IThemeClasses["fontSize"]
->;

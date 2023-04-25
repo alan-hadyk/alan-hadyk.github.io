@@ -19,7 +19,8 @@ const Corner: React.FC<ICornerProps> = ({
     ...mapPositionToCornerProps(isActive)[position],
     borderColor:
       variant === CornerVariant.Light ? "border-white" : "border-blue500",
-    opacity: isActive ? "opacity-100" : "opacity-50"
+    opacity:
+      isActive || variant === CornerVariant.Dark ? "opacity-100" : "opacity-50"
   };
 
   const cornerClassNames = convertObjectValuesToArray(cornerThemeClasses);
