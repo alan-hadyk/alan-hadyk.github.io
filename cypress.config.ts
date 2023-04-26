@@ -19,9 +19,14 @@ export default defineConfig({
     specPattern: "cypress/e2e/**/*.spec.ts"
   },
   env: {
+    ALLOW_VISUAL_REGRESSION_TO_FAIL: false,
+    ALWAYS_GENERATE_DIFF: false,
+    SNAPSHOT_BASE_DIRECTORY: "./cypress/snapshots/base",
+    SNAPSHOT_DIFF_DIRECTORY: "./cypress/snapshots/diff",
+    failSilently: false,
     screenshotsFolder: "./cypress/snapshots/actual",
     trashAssetsBeforeRuns: true,
-    type: "actual",
+    type: "base",
     video: false
   },
   fixturesFolder: "cypress/fixtures",

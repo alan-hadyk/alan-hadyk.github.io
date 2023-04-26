@@ -25,6 +25,6 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const compareSnapshotCommand = require("cypress-visual-regression/dist/command");
+import compareSnapshotCommand from "cypress-visual-regression/dist/command";
 
 compareSnapshotCommand();

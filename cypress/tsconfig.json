@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
-    "strict": true,
     "baseUrl": "../node_modules",
-    "target": "es5",
+    "esModuleInterop": true,
     "lib": ["es2015", "es2017.object", "dom"],
-    "typeRoots": ["../node_modules/@types"], 
+    "strict": true,
+    "target": "es5",
+    "typeRoots": ["../node_modules/@types"],
     "types": ["cypress", "cypress-visual-regression", "node"]
   },
   "include": ["**/*.ts", "./support/index.d.ts", "./types/cypress.d.ts", "plugins/index.ts"]

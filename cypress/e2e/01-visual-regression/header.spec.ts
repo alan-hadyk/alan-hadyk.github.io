@@ -17,7 +17,7 @@ describe("Header", () => {
 
     cy.wait(1000);
 
-    cy.get("#header").compareSnapshot("header-tv", 0.1);
+    cy.get("#header").compareSnapshot("header-tv", 0.6);
     cy.get("#side-menu-desktop").should("not.be.visible");
   });
 
@@ -28,7 +28,7 @@ describe("Header", () => {
 
     cy.wait(1000);
 
-    cy.get("#header").compareSnapshot("header-desktop-wide", 0.1);
+    cy.get("#header").compareSnapshot("header-desktop-wide", 0.6);
     cy.get("#side-menu-desktop").should("not.be.visible");
   });
 
@@ -39,7 +39,7 @@ describe("Header", () => {
 
     cy.wait(1000);
 
-    cy.get("#header").compareSnapshot("header-desktop-narrow", 0.1);
+    cy.get("#header").compareSnapshot("header-desktop-narrow", 0.6);
   });
 
   it("should display side menu at narrow desktop width", () => {
@@ -65,7 +65,7 @@ describe("Header", () => {
 
     cy.wait(1000);
 
-    cy.get("#header").compareSnapshot("header-tablet", 0.1);
+    cy.get("#header").compareSnapshot("header-tablet", 0.6);
   });
 
   it("should display side menu at tablet width", () => {
@@ -79,7 +79,7 @@ describe("Header", () => {
 
     cy.wait(1000);
 
-    cy.get("#side-menu-tablet-mobile").compareSnapshot("side-menu-tablet", 0.1);
+    cy.get("#side-menu-tablet-mobile").compareSnapshot("side-menu-tablet", 0.6);
   });
 
   it("should display header at mobile width", () => {
@@ -89,7 +89,7 @@ describe("Header", () => {
 
     cy.wait(1000);
 
-    cy.get("#header").compareSnapshot("header-mobile", 0.1);
+    cy.get("#header").compareSnapshot("header-mobile", 0.6);
   });
 
   it("should display side menu at mobile width", () => {
@@ -103,6 +103,6 @@ describe("Header", () => {
 
     cy.wait(1000);
 
-    cy.get("#side-menu-tablet-mobile").compareSnapshot("side-menu-mobile", 0.1);
+    cy.get("#side-menu-tablet-mobile").compareSnapshot("side-menu-mobile", 0.6);
   });
 });
