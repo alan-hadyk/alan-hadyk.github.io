@@ -5,7 +5,7 @@ import { INavProps } from "components/molecules/Nav/@types/Nav";
 export const navItems: INavProps["navItems"] = [
   {
     href: "#experience",
-    title: "Experience"
+    title: "_Error_"
   },
   {
     href: "#skills",
