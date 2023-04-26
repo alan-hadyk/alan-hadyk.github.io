@@ -14,7 +14,7 @@ module.exports = {
 
   // A batch is the collection of visual checkpoints for a test suite.
   // Batches are displayed in the Eyes Test Manager, so use meaningful names.
-  batchName: "Example: Cypress in JavaScript with the Ultrafast Grid",
+  batchName: "Alan Hadyk - portfolio",
 
   // Applitools can run checkpoints for snapshots against any browser in the Ultrafast Grid.
   // This setting defines 5 unique browser configurations to test.
