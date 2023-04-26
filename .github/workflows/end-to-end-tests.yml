@@ -1,6 +1,11 @@
 name: End-to-end tests
 
-on: [push]
+on:
+  push:
+    # Argos has to run on your reference branch to creates reference builds
+    branches: [master]
+  pull_request:
+    branches: [master]
 
 jobs:
   end-to-end:
