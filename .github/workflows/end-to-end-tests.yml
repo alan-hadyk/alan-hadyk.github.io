@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: test-end-to-end
+      - name: Cypress
         uses: cypress-io/github-action@v5
         with:
           build: yarn build
@@ -42,3 +42,9 @@ jobs:
           # Creating a token https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
+      
+      - name: Applitools
+        uses: colbyfayock/applitools-eyes-action@main
+        with:
+          APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
+          baseUrl: http://0.0.0.0:3000

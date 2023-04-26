@@ -8,14 +8,6 @@ export const navItems: INavProps["navItems"] = [
     title: "Experience"
   },
   {
-    href: "#skills",
-    title: "Skills"
-  },
-  {
-    href: "#about-me",
-    title: "About me"
-  },
-  {
     href: "#contact",
     title: "Contact"
   }
