@@ -19,10 +19,9 @@ export default defineConfig({
     specPattern: "cypress/e2e/**/*.spec.ts"
   },
   env: {
-    failSilently: false,
-    screenshotsFolder: "./cypress/snapshots/base",
+    screenshotsFolder: "./cypress/snapshots/actual",
     trashAssetsBeforeRuns: true,
-    type: "base",
+    type: "actual",
     video: false
   },
   fixturesFolder: "cypress/fixtures",
@@ -32,7 +31,6 @@ export default defineConfig({
     openMode: 1,
     runMode: 3
   },
-  screenshotsFolder: "./cypress/snapshots/base",
   videoUploadOnPasses: false,
   videosFolder: "cypress/videos",
   viewportHeight: 900,

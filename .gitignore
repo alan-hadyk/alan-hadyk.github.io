@@ -36,5 +36,7 @@ yarn-error.log*
 
 # cypress
 cypress/artifacts
+cypress/screenshots
+cypress/snapshots/diff
 __diff_output__
 
