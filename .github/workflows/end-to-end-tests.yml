@@ -31,8 +31,8 @@ jobs:
       - uses: actions/upload-artifact@v3
         if: failure()
         with:
-          name: cypress-screenshots
-          path: cypress/screenshots
+          name: cypress-snapshots
+          path: cypress/snapshots/__diff_output__
       # Test run video was always captured, so this action uses "always()" condition
       - uses: actions/upload-artifact@v3
         if: always()

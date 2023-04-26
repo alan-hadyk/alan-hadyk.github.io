@@ -24,11 +24,4 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-import { addMatchImageSnapshotCommand } from "cypress-image-snapshot/command";
-
-addMatchImageSnapshotCommand({
-  capture: "viewport",
-  customDiffConfig: { threshold: 0.2 },
-  failureThreshold: 0.2,
-  failureThresholdType: "percent"
-});
+import "@argos-ci/cypress/support";

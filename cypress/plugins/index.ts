@@ -18,10 +18,7 @@
  * @type {Cypress.PluginConfig}
  */
 
-import { addMatchImageSnapshotPlugin } from "cypress-image-snapshot/plugin";
-
-const plugins = (on: any, config: Record<string, unknown>) => {
-  addMatchImageSnapshotPlugin(on, config);
-};
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+const plugins = (on: any, config: Record<string, unknown>) => {};
 
 export default plugins;

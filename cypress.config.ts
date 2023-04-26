@@ -22,11 +22,11 @@ export default defineConfig({
     openMode: 1,
     runMode: 3
   },
-  screenshotsFolder: "cypress/artifacts",
+  screenshotsFolder: "cypress/screenshots",
   trashAssetsBeforeRuns: true,
   video: false,
   videoUploadOnPasses: false,
-  videosFolder: "cypress/artifacts",
+  videosFolder: "cypress/videos",
   viewportHeight: 900,
   viewportWidth: 1681,
   waitForAnimations: true

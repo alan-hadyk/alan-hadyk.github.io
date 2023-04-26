@@ -17,7 +17,7 @@ describe("Header", () => {
 
     cy.wait(1000);
 
-    cy.get("#header").matchImageSnapshot();
+    cy.get("#header").argosScreenshot("header-tv");
     cy.get("#side-menu-desktop").should("not.be.visible");
   });
 
@@ -28,7 +28,7 @@ describe("Header", () => {
 
     cy.wait(1000);
 
-    cy.get("#header").matchImageSnapshot();
+    cy.get("#header").argosScreenshot("header-desktop-wide");
     cy.get("#side-menu-desktop").should("not.be.visible");
   });
 
@@ -39,7 +39,7 @@ describe("Header", () => {
 
     cy.wait(1000);
 
-    cy.get("#header").matchImageSnapshot();
+    cy.get("#header").argosScreenshot("header-desktop-narrow");
   });
 
   it("should display side menu at narrow desktop width", () => {
@@ -52,7 +52,7 @@ describe("Header", () => {
 
     cy.wait(1000);
 
-    cy.get("#side-menu-desktop").matchImageSnapshot();
+    cy.get("#side-menu-desktop").argosScreenshot("side-menu-desktop-narrow");
   });
 
   it("should display header at tablet width", () => {
@@ -62,7 +62,7 @@ describe("Header", () => {
 
     cy.wait(1000);
 
-    cy.get("#header").matchImageSnapshot();
+    cy.get("#header").argosScreenshot("header-tablet");
   });
 
   it("should display side menu at tablet width", () => {
@@ -76,7 +76,7 @@ describe("Header", () => {
 
     cy.wait(1000);
 
-    cy.get("#side-menu-tablet-mobile").matchImageSnapshot();
+    cy.get("#side-menu-tablet-mobile").argosScreenshot("side-menu-tablet");
   });
 
   it("should display header at mobile width", () => {
@@ -86,7 +86,7 @@ describe("Header", () => {
 
     cy.wait(1000);
 
-    cy.get("#header").matchImageSnapshot();
+    cy.get("#header").argosScreenshot("header-mobile");
   });
 
   it("should display side menu at mobile width", () => {
@@ -100,6 +100,6 @@ describe("Header", () => {
 
     cy.wait(1000);
 
-    cy.get("#side-menu-tablet-mobile").matchImageSnapshot();
+    cy.get("#side-menu-tablet-mobile").argosScreenshot("side-menu-mobile");
   });
 });
