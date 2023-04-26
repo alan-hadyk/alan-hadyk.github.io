@@ -2,11 +2,12 @@
   "compilerOptions": {
     "baseUrl": "../node_modules",
     "esModuleInterop": true,
-    "lib": ["es2015", "es2017.object", "dom"],
+    "lib": ["es5", "es2015", "es2017.object", "dom"],
+    "moduleResolution": "node",
     "strict": true,
     "target": "es5",
     "typeRoots": ["../node_modules/@types"],
-    "types": ["cypress", "cypress-visual-regression", "node"]
+    "types": ["cypress", "@applitools/eyes-cypress", "node"]
   },
-  "include": ["**/*.ts", "./support/index.d.ts", "./types/cypress.d.ts", "plugins/index.ts"]
+  "include": ["**/*.ts"]
 }

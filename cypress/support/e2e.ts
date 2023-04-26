@@ -13,4 +13,6 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
+import "@applitools/eyes-cypress/commands";
+
 import "./commands";

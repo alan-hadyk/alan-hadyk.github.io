@@ -10,6 +10,10 @@ describe("Header", () => {
     );
   });
 
+  afterEach(() => {
+    cy.eyesClose();
+  });
+
   it("should display header at tv width", () => {
     cy.viewport(1921, 1080);
 
@@ -17,7 +21,23 @@ describe("Header", () => {
 
     cy.wait(1000);
 
-    cy.get("#header").compareSnapshot("header-tv", 0.6);
+    cy.eyesOpen({
+      appName: "Alan Hadyk - Portfolio",
+      browser: {
+        height: 1080,
+        width: 1921
+      },
+      testName: "should display header at tv width"
+    });
+
+    cy.eyesCheckWindow({
+      selector: {
+        selector: "#header",
+        type: "css"
+      },
+      target: "region"
+    });
+
     cy.get("#side-menu-desktop").should("not.be.visible");
   });
 
@@ -28,7 +48,23 @@ describe("Header", () => {
 
     cy.wait(1000);
 
-    cy.get("#header").compareSnapshot("header-desktop-wide", 0.6);
+    cy.eyesOpen({
+      appName: "Alan Hadyk - Portfolio",
+      browser: {
+        height: 1080,
+        width: 1700
+      },
+      testName: "should display header at wide desktop width"
+    });
+
+    cy.eyesCheckWindow({
+      selector: {
+        selector: "#header",
+        type: "css"
+      },
+      target: "region"
+    });
+
     cy.get("#side-menu-desktop").should("not.be.visible");
   });
 
@@ -39,7 +75,22 @@ describe("Header", () => {
 
     cy.wait(1000);
 
-    cy.get("#header").compareSnapshot("header-desktop-narrow", 0.6);
+    cy.eyesOpen({
+      appName: "Alan Hadyk - Portfolio",
+      browser: {
+        height: 1080,
+        width: 1300
+      },
+      testName: "should display header at narrow desktop width"
+    });
+
+    cy.eyesCheckWindow({
+      selector: {
+        selector: "#header",
+        type: "css"
+      },
+      target: "region"
+    });
   });
 
   it("should display side menu at narrow desktop width", () => {
@@ -52,10 +103,22 @@ describe("Header", () => {
 
     cy.wait(1000);
 
-    cy.get("#side-menu-desktop").compareSnapshot(
-      "side-menu-desktop-narrow",
-      0.1
-    );
+    cy.eyesOpen({
+      appName: "Alan Hadyk - Portfolio",
+      browser: {
+        height: 1080,
+        width: 1300
+      },
+      testName: "should display side menu at narrow desktop width"
+    });
+
+    cy.eyesCheckWindow({
+      selector: {
+        selector: "#side-menu-desktop",
+        type: "css"
+      },
+      target: "region"
+    });
   });
 
   it("should display header at tablet width", () => {
@@ -65,7 +128,22 @@ describe("Header", () => {
 
     cy.wait(1000);
 
-    cy.get("#header").compareSnapshot("header-tablet", 0.6);
+    cy.eyesOpen({
+      appName: "Alan Hadyk - Portfolio",
+      browser: {
+        height: 1080,
+        width: 1000
+      },
+      testName: "should display header at tablet width"
+    });
+
+    cy.eyesCheckWindow({
+      selector: {
+        selector: "#header",
+        type: "css"
+      },
+      target: "region"
+    });
   });
 
   it("should display side menu at tablet width", () => {
@@ -79,7 +157,22 @@ describe("Header", () => {
 
     cy.wait(1000);
 
-    cy.get("#side-menu-tablet-mobile").compareSnapshot("side-menu-tablet", 0.6);
+    cy.eyesOpen({
+      appName: "Alan Hadyk - Portfolio",
+      browser: {
+        height: 1080,
+        width: 1000
+      },
+      testName: "should display side menu at tablet width"
+    });
+
+    cy.eyesCheckWindow({
+      selector: {
+        selector: "#side-menu-tablet-mobile",
+        type: "css"
+      },
+      target: "region"
+    });
   });
 
   it("should display header at mobile width", () => {
@@ -89,7 +182,22 @@ describe("Header", () => {
 
     cy.wait(1000);
 
-    cy.get("#header").compareSnapshot("header-mobile", 0.6);
+    cy.eyesOpen({
+      appName: "Alan Hadyk - Portfolio",
+      browser: {
+        height: 1080,
+        width: 650
+      },
+      testName: "should display header at mobile width"
+    });
+
+    cy.eyesCheckWindow({
+      selector: {
+        selector: "#header",
+        type: "css"
+      },
+      target: "region"
+    });
   });
 
   it("should display side menu at mobile width", () => {
@@ -103,6 +211,21 @@ describe("Header", () => {
 
     cy.wait(1000);
 
-    cy.get("#side-menu-tablet-mobile").compareSnapshot("side-menu-mobile", 0.6);
+    cy.eyesOpen({
+      appName: "Alan Hadyk - Portfolio",
+      browser: {
+        height: 1080,
+        width: 650
+      },
+      testName: "should display side menu at mobile width"
+    });
+
+    cy.eyesCheckWindow({
+      selector: {
+        selector: "#side-menu-tablet-mobile",
+        type: "css"
+      },
+      target: "region"
+    });
   });
 });
