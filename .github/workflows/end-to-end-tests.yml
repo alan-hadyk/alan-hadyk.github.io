@@ -22,7 +22,20 @@ jobs:
       - name: test-end-to-end
         env:
           PORT: 3000
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v5
         with:
-          start: yarn dev
-          wait-on: "http://localhost:3000"
+          build: yarn build
+          start: yarn start -H 0.0.0.0 -p 3000
+          wait-on: "http://0.0.0.0:3000"
+
+      - uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+      # Test run video was always captured, so this action uses "always()" condition
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: cypress-videos
+          path: cypress/videos

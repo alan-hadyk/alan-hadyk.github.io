@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "cypress": "cypress open",
-    "cypress:run": "cypress run --headless",
+    "cypress": "cypress open --config-file=cypress.config.ts",
+    "cypress:run": "cypress run --headless --config-file=cypress.config.ts",
     "dead-code": "ts-prune",
     "dev": "rm -rf .next && next dev",
     "start": "next start",
