@@ -12,7 +12,7 @@ const TypingAnimation: React.FC = () => {
 
   return (
     <LayoutContainer themeClasses={typingAnimationDefaultThemeClasses}>
-      <pre className="typingAnimation">
+      <pre className="typing-animation">
         <code
           className={convertObjectValuesToString(
             typingAnimationCodeDefaultThemeClasses

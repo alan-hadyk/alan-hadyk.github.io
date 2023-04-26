@@ -2,7 +2,7 @@ import { apiGithubCom } from "../../mock/apiGithubCom";
 
 const eyesOpenCommonSettings = {
   appName: "Alan Hadyk - Portfolio",
-  ignore: { selector: ".typingAnimation" }
+  ignore: { selector: ".typing-animation" }
 };
 
 describe("Header", () => {
