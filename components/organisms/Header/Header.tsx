@@ -38,7 +38,7 @@ const Header: React.FC<IHeaderProps> = ({ children, themeClasses }) => {
               <Responsive devices={[Device.Tv, Device.Desktop, Device.Tablet]}>
                 <LinkWithImage
                   href="/"
-                  imageName="logo"
+                  imageName="earth"
                   themeClasses={headerLinkWithImageDefaultThemeClasses}
                 />
               </Responsive>
