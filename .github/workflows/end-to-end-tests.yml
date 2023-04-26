@@ -22,8 +22,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: test-end-to-end
-        env:
-          PORT: 3000
         uses: cypress-io/github-action@v5
         with:
           build: yarn build
@@ -37,6 +35,7 @@ jobs:
           # tag will be either "push" or "pull_request"
           tag: ${{ github.event_name }}
         env:
+          PORT: 3000
           # For recording and parallelization to work you must set your CYPRESS_RECORD_KEY
           # in GitHub repo → Settings → Secrets → Actions
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
