@@ -26,7 +26,7 @@ export default defineConfig({
   },
   fixturesFolder: "cypress/fixtures",
   numTestsKeptInMemory: 2,
-  projectId: "vmrh43",
+  projectId: "tyivk1",
   retries: {
     openMode: 1,
     runMode: 3

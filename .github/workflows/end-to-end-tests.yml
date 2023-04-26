@@ -1,26 +1,23 @@
 name: End-to-end tests
 
-on:
-  push:
-    # Argos has to run on your reference branch to creates reference builds
-    branches: [master]
-  pull_request:
-    branches: [master]
+on: [push]
 
 jobs:
   end-to-end:
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false # https://github.com/cypress-io/github-action/issues/48
       matrix:
+        containers: [1, 2]
         node-version: [18.2.0]
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3.4.0
+        uses: actions/checkout@v3.5.2
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2.1.5
+        uses: actions/setup-node@v3.6.0
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -32,15 +29,17 @@ jobs:
           build: yarn build
           start: yarn start -H 0.0.0.0 -p 3000
           wait-on: "http://0.0.0.0:3000"
-
-      - uses: actions/upload-artifact@v3
-        if: failure()
-        with:
-          name: cypress-snapshots
-          path: cypress/snapshots/diff
-      # Test run video was always captured, so this action uses "always()" condition
-      - uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: cypress-videos
-          path: cypress/videos
+          # Records to Cypress Cloud
+          # https://docs.cypress.io/guides/cloud/projects#Set-up-a-project-to-record
+          record: true
+          parallel: true # Runs test in parallel using settings above
+          group: merge
+          # tag will be either "push" or "pull_request"
+          tag: ${{ github.event_name }}
+        env:
+          # For recording and parallelization to work you must set your CYPRESS_RECORD_KEY
+          # in GitHub repo → Settings → Secrets → Actions
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          # Creating a token https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
