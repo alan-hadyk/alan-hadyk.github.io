@@ -45,5 +45,5 @@ module.exports = {
 
   // Concurrency refers to the number of visual checkpoints Applitools will perform in parallel.
   // Warning: If you have a free account, then concurrency will be limited to 1.
-  testConcurrency: 5
+  testConcurrency: 1
 };
