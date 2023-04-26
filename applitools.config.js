@@ -1,5 +1,8 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 // This config file specifies how to run visual tests with Applitools.
 // It applies to all tests in this project.
+
+require("dotenv").config();
 
 module.exports = {
   // To connect visual test results to your account,
@@ -7,7 +10,7 @@ module.exports = {
   // To find it: https://applitools.com/tutorials/getting-started/setting-up-your-environment.html
   // If you don't explicitly set the API key here,
   // then the SDK will automatically read the `APPLITOOLS_API_KEY` environment variable to fetch it.
-  apiKey: "I1oK1M07adYikMk97MO1QCAu9z3SoBe4f9ZneqiH32Ag110",
+  apiKey: process.env.APPLITOOLS_API_KEY,
 
   // A batch is the collection of visual checkpoints for a test suite.
   // Batches are displayed in the Eyes Test Manager, so use meaningful names.
