@@ -1,5 +1,10 @@
 import { apiGithubCom } from "../../mock/apiGithubCom";
 
+const eyesOpenCommonSettings = {
+  appName: "Alan Hadyk - Portfolio",
+  ignore: { selector: ".typingAnimation" }
+};
+
 describe("Header", () => {
   beforeEach(() => {
     cy.intercept(
@@ -22,7 +27,7 @@ describe("Header", () => {
     cy.wait(1000);
 
     cy.eyesOpen({
-      appName: "Alan Hadyk - Portfolio",
+      ...eyesOpenCommonSettings,
       browser: {
         height: 1080,
         width: 1921
@@ -49,7 +54,7 @@ describe("Header", () => {
     cy.wait(1000);
 
     cy.eyesOpen({
-      appName: "Alan Hadyk - Portfolio",
+      ...eyesOpenCommonSettings,
       browser: {
         height: 1080,
         width: 1700
@@ -76,7 +81,7 @@ describe("Header", () => {
     cy.wait(1000);
 
     cy.eyesOpen({
-      appName: "Alan Hadyk - Portfolio",
+      ...eyesOpenCommonSettings,
       browser: {
         height: 1080,
         width: 1300
@@ -104,7 +109,7 @@ describe("Header", () => {
     cy.wait(1000);
 
     cy.eyesOpen({
-      appName: "Alan Hadyk - Portfolio",
+      ...eyesOpenCommonSettings,
       browser: {
         height: 1080,
         width: 1300
@@ -129,7 +134,7 @@ describe("Header", () => {
     cy.wait(1000);
 
     cy.eyesOpen({
-      appName: "Alan Hadyk - Portfolio",
+      ...eyesOpenCommonSettings,
       browser: {
         height: 1080,
         width: 1000
@@ -158,7 +163,7 @@ describe("Header", () => {
     cy.wait(1000);
 
     cy.eyesOpen({
-      appName: "Alan Hadyk - Portfolio",
+      ...eyesOpenCommonSettings,
       browser: {
         height: 1080,
         width: 1000
@@ -183,7 +188,7 @@ describe("Header", () => {
     cy.wait(1000);
 
     cy.eyesOpen({
-      appName: "Alan Hadyk - Portfolio",
+      ...eyesOpenCommonSettings,
       browser: {
         height: 1080,
         width: 650
@@ -212,7 +217,7 @@ describe("Header", () => {
     cy.wait(1000);
 
     cy.eyesOpen({
-      appName: "Alan Hadyk - Portfolio",
+      ...eyesOpenCommonSettings,
       browser: {
         height: 1080,
         width: 650
