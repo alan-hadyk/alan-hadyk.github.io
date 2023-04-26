@@ -24,4 +24,7 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-import "@argos-ci/cypress/support";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const compareSnapshotCommand = require("cypress-visual-regression/dist/command");
+
+compareSnapshotCommand();

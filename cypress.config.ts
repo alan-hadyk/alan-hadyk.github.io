@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { defineConfig } from "cypress";
+import getCompareSnapshotsPlugin from "cypress-visual-regression/dist/plugin";
 
 export default defineConfig({
   animationDistanceThreshold: 5,
@@ -11,9 +12,18 @@ export default defineConfig({
     // We've imported your old cypress plugins here.
     // You may want to clean this up later by importing these.
     setupNodeEvents(on, config) {
+      getCompareSnapshotsPlugin(on, config);
+
       return require("./cypress/plugins/index.ts").default(on, config);
     },
     specPattern: "cypress/e2e/**/*.spec.ts"
+  },
+  env: {
+    failSilently: false,
+    screenshotsFolder: "./cypress/snapshots/base",
+    trashAssetsBeforeRuns: true,
+    type: "base",
+    video: false
   },
   fixturesFolder: "cypress/fixtures",
   numTestsKeptInMemory: 2,
@@ -22,9 +32,7 @@ export default defineConfig({
     openMode: 1,
     runMode: 3
   },
-  screenshotsFolder: "cypress/screenshots",
-  trashAssetsBeforeRuns: true,
-  video: false,
+  screenshotsFolder: "./cypress/snapshots/base",
   videoUploadOnPasses: false,
   videosFolder: "cypress/videos",
   viewportHeight: 900,

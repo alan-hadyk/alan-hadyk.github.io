@@ -27,8 +27,6 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "@argos-ci/cli": "^0.4.4",
-    "@argos-ci/cypress": "^0.0.6",
     "@netlify/plugin-nextjs": "^4.32.2",
     "@svgr/webpack": "^7.0.0",
     "@testing-library/jest-dom": "^5.16.5",
@@ -45,6 +43,7 @@
     "@typescript-eslint/parser": "^5.36.1",
     "autoprefixer": "^10.4.14",
     "cypress": "^12.10.0",
+    "cypress-visual-regression": "^3.0.0",
     "eslint": "8.23.0",
     "eslint-config-next": "^13.2.4",
     "eslint-config-prettier": "^8.5.0",

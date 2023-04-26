@@ -32,13 +32,6 @@ jobs:
           build: yarn build
           start: yarn start -H 0.0.0.0 -p 3000
           wait-on: "http://0.0.0.0:3000"
-      
-      - name: Upload screenshots to argos-ci.com
-        continue-on-error: true
-        env:
-          ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }}
-        # 👇 change "./screenshots" by your screenshots folder path
-        run: npx @argos-ci/cli upload cypress/screenshots
 
       - uses: actions/upload-artifact@v3
         if: failure()
