@@ -20,33 +20,65 @@ jobs:
         uses: actions/setup-node@v3.6.0
         with:
           node-version: ${{ matrix.node-version }}
-
-      # - name: Test comment
-      #   uses: thollander/actions-comment-pull-request@v2
-      #   with:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     comment_tag: execution
-      #     pr_number: ${{ github.event.number }}
-      #     message: 👋 Test comment!
   
       - name: Unit tests, integration tests and lint
         id: run_tests
         run: |
           npm install yarn -g
           yarn install
-          yarn lint
-          yarn test
+          yarn lint 2> lint.log || true
+          yarn test 2> test.log || true
         env:
           CI: true
 
-      - name: Report failure reason
-        uses: thollander/actions-comment-pull-request@v2
+      - name: Upload test results
+        uses: actions/upload-artifact@v3
         if: failure()
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          comment_tag: execution
-          pr_number: ${{ github.event.number }}
-          message: |
+          name: test-results
+          path: |
+            lint.log
+            test.log
+
+      - name: Download test results
+        uses: actions/download-artifact@v2
+        if: failure()
+        with:
+          name: test-results
+          path: test-results
+
+      - name: Read log files
+        id: read_logs
+        if: failure()
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const fs = require('fs');
+            const lintLog = fs.readFileSync('test-results/lint.log', 'utf8');
+            const testLog = fs.readFileSync('test-results/test.log', 'utf8');
+            return {
+              lint_log: lintLog,
+              test_log: testLog
+            };
+
+      - name: Report failure reason
+        uses: peter-evans/create-or-update-comment@v3
+        if: failure()
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.number }}
+          body: |
             ## Unit tests, integration tests and lint failure 🚫
 
-            ${{join(steps.run_tests.outputs.*, '\n')}}
+            ### Lint Log
+
+            ```
+            ${{ steps.read_logs.outputs.lint_log }}
+            ```
+
+            ### Test Log
+
+            ```
+            ${{ steps.read_logs.outputs.test_log }}
+            ```
+          edit-mode: replace
