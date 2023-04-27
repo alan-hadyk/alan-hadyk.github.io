@@ -59,8 +59,8 @@ jobs:
         if: always()
         id: download_logs
         run: |
-          echo "::set-env name=lint_log::$(cat logs/lint.log | tr -d '\n')"
-          echo "::set-env name=test_log::$(cat logs/test.log | tr -d '\n')"
+          echo "lint_log=$(cat logs/lint.log | tr -d '\n')" >> $GITHUB_ENV
+          echo "test_log=$(cat logs/test.log | tr -d '\n')" >> $GITHUB_ENV
 
       - name: Report failure reason
         if: failure()
