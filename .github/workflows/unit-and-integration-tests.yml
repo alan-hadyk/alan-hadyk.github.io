@@ -26,8 +26,9 @@ jobs:
         run: |
           npm install yarn -g
           yarn install
-          yarn lint 2>&1 | tee lint.log || exit ${PIPESTATUS[0]}
-          yarn test 2>&1 | tee test.log || exit ${PIPESTATUS[0]}
+          yarn lint 2>&1 | tee lint.log; test_exit_code=${PIPESTATUS[0]}
+          yarn test 2>&1 | tee test.log; test_exit_code=$((test_exit_code | ${PIPESTATUS[0]}))
+          exit $test_exit_code
         env:
           CI: true
 
