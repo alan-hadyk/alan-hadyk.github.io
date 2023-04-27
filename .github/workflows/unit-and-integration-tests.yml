@@ -28,10 +28,22 @@ jobs:
           yarn install
           yarn lint 2> lint.log || true
           yarn test 2> test.log || true
-          echo "lint_log=$(cat lint.log)" >> $GITHUB_ENV
-          echo "test_log=$(cat test.log)" >> $GITHUB_ENV
-        env:
-          CI: true
+          echo "Lint log and test log saved as artifacts."
+
+      - name: Save logs as artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: logs
+          path: |
+            lint.log
+            test.log
+
+      - name: Download logs
+        if: failure()
+        uses: actions/download-artifact@v2
+        with:
+          name: logs
+          path: logs
 
       - name: Report failure reason
         if: failure()
@@ -46,11 +58,11 @@ jobs:
             ### Lint Log
 
             ```
-            ${{ env.lint_log }}
+            ${{ steps.run_tests.outputs.lint_log }}
             ```
 
             ### Test Log
 
             ```
-            ${{ env.test_log }}
+            ${{ steps.run_tests.outputs.test_log }}
             ```
