@@ -21,13 +21,13 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Test comment
-        uses: thollander/actions-comment-pull-request@v2
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          comment_tag: execution
-          pr_number: ${{ github.event.number }}
-          message: 👋 Test comment!
+      # - name: Test comment
+      #   uses: thollander/actions-comment-pull-request@v2
+      #   with:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     comment_tag: execution
+      #     pr_number: ${{ github.event.number }}
+      #     message: 👋 Test comment!
   
       - name: Unit tests, integration tests and lint
         id: run_tests
@@ -39,15 +39,14 @@ jobs:
         env:
           CI: true
 
-      # - name: Report failure reason
-      #   uses: actions/github-script@v5
-      #   if: failure()
-      #   with:
-      #     github-token: ${{ secrets.GITHUB_TOKEN }}
-      #     script: |
-      #       github.rest.issues.createComment({
-      #         issue_number: context.issue.number,
-      #         owner: context.repo.owner,
-      #         repo: context.repo.repo,
-      #         body: `${{join(steps.run_tests.outputs.*, '\n')}}`
-      #       })
+      - name: Report failure reason
+        uses: thollander/actions-comment-pull-request@v2
+        if: failure()
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          comment_tag: execution
+          pr_number: ${{ github.event.number }}
+          message: |
+            ## Unit tests, integration tests and lint failure 🚫
+
+            ${{join(steps.run_tests.outputs.*, '\n')}}
