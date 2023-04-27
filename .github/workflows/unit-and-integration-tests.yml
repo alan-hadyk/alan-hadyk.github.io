@@ -35,6 +35,7 @@ jobs:
 
       - name: Save logs as artifacts
         if: always()
+        id: save_logs
         uses: actions/upload-artifact@v3
         with:
           name: logs
@@ -43,11 +44,11 @@ jobs:
             test.log
 
       - name: Download logs
-        if: failure()
+        if: always()
         uses: actions/download-artifact@v2
         with:
           name: logs
-          path: logs
+          path: logs/
 
       - name: Report failure reason
         if: failure()
@@ -62,11 +63,11 @@ jobs:
             ### Lint Log
 
             ```
-            ${{ steps.run_tests.outputs.lint_log }}
+            ${{ readFile('logs/lint.log') }}
             ```
 
             ### Test Log
 
             ```
-            ${{ steps.run_tests.outputs.test_log }}
+            ${{ readFile('logs/test.log') }}
             ```
