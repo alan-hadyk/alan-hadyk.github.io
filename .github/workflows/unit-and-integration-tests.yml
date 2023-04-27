@@ -59,7 +59,6 @@ jobs:
         if: always()
         id: download_logs
         run: |
-          mkdir logs
           echo "lint_log::$(cat logs/lint.log | tr -d '\n')" >> $GITHUB_ENV
           echo "test_log::$(cat logs/test.log | tr -d '\n')" >> $GITHUB_ENV
 
