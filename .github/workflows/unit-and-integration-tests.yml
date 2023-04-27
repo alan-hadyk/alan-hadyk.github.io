@@ -40,11 +40,11 @@ jobs:
             ### Lint Log
 
             ```
-            ${{ steps.run_tests.outputs.lint_log | base64decode }}
+            ${{ steps.run_tests.outputs.lint_log | base64decode() }}
             ```
 
             ### Test Log
 
             ```
-            ${{ steps.run_tests.outputs.test_log | base64decode }}
+            ${{ steps.run_tests.outputs.test_log | base64decode() }}
             ```
