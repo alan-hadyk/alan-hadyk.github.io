@@ -59,8 +59,8 @@ jobs:
         if: always()
         id: download_logs
         run: |
-          echo "lint_log=$(cat logs/lint.log)" >> $GITHUB_ENV
-          echo "test_log=$(cat logs/test.log)" >> $GITHUB_ENV
+          echo "lint_log=$(cat logs/lint.log | sed 's/"/\\"/g' | sed "s/'/\\'/g")" >> $GITHUB_ENV
+          echo "test_log=$(cat logs/test.log | sed 's/"/\\"/g' | sed "s/'/\\'/g")" >> $GITHUB_ENV
 
       - name: Report failure reason
         if: failure()
