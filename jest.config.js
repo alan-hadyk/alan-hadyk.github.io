@@ -19,9 +19,7 @@ const customJestConfig = {
   },
   modulePathIgnorePatterns: [
     "<rootDir>/node_modules/",
-    "<rootDir>/legacyApp/",
-    "<rootDir>/cypress/",
-    "<rootDir>/cypressExamples/"
+    "<rootDir>/end-to-end/"
   ],
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   testEnvironment: "jest-environment-jsdom"
