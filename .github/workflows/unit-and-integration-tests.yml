@@ -23,32 +23,13 @@ jobs:
 
       - name: Unit tests, integration tests and lint
         id: run_tests
-        run: |
-          npm install yarn -g
-          yarn install
-          yarn lint 2>&1 | tee lint.log; test_exit_code=${PIPESTATUS[0]}
-          yarn test 2>&1 | tee test.log; test_exit_code=$((test_exit_code | ${PIPESTATUS[0]}))
-          echo "TEST_EXIT_CODE=$test_exit_code" >> $GITHUB_ENV
+        run: ./ci/scripts/run_tests_and_capture_logs.sh
         env:
           CI: true
 
-      - name: Read log files
-        id: read_logs
-        if: env.TEST_EXIT_CODE != '0'
-        uses: actions/github-script@v5
-        with:
-          script: |
-            const fs = require('fs');
-            const lintLog = fs.readFileSync('lint.log', 'utf8');
-            const testLog = fs.readFileSync('test.log', 'utf8');
-            return {
-              lint_log: lintLog,
-              test_log: testLog
-            };
-
       - name: Report failure reason
         uses: peter-evans/create-or-update-comment@v1
-        if: env.TEST_EXIT_CODE != '0'
+        if: steps.run_tests.outputs.test_exit_code != '0'
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.number }}
@@ -58,12 +39,12 @@ jobs:
             ### Lint Log
 
             ```
-            ${{ steps.read_logs.outputs.lint_log }}
+            ${{ steps.run_tests.outputs.lint_log }}
             ```
 
             ### Test Log
 
             ```
-            ${{ steps.read_logs.outputs.test_log }}
+            ${{ steps.run_tests.outputs.test_log }}
             ```
           edit-mode: replace
