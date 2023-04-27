@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-node@v3.6.0
         with:
           node-version: ${{ matrix.node-version }}
-  
+
       - name: Unit tests, integration tests and lint
         id: run_tests
         run: |
@@ -28,43 +28,27 @@ jobs:
           yarn install
           yarn lint 2>&1 | tee lint.log; test_exit_code=${PIPESTATUS[0]}
           yarn test 2>&1 | tee test.log; test_exit_code=$((test_exit_code | ${PIPESTATUS[0]}))
-          exit $test_exit_code
+          echo "TEST_EXIT_CODE=$test_exit_code" >> $GITHUB_ENV
         env:
           CI: true
 
-      - name: Upload test results
-        uses: actions/upload-artifact@v3
-        if: failure()
-        with:
-          name: test-results
-          path: |
-            lint.log
-            test.log
-
-      - name: Download test results
-        uses: actions/download-artifact@v2
-        if: failure()
-        with:
-          name: test-results
-          path: test-results
-
       - name: Read log files
         id: read_logs
-        if: failure()
+        if: env.TEST_EXIT_CODE != '0'
         uses: actions/github-script@v5
         with:
           script: |
             const fs = require('fs');
-            const lintLog = fs.readFileSync('test-results/lint.log', 'utf8');
-            const testLog = fs.readFileSync('test-results/test.log', 'utf8');
+            const lintLog = fs.readFileSync('lint.log', 'utf8');
+            const testLog = fs.readFileSync('test.log', 'utf8');
             return {
               lint_log: lintLog,
               test_log: testLog
             };
 
       - name: Report failure reason
-        uses: peter-evans/create-or-update-comment@v3
-        if: failure()
+        uses: peter-evans/create-or-update-comment@v1
+        if: env.TEST_EXIT_CODE != '0'
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.number }}
