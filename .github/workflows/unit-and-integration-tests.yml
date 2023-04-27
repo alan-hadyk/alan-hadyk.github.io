@@ -43,12 +43,13 @@ jobs:
             lint.log
             test.log
 
-      - name: Download logs
+      - name: Download logs and set outputs
         if: always()
-        uses: actions/download-artifact@v2
-        with:
-          name: logs
-          path: logs/
+        id: download_logs
+        run: |
+          mkdir -p logs/
+          echo "lint_log::$(cat logs/lint.log)" >> $GITHUB_ENV
+          echo "test_log::$(cat logs/test.log)" >> $GITHUB_ENV
 
       - name: Report failure reason
         if: failure()
@@ -63,11 +64,11 @@ jobs:
             ### Lint Log
 
             ```
-            ${{ readFile('logs/lint.log') }}
+            ${{ steps.download_logs.outputs.lint_log }}
             ```
 
             ### Test Log
 
             ```
-            ${{ readFile('logs/test.log') }}
+            ${{ steps.download_logs.outputs.test_log }}
             ```
