@@ -55,8 +55,12 @@ jobs:
         id: download_logs
         run: |
           mkdir -p logs/
-          echo "lint_log='${{ steps.download_logs.outputs.lint_log }}'" >> $GITHUB_ENV
-          echo "test_log='${{ steps.download_logs.outputs.test_log }}'" >> $GITHUB_ENV
+          echo "lint_log::$(cat logs/lint.log)" >> $GITHUB_ENV
+          echo "test_log::$(cat logs/test.log)" >> $GITHUB_ENV
+
+      - name: List logs directory
+        run: |
+          ls logs
 
       - name: Report failure reason
         if: failure()
