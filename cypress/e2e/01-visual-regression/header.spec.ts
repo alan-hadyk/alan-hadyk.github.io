@@ -1,7 +1,10 @@
 import { apiGithubCom } from "../../mock/apiGithubCom";
 
 const eyesOpenCommonSettings = {
-  appName: "Alan Hadyk - Portfolio",
+  appName: "Alan Hadyk - Portfolio"
+};
+
+const eyesCheckWindowCommonSettings = {
   ignore: { selector: ".typing-animation" }
 };
 
@@ -36,6 +39,7 @@ describe("Header", () => {
     });
 
     cy.eyesCheckWindow({
+      ...eyesCheckWindowCommonSettings,
       selector: {
         selector: "#header",
         type: "css"
@@ -63,6 +67,7 @@ describe("Header", () => {
     });
 
     cy.eyesCheckWindow({
+      ...eyesCheckWindowCommonSettings,
       selector: {
         selector: "#header",
         type: "css"
@@ -90,6 +95,7 @@ describe("Header", () => {
     });
 
     cy.eyesCheckWindow({
+      ...eyesCheckWindowCommonSettings,
       selector: {
         selector: "#header",
         type: "css"
@@ -118,6 +124,7 @@ describe("Header", () => {
     });
 
     cy.eyesCheckWindow({
+      ...eyesCheckWindowCommonSettings,
       selector: {
         selector: "#side-menu-desktop",
         type: "css"
@@ -143,6 +150,7 @@ describe("Header", () => {
     });
 
     cy.eyesCheckWindow({
+      ...eyesCheckWindowCommonSettings,
       selector: {
         selector: "#header",
         type: "css"
@@ -172,6 +180,7 @@ describe("Header", () => {
     });
 
     cy.eyesCheckWindow({
+      ...eyesCheckWindowCommonSettings,
       selector: {
         selector: "#side-menu-tablet-mobile",
         type: "css"
@@ -197,6 +206,7 @@ describe("Header", () => {
     });
 
     cy.eyesCheckWindow({
+      ...eyesCheckWindowCommonSettings,
       selector: {
         selector: "#header",
         type: "css"
@@ -226,6 +236,7 @@ describe("Header", () => {
     });
 
     cy.eyesCheckWindow({
+      ...eyesCheckWindowCommonSettings,
       selector: {
         selector: "#side-menu-tablet-mobile",
         type: "css"
