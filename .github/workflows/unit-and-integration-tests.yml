@@ -26,8 +26,8 @@ jobs:
         run: |
           npm install yarn -g
           yarn install
-          yarn lint 2> lint.log || true
-          yarn test 2> test.log || true
+          yarn lint &> lint.log
+          yarn test &> test.log
         env:
           CI: true
 
