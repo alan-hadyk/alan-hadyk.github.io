@@ -13,7 +13,10 @@ const ConsoleText: React.FC<IConsoleTextProps> = ({ children, variant }) => {
   };
 
   const consoleTexClassNames: TClassStyleUtility[] = convertObjectValuesToArray(
-    consoleTextThemeClasses
+    {
+      ...consoleTextThemeClasses,
+      className: "console-text"
+    }
   );
 
   return <div className={consoleTexClassNames.join(" ")}>{children}</div>;

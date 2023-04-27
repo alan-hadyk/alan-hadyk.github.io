@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "cypress": "cypress open --config-file=cypress.config.ts",
-    "cypress:run": "cypress run --headless --config-file=cypress.config.ts",
     "dead-code": "ts-prune",
     "dev": "rm -rf .next && next dev",
-    "start": "next start",
     "lint": "next lint",
+    "playwright:codegen": "playwright codegen",
+    "playwright:test": "playwright test",
+    "playwright:test-ui": "playwright test --ui",
+    "playwright:update-snapshots": "playwright test --update-snapshots",
+    "start": "next start",
     "test": "jest --passWithNoTests",
     "test:watch": "jest --watch --passWithNoTests"
   },
@@ -28,6 +30,7 @@
   },
   "devDependencies": {
     "@netlify/plugin-nextjs": "^4.32.2",
+    "@playwright/test": "^1.33.0",
     "@svgr/webpack": "^7.0.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",

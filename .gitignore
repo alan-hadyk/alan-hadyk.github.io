@@ -35,9 +35,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
-# cypress
-cypress/artifacts
-cypress/screenshots
-cypress/snapshots/diff
-__diff_output__
-
+# playwright
+/test-results/
+/playwright-report/
+/playwright/.cache/
+/end-to-end/artifacts/

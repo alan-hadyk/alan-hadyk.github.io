@@ -9,7 +9,17 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
   TLayoutContainerElementType,
   ILayoutContainerProps
 > = (
-  { as = "div", children, id, onClick, onFocus, style, tabIndex, themeClasses },
+  {
+    as = "div",
+    children,
+    className,
+    id,
+    onClick,
+    onFocus,
+    style,
+    tabIndex,
+    themeClasses
+  },
   ref
 ) => {
   const HTMLTag = as;
@@ -21,7 +31,7 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
 
   return (
     <HTMLTag
-      className={layoutContainerClassNames.join(" ")}
+      className={[...layoutContainerClassNames, className].join(" ")}
       id={id}
       onClick={onClick}
       onFocus={onFocus}

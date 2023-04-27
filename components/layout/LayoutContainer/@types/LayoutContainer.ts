@@ -7,6 +7,7 @@ export type TLayoutContainerElementType = HTMLDivElement | HTMLElement;
 export interface ILayoutContainerProps {
   as?: "div" | "nav" | "header" | "main" | "ul";
   children?: TChildren;
+  className?: string;
   id?: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
   onFocus?: React.FocusEventHandler<HTMLElement> | (() => void);
