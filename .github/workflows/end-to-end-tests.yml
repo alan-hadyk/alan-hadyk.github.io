@@ -30,9 +30,23 @@ jobs:
         run: yarn playwright test
         env:
           CI: true
-        
-      - uses: actions/upload-artifact@v3
-        if: always()
+
+      - name: Report failure reason
+        uses: actions/github-script@v5
+        if: failure()
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: ${{join(steps.run_tests.outputs.*, '\n')}}
+            })
+                    
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        if: failure()
         with:
           name: playwright-report
           path: playwright-report/

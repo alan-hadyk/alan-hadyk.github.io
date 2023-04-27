@@ -19,7 +19,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: test-unit
+      - name: Unit tests, integration tests and lint
+        id: run_tests
         run: |
           npm install yarn -g
           yarn install
@@ -27,3 +28,16 @@ jobs:
           yarn test
         env:
           CI: true
+
+      - name: Report failure reason
+        uses: actions/github-script@v5
+        if: failure()
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: ${{join(steps.run_tests.outputs.*, '\n')}}
+            })
