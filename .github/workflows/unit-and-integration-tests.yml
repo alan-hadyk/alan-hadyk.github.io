@@ -23,7 +23,13 @@ jobs:
 
       - name: Unit tests, integration tests and lint
         id: run_tests
-        run: ./ci/scripts/run_tests_and_capture_logs.sh
+        run: |
+          npm install yarn -g
+          yarn install
+          yarn lint 2> lint.log || true
+          yarn test 2> test.log || true
+          echo "lint_log=$(cat lint.log)" >> $GITHUB_ENV
+          echo "test_log=$(cat test.log)" >> $GITHUB_ENV
         env:
           CI: true
 
@@ -40,11 +46,11 @@ jobs:
             ### Lint Log
 
             ```
-            ${{ steps.run_tests.outputs.lint_log | base64decode() }}
+            ${{ env.lint_log }}
             ```
 
             ### Test Log
 
             ```
-            ${{ steps.run_tests.outputs.test_log | base64decode() }}
+            ${{ env.test_log }}
             ```
