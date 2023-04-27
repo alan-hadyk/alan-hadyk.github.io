@@ -59,8 +59,9 @@ jobs:
         if: always()
         id: download_logs
         run: |
-          echo "lint_log::$(cat logs/lint.log)" >> $GITHUB_ENV
-          echo "test_log::$(cat logs/test.log)" >> $GITHUB_ENV
+          mkdir -p logs/
+          cat logs/lint.log | tr -d '\n' | awk '{print "lint_log::" $0}' >> $GITHUB_ENV
+          cat logs/test.log | tr -d '\n' | awk '{print "test_log::" $0}' >> $GITHUB_ENV
 
       - name: Report failure reason
         if: failure()
