@@ -19,6 +19,18 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: Test comment
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '👋 Test comment!'
+            })
+  
       - name: Unit tests, integration tests and lint
         id: run_tests
         run: |
