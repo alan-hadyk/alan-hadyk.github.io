@@ -26,9 +26,12 @@ jobs:
         run: |
           npm install yarn -g
           yarn install
-          yarn lint 2> lint.log || true
-          yarn test 2> test.log || true
+          yarn lint 2> lint.log
+          lint_exit_code=$?
+          yarn test 2> test.log
+          test_exit_code=$?
           echo "Lint log and test log saved as artifacts."
+          exit $((lint_exit_code | test_exit_code))
 
       - name: Save logs as artifacts
         uses: actions/upload-artifact@v2
