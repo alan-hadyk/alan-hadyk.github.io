@@ -34,7 +34,8 @@ jobs:
           exit $((lint_exit_code | test_exit_code))
 
       - name: Save logs as artifacts
-        uses: actions/upload-artifact@v2
+        if: always()
+        uses: actions/upload-artifact@v3
         with:
           name: logs
           path: |
