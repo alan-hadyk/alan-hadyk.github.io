@@ -28,23 +28,23 @@ jobs:
           CI: true
 
       - name: Report failure reason
-        uses: peter-evans/create-or-update-comment@v1
-        if: steps.run_tests.outputs.test_exit_code != '0'
+        if: failure()
+        uses: thollander/actions-comment-pull-request@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          issue-number: ${{ github.event.number }}
-          body: |
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          comment_tag: execution
+          pr_number: ${{ github.event.number }}
+          message: |
             ## Unit tests, integration tests and lint failure 🚫
 
             ### Lint Log
 
             ```
-            ${{ steps.run_tests.outputs.lint_log }}
+            ${{ steps.run_tests.outputs.lint_log | base64decode }}
             ```
 
             ### Test Log
 
             ```
-            ${{ steps.run_tests.outputs.test_log }}
+            ${{ steps.run_tests.outputs.test_log | base64decode }}
             ```
-          edit-mode: replace

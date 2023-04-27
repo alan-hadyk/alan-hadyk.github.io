@@ -5,14 +5,13 @@ set -o pipefail
 npm install yarn -g
 yarn install
 
-lint_log=$(yarn lint 2>&1)
-lint_exit_code=$?
+# Run lint and tests, capture the output to log files, and allow them to fail
+yarn lint 2> lint.log || exit_code=$?
+yarn test 2> test.log || exit_code=$?
 
-test_log=$(yarn test 2>&1)
-test_exit_code=$?
+# Set the outputs for the GitHub Actions step
+echo "::set-output name=lint_log::$(base64 lint.log)"
+echo "::set-output name=test_log::$(base64 test.log)"
 
-echo "::set-output name=lint_log::${lint_log}"
-echo "::set-output name=test_log::${test_log}"
-echo "::set-output name=test_exit_code::$(($lint_exit_code | $test_exit_code))"
-
-exit $(($lint_exit_code | $test_exit_code))
+# Exit the script with the appropriate exit code
+exit $exit_code
