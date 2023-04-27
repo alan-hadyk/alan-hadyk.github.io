@@ -50,16 +50,17 @@ jobs:
           name: logs
           path: logs/
 
+      - name: List logs directory
+        if: always()
+        run: |
+          ls logs
+
       - name: Set logs as environment variables
         if: always()
         id: download_logs
         run: |
           echo "lint_log::$(cat logs/lint.log)" >> $GITHUB_ENV
           echo "test_log::$(cat logs/test.log)" >> $GITHUB_ENV
-
-      - name: List logs directory
-        run: |
-          ls logs
 
       - name: Report failure reason
         if: failure()
