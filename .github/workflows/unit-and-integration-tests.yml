@@ -59,10 +59,18 @@ jobs:
         if: always()
         id: download_logs
         run: |
-          lint_log="$(cat logs/lint.log)"
-          test_log="$(cat logs/test.log)"
+          lint_log="$(cat logs/lint.log | base64)"
+          test_log="$(cat logs/test.log | base64)"
           echo "lint_log=$lint_log" >> $GITHUB_OUTPUT
           echo "test_log=$test_log" >> $GITHUB_OUTPUT
+
+      - name: Decode logs
+        if: failure()
+        id: decode_logs
+        run: |
+          echo '${{ steps.download_logs.outputs.lint_log }}' | base64 --decode > decoded_lint.log
+          echo '${{ steps.download_logs.outputs.test_log }}' | base64 --decode > decoded_test.log
+
 
       - name: Report failure reason
         if: failure()
@@ -77,11 +85,11 @@ jobs:
             ### Lint Log
 
             ```
-            ${{ steps.download_logs.outputs.lint_log }}
+            ${{ steps.decode_logs.outputs.decoded_lint_log }}
             ```
 
             ### Test Log
 
             ```
-            ${{ steps.download_logs.outputs.test_log }}
+            ${{ steps.decode_logs.outputs.decoded_test_log }}
             ```
