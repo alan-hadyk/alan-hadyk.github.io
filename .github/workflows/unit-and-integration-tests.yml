@@ -55,21 +55,21 @@ jobs:
         run: |
           ls logs
 
-      - name: Set logs as environment variables
+      - name: Download logs
         if: always()
         id: download_logs
         run: |
-          lint_log="$(cat logs/lint.log | base64)"
-          test_log="$(cat logs/test.log | base64)"
-          echo "lint_log=$lint_log" >> $GITHUB_OUTPUT
-          echo "test_log=$test_log" >> $GITHUB_OUTPUT
+          lint_log="$(curl -s -u ${{ secrets.API_TOKEN }}:x-oauth-basic -H "Accept: application/vnd.github+json" https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/logs -o - | grep 'Linting:' -A 10000)"
+          test_log="$(curl -s -u ${{ secrets.API_TOKEN }}:x-oauth-basic -H "Accept: application/vnd.github+json" https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/logs -o - | grep 'FAIL src/__tests__/' -A 10000)"
+          echo "$LINT_LOG" > lint_log.txt
+          echo "$TEST_LOG" > test_log.txt
 
-      - name: Decode logs
-        if: failure()
-        id: decode_logs
-        run: |
-          echo '${{ steps.download_logs.outputs.lint_log }}' | base64 --decode > decoded_lint.log
-          echo '${{ steps.download_logs.outputs.test_log }}' | base64 --decode > decoded_test.log
+      # - name: Decode logs
+      #   if: failure()
+      #   id: decode_logs
+      #   run: |
+      #     echo '${{ steps.download_logs.outputs.lint_log }}' | base64 --decode > decoded_lint.log
+      #     echo '${{ steps.download_logs.outputs.test_log }}' | base64 --decode > decoded_test.log
 
 
       - name: Report failure reason
@@ -85,11 +85,11 @@ jobs:
             ### Lint Log
 
             ```
-            ${{ steps.decode_logs.outputs.decoded_lint_log }}
+            ${{ cat lint_log.txt }}
             ```
 
             ### Test Log
 
             ```
-            ${{ steps.decode_logs.outputs.decoded_test_log }}
+            ${{ cat test_log.txt }}
             ```
