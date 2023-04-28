@@ -66,32 +66,16 @@ jobs:
           cat logs/test.log >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
 
-      # - name: Decode logs
-      #   if: failure()
-      #   id: decode_logs
-      #   run: |
-      #     echo '${{ steps.download_logs.outputs.lint_log }}' | base64 --decode > decoded_lint.log
-      #     echo '${{ steps.download_logs.outputs.test_log }}' | base64 --decode > decoded_test.log
-
-
       - name: Report failure reason
-        if: failure()
+        if: always()
         uses: thollander/actions-comment-pull-request@v2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           comment_tag: execution
           pr_number: ${{ github.event.number }}
           message: |
-            ## Unit tests, integration tests and lint failure 🚫
-
-            ### Lint Log
-
-            ```
-            ${{ env.LINT_LOG }}
-            ```
-
-            ### Test Log
-
-            ```
-            ${{ env.TEST_LOG }}
-            ```
+            ${{ success() && '### Unit tests, integration tests and lint passed ✅' }}
+            ${{ failure() && '## Unit tests, integration tests and lint failure 🚫' }}
+            
+            ${{ failure() && env.LINT_LOG != '' && format('### Lint Log\n\n```\n{0}\n```\n', env.LINT_LOG) }}
+            ${{ failure() && env.TEST_LOG != '' && format('### Test Log\n\n```\n{0}\n```\n', env.TEST_LOG) }}
