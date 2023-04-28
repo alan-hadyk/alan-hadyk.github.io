@@ -33,6 +33,16 @@ jobs:
           echo "Lint log and test log saved as artifacts."
           exit $((lint_exit_code | test_exit_code))
 
+      - name: Report success
+        if: success()
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          comment_tag: execution
+          pr_number: ${{ github.event.number }}
+          message: |
+            ### Unit tests, integration tests and lint passed ✅
+
       - name: Save logs as artifacts
         if: always()
         id: save_logs
@@ -66,16 +76,66 @@ jobs:
           cat logs/test.log >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
 
-      - name: Report failure reason
-        if: always()
+      - name: Report failure with Lint Log and Test Log
+        if: failure() && env.LINT_LOG != '' && env.TEST_LOG != ''
         uses: thollander/actions-comment-pull-request@v2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           comment_tag: execution
           pr_number: ${{ github.event.number }}
           message: |
-            ${{ success() && '### Unit tests, integration tests and lint passed ✅' }}
-            ${{ failure() && '## Unit tests, integration tests and lint failure 🚫' }}
-            
-            ${{ failure() && env.LINT_LOG != '' && join('\n### Lint Log\n\n```\n', env.LINT_LOG, '\n```\n') }}
-            ${{ failure() && env.TEST_LOG != '' && join('\n### Test Log\n\n```\n', env.TEST_LOG, '\n```\n') }}
+            ## Unit tests, integration tests and lint failure 🚫
+
+            ### Lint Log
+
+            ```
+            ${{ env.LINT_LOG }}
+            ```
+
+            ### Test Log
+
+            ```
+            ${{ env.TEST_LOG }}
+            ```
+
+      - name: Report failure with Lint Log only
+        if: failure() && env.LINT_LOG != '' && env.TEST_LOG == ''
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          comment_tag: execution
+          pr_number: ${{ github.event.number }}
+          message: |
+            ## Unit tests, integration tests and lint failure 🚫
+
+            ### Lint Log
+
+            ```
+            ${{ env.LINT_LOG }}
+            ```
+
+      - name: Report failure with Test Log only
+        if: failure() && env.LINT_LOG == '' && env.TEST_LOG != ''
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          comment_tag: execution
+          pr_number: ${{ github.event.number }}
+          message: |
+            ## Unit tests, integration tests and lint failure 🚫
+
+            ### Test Log
+
+            ```
+            ${{ env.TEST_LOG }}
+            ```
+
+      - name: Report failure without logs
+        if: failure() && env.LINT_LOG == '' && env.TEST_LOG == ''
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          comment_tag: execution
+          pr_number: ${{ github.event.number }}
+          message: |
+            ## Unit tests, integration tests and lint failure 🚫
