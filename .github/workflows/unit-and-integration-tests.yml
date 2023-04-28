@@ -77,5 +77,5 @@ jobs:
             ${{ success() && '### Unit tests, integration tests and lint passed ✅' }}
             ${{ failure() && '## Unit tests, integration tests and lint failure 🚫' }}
             
-            ${{ failure() && env.LINT_LOG != '' && format('### Lint Log\n\n```\n{0}\n```\n', env.LINT_LOG) }}
-            ${{ failure() && env.TEST_LOG != '' && format('### Test Log\n\n```\n{0}\n```\n', env.TEST_LOG) }}
+            ${{ failure() && env.LINT_LOG != '' && join('\n### Lint Log\n\n```\n', env.LINT_LOG, '\n```\n') }}
+            ${{ failure() && env.TEST_LOG != '' && join('\n### Test Log\n\n```\n', env.TEST_LOG, '\n```\n') }}
