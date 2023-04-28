@@ -26,13 +26,17 @@ jobs:
 
       - name: Run Playwright tests
         id: run_tests
-        run: yarn playwright test 2> e2e_test.log || true
+        run: |
+          yarn playwright test 2> e2e_test.log
+          test_exit_code=$?
+          echo "Test log saved as artifact."
+          exit $((test_exit_code))
         env:
           CI: true
 
       - name: Save test log as artifact
         if: always()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: e2e_test_log
           path: e2e_test.log
@@ -43,10 +47,17 @@ jobs:
         with:
           name: e2e_test_log
 
-      - name: Read test log
+      - name: List logs directory
         if: always()
         run: |
-          echo "E2E_TEST_LOG=$(cat e2e_test.log)" >> $GITHUB_ENV
+          ls e2e_test_log
+
+      - name: Set logs as output variables
+        if: always()
+        run: |
+          echo "E2E_TEST_LOG<<EOF" >> $GITHUB_ENV
+          cat e2e_test.log >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
 
       - name: Report success
         if: success()
