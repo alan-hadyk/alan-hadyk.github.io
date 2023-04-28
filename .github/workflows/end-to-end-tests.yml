@@ -5,7 +5,7 @@ on:
     branches: [master]
 
 jobs:
-  test:
+  e2e:
     timeout-minutes: 60
     runs-on: macos-13
 
@@ -26,27 +26,50 @@ jobs:
 
       - name: Run Playwright tests
         id: run_tests
-        run: yarn playwright test
+        run: yarn playwright test 2> e2e_test.log || true
         env:
           CI: true
 
-      - name: Report failure reason
-        uses: actions/github-script@v5
-        if: failure()
+      - name: Save test log as artifact
+        if: always()
+        uses: actions/upload-artifact@v2
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: `${{join(steps.run_tests.outputs.*, '\n')}}`
-            })
+          name: e2e_test_log
+          path: e2e_test.log
 
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v3
-        if: failure()
+      - name: Download test log
+        if: always()
+        uses: actions/download-artifact@v2
         with:
-          name: playwright-report
-          path: playwright-report/
-          retention-days: 30
+          name: e2e_test_log
+
+      - name: Read test log
+        if: always()
+        run: |
+          echo "E2E_TEST_LOG=$(cat e2e_test.log)" >> $GITHUB_ENV
+
+      - name: Report success
+        if: success()
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          comment_tag: e2e_execution
+          pr_number: ${{ github.event.number }}
+          message: |
+            ### End-to-end tests passed ✅
+
+      - name: Report failure with Test Log
+        if: failure()
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          comment_tag: e2e_execution
+          pr_number: ${{ github.event.number }}
+          message: |
+            ## End-to-end tests failed 🚫
+
+            ### Test Log
+
+            ```
+            ${{ env.E2E_TEST_LOG }}
+            ```

@@ -38,7 +38,7 @@ jobs:
         uses: thollander/actions-comment-pull-request@v2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          comment_tag: execution
+          comment_tag: unit_integration_and_lint_execution
           pr_number: ${{ github.event.number }}
           message: |
             ### Unit tests, integration tests and lint passed ✅
@@ -81,7 +81,7 @@ jobs:
         uses: thollander/actions-comment-pull-request@v2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          comment_tag: execution
+          comment_tag: unit_integration_and_lint_execution
           pr_number: ${{ github.event.number }}
           message: |
             ## Unit tests, integration tests and lint failure 🚫
@@ -103,7 +103,7 @@ jobs:
         uses: thollander/actions-comment-pull-request@v2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          comment_tag: execution
+          comment_tag: unit_integration_and_lint_execution
           pr_number: ${{ github.event.number }}
           message: |
             ## Unit tests, integration tests and lint failure 🚫
@@ -119,7 +119,7 @@ jobs:
         uses: thollander/actions-comment-pull-request@v2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          comment_tag: execution
+          comment_tag: unit_integration_and_lint_execution
           pr_number: ${{ github.event.number }}
           message: |
             ## Unit tests, integration tests and lint failure 🚫
@@ -135,7 +135,7 @@ jobs:
         uses: thollander/actions-comment-pull-request@v2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          comment_tag: execution
+          comment_tag: unit_integration_and_lint_execution
           pr_number: ${{ github.event.number }}
           message: |
             ## Unit tests, integration tests and lint failure 🚫
