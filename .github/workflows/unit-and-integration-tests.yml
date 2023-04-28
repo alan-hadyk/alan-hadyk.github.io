@@ -61,8 +61,8 @@ jobs:
         run: |
           lint_log="$(cat logs/lint.log)"
           test_log="$(cat logs/test.log)"
-          echo "::set-output name=lint_log::$lint_log"
-          echo "::set-output name=test_log::$test_log"
+          echo "lint_log=$lint_log" >> $GITHUB_OUTPUT
+          echo "test_log=$test_log" >> $GITHUB_OUTPUT
 
       - name: Report failure reason
         if: failure()
