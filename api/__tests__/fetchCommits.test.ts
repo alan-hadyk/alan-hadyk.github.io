@@ -53,7 +53,7 @@ describe("api / fetchCommits", () => {
 
       expect(true).toBe(false);
     } catch (error: any) {
-      expect(error).toEqual("There was a problem with GitHub API 2");
+      expect(error).toEqual("There was a problem with GitHub API");
     }
   });
 });
