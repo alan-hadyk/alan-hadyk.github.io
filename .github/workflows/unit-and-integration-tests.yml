@@ -55,14 +55,16 @@ jobs:
         run: |
           ls logs
 
-      - name: Download logs
+      - name: Set logs as output variables
         if: always()
-        id: download_logs
+        id: set_logs
         run: |
-          lint_log="$(curl -s -u ${{ secrets.API_TOKEN }}:x-oauth-basic -H "Accept: application/vnd.github+json" https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/logs -o - | grep 'Linting:' -A 10000)"
-          test_log="$(curl -s -u ${{ secrets.API_TOKEN }}:x-oauth-basic -H "Accept: application/vnd.github+json" https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/logs -o - | grep 'FAIL src/__tests__/' -A 10000)"
-          echo "$LINT_LOG" > lint_log.txt
-          echo "$TEST_LOG" > test_log.txt
+          echo "LINT_LOG<<EOF" >> $GITHUB_ENV
+          cat logs/lint.log >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+          echo "TEST_LOG<<EOF" >> $GITHUB_ENV
+          cat logs/test.log >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
 
       # - name: Decode logs
       #   if: failure()
@@ -85,11 +87,11 @@ jobs:
             ### Lint Log
 
             ```
-            ${{ cat lint_log.txt }}
+            ${{ env.LINT_LOG }}
             ```
 
             ### Test Log
 
             ```
-            ${{ cat test_log.txt }}
+            ${{ env.TEST_LOG }}
             ```
