@@ -59,12 +59,14 @@ jobs:
         if: always()
         id: download_logs
         run: |
-          printf -v lint_log "%q" "$(cat logs/lint.log)"
-          printf -v test_log "%q" "$(cat logs/test.log)"
-          lint_log="${lint_log//$'\n'/\\n    }"
-          test_log="${test_log//$'\n'/\\n    }"
-          echo "lint_log=$lint_log" >> $GITHUB_ENV
-          echo "test_log=$test_log" >> $GITHUB_ENV
+          lint_log="$(cat logs/lint.log)"
+          test_log="$(cat logs/test.log)"
+          echo "lint_log<<EOF" >> $GITHUB_ENV
+          echo "$lint_log" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+          echo "test_log<<EOF" >> $GITHUB_ENV
+          echo "$test_log" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
 
       - name: Report failure reason
         if: failure()
@@ -79,11 +81,11 @@ jobs:
             ### Lint Log
 
             ```
-            ${{ env.lint_log }}
+            ${{ steps.download_logs.outputs.lint_log }}
             ```
 
             ### Test Log
 
             ```
-            ${{ env.test_log }}
+            ${{ steps.download_logs.outputs.test_log }}
             ```
