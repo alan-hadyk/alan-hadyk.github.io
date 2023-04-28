@@ -27,7 +27,7 @@ jobs:
       - name: Run Playwright tests
         id: run_tests
         run: |
-          ( yarn playwright test > e2e_test.log 2>&1 || true )
+          yarn playwright test > e2e_test.log 2>&1
           test_exit_code=$?
           echo "Test log saved as artifact."
           exit $((test_exit_code))
