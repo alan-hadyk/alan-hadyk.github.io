@@ -60,11 +60,6 @@ jobs:
           name: logs
           path: logs/
 
-      - name: List logs directory
-        if: always()
-        run: |
-          ls logs
-
       - name: Set logs as output variables
         if: always()
         id: set_logs
@@ -86,17 +81,17 @@ jobs:
           message: |
             ## Unit tests, integration tests and lint failure 🚫
 
-            ### Lint Log
+            <details>
+              <summary>Lint Logs</summary>
 
-            ```
-            ${{ env.LINT_LOG }}
-            ```
+              ${{ env.LINT_LOG }}
+            </details>
 
-            ### Test Log
+            <details>
+              <summary>Test Logs</summary>
 
-            ```
-            ${{ env.TEST_LOG }}
-            ```
+              ${{ env.TEST_LOG }}
+            </details>
 
       - name: Report failure with Lint Log only
         if: failure() && env.LINT_LOG != '' && env.TEST_LOG == ''
@@ -108,11 +103,11 @@ jobs:
           message: |
             ## Unit tests, integration tests and lint failure 🚫
 
-            ### Lint Log
+            <details>
+              <summary>Lint Logs</summary>
 
-            ```
-            ${{ env.LINT_LOG }}
-            ```
+              ${{ env.LINT_LOG }}
+            </details>
 
       - name: Report failure with Test Log only
         if: failure() && env.LINT_LOG == '' && env.TEST_LOG != ''
@@ -124,11 +119,11 @@ jobs:
           message: |
             ## Unit tests, integration tests and lint failure 🚫
 
-            ### Test Log
+            <details>
+              <summary>Test Logs</summary>
 
-            ```
-            ${{ env.TEST_LOG }}
-            ```
+              ${{ env.TEST_LOG }}
+            </details>
 
       - name: Report failure without logs
         if: failure() && env.LINT_LOG == '' && env.TEST_LOG == ''

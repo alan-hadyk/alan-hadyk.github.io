@@ -74,8 +74,8 @@ jobs:
           message: |
             ## End-to-end tests failed 🚫
 
-            ### Test Log
+            <details>
+              <summary>Test Logs</summary>
 
-            ```
-            ${{ env.E2E_TEST_LOG }}
-            ```
+              ${{ env.E2E_TEST_LOG }}
+            </details>
