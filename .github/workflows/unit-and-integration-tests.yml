@@ -59,12 +59,12 @@ jobs:
         if: always()
         id: download_logs
         run: |
-          lint_log="${lint_log//$'\n'/  $'\n'}"
-          test_log="${test_log//$'\n'/  $'\n'}"
           printf -v lint_log "%q" "$(cat logs/lint.log)"
           printf -v test_log "%q" "$(cat logs/test.log)"
-          echo "lint_log=$lint_log_escaped" >> $GITHUB_ENV
-          echo "test_log=$test_log_escaped" >> $GITHUB_ENV
+          lint_log="${lint_log//$'\n'/<br>}"
+          test_log="${test_log//$'\n'/<br>}"
+          echo "lint_log=$lint_log" >> $GITHUB_ENV
+          echo "test_log=$test_log" >> $GITHUB_ENV
 
       - name: Report failure reason
         if: failure()
