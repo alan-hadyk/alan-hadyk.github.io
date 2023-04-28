@@ -61,12 +61,8 @@ jobs:
         run: |
           lint_log="$(cat logs/lint.log)"
           test_log="$(cat logs/test.log)"
-          echo "lint_log<<EOF" >> $GITHUB_ENV
-          echo "$lint_log" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
-          echo "test_log<<EOF" >> $GITHUB_ENV
-          echo "$test_log" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
+          echo "::set-output name=lint_log::$lint_log"
+          echo "::set-output name=test_log::$test_log"
 
       - name: Report failure reason
         if: failure()
