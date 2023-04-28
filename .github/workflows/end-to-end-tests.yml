@@ -27,7 +27,7 @@ jobs:
       - name: Run Playwright tests
         id: run_tests
         run: |
-          yarn playwright test 2> e2e_test.log
+          yarn playwright test 2> >(grep -P '^\[WebServer\] (error|FAIL|pass) ' > e2e_test.log)
           test_exit_code=$?
           echo "Test log saved as artifact."
           exit $((test_exit_code))
