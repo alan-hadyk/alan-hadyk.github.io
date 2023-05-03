@@ -101,7 +101,9 @@ jobs:
           comment_tag: unit_integration_and_lint_execution
           pr_number: ${{ github.event.number }}
           message: |
-            ## Unit tests, integration tests and lint failure 🚫
+            ### Unit tests and integration tests passed ✅
+
+            ## Lint failure 🚫
 
             <details>
               <summary>Lint Logs</summary>
@@ -117,7 +119,9 @@ jobs:
           comment_tag: unit_integration_and_lint_execution
           pr_number: ${{ github.event.number }}
           message: |
-            ## Unit tests, integration tests and lint failure 🚫
+            ### Lint passed ✅
+
+            ## Unit tests and/or integration tests failure 🚫
 
             <details>
               <summary>Test Logs</summary>
