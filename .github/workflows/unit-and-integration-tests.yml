@@ -22,7 +22,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Unit tests, integration tests and lint
-        id: run_tests
         run: |
           npm install yarn -g
           yarn install
@@ -45,7 +44,6 @@ jobs:
 
       - name: Save logs as artifacts
         if: always()
-        id: save_logs
         uses: actions/upload-artifact@v3
         with:
           name: logs
@@ -62,7 +60,6 @@ jobs:
 
       - name: Set logs as output variables
         if: always()
-        id: set_logs
         run: |
           echo "LINT_LOG<<EOF" >> $GITHUB_ENV
           cat logs/lint.log >> $GITHUB_ENV
