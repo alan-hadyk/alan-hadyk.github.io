@@ -1,14 +1,14 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const nextJest = require("next/jest");
-const { pathsToModuleNameMapper } = require("ts-jest");
-const { compilerOptions } = require("./tsconfig");
+import nextJest from "next/jest";
+import { pathsToModuleNameMapper } from "ts-jest";
+import { compilerOptions } from "./tsconfig.json";
 
 const createJestConfig = nextJest({
   // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
   dir: "./"
 });
 
-const customJestConfig = {
+// createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
+export default createJestConfig({
   // if using TypeScript with a baseUrl set to the root directory then you need the below for alias' to work
   moduleDirectories: ["node_modules", "<rootDir>/"],
   moduleNameMapper: {
@@ -21,9 +21,6 @@ const customJestConfig = {
     "<rootDir>/node_modules/",
     "<rootDir>/end-to-end/"
   ],
-  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
   testEnvironment: "jest-environment-jsdom"
-};
-
-// createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
-module.exports = createJestConfig(customJestConfig);
+});
