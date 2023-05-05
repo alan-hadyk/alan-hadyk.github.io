@@ -33,6 +33,9 @@ test.describe("Header", () => {
 
     await page.locator("#menu-button-desktop").isHidden();
     await page.locator("#side-menu-desktop").isHidden();
+
+    await page.locator("#menu-button-tablet-mobile").isHidden();
+    await page.locator("#side-menu-tablet-mobile").isHidden();
   });
 
   test("should be displayed at wide desktop width", async ({ page }) => {
@@ -45,14 +48,17 @@ test.describe("Header", () => {
       state: "hidden"
     });
 
+    await page.locator("#menu-button-desktop").isHidden();
+    await page.locator("#side-menu-desktop").isHidden();
+
+    await page.locator("#menu-button-tablet-mobile").isHidden();
+    await page.locator("#side-menu-tablet-mobile").isHidden();
+
     await expect(page.locator("#header")).toHaveScreenshot({
       animations: "disabled",
       omitBackground: true,
       scale: "css"
     });
-
-    await page.locator("#menu-button-desktop").isHidden();
-    await page.locator("#side-menu-desktop").isHidden();
   });
 
   test("should be displayed at narrow desktop width", async ({ page }) => {
@@ -70,6 +76,9 @@ test.describe("Header", () => {
       omitBackground: true,
       scale: "css"
     });
+
+    await page.locator("#menu-button-tablet-mobile").isHidden();
+    await page.locator("#side-menu-tablet-mobile").isHidden();
 
     await page.locator("#side-menu-desktop").isHidden();
 
@@ -99,6 +108,9 @@ test.describe("Header", () => {
       omitBackground: true,
       scale: "css"
     });
+
+    await page.locator("#menu-button-desktop").isHidden();
+    await page.locator("#side-menu-desktop").isHidden();
 
     await page.locator("#side-menu-tablet-mobile").isHidden();
 
@@ -140,5 +152,8 @@ test.describe("Header", () => {
       omitBackground: true,
       scale: "css"
     });
+
+    await page.locator("#menu-button-desktop").isHidden();
+    await page.locator("#side-menu-desktop").isHidden();
   });
 });
