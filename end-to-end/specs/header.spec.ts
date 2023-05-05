@@ -31,6 +31,7 @@ test.describe("Header", () => {
       scale: "css"
     });
 
+    await page.locator("#menu-button-desktop").isHidden();
     await page.locator("#side-menu-desktop").isHidden();
   });
 
@@ -50,6 +51,7 @@ test.describe("Header", () => {
       scale: "css"
     });
 
+    await page.locator("#menu-button-desktop").isHidden();
     await page.locator("#side-menu-desktop").isHidden();
   });
 
