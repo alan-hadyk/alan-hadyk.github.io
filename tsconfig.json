@@ -40,6 +40,6 @@
     "strictNullChecks": true,
     "target": "es5"
   },
-  "exclude": ["node_modules", "legacyApp", "cypress", "cypressExamples", "cypress.config.ts"],
+  "exclude": ["node_modules"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

@@ -4,11 +4,12 @@ import { MenuButtonLine } from "components/atoms/MenuButtonLine/MenuButtonLine";
 import { menuButtonDefaultThemeClasses } from "components/molecules/MenuButton/styles";
 
 const MenuButton: React.FC<IMenuButtonProps> = ({
+  id,
   isOpen = false,
   onClick
 }) => (
   <LayoutContainer
-    aria-label="MenuButton"
+    id={id}
     onClick={onClick}
     themeClasses={menuButtonDefaultThemeClasses}
   >

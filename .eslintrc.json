@@ -10,7 +10,7 @@
   ],
   "overrides": [
     {
-      "files": ["pages/**/*.tsx", "pages/**/*.ts", "cypress/**/*.ts", "cypress.config.ts"], 
+      "files": ["pages/**/*.tsx", "pages/**/*.ts", "jest.config.ts", "playwright.config.ts"], 
       "rules": {
         "import/no-default-export": "off"
       }

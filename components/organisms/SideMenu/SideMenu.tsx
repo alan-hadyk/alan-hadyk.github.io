@@ -13,6 +13,7 @@ import {
 import { SideMenuMobileAndTablet } from "components/organisms/SideMenu/screens/SideMenuMobileAndTablet";
 
 const SideMenu: React.FC<ISideMenuProps> = ({
+  id,
   isExpanded = false,
   icons,
   navItems,
@@ -23,7 +24,7 @@ const SideMenu: React.FC<ISideMenuProps> = ({
   });
 
   return (
-    <LayoutContainer themeClasses={sideMenuOuterContainerThemeClasses}>
+    <LayoutContainer id={id} themeClasses={sideMenuOuterContainerThemeClasses}>
       <LayoutContainer themeClasses={sideMenuInnerContainerDefaultThemeClasses}>
         <Responsive devices={[Device.Mobile, Device.Tablet]}>
           <SideMenuMobileAndTablet

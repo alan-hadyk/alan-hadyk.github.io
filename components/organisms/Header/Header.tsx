@@ -22,7 +22,7 @@ const Header: React.FC<IHeaderProps> = ({ children, themeClasses }) => {
   });
 
   return (
-    <LayoutContainer themeClasses={headerContainerThemeClasses}>
+    <LayoutContainer id="header" themeClasses={headerContainerThemeClasses}>
       <LayoutContainer
         as="header"
         themeClasses={headerOuterWrapperDefaultThemeClasses}

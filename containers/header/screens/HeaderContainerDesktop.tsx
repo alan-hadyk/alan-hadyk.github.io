@@ -37,11 +37,19 @@ const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
         cv
       </Button>
 
-      <MenuButton isOpen={isMenuVisible} onClick={onClick} />
+      <MenuButton
+        id="menu-button-desktop"
+        isOpen={isMenuVisible}
+        onClick={onClick}
+      />
 
       {isMenuVisible && <Backdrop onClick={onClick} />}
 
-      <SideMenu isExpanded={isMenuVisible} icons={icons} />
+      <SideMenu
+        id="side-menu-desktop"
+        isExpanded={isMenuVisible}
+        icons={icons}
+      />
     </LayoutContainer>
   </Responsive>
 );

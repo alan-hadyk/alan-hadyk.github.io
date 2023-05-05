@@ -27,6 +27,7 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env
 
 # vercel
 .vercel
@@ -34,7 +35,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
-# cypress
-cypress/artifacts
-__diff_output__
-
+# playwright
+/test-results/
+/playwright-report/
+/playwright/.cache/
+/end-to-end/artifacts/
