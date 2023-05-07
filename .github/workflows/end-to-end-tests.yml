@@ -6,6 +6,7 @@ on:
 
 jobs:
   e2e:
+    permissions: write-all
     timeout-minutes: 60
     runs-on: macos-13
 
