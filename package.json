@@ -29,7 +29,7 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "^4.32.2",
+    "@netlify/plugin-nextjs": "^4.36.0",
     "@playwright/test": "^1.33.0",
     "@svgr/webpack": "^7.0.0",
     "@testing-library/jest-dom": "^5.16.5",
