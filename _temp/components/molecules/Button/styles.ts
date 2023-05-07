@@ -38,16 +38,6 @@ export const buttonDefaultThemeClasses: IThemeClasses = {
   hover: "hover:shadow-activeButton",
   outline: "outline-0",
   position: "relative",
-  pseudoClasses: [
-    "childrenRipple:animate-ripple-slow",
-    "childrenRipple:h-24",
-    "childrenRipple:w-24",
-    "childrenRipple:rounded-full",
-    "childrenRipple:ml-negative12 ",
-    "childrenRipple:mt-negative12",
-    "childrenRipple:opacity-0",
-    "childrenRipple:absolute"
-  ],
   textTransform: "lowercase",
   transition: "transition-all",
   transitionDuration: "duration-fast",

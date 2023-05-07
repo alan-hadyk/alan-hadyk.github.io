@@ -14,6 +14,7 @@ type TLineHeightValues = keyof typeof theme.lineHeight;
 type TScreensValues = keyof typeof theme.screens;
 type TSpacingValues = keyof typeof theme.spacing;
 type TTransitionDurationValues = keyof typeof theme.transitionDuration;
+type TTransitionTimingFunctionValues = keyof typeof theme.transitionTimingFunction;
 type TZIndexValues = keyof typeof theme.zIndex;
 
 type TUtility<
@@ -225,7 +226,7 @@ type TTransition =
   | "transition-transform"
   | "transition-none";
 type TTransitionDuration = TUtility<"duration", TTransitionDurationValues>;
-type TTransitionTiming = TUtility<"ease", "linear" | "in" | "out" | "in-out">;
+type TTransitionTiming = TUtility<"ease", TTransitionTimingFunctionValues>;
 
 type TColorProperties =
   | TBgColor
