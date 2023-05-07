@@ -37,7 +37,7 @@
     "@types/detect-browser": "^4.0.0",
     "@types/jest": "^29.5.0",
     "@types/lodash": "^4.14.194",
-    "@types/node": "^18.15.11",
+    "@types/node": "^20.1.0",
     "@types/react": "18.0.35",
     "@types/react-dom": "18.0.6",
     "@types/uuid": "^8.3.4",
