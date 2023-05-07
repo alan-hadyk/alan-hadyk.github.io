@@ -132,7 +132,7 @@ module.exports = {
     },
     fontFamily: {
       anonymousPro: ["'Anonymous Pro'", "monospace", "sans-serif"],
-      exan: ["'ExanModifiedRegular'", "monospace", "sans-serif"]
+      exan: ["'Exan'", "monospace", "sans-serif"]
     },
     fontSize: {
       0: "0",

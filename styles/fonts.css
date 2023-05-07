@@ -3,13 +3,13 @@
     font-family: "Anonymous Pro";
     font-style: normal;
     font-weight: 400;
-    src: url("/fonts/anonymous-pro-v13-latin-regular.eot"); /* IE9 Compat Modes */
+    src: url("/fonts/AnonymousPro-400.eot"); /* IE9 Compat Modes */
     src: local("Anonymous Pro Regular"), local("AnonymousPro-Regular"),
-        url("/fonts/anonymous-pro-v13-latin-regular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
-        url("/fonts/anonymous-pro-v13-latin-regular.woff2") format("woff2"), /* Super Modern Browsers */
-        url("/fonts/anonymous-pro-v13-latin-regular.woff") format("woff"), /* Modern Browsers */
-        url("/fonts/anonymous-pro-v13-latin-regular.ttf") format("truetype"), /* Safari, Android, iOS */
-        url("/fonts/anonymous-pro-v13-latin-regular.svg#AnonymousPro") format("svg"); /* Legacy iOS */
+        url("/fonts/AnonymousPro-400.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+        url("/fonts/AnonymousPro-400.woff2") format("woff2"), /* Super Modern Browsers */
+        url("/fonts/AnonymousPro-400.woff") format("woff"), /* Modern Browsers */
+        url("/fonts/AnonymousPro-400.ttf") format("truetype"), /* Safari, Android, iOS */
+        url("/fonts/AnonymousPro-400.svg#AnonymousPro") format("svg"); /* Legacy iOS */
     font-display: swap;
   }
 
@@ -18,27 +18,27 @@
     font-family: "Anonymous Pro";
     font-style: normal;
     font-weight: 700;
-    src: url("/fonts/anonymous-pro-v13-latin-700.eot"); /* IE9 Compat Modes */
+    src: url("/fonts/AnonymousPro-700.eot"); /* IE9 Compat Modes */
     src: local("Anonymous Pro Bold"), local("AnonymousPro-Bold"),
-        url("/fonts/anonymous-pro-v13-latin-700.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
-        url("/fonts/anonymous-pro-v13-latin-700.woff2") format("woff2"), /* Super Modern Browsers */
-        url("/fonts/anonymous-pro-v13-latin-700.woff") format("woff"), /* Modern Browsers */
-        url("/fonts/anonymous-pro-v13-latin-700.ttf") format("truetype"), /* Safari, Android, iOS */
-        url("/fonts/anonymous-pro-v13-latin-700.svg#AnonymousPro") format("svg"); /* Legacy iOS */
+        url("/fonts/AnonymousPro-700.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+        url("/fonts/AnonymousPro-700.woff2") format("woff2"), /* Super Modern Browsers */
+        url("/fonts/AnonymousPro-700.woff") format("woff"), /* Modern Browsers */
+        url("/fonts/AnonymousPro-700.ttf") format("truetype"), /* Safari, Android, iOS */
+        url("/fonts/AnonymousPro-700.svg#AnonymousPro") format("svg"); /* Legacy iOS */
     font-display: swap;
   }
     
   /* Exan */
   @font-face {
-    font-family: "ExanModifiedRegular";
+    font-family: "Exan";
     font-style: normal;
     font-weight: 400;
-    src: url("/fonts/ExanModifiedRegular.eot"); /* IE9 Compat Modes */
-    src: url("/fonts/ExanModifiedRegular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
-         url("/fonts/ExanModifiedRegular.otf")  format("opentype"),
-         url("/fonts/ExanModifiedRegular.woff") format("woff"), /* Modern Browsers */
-         url("/fonts/ExanModifiedRegular.ttf")  format("truetype"), /* Safari, Android, iOS */
-         url("/fonts/ExanModifiedRegular.svg#ExanModifiedRegular") format("svg"); /* Legacy iOS */
+    src: url("/fonts/Exan-400.eot"); /* IE9 Compat Modes */
+    src: url("/fonts/Exan-400.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+         url("/fonts/Exan-400.otf")  format("opentype"),
+         url("/fonts/Exan-400.woff") format("woff"), /* Modern Browsers */
+         url("/fonts/Exan-400.ttf")  format("truetype"), /* Safari, Android, iOS */
+         url("/fonts/Exan-400.svg#Exan") format("svg"); /* Legacy iOS */
     font-display: swap;
   }
       
