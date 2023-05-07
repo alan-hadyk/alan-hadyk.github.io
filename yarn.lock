@@ -1708,10 +1708,10 @@
   dependencies:
     is-promise "^4.0.0"
 
-"@netlify/ipx@^1.3.3":
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/@netlify/ipx/-/ipx-1.3.3.tgz#db28352ee1ed86d0b991cb8236f64a4dfbe70b8c"
-  integrity sha512-2rDdCGPDPW7cyJr57rwfvpouOJx34CLDgfa2yfqTKvPzqCMOqkCi1PN/rHGuvJ/k5trZ8rxmWnnZyEbeQaZcqA==
+"@netlify/ipx@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@netlify/ipx/-/ipx-1.4.0.tgz#8bc77ef84f36a0cfead3ab49f68e8126c474edd9"
+  integrity sha512-Ibqg1W41EVMHNT/W6JSDUyxjhcxsbEL9vL9ZaNjn9tVKnDYxJ8JqRTwSbzfns+K+M3FLqoC4PLW32qW+vT1pKQ==
   dependencies:
     "@netlify/functions" "^1.4.0"
     etag "^1.8.1"
@@ -1724,16 +1724,17 @@
     ufo "^1.0.0"
     unstorage "^1.0.0"
 
-"@netlify/plugin-nextjs@^4.32.2":
-  version "4.32.2"
-  resolved "https://registry.yarnpkg.com/@netlify/plugin-nextjs/-/plugin-nextjs-4.32.2.tgz#a6e1f5c57e55f38c35df0a9430df3ce04ede7e10"
-  integrity sha512-xvFPrF3JPokYDlB+JmBmpsQR1S2HDYpMdTeTG4mbhdEfj+Bet+rLRUhuF1i6B5GVggj1bMzlTHgovCGjDxaZ/Q==
+"@netlify/plugin-nextjs@^4.36.0":
+  version "4.36.0"
+  resolved "https://registry.yarnpkg.com/@netlify/plugin-nextjs/-/plugin-nextjs-4.36.0.tgz#148c00c3034b8e350772ca0a9d3f121341dea8b9"
+  integrity sha512-xFcfYyK/p52xYWoCxWkIAVBsD/gzbyfLYJ70OFZm8NnlLMOqxJvNsO4XofJHJlNshteVZTF339oZTT4dgQ48Uw==
   dependencies:
     "@netlify/esbuild" "0.14.39"
     "@netlify/functions" "^1.4.0"
-    "@netlify/ipx" "^1.3.3"
+    "@netlify/ipx" "^1.4.0"
     "@vercel/node-bridge" "^2.1.0"
     chalk "^4.1.2"
+    chokidar "^3.5.3"
     destr "^1.1.1"
     execa "^5.1.1"
     follow-redirects "^1.15.2"
@@ -3416,12 +3417,7 @@ denque@^2.1.0:
   resolved "https://registry.yarnpkg.com/denque/-/denque-2.1.0.tgz#e93e1a6569fb5e66f16a3c2a2964617d349d6ab1"
   integrity sha512-HVQE3AAb/pxF8fQAoiqpvg9i3evqug3hoiwakOyZAwJm+6vZehbkYXZ0l4JxS+I3QxM97v5aaRNhj8v5oBhekw==
 
-destr@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/destr/-/destr-1.1.1.tgz#910457d10a2f2f247add4ca4fdb4a03adcc49079"
-  integrity sha512-QqkneF8LrYmwATMdnuD2MLI3GHQIcBnG6qFC2q9bSH430VTCDAVjcspPmUaKhPGtAtPAftIUFqY1obQYQuwmbg==
-
-destr@^1.2.2:
+destr@^1.1.1, destr@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/destr/-/destr-1.2.2.tgz#7ba9befcafb645a50e76b260449c63927b51e22f"
   integrity sha512-lrbCJwD9saUQrqUfXvl6qoM+QN3W7tLV5pAOs+OqOmopCCz/JkE05MHedJR1xfk4IAnZuJXPVuN5+7jNA2ZCiA==
