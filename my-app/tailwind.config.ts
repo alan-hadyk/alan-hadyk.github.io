@@ -202,6 +202,7 @@ const tailwindConfig = {
       default: "300ms",
       fast: "150ms",
       slow: "900ms",
+      verySlow: "3600ms",
     },
     transitionTimingFunction: {
       "in-out": "in-out",

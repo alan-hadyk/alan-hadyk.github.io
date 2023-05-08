@@ -7,6 +7,7 @@
     "dead-code": "ts-prune",
     "dev": "rm -rf .next && next dev",
     "lint": "next lint",
+    "lint:fix": "next lint --fix",
     "playwright:codegen": "npx playwright install && playwright codegen",
     "playwright:test": "npx playwright install && playwright test",
     "playwright:test-ui": "npx playwright install && playwright test --ui",

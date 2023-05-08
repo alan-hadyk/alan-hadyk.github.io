@@ -80,6 +80,7 @@ const RootLayout: React.FC<IRootLayoutProps> = ({ children }) => (
       id="google-tag-manager-code"
       strategy="afterInteractive"
     />
+
     <body>{children}</body>
   </html>
 );

@@ -21,13 +21,13 @@ type TZIndexValues = keyof typeof theme.zIndex;
 type TUtility<
   TPrefix extends string,
   TSuffix,
-  TSign extends string = "-"
+  TSign extends string = "-",
 > = `${TPrefix}${TSign}${TSuffix extends string | number ? TSuffix : never}`;
 
 type TUtilityWithArbitraryValues<
   TPrefix extends string,
   TSuffix,
-  TSign extends string = "-"
+  TSign extends string = "-",
 > =
   | TUtility<TPrefix, TSuffix, TSign>
   | `${TPrefix}${TSign}[${string | number}]`;

@@ -20,7 +20,7 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
     tabIndex,
     themeClasses,
   },
-  ref
+  ref,
 ) => {
   const HTMLTag = as;
 
