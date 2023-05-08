@@ -1,7 +1,9 @@
 import puppeteer, { PDFOptions } from "puppeteer";
 
 const convertPageToPDF = async (url: string, options?: PDFOptions) => {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    headless: "new",
+  });
   const page = await browser.newPage();
 
   await page.goto(url, {
