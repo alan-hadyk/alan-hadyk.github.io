@@ -1,3 +1,4 @@
+"use client";
 import { animatedCode } from "@app/components/molecules/TypingAnimation/config";
 import { useInterval } from "@app/hooks/useInterval";
 import { useRef } from "react";

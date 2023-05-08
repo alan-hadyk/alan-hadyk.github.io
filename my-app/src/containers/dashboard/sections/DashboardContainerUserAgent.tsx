@@ -1,3 +1,4 @@
+"use client";
 import { ContentFrame } from "@app/components/molecules/ContentFrame/ContentFrame";
 import { BrowserInfo } from "@app/components/molecules/BrowserInfo/BrowserInfo";
 import { useEffect, useState } from "react";

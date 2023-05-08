@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useState } from "react";
 
 import { fetchCommits } from "@app/api/fetchCommits";

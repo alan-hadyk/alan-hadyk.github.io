@@ -1,15 +1,19 @@
 import { PageTemplate } from "@app/components/templates/PageTemplate/PageTemplate";
+import { AboutMeContainer } from "@app/containers/aboutMe/AboutMeContainer";
+import { ContactContainer } from "@app/containers/contact/ContactContainer";
+import { DashboardContainer } from "@app/containers/dashboard/DashboardContainer";
+import { ExperienceContainer } from "@app/containers/experience/ExperienceContainer";
 import { HeaderContainer } from "@app/containers/header/HeaderContainer";
+import { SkillsContainer } from "@app/containers/skills/SkillsContainer";
 
 const IndexPage: React.FC = () => (
   <PageTemplate as="main">
     <HeaderContainer />
-    {/* <DashboardContainer />
+    <DashboardContainer />
     <ExperienceContainer />
     <SkillsContainer />
     <AboutMeContainer />
-    <ContactContainer /> */}
-    123
+    <ContactContainer />
   </PageTemplate>
 );
 

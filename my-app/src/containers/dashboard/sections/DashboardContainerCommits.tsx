@@ -1,3 +1,4 @@
+"use client";
 import { ContentFrameVariant } from "@app/components/molecules/ContentFrame/@types/ContentFrame";
 import { ContentFrame } from "@app/components/molecules/ContentFrame/ContentFrame";
 import { ListOfCommits } from "@app/components/molecules/ListOfCommits/ListOfCommits";
