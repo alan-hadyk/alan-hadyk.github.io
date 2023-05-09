@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 
 import { Line } from "@app/components/atoms/Line/Line";

@@ -1,9 +1,8 @@
 import "@app/styles/loader.css";
-import "@app/styles/fonts.css";
 import "@app/styles/global.css";
-import Head from "next/head";
 import Script from "next/script";
 import { IRootLayoutProps } from "@app/app/@types/layout";
+import { fontAnonymousProVariable, fontExanVariable } from "@app/styles/fonts";
 
 const metadata = {
   description: "Alan Hadyk's Portfolio",
@@ -12,7 +11,7 @@ const metadata = {
 
 const RootLayout: React.FC<IRootLayoutProps> = ({ children }) => (
   <html lang="en">
-    <Head>
+    <head>
       <link rel="preconnect" href="https://api.github.com" />
 
       <meta charSet="utf-8" />
@@ -48,7 +47,7 @@ const RootLayout: React.FC<IRootLayoutProps> = ({ children }) => (
       <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
       <meta name="msapplication-config" content="/browserconfig.xml" />
       <meta name="theme-color" content="#22272a" />
-    </Head>
+    </head>
 
     {/* Global site tag (gtag.js) - Google Analytics */}
     <Script
@@ -81,7 +80,9 @@ const RootLayout: React.FC<IRootLayoutProps> = ({ children }) => (
       strategy="afterInteractive"
     />
 
-    <body>{children}</body>
+    <body className={`${fontExanVariable} ${fontAnonymousProVariable}`}>
+      {children}
+    </body>
   </html>
 );
 

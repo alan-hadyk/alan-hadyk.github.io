@@ -115,8 +115,8 @@ const tailwindConfig = {
       xl: "0px 0px .5rem #bcd8db",
     },
     fontFamily: {
-      anonymousPro: ["'Anonymous Pro'", "monospace", "sans-serif"],
-      exan: ["'Exan'", "monospace", "sans-serif"],
+      anonymousPro: ["var(--font-anonymous-pro)", "monospace", "sans-serif"],
+      exan: ["var(--font-exan)", "monospace", "sans-serif"],
     },
     fontSize: {
       0: "0",

@@ -6,7 +6,7 @@ import { getUserAgent } from "@app/helpers/window/getUserAgent";
 import { ContentFrameVariant } from "@app/components/molecules/ContentFrame/@types/ContentFrame";
 
 const DashboardContainerUserAgent: React.FC = () => {
-  const [description, setDescription] = useState<string | undefined>(undefined);
+  const [description, setDescription] = useState<string>("Loading...");
 
   useEffect(() => {
     setDescription(getUserAgent());
