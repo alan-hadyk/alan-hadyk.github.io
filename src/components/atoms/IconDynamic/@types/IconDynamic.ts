@@ -1,10 +1,7 @@
-import { CSSProperties, FunctionComponent, SVGProps } from "react";
+import { CSSProperties } from "react";
 
 import { IThemeClasses } from "@app/types/theme";
-
-export type SVGIcon = FunctionComponent<
-  SVGProps<SVGSVGElement> & { title?: string }
->;
+import { TSVGIcon } from "@app/types/svg";
 
 export enum IconDynamicName {
   Apollo = "apollo",
@@ -46,4 +43,4 @@ export interface IIconDynamicProps {
   >;
 }
 
-export type TIconComponents = Record<IIconDynamicProps["iconName"], SVGIcon>;
+export type TIconComponents = Record<IIconDynamicProps["iconName"], TSVGIcon>;

@@ -6,8 +6,8 @@ import {
 } from "@app/components/atoms/IconStatic/@types/IconStatic";
 import { convertObjectValuesToString } from "@app/helpers/objects/convertObjectValuesToString";
 import { useIconStaticThemeClasses } from "@app/components/atoms/IconStatic/hooks/useIconStaticThemeClasses";
-import Image from "next/image";
-import { useIconStaticState } from "@app/components/atoms/IconStatic/hooks/useIconStaticState";
+import { iconStaticIcons } from "@app/components/atoms/IconStatic/config";
+import { TSVGIcon } from "@app/types/svg";
 
 const IconStatic: React.FC<IIconStaticProps> = ({
   iconName,
@@ -19,15 +19,13 @@ const IconStatic: React.FC<IIconStaticProps> = ({
     themeClasses,
     variant,
   });
-  const { iconStaticDimensions, src } = useIconStaticState({ iconName });
+
+  const IconComponent: TSVGIcon = iconStaticIcons[iconName];
 
   return (
-    <Image
-      alt={iconName}
+    <IconComponent
       className={convertObjectValuesToString(iconStaticThemeClasses)}
-      src={src}
       style={style}
-      {...iconStaticDimensions}
     />
   );
 };

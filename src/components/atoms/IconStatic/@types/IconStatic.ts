@@ -1,5 +1,6 @@
 import { CSSProperties } from "react";
 import { IThemeClasses } from "@app/types/theme";
+import { TSVGIcon } from "@app/types/svg";
 
 export enum IconStaticName {
   AfterEffects = "afterEffects",
@@ -86,3 +87,5 @@ export interface IIconStaticProps {
   themeClasses?: Pick<IThemeClasses, "height" | "overflow" | "width">;
   variant?: IconStaticVariant;
 }
+
+export type TIconStaticIcons = Record<IIconStaticProps["iconName"], TSVGIcon>;
