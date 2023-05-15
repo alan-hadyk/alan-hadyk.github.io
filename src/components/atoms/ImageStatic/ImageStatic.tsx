@@ -1,27 +1,38 @@
 import { IImageStaticProps } from "@app/components/atoms/ImageStatic/@types/ImageStatic";
-import { useImageStaticThemeClasses } from "@app/components/atoms/ImageStatic/hooks/useImageStaticThemeClasses";
+import { imageStaticDefaultThemeClasses } from "@app/components/atoms/ImageStatic/styles";
 import { convertObjectValuesToString } from "@app/helpers/objects/convertObjectValuesToString";
+import { IThemeClasses } from "@app/types/theme";
+import Image from "next/legacy/image";
 
 const ImageStatic: React.FC<IImageStaticProps> = ({
-  alt,
+  alt = "",
+  blurDataURL,
+  height,
   id,
+  quality = 100,
   src,
   style,
   themeClasses,
+  width,
 }) => {
-  const { imageStaticImgThemeClasses, imageStaticPictureClassNames } =
-    useImageStaticThemeClasses({ themeClasses });
+  const imageStaticThemeClasses: IThemeClasses = {
+    ...imageStaticDefaultThemeClasses,
+    ...themeClasses,
+  };
 
   return (
-    <picture className={imageStaticPictureClassNames.join(" ")} style={style}>
-      <img
-        alt={alt}
-        className={convertObjectValuesToString(imageStaticImgThemeClasses)}
-        id={id}
-        src={src}
-        style={style}
-      />
-    </picture>
+    <Image
+      alt={alt}
+      blurDataURL={blurDataURL}
+      height={height}
+      className={convertObjectValuesToString(imageStaticThemeClasses)}
+      id={id}
+      quality={quality}
+      placeholder="blur"
+      src={src}
+      style={style}
+      width={width}
+    />
   );
 };
 

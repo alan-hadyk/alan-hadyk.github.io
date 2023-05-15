@@ -4,11 +4,6 @@ import Script from "next/script";
 import { IRootLayoutProps } from "@app/app/@types/layout";
 import { fontAnonymousProVariable, fontExanVariable } from "@app/styles/fonts";
 
-const metadata = {
-  description: "Alan Hadyk's Portfolio",
-  title: "Alan Hadyk - Portfolio",
-};
-
 const RootLayout: React.FC<IRootLayoutProps> = ({ children }) => (
   <html lang="en">
     <head>
@@ -86,5 +81,4 @@ const RootLayout: React.FC<IRootLayoutProps> = ({ children }) => (
   </html>
 );
 
-export { metadata };
 export default RootLayout;

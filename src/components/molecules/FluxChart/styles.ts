@@ -14,8 +14,10 @@ export const fluxChartImageContainerDefaultThemeClasses: IThemeClasses = {
 };
 
 export const fluxChartImageDefaultThemeClasses: IThemeClasses = {
-  display: "block",
+  alignItems: "items-center",
+  display: "flex",
   height: "h-100%",
+  justifyContent: "justify-center",
   marginX: "mx-auto",
   marginY: "my-0",
   width: "w-100%",

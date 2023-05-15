@@ -70,6 +70,7 @@ const tailwindConfig = {
       addVariant("focusChildrenLine", "&:focus .line");
       addVariant("activeChildrenLine", "&:active .line");
     }),
+    require("tailwind-clip-path"),
   ],
   theme: {
     animation: {
@@ -89,6 +90,9 @@ const tailwindConfig = {
       activeButton: "inset 0px 0px 1.6rem 0px rgba(103,210,223,0.5)",
       console: "0px 0px .8rem 0px #bcd8db",
       line: "0px 0px .4rem 0px #bcd8db",
+    },
+    clipPath: {
+      hexagon: "polygon(50% 0, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%)",
     },
     colors: {
       // Black
@@ -202,6 +206,7 @@ const tailwindConfig = {
       default: "300ms",
       fast: "150ms",
       slow: "900ms",
+      veryFast: "75ms",
       verySlow: "3600ms",
     },
     transitionTimingFunction: {

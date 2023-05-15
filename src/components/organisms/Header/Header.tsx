@@ -1,4 +1,5 @@
 "use client";
+import { ImageDynamicName } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutContainer";
 import { Device } from "@app/components/layout/Responsive/@types/Responsive";
 import { Responsive } from "@app/components/layout/Responsive/Responsive";
@@ -38,7 +39,7 @@ const Header: React.FC<IHeaderProps> = ({ children, themeClasses }) => {
               <Responsive devices={[Device.Tv, Device.Desktop, Device.Tablet]}>
                 <LinkWithImage
                   href="/"
-                  imageName="logo"
+                  imageName={ImageDynamicName.Logo}
                   themeClasses={headerLinkWithImageDefaultThemeClasses}
                 />
               </Responsive>
@@ -46,7 +47,7 @@ const Header: React.FC<IHeaderProps> = ({ children, themeClasses }) => {
               <Responsive devices={[Device.Mobile]}>
                 <LinkWithImage
                   href="/"
-                  imageName="logoShortcut"
+                  imageName={ImageDynamicName.LogoShortcut}
                   themeClasses={headerMobileLinkWithImageDefaultThemeClasses}
                 />
               </Responsive>

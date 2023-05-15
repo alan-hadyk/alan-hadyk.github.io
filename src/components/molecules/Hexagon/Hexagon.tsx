@@ -18,20 +18,25 @@ const Hexagon: React.FC<IHexagonProps> = ({
   fill = HexagonFill.None,
   themeClasses,
 }) => {
-  const { iconDimensions, iconRef } = useHexagonState({ fill });
+  const { hexagonBorderDimensions, hexagonBorderRef } = useHexagonState({
+    fill,
+  });
 
   const hexagonContentThemeClasses: IThemeClasses = {
     ...hexagonContentDefaultThemeClasses,
     ...themeClasses?.children,
   };
 
-  const hexagonImageProps = getHexagonImageProps({ fill, iconDimensions });
+  const hexagonImageProps = getHexagonImageProps({
+    fill,
+    hexagonBorderDimensions,
+  });
 
   return (
     <LayoutContainer themeClasses={hexagonDefaultThemeClasses}>
       <ImageDynamic
         {...hexagonImageProps}
-        ref={fill === HexagonFill.None ? iconRef : undefined}
+        ref={fill === HexagonFill.None ? hexagonBorderRef : undefined}
       />
 
       {children && (

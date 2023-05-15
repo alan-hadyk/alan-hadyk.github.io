@@ -6,6 +6,7 @@ export const hexagonDefaultThemeClasses: IThemeClasses = {
 };
 
 export const hexagonContentDefaultThemeClasses: IThemeClasses = {
+  clipPath: "clip-path-hexagon",
   left: "left-50%",
   mediaQuery: [
     ...(isIE11()

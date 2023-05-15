@@ -1,4 +1,5 @@
-import { ImageStatic } from "@app/components/atoms/ImageStatic/ImageStatic";
+import { ImageDynamicName } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
+import { ImageDynamic } from "@app/components/atoms/ImageDynamic/ImageDynamic";
 import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutContainer";
 import {
   fluxChartDefaultThemeClasses,
@@ -9,10 +10,10 @@ import {
 const FluxChart: React.FC = () => (
   <LayoutContainer themeClasses={fluxChartDefaultThemeClasses}>
     <LayoutContainer themeClasses={fluxChartImageContainerDefaultThemeClasses}>
-      <ImageStatic
-        alt="Flux architecture"
+      <ImageDynamic
+        imageName={ImageDynamicName.Flux}
+        isHeightResponsive
         themeClasses={fluxChartImageDefaultThemeClasses}
-        src="/images/static/flux.svg"
       />
     </LayoutContainer>
   </LayoutContainer>

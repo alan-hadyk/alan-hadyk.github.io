@@ -14,8 +14,8 @@ export interface IHexagonProps {
   themeClasses?: { children?: Pick<IThemeClasses, "width"> };
 }
 
-export type TIconDimensionsProps = CSSProperties;
+export type THexagonBorderDimensionsProps = CSSProperties;
 
 export type TGetHexagonImagePropsArgs = Pick<IHexagonProps, "fill"> & {
-  iconDimensions: TIconDimensionsProps;
+  hexagonBorderDimensions: THexagonBorderDimensionsProps;
 };

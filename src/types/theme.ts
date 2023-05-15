@@ -5,6 +5,7 @@ const theme = tailwindConfig.theme;
 
 type TBorderWidthValues = keyof typeof theme.borderWidth;
 type TBoxShadowValues = keyof typeof theme.boxShadow;
+type TClipPathValues = keyof typeof theme.clipPath;
 type TColorValues = keyof typeof theme.colors;
 type TDropShadowValues = keyof typeof theme.dropShadow;
 type TFontFamilyValues = keyof typeof theme.fontFamily;
@@ -340,6 +341,27 @@ export type TPseudoClasses = `${string}:${string}`[] | string[];
 
 export type TClassStyleUtility = `${string}-${string}` | string;
 
+type TClipPath = TUtility<
+  "clip-path",
+  | "none"
+  | "margin"
+  | "padding"
+  | "content"
+  | "fill"
+  | "stroke"
+  | "view"
+  | "inset"
+  | "circle"
+  | "ellipse"
+  | "polygon"
+  | "inherit"
+  | "initial"
+  | "revert"
+  | "revert-layer"
+  | "unset"
+  | TClipPathValues
+>;
+
 export interface IThemeClasses extends Record<string, unknown> {
   active?: TActive | TActive[];
   after?: TAfter | TAfter[];
@@ -354,6 +376,7 @@ export interface IThemeClasses extends Record<string, unknown> {
   borderWidth?: TBorderWidth | TBorderWidth[];
   bottom?: TBottom;
   boxShadow?: TBoxShadow;
+  clipPath?: TClipPath;
   color?: TTextColor;
   columns?: TColumns;
   cursor?: TCursor;

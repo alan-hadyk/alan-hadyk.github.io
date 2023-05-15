@@ -6,6 +6,11 @@ import { ExperienceContainer } from "@app/containers/experience/ExperienceContai
 import { HeaderContainer } from "@app/containers/header/HeaderContainer";
 import { SkillsContainer } from "@app/containers/skills/SkillsContainer";
 
+const metadata = {
+  description: "Alan Hadyk's Portfolio",
+  title: "Alan Hadyk - Portfolio",
+};
+
 const IndexPage: React.FC = () => (
   <PageTemplate as="main">
     <HeaderContainer />
@@ -17,4 +22,5 @@ const IndexPage: React.FC = () => (
   </PageTemplate>
 );
 
+export { metadata };
 export default IndexPage;

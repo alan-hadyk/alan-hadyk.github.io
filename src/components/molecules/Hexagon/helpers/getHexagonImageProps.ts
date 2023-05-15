@@ -1,4 +1,7 @@
-import { IImageDynamicProps } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
+import {
+  IImageDynamicProps,
+  ImageDynamicName,
+} from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 import {
   HexagonFill,
   TGetHexagonImagePropsArgs,
@@ -7,17 +10,17 @@ import { hexagonSolidImageDefaultThemeClasses } from "@app/components/molecules/
 
 const getHexagonImageProps = ({
   fill,
-  iconDimensions,
+  hexagonBorderDimensions,
 }: TGetHexagonImagePropsArgs): IImageDynamicProps => {
   switch (fill) {
     case HexagonFill.Pattern:
       return {
-        imageName: "hexagonWithPattern",
+        imageName: ImageDynamicName.HexagonWithPattern,
       };
 
     case HexagonFill.Solid:
       return {
-        imageName: "hexagon",
+        imageName: ImageDynamicName.Hexagon,
         isActive: true,
         shouldGlow: true,
         themeClasses: hexagonSolidImageDefaultThemeClasses,
@@ -26,11 +29,11 @@ const getHexagonImageProps = ({
     default:
     case HexagonFill.None:
       return {
-        imageName: "hexagon",
+        imageName: ImageDynamicName.Hexagon,
         shouldGlow: true,
         style: {
-          height: iconDimensions.height,
-          width: iconDimensions.width,
+          height: hexagonBorderDimensions.height,
+          width: hexagonBorderDimensions.width,
         },
       };
   }

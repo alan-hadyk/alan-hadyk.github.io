@@ -5,29 +5,30 @@ import { isIE11 } from "@app/helpers/browser/isIE11";
 import {
   HexagonFill,
   IHexagonProps,
-  TIconDimensionsProps,
+  THexagonBorderDimensionsProps,
 } from "@app/components/molecules/Hexagon/@types/Hexagon";
 
 const useHexagonState = ({ fill }: Pick<IHexagonProps, "fill">) => {
-  const [iconDimensions, setIconDimensions] = useState<TIconDimensionsProps>({
-    height: undefined,
-    width: undefined,
-  });
-  const iconRef = useRef<HTMLDivElement>(null);
+  const [hexagonBorderDimensions, setHexagonBorderDimensions] =
+    useState<THexagonBorderDimensionsProps>({
+      height: undefined,
+      width: undefined,
+    });
+  const hexagonBorderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (fill !== HexagonFill.None) {
       return;
     }
 
-    const path = iconRef.current?.querySelector("path");
+    const path = hexagonBorderRef.current?.querySelector("path");
 
     const { height, width } = path
       ? path.getBoundingClientRect()
       : { height: undefined, width: undefined };
 
     if (isIE11() && height && width) {
-      setIconDimensions({
+      setHexagonBorderDimensions({
         height: `${height}px`,
         width: `${width}px`,
       });
@@ -35,8 +36,8 @@ const useHexagonState = ({ fill }: Pick<IHexagonProps, "fill">) => {
   }, [fill]);
 
   return {
-    iconDimensions,
-    iconRef,
+    hexagonBorderDimensions,
+    hexagonBorderRef,
   };
 };
 

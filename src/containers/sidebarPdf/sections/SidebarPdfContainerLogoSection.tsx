@@ -1,3 +1,4 @@
+import { ImageDynamicName } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 import { ImageDynamic } from "@app/components/atoms/ImageDynamic/ImageDynamic";
 import { Typography } from "@app/components/atoms/Typography/Typography";
 import {
@@ -8,7 +9,7 @@ import {
 const SidebarPdfContainerLogoSection: React.FC = () => (
   <>
     <ImageDynamic
-      imageName="logo"
+      imageName={ImageDynamicName.Logo}
       themeClasses={sidebarPdfContainerLogoDefaultThemeClasses}
     />
 
