@@ -4,6 +4,7 @@ import tailwindConfig from "@app/../tailwind.config";
 const theme = tailwindConfig.theme;
 
 type TAnimationValues = keyof typeof theme.animation;
+type TBackgroundImageValues = keyof typeof theme.backgroundImage;
 type TBorderRadiusValues = keyof typeof theme.borderRadius;
 type TBorderWidthValues = keyof typeof theme.borderWidth;
 type TBoxShadowValues = keyof typeof theme.boxShadow;
@@ -55,6 +56,7 @@ type TBgColor = TUtilityWithArbitraryValues<
 
 type TBg = TUtilityWithArbitraryValues<
   "bg",
+  | TBackgroundImageValues
   | `[url(${string})]`
   | "bottom"
   | "center"

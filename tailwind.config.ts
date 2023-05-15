@@ -80,6 +80,10 @@ const tailwindConfig = {
       "glow-verySlow": "glow 3600ms ease-in-out infinite",
       "rotate-slow": "rotate 900ms linear infinite",
     },
+    backgroundImage: {
+      crossImg:
+        "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAzMyAzMyI+CiAgPGRlZnMvPgogIDxwYXRoIGZpbGw9IiMzMTRFNTMiIGQ9Ik0xMi4zNyAxNi4wOGg4djFoLTh2LTF6Ii8+CiAgPHBhdGggZmlsbD0iIzMxNEU1MyIgZD0iTTE1Ljg3IDIwLjU4di04aDF2OGgtMXoiLz4KPC9zdmc+')",
+    },
     borderRadius: {
       full: "50%",
     },
