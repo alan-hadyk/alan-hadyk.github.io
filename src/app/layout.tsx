@@ -1,7 +1,7 @@
 import "@app/styles/global.css";
 import Script from "next/script";
 import { IRootLayoutProps } from "@app/app/@types/layout";
-import { fontAnonymousProVariable, fontExanVariable } from "@app/styles/fonts";
+import { fontAnonymousPro, fontExan } from "@app/styles/fonts";
 
 const RootLayout: React.FC<IRootLayoutProps> = ({ children }) => (
   <html lang="en">
@@ -74,7 +74,7 @@ const RootLayout: React.FC<IRootLayoutProps> = ({ children }) => (
       strategy="afterInteractive"
     />
 
-    <body className={`${fontExanVariable} ${fontAnonymousProVariable}`}>
+    <body className={`${fontExan.variable} ${fontAnonymousPro.variable}`}>
       {children}
     </body>
   </html>
