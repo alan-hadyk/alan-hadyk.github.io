@@ -1,4 +1,3 @@
-import "@app/styles/loader.css";
 import "@app/styles/global.css";
 import Script from "next/script";
 import { IRootLayoutProps } from "@app/app/@types/layout";

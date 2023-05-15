@@ -41,6 +41,12 @@
   }
 }
 
+@layer utilities {
+  .page-break-inside-avoid {
+    page-break-inside: avoid;
+  }  
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -96,11 +102,17 @@ footer, header, hgroup, menu, nav, section {
   border: none;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
   background-color: #1e2224;
   color: #78b0b5;
   line-height: 1;
   min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
   position: relative;
   scroll-behavior: smooth;
 }
@@ -139,10 +151,3 @@ iframe {
   height: 100vh;
   width: 100vw;
 }
-
-/* Custom CSS */
-.page-break-inside-avoid {
-  page-break-inside: avoid;
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&display=swap');

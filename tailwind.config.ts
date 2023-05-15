@@ -29,6 +29,7 @@ const spacing = {
   "80%": "80%",
   88: "8.8rem",
   96: "9.6rem",
+  100: "10rem",
   "100%": "100%",
   "100vh": "100vh",
   248: "24.8rem",
@@ -78,6 +79,7 @@ const tailwindConfig = {
       "blink-slow": "blink 900ms ease-in-out infinite",
       "glow-slow": "glow 900ms ease-in-out infinite",
       "glow-verySlow": "glow 3600ms ease-in-out infinite",
+      "rotate-slow": "rotate 900ms linear infinite",
     },
     borderRadius: {
       full: "50%",
@@ -151,6 +153,10 @@ const tailwindConfig = {
         "16%": { filter: "drop-shadow(0px 0px 0.25rem #bcd8db)" },
         "32%": { filter: "drop-shadow(0px 0px 0px #bcd8db)" },
         "100%": { filter: "drop-shadow(0px 0px 0px #bcd8db)", opacity: "1" },
+      },
+      rotate: {
+        "0%": { transform: "rotate(0deg)" },
+        "100%": { transform: "rotate(360deg)" },
       },
     },
     lineHeight: {
