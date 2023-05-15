@@ -1,8 +1,8 @@
-import { SidebarPdfContainerLanguagesSection } from "@app/containers/sidebarPdf/sections/SidebarPdfContainerLanguagesSection";
-import { SidebarPdfContainerLogoSection } from "@app/containers/sidebarPdf/sections/SidebarPdfContainerLogoSection";
-import { SidebarPdfContainerMainIconsSection } from "@app/containers/sidebarPdf/sections/SidebarPdfContainerMainIconsSection";
-import { SkillsContainerFormat } from "@app/containers/skills/@types/SkillsContainer";
-import { SkillsContainer } from "@app/containers/skills/SkillsContainer";
+import { SidebarPdfContainerLanguagesSection } from "@app/containers/SidebarPdf/sections/SidebarPdfContainerLanguagesSection";
+import { SidebarPdfContainerLogoSection } from "@app/containers/SidebarPdf/sections/SidebarPdfContainerLogoSection";
+import { SidebarPdfContainerMainIconsSection } from "@app/containers/SidebarPdf/sections/SidebarPdfContainerMainIconsSection";
+import { SkillsContainerFormat } from "@app/containers/Skills/@types/SkillsContainer";
+import { SkillsContainer } from "@app/containers/Skills/SkillsContainer";
 
 const SidebarPdfContainer: React.FC = () => (
   <>

@@ -2,14 +2,14 @@ import { Section } from "@app/components/molecules/Section/Section";
 import {
   ISkillsContainerProps,
   SkillsContainerFormat,
-} from "@app/containers/skills/@types/SkillsContainer";
+} from "@app/containers/Skills/@types/SkillsContainer";
 import { Device } from "@app/components/layout/Responsive/@types/Responsive";
 import {
   SectionSize,
   SectionVariant,
 } from "@app/components/molecules/Section/@types/Section";
 import { ContentFrameWithIconsGroup } from "@app/components/molecules/ContentFrameWithIconsGroup/ContentFrameWithIconsGroup";
-import { skillsItems } from "@app/containers/skills/config";
+import { skillsItems } from "@app/containers/Skills/config";
 
 const SkillsContainer: React.FC<ISkillsContainerProps> = ({
   format = SkillsContainerFormat.Web,

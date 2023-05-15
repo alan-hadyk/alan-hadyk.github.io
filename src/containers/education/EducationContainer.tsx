@@ -4,7 +4,7 @@ import {
   SectionVariant,
 } from "@app/components/molecules/Section/@types/Section";
 import { Section } from "@app/components/molecules/Section/Section";
-import { education } from "@app/containers/education/config";
+import { education } from "@app/containers/Education/config";
 
 const EducationContainer: React.FC = () => (
   <Section

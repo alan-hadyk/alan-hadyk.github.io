@@ -4,7 +4,7 @@ import { Typography } from "@app/components/atoms/Typography/Typography";
 import {
   sidebarPdfContainerLogoDefaultThemeClasses,
   sidebarPdfContainerTitleDefaultThemeClasses,
-} from "@app/containers/sidebarPdf/styles";
+} from "@app/containers/SidebarPdf/styles";
 
 const SidebarPdfContainerLogoSection: React.FC = () => (
   <>

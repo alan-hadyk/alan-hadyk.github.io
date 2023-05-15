@@ -3,9 +3,9 @@ import { Backdrop } from "@app/components/atoms/Backdrop/Backdrop";
 import { Responsive } from "@app/components/layout/Responsive/Responsive";
 
 import { Device } from "@app/components/layout/Responsive/@types/Responsive";
-import { IHeaderContainerScreenProps } from "@app/containers/header/@types/HeaderContainerScreen";
+import { IHeaderContainerScreenProps } from "@app/containers/Header/@types/HeaderContainerScreen";
 import { SideMenu } from "@app/components/organisms/SideMenu/SideMenu";
-import { icons, navItems } from "@app/containers/header/config";
+import { icons, navItems } from "@app/containers/Header/config";
 
 const HeaderContainerTabletAndMobile: React.FC<IHeaderContainerScreenProps> = ({
   isMenuVisible,

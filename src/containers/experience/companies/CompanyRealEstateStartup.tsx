@@ -2,7 +2,7 @@ import { IconStaticName } from "@app/components/atoms/IconStatic/@types/IconStat
 import { iconsWithLabels } from "@app/components/molecules/IconsWithLabels/config";
 import { ICompanyProps } from "@app/components/organisms/Company/@types/Company";
 import { Company } from "@app/components/organisms/Company/Company";
-import { invertIcon } from "@app/containers/experience/helpers/invertIcon";
+import { invertIcon } from "@app/containers/Experience/helpers/invertIcon";
 
 const CompanyRealEstateStartup: React.FC<
   Pick<ICompanyProps, "format" | "variant">

@@ -4,7 +4,7 @@ import {
   SectionVariant,
 } from "@app/components/molecules/Section/@types/Section";
 import { Section } from "@app/components/molecules/Section/Section";
-import { rodoAgreement } from "@app/containers/disclaimer/config";
+import { rodoAgreement } from "@app/containers/Disclaimer/config";
 
 const DisclaimerContainer: React.FC = () => (
   <Section

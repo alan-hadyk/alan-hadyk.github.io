@@ -4,7 +4,7 @@ import {
   SectionVariant,
 } from "@app/components/molecules/Section/@types/Section";
 import { Section } from "@app/components/molecules/Section/Section";
-import { languages } from "@app/containers/sidebarPdf/config";
+import { languages } from "@app/containers/SidebarPdf/config";
 
 const SidebarPdfContainerLanguagesSection: React.FC = () => (
   <Section
