@@ -4,6 +4,7 @@ import tailwindConfig from "@app/../tailwind.config";
 const theme = tailwindConfig.theme;
 
 type TAnimationValues = keyof typeof theme.animation;
+type TBorderRadiusValues = keyof typeof theme.borderRadius;
 type TBorderWidthValues = keyof typeof theme.borderWidth;
 type TBoxShadowValues = keyof typeof theme.boxShadow;
 type TClipPathValues = keyof typeof theme.clipPath;
@@ -141,7 +142,10 @@ type TBorderTopColor =
   | TUtilityWithArbitraryValues<"border-t", TColorValues>
   | TUtilityWithTransparency<"border-t", TColorValues>;
 
-type TBorderRadius = TUtilityWithArbitraryValues<"rounded", TSpacingValues>;
+type TBorderRadius = TUtilityWithArbitraryValues<
+  "rounded",
+  TBorderRadiusValues
+>;
 
 type TBorderStyle = TUtility<
   "border",

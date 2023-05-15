@@ -13,6 +13,7 @@ const commonPseudoClasses: TPseudoClasses = [
 export const unorderedListDefaultThemeClasses: IThemeClasses = {
   listStyleType: "list-none",
 };
+
 export const mapUnorderedListSizeToPseudoClasses: Record<
   UnorderedListSize,
   TPseudoClasses
