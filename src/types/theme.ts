@@ -385,6 +385,7 @@ export interface IThemeClasses {
   borderWidth?: TBorderWidth | TBorderWidth[];
   bottom?: TBottom;
   boxShadow?: TBoxShadow;
+  className?: string;
   clipPath?: TClipPath;
   color?: TTextColor;
   columns?: TColumns;
