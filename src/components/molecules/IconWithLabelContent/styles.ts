@@ -20,7 +20,7 @@ export const mapSizeToIconWrapperStyles: Record<
 > = {
   [IconWithLabelContentSize.ExtraSmall]: {
     flex: "flex-[0_0_2.4rem]",
-    paddingRight: "pr-4",
+    marginRight: "mr-4",
     width: "w-24",
   },
   [IconWithLabelContentSize.Large]: {

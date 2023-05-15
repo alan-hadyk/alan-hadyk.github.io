@@ -23,10 +23,10 @@ import Webpack from "@app/../public/icons/dynamic/webpack.svg";
 
 import {
   IconDynamicName,
-  TIconComponents,
+  TIconDynamicComponents,
 } from "@app/components/atoms/IconDynamic/@types/IconDynamic";
 
-const iconDynamicComponents: TIconComponents = {
+const iconDynamicComponents: TIconDynamicComponents = {
   [IconDynamicName.Apollo]: Apollo,
   [IconDynamicName.Chrome]: Chrome,
   [IconDynamicName.CodeSandbox]: CodeSandbox,

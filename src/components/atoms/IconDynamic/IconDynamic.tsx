@@ -2,7 +2,6 @@ import React, { forwardRef } from "react";
 import { IIconDynamicProps } from "@app/components/atoms/IconDynamic/@types/IconDynamic";
 import { iconDynamicComponents } from "@app/components/atoms/IconDynamic/config";
 import { useIconDynamicThemeClasses } from "@app/components/atoms/IconDynamic/hooks/useIconDynamicThemeClasses";
-import { TSVGIcon } from "@app/types/svg";
 
 const _IconDynamic: React.ForwardRefRenderFunction<
   HTMLDivElement,
@@ -32,11 +31,11 @@ const _IconDynamic: React.ForwardRefRenderFunction<
       themeClasses,
     });
 
-  const IconComponent: TSVGIcon = iconDynamicComponents[iconName];
+  const IconDynamicComponent = iconDynamicComponents[iconName];
 
   return (
     <div className={iconDynamicWrapperClassName} ref={ref} style={style}>
-      <IconComponent className={iconDynamicClassName} />
+      <IconDynamicComponent className={iconDynamicClassName} />
     </div>
   );
 };

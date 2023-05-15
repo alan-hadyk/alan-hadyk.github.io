@@ -43,4 +43,7 @@ export interface IIconDynamicProps {
   >;
 }
 
-export type TIconComponents = Record<IIconDynamicProps["iconName"], TSVGIcon>;
+export type TIconDynamicComponents = Record<
+  IIconDynamicProps["iconName"],
+  TSVGIcon
+>;
