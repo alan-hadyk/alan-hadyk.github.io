@@ -1,7 +1,6 @@
 import "@app/styles/global.css";
-import Script from "next/script";
-import { IRootLayoutProps } from "@app/app/@types/layout";
 import { fontAnonymousPro, fontExan } from "@app/styles/fonts";
+import { IRootLayoutProps } from "@app/app/@types/layout";
 
 const RootLayout: React.FC<IRootLayoutProps> = ({ children }) => (
   <html lang="en">
@@ -42,37 +41,6 @@ const RootLayout: React.FC<IRootLayoutProps> = ({ children }) => (
       <meta name="msapplication-config" content="/browserconfig.xml" />
       <meta name="theme-color" content="#22272a" />
     </head>
-
-    {/* Global site tag (gtag.js) - Google Analytics */}
-    <Script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-6TBH8GVEQK"
-    />
-    <Script
-      dangerouslySetInnerHTML={{
-        __html: `
-              var isLocalhost = Boolean(
-                window.location.hostname === "localhost" ||
-                  // [::1] is the IPv6 localhost address.
-                  window.location.hostname === "[::1]" ||
-                  // 127.0.0.0/8 are considered localhost for IPv4.
-                  window.location.hostname.match(
-                    /^127(?:.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
-                  )
-              );
-  
-              if (!isLocalhost) {
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-          
-                gtag('config', 'G-6TBH8GVEQK');
-              }
-            `,
-      }}
-      id="google-tag-manager-code"
-      strategy="afterInteractive"
-    />
 
     <body className={`${fontExan.variable} ${fontAnonymousPro.variable}`}>
       {children}
