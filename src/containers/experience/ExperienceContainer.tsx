@@ -1,14 +1,5 @@
+"use client";
 import { Section } from "@app/components/molecules/Section/Section";
-
-import { CompanyRealEstateStartup } from "@app/containers/Experience/companies/CompanyRealEstateStartup";
-import { CompanyDiH } from "@app/containers/Experience/companies/CompanyDiH";
-import { CompanyOmise } from "@app/containers/Experience/companies/CompanyOmise";
-import { CompanyPersonallyEmployed } from "@app/containers/Experience/companies/CompanyPersonallyEmployed";
-import { CompanySAP } from "@app/containers/Experience/companies/CompanySAP";
-import { CompanyShiji } from "@app/containers/Experience/companies/CompanyShiji";
-import { CompanyTribe } from "@app/containers/Experience/companies/CompanyTribe";
-import { CompanyHealthcareSaas } from "@app/containers/Experience/companies/CompanyHealthcareSaas";
-import { CompanySaaSForContentWriters } from "@app/containers/Experience/companies/CompanySaaSForContentWriters";
 import {
   ExperienceContainerFormat,
   IExperienceContainerProps,
@@ -21,6 +12,62 @@ import {
   mapExperienceContainerFormatToCompanyFormat,
   mapExperienceContainerFormatToCompanyVariant,
 } from "@app/containers/Experience/config";
+import { lazy } from "react";
+import { LazyLoadingWrapper } from "@app/components/layout/LazyLoadingWrapper/LazyLoadingWrapper";
+
+const CompanyRealEstateStartup = lazy(() =>
+  import("@app/containers/Experience/companies/CompanyRealEstateStartup").then(
+    (module) => ({ default: module.CompanyRealEstateStartup }),
+  ),
+);
+
+const CompanyDiH = lazy(() =>
+  import("@app/containers/Experience/companies/CompanyDiH").then((module) => ({
+    default: module.CompanyDiH,
+  })),
+);
+
+const CompanyOmise = lazy(() =>
+  import("@app/containers/Experience/companies/CompanyOmise").then(
+    (module) => ({ default: module.CompanyOmise }),
+  ),
+);
+
+const CompanyPersonallyEmployed = lazy(() =>
+  import("@app/containers/Experience/companies/CompanyPersonallyEmployed").then(
+    (module) => ({ default: module.CompanyPersonallyEmployed }),
+  ),
+);
+
+const CompanySAP = lazy(() =>
+  import("@app/containers/Experience/companies/CompanySAP").then((module) => ({
+    default: module.CompanySAP,
+  })),
+);
+
+const CompanyShiji = lazy(() =>
+  import("@app/containers/Experience/companies/CompanyShiji").then(
+    (module) => ({ default: module.CompanyShiji }),
+  ),
+);
+
+const CompanyTribe = lazy(() =>
+  import("@app/containers/Experience/companies/CompanyTribe").then(
+    (module) => ({ default: module.CompanyTribe }),
+  ),
+);
+
+const CompanyHealthcareSaas = lazy(() =>
+  import("@app/containers/Experience/companies/CompanyHealthcareSaas").then(
+    (module) => ({ default: module.CompanyHealthcareSaas }),
+  ),
+);
+
+const CompanySaaSForContentWriters = lazy(() =>
+  import(
+    "@app/containers/Experience/companies/CompanySaaSForContentWriters"
+  ).then((module) => ({ default: module.CompanySaaSForContentWriters })),
+);
 
 const ExperienceContainer: React.FC<IExperienceContainerProps> = ({
   format = ExperienceContainerFormat.Web,
@@ -39,23 +86,25 @@ const ExperienceContainer: React.FC<IExperienceContainerProps> = ({
         : SectionVariant.Dark
     }
   >
-    {[
-      CompanySaaSForContentWriters,
-      CompanyHealthcareSaas,
-      CompanyRealEstateStartup,
-      CompanyTribe,
-      CompanyOmise,
-      CompanyShiji,
-      CompanySAP,
-      CompanyDiH,
-      CompanyPersonallyEmployed,
-    ].map((CompanyComponent, index) => (
-      <CompanyComponent
-        format={mapExperienceContainerFormatToCompanyFormat[format]}
-        key={index}
-        variant={mapExperienceContainerFormatToCompanyVariant[format]}
-      />
-    ))}
+    <LazyLoadingWrapper>
+      {[
+        CompanySaaSForContentWriters,
+        CompanyHealthcareSaas,
+        CompanyRealEstateStartup,
+        CompanyTribe,
+        CompanyOmise,
+        CompanyShiji,
+        CompanySAP,
+        CompanyDiH,
+        CompanyPersonallyEmployed,
+      ].map((CompanyComponent, index) => (
+        <CompanyComponent
+          format={mapExperienceContainerFormatToCompanyFormat[format]}
+          key={index}
+          variant={mapExperienceContainerFormatToCompanyVariant[format]}
+        />
+      ))}
+    </LazyLoadingWrapper>
   </Section>
 );
 

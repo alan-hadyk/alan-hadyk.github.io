@@ -1,3 +1,4 @@
+"use client";
 import { Section } from "@app/components/molecules/Section/Section";
 import {
   ISkillsContainerProps,
@@ -8,8 +9,15 @@ import {
   SectionSize,
   SectionVariant,
 } from "@app/components/molecules/Section/@types/Section";
-import { ContentFrameWithIconsGroup } from "@app/components/molecules/ContentFrameWithIconsGroup/ContentFrameWithIconsGroup";
 import { skillsItems } from "@app/containers/Skills/config";
+import { lazy } from "react";
+import { LazyLoadingWrapper } from "@app/components/layout/LazyLoadingWrapper/LazyLoadingWrapper";
+
+const ContentFrameWithIconsGroup = lazy(() =>
+  import(
+    "@app/components/molecules/ContentFrameWithIconsGroup/ContentFrameWithIconsGroup"
+  ).then((module) => ({ default: module.ContentFrameWithIconsGroup })),
+);
 
 const SkillsContainer: React.FC<ISkillsContainerProps> = ({
   format = SkillsContainerFormat.Web,
@@ -29,7 +37,7 @@ const SkillsContainer: React.FC<ISkillsContainerProps> = ({
     }
   >
     {format === SkillsContainerFormat.Web && (
-      <>
+      <LazyLoadingWrapper>
         <ContentFrameWithIconsGroup
           columnCount="columns-5"
           device={Device.Tv}
@@ -52,7 +60,7 @@ const SkillsContainer: React.FC<ISkillsContainerProps> = ({
           device={Device.Mobile}
           items={skillsItems}
         />
-      </>
+      </LazyLoadingWrapper>
     )}
 
     {format === SkillsContainerFormat.Pdf && (
