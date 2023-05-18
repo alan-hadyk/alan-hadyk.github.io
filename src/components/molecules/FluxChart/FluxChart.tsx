@@ -12,7 +12,7 @@ const FluxChart: React.FC = () => (
     <LayoutContainer themeClasses={fluxChartImageContainerDefaultThemeClasses}>
       <ImageDynamic
         imageName={ImageDynamicName.Flux}
-        isHeightResponsive
+        isResponsive
         themeClasses={fluxChartImageDefaultThemeClasses}
       />
     </LayoutContainer>
