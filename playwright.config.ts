@@ -73,6 +73,8 @@ export default defineConfig({
 
   testDir: "./end-to-end/specs",
 
+  timeout: 120 * 1000, // time to launch server, 6o by default
+
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -86,7 +88,8 @@ export default defineConfig({
   webServer: {
     command: "yarn start:ci",
     reuseExistingServer: !process.env.CI,
-    url: "http://0.0.0.0:3000",
+    timeout: 120 * 1000, // time to launch server, 6o by default
+    url: "http://localhost:3000",
   },
 
   /* Opt out of parallel tests on CI. */
