@@ -3,4 +3,5 @@ import { IHexagonWithDescriptionContentProps } from "@app/components/molecules/H
 export interface IHexagonWithDescriptionProps {
   children: IHexagonWithDescriptionContentProps["children"];
   description: IHexagonWithDescriptionContentProps["description"];
+  id?: string;
 }

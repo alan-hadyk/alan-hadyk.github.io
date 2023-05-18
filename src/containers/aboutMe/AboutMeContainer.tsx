@@ -15,7 +15,10 @@ const HexagonWithDescription = lazy(() =>
 const AboutMeContainer: React.FC = () => (
   <Section id="about-me" title="About me">
     <LazyLoadingWrapper>
-      <HexagonWithDescription description={renderDescription()}>
+      <HexagonWithDescription
+        id="about-me-description"
+        description={renderDescription()}
+      >
         <ImageStatic alt="Alan Hadyk" height={700} src={Alan} width={700} />
       </HexagonWithDescription>
     </LazyLoadingWrapper>

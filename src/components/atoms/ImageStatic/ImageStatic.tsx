@@ -7,6 +7,7 @@ import Image from "next/legacy/image";
 const ImageStatic: React.FC<IImageStaticProps> = ({
   alt = "",
   blurDataURL,
+  className,
   height,
   id,
   quality = 100,
@@ -25,7 +26,9 @@ const ImageStatic: React.FC<IImageStaticProps> = ({
       alt={alt}
       blurDataURL={blurDataURL}
       height={height}
-      className={convertObjectValuesToString(imageStaticThemeClasses)}
+      className={`${convertObjectValuesToString(
+        imageStaticThemeClasses,
+      )} ${className}`}
       id={id}
       quality={quality}
       placeholder="blur"

@@ -18,7 +18,7 @@ export const apiGithubCom = {
       },
       html_url:
         "https://github.com/alan-hadyk/alan-hadyk.github.io/commit/2fc19d0ca4b41a990d0fd8c5a37af0c34ddf781d",
-      sha: "65a568da4842f2d31045102fc554c62431f29bc4",
+      sha: "65a568da4842f2d31045102fc554c62431f29bc5",
     },
     {
       commit: {
@@ -28,7 +28,7 @@ export const apiGithubCom = {
       },
       html_url:
         "https://github.com/alan-hadyk/alan-hadyk.github.io/commit/2fc19d0ca4b41a990d0fd8c5a37af0c34ddf781d",
-      sha: "65a568da4842f2d31045102fc554c62431f29bc4",
+      sha: "65a568da4842f2d31045102fc554c62431f29bc6",
     },
     {
       commit: {
@@ -38,7 +38,7 @@ export const apiGithubCom = {
       },
       html_url:
         "https://github.com/alan-hadyk/alan-hadyk.github.io/commit/2fc19d0ca4b41a990d0fd8c5a37af0c34ddf781d",
-      sha: "65a568da4842f2d31045102fc554c62431f29bc4",
+      sha: "65a568da4842f2d31045102fc554c62431f29bc7",
     },
     {
       commit: {
@@ -48,7 +48,7 @@ export const apiGithubCom = {
       },
       html_url:
         "https://github.com/alan-hadyk/alan-hadyk.github.io/commit/2fc19d0ca4b41a990d0fd8c5a37af0c34ddf781d",
-      sha: "65a568da4842f2d31045102fc554c62431f29bc4",
+      sha: "65a568da4842f2d31045102fc554c62431f29bc8",
     },
     {
       commit: {
@@ -58,7 +58,7 @@ export const apiGithubCom = {
       },
       html_url:
         "https://github.com/alan-hadyk/alan-hadyk.github.io/commit/2fc19d0ca4b41a990d0fd8c5a37af0c34ddf781d",
-      sha: "65a568da4842f2d31045102fc554c62431f29bc4",
+      sha: "65a568da4842f2d31045102fc554c62431f29bc9",
     },
   ],
 };

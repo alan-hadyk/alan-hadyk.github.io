@@ -8,7 +8,7 @@ test.beforeEach(async ({ page }) => {
       const json = apiGithubCom["repos/alan-hadyk/portfolio/commits"];
 
       await route.fulfill({ json });
-    }
+    },
   );
 
   await page.goto("/");
@@ -21,9 +21,16 @@ test.describe("Skills", () => {
       width: 1921,
     });
 
-    await page.locator(".loader").waitFor({
-      state: "hidden",
-    });
+    await page.locator("#skills").scrollIntoViewIfNeeded();
+    await page.locator("#skills").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
+
+    await page.waitForLoadState("networkidle");
+
+    await page.click("a[data-id='Skills']");
 
     await expect(page.locator("#skills")).toHaveScreenshot({
       animations: "disabled",
@@ -38,9 +45,16 @@ test.describe("Skills", () => {
       width: 1700,
     });
 
-    await page.locator(".loader").waitFor({
-      state: "hidden",
-    });
+    await page.locator("#skills").scrollIntoViewIfNeeded();
+    await page.locator("#skills").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
+
+    await page.waitForLoadState("networkidle");
+
+    await page.click("a[data-id='Skills']");
 
     await expect(page.locator("#skills")).toHaveScreenshot({
       animations: "disabled",
@@ -55,9 +69,16 @@ test.describe("Skills", () => {
       width: 1300,
     });
 
-    await page.locator(".loader").waitFor({
-      state: "hidden",
-    });
+    await page.locator("#skills").scrollIntoViewIfNeeded();
+    await page.locator("#skills").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
+
+    await page.waitForLoadState("networkidle");
+
+    await page.locator("#skills").scrollIntoViewIfNeeded();
 
     await expect(page.locator("#skills")).toHaveScreenshot({
       animations: "disabled",
@@ -72,9 +93,16 @@ test.describe("Skills", () => {
       width: 1000,
     });
 
-    await page.locator(".loader").waitFor({
-      state: "hidden",
-    });
+    await page.locator("#skills").scrollIntoViewIfNeeded();
+    await page.locator("#skills").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
+
+    await page.waitForLoadState("networkidle");
+
+    await page.locator("#skills").scrollIntoViewIfNeeded();
 
     await expect(page.locator("#skills")).toHaveScreenshot({
       animations: "disabled",
@@ -89,9 +117,16 @@ test.describe("Skills", () => {
       width: 650,
     });
 
-    await page.locator(".loader").waitFor({
-      state: "hidden",
-    });
+    await page.locator("#skills").scrollIntoViewIfNeeded();
+    await page.locator("#skills").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
+
+    await page.waitForLoadState("networkidle");
+
+    await page.locator("#skills").scrollIntoViewIfNeeded();
 
     await expect(page.locator("#skills")).toHaveScreenshot({
       animations: "disabled",

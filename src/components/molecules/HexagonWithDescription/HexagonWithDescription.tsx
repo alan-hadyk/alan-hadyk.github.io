@@ -15,8 +15,12 @@ import {
 const HexagonWithDescription: React.FC<IHexagonWithDescriptionProps> = ({
   children,
   description,
+  id,
 }) => (
-  <LayoutContainer themeClasses={hexagonWithDescriptionDefaultThemeClasses}>
+  <LayoutContainer
+    id={id}
+    themeClasses={hexagonWithDescriptionDefaultThemeClasses}
+  >
     <Responsive devices={[Device.Tv, Device.Desktop]}>
       <HexagonWithDescriptionContent
         description={description}

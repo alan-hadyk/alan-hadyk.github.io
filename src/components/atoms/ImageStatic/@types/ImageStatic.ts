@@ -5,6 +5,7 @@ import { ImageProps } from "next/image";
 export interface IImageStaticProps {
   alt?: string;
   blurDataURL?: ImageProps["blurDataURL"];
+  className?: string;
   height: number;
   id?: string;
   quality?: ImageProps["quality"];

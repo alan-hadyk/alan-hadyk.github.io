@@ -8,7 +8,7 @@ test.beforeEach(async ({ page }) => {
       const json = apiGithubCom["repos/alan-hadyk/portfolio/commits"];
 
       await route.fulfill({ json });
-    }
+    },
   );
 
   await page.goto("/");
@@ -21,9 +21,7 @@ test.describe("Contact", () => {
       width: 1921,
     });
 
-    await page.locator(".loader").waitFor({
-      state: "hidden",
-    });
+    await page.waitForLoadState("networkidle");
 
     await expect(page.locator("#contact")).toHaveScreenshot({
       animations: "disabled",
@@ -38,9 +36,7 @@ test.describe("Contact", () => {
       width: 1700,
     });
 
-    await page.locator(".loader").waitFor({
-      state: "hidden",
-    });
+    await page.waitForLoadState("networkidle");
 
     await expect(page.locator("#contact")).toHaveScreenshot({
       animations: "disabled",
@@ -55,9 +51,7 @@ test.describe("Contact", () => {
       width: 1300,
     });
 
-    await page.locator(".loader").waitFor({
-      state: "hidden",
-    });
+    await page.waitForLoadState("networkidle");
 
     await expect(page.locator("#contact")).toHaveScreenshot({
       animations: "disabled",
@@ -72,9 +66,7 @@ test.describe("Contact", () => {
       width: 1000,
     });
 
-    await page.locator(".loader").waitFor({
-      state: "hidden",
-    });
+    await page.waitForLoadState("networkidle");
 
     await expect(page.locator("#contact")).toHaveScreenshot({
       animations: "disabled",
@@ -89,9 +81,7 @@ test.describe("Contact", () => {
       width: 650,
     });
 
-    await page.locator(".loader").waitFor({
-      state: "hidden",
-    });
+    await page.waitForLoadState("networkidle");
 
     await expect(page.locator("#contact")).toHaveScreenshot({
       animations: "disabled",

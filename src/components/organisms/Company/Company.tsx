@@ -31,7 +31,7 @@ const Company: React.FC<ICompanyProps> = ({
   };
 
   return (
-    <LayoutContainer>
+    <LayoutContainer id={name.replaceAll(" ", "")}>
       <LayoutContainer themeClasses={{ position: "relative", width: "w-100%" }}>
         {format === CompanyFormat.Pdf && <CompanyPdf {...commonCompanyProps} />}
 

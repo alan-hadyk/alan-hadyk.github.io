@@ -8,7 +8,7 @@ test.beforeEach(async ({ page }) => {
       const json = apiGithubCom["repos/alan-hadyk/portfolio/commits"];
 
       await route.fulfill({ json });
-    }
+    },
   );
 
   await page.goto("/");
@@ -19,10 +19,6 @@ test.describe("Header", () => {
     await page.setViewportSize({
       height: 1080,
       width: 1921,
-    });
-
-    await page.locator(".loader").waitFor({
-      state: "hidden",
     });
 
     await expect(page.locator("#header")).toHaveScreenshot({
@@ -44,10 +40,6 @@ test.describe("Header", () => {
       width: 1700,
     });
 
-    await page.locator(".loader").waitFor({
-      state: "hidden",
-    });
-
     await page.locator("#menu-button-desktop").isHidden();
     await page.locator("#side-menu-desktop").isHidden();
 
@@ -65,10 +57,6 @@ test.describe("Header", () => {
     await page.setViewportSize({
       height: 1080,
       width: 1300,
-    });
-
-    await page.locator(".loader").waitFor({
-      state: "hidden",
     });
 
     await expect(page.locator("#header")).toHaveScreenshot({
@@ -99,10 +87,6 @@ test.describe("Header", () => {
       width: 1000,
     });
 
-    await page.locator(".loader").waitFor({
-      state: "hidden",
-    });
-
     await expect(page.locator("#header")).toHaveScreenshot({
       animations: "disabled",
       omitBackground: true,
@@ -129,10 +113,6 @@ test.describe("Header", () => {
     await page.setViewportSize({
       height: 1080,
       width: 650,
-    });
-
-    await page.locator(".loader").waitFor({
-      state: "hidden",
     });
 
     await expect(page.locator("#header")).toHaveScreenshot({

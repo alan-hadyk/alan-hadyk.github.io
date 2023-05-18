@@ -8,7 +8,7 @@ test.beforeEach(async ({ page }) => {
       const json = apiGithubCom["repos/alan-hadyk/portfolio/commits"];
 
       await route.fulfill({ json });
-    }
+    },
   );
 
   await page.goto("/");
@@ -21,12 +21,23 @@ test.describe("About me", () => {
       width: 1921,
     });
 
-    await page.locator(".loader").waitFor({
-      state: "hidden",
+    await page.locator("#about-me").scrollIntoViewIfNeeded();
+    await page.locator("#about-me").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
+
+    await page.waitForLoadState("networkidle");
+    await page.waitForTimeout(2000);
+
+    await page.click("a[data-id='About me']");
+
+    await page.locator("#about-me-description").waitFor({
+      state: "visible",
     });
 
     await expect(page.locator("#about-me")).toHaveScreenshot({
-      animations: "disabled",
       omitBackground: true,
       scale: "css",
     });
@@ -38,8 +49,19 @@ test.describe("About me", () => {
       width: 1700,
     });
 
-    await page.locator(".loader").waitFor({
-      state: "hidden",
+    await page.locator("#about-me").scrollIntoViewIfNeeded();
+    await page.locator("#about-me").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
+
+    await page.waitForLoadState("networkidle");
+    await page.waitForTimeout(2000);
+
+    await page.click("a[data-id='About me']");
+    await page.locator("#about-me-description").waitFor({
+      state: "visible",
     });
 
     await expect(page.locator("#about-me")).toHaveScreenshot({
@@ -55,8 +77,25 @@ test.describe("About me", () => {
       width: 1300,
     });
 
-    await page.locator(".loader").waitFor({
-      state: "hidden",
+    await page.locator("#about-me").scrollIntoViewIfNeeded();
+    await page.locator("#about-me").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
+
+    await page.waitForLoadState("networkidle");
+    await page.waitForTimeout(2000);
+
+    await page.locator("#about-me").scrollIntoViewIfNeeded();
+    await page.locator("#about-me").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
+
+    await page.locator("#about-me-description").waitFor({
+      state: "visible",
     });
 
     await expect(page.locator("#about-me")).toHaveScreenshot({
@@ -72,8 +111,25 @@ test.describe("About me", () => {
       width: 1000,
     });
 
-    await page.locator(".loader").waitFor({
-      state: "hidden",
+    await page.locator("#about-me").scrollIntoViewIfNeeded();
+    await page.locator("#about-me").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
+
+    await page.waitForLoadState("networkidle");
+    await page.waitForTimeout(2000);
+
+    await page.locator("#about-me").scrollIntoViewIfNeeded();
+    await page.locator("#about-me").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
+
+    await page.locator("#about-me-description").waitFor({
+      state: "visible",
     });
 
     await expect(page.locator("#about-me")).toHaveScreenshot({
@@ -89,8 +145,25 @@ test.describe("About me", () => {
       width: 650,
     });
 
-    await page.locator(".loader").waitFor({
-      state: "hidden",
+    await page.locator("#about-me").scrollIntoViewIfNeeded();
+    await page.locator("#about-me").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
+
+    await page.waitForLoadState("networkidle");
+    await page.waitForTimeout(2000);
+
+    await page.locator("#about-me").scrollIntoViewIfNeeded();
+    await page.locator("#about-me").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
+
+    await page.locator("#about-me-description").waitFor({
+      state: "visible",
     });
 
     await expect(page.locator("#about-me")).toHaveScreenshot({
