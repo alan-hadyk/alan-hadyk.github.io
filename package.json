@@ -13,6 +13,7 @@
     "playwright:test-ui": "npx playwright install && playwright test --ui",
     "playwright:update-snapshots": "npx playwright install && playwright test --update-snapshots",
     "start": "next start",
+    "start:ci": "next build && next start -p 3000",
     "test": "jest --passWithNoTests",
     "test:watch": "jest --watch --passWithNoTests"
   },
