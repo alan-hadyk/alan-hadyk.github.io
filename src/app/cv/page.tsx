@@ -7,6 +7,11 @@ import { ExperienceContainerFormat } from "@app/containers/experience/@types/Exp
 import { ExperienceContainer } from "@app/containers/experience/ExperienceContainer";
 import { SidebarPdfContainer } from "@app/containers/sidebarPdf/SidebarPdfContainer";
 
+const metadata = {
+  description: "Alan Hadyk's Portfolio",
+  title: "Alan Hadyk - Portfolio",
+};
+
 const CvPage: React.FC = () => (
   <PdfTemplate sidebar={<SidebarPdfContainer />}>
     <DashboardContainer format={DashboardContainerFormat.Pdf} />
@@ -16,4 +21,5 @@ const CvPage: React.FC = () => (
   </PdfTemplate>
 );
 
+export { metadata };
 export default CvPage;
