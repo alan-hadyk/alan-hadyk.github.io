@@ -19,6 +19,8 @@ const nextConfig = {
 
   swcMinify: true,
 
+  transpilePackages: ["@app"],
+
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,
