@@ -1,10 +1,10 @@
 import { PageTemplate } from "@app/components/templates/PageTemplate/PageTemplate";
-import { AboutMeContainer } from "@app/containers/AboutMe/AboutMeContainer";
-import { ContactContainer } from "@app/containers/Contact/ContactContainer";
-import { DashboardContainer } from "@app/containers/Dashboard/DashboardContainer";
-import { ExperienceContainer } from "@app/containers/Experience/ExperienceContainer";
-import { HeaderContainer } from "@app/containers/Header/HeaderContainer";
-import { SkillsContainer } from "@app/containers/Skills/SkillsContainer";
+import { AboutMeContainer } from "@app/containers/aboutMe/AboutMeContainer";
+import { ContactContainer } from "@app/containers/contact/ContactContainer";
+import { DashboardContainer } from "@app/containers/dashboard/DashboardContainer";
+import { ExperienceContainer } from "@app/containers/experience/ExperienceContainer";
+import { HeaderContainer } from "@app/containers/header/HeaderContainer";
+import { SkillsContainer } from "@app/containers/skills/SkillsContainer";
 
 const metadata = {
   description: "Alan Hadyk's Portfolio",

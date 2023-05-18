@@ -1,9 +1,9 @@
 "use client";
 import { Header } from "@app/components/organisms/Header/Header";
-import { openCV } from "@app/containers/Header/helpers/openCV";
-import { HeaderContainerDesktop } from "@app/containers/Header/screens/HeaderContainerDesktop";
-import { HeaderContainerTabletAndMobile } from "@app/containers/Header/screens/HeaderContainerTabletAndMobile";
-import { HeaderContainerTv } from "@app/containers/Header/screens/HeaderContainerTv";
+import { openCV } from "@app/containers/header/helpers/openCV";
+import { HeaderContainerDesktop } from "@app/containers/header/screens/HeaderContainerDesktop";
+import { HeaderContainerTabletAndMobile } from "@app/containers/header/screens/HeaderContainerTabletAndMobile";
+import { HeaderContainerTv } from "@app/containers/header/screens/HeaderContainerTv";
 
 const HeaderContainer: React.FC = () => (
   <Header>

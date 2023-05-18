@@ -2,7 +2,7 @@ import {
   CompanyFormat,
   CompanyVariant,
 } from "@app/components/organisms/Company/@types/Company";
-import { ExperienceContainerFormat } from "@app/containers/Experience/@types/ExperienceContainer";
+import { ExperienceContainerFormat } from "@app/containers/experience/@types/ExperienceContainer";
 
 export const mapExperienceContainerFormatToCompanyVariant: Record<
   ExperienceContainerFormat,

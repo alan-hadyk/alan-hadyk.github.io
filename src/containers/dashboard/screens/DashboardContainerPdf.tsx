@@ -1,6 +1,6 @@
 import { ConsolePdf } from "@app/components/molecules/Console/screens/ConsolePdf";
 import { PdfTitle } from "@app/components/molecules/PdfTitle/PdfTitle";
-import { catchPhrase } from "@app/containers/Dashboard/config";
+import { catchPhrase } from "@app/containers/dashboard/config";
 
 const DashboardContainerPdf: React.FC = () => (
   <>

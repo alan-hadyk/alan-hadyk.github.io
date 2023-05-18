@@ -3,7 +3,7 @@ import { Section } from "@app/components/molecules/Section/Section";
 import {
   ExperienceContainerFormat,
   IExperienceContainerProps,
-} from "@app/containers/Experience/@types/ExperienceContainer";
+} from "@app/containers/experience/@types/ExperienceContainer";
 import {
   SectionSize,
   SectionVariant,
@@ -11,61 +11,61 @@ import {
 import {
   mapExperienceContainerFormatToCompanyFormat,
   mapExperienceContainerFormatToCompanyVariant,
-} from "@app/containers/Experience/config";
+} from "@app/containers/experience/config";
 import { lazy } from "react";
 import { LazyLoadingWrapper } from "@app/components/layout/LazyLoadingWrapper/LazyLoadingWrapper";
 
 const CompanyRealEstateStartup = lazy(() =>
-  import("@app/containers/Experience/companies/CompanyRealEstateStartup").then(
+  import("@app/containers/experience/companies/CompanyRealEstateStartup").then(
     (module) => ({ default: module.CompanyRealEstateStartup }),
   ),
 );
 
 const CompanyDiH = lazy(() =>
-  import("@app/containers/Experience/companies/CompanyDiH").then((module) => ({
+  import("@app/containers/experience/companies/CompanyDiH").then((module) => ({
     default: module.CompanyDiH,
   })),
 );
 
 const CompanyOmise = lazy(() =>
-  import("@app/containers/Experience/companies/CompanyOmise").then(
+  import("@app/containers/experience/companies/CompanyOmise").then(
     (module) => ({ default: module.CompanyOmise }),
   ),
 );
 
 const CompanyPersonallyEmployed = lazy(() =>
-  import("@app/containers/Experience/companies/CompanyPersonallyEmployed").then(
+  import("@app/containers/experience/companies/CompanyPersonallyEmployed").then(
     (module) => ({ default: module.CompanyPersonallyEmployed }),
   ),
 );
 
 const CompanySAP = lazy(() =>
-  import("@app/containers/Experience/companies/CompanySAP").then((module) => ({
+  import("@app/containers/experience/companies/CompanySAP").then((module) => ({
     default: module.CompanySAP,
   })),
 );
 
 const CompanyShiji = lazy(() =>
-  import("@app/containers/Experience/companies/CompanyShiji").then(
+  import("@app/containers/experience/companies/CompanyShiji").then(
     (module) => ({ default: module.CompanyShiji }),
   ),
 );
 
 const CompanyTribe = lazy(() =>
-  import("@app/containers/Experience/companies/CompanyTribe").then(
+  import("@app/containers/experience/companies/CompanyTribe").then(
     (module) => ({ default: module.CompanyTribe }),
   ),
 );
 
 const CompanyHealthcareSaas = lazy(() =>
-  import("@app/containers/Experience/companies/CompanyHealthcareSaas").then(
+  import("@app/containers/experience/companies/CompanyHealthcareSaas").then(
     (module) => ({ default: module.CompanyHealthcareSaas }),
   ),
 );
 
 const CompanySaaSForContentWriters = lazy(() =>
   import(
-    "@app/containers/Experience/companies/CompanySaaSForContentWriters"
+    "@app/containers/experience/companies/CompanySaaSForContentWriters"
   ).then((module) => ({ default: module.CompanySaaSForContentWriters })),
 );
 

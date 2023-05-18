@@ -3,13 +3,13 @@ import { Section } from "@app/components/molecules/Section/Section";
 import {
   ISkillsContainerProps,
   SkillsContainerFormat,
-} from "@app/containers/Skills/@types/SkillsContainer";
+} from "@app/containers/skills/@types/SkillsContainer";
 import { Device } from "@app/components/layout/Responsive/@types/Responsive";
 import {
   SectionSize,
   SectionVariant,
 } from "@app/components/molecules/Section/@types/Section";
-import { skillsItems } from "@app/containers/Skills/config";
+import { skillsItems } from "@app/containers/skills/config";
 import { lazy } from "react";
 import { LazyLoadingWrapper } from "@app/components/layout/LazyLoadingWrapper/LazyLoadingWrapper";
 

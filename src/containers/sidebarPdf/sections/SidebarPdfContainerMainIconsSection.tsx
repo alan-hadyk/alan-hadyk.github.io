@@ -3,8 +3,8 @@ import {
   IconWithLabelVariant,
 } from "@app/components/molecules/IconWithLabel/@types/IconWithLabel";
 import { VerticalIconsWithLabels } from "@app/components/molecules/VerticalIconsWithLabels/VerticalIconsWithLabels";
-import { mainIconsWithLabels } from "@app/containers/SidebarPdf/config";
-import { sidebarPdfContainerMainIconsDefaultThemeClasses } from "@app/containers/SidebarPdf/styles";
+import { mainIconsWithLabels } from "@app/containers/sidebarPdf/config";
+import { sidebarPdfContainerMainIconsDefaultThemeClasses } from "@app/containers/sidebarPdf/styles";
 
 const SidebarPdfContainerMainIconsSection: React.FC = () => (
   <VerticalIconsWithLabels

@@ -3,7 +3,7 @@ import { Company } from "@app/components/organisms/Company/Company";
 import { ICompanyProps } from "@app/components/organisms/Company/@types/Company";
 import { IconStaticName } from "@app/components/atoms/IconStatic/@types/IconStatic";
 import { iconsWithLabels } from "@app/components/molecules/IconsWithLabels/config";
-import { invertIcon } from "@app/containers/Experience/helpers/invertIcon";
+import { invertIcon } from "@app/containers/experience/helpers/invertIcon";
 
 const CompanySAP: React.FC<Pick<ICompanyProps, "format" | "variant">> = ({
   format,
