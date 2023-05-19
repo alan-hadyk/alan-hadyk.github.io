@@ -6,6 +6,14 @@ export type SVGImage = FunctionComponent<
   SVGProps<SVGSVGElement> & { title?: string }
 >;
 
+export enum ImageDynamicVariant {
+  Active,
+  Glow,
+  GlowOnHover,
+  HeightResponsive,
+  Responsive,
+}
+
 export enum ImageDynamicName {
   Earth = "earth",
   Flux = "flux",
@@ -17,13 +25,9 @@ export enum ImageDynamicName {
 
 export interface IImageDynamicProps {
   imageName: ImageDynamicName;
-  isActive?: boolean;
-  isHeightResponsive?: boolean;
-  isResponsive?: boolean;
-  shouldGlow?: boolean;
-  shouldGlowOnHover?: boolean;
   style?: CSSProperties;
   themeClasses?: IThemeClasses;
+  variants?: ImageDynamicVariant[];
 }
 
 export type TImageDynamicComponents = Record<

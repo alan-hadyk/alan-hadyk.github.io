@@ -2,7 +2,6 @@
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
     "checkJs": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -14,7 +13,8 @@
     "moduleResolution": "node",
     "noEmit": true,
     "paths": {
-      "@app/*": ["./src/*"]
+      "@app/*": ["./src/*"],
+      "@public/*": ["./public/*"],
     },
     "plugins": [{
       "name": "next"
@@ -23,8 +23,8 @@
     "skipLibCheck": true,
     "strict": true,
     "strictNullChecks": true,
-    "target": "es5"
+    "target": "es5",
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "tailwind.config.ts", "next.config.js"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
 }

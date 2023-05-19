@@ -1,25 +1,14 @@
 import { IImageDynamicProps } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
+import { generatePseudoClasses } from "@app/components/atoms/ImageDynamic/helpers/generatePseudoClasses";
 import { imageDynamicDefaultThemeClasses } from "@app/components/atoms/ImageDynamic/styles";
 import { convertObjectValuesToString } from "@app/helpers/objects/convertObjectValuesToString";
 import { IThemeClasses, TPseudoClasses } from "@app/types/theme";
 import omit from "lodash/omit";
 
 const useImageDynamicThemeClasses = ({
-  isActive,
-  isHeightResponsive,
-  isResponsive,
-  shouldGlow,
-  shouldGlowOnHover,
   themeClasses,
-}: Pick<
-  IImageDynamicProps,
-  | "isActive"
-  | "isHeightResponsive"
-  | "isResponsive"
-  | "shouldGlow"
-  | "shouldGlowOnHover"
-  | "themeClasses"
->) => {
+  variants = [],
+}: Pick<IImageDynamicProps, "themeClasses" | "variants">) => {
   const imageDynamicBaseThemeClasses: IThemeClasses = {
     ...imageDynamicDefaultThemeClasses,
     ...themeClasses,
@@ -27,30 +16,10 @@ const useImageDynamicThemeClasses = ({
 
   const imageDynamicThemeClasses: IImageDynamicProps["themeClasses"] = {
     ...omit(imageDynamicBaseThemeClasses, "pseudoClasses"),
-    pseudoClasses: [
-      ...(isResponsive || isHeightResponsive
-        ? ["childrenSvg:h-full"]
-        : ["childrenSvg:h-auto"]),
-      ...(isResponsive && !isHeightResponsive
-        ? ["childrenSvg:w-full"]
-        : ["childrenSvg:w-auto"]),
-      ...(isActive
-        ? ["childrenMask:fill-blue300", "childrenPath:fill-blue300"]
-        : []),
-      ...(shouldGlow ? ["childrenSvg:drop-shadow-lg"] : []),
-      ...(shouldGlowOnHover
-        ? [
-            "childrenSvg:transition-all",
-            "childrenSvg:ease-in-out",
-            imageDynamicBaseThemeClasses?.pseudoClasses?.find((pseudoClass) =>
-              pseudoClass.includes("duration-"),
-            ),
-            "childrenSvg:hover:drop-shadow-lg",
-            "childrenSvg:focus:drop-shadow-lg",
-            "childrenSvg:active:drop-shadow-lg",
-          ]
-        : []),
-    ] as TPseudoClasses | undefined,
+    pseudoClasses: generatePseudoClasses(
+      variants,
+      imageDynamicBaseThemeClasses,
+    ) as TPseudoClasses,
   };
 
   const imageDynamicWrapperClassNames = convertObjectValuesToString(

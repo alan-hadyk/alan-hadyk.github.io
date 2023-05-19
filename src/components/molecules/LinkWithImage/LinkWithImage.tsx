@@ -1,3 +1,4 @@
+import { ImageDynamicVariant } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 import { ImageDynamic } from "@app/components/atoms/ImageDynamic/ImageDynamic";
 import { Link } from "@app/components/molecules/Link/Link";
 import { ILinkWithImageProps } from "@app/components/molecules/LinkWithImage/@types/LinkWithImage";
@@ -31,9 +32,11 @@ const LinkWithImage: React.FC<ILinkWithImageProps> = ({
     >
       <ImageDynamic
         themeClasses={linkWithImageDynamicImageThemeClasses}
-        isHeightResponsive
         imageName={imageName}
-        shouldGlowOnHover
+        variants={[
+          ImageDynamicVariant.HeightResponsive,
+          ImageDynamicVariant.GlowOnHover,
+        ]}
       />
     </Link>
   );

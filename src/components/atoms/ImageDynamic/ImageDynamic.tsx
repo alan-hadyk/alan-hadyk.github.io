@@ -9,27 +9,11 @@ import React, { forwardRef } from "react";
 const _ImageDynamic: React.ForwardRefRenderFunction<
   HTMLDivElement,
   IImageDynamicProps
-> = (
-  {
-    imageName,
-    isActive = false,
-    isHeightResponsive = false,
-    isResponsive = false,
-    shouldGlow = false,
-    shouldGlowOnHover = false,
-    style,
-    themeClasses,
-  },
-  ref,
-) => {
+> = ({ imageName, style, themeClasses, variants = [] }, ref) => {
   const { imageComponentClassNames, imageDynamicWrapperClassNames } =
     useImageDynamicThemeClasses({
-      isActive,
-      isHeightResponsive,
-      isResponsive,
-      shouldGlow,
-      shouldGlowOnHover,
       themeClasses,
+      variants,
     });
 
   const ImageComponent: SVGImage = imageDynamicComponents[imageName];
