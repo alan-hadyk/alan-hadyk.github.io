@@ -21,6 +21,14 @@ test.describe("Header", () => {
       width: 1921,
     });
 
+    await page.locator("#contact").scrollIntoViewIfNeeded();
+    await page.locator("#contact").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
+    await page.waitForLoadState("networkidle");
+
     await expect(page.locator("#header")).toHaveScreenshot({
       animations: "disabled",
       omitBackground: true,
@@ -40,6 +48,14 @@ test.describe("Header", () => {
       width: 1700,
     });
 
+    await page.locator("#contact").scrollIntoViewIfNeeded();
+    await page.locator("#contact").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
+    await page.waitForLoadState("networkidle");
+
     await page.locator("#menu-button-desktop").isHidden();
     await page.locator("#side-menu-desktop").isHidden();
 
@@ -58,6 +74,14 @@ test.describe("Header", () => {
       height: 1080,
       width: 1300,
     });
+
+    await page.locator("#contact").scrollIntoViewIfNeeded();
+    await page.locator("#contact").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
+    await page.waitForLoadState("networkidle");
 
     await expect(page.locator("#header")).toHaveScreenshot({
       animations: "disabled",
@@ -87,6 +111,12 @@ test.describe("Header", () => {
       width: 1000,
     });
 
+    await page.locator("#contact").scrollIntoViewIfNeeded();
+    await page.locator("#contact").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
     await page.waitForLoadState("networkidle");
 
     await expect(page.locator("#header")).toHaveScreenshot({
@@ -117,7 +147,14 @@ test.describe("Header", () => {
       width: 650,
     });
 
+    await page.locator("#contact").scrollIntoViewIfNeeded();
+    await page.locator("#contact").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
     await page.waitForLoadState("networkidle");
+
     await page.waitForTimeout(2000);
 
     await expect(page.locator("#header")).toHaveScreenshot({

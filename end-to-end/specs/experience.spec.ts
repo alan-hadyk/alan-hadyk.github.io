@@ -21,6 +21,12 @@ test.describe("Experience", () => {
       width: 1921,
     });
 
+    await page.locator("#contact").scrollIntoViewIfNeeded();
+    await page.locator("#contact").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
     await page.waitForLoadState("networkidle");
 
     await page.click("a[data-id='Experience']");
@@ -39,6 +45,12 @@ test.describe("Experience", () => {
       width: 1700,
     });
 
+    await page.locator("#contact").scrollIntoViewIfNeeded();
+    await page.locator("#contact").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
     await page.waitForLoadState("networkidle");
 
     await page.click("a[data-id='Experience']");
@@ -57,6 +69,12 @@ test.describe("Experience", () => {
       width: 1300,
     });
 
+    await page.locator("#contact").scrollIntoViewIfNeeded();
+    await page.locator("#contact").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
     await page.waitForLoadState("networkidle");
 
     await page.locator("#experience").scrollIntoViewIfNeeded();
@@ -75,6 +93,12 @@ test.describe("Experience", () => {
       width: 1000,
     });
 
+    await page.locator("#contact").scrollIntoViewIfNeeded();
+    await page.locator("#contact").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
     await page.waitForLoadState("networkidle");
 
     await page.locator("#experience").scrollIntoViewIfNeeded();
@@ -93,6 +117,12 @@ test.describe("Experience", () => {
       width: 650,
     });
 
+    await page.locator("#contact").scrollIntoViewIfNeeded();
+    await page.locator("#contact").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
     await page.waitForLoadState("networkidle");
 
     await page.locator("#experience").scrollIntoViewIfNeeded();

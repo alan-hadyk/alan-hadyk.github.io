@@ -21,6 +21,14 @@ test.describe("About me", () => {
       width: 1921,
     });
 
+    await page.locator("#contact").scrollIntoViewIfNeeded();
+    await page.locator("#contact").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
+    await page.waitForLoadState("networkidle");
+
     await page.locator("#about-me").scrollIntoViewIfNeeded();
     await page.locator("#about-me").evaluate((node) =>
       node.scrollIntoView({
@@ -54,6 +62,14 @@ test.describe("About me", () => {
       height: 1080,
       width: 1700,
     });
+
+    await page.locator("#contact").scrollIntoViewIfNeeded();
+    await page.locator("#contact").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
+    await page.waitForLoadState("networkidle");
 
     await page.locator("#about-me").scrollIntoViewIfNeeded();
     await page.locator("#about-me").evaluate((node) =>
@@ -90,6 +106,14 @@ test.describe("About me", () => {
       width: 1300,
     });
 
+    await page.locator("#contact").scrollIntoViewIfNeeded();
+    await page.locator("#contact").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
+    await page.waitForLoadState("networkidle");
+
     await page.locator("#about-me").scrollIntoViewIfNeeded();
     await page.locator("#about-me").evaluate((node) =>
       node.scrollIntoView({
@@ -123,6 +147,14 @@ test.describe("About me", () => {
       width: 1000,
     });
 
+    await page.locator("#contact").scrollIntoViewIfNeeded();
+    await page.locator("#contact").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
+    await page.waitForLoadState("networkidle");
+
     await page.locator("#about-me").scrollIntoViewIfNeeded();
     await page.locator("#about-me").evaluate((node) =>
       node.scrollIntoView({
@@ -155,6 +187,14 @@ test.describe("About me", () => {
       height: 1080,
       width: 650,
     });
+
+    await page.locator("#contact").scrollIntoViewIfNeeded();
+    await page.locator("#contact").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
+    await page.waitForLoadState("networkidle");
 
     await page.locator("#about-me").scrollIntoViewIfNeeded();
     await page.locator("#about-me").evaluate((node) =>

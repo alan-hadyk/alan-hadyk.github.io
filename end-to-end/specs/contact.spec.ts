@@ -21,6 +21,12 @@ test.describe("Contact", () => {
       width: 1921,
     });
 
+    await page.locator("#contact").scrollIntoViewIfNeeded();
+    await page.locator("#contact").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
     await page.waitForLoadState("networkidle");
 
     await expect(page.locator("#contact")).toHaveScreenshot({
@@ -36,6 +42,12 @@ test.describe("Contact", () => {
       width: 1700,
     });
 
+    await page.locator("#contact").scrollIntoViewIfNeeded();
+    await page.locator("#contact").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
     await page.waitForLoadState("networkidle");
 
     await expect(page.locator("#contact")).toHaveScreenshot({
@@ -51,6 +63,12 @@ test.describe("Contact", () => {
       width: 1300,
     });
 
+    await page.locator("#contact").scrollIntoViewIfNeeded();
+    await page.locator("#contact").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
     await page.waitForLoadState("networkidle");
 
     await expect(page.locator("#contact")).toHaveScreenshot({
@@ -66,6 +84,12 @@ test.describe("Contact", () => {
       width: 1000,
     });
 
+    await page.locator("#contact").scrollIntoViewIfNeeded();
+    await page.locator("#contact").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
     await page.waitForLoadState("networkidle");
 
     await expect(page.locator("#contact")).toHaveScreenshot({
@@ -81,6 +105,12 @@ test.describe("Contact", () => {
       width: 650,
     });
 
+    await page.locator("#contact").scrollIntoViewIfNeeded();
+    await page.locator("#contact").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
     await page.waitForLoadState("networkidle");
 
     await expect(page.locator("#contact")).toHaveScreenshot({
