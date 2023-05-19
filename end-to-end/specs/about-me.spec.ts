@@ -29,9 +29,15 @@ test.describe("About me", () => {
     );
 
     await page.waitForLoadState("networkidle");
-    await page.waitForTimeout(2000);
 
     await page.click("a[data-id='About me']");
+
+    await page.locator("#about-me").scrollIntoViewIfNeeded();
+    await page.locator("#about-me").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
 
     await page.locator("#about-me-description").waitFor({
       state: "visible",
@@ -57,9 +63,16 @@ test.describe("About me", () => {
     );
 
     await page.waitForLoadState("networkidle");
-    await page.waitForTimeout(2000);
 
     await page.click("a[data-id='About me']");
+
+    await page.locator("#about-me").scrollIntoViewIfNeeded();
+    await page.locator("#about-me").evaluate((node) =>
+      node.scrollIntoView({
+        behavior: "auto",
+      }),
+    );
+
     await page.locator("#about-me-description").waitFor({
       state: "visible",
     });
@@ -85,7 +98,6 @@ test.describe("About me", () => {
     );
 
     await page.waitForLoadState("networkidle");
-    await page.waitForTimeout(2000);
 
     await page.locator("#about-me").scrollIntoViewIfNeeded();
     await page.locator("#about-me").evaluate((node) =>
@@ -119,7 +131,6 @@ test.describe("About me", () => {
     );
 
     await page.waitForLoadState("networkidle");
-    await page.waitForTimeout(2000);
 
     await page.locator("#about-me").scrollIntoViewIfNeeded();
     await page.locator("#about-me").evaluate((node) =>
@@ -153,7 +164,6 @@ test.describe("About me", () => {
     );
 
     await page.waitForLoadState("networkidle");
-    await page.waitForTimeout(2000);
 
     await page.locator("#about-me").scrollIntoViewIfNeeded();
     await page.locator("#about-me").evaluate((node) =>

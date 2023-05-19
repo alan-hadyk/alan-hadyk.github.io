@@ -87,6 +87,8 @@ test.describe("Header", () => {
       width: 1000,
     });
 
+    await page.waitForLoadState("networkidle");
+
     await expect(page.locator("#header")).toHaveScreenshot({
       animations: "disabled",
       omitBackground: true,
