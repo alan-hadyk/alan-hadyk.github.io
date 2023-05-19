@@ -10,7 +10,7 @@
   ],
   "overrides": [
     {
-      "files": ["pages/**/*.tsx", "pages/**/*.ts", "jest.config.ts", "playwright.config.ts"], 
+      "files": ["src/app/**/*.tsx", "src/pages/**/*.ts", "jest.config.ts", "playwright.config.ts", "tailwind.config.ts"], 
       "rules": {
         "import/no-default-export": "off"
       }
@@ -26,7 +26,7 @@
     "indent": [0],
     "quotes": ["error", "double"],
     "semi": ["error", "always"],
-    "comma-dangle": ["error", "never"],
+    "comma-dangle": [0],
     "sort-keys": [
       "error",
       "asc",

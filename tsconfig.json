@@ -14,32 +14,17 @@
     "moduleResolution": "node",
     "noEmit": true,
     "paths": {
-      "api": ["api"],
-      "api/*": ["api/*"],
-      "components": ["components"],
-      "components/*": ["components/*"],
-      "containers": ["containers"],
-      "containers/*": ["containers/*"],
-      "helpers": ["helpers"],
-      "helpers/*": ["helpers/*"],
-      "hooks": ["hooks"],
-      "hooks/*": ["hooks/*"],
-      "layouts": ["layouts"],
-      "layouts/*": ["layouts/*"],
-      "pages": ["pages"],
-      "pages/*": ["pages/*"],
-      "public": ["public"],
-      "public/*": ["public/*"],
-      "styles": ["styles"],
-      "styles/*": ["styles/*"],
-      "types": ["types"]
+      "@app/*": ["./src/*"]
     },
+    "plugins": [{
+      "name": "next"
+    }],
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
     "strictNullChecks": true,
     "target": "es5"
   },
-  "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "tailwind.config.ts", "next.config.js"],
+  "exclude": ["node_modules"]
 }

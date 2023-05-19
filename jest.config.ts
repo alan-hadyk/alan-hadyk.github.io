@@ -4,7 +4,7 @@ import { compilerOptions } from "./tsconfig.json";
 
 const createJestConfig = nextJest({
   // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
-  dir: "./"
+  dir: "./",
 });
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
@@ -13,14 +13,14 @@ export default createJestConfig({
   moduleDirectories: ["node_modules", "<rootDir>/"],
   moduleNameMapper: {
     ...pathsToModuleNameMapper(compilerOptions.paths, {
-      prefix: "<rootDir>/"
+      prefix: "<rootDir>/",
     }),
-    "\\.svg$": "<rootDir>/__mocks__/svg.js"
+    "\\.svg$": "<rootDir>/__mocks__/svg.js",
   },
   modulePathIgnorePatterns: [
     "<rootDir>/node_modules/",
-    "<rootDir>/end-to-end/"
+    "<rootDir>/end-to-end/",
   ],
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
-  testEnvironment: "jest-environment-jsdom"
+  testEnvironment: "jest-environment-jsdom",
 });

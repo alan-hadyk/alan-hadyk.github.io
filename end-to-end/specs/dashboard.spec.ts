@@ -8,7 +8,7 @@ test.beforeEach(async ({ page }) => {
       const json = apiGithubCom["repos/alan-hadyk/portfolio/commits"];
 
       await route.fulfill({ json });
-    }
+    },
   );
 
   await page.goto("/");
@@ -18,85 +18,68 @@ test.describe("Dashboard", () => {
   test("should be displayed at tv width", async ({ page }) => {
     await page.setViewportSize({
       height: 1080,
-      width: 1921
-    });
-
-    await page.locator(".loader").waitFor({
-      state: "hidden"
+      width: 1921,
     });
 
     await expect(page.locator("#dashboard")).toHaveScreenshot({
       animations: "disabled",
       omitBackground: true,
-      scale: "css"
+      scale: "css",
     });
   });
 
   test("should be displayed at wide desktop width", async ({ page }) => {
     await page.setViewportSize({
       height: 1080,
-      width: 1700
-    });
-
-    await page.locator(".loader").waitFor({
-      state: "hidden"
+      width: 1700,
     });
 
     await expect(page.locator("#dashboard")).toHaveScreenshot({
       animations: "disabled",
       omitBackground: true,
-      scale: "css"
+      scale: "css",
     });
   });
 
   test("should be displayed at narrow desktop width", async ({ page }) => {
     await page.setViewportSize({
       height: 1080,
-      width: 1300
-    });
-
-    await page.locator(".loader").waitFor({
-      state: "hidden"
+      width: 1300,
     });
 
     await expect(page.locator("#dashboard")).toHaveScreenshot({
       animations: "disabled",
       omitBackground: true,
-      scale: "css"
+      scale: "css",
     });
   });
 
   test("should be displayed at tablet width", async ({ page }) => {
     await page.setViewportSize({
       height: 1080,
-      width: 1000
-    });
-
-    await page.locator(".loader").waitFor({
-      state: "hidden"
+      width: 1000,
     });
 
     await expect(page.locator("#dashboard")).toHaveScreenshot({
       animations: "disabled",
       omitBackground: true,
-      scale: "css"
+      scale: "css",
     });
   });
 
   test("should be displayed at mobile width", async ({ page }) => {
     await page.setViewportSize({
       height: 1080,
-      width: 650
+      width: 650,
     });
 
-    await page.locator(".loader").waitFor({
-      state: "hidden"
-    });
+    await page.waitForLoadState("networkidle");
+    await page.waitForTimeout(2000);
 
     await expect(page.locator("#dashboard")).toHaveScreenshot({
       animations: "disabled",
       omitBackground: true,
-      scale: "css"
+      scale: "css",
     });
   });
 });

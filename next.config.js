@@ -1,27 +1,33 @@
 /** @type {import('next').NextConfig} */
-
 const nextConfig = {
   compiler: {
-    reactRemoveProperties: true
+    reactRemoveProperties: true,
   },
+
+  experimental: {
+    appDir: true,
+  },
+
   modularizeImports: {
     lodash: {
       preventFullImport: true,
-      transform: "lodash/{{member}}"
-    }
+      transform: "lodash/{{member}}",
+    },
   },
+
   reactStrictMode: true,
+
   swcMinify: true,
 
-  webpack: function (config) {
+  webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,
-      use: ["@svgr/webpack"]
+      use: ["@svgr/webpack"],
     });
     config.experiments = { layers: true, topLevelAwait: true };
 
     return config;
-  }
+  },
 };
 
 module.exports = nextConfig;
