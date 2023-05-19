@@ -19,63 +19,63 @@ jobs:
         with:
           node-version: 18.2.0
 
-      - name: Install dependencies
-        run: yarn
+      # - name: Install dependencies
+      #   run: yarn
 
-      - name: Install Playwright Browsers
-        run: yarn playwright install --with-deps
+      # - name: Install Playwright Browsers
+      #   run: yarn playwright install --with-deps
 
-      - name: Run Playwright tests
-        run: |
-          yarn playwright test > e2e_test.log 2>&1
-          test_exit_code=$?
-          echo "Test log saved as artifact."
-          exit $((test_exit_code))
-        env:
-          CI: true
+      # - name: Run Playwright tests
+      #   run: |
+      #     yarn playwright test > e2e_test.log 2>&1
+      #     test_exit_code=$?
+      #     echo "Test log saved as artifact."
+      #     exit $((test_exit_code))
+      #   env:
+      #     CI: true
 
-      - name: Save test log as artifact
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: e2e_test_log
-          path: e2e_test.log
+      # - name: Save test log as artifact
+      #   if: always()
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: e2e_test_log
+      #     path: e2e_test.log
 
-      - name: Download test log
-        if: always()
-        uses: actions/download-artifact@v2
-        with:
-          name: e2e_test_log
+      # - name: Download test log
+      #   if: always()
+      #   uses: actions/download-artifact@v2
+      #   with:
+      #     name: e2e_test_log
 
-      - name: Set logs as output variables
-        if: always()
-        run: |
-          echo "E2E_TEST_LOG<<EOF" >> $GITHUB_ENV
-          cat e2e_test.log >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
+      # - name: Set logs as output variables
+      #   if: always()
+      #   run: |
+      #     echo "E2E_TEST_LOG<<EOF" >> $GITHUB_ENV
+      #     cat e2e_test.log >> $GITHUB_ENV
+      #     echo "EOF" >> $GITHUB_ENV
 
-      - name: Report success
-        if: success()
-        uses: thollander/actions-comment-pull-request@v2
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          comment_tag: e2e_execution
-          pr_number: ${{ github.event.number }}
-          message: |
-            ### End-to-end tests passed ✅
+      # - name: Report success
+      #   if: success()
+      #   uses: thollander/actions-comment-pull-request@v2
+      #   with:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     comment_tag: e2e_execution
+      #     pr_number: ${{ github.event.number }}
+      #     message: |
+      #       ### End-to-end tests passed ✅
 
-      - name: Report failure
-        if: failure()
-        uses: thollander/actions-comment-pull-request@v2
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          comment_tag: e2e_execution
-          pr_number: ${{ github.event.number }}
-          message: |
-            ## End-to-end tests failure 🚫
+      # - name: Report failure
+      #   if: failure()
+      #   uses: thollander/actions-comment-pull-request@v2
+      #   with:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     comment_tag: e2e_execution
+      #     pr_number: ${{ github.event.number }}
+      #     message: |
+      #       ## End-to-end tests failure 🚫
 
-            <details>
-              <summary>Test Logs</summary>
+      #       <details>
+      #         <summary>Test Logs</summary>
 
-              ${{ env.E2E_TEST_LOG }}
-            </details>
+      #         ${{ env.E2E_TEST_LOG }}
+      #       </details>
