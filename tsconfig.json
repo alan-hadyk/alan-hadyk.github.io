@@ -14,7 +14,7 @@
     "noEmit": true,
     "paths": {
       "@app/*": ["./src/*"],
-      "@public/*": ["./public/*"],
+      "@public/*": ["./public/*"]
     },
     "plugins": [{
       "name": "next"
@@ -23,8 +23,8 @@
     "skipLibCheck": true,
     "strict": true,
     "strictNullChecks": true,
-    "target": "es5",
+    "target": "es5"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "tailwind.config.ts", "next.config.js"],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules"]
 }
