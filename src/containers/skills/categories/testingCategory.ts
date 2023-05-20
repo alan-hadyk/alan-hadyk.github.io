@@ -6,6 +6,7 @@ export const testingCategory = {
     [
       IconStaticName.JEST,
       IconStaticName.AirBnb,
+      IconStaticName.Playwright,
       IconStaticName.ReactTestingLibrary,
       IconStaticName.Cypress,
       IconStaticName.QUnit,
