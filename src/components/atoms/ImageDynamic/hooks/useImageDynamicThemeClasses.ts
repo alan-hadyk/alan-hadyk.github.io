@@ -1,9 +1,8 @@
 import { IImageDynamicProps } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
-import { convertVariantsToStyles } from "@app/components/atoms/ImageDynamic/helpers/convertVariantsToStyles";
+import { mergeThemeClasses } from "@app/components/atoms/ImageDynamic/helpers/mergeThemeClasses";
 import { imageDynamicDefaultThemeClasses } from "@app/components/atoms/ImageDynamic/styles";
 import { convertObjectValuesToString } from "@app/helpers/objects/convertObjectValuesToString";
 import { IThemeClasses } from "@app/types/theme";
-import omit from "lodash/omit";
 
 const useImageDynamicThemeClasses = ({
   themeClasses,
@@ -17,11 +16,11 @@ const useImageDynamicThemeClasses = ({
       imageDynamicDefaultThemeClasses.transitionDuration,
   };
 
-  const imageDynamicThemeClasses: IImageDynamicProps["themeClasses"] = {
-    ...omit(imageDynamicBaseThemeClasses, ["animate", "transitionDuration"]),
-    ...convertVariantsToStyles(variants, imageDynamicBaseThemeClasses),
-    ...omit(themeClasses, ["animate", "transitionDuration"]),
-  };
+  const imageDynamicThemeClasses = mergeThemeClasses(
+    variants,
+    themeClasses,
+    imageDynamicBaseThemeClasses,
+  );
 
   const imageDynamicClassNames = convertObjectValuesToString(
     imageDynamicThemeClasses,
