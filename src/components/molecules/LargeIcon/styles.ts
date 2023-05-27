@@ -14,8 +14,7 @@ export const largeIconWrapperDefaultThemeClasses: IThemeClasses = {
   justifyContent: "justify-center",
 };
 
-export const largeIconDynamicIconDefaultThemeClasses: IThemeClasses = {
+export const largeIconDynamicImageDefaultThemeClasses: IThemeClasses = {
   height: isSafari() ? "h-[18vh]" : "h-100%",
-  pseudoClasses: ["childrenPath:fill-blue300"],
   width: isSafari() ? "w-[18vh]" : "w-[100%]",
 };

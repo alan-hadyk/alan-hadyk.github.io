@@ -29,12 +29,10 @@ export const browserInfoIconWrapperDefaultThemeClasses: IThemeClasses = {
 };
 
 export const browserInfoIconDefaultThemeClasses: IThemeClasses = {
+  animate: "animate-glow-verySlow",
   height: isSafari() ? "h-[4vh]" : "h-100%",
   overflow: isSafari() ? "overflow-hidden" : "overflow-visible",
-  pseudoClasses: [
-    "childrenSvg:animate-glow-verySlow",
-    "childrenSvg:duration-slow",
-  ],
+  transitionDuration: "duration-slow",
   width: isSafari() ? "w-[4vh]" : "w-100%",
 };
 

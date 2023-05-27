@@ -5,5 +5,5 @@ export const linkWithImageDefaultThemeClasses: IThemeClasses = {
 };
 
 export const linkWithImageDynamicImageDefaultThemeClasses: IThemeClasses = {
-  pseudoClasses: ["childrenSvg:animate-glow-slow", "childrenSvg:duration-fast"],
+  transitionDuration: "duration-fast",
 };

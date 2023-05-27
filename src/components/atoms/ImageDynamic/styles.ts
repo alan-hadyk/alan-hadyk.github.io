@@ -1,9 +1,10 @@
-import { IImageDynamicProps } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
+import { IThemeClasses } from "@app/types/theme";
 
-const imageDynamicDefaultThemeClasses: IImageDynamicProps["themeClasses"] = {
+const imageDynamicDefaultThemeClasses: IThemeClasses = {
+  animate: "animate-glow-slow",
   height: "h-full",
   overflow: "overflow-visible",
-  pseudoClasses: ["childrenSvg:animate-glow-slow", "childrenSvg:duration-slow"],
+  transitionDuration: "duration-slow",
   width: "w-auto",
 };
 

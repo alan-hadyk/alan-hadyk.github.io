@@ -1,8 +1,8 @@
 import { IImageDynamicProps } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
-import { generatePseudoClasses } from "@app/components/atoms/ImageDynamic/helpers/generatePseudoClasses";
+import { convertVariantsToStyles } from "@app/components/atoms/ImageDynamic/helpers/convertVariantsToStyles";
 import { imageDynamicDefaultThemeClasses } from "@app/components/atoms/ImageDynamic/styles";
 import { convertObjectValuesToString } from "@app/helpers/objects/convertObjectValuesToString";
-import { IThemeClasses, TPseudoClasses } from "@app/types/theme";
+import { IThemeClasses } from "@app/types/theme";
 import omit from "lodash/omit";
 
 const useImageDynamicThemeClasses = ({
@@ -11,29 +11,24 @@ const useImageDynamicThemeClasses = ({
 }: Pick<IImageDynamicProps, "themeClasses" | "variants">) => {
   const imageDynamicBaseThemeClasses: IThemeClasses = {
     ...imageDynamicDefaultThemeClasses,
-    ...themeClasses,
+    animate: themeClasses?.animate ?? imageDynamicDefaultThemeClasses.animate,
+    transitionDuration:
+      themeClasses?.transitionDuration ??
+      imageDynamicDefaultThemeClasses.transitionDuration,
   };
 
   const imageDynamicThemeClasses: IImageDynamicProps["themeClasses"] = {
-    ...omit(imageDynamicBaseThemeClasses, "pseudoClasses"),
-    pseudoClasses: generatePseudoClasses(
-      variants,
-      imageDynamicBaseThemeClasses,
-    ) as TPseudoClasses,
+    ...omit(imageDynamicBaseThemeClasses, ["animate", "transitionDuration"]),
+    ...convertVariantsToStyles(variants, imageDynamicBaseThemeClasses),
+    ...omit(themeClasses, ["animate", "transitionDuration"]),
   };
 
-  const imageDynamicWrapperClassNames = convertObjectValuesToString(
+  const imageDynamicClassNames = convertObjectValuesToString(
     imageDynamicThemeClasses,
   );
 
-  const imageComponentClassNames =
-    imageDynamicBaseThemeClasses?.pseudoClasses?.find((pseudoClass) =>
-      pseudoClass.includes("fill-"),
-    ) || "";
-
   return {
-    imageComponentClassNames,
-    imageDynamicWrapperClassNames,
+    imageDynamicClassNames,
   };
 };
 

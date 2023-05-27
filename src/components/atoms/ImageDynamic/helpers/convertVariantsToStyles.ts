@@ -1,53 +1,56 @@
 import { ImageDynamicVariant } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 import { IThemeClasses } from "@app/types/theme";
 
-export const generatePseudoClasses = (
+export const convertVariantsToStyles = (
   variants: ImageDynamicVariant[],
   imageDynamicBaseThemeClasses: IThemeClasses,
 ) => {
-  const pseudoClasses = [];
+  let themeClasses: IThemeClasses = {};
 
   if (
     variants.includes(ImageDynamicVariant.Responsive) ||
     variants.includes(ImageDynamicVariant.HeightResponsive)
   ) {
-    pseudoClasses.push("childrenSvg:h-full");
+    themeClasses.height = "h-full";
   } else {
-    pseudoClasses.push("childrenSvg:h-auto");
+    themeClasses.height = "h-auto";
   }
 
   if (
     variants.includes(ImageDynamicVariant.Responsive) &&
     !variants.includes(ImageDynamicVariant.HeightResponsive)
   ) {
-    pseudoClasses.push("childrenSvg:w-full");
+    themeClasses.width = "w-full";
   } else {
-    pseudoClasses.push("childrenSvg:w-auto");
+    themeClasses.width = "w-auto";
   }
 
   if (variants.includes(ImageDynamicVariant.Active)) {
-    pseudoClasses.push(
+    themeClasses.pseudoClasses = [
       "childrenMask:fill-blue300",
       "childrenPath:fill-blue300",
-    );
+    ];
+  }
+
+  if (variants.includes(ImageDynamicVariant.GlowAnimation)) {
+    themeClasses.animate = imageDynamicBaseThemeClasses.animate;
   }
 
   if (variants.includes(ImageDynamicVariant.Glow)) {
-    pseudoClasses.push("childrenSvg:drop-shadow-lg");
+    themeClasses.dropShadow = "drop-shadow-lg";
   }
 
   if (variants.includes(ImageDynamicVariant.GlowOnHover)) {
-    pseudoClasses.push(
-      "childrenSvg:transition-all",
-      "childrenSvg:ease-in-out",
-      imageDynamicBaseThemeClasses?.pseudoClasses?.find((pseudoClass) =>
-        pseudoClass.includes("duration-"),
-      ),
-      "childrenSvg:hover:drop-shadow-lg",
-      "childrenSvg:focus:drop-shadow-lg",
-      "childrenSvg:active:drop-shadow-lg",
-    );
+    themeClasses = {
+      ...themeClasses,
+      active: "active:drop-shadow-lg",
+      focus: "focus:drop-shadow-lg",
+      hover: "hover:drop-shadow-lg",
+      transition: "transition-all",
+      transitionDuration: imageDynamicBaseThemeClasses.transitionDuration,
+      transitionTiming: "ease-in-out",
+    };
   }
 
-  return pseudoClasses;
+  return themeClasses;
 };

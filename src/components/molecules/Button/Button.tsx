@@ -1,6 +1,5 @@
 import React from "react";
 
-import { IconDynamic } from "@app/components/atoms/IconDynamic/IconDynamic";
 import { ButtonText } from "@app/components/molecules/ButtonText/ButtonText";
 import { Corners } from "@app/components/molecules/Corners/Corners";
 
@@ -17,6 +16,7 @@ import {
 } from "@app/components/molecules/Button/styles";
 import { useButtonThemeClasses } from "@app/components/molecules/Button/hooks/useButtonThemeClasses";
 import { useButtonHandlers } from "@app/components/molecules/Button/hooks/useButtonHandlers";
+import { ImageDynamic } from "@app/components/atoms/ImageDynamic/ImageDynamic";
 
 const Button: React.FC<IButtonProps> = ({
   children,
@@ -72,10 +72,9 @@ const Button: React.FC<IButtonProps> = ({
             </ButtonText>
 
             {iconName && (
-              <IconDynamic
+              <ImageDynamic
                 themeClasses={iconThemeClasses}
-                iconName={iconName}
-                isHeightResponsive
+                imageName={iconName}
               />
             )}
           </LayoutContainer>

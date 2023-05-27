@@ -1,5 +1,5 @@
-import { IIconDynamicProps } from "@app/components/atoms/IconDynamic/@types/IconDynamic";
+import { IImageDynamicProps } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 
 export interface ILargeIconProps {
-  iconName: IIconDynamicProps["iconName"];
+  iconName: IImageDynamicProps["imageName"];
 }

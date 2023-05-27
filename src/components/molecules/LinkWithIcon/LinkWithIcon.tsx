@@ -1,9 +1,10 @@
-import { IconDynamic } from "@app/components/atoms/IconDynamic/IconDynamic";
+import { ImageDynamicVariant } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
+import { ImageDynamic } from "@app/components/atoms/ImageDynamic/ImageDynamic";
 import { Link } from "@app/components/molecules/Link/Link";
 import { ILinkWithIconProps } from "@app/components/molecules/LinkWithIcon/@types/LinkWithIcon";
 import {
   linkWithIconDefaultThemeClasses,
-  linkWithIconDynamicIconDefaultThemeClasses,
+  linkWithIconDynamicImageDefaultThemeClasses,
 } from "@app/components/molecules/LinkWithIcon/styles";
 import { IThemeClasses } from "@app/types/theme";
 
@@ -18,8 +19,8 @@ const LinkWithIcon: React.FC<ILinkWithIconProps> = ({
     ...themeClasses,
   };
 
-  const linkWithIconDynamicIconThemeClasses: IThemeClasses = {
-    ...linkWithIconDynamicIconDefaultThemeClasses,
+  const linkWithIconDynamicImageThemeClasses: IThemeClasses = {
+    ...linkWithIconDynamicImageDefaultThemeClasses,
     ...themeClasses,
   };
 
@@ -29,11 +30,13 @@ const LinkWithIcon: React.FC<ILinkWithIconProps> = ({
       isExternal={isExternal}
       themeClasses={linkWithIconThemeClasses}
     >
-      <IconDynamic
-        themeClasses={linkWithIconDynamicIconThemeClasses}
-        isHeightResponsive
-        iconName={iconName}
-        shouldGlowOnHover
+      <ImageDynamic
+        themeClasses={linkWithIconDynamicImageThemeClasses}
+        imageName={iconName}
+        variants={[
+          ImageDynamicVariant.HeightResponsive,
+          ImageDynamicVariant.GlowOnHover,
+        ]}
       />
     </Link>
   );

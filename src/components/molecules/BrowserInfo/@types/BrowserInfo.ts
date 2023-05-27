@@ -1,14 +1,14 @@
-import { IconDynamicName } from "@app/components/atoms/IconDynamic/@types/IconDynamic";
+import { ImageDynamicName } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 import { Browser } from "detect-browser";
 
 export type TBrowserIcon = Extract<
-  IconDynamicName,
-  | IconDynamicName.Chrome
-  | IconDynamicName.Firefox
-  | IconDynamicName.IE
-  | IconDynamicName.Opera
-  | IconDynamicName.Safari
-  | IconDynamicName.Unknown
+  ImageDynamicName,
+  | ImageDynamicName.Chrome
+  | ImageDynamicName.Firefox
+  | ImageDynamicName.IE
+  | ImageDynamicName.Opera
+  | ImageDynamicName.Safari
+  | ImageDynamicName.Unknown
 >;
 
 export type TActiveIcon = Browser | "react-native" | "bot" | "node" | undefined;

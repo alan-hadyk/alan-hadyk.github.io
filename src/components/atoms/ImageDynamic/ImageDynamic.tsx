@@ -7,21 +7,22 @@ import { useImageDynamicThemeClasses } from "@app/components/atoms/ImageDynamic/
 import React, { forwardRef } from "react";
 
 const _ImageDynamic: React.ForwardRefRenderFunction<
-  HTMLDivElement,
+  SVGSVGElement,
   IImageDynamicProps
 > = ({ imageName, style, themeClasses, variants = [] }, ref) => {
-  const { imageComponentClassNames, imageDynamicWrapperClassNames } =
-    useImageDynamicThemeClasses({
-      themeClasses,
-      variants,
-    });
+  const { imageDynamicClassNames } = useImageDynamicThemeClasses({
+    themeClasses,
+    variants,
+  });
 
   const ImageComponent: SVGImage = imageDynamicComponents[imageName];
 
   return (
-    <div className={imageDynamicWrapperClassNames} ref={ref} style={style}>
-      <ImageComponent className={imageComponentClassNames} />
-    </div>
+    <ImageComponent
+      className={imageDynamicClassNames}
+      ref={ref}
+      style={style}
+    />
   );
 };
 

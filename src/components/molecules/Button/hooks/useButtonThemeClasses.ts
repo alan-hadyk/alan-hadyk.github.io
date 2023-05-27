@@ -1,4 +1,4 @@
-import { IIconDynamicProps } from "@app/components/atoms/IconDynamic/@types/IconDynamic";
+import { IImageDynamicProps } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 import {
   ButtonSize,
   IButtonProps,
@@ -32,7 +32,7 @@ const useButtonThemeClasses = ({
     paddingX: size === ButtonSize.Small ? "px-16" : "px-24",
   };
 
-  const iconThemeClasses: IIconDynamicProps["themeClasses"] = {
+  const iconThemeClasses: IImageDynamicProps["themeClasses"] = {
     height: size === ButtonSize.Small ? "h-12" : "h-24",
     width: iconWidth,
   };

@@ -7,7 +7,6 @@ import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutCo
 import {
   fluxChartDefaultThemeClasses,
   fluxChartImageContainerDefaultThemeClasses,
-  fluxChartImageDefaultThemeClasses,
 } from "@app/components/molecules/FluxChart/styles";
 
 const FluxChart: React.FC = () => (
@@ -15,7 +14,6 @@ const FluxChart: React.FC = () => (
     <LayoutContainer themeClasses={fluxChartImageContainerDefaultThemeClasses}>
       <ImageDynamic
         imageName={ImageDynamicName.Flux}
-        themeClasses={fluxChartImageDefaultThemeClasses}
         variants={[ImageDynamicVariant.Responsive]}
       />
     </LayoutContainer>

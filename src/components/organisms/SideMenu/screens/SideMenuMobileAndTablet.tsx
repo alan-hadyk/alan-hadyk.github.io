@@ -6,7 +6,6 @@ import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutCo
 import { isIE11 } from "@app/helpers/browser/isIE11";
 
 import { NavItemPosition } from "@app/components/molecules/NavItem/@types/NavItem";
-import { IconDynamicName } from "@app/components/atoms/IconDynamic/@types/IconDynamic";
 import { ButtonSize } from "@app/components/molecules/Button/@types/Button";
 import { ISideMenuProps } from "@app/components/organisms/SideMenu/@types/SideMenu";
 import {
@@ -15,6 +14,7 @@ import {
   sideMenuMobileNavOuterContainerDefaultThemeClasses,
   sideMenuMobileNavWrapperDefaultThemeClasses,
 } from "@app/components/organisms/SideMenu/styles";
+import { ImageDynamicName } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 
 const SideMenuMobileAndTablet: React.FC<
   Pick<ISideMenuProps, "navItems" | "onCVButtonClick">
@@ -32,7 +32,7 @@ const SideMenuMobileAndTablet: React.FC<
       </LayoutContainer>
     )}
     <Button
-      iconName={IconDynamicName.Download}
+      iconName={ImageDynamicName.Download}
       iconWidth={isIE11() ? "w-24" : "w-auto"}
       onClick={onCVButtonClick}
       size={ButtonSize.Medium}

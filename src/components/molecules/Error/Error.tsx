@@ -9,17 +9,22 @@ import {
   errorIconDefaultThemeClasses,
   errorTitleDefaultThemeClasses,
 } from "@app/components/molecules/Error/styles";
-import { IconDynamic } from "@app/components/atoms/IconDynamic/IconDynamic";
-import { IconDynamicName } from "@app/components/atoms/IconDynamic/@types/IconDynamic";
+import { ImageDynamic } from "@app/components/atoms/ImageDynamic/ImageDynamic";
+import {
+  ImageDynamicName,
+  ImageDynamicVariant,
+} from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 
 const Error: React.FC<IErrorProps> = ({ description, title }) => (
   <LayoutContainer themeClasses={errorDefaultThemeClasses}>
     <LayoutContainer themeClasses={errorContainerDefaultThemeClasses}>
-      <IconDynamic
-        iconName={IconDynamicName.Warning}
-        isHeightResponsive
-        shouldDisplayGlowAnimation
+      <ImageDynamic
+        imageName={ImageDynamicName.Warning}
         themeClasses={errorIconDefaultThemeClasses}
+        variants={[
+          ImageDynamicVariant.HeightResponsive,
+          ImageDynamicVariant.GlowAnimation,
+        ]}
       />
       <Typography themeClasses={errorTitleDefaultThemeClasses}>
         {title}
