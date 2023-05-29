@@ -27,7 +27,7 @@ jobs:
 
       - name: Run Playwright tests
         run: |
-          PWDEBUG=console yarn playwright test
+          yarn playwright test
         env:
           CI: true
 
