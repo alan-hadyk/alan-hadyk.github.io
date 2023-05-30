@@ -9,7 +9,7 @@ jobs:
     name: 'Playwright Tests - ${{ matrix.project }} - Shard ${{ matrix.shardIndex }} of ${{ matrix.shardTotal }}'
     runs-on: macos-13
     container:
-      image: mcr.microsoft.com/playwright:v1.34.3-jammy
+      image: mcr.microsoft.com/playwright:v1.20.0-focal
     strategy:
       fail-fast: false
       matrix:
