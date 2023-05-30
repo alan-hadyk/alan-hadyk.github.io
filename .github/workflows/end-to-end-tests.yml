@@ -6,9 +6,14 @@ on:
 
 jobs:
   e2e:
-    permissions: write-all
-    timeout-minutes: 60
+    name: 'Playwright Tests - ${{ matrix.project }} - Shard ${{ matrix.shardIndex }} of ${{ matrix.shardTotal }}'
     runs-on: macos-13
+    strategy:
+      fail-fast: false
+      matrix:
+        project: [chromium, webkit]
+        shardIndex: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        shardTotal: [10]
 
     steps:
       - name: Checkout
@@ -26,8 +31,7 @@ jobs:
         run: yarn playwright install --with-deps
 
       - name: Run Playwright tests
-        run: |
-          yarn playwright test
+        run: npx playwright test --project=${{ matrix.project }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
         env:
           CI: true
 

@@ -12,6 +12,19 @@ test.beforeEach(async ({ page }) => {
   );
 
   await page.goto("/");
+
+  const sizes = await page.evaluate(() => {
+    const browserHeight = window.innerHeight;
+    const pageHeight = document.body.scrollHeight;
+
+    return { browserHeight, pageHeight };
+  });
+
+  for (let i = 0; i < sizes.pageHeight; i += sizes.browserHeight) {
+    await page.mouse.wheel(0, i);
+    console.log("scrolled to", i);
+    await page.waitForTimeout(1000);
+  }
 });
 
 test.describe("About me", () => {
