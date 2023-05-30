@@ -52,6 +52,7 @@ test.describe("About me", () => {
     });
 
     await expect(page.locator("#about-me")).toHaveScreenshot({
+      mask: [page.locator("#header")],
       omitBackground: true,
       scale: "css",
     });
@@ -95,6 +96,7 @@ test.describe("About me", () => {
 
     await expect(page.locator("#about-me")).toHaveScreenshot({
       animations: "disabled",
+      mask: [page.locator("#header")],
       omitBackground: true,
       scale: "css",
     });
@@ -136,6 +138,7 @@ test.describe("About me", () => {
 
     await expect(page.locator("#about-me")).toHaveScreenshot({
       animations: "disabled",
+      mask: [page.locator("#header")],
       omitBackground: true,
       scale: "css",
     });
@@ -177,6 +180,7 @@ test.describe("About me", () => {
 
     await expect(page.locator("#about-me")).toHaveScreenshot({
       animations: "disabled",
+      mask: [page.locator("#header")],
       omitBackground: true,
       scale: "css",
     });
@@ -218,6 +222,7 @@ test.describe("About me", () => {
 
     await expect(page.locator("#about-me")).toHaveScreenshot({
       animations: "disabled",
+      mask: [page.locator("#header")],
       omitBackground: true,
       scale: "css",
     });

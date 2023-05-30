@@ -34,6 +34,7 @@ test.describe("Skills", () => {
 
     await expect(page.locator("#skills")).toHaveScreenshot({
       animations: "disabled",
+      mask: [page.locator("#header")],
       omitBackground: true,
       scale: "css",
     });
@@ -58,6 +59,7 @@ test.describe("Skills", () => {
 
     await expect(page.locator("#skills")).toHaveScreenshot({
       animations: "disabled",
+      mask: [page.locator("#header")],
       omitBackground: true,
       scale: "css",
     });
@@ -82,6 +84,7 @@ test.describe("Skills", () => {
 
     await expect(page.locator("#skills")).toHaveScreenshot({
       animations: "disabled",
+      mask: [page.locator("#header")],
       omitBackground: true,
       scale: "css",
     });
@@ -106,6 +109,7 @@ test.describe("Skills", () => {
 
     await expect(page.locator("#skills")).toHaveScreenshot({
       animations: "disabled",
+      mask: [page.locator("#header")],
       omitBackground: true,
       scale: "css",
     });
@@ -130,6 +134,7 @@ test.describe("Skills", () => {
 
     await expect(page.locator("#skills")).toHaveScreenshot({
       animations: "disabled",
+      mask: [page.locator("#header")],
       omitBackground: true,
       scale: "css",
     });
