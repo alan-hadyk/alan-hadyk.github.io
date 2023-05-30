@@ -8,8 +8,6 @@ jobs:
   e2e:
     name: 'Playwright Tests - ${{ matrix.project }} - Shard ${{ matrix.shardIndex }} of ${{ matrix.shardTotal }}'
     runs-on: macos-13
-    container:
-      image: mcr.microsoft.com/playwright:v1.20.0-focal
     strategy:
       fail-fast: false
       matrix:
@@ -26,14 +24,31 @@ jobs:
         with:
           node-version: 18.2.0
 
+      - name: Install Docker
+        run: |
+          brew install --cask docker
+          open /Applications/Docker.app
+          while (! docker stats --no-stream ); do
+            # Docker takes a few seconds to initialize
+            echo "Waiting for Docker to launch..."
+            sleep 1
+          done
+
+      - name: Run Docker container
+        id: docker
+        run: |
+          docker pull mcr.microsoft.com/playwright:v1.20.0-focal
+          docker run -d -v $PWD:/work -w /work mcr.microsoft.com/playwright:v1.20.0-focal
+          echo "DOCKER_ID=$(docker ps -q)" >> $GITHUB_ENV
+
       - name: Install dependencies
-        run: yarn
+        run: docker exec -it ${{ env.DOCKER_ID }} yarn
 
       - name: Install Playwright Browsers
-        run: yarn playwright install --with-deps
+        run: docker exec -it ${{ env.DOCKER_ID }} yarn playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test --project=${{ matrix.project }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+        run: docker exec -it ${{ env.DOCKER_ID }} npx playwright test --project=${{ matrix.project }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
         env:
           CI: true
 
