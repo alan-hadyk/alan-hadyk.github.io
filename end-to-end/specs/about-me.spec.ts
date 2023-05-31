@@ -1,6 +1,8 @@
 import { test, expect } from "@playwright/test";
 import { apiGithubCom } from "../mock/apiGithubCom";
 
+test.use({ video: "on" });
+
 test.beforeEach(async ({ page }) => {
   await page.route(
     "https://api.github.com/repos/alan-hadyk/portfolio/commits",
