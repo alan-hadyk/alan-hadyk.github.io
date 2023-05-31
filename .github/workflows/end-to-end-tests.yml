@@ -27,7 +27,8 @@ jobs:
       - name: Install Docker
         run: |
           brew install --cask docker
-          open -a Docker
+          sleep 90 # wait for 90 seconds
+          open /Applications/Docker.app
           while (! docker stats --no-stream ); do
             # Docker takes a few seconds to initialize
             echo "Waiting for Docker to launch..."
