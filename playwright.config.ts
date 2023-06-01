@@ -92,7 +92,5 @@ export default defineConfig({
     url: "http://localhost:3000",
   },
 
-  /* Opt out of parallel tests on CI. */
   workers: undefined,
-  // workers: process.env.CI ? 1 : undefined,
 });
