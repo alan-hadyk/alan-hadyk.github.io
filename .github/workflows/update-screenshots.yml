@@ -6,12 +6,13 @@ on:
 
 jobs:
   update-screenshots:
+    permissions: write-all
     if: contains(github.event.comment.body, '/update-screenshots')
     runs-on: macos-13
 
     steps:
     - name: Check if author is a collaborator
-      uses: actions/github-script@v5
+      uses: actions/github-script@v6
       id: is-collaborator
       with:
         script: |
@@ -29,6 +30,19 @@ jobs:
           echo "Error: Comment author is not a collaborator"
           exit 1
         fi
+    
+    - name: Comment on PR
+      uses: actions/github-script@v5
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const issueComment = context.issue({ comment_id: context.payload.comment.id });
+          github.reactions.createForIssueComment({
+            owner: issueComment.owner,
+            repo: issueComment.repo,
+            comment_id: issueComment.comment_id,
+            content: 'rocket',
+          });
 
     - name: Checkout code
       uses: actions/checkout@v3.5.2
@@ -48,9 +62,9 @@ jobs:
       run: npx playwright test --update-snapshots
 
     - name: Commit and push changes
-      run: |
-        git config user.name "GitHub Actions"
-        git config user.email "actions@github.com"
-        git add .
-        git commit -m "Update screenshots" || exit 0
-        git push
+      uses: EndBug/add-and-commit@v7
+      with:
+        author_name: "GitHub Actions"
+        author_email: "actions@github.com"
+        message: "Update screenshots"
+        add: "."
