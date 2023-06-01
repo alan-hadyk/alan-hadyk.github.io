@@ -1,0 +1,56 @@
+name: Update Screenshots
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  update-screenshots:
+    if: contains(github.event.comment.body, '/update-screenshots')
+    runs-on: macos-13
+
+    steps:
+    - name: Check if author is a collaborator
+      uses: actions/github-script@v5
+      id: is-collaborator
+      with:
+        script: |
+          const { owner, repo } = context.repo
+          const author = context.payload.comment.user.login
+          const isCollaborator = await github.repos.checkCollaborator({
+            owner, repo, username: author
+          }).then(() => true, () => false)
+          return isCollaborator
+        result-encoding: string
+
+    - name: Abort if author is not a collaborator
+      run: |
+        if [ "${{ steps.is-collaborator.outputs.result }}" != "true" ]; then
+          echo "Error: Comment author is not a collaborator"
+          exit 1
+        fi
+
+    - name: Checkout code
+      uses: actions/checkout@v3.5.2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3.6.0
+      with:
+        node-version: 18.2.0
+
+    - name: Install dependencies
+      run: yarn
+
+    - name: Install Playwright Browsers
+      run: yarn playwright install --with-deps
+
+    - name: Generate new screenshots
+      run: npx playwright test --update-snapshots
+
+    - name: Commit and push changes
+      run: |
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        git add .
+        git commit -m "Update screenshots" || exit 0
+        git push
