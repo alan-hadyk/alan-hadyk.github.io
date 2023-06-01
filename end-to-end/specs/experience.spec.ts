@@ -11,7 +11,7 @@ test.beforeEach(async ({ page }) => {
     },
   );
 
-  await page.goto("/");
+  await page.goto("/no-header");
 
   const sizes = await page.evaluate(() => {
     const browserHeight = window.innerHeight;
@@ -22,7 +22,6 @@ test.beforeEach(async ({ page }) => {
 
   for (let i = 0; i < sizes.pageHeight; i += sizes.browserHeight) {
     await page.mouse.wheel(0, i);
-    console.log("scrolled to", i);
     await page.waitForTimeout(1000);
   }
 });
@@ -41,13 +40,10 @@ test.describe("Experience", () => {
       }),
     );
     await page.waitForLoadState("networkidle");
-
-    await page.click("a[data-id='Experience']");
     await page.waitForSelector("#AlanHadyk");
 
     await expect(page.locator("#experience")).toHaveScreenshot({
       animations: "disabled",
-      mask: [page.locator("#header")],
       omitBackground: true,
       scale: "css",
     });
@@ -67,12 +63,10 @@ test.describe("Experience", () => {
     );
     await page.waitForLoadState("networkidle");
 
-    await page.click("a[data-id='Experience']");
     await page.waitForSelector("#AlanHadyk");
 
     await expect(page.locator("#experience")).toHaveScreenshot({
       animations: "disabled",
-      mask: [page.locator("#header")],
       omitBackground: true,
       scale: "css",
     });
@@ -97,7 +91,6 @@ test.describe("Experience", () => {
 
     await expect(page.locator("#experience")).toHaveScreenshot({
       animations: "disabled",
-      mask: [page.locator("#header")],
       omitBackground: true,
       scale: "css",
     });
@@ -122,7 +115,6 @@ test.describe("Experience", () => {
 
     await expect(page.locator("#experience")).toHaveScreenshot({
       animations: "disabled",
-      mask: [page.locator("#header")],
       omitBackground: true,
       scale: "css",
     });
@@ -147,7 +139,6 @@ test.describe("Experience", () => {
 
     await expect(page.locator("#experience")).toHaveScreenshot({
       animations: "disabled",
-      mask: [page.locator("#header")],
       omitBackground: true,
       scale: "css",
     });

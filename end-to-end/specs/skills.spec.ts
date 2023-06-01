@@ -11,7 +11,7 @@ test.beforeEach(async ({ page }) => {
     },
   );
 
-  await page.goto("/");
+  await page.goto("/no-header");
 });
 
 test.describe("Skills", () => {
@@ -30,11 +30,8 @@ test.describe("Skills", () => {
 
     await page.waitForLoadState("networkidle");
 
-    await page.click("a[data-id='Skills']");
-
     await expect(page.locator("#skills")).toHaveScreenshot({
       animations: "disabled",
-      mask: [page.locator("#header")],
       omitBackground: true,
       scale: "css",
     });
@@ -55,11 +52,8 @@ test.describe("Skills", () => {
 
     await page.waitForLoadState("networkidle");
 
-    await page.click("a[data-id='Skills']");
-
     await expect(page.locator("#skills")).toHaveScreenshot({
       animations: "disabled",
-      mask: [page.locator("#header")],
       omitBackground: true,
       scale: "css",
     });
@@ -84,7 +78,6 @@ test.describe("Skills", () => {
 
     await expect(page.locator("#skills")).toHaveScreenshot({
       animations: "disabled",
-      mask: [page.locator("#header")],
       omitBackground: true,
       scale: "css",
     });
@@ -109,7 +102,6 @@ test.describe("Skills", () => {
 
     await expect(page.locator("#skills")).toHaveScreenshot({
       animations: "disabled",
-      mask: [page.locator("#header")],
       omitBackground: true,
       scale: "css",
     });
@@ -134,7 +126,6 @@ test.describe("Skills", () => {
 
     await expect(page.locator("#skills")).toHaveScreenshot({
       animations: "disabled",
-      mask: [page.locator("#header")],
       omitBackground: true,
       scale: "css",
     });
