@@ -14,7 +14,7 @@ const useHexagonState = ({ fill }: Pick<IHexagonProps, "fill">) => {
       height: undefined,
       width: undefined,
     });
-  const hexagonBorderRef = useRef<HTMLDivElement>(null);
+  const hexagonBorderRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
     if (fill !== HexagonFill.None) {

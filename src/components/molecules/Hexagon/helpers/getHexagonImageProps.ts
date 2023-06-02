@@ -1,6 +1,7 @@
 import {
   IImageDynamicProps,
   ImageDynamicName,
+  ImageDynamicVariant,
 } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 import {
   HexagonFill,
@@ -21,20 +22,19 @@ const getHexagonImageProps = ({
     case HexagonFill.Solid:
       return {
         imageName: ImageDynamicName.Hexagon,
-        isActive: true,
-        shouldGlow: true,
         themeClasses: hexagonSolidImageDefaultThemeClasses,
+        variants: [ImageDynamicVariant.Active, ImageDynamicVariant.Glow],
       };
 
     default:
     case HexagonFill.None:
       return {
         imageName: ImageDynamicName.Hexagon,
-        shouldGlow: true,
         style: {
           height: hexagonBorderDimensions.height,
           width: hexagonBorderDimensions.width,
         },
+        variants: [ImageDynamicVariant.Glow],
       };
   }
 };

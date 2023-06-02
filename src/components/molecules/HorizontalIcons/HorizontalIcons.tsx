@@ -1,6 +1,8 @@
-import { IconDynamic } from "@app/components/atoms/IconDynamic/IconDynamic";
-
-import { IIconDynamicProps } from "@app/components/atoms/IconDynamic/@types/IconDynamic";
+import {
+  IImageDynamicProps,
+  ImageDynamicVariant,
+} from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
+import { ImageDynamic } from "@app/components/atoms/ImageDynamic/ImageDynamic";
 import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutContainer";
 import { horizontalIcons } from "@app/components/molecules/HorizontalIcons/config";
 import {
@@ -15,16 +17,16 @@ const HorizontalIcons: React.FC = () => (
   <LayoutContainer themeClasses={horizontalIconsDefaultThemeClasses}>
     <LayoutContainer themeClasses={horizontalIconsContainerDefaultThemeClasses}>
       {horizontalIcons.map(
-        (icon: IIconDynamicProps["iconName"]): JSX.Element => (
+        (icon: IImageDynamicProps["imageName"]): JSX.Element => (
           <LayoutContainer
             key={icon}
             style={horizontalIconsIconWrapperDefaultStyles}
             themeClasses={horizontalIconsIconWrapperDefaultThemeClasses}
           >
-            <IconDynamic
+            <ImageDynamic
               themeClasses={horizontalIconsIconDefaultThemeClasses}
-              iconName={icon}
-              isResponsive
+              imageName={icon}
+              variants={[ImageDynamicVariant.Responsive]}
             />
           </LayoutContainer>
         ),

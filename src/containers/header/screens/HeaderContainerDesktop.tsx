@@ -10,11 +10,11 @@ import { isIE11 } from "@app/helpers/browser/isIE11";
 import { Device } from "@app/components/layout/Responsive/@types/Responsive";
 import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutContainer";
 import { IHeaderContainerScreenProps } from "@app/containers/header/@types/HeaderContainerScreen";
-import { IconDynamicName } from "@app/components/atoms/IconDynamic/@types/IconDynamic";
 import { ButtonSize } from "@app/components/molecules/Button/@types/Button";
 import { SideMenu } from "@app/components/organisms/SideMenu/SideMenu";
 import { icons, navItems } from "@app/containers/header/config";
 import { headerContainerDesktopDefaultThemeClasses } from "@app/containers/header/styles";
+import { ImageDynamicName } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 
 const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
   isMenuVisible,
@@ -28,7 +28,7 @@ const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
       </LayoutContainer>
 
       <Button
-        iconName={IconDynamicName.Download}
+        iconName={ImageDynamicName.Download}
         iconWidth={isIE11() ? "w-24" : "w-auto"}
         onClick={onCVButtonClick}
         size={ButtonSize.Medium}

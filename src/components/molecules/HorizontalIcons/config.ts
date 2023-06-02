@@ -1,14 +1,14 @@
 import {
-  IconDynamicName,
-  IIconDynamicProps,
-} from "@app/components/atoms/IconDynamic/@types/IconDynamic";
+  IImageDynamicProps,
+  ImageDynamicName,
+} from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 
-export const horizontalIcons: IIconDynamicProps["iconName"][] = [
-  IconDynamicName.React,
-  IconDynamicName.JavaScript,
-  IconDynamicName.TypeScript,
-  IconDynamicName.Webpack,
-  IconDynamicName.NodeJS,
-  IconDynamicName.Apollo,
-  IconDynamicName.GraphQL,
+export const horizontalIcons: IImageDynamicProps["imageName"][] = [
+  ImageDynamicName.React,
+  ImageDynamicName.JavaScript,
+  ImageDynamicName.TypeScript,
+  ImageDynamicName.Webpack,
+  ImageDynamicName.NodeJS,
+  ImageDynamicName.Apollo,
+  ImageDynamicName.GraphQL,
 ];

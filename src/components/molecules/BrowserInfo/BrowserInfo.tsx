@@ -1,6 +1,5 @@
 import { detect } from "detect-browser";
 
-import { IconDynamic } from "@app/components/atoms/IconDynamic/IconDynamic";
 import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutContainer";
 import { useEffect, useState } from "react";
 import {
@@ -14,7 +13,11 @@ import {
 } from "@app/components/molecules/BrowserInfo/styles";
 import { browserIcons } from "@app/components/molecules/BrowserInfo/config";
 import { TActiveIcon } from "@app/components/molecules/BrowserInfo/@types/BrowserInfo";
-import { IconDynamicName } from "@app/components/atoms/IconDynamic/@types/IconDynamic";
+import { ImageDynamic } from "@app/components/atoms/ImageDynamic/ImageDynamic";
+import {
+  ImageDynamicName,
+  ImageDynamicVariant,
+} from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 
 const BrowserInfo: React.FC = () => {
   const [activeIcon, setActiveIcon] = useState<TActiveIcon>();
@@ -38,8 +41,8 @@ const BrowserInfo: React.FC = () => {
               (icon) => icon === activeIcon,
             );
             const isIconActive =
-              icon === IconDynamicName.IE
-                ? activeIcon === IconDynamicName.IE || activeIcon === "edge"
+              icon === ImageDynamicName.IE
+                ? activeIcon === ImageDynamicName.IE || activeIcon === "edge"
                 : activeIcon === icon;
 
             return (
@@ -52,12 +55,18 @@ const BrowserInfo: React.FC = () => {
                     : browserInfoIconWrapperInactiveIconDefaultThemeClasses,
                 }}
               >
-                <IconDynamic
+                <ImageDynamic
                   themeClasses={browserInfoIconDefaultThemeClasses}
-                  iconName={icon}
-                  isActive={isIconActive || isIconUnknown}
-                  isResponsive
-                  shouldDisplayGlowAnimation={isIconActive || isIconUnknown}
+                  imageName={icon}
+                  variants={[
+                    ...(isIconActive || isIconUnknown
+                      ? [
+                          ImageDynamicVariant.GlowAnimation,
+                          ImageDynamicVariant.Active,
+                        ]
+                      : []),
+                    ImageDynamicVariant.Responsive,
+                  ]}
                 />
               </LayoutContainer>
             );

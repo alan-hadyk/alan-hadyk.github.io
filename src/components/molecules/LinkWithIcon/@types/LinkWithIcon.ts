@@ -1,9 +1,9 @@
-import { IIconDynamicProps } from "@app/components/atoms/IconDynamic/@types/IconDynamic";
+import { IImageDynamicProps } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 import { IThemeClasses } from "@app/types/theme";
 
 export interface ILinkWithIconProps {
   href: string;
-  iconName: IIconDynamicProps["iconName"];
+  iconName: IImageDynamicProps["imageName"];
   isExternal?: boolean;
   themeClasses?: Pick<IThemeClasses, "height" | "width">;
 }

@@ -6,8 +6,8 @@ export const linkWithIconDefaultThemeClasses: IThemeClasses = {
   width: "w-auto",
 };
 
-export const linkWithIconDynamicIconDefaultThemeClasses: IThemeClasses = {
+export const linkWithIconDynamicImageDefaultThemeClasses: IThemeClasses = {
   height: "h-48",
-  pseudoClasses: ["childrenSvg:animate-glow-slow", "childrenSvg:duration-fast"],
+  transitionDuration: "duration-fast",
   width: "w-auto",
 };

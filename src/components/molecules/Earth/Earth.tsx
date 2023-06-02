@@ -1,4 +1,7 @@
-import { ImageDynamicName } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
+import {
+  ImageDynamicName,
+  ImageDynamicVariant,
+} from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 import { ImageDynamic } from "@app/components/atoms/ImageDynamic/ImageDynamic";
 import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutContainer";
 import {
@@ -12,8 +15,8 @@ const Earth: React.FC = () => (
     <LayoutContainer themeClasses={earthImageContainerDefaultThemeClasses}>
       <ImageDynamic
         imageName={ImageDynamicName.Earth}
-        isResponsive
         themeClasses={earthImageDefaultThemeClasses}
+        variants={[ImageDynamicVariant.Responsive]}
       />
     </LayoutContainer>
   </LayoutContainer>

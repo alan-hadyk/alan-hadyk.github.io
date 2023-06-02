@@ -2,7 +2,7 @@
 import { ImageStatic } from "@app/components/atoms/ImageStatic/ImageStatic";
 import { Section } from "@app/components/molecules/Section/Section";
 import { renderDescription } from "@app/containers/aboutMe/config";
-import Alan from "@app/../public/images/static/alan.png";
+import Alan from "@public/images/static/alan.png";
 import { lazy } from "react";
 import { LazyLoadingWrapper } from "@app/components/layout/LazyLoadingWrapper/LazyLoadingWrapper";
 

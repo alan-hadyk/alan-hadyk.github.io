@@ -1,7 +1,7 @@
 import {
-  IconDynamicName,
-  IIconDynamicProps,
-} from "@app/components/atoms/IconDynamic/@types/IconDynamic";
+  IImageDynamicProps,
+  ImageDynamicName,
+} from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 import { IThemeClasses } from "@app/types/theme";
 
 export enum ButtonSize {
@@ -13,8 +13,8 @@ export enum ButtonSize {
 export interface IButtonProps {
   children: string;
   iconName?: Extract<
-    IIconDynamicProps["iconName"],
-    IconDynamicName.Download | IconDynamicName.ExternalLink
+    IImageDynamicProps["imageName"],
+    ImageDynamicName.Download | ImageDynamicName.ExternalLink
   >;
   iconWidth?: IThemeClasses["width"];
   onClick?: () => void;
