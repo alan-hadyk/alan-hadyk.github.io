@@ -11,7 +11,19 @@ test.beforeEach(async ({ page }) => {
     },
   );
 
-  await page.goto("/");
+  await page.goto("/no-header");
+
+  const sizes = await page.evaluate(() => {
+    const browserHeight = window.innerHeight;
+    const pageHeight = document.body.scrollHeight;
+
+    return { browserHeight, pageHeight };
+  });
+
+  for (let i = 0; i < sizes.pageHeight; i += sizes.browserHeight) {
+    await page.mouse.wheel(0, i);
+    await page.waitForTimeout(1000);
+  }
 });
 
 test.describe("Experience", () => {
@@ -28,8 +40,6 @@ test.describe("Experience", () => {
       }),
     );
     await page.waitForLoadState("networkidle");
-
-    await page.click("a[data-id='Experience']");
     await page.waitForSelector("#AlanHadyk");
 
     await expect(page.locator("#experience")).toHaveScreenshot({
@@ -53,7 +63,6 @@ test.describe("Experience", () => {
     );
     await page.waitForLoadState("networkidle");
 
-    await page.click("a[data-id='Experience']");
     await page.waitForSelector("#AlanHadyk");
 
     await expect(page.locator("#experience")).toHaveScreenshot({
