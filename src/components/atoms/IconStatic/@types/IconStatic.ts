@@ -47,6 +47,7 @@ export enum IconStaticName {
   Phabricator = "phabricator",
   Photoshop = "photoshop",
   Pin = "pin",
+  Playwright = "playwright",
   Prestashop = "prestashop",
   Prisma = "prisma",
   QUnit = "qUnit",

@@ -155,6 +155,10 @@ export const iconsWithLabels: IIconsWithLabelsProps["iconsWithLabels"] = [
     label: "Photoshop",
   },
   {
+    iconName: IconStaticName.Playwright,
+    label: "Playwright",
+  },
+  {
     iconName: IconStaticName.Prestashop,
     label: "PrestaShop",
   },

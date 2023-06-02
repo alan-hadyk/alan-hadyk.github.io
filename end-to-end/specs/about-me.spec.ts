@@ -11,7 +11,19 @@ test.beforeEach(async ({ page }) => {
     },
   );
 
-  await page.goto("/");
+  await page.goto("/no-header");
+
+  const sizes = await page.evaluate(() => {
+    const browserHeight = window.innerHeight;
+    const pageHeight = document.body.scrollHeight;
+
+    return { browserHeight, pageHeight };
+  });
+
+  for (let i = 0; i < sizes.pageHeight; i += sizes.browserHeight) {
+    await page.mouse.wheel(0, i);
+    await page.waitForTimeout(1000);
+  }
 });
 
 test.describe("About me", () => {
@@ -37,8 +49,6 @@ test.describe("About me", () => {
     );
 
     await page.waitForLoadState("networkidle");
-
-    await page.click("a[data-id='About me']");
 
     await page.locator("#about-me").scrollIntoViewIfNeeded();
     await page.locator("#about-me").evaluate((node) =>
@@ -79,8 +89,6 @@ test.describe("About me", () => {
     );
 
     await page.waitForLoadState("networkidle");
-
-    await page.click("a[data-id='About me']");
 
     await page.locator("#about-me").scrollIntoViewIfNeeded();
     await page.locator("#about-me").evaluate((node) =>

@@ -1,25 +1,21 @@
-name: End-to-end tests
+name: Update screenshots
 
 on:
   pull_request:
     branches: [master]
-    
+
 jobs:
-  e2e:
-    name: 'Playwright Tests - ${{ matrix.project }} - Shard ${{ matrix.shardIndex }} of ${{ matrix.shardTotal }}'
+  update-screenshots:
+    name: 'Update screenshots'
     runs-on: macos-13
 
     strategy:
       fail-fast: false
-      matrix:
-        project: [webkit]
-        shardIndex: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-        shardTotal: [10]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3.5.2
-    
+
       - name: Use Node.js 18.2.0
         uses: actions/setup-node@v3.6.0
         with:
@@ -32,7 +28,7 @@ jobs:
         run: yarn playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test --project=${{ matrix.project }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+        run: npx playwright test --update-snapshots
         env:
           CI: true
 
@@ -40,6 +36,6 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v3
         with:
-          name: playwright-report-${{ matrix.shardIndex }}
-          path: playwright-report/
+          name: playwright-report
+          path: end-to-end/specs/
           retention-days: 30

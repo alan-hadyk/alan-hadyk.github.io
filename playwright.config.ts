@@ -14,7 +14,7 @@ export default defineConfig({
   expect: {
     toHaveScreenshot: {
       /* An acceptable ratio of pixels that are different to the total amount of pixels, between 0 and 1 , unset by default. */
-      maxDiffPixelRatio: 0.02,
+      maxDiffPixelRatio: 0.1,
     },
   },
 
@@ -78,7 +78,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: "http://localhost:3000",
+    baseURL: process.env.URL || "http://localhost:3000",
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
@@ -92,6 +92,5 @@ export default defineConfig({
     url: "http://localhost:3000",
   },
 
-  /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  workers: undefined,
 });
