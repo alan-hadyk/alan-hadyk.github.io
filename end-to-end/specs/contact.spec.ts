@@ -11,7 +11,7 @@ test.beforeEach(async ({ page }) => {
     },
   );
 
-  await page.goto("/");
+  await page.goto("/no-header");
 });
 
 test.describe("Contact", () => {
