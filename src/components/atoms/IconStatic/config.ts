@@ -46,6 +46,7 @@ import NodeJs from "@app/../public/icons/static/nodeJs.svg";
 import Phabricator from "@app/../public/icons/static/phabricator.svg";
 import Photoshop from "@app/../public/icons/static/photoshop.svg";
 import Pin from "@app/../public/icons/static/pin.svg";
+import Playwright from "@app/../public/icons/static/playwright.svg";
 import Prestashop from "@app/../public/icons/static/prestashop.svg";
 import Prisma from "@app/../public/icons/static/prisma.svg";
 import QUnit from "@app/../public/icons/static/qUnit.svg";
@@ -119,6 +120,7 @@ export const iconStaticIcons: TIconStaticIcons = {
   [IconStaticName.Phabricator]: Phabricator,
   [IconStaticName.Photoshop]: Photoshop,
   [IconStaticName.Pin]: Pin,
+  [IconStaticName.Playwright]: Playwright,
   [IconStaticName.Prestashop]: Prestashop,
   [IconStaticName.Prisma]: Prisma,
   [IconStaticName.QUnit]: QUnit,
