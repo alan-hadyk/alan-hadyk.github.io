@@ -2,14 +2,9 @@ import { IconWithLabelSize } from "@app/components/molecules/IconWithLabel/@type
 import { IThemeClasses } from "@app/types/theme";
 
 export const verticalIconsWithLabelsDefaultThemeClasses: Record<
-  "wrapper" | "iconsWrapper" | "labelsWrapper",
+  "wrapper" | "labelsWrapper",
   IThemeClasses
 > = {
-  iconsWrapper: {
-    alignItems: "items-center",
-    display: "flex",
-    flexFlow: "flex-col-nowrap",
-  },
   labelsWrapper: {
     alignItems: "items-start",
     display: "flex",
@@ -40,34 +35,6 @@ export const mapSizeToWrapperStyles: Record<IconWithLabelSize, IThemeClasses> =
       gap: "gap-0",
     },
   };
-
-export const mapSizeToIconsWrapperStyles: Record<
-  IconWithLabelSize,
-  IThemeClasses
-> = {
-  [IconWithLabelSize.ExtraSmall]: {
-    flex: "flex-[0_0_2.4rem]",
-  },
-  [IconWithLabelSize.Large]: {
-    flex: "flex-[0_0_9.2rem]",
-  },
-  [IconWithLabelSize.Medium]: {
-    flex: "flex-[0_0_9.2rem]",
-  },
-  [IconWithLabelSize.Small]: {
-    alignItems: "items-start",
-    flex: "flex-[0_0_12.5%]",
-  },
-};
-
-export const mapSizeToIconStyles: Record<IconWithLabelSize, IThemeClasses> = {
-  [IconWithLabelSize.ExtraSmall]: {},
-  [IconWithLabelSize.Large]: {},
-  [IconWithLabelSize.Medium]: {},
-  [IconWithLabelSize.Small]: {
-    maxWidth: "max-w-16",
-  },
-};
 
 export const mapSizeToLabelsWrapperStyles: Record<
   IconWithLabelSize,

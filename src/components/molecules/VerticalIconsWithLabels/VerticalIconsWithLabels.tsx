@@ -1,25 +1,30 @@
 import { Typography } from "@app/components/atoms/Typography/Typography";
 
-import { IVerticalIconsWithLabelsProps } from "@app/components/molecules/VerticalIconsWithLabels/@types/VerticalIconsWithLabels";
 import {
-  IconWithLabelSize,
+  IVerticalIconsWithLabelsProps,
+  VerticalIconsWithLabelsSize,
+} from "@app/components/molecules/VerticalIconsWithLabels/@types/VerticalIconsWithLabels";
+import {
   IconWithLabelVariant,
   IIconWithLabelProps,
 } from "@app/components/molecules/IconWithLabel/@types/IconWithLabel";
 import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutContainer";
-import { IconStatic } from "@app/components/atoms/IconStatic/IconStatic";
 import { verticalIconsWithLabelsDefaultThemeClasses } from "@app/components/molecules/VerticalIconsWithLabels/styles";
 import { useVerticalIconsWithLabelsThemeClasses } from "@app/components/molecules/VerticalIconsWithLabels/hooks/useVerticalIconsWithLabelsThemeClasses";
 import { Link } from "@app/components/molecules/Link/Link";
+import { VerticalIcons } from "@app/components/molecules/VerticalIcons/VerticalIcons";
+import { mapVerticalIconsWithLabelsSizeToVerticalIconSize } from "@app/components/molecules/VerticalIconsWithLabels/config";
 
 const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
   iconsWithLabels,
-  size = IconWithLabelSize.Medium,
+  size = VerticalIconsWithLabelsSize.Medium,
   themeClasses,
   variant = IconWithLabelVariant.Blue,
 }) => {
   const { verticalIconsWithLabelsThemeClasses } =
     useVerticalIconsWithLabelsThemeClasses({ size, themeClasses, variant });
+
+  const icons = iconsWithLabels.map(({ iconName }) => iconName);
 
   return (
     <LayoutContainer
@@ -28,23 +33,10 @@ const VerticalIconsWithLabels: React.FC<IVerticalIconsWithLabelsProps> = ({
         ...themeClasses?.wrapper,
       }}
     >
-      <LayoutContainer
-        themeClasses={verticalIconsWithLabelsThemeClasses.iconsWrapper}
-      >
-        {iconsWithLabels.map(
-          ({ iconName }: IIconWithLabelProps, index: number): JSX.Element => (
-            <LayoutContainer
-              key={iconName + index}
-              themeClasses={verticalIconsWithLabelsThemeClasses.iconContainer}
-            >
-              <IconStatic
-                themeClasses={verticalIconsWithLabelsThemeClasses.icon}
-                iconName={iconName}
-              />
-            </LayoutContainer>
-          ),
-        )}
-      </LayoutContainer>
+      <VerticalIcons
+        icons={icons}
+        size={mapVerticalIconsWithLabelsSizeToVerticalIconSize[size]}
+      />
       <LayoutContainer
         themeClasses={verticalIconsWithLabelsThemeClasses.labelsWrapper}
       >

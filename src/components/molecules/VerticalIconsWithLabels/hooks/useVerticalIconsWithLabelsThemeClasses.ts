@@ -1,17 +1,15 @@
-import {
-  IconWithLabelSize,
-  IconWithLabelVariant,
-} from "@app/components/molecules/IconWithLabel/@types/IconWithLabel";
+import { IconWithLabelVariant } from "@app/components/molecules/IconWithLabel/@types/IconWithLabel";
 import {
   mapIconWithLabelContentVariantToLabelStyles,
   mapSizeToIconHeight,
   mapSizeToTextFontSize,
 } from "@app/components/molecules/IconWithLabelContent/styles";
-import { IVerticalIconsWithLabelsProps } from "@app/components/molecules/VerticalIconsWithLabels/@types/VerticalIconsWithLabels";
+import {
+  IVerticalIconsWithLabelsProps,
+  VerticalIconsWithLabelsSize,
+} from "@app/components/molecules/VerticalIconsWithLabels/@types/VerticalIconsWithLabels";
 import {
   mapSizeToWrapperStyles,
-  mapSizeToIconStyles,
-  mapSizeToIconsWrapperStyles,
   mapSizeToLabelStyles,
   mapSizeToLabelsWrapperStyles,
   verticalIconsWithLabelsDefaultThemeClasses,
@@ -19,7 +17,7 @@ import {
 import { IThemeClasses } from "@app/types/theme";
 
 export const useVerticalIconsWithLabelsThemeClasses = ({
-  size = IconWithLabelSize.Medium,
+  size = VerticalIconsWithLabelsSize.Medium,
   themeClasses,
   variant = IconWithLabelVariant.Blue,
 }: Pick<
@@ -27,26 +25,9 @@ export const useVerticalIconsWithLabelsThemeClasses = ({
   "size" | "themeClasses" | "variant"
 >) => {
   const verticalIconsWithLabelsThemeClasses: Record<
-    | "icon"
-    | "iconContainer"
-    | "iconsWrapper"
-    | "label"
-    | "labelContainer"
-    | "labelsWrapper",
+    "label" | "labelContainer" | "labelsWrapper",
     IThemeClasses
   > = {
-    icon: {
-      ...mapSizeToIconStyles[size],
-      height: mapSizeToIconHeight[size],
-    },
-    iconContainer: {
-      height: mapSizeToIconHeight[size],
-    },
-    iconsWrapper: {
-      ...verticalIconsWithLabelsDefaultThemeClasses.iconsWrapper,
-      ...mapSizeToWrapperStyles[size],
-      ...mapSizeToIconsWrapperStyles[size],
-    },
     label: {
       ...mapIconWithLabelContentVariantToLabelStyles[variant],
       ...mapSizeToLabelStyles[size],
