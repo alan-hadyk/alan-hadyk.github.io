@@ -1,7 +1,4 @@
-import {
-  IconWithLabelVariant,
-  IIconWithLabelProps,
-} from "@app/components/molecules/IconWithLabel/@types/IconWithLabel";
+import { IIconWithLabelProps } from "@app/components/molecules/IconWithLabel/@types/IconWithLabel";
 import { IThemeClasses } from "@app/types/theme";
 
 export enum VerticalIconsWithLabelsSize {
@@ -9,6 +6,12 @@ export enum VerticalIconsWithLabelsSize {
   Large,
   Medium,
   Small,
+}
+
+export enum VerticalIconsWithLabelsVariant {
+  Blue,
+  Dark,
+  White,
 }
 
 export interface IVerticalIconsWithLabelsProps {
@@ -21,5 +24,5 @@ export interface IVerticalIconsWithLabelsProps {
     label?: Pick<IThemeClasses, "color">;
     wrapper?: IThemeClasses;
   };
-  variant?: IconWithLabelVariant;
+  variant?: VerticalIconsWithLabelsVariant;
 }

@@ -1,6 +1,6 @@
 import { IconStaticName } from "@app/components/atoms/IconStatic/@types/IconStatic";
 
-export enum VerticalIconSize {
+export enum VerticalIconsSize {
   ExtraSmall,
   Large,
   Medium,
@@ -9,5 +9,5 @@ export enum VerticalIconSize {
 
 export interface IVerticalIconsProps {
   icons: IconStaticName[];
-  size?: VerticalIconSize;
+  size?: VerticalIconsSize;
 }

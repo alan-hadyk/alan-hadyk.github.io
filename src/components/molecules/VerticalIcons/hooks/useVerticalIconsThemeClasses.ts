@@ -1,6 +1,6 @@
 import {
   IVerticalIconsProps,
-  VerticalIconSize,
+  VerticalIconsSize,
 } from "@app/components/molecules/VerticalIcons/@types/VerticalIcons";
 import {
   mapSizeToIconHeight,
@@ -12,7 +12,7 @@ import {
 import { IThemeClasses } from "@app/types/theme";
 
 export const useVerticalIconsThemeClasses = ({
-  size = VerticalIconSize.Medium,
+  size = VerticalIconsSize.Medium,
 }: Pick<IVerticalIconsProps, "size">) => {
   const verticalIconsThemeClasses: Record<
     "icon" | "iconContainer" | "iconsWrapper",

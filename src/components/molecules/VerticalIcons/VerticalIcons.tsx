@@ -2,13 +2,13 @@ import { IconStatic } from "@app/components/atoms/IconStatic/IconStatic";
 import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutContainer";
 import {
   IVerticalIconsProps,
-  VerticalIconSize,
+  VerticalIconsSize,
 } from "@app/components/molecules/VerticalIcons/@types/VerticalIcons";
 import { useVerticalIconsThemeClasses } from "@app/components/molecules/VerticalIcons/hooks/useVerticalIconsThemeClasses";
 
 export const VerticalIcons: React.FC<IVerticalIconsProps> = ({
   icons,
-  size = VerticalIconSize.Medium,
+  size = VerticalIconsSize.Medium,
 }) => {
   const { verticalIconsThemeClasses } = useVerticalIconsThemeClasses({
     size,
@@ -16,19 +16,17 @@ export const VerticalIcons: React.FC<IVerticalIconsProps> = ({
 
   return (
     <LayoutContainer themeClasses={verticalIconsThemeClasses.iconsWrapper}>
-      {icons.map(
-        (iconName, index: number): JSX.Element => (
-          <LayoutContainer
-            key={iconName + index}
-            themeClasses={verticalIconsThemeClasses.iconContainer}
-          >
-            <IconStatic
-              themeClasses={verticalIconsThemeClasses.icon}
-              iconName={iconName}
-            />
-          </LayoutContainer>
-        ),
-      )}
+      {icons.map((iconName, index: number) => (
+        <LayoutContainer
+          key={iconName + index}
+          themeClasses={verticalIconsThemeClasses.iconContainer}
+        >
+          <IconStatic
+            themeClasses={verticalIconsThemeClasses.icon}
+            iconName={iconName}
+          />
+        </LayoutContainer>
+      ))}
     </LayoutContainer>
   );
 };
