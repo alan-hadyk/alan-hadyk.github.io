@@ -7,10 +7,16 @@ import {
 } from "@app/components/molecules/ContentFrameWithIcons/@types/ContentFrameWithIcons";
 import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutContainer";
 import { useContentFrameWithIconsThemeClasses } from "@app/components/molecules/ContentFrameWithIcons/hooks/useContentFrameWithIconsThemeClasses";
+import { mapContentFrameWithIconsVariantToContentFrameProps } from "@app/components/molecules/ContentFrameWithIcons/config";
+import { VerticalIconsWithLabels } from "@app/components/molecules/VerticalIconsWithLabels/VerticalIconsWithLabels";
 import {
-  mapContentFrameWithIconsVariantToContentFrameProps,
-  mapContentFrameWithIconsVariantToIconsWithLabelsProps,
-} from "@app/components/molecules/ContentFrameWithIcons/config";
+  VerticalIconsWithLabelsSize,
+  VerticalIconsWithLabelsVariant,
+} from "@app/components/molecules/VerticalIconsWithLabels/@types/VerticalIconsWithLabels";
+import {
+  IconWithLabelSize,
+  IconWithLabelVariant,
+} from "@app/components/molecules/IconWithLabel/@types/IconWithLabel";
 
 const ContentFrameWithIcons: React.FC<IContentFrameWithIconsProps> = ({
   iconsWithLabels,
@@ -31,11 +37,21 @@ const ContentFrameWithIcons: React.FC<IContentFrameWithIconsProps> = ({
       <LayoutContainer
         themeClasses={contentFrameWithIconsThemeClasses.iconsWrapper}
       >
-        <IconsWithLabels
-          iconsWithLabels={iconsWithLabels}
-          themeClasses={contentFrameWithIconsThemeClasses.iconsWithLabels}
-          {...mapContentFrameWithIconsVariantToIconsWithLabelsProps[variant]}
-        />
+        {variant === ContentFrameWithIconsVariant.Full ? (
+          <VerticalIconsWithLabels
+            iconsWithLabels={iconsWithLabels}
+            size={VerticalIconsWithLabelsSize.Medium}
+            variant={VerticalIconsWithLabelsVariant.Blue}
+            themeClasses={contentFrameWithIconsThemeClasses.iconsWithLabels}
+          />
+        ) : (
+          <IconsWithLabels
+            iconsWithLabels={iconsWithLabels}
+            size={IconWithLabelSize.ExtraSmall}
+            variant={IconWithLabelVariant.White}
+            themeClasses={contentFrameWithIconsThemeClasses.iconsWithLabels}
+          />
+        )}
       </LayoutContainer>
     </ContentFrame>
   );

@@ -4,7 +4,6 @@ import {
   TechStackSize,
   TechStackVariant,
 } from "@app/components/molecules/TechStack/@types/TechStack";
-import { IconsWithLabelsPosition } from "@app/components/molecules/IconsWithLabels/@types/IconsWithLabels";
 import {
   mapTechStackSizeToCompanyDescriptionSectionSize,
   mapTechStackSizeToIconsWithLabelsSize,
@@ -30,7 +29,6 @@ const TechStack: React.FC<ITechStackProps> = ({
     >
       <IconsWithLabels
         iconsWithLabels={iconsWithLabels}
-        position={IconsWithLabelsPosition.Horizontal}
         size={mapTechStackSizeToIconsWithLabelsSize[size]}
         variant={mapTechStackVariantToIconsWithLabelsVariant[variant]}
       />

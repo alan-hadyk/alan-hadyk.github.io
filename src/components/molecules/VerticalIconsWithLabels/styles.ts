@@ -10,6 +10,7 @@ export const verticalIconsWithLabelsDefaultThemeClasses: Record<
     flexFlow: "flex-row-nowrap",
     height: "h-100%",
     justifyContent: "justify-center",
+    maxWidth: "max-w-100%",
     width: "w-100%",
   },
 };
