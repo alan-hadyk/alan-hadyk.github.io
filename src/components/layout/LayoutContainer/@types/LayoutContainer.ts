@@ -1,5 +1,4 @@
 import { IThemeClasses } from "@app/types/theme";
-import React from "react";
 
 export type TLayoutContainerElementType = HTMLDivElement | HTMLElement;
 

@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 
 import { Line } from "@app/components/atoms/Line/Line";
 import { INavItemProps } from "@app/components/molecules/NavItem/@types/NavItem";

@@ -1,5 +1,3 @@
-import React from "react";
-
 import { CompanyDescription } from "@app/components/organisms/CompanyDescription/CompanyDescription";
 import { CompanyTimeline } from "@app/components/molecules/CompanyTimeline/CompanyTimeline";
 import { Responsive } from "@app/components/layout/Responsive/Responsive";

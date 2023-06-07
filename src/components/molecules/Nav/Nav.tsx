@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 
 import { NavItem } from "@app/components/molecules/NavItem/NavItem";
 import {
