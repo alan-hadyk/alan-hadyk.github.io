@@ -16,9 +16,9 @@ export const VerticalIcons: React.FC<IVerticalIconsProps> = ({
 
   return (
     <LayoutContainer themeClasses={verticalIconsThemeClasses.iconsWrapper}>
-      {icons.map((iconName, index: number) => (
+      {icons.map((iconName) => (
         <LayoutContainer
-          key={iconName + index}
+          key={iconName}
           themeClasses={verticalIconsThemeClasses.iconContainer}
         >
           <IconStatic
