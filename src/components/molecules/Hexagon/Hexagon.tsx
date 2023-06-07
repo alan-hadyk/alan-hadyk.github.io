@@ -38,7 +38,7 @@ const Hexagon: React.FC<IHexagonProps> = ({
 
       {children && (
         <LayoutContainer
-          ref={fill === HexagonFill.None ? referenceElementRef : undefined}
+          ref={fill === HexagonFill.None ? referenceElementRef : null}
           themeClasses={hexagonContentThemeClasses}
         >
           {children}
