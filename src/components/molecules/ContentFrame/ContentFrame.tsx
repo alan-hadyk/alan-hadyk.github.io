@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Typography } from "@app/components/atoms/Typography/Typography";
 import { Corners } from "@app/components/molecules/Corners/Corners";
 

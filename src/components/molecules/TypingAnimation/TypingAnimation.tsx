@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutContainer";
 import { useTypingAnimationState } from "@app/components/molecules/TypingAnimation/hooks/useTypingAnimationState";
 import {

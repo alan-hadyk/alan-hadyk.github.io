@@ -14,17 +14,17 @@ const useHexagonState = ({ fill }: Pick<IHexagonProps, "fill">) => {
       height: undefined,
       width: undefined,
     });
-  const hexagonBorderRef = useRef<SVGSVGElement>(null);
+  const referenceElementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (fill !== HexagonFill.None) {
       return;
     }
 
-    const path = hexagonBorderRef.current?.querySelector("path");
+    const htmlElement = referenceElementRef.current;
 
-    const { height, width } = path
-      ? path.getBoundingClientRect()
+    const { height, width } = htmlElement
+      ? htmlElement.getBoundingClientRect()
       : { height: undefined, width: undefined };
 
     if (isIE11() && height && width) {
@@ -37,7 +37,7 @@ const useHexagonState = ({ fill }: Pick<IHexagonProps, "fill">) => {
 
   return {
     hexagonBorderDimensions,
-    hexagonBorderRef,
+    referenceElementRef,
   };
 };
 

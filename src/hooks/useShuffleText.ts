@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect } from "react";
+import { ReactElement, useEffect, isValidElement } from "react";
 import ShuffleText, { ShuffleTextType } from "shuffle-text";
 
 import { IUseShuffleTextArgs } from "@app/hooks/@types/useShuffleText";
@@ -25,7 +25,7 @@ const useShuffleText = ({
 
     if (typeof text === "string" || typeof text === "number") {
       shuffle.setText(String(text));
-    } else if (React.isValidElement(text)) {
+    } else if (isValidElement(text)) {
       const { props } = text as ReactElement;
 
       shuffle.setText(String(props.children));

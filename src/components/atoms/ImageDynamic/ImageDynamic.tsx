@@ -4,12 +4,13 @@ import {
 } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 import { imageDynamicComponents } from "@app/components/atoms/ImageDynamic/config";
 import { useImageDynamicThemeClasses } from "@app/components/atoms/ImageDynamic/hooks/useImageDynamicThemeClasses";
-import React, { forwardRef } from "react";
 
-const _ImageDynamic: React.ForwardRefRenderFunction<
-  SVGSVGElement,
-  IImageDynamicProps
-> = ({ imageName, style, themeClasses, variants = [] }, ref) => {
+const ImageDynamic: React.FC<IImageDynamicProps> = ({
+  imageName,
+  style,
+  themeClasses,
+  variants = [],
+}) => {
   const { imageDynamicClassNames } = useImageDynamicThemeClasses({
     themeClasses,
     variants,
@@ -17,15 +18,7 @@ const _ImageDynamic: React.ForwardRefRenderFunction<
 
   const ImageComponent: SVGImage = imageDynamicComponents[imageName];
 
-  return (
-    <ImageComponent
-      className={imageDynamicClassNames}
-      ref={ref}
-      style={style}
-    />
-  );
+  return <ImageComponent className={imageDynamicClassNames} style={style} />;
 };
-
-const ImageDynamic = forwardRef(_ImageDynamic);
 
 export { ImageDynamic };
