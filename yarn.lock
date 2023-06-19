@@ -1473,10 +1473,10 @@
     "@netlify/esbuild-windows-64" "0.14.39"
     "@netlify/esbuild-windows-arm64" "0.14.39"
 
-"@netlify/functions@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@netlify/functions/-/functions-1.4.0.tgz#027a2e5d54df5519ccbd14cf450231e97bbbf93a"
-  integrity sha512-gy7ULTIRroc2/jyFVGx1djCmmBMVisIwrvkqggq5B6iDcInRSy2Tpkm+V5C63hKJVkNRskKWtLQKm9ecCaQTjA==
+"@netlify/functions@^1.4.0", "@netlify/functions@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@netlify/functions/-/functions-1.6.0.tgz#c373423e6fef0e6f7422ac0345e8bbf2cb692366"
+  integrity sha512-6G92AlcpFrQG72XU8YH8pg94eDnq7+Q0YJhb8x4qNpdGsvuzvrfHWBmqFGp/Yshmv4wex9lpsTRZOocdrA2erQ==
   dependencies:
     is-promise "^4.0.0"
 
@@ -1496,13 +1496,13 @@
     ufo "^1.0.0"
     unstorage "^1.0.0"
 
-"@netlify/plugin-nextjs@^4.36.0":
-  version "4.36.0"
-  resolved "https://registry.yarnpkg.com/@netlify/plugin-nextjs/-/plugin-nextjs-4.36.0.tgz#148c00c3034b8e350772ca0a9d3f121341dea8b9"
-  integrity sha512-xFcfYyK/p52xYWoCxWkIAVBsD/gzbyfLYJ70OFZm8NnlLMOqxJvNsO4XofJHJlNshteVZTF339oZTT4dgQ48Uw==
+"@netlify/plugin-nextjs@^4.38.0":
+  version "4.38.0"
+  resolved "https://registry.yarnpkg.com/@netlify/plugin-nextjs/-/plugin-nextjs-4.38.0.tgz#d4b66d64886cd172bf1bd2a20cf5b64f8da3d219"
+  integrity sha512-aMgdH5l7OU0MnjN2bPVDLGGbbLyclbxaEl8fij6MwgYyte9UVnsUVggl1TOG86KgHMbMYpdrtRJoh6LwV+PHOg==
   dependencies:
     "@netlify/esbuild" "0.14.39"
-    "@netlify/functions" "^1.4.0"
+    "@netlify/functions" "^1.6.0"
     "@netlify/ipx" "^1.4.0"
     "@vercel/node-bridge" "^2.1.0"
     chalk "^4.1.2"
@@ -5559,14 +5559,7 @@ node-fetch-native@^1.0.2, node-fetch-native@^1.1.0:
   resolved "https://registry.yarnpkg.com/node-fetch-native/-/node-fetch-native-1.1.0.tgz#a530f5c4cadb49b382dcf81d8f5f19ed0f457fbe"
   integrity sha512-nl5goFCig93JZ9FIV8GHT9xpNqXbxQUzkOmKIMKmncsBH9jhg7qKex8hirpymkBFmNQ114chEEG5lS4wgK2I+Q==
 
-node-fetch@^2.0.0, node-fetch@^2.6.1, node-fetch@^2.6.6:
-  version "2.6.9"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.9.tgz#7c7f744b5cc6eb5fd404e0c7a9fec630a55657e6"
-  integrity sha512-DJm/CJkZkRjKKj4Zi4BsKVZh3ValV5IR5s7LVZnW+6YMh0W1BfNA8XSs6DLMGYlId5F3KnA70uu2qepcR08Qqg==
-  dependencies:
-    whatwg-url "^5.0.0"
-
-node-fetch@^2.6.11:
+node-fetch@^2.0.0, node-fetch@^2.6.1, node-fetch@^2.6.11, node-fetch@^2.6.6:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.11.tgz#cde7fc71deef3131ef80a738919f999e6edfff25"
   integrity sha512-4I6pdBY1EthSqDmJkiNk3JIT8cswwR9nfeW/cPdUagJYEQG7R95WRH74wpz7ma8Gh/9dI9FP+OU+0E4FvtA55w==
