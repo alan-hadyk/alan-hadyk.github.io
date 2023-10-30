@@ -12,62 +12,15 @@ import {
   mapExperienceContainerFormatToCompanyFormat,
   mapExperienceContainerFormatToCompanyVariant,
 } from "@app/containers/experience/config";
-import { lazy } from "react";
-import { LazyLoadingWrapper } from "@app/components/layout/LazyLoadingWrapper/LazyLoadingWrapper";
-
-const CompanyRealEstateStartup = lazy(() =>
-  import("@app/containers/experience/companies/CompanyRealEstateStartup").then(
-    (module) => ({ default: module.CompanyRealEstateStartup }),
-  ),
-);
-
-const CompanyDiH = lazy(() =>
-  import("@app/containers/experience/companies/CompanyDiH").then((module) => ({
-    default: module.CompanyDiH,
-  })),
-);
-
-const CompanyOmise = lazy(() =>
-  import("@app/containers/experience/companies/CompanyOmise").then(
-    (module) => ({ default: module.CompanyOmise }),
-  ),
-);
-
-const CompanyPersonallyEmployed = lazy(() =>
-  import("@app/containers/experience/companies/CompanyPersonallyEmployed").then(
-    (module) => ({ default: module.CompanyPersonallyEmployed }),
-  ),
-);
-
-const CompanySAP = lazy(() =>
-  import("@app/containers/experience/companies/CompanySAP").then((module) => ({
-    default: module.CompanySAP,
-  })),
-);
-
-const CompanyShiji = lazy(() =>
-  import("@app/containers/experience/companies/CompanyShiji").then(
-    (module) => ({ default: module.CompanyShiji }),
-  ),
-);
-
-const CompanyTribe = lazy(() =>
-  import("@app/containers/experience/companies/CompanyTribe").then(
-    (module) => ({ default: module.CompanyTribe }),
-  ),
-);
-
-const CompanyHealthcareSaas = lazy(() =>
-  import("@app/containers/experience/companies/CompanyHealthcareSaas").then(
-    (module) => ({ default: module.CompanyHealthcareSaas }),
-  ),
-);
-
-const CompanySaaSForContentWriters = lazy(() =>
-  import(
-    "@app/containers/experience/companies/CompanySaaSForContentWriters"
-  ).then((module) => ({ default: module.CompanySaaSForContentWriters })),
-);
+import { CompanyDiH } from "@app/containers/experience/companies/CompanyDiH";
+import { CompanyHealthcareSaas } from "@app/containers/experience/companies/CompanyHealthcareSaas";
+import { CompanyOmise } from "@app/containers/experience/companies/CompanyOmise";
+import { CompanyPersonallyEmployed } from "@app/containers/experience/companies/CompanyPersonallyEmployed";
+import { CompanyRealEstateStartup } from "@app/containers/experience/companies/CompanyRealEstateStartup";
+import { CompanySAP } from "@app/containers/experience/companies/CompanySAP";
+import { CompanySaaSForContentWriters } from "@app/containers/experience/companies/CompanySaaSForContentWriters";
+import { CompanyShiji } from "@app/containers/experience/companies/CompanyShiji";
+import { CompanyTribe } from "@app/containers/experience/companies/CompanyTribe";
 
 const ExperienceContainer: React.FC<IExperienceContainerProps> = ({
   format = ExperienceContainerFormat.Web,
@@ -86,25 +39,23 @@ const ExperienceContainer: React.FC<IExperienceContainerProps> = ({
         : SectionVariant.Dark
     }
   >
-    <LazyLoadingWrapper>
-      {[
-        CompanySaaSForContentWriters,
-        CompanyHealthcareSaas,
-        CompanyRealEstateStartup,
-        CompanyTribe,
-        CompanyOmise,
-        CompanyShiji,
-        CompanySAP,
-        CompanyDiH,
-        CompanyPersonallyEmployed,
-      ].map((CompanyComponent, index) => (
-        <CompanyComponent
-          format={mapExperienceContainerFormatToCompanyFormat[format]}
-          key={index}
-          variant={mapExperienceContainerFormatToCompanyVariant[format]}
-        />
-      ))}
-    </LazyLoadingWrapper>
+    {[
+      CompanySaaSForContentWriters,
+      CompanyHealthcareSaas,
+      CompanyRealEstateStartup,
+      CompanyTribe,
+      CompanyOmise,
+      CompanyShiji,
+      CompanySAP,
+      CompanyDiH,
+      CompanyPersonallyEmployed,
+    ].map((CompanyComponent, index) => (
+      <CompanyComponent
+        format={mapExperienceContainerFormatToCompanyFormat[format]}
+        key={index}
+        variant={mapExperienceContainerFormatToCompanyVariant[format]}
+      />
+    ))}
   </Section>
 );
 
