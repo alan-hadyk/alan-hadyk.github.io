@@ -1,5 +1,5 @@
 import "@app/styles/global.css";
-import { fontAnonymousPro, fontExan } from "@app/styles/fonts";
+import { fontAnonymousPro, fontRajdhani } from "@app/styles/fonts";
 import { IRootLayoutProps } from "@app/app/@types/layout";
 
 const RootLayout: React.FC<IRootLayoutProps> = ({ children }) => (
@@ -42,7 +42,7 @@ const RootLayout: React.FC<IRootLayoutProps> = ({ children }) => (
       <meta name="theme-color" content="#22272a" />
     </head>
 
-    <body className={`${fontExan.variable} ${fontAnonymousPro.variable}`}>
+    <body className={`${fontRajdhani.variable} ${fontAnonymousPro.variable}`}>
       {children}
     </body>
   </html>

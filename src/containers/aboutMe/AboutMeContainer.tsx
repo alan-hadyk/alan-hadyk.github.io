@@ -1,7 +1,7 @@
 "use client";
 import { ImageStatic } from "@app/components/atoms/ImageStatic/ImageStatic";
 import { Section } from "@app/components/molecules/Section/Section";
-import { renderDescription } from "@app/containers/aboutMe/config";
+import { aboutMeDescription } from "@app/containers/aboutMe/config";
 import Alan from "@public/images/static/alan.png";
 import { lazy } from "react";
 import { LazyLoadingWrapper } from "@app/components/layout/LazyLoadingWrapper/LazyLoadingWrapper";
@@ -17,7 +17,7 @@ const AboutMeContainer: React.FC = () => (
     <LazyLoadingWrapper>
       <HexagonWithDescription
         id="about-me-description"
-        description={renderDescription()}
+        description={aboutMeDescription}
       >
         <ImageStatic alt="Alan Hadyk" height={700} src={Alan} width={700} />
       </HexagonWithDescription>

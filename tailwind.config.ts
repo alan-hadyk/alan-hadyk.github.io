@@ -125,7 +125,7 @@ const tailwindConfig = {
     },
     fontFamily: {
       anonymousPro: ["var(--font-anonymous-pro)", "monospace", "sans-serif"],
-      exan: ["var(--font-exan)", "monospace", "sans-serif"],
+      rajdhani: ["var(--font-rajdhani)", "monospace", "sans-serif"],
     },
     fontSize: {
       0: "0",

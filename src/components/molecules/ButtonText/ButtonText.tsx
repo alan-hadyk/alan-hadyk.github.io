@@ -8,7 +8,6 @@ import {
   mapSizeToButtonTextProps,
 } from "@app/components/molecules/ButtonText/styles";
 import { getButtonTextMarginRight } from "@app/components/molecules/ButtonText/helpers/getButtonTextMarginRight";
-import { isIE11 } from "@app/helpers/browser/isIE11";
 
 const ButtonText: React.FC<IButtonTextProps> = ({
   children,
@@ -22,8 +21,6 @@ const ButtonText: React.FC<IButtonTextProps> = ({
 
   const buttonTextTypographyThemeClasses: IThemeClasses = {
     ...buttonTextTypographyDefaultThemeClasses,
-    fontFamily: isIE11() ? "font-anonymousPro" : "font-exan",
-    textTransform: isIE11() ? "uppercase" : "lowercase",
     ...mapSizeToButtonTextProps[size],
     ...themeClasses,
   };

@@ -68,7 +68,7 @@ const CompanyRealEstateStartup: React.FC<
           improving overall system performance.
         </span>,
       ]}
-      title="Front-End Architect"
+      title="Front-End Engineer"
       variant={variant}
     />
   );

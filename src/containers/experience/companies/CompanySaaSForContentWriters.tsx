@@ -30,7 +30,7 @@ const CompanySaaSForContentWriters: React.FC<
       date="September 2022 - January 2023"
       format={format}
       iconsWithLabels={icons}
-      name="SaaS for Content writers"
+      name="SaaS for Content Writers"
       responsibilities={[
         <span key="Engineered">
           Engineered a TypeScript-based React single-page application using
@@ -48,7 +48,7 @@ const CompanySaaSForContentWriters: React.FC<
           streamlining data fetching.
         </span>,
       ]}
-      title="Front-End Architect"
+      title="Front-End Engineer"
       variant={variant}
     />
   );

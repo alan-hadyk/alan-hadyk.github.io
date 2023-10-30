@@ -25,7 +25,7 @@ const ConsoleTvDesktopAndTablet: React.FC<
         <Typography
           themeClasses={consoleTvDesktopAndTabletLabelDefaultThemeClasses}
         >
-          GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin19)
+          Hi, I&apos;m Alan
         </Typography>
       </LayoutContainer>
 

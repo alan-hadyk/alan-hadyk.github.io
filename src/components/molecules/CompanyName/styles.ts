@@ -20,7 +20,7 @@ export const companyTvDesktopAndTabletNameContainerDefaultThemeClasses: IThemeCl
   };
 
 const companyNameCommonThemeClasses: IThemeClasses = {
-  fontFamily: isIE11() ? "font-anonymousPro" : "font-exan",
+  fontFamily: isIE11() ? "font-anonymousPro" : "font-rajdhani",
 };
 
 export const companyTvDesktopAndTabletNameDefaultThemeClasses: IThemeClasses = {

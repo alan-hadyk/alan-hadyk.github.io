@@ -1,17 +1,15 @@
-export const renderDescription = () => (
+export const aboutMeDescription = (
   <>
-    A <strong>highly skilled front-end architect</strong> with extensive
-    experience in designing and developing engaging user interfaces for a
-    diverse range of industries. Proficient in{" "}
-    <strong>HTML, CSS, JavaScript, TypeScript</strong>, and modern front-end
-    frameworks such as <strong>React</strong> and <strong>Next.js</strong>.
-    Committed to implementing <strong>best practices</strong> and driving{" "}
-    <strong>team collaboration</strong> to deliver exceptional products.
-    Demonstrated expertise in <strong>agile methodologies</strong>,{" "}
-    <strong>cross-functional leadership</strong>, and integrating{" "}
-    <strong>REST & GraphQL</strong> for seamless communication with backend
-    systems. A dedicated professional with a strong focus on{" "}
-    <strong>continuous improvement</strong> and the ability to adapt to the
-    latest technological trends.
+    A seasoned <strong>Front-End Engineer</strong> with a rich history in{" "}
+    <strong>optimizing web performance</strong> across diverse industries.
+    Skilled in leveraging modern technologies like{" "}
+    <strong>JavaScript, TypeScript, React, and Next.js</strong>. Focused on
+    enhancing site responsiveness,{" "}
+    <strong>integrating seamlessly with REST & GraphQL backends</strong>, and
+    employing <strong>agile methodologies</strong> for efficient product
+    delivery. Effective in collaborating with cross-functional teams and
+    dedicated to harnessing the latest technological advancements. Committed to
+    best practices, team synergy, and the pursuit of excellence in Front-End
+    development.
   </>
 );

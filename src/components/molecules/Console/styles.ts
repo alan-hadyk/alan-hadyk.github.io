@@ -44,8 +44,8 @@ export const consoleTvDesktopAndTabletOuterWrapperDefaultThemeClasses: IThemeCla
       "msHighContrastActive:after:min-h-inherit",
     ],
     minHeight: "min-h-[26.6vh]",
-    paddingX: "px-[0.62vw]",
-    paddingY: "py-[1.11vh]",
+    paddingX: "px-[1vw]",
+    paddingY: "py-[1vh]",
     position: "relative",
     width: "w-100%",
   };

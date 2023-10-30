@@ -12,7 +12,7 @@ export const pdfTitleDefaultThemeClasses: Record<
   typography: {
     color: "text-blue600",
     display: "inline-block",
-    fontFamily: "font-exan",
+    fontFamily: "font-rajdhani",
     fontSize: "text-40",
     height: "h-44",
     lineHeight: "leading-44",

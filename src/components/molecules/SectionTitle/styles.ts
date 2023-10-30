@@ -6,9 +6,9 @@ import { isIE11 } from "@app/helpers/browser/isIE11";
 import { IThemeClasses } from "@app/types/theme";
 
 export const sectionTitleTypographyDefaultThemeClasses: IThemeClasses = {
-  fontFamily: isIE11() ? "font-anonymousPro" : "font-exan",
+  fontFamily: isIE11() ? "font-anonymousPro" : "font-rajdhani",
   textAlign: "text-center",
-  textTransform: isIE11() ? "uppercase" : "lowercase",
+  textTransform: "uppercase",
 };
 
 export const mapVariantToTypographyStyles: Record<

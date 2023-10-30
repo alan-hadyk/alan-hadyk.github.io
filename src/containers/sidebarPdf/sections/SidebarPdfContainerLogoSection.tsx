@@ -14,7 +14,7 @@ const SidebarPdfContainerLogoSection: React.FC = () => (
     />
 
     <Typography themeClasses={sidebarPdfContainerTitleDefaultThemeClasses}>
-      Front-End Architect
+      Front-End Engineer
     </Typography>
   </>
 );

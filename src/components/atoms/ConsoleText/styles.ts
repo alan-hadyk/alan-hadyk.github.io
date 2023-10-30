@@ -10,7 +10,7 @@ const consoleTextDefaultThemeClasses: IThemeClasses = {
     "after:ml-8",
   ],
   color: "text-white",
-  fontFamily: "font-exan",
+  fontFamily: "font-rajdhani",
   mediaQuery: [
     "msHighContrastNone:font-anonymousPro",
     "msHighContrastNone:uppercase",
@@ -18,7 +18,6 @@ const consoleTextDefaultThemeClasses: IThemeClasses = {
     "msHighContrastActive:uppercase",
   ],
   textAlign: "text-center",
-  textTransform: "lowercase",
 };
 
 const mapConsoleTextVariantToStyles: Record<ConsoleTextVariant, IThemeClasses> =
