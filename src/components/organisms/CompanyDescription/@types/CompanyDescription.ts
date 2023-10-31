@@ -15,9 +15,12 @@ export enum CompanyDescriptionSize {
 
 export interface ICompanyDescriptionProps {
   date: string;
-  iconsWithLabels: Pick<IIconWithLabelProps, "iconName" | "label">[];
   link?: string;
-  responsibilities: IUnorderedListProps["items"];
+  projects: {
+    responsibilities: IUnorderedListProps["items"];
+    techStack: Pick<IIconWithLabelProps, "iconName" | "label">[];
+    title?: string;
+  }[];
   size?: CompanyDescriptionSize;
   themeClasses?: {
     responsibilitiesWrapper?: Pick<IThemeClasses, "paddingBottom">;

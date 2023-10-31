@@ -22,10 +22,9 @@ import {
 
 const CompanyTvDesktopAndTablet: React.FC<ICompanyProps> = ({
   date,
-  iconsWithLabels,
   link,
   name,
-  responsibilities,
+  projects,
   themeClasses,
   title,
   variant = CompanyVariant.Blue,
@@ -48,9 +47,8 @@ const CompanyTvDesktopAndTablet: React.FC<ICompanyProps> = ({
       >
         <CompanyDescription
           date={date}
-          iconsWithLabels={iconsWithLabels}
           link={link}
-          responsibilities={responsibilities}
+          projects={projects}
           themeClasses={themeClasses?.companyDescription}
           title={title}
           variant={mapCompanyVariantToCompanyDescriptionVariant[variant]}

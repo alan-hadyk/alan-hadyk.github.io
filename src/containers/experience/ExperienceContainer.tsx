@@ -13,12 +13,11 @@ import {
   mapExperienceContainerFormatToCompanyVariant,
 } from "@app/containers/experience/config";
 import { CompanyDiH } from "@app/containers/experience/companies/CompanyDiH";
-import { CompanyHealthcareSaas } from "@app/containers/experience/companies/CompanyHealthcareSaas";
 import { CompanyOmise } from "@app/containers/experience/companies/CompanyOmise";
 import { CompanyPersonallyEmployed } from "@app/containers/experience/companies/CompanyPersonallyEmployed";
 import { CompanyRealEstateStartup } from "@app/containers/experience/companies/CompanyRealEstateStartup";
 import { CompanySAP } from "@app/containers/experience/companies/CompanySAP";
-import { CompanySaaSForContentWriters } from "@app/containers/experience/companies/CompanySaaSForContentWriters";
+import { CompanyToptal } from "@app/containers/experience/companies/toptal/CompanyToptal";
 import { CompanyShiji } from "@app/containers/experience/companies/CompanyShiji";
 import { CompanyTribe } from "@app/containers/experience/companies/CompanyTribe";
 
@@ -40,8 +39,7 @@ const ExperienceContainer: React.FC<IExperienceContainerProps> = ({
     }
   >
     {[
-      CompanySaaSForContentWriters,
-      CompanyHealthcareSaas,
+      CompanyToptal,
       CompanyRealEstateStartup,
       CompanyTribe,
       CompanyOmise,

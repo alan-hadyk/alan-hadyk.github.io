@@ -7,7 +7,7 @@ import { invertIcon } from "@app/containers/experience/helpers/invertIcon";
 const CompanyRealEstateStartup: React.FC<
   Pick<ICompanyProps, "format" | "variant">
 > = ({ format, variant }) => {
-  const icons = iconsWithLabels
+  const techStack = iconsWithLabels
     .filter(({ iconName }) =>
       [
         IconStaticName.HTML,
@@ -44,29 +44,35 @@ const CompanyRealEstateStartup: React.FC<
     <Company
       date="December 2021 to March 2022"
       format={format}
-      iconsWithLabels={icons}
       name="Real Estate Startup"
-      responsibilities={[
-        <span key="Developed">
-          Developed front-end architecture of a real estate web app, leading to
-          a <strong>35% increase in user acquisition</strong> and{" "}
-          <strong>20% improvement in customer retention</strong>.
-        </span>,
-        <span key="Ensured">
-          Ensured adherence to coding standards and best practices, resulting in
-          a <strong>50% reduction in code-related issues</strong> during QA
-          testing.
-        </span>,
-        <span key="Optimized">
-          Optimized project timelines,{" "}
-          <strong>accelerating application development by 30%</strong> and
-          enabling timely delivery of key features.
-        </span>,
-        <span key="Introduced">
-          Introduced GraphQL as a communicative means with the backend system,
-          <strong> boosting functional asset delivery by 40%</strong> and
-          improving overall system performance.
-        </span>,
+      projects={[
+        {
+          responsibilities: [
+            <span key="Developed">
+              Developed front-end architecture of a real estate web app, leading
+              to a <strong>35% increase in user acquisition</strong> and{" "}
+              <strong>20% improvement in customer retention</strong>.
+            </span>,
+            <span key="Ensured">
+              Ensured adherence to coding standards and best practices,
+              resulting in a{" "}
+              <strong>50% reduction in code-related issues</strong> during QA
+              testing.
+            </span>,
+            <span key="Optimized">
+              Optimized project timelines,{" "}
+              <strong>accelerating application development by 30%</strong> and
+              enabling timely delivery of key features.
+            </span>,
+            <span key="Introduced">
+              Introduced GraphQL as a communicative means with the backend
+              system,
+              <strong> boosting functional asset delivery by 40%</strong> and
+              improving overall system performance.
+            </span>,
+          ],
+          techStack,
+        },
       ]}
       title="Front-End Engineer"
       variant={variant}

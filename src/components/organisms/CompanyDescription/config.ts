@@ -16,6 +16,10 @@ import {
   CompanyDescriptionVariant,
 } from "@app/components/organisms/CompanyDescription/@types/CompanyDescription";
 import { OutstandingVerticalIconsWithLabelsVariant } from "@app/components/molecules/OutstandingVerticalIconsWithLabels/@types/OutstandingVerticalIconsWithLabels";
+import {
+  ProjectTitleSize,
+  ProjectTitleVariant,
+} from "@app/components/molecules/ProjectTitle/@types/ProjectTitle";
 
 export const mapCompanyDescriptionVariantToCompanyDescriptionTitleVariant: Record<
   CompanyDescriptionVariant,
@@ -23,6 +27,14 @@ export const mapCompanyDescriptionVariantToCompanyDescriptionTitleVariant: Recor
 > = {
   [CompanyDescriptionVariant.Blue]: CompanyDescriptionTitleVariant.Light,
   [CompanyDescriptionVariant.Dark]: CompanyDescriptionTitleVariant.Dark,
+};
+
+export const mapCompanyDescriptionVariantToProjectTitleVariant: Record<
+  CompanyDescriptionVariant,
+  ProjectTitleVariant
+> = {
+  [CompanyDescriptionVariant.Blue]: ProjectTitleVariant.Light,
+  [CompanyDescriptionVariant.Dark]: ProjectTitleVariant.Dark,
 };
 
 export const mapCompanyDescriptionVariantToOutstandingVerticalIconsWithLabelsVariant: Record<
@@ -57,6 +69,14 @@ export const mapCompanyDescriptionSizeToCompanyDescriptionTitleSize: Record<
 > = {
   [CompanyDescriptionSize.Medium]: CompanyDescriptionTitleSize.Medium,
   [CompanyDescriptionSize.Large]: CompanyDescriptionTitleSize.Large,
+};
+
+export const mapCompanyDescriptionSizeToProjectTitleSize: Record<
+  CompanyDescriptionSize,
+  ProjectTitleSize
+> = {
+  [CompanyDescriptionSize.Medium]: ProjectTitleSize.Medium,
+  [CompanyDescriptionSize.Large]: ProjectTitleSize.Large,
 };
 
 export const mapCompanyDescriptionSizeToIconWithLabelSize: Record<

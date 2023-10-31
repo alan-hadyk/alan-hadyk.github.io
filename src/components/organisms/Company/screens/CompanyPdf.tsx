@@ -26,10 +26,9 @@ import { CompanyDescriptionSize } from "@app/components/organisms/CompanyDescrip
 
 const CompanyPdf: React.FC<ICompanyProps> = ({
   date,
-  iconsWithLabels,
   link,
   name,
-  responsibilities,
+  projects,
   themeClasses,
   title,
   variant = CompanyVariant.Dark,
@@ -59,9 +58,8 @@ const CompanyPdf: React.FC<ICompanyProps> = ({
         >
           <CompanyDescription
             date={date}
-            iconsWithLabels={iconsWithLabels}
             link={link}
-            responsibilities={responsibilities}
+            projects={projects}
             size={CompanyDescriptionSize.Medium}
             themeClasses={themeClasses?.companyDescription}
             title={title}

@@ -11,20 +11,18 @@ import { CompanyPdf } from "@app/components/organisms/Company/screens/CompanyPdf
 const Company: React.FC<ICompanyProps> = ({
   date,
   format = CompanyFormat.Web,
-  iconsWithLabels,
   link,
   name,
-  responsibilities,
+  projects,
   themeClasses,
   title,
   variant = CompanyVariant.Blue,
 }) => {
   const commonCompanyProps: ICompanyProps = {
     date,
-    iconsWithLabels,
     link,
     name,
-    responsibilities,
+    projects,
     themeClasses,
     title,
     variant,

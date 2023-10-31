@@ -28,7 +28,7 @@ const CompanyResponsibilities: React.FC<ICompanyResponsibilitiesProps> = ({
     <CompanyDescriptionSection
       size={mapCompanyResponsibilitiesSizeToCompanyDescriptionSectionSize[size]}
       themeClasses={companyResponsibilitiesThemeClasses}
-      title="Responsibilities"
+      title="Responsibilities and Achievements"
       variant={
         mapCompanyResponsibilitiesVariantToCompanyDescriptionSectionVariant[
           variant

@@ -18,15 +18,18 @@ import {
   mapCompanyDescriptionVariantToCompanyDescriptionTitleVariant,
   mapCompanyDescriptionVariantToTechStackVariant,
   mapCompanyDescriptionSizeToCompanyResponsibilitiesSize,
+  mapCompanyDescriptionSizeToProjectTitleSize,
+  mapCompanyDescriptionVariantToProjectTitleVariant,
 } from "@app/components/organisms/CompanyDescription/config";
 import { useCompanyDescriptionThemeClasses } from "@app/components/organisms/CompanyDescription/hooks/useCompanyDescriptionThemeClasses";
 import { OutstandingVerticalIconsWithLabels } from "@app/components/molecules/OutstandingVerticalIconsWithLabels/OutstandingVerticalIconsWithLabels";
+import { Fragment } from "react";
+import { ProjectTitle } from "@app/components/molecules/ProjectTitle/ProjectTitle";
 
 const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
   date,
-  iconsWithLabels,
   link,
-  responsibilities,
+  projects,
   size = CompanyDescriptionSize.Large,
   themeClasses,
   title,
@@ -75,20 +78,38 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
         themeClasses={companyDescriptionThemeClasses.outstandingIcons}
       />
 
-      <TechStack
-        iconsWithLabels={iconsWithLabels}
-        size={mapCompanyDescriptionSizeToTechStackSize[size]}
-        variant={mapCompanyDescriptionVariantToTechStackVariant[variant]}
-      />
+      {projects.map(({ responsibilities, techStack, title }, index) => (
+        <Fragment key={index}>
+          {title && (
+            <ProjectTitle
+              size={mapCompanyDescriptionSizeToProjectTitleSize[size]}
+              themeClasses={themeClasses?.title}
+              variant={
+                mapCompanyDescriptionVariantToProjectTitleVariant[variant]
+              }
+            >
+              {index + 1}.{title}
+            </ProjectTitle>
+          )}
 
-      <CompanyResponsibilities
-        responsibilities={responsibilities}
-        size={mapCompanyDescriptionSizeToCompanyResponsibilitiesSize[size]}
-        themeClasses={themeClasses?.responsibilitiesWrapper}
-        variant={
-          mapCompanyDescriptionVariantToCompanyResponsibilitiesVariant[variant]
-        }
-      />
+          <TechStack
+            iconsWithLabels={techStack}
+            size={mapCompanyDescriptionSizeToTechStackSize[size]}
+            variant={mapCompanyDescriptionVariantToTechStackVariant[variant]}
+          />
+
+          <CompanyResponsibilities
+            responsibilities={responsibilities}
+            size={mapCompanyDescriptionSizeToCompanyResponsibilitiesSize[size]}
+            themeClasses={themeClasses?.responsibilitiesWrapper}
+            variant={
+              mapCompanyDescriptionVariantToCompanyResponsibilitiesVariant[
+                variant
+              ]
+            }
+          />
+        </Fragment>
+      ))}
     </LayoutContainer>
   );
 };
