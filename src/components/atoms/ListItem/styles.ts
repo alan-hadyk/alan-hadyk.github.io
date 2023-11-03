@@ -10,7 +10,7 @@ export const mapListItemVariantToStyles: Record<
 > = {
   [ListItemVariant.Blue]: {
     color: "text-blue300",
-    pseudoClasses: ["childrenStrong:text-blue100"],
+    pseudoClasses: ["childrenStrong:text-white"],
   },
   [ListItemVariant.Dark]: {
     color: "text-blue600",

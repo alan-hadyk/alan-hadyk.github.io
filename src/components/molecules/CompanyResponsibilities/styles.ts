@@ -9,6 +9,6 @@ export const mapCompanyResponsibilitiesSizeToStyles: Record<
     paddingBottom: "pb-32",
   },
   [CompanyResponsibilitiesSize.Large]: {
-    paddingBottom: "pb-68",
+    paddingBottom: "pb-32",
   },
 };

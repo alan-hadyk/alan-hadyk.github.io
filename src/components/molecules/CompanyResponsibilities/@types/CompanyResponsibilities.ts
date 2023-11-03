@@ -13,6 +13,7 @@ export enum CompanyResponsibilitiesSize {
 
 export interface ICompanyResponsibilitiesProps {
   responsibilities: TChildren[];
+  shouldDisplayTitle?: boolean;
   size?: CompanyResponsibilitiesSize;
   themeClasses?: Pick<IThemeClasses, "paddingBottom">;
   variant?: CompanyResponsibilitiesVariant;

@@ -88,26 +88,33 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
                 mapCompanyDescriptionVariantToProjectTitleVariant[variant]
               }
             >
-              {index + 1}.{title}
+              {title}
             </ProjectTitle>
           )}
 
-          <TechStack
-            iconsWithLabels={techStack}
-            size={mapCompanyDescriptionSizeToTechStackSize[size]}
-            variant={mapCompanyDescriptionVariantToTechStackVariant[variant]}
-          />
+          {techStack && (
+            <TechStack
+              iconsWithLabels={techStack}
+              size={mapCompanyDescriptionSizeToTechStackSize[size]}
+              variant={mapCompanyDescriptionVariantToTechStackVariant[variant]}
+            />
+          )}
 
-          <CompanyResponsibilities
-            responsibilities={responsibilities}
-            size={mapCompanyDescriptionSizeToCompanyResponsibilitiesSize[size]}
-            themeClasses={themeClasses?.responsibilitiesWrapper}
-            variant={
-              mapCompanyDescriptionVariantToCompanyResponsibilitiesVariant[
-                variant
-              ]
-            }
-          />
+          {responsibilities && (
+            <CompanyResponsibilities
+              responsibilities={responsibilities}
+              shouldDisplayTitle={!!techStack}
+              size={
+                mapCompanyDescriptionSizeToCompanyResponsibilitiesSize[size]
+              }
+              themeClasses={themeClasses?.responsibilitiesWrapper}
+              variant={
+                mapCompanyDescriptionVariantToCompanyResponsibilitiesVariant[
+                  variant
+                ]
+              }
+            />
+          )}
         </Fragment>
       ))}
     </LayoutContainer>

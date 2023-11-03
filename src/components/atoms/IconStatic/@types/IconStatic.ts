@@ -4,7 +4,6 @@ import { TSVGIcon } from "@app/types/svg";
 
 export enum IconStaticName {
   AfterEffects = "afterEffects",
-  AirBnb = "airbnb",
   Apollo = "apollo",
   Auth0 = "auth0",
   Axios = "axios",
@@ -22,6 +21,7 @@ export enum IconStaticName {
   Docpad = "docpad",
   Ember = "ember",
   Envelope = "envelope",
+  Enzyme = "enzyme",
   Express = "express",
   Figma = "figma",
   Gallery = "gallery",
@@ -47,6 +47,7 @@ export enum IconStaticName {
   Phabricator = "phabricator",
   Photoshop = "photoshop",
   Pin = "pin",
+  Plaid = "plaid",
   Playwright = "playwright",
   Prestashop = "prestashop",
   Prisma = "prisma",
@@ -62,6 +63,7 @@ export enum IconStaticName {
   Ruby = "ruby",
   RubyOnRails = "rubyOnRails",
   Sass = "sass",
+  Sentry = "sentry",
   Sinatra = "sinatra",
   Sketch = "sketch",
   Stash = "stash",

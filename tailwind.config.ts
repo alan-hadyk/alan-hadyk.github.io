@@ -75,7 +75,6 @@ const tailwindConfig = {
   theme: {
     animation: {
       "blink-default": "blink 300ms ease-in-out infinite",
-      "blink-slow": "blink 900ms ease-in-out infinite",
       "glow-slow": "glow 900ms ease-in-out infinite",
       "glow-verySlow": "glow 3600ms ease-in-out infinite",
       "rotate-slow": "rotate 900ms linear infinite",

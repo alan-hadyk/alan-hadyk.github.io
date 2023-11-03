@@ -230,3 +230,15 @@ iframe {
   height: 100vh;
   width: 100vw;
 }
+
+@media print and (min-width: 210mm) {
+  html,
+  body {
+    width: 210mm;
+    max-width: 210mm;
+    height: 297mm;
+    max-height: 297mm;
+    padding: 0;
+    margin: 0;
+  }
+}

@@ -3,7 +3,7 @@ import {
   TIconStaticIcons,
 } from "@app/components/atoms/IconStatic/@types/IconStatic";
 import AfterEffects from "@public/icons/static/afterEffects.svg";
-import AirBnb from "@public/icons/static/airbnb.svg";
+import Enzyme from "@public/icons/static/enzyme.svg";
 import Apollo from "@public/icons/static/apollo.svg";
 import Auth0 from "@public/icons/static/auth0.svg";
 import Axios from "@public/icons/static/axios.svg";
@@ -46,6 +46,7 @@ import NodeJs from "@public/icons/static/nodeJs.svg";
 import Phabricator from "@public/icons/static/phabricator.svg";
 import Photoshop from "@public/icons/static/photoshop.svg";
 import Pin from "@public/icons/static/pin.svg";
+import Plaid from "@public/icons/static/plaid.svg";
 import Playwright from "@public/icons/static/playwright.svg";
 import Prestashop from "@public/icons/static/prestashop.svg";
 import Prisma from "@public/icons/static/prisma.svg";
@@ -61,6 +62,7 @@ import Redux from "@public/icons/static/redux.svg";
 import Ruby from "@public/icons/static/ruby.svg";
 import RubyOnRails from "@public/icons/static/rubyOnRails.svg";
 import Sass from "@public/icons/static/sass.svg";
+import Sentry from "@public/icons/static/sentry.svg";
 import Sinatra from "@public/icons/static/sinatra.svg";
 import Sketch from "@public/icons/static/sketch.svg";
 import Stash from "@public/icons/static/stash.svg";
@@ -77,7 +79,7 @@ import Zeplin from "@public/icons/static/zeplin.svg";
 
 export const iconStaticIcons: TIconStaticIcons = {
   [IconStaticName.AfterEffects]: AfterEffects,
-  [IconStaticName.AirBnb]: AirBnb,
+  [IconStaticName.Enzyme]: Enzyme,
   [IconStaticName.Apollo]: Apollo,
   [IconStaticName.Auth0]: Auth0,
   [IconStaticName.Axios]: Axios,
@@ -120,6 +122,7 @@ export const iconStaticIcons: TIconStaticIcons = {
   [IconStaticName.Phabricator]: Phabricator,
   [IconStaticName.Photoshop]: Photoshop,
   [IconStaticName.Pin]: Pin,
+  [IconStaticName.Plaid]: Plaid,
   [IconStaticName.Playwright]: Playwright,
   [IconStaticName.Prestashop]: Prestashop,
   [IconStaticName.Prisma]: Prisma,
@@ -135,6 +138,7 @@ export const iconStaticIcons: TIconStaticIcons = {
   [IconStaticName.Ruby]: Ruby,
   [IconStaticName.RubyOnRails]: RubyOnRails,
   [IconStaticName.Sass]: Sass,
+  [IconStaticName.Sentry]: Sentry,
   [IconStaticName.Sinatra]: Sinatra,
   [IconStaticName.Sketch]: Sketch,
   [IconStaticName.Stash]: Stash,

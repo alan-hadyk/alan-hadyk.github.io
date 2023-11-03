@@ -16,18 +16,19 @@ export const companyBasicContainerDefaultThemeClasses: IThemeClasses = {
   marginX: "mx-auto",
   marginY: "my-0",
   maxWidth: "max-w-1056",
+  position: "relative",
 };
 
 export const companyDesktopCompanyDescriptionContainerDefaultThemeClasses: IThemeClasses =
   {
-    flex: "flex-[0_0_50%]",
+    flex: "flex-[0_0_75%]",
     paddingLeft: "pl-40",
     pseudoClasses: isIE11()
       ? [
           "msHighContrastNone:flex-none",
-          "msHighContrastNone:w-50%",
+          "msHighContrastNone:w-75%",
           "msHighContrastActive:flex-none",
-          "msHighContrastActive:w-50%",
+          "msHighContrastActive:w-75%",
         ]
       : [],
   };

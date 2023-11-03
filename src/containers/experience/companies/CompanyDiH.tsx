@@ -34,31 +34,26 @@ const CompanyDiH: React.FC<Pick<ICompanyProps, "format" | "variant">> = ({
       projects={[
         {
           responsibilities: [
-            <span key="Optimized">
-              Optimized UI development for various e-commerce projects,
-              resulting in a{" "}
-              <strong>30% improvement in design consistency</strong> and a{" "}
-              <strong>20% reduction in development time</strong>.
+            <span key="Transformed">
+              Transformed Photoshop designs into{" "}
+              <strong>60+ live e-commerce shops</strong>, utilizing PrestaShop,
+              JavaScript, jQuery, HTML, and CSS, bringing an estimated{" "}
+              <strong>2M+ PLN in revenue</strong> to the company.
             </span>,
-            <span key="Fostered">
-              Fostered professional development in CSS preprocessors, UI pattern
+            <span key="Spearheaded">
+              Spearheaded UI development processes, resulting in enhanced design
+              consistency and streamlined development cycles.
+            </span>,
+            <span key="Introduced">
+              Introduced the use of Redmine as a project management tool,
+              significantly reducing email-based communication and improving
+              overall <strong>project management efficiency</strong>.
+            </span>,
+            <span key="Championed">
+              Championed the adoption of CSS preprocessors, UI pattern
               libraries, and JavaScript task runners,{" "}
-              <strong>improving team efficiency by 25%</strong>.
-            </span>,
-            <span key="Presented">
-              Presented innovative approaches to engineers, contributing to the
-              company&apos;s technical market presence and enhancing team
-              knowledge.
-            </span>,
-            <span key="Fostered">
-              Fostered cross-functional communication with IT, end users, and
-              stakeholders, resulting in a{" "}
-              <strong>25% reduction in miscommunication-related issues</strong>{" "}
-              and faster project delivery.
-            </span>,
-            <span key="Advocated">
-              Advocated for the use of defect and enhancement tracking software,{" "}
-              <strong>improving issue resolution efficiency by 30%</strong>.
+              <strong>elevating team productivity and coding efficiency</strong>
+              .
             </span>,
           ],
           techStack,

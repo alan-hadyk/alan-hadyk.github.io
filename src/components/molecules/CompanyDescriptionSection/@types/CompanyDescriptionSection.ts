@@ -15,6 +15,6 @@ export interface ICompanyDescriptionSectionProps {
   children: TChildren;
   size?: CompanyDescriptionSectionSize;
   themeClasses?: IThemeClasses;
-  title: string;
+  title?: string;
   variant?: CompanyDescriptionSectionVariant;
 }

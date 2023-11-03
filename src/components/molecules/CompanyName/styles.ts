@@ -90,7 +90,7 @@ export const mapCompanyNameSizeToContainerStyles: Record<
     paddingRight: "pr-20",
   },
   [CompanyNameSize.Large]: {
-    flex: "flex-[0_0_50%]",
+    flex: "flex-[0_0_25%]",
     paddingRight: "pr-40",
   },
 };

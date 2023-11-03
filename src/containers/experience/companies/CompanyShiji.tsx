@@ -10,9 +10,6 @@ const CompanyShiji: React.FC<Pick<ICompanyProps, "format" | "variant">> = ({
 }) => {
   const techStack = iconsWithLabels.filter(({ iconName }) =>
     [
-      IconStaticName.HTML,
-      IconStaticName.CSS,
-      IconStaticName.JavaScript,
       IconStaticName.TypeScript,
       IconStaticName.React,
       IconStaticName.Redux,
@@ -23,10 +20,8 @@ const CompanyShiji: React.FC<Pick<ICompanyProps, "format" | "variant">> = ({
       IconStaticName.Webpack,
       IconStaticName.NodeJs,
       IconStaticName.REST,
-      IconStaticName.Zeplin,
       IconStaticName.Jira,
       IconStaticName.Jenkins,
-      IconStaticName.GitLab,
     ].includes(iconName),
   );
 
@@ -37,46 +32,62 @@ const CompanyShiji: React.FC<Pick<ICompanyProps, "format" | "variant">> = ({
       name="Shiji"
       projects={[
         {
+          techStack,
+        },
+        {
           responsibilities: [
+            <span key="Played">
+              Advanced the <strong>scalability and optimization</strong> of
+              hotel operations through the development of a Reservations module
+              in a hotel management application.
+            </span>,
+            <span key="Collaborated">
+              Ensured a{" "}
+              <strong>holistic and user-centric product development</strong> by
+              collaborating with BAs and designers on UI/UX challenges.
+            </span>,
             <span key="Contributed">
-              Contributed to the development of a hotel management application,
-              resulting in a{" "}
-              <strong>30% increase in development efficiency</strong> and
-              streamlined operations.
-            </span>,
-            <span key="Assisted">
-              Assisted in the creation of a React.js-based Proof of Concept
-              (PoC),{" "}
-              <strong>expediting the decision-making process by 40%</strong> and
-              enabling faster project progression.
-            </span>,
-            <span key="Streamlined">
-              Streamlined project timelines, ensuring the application&apos;s
-              timely development in Ember.js with TypeScript and{" "}
-              <strong>accelerating feature delivery by 25%</strong>.
-            </span>,
-            <span key="Created">
-              Created reusable components and managed adapters, models, and
-              serializers,{" "}
-              <strong>
-                improving code organization and maintainability by 20%
-              </strong>
-              .
-            </span>,
-            <span key="Authored">
-              Authored unit, integration, and acceptance tests, leading to a{" "}
-              <strong>30% reduction in bugs</strong> and a{" "}
-              <strong>15% increase in code reliability</strong>.
-            </span>,
-            <span key="Mentored">
-              Mentored junior front-end developers,{" "}
-              <strong>
-                enhancing their productivity and skills development by 20%
-              </strong>
-              .
+              Demonstrated proactive R&D and{" "}
+              <strong>expedited decision-making</strong> via a React.js-based
+              Proof of Concept.
             </span>,
           ],
-          techStack,
+          title: "Project Contribution",
+        },
+        {
+          responsibilities: [
+            <span key="Leveraged">
+              Delivered <strong>robust and efficient feature rollouts</strong>{" "}
+              using Ember.js with TypeScript.
+            </span>,
+            <span key="Utilized">
+              Guaranteed an <strong>optimized user experience</strong> by
+              leveraging Redux Saga for state management.
+            </span>,
+            <span key="Developed">
+              Championed <strong>modularity and maintainability</strong> in
+              development with reusable React components and Ember tools.
+            </span>,
+          ],
+          title: "Development and Efficiency",
+        },
+        {
+          responsibilities: [
+            <span key="Authored">
+              Strengthened <strong>product stability and user trust</strong> by
+              authoring comprehensive unit and integration tests.
+            </span>,
+          ],
+          title: "Testing and Reliability",
+        },
+        {
+          responsibilities: [
+            <span key="Mentored">
+              Fostered <strong>team growth and consistent work quality</strong>{" "}
+              by mentoring junior front-end developers.
+            </span>,
+          ],
+          title: "Team and Mentoring",
         },
       ]}
       title="Senior Front-End Developer"

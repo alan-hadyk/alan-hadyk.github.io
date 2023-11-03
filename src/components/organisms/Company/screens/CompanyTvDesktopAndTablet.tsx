@@ -30,9 +30,8 @@ const CompanyTvDesktopAndTablet: React.FC<ICompanyProps> = ({
   variant = CompanyVariant.Blue,
 }) => (
   <Responsive devices={[Device.Tv, Device.Desktop, Device.Tablet]}>
-    <CompanyTimeline themeClasses={themeClasses?.timeline} />
-
     <LayoutContainer themeClasses={companyBasicContainerDefaultThemeClasses}>
+      <CompanyTimeline themeClasses={themeClasses?.timeline} />
       <CompanyName
         format={CompanyNameFormat.TvDesktopAndTablet}
         variant={mapCompanyVariantToCompanyNameVariant[variant]}

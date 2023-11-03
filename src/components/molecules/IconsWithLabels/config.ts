@@ -3,7 +3,7 @@ import { IIconsWithLabelsProps } from "@app/components/molecules/IconsWithLabels
 
 export const iconsWithLabels: IIconsWithLabelsProps["iconsWithLabels"] = [
   {
-    iconName: IconStaticName.AirBnb,
+    iconName: IconStaticName.Enzyme,
     label: "Enzyme",
   },
   {
@@ -155,6 +155,10 @@ export const iconsWithLabels: IIconsWithLabelsProps["iconsWithLabels"] = [
     label: "Photoshop",
   },
   {
+    iconName: IconStaticName.Plaid,
+    label: "Plaid",
+  },
+  {
     iconName: IconStaticName.Playwright,
     label: "Playwright",
   },
@@ -213,6 +217,10 @@ export const iconsWithLabels: IIconsWithLabelsProps["iconsWithLabels"] = [
   {
     iconName: IconStaticName.Sass,
     label: "Sass",
+  },
+  {
+    iconName: IconStaticName.Sentry,
+    label: "Sentry",
   },
   {
     iconName: IconStaticName.Sinatra,

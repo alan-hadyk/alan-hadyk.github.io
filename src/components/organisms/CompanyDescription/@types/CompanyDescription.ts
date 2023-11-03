@@ -17,8 +17,8 @@ export interface ICompanyDescriptionProps {
   date: string;
   link?: string;
   projects: {
-    responsibilities: IUnorderedListProps["items"];
-    techStack: Pick<IIconWithLabelProps, "iconName" | "label">[];
+    responsibilities?: IUnorderedListProps["items"];
+    techStack?: Pick<IIconWithLabelProps, "iconName" | "label">[];
     title?: string;
   }[];
   size?: CompanyDescriptionSize;

@@ -6,29 +6,34 @@ import { invertIcon } from "@app/containers/experience/helpers/invertIcon";
 export const projectHealthcareSaaS = (format: ICompanyProps["format"]) => ({
   responsibilities: [
     <span key="Specialized">
-      <strong>Specialized Module:</strong> Involved in the development of a key,
-      confidential module aimed at enhancing the healthcare service offerings,
-      providing a significant potential advantage in a competitive market.
+      Involved in the development of a key, confidential module aimed at
+      enhancing the healthcare service offerings,{" "}
+      <strong>
+        providing a significant potential advantage in a competitive market
+      </strong>
+      .
     </span>,
     <span key="Enhanced">
-      <strong>Enhanced UI/UX:</strong> Developed intuitive user interfaces
-      targeted for healthcare professionals, aiming to improve user engagement
-      and satisfaction.
+      Developed intuitive user interfaces targeted for healthcare professionals,
+      aiming to <strong>improve user engagement and satisfaction</strong>.
     </span>,
     <span key="Performance">
-      <strong>Performance Optimization:</strong> Implemented route lazy-loading
-      and modularized code into reusable components, intending to improve
-      application loading speed and performance.
+      Implemented route lazy-loading,{" "}
+      <strong>improving application loading speed and performance</strong>.
     </span>,
     <span key="Architecture">
-      <strong>Architecture Refinement:</strong> Improved the application&apos;s
-      architecture for better code readability and easier maintenance, crucial
-      for long-term project sustainability.
+      Modularized code into reusable components for better code readability and
+      easier maintenance, crucial to{" "}
+      <strong>long-term project sustainability</strong>.
     </span>,
     <span key="Efficient">
-      <strong>Efficient Data Fetching:</strong> Utilized GraphQL to optimize
-      communication with backend services, aiming to enhance user experience
-      through quicker data retrieval.
+      Utilized GraphQL to optimize communication with backend services, aiming
+      to{" "}
+      <strong>
+        enhance user experience and reduce API costs through quicker data
+        retrieval
+      </strong>
+      .
     </span>,
   ],
   techStack: iconsWithLabels
@@ -43,5 +48,5 @@ export const projectHealthcareSaaS = (format: ICompanyProps["format"]) => ({
       ].includes(iconName),
     )
     .map(invertIcon([IconStaticName.Prisma], format)),
-  title: "Healthcare SaaS (Project Halted)",
+  title: "Healthcare SaaS",
 });

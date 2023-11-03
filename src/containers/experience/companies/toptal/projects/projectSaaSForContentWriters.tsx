@@ -7,35 +7,32 @@ export const projectSaaSForContentWriters = (
   format: ICompanyProps["format"],
 ) => ({
   responsibilities: [
-    <span key="Scratch">
-      <strong>Built a React SPA from Scratch:</strong> Worked as the sole
-      Front-End Engineer to revamp the internal tool, collaborating closely with
-      one back-end engineer.
+    <span key="sole">
+      Worked as the sole Front-End Engineer to{" "}
+      <strong>revamp front-end of the main product</strong>, collaborating
+      closely with one back-end engineer.
     </span>,
     <span key="WYSIWYG">
-      <strong>Implemented WYSIWYG Editor:</strong> Took on the challenge to
-      build a full-featured WYSIWYG editor tailored for different stakeholders,
-      enhancing the user experience.
+      Took on the challenge to{" "}
+      <strong>build a full-featured WYSIWYG editor</strong> tailored to
+      different stakeholders, enhancing the user experience.
     </span>,
-    <span key="Control">
-      <strong>Role-based Access Control:</strong> Leveraged a permission system
-      that enabled different user roles to interact based on their level of
-      authority, improving system security and workflow.
+    <span key="permission">
+      <strong>Leveraged a permission system</strong> that enabled different user
+      roles to interact based on their level of authority,{" "}
+      <strong>improving system security and workflow</strong>.
     </span>,
     <span key="Fetching">
-      <strong>Optimized Data Fetching:</strong> Employed React Query and Axios
-      to streamline communication with the backend, making data fetching more
-      efficient.
+      Employed React Query and Axios to streamline communication with the
+      backend, <strong>making data fetching more efficient</strong>.
     </span>,
     <span key="Collaboration">
-      <strong>Collaboration Features:</strong> Enabled real-time conversation
-      features between various users to facilitate quicker decision-making and
-      editing processes.
+      <strong>Enabled real-time conversation features</strong> between various
+      users to facilitate quicker decision-making and editing processes.
     </span>,
     <span key="Collaboration">
-      <strong>Tech Stack Utilization:</strong> Leveraged Windi CSS and React
-      Query to speed up the UI/UX development process, enabling the team to meet
-      project deadlines.
+      Leveraged Windi CSS and Atomic Design to speed up the UI/UX development
+      process, <strong>enabling the team to meet project deadlines</strong>.
     </span>,
   ],
   techStack: iconsWithLabels

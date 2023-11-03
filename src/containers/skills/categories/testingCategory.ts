@@ -5,7 +5,7 @@ export const testingCategory = {
   iconsWithLabels: iconsWithLabels.filter(({ iconName }) =>
     [
       IconStaticName.JEST,
-      IconStaticName.AirBnb,
+      IconStaticName.Enzyme,
       IconStaticName.Playwright,
       IconStaticName.ReactTestingLibrary,
       IconStaticName.Cypress,

@@ -15,6 +15,7 @@ import { UnorderedList } from "@app/components/molecules/UnorderedList/Unordered
 
 const CompanyResponsibilities: React.FC<ICompanyResponsibilitiesProps> = ({
   responsibilities,
+  shouldDisplayTitle = true,
   size = CompanyResponsibilitiesSize.Large,
   themeClasses,
   variant = CompanyResponsibilitiesVariant.Blue,
@@ -28,7 +29,7 @@ const CompanyResponsibilities: React.FC<ICompanyResponsibilitiesProps> = ({
     <CompanyDescriptionSection
       size={mapCompanyResponsibilitiesSizeToCompanyDescriptionSectionSize[size]}
       themeClasses={companyResponsibilitiesThemeClasses}
-      title="Responsibilities and Achievements"
+      title={shouldDisplayTitle ? "Achievements" : undefined}
       variant={
         mapCompanyResponsibilitiesVariantToCompanyDescriptionSectionVariant[
           variant

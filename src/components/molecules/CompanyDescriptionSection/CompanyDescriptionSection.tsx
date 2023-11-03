@@ -19,9 +19,11 @@ const CompanyDescriptionSection: React.FC<ICompanyDescriptionSectionProps> = ({
 
   return (
     <LayoutContainer themeClasses={themeClasses}>
-      <Typography themeClasses={companyDescriptionSectionThemeClasses.title}>
-        {title}
-      </Typography>
+      {title && (
+        <Typography themeClasses={companyDescriptionSectionThemeClasses.title}>
+          {title}
+        </Typography>
+      )}
       <LayoutContainer
         themeClasses={companyDescriptionSectionThemeClasses.contentWrapper}
       >
