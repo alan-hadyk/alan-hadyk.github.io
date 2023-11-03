@@ -1,11 +1,7 @@
 import { IconStaticName } from "@app/components/atoms/IconStatic/@types/IconStatic";
 import { iconsWithLabels } from "@app/components/molecules/IconsWithLabels/config";
-import { ICompanyProps } from "@app/components/organisms/Company/@types/Company";
-import { invertIcon } from "@app/containers/experience/helpers/invertIcon";
 
-export const projectSaaSForContentWriters = (
-  format: ICompanyProps["format"],
-) => ({
+export const projectSaaSForContentWriters = {
   responsibilities: [
     <span key="sole">
       Worked as the sole Front-End Engineer to{" "}
@@ -35,19 +31,17 @@ export const projectSaaSForContentWriters = (
       process, <strong>enabling the team to meet project deadlines</strong>.
     </span>,
   ],
-  techStack: iconsWithLabels
-    .filter(({ iconName }) =>
-      [
-        IconStaticName.TypeScript,
-        IconStaticName.React,
-        IconStaticName.WindiCSS,
-        IconStaticName.ReactQuery,
-        IconStaticName.Vite,
-        IconStaticName.Axios,
-        IconStaticName.REST,
-        IconStaticName.Prisma,
-      ].includes(iconName),
-    )
-    .map(invertIcon([IconStaticName.Prisma], format)),
+  techStack: iconsWithLabels.filter(({ iconName }) =>
+    [
+      IconStaticName.TypeScript,
+      IconStaticName.React,
+      IconStaticName.WindiCSS,
+      IconStaticName.ReactQuery,
+      IconStaticName.Vite,
+      IconStaticName.Axios,
+      IconStaticName.REST,
+      IconStaticName.Prisma,
+    ].includes(iconName),
+  ),
   title: "SaaS for Content Writers",
-});
+};

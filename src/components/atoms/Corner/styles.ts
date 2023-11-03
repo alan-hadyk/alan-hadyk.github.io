@@ -31,6 +31,7 @@ const mapPositionToCornerProps = (
 });
 
 const cornerDefaultThemeClasses: IThemeClasses = {
+  borderColor: "border-white",
   borderStyle: "border-solid",
   borderWidth: ["border-l-thin", "border-t-thin"],
   height: "h-8",

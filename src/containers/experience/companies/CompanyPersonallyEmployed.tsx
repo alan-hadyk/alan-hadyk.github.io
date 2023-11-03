@@ -1,15 +1,11 @@
 import { Company } from "@app/components/organisms/Company/Company";
 
-import { ICompanyProps } from "@app/components/organisms/Company/@types/Company";
 import { IconStaticName } from "@app/components/atoms/IconStatic/@types/IconStatic";
 import { iconsWithLabels } from "@app/components/molecules/IconsWithLabels/config";
 
-const CompanyPersonallyEmployed: React.FC<
-  Pick<ICompanyProps, "format" | "variant">
-> = ({ format, variant }) => (
+const CompanyPersonallyEmployed: React.FC = () => (
   <Company
     date="May 2008 to September 2010"
-    format={format}
     name="Alan Hadyk"
     projects={[
       {
@@ -53,7 +49,6 @@ const CompanyPersonallyEmployed: React.FC<
         bottom: "bottom-0",
       },
     }}
-    variant={variant}
   />
 );
 

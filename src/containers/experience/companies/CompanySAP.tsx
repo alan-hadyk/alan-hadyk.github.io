@@ -1,40 +1,26 @@
 import { Company } from "@app/components/organisms/Company/Company";
 
-import { ICompanyProps } from "@app/components/organisms/Company/@types/Company";
 import { IconStaticName } from "@app/components/atoms/IconStatic/@types/IconStatic";
 import { iconsWithLabels } from "@app/components/molecules/IconsWithLabels/config";
-import { invertIcon } from "@app/containers/experience/helpers/invertIcon";
 
-const CompanySAP: React.FC<Pick<ICompanyProps, "format" | "variant">> = ({
-  format,
-  variant,
-}) => {
-  const techStack = iconsWithLabels
-    .filter(({ iconName }) =>
-      [
-        IconStaticName.Gulp,
-        IconStaticName.JavaScript,
-        IconStaticName.CoffeeScript,
-        IconStaticName.React,
-        IconStaticName.Redux,
-        IconStaticName.CSSModules,
-        IconStaticName.Webpack,
-        IconStaticName.Docpad,
-        IconStaticName.JEST,
-        IconStaticName.Enzyme,
-      ].includes(iconName),
-    )
-    .map(
-      invertIcon(
-        [IconStaticName.CSSModules, IconStaticName.CoffeeScript],
-        format,
-      ),
-    );
-
+const CompanySAP: React.FC = () => {
+  const techStack = iconsWithLabels.filter(({ iconName }) =>
+    [
+      IconStaticName.Gulp,
+      IconStaticName.JavaScript,
+      IconStaticName.CoffeeScript,
+      IconStaticName.React,
+      IconStaticName.Redux,
+      IconStaticName.CSSModules,
+      IconStaticName.Webpack,
+      IconStaticName.Docpad,
+      IconStaticName.JEST,
+      IconStaticName.Enzyme,
+    ].includes(iconName),
+  );
   return (
     <Company
       date="November 2015 to May 2017"
-      format={format}
       link="https://www.sap.com/"
       name="SAP"
       projects={[
@@ -80,7 +66,6 @@ const CompanySAP: React.FC<Pick<ICompanyProps, "format" | "variant">> = ({
         },
       ]}
       title="Front-End Developer"
-      variant={variant}
     />
   );
 };

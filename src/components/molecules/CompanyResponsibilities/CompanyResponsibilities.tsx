@@ -1,48 +1,24 @@
 import { CompanyDescriptionSection } from "@app/components/molecules/CompanyDescriptionSection/CompanyDescriptionSection";
-import {
-  CompanyResponsibilitiesSize,
-  CompanyResponsibilitiesVariant,
-  ICompanyResponsibilitiesProps,
-} from "@app/components/molecules/CompanyResponsibilities/@types/CompanyResponsibilities";
-import {
-  mapCompanyResponsibilitiesSizeToCompanyDescriptionSectionSize,
-  mapCompanyResponsibilitiesSizeToUnorderedListSize,
-  mapCompanyResponsibilitiesVariantToCompanyDescriptionSectionVariant,
-  mapCompanyResponsibilitiesVariantToUnorderedListVariant,
-} from "@app/components/molecules/CompanyResponsibilities/config";
-import { mapCompanyResponsibilitiesSizeToStyles } from "@app/components/molecules/CompanyResponsibilities/styles";
+import { ICompanyResponsibilitiesProps } from "@app/components/molecules/CompanyResponsibilities/@types/CompanyResponsibilities";
+import { companyResponsibilitiesDefaultThemeClasses } from "@app/components/molecules/CompanyResponsibilities/styles";
 import { UnorderedList } from "@app/components/molecules/UnorderedList/UnorderedList";
 
 const CompanyResponsibilities: React.FC<ICompanyResponsibilitiesProps> = ({
   responsibilities,
   shouldDisplayTitle = true,
-  size = CompanyResponsibilitiesSize.Large,
   themeClasses,
-  variant = CompanyResponsibilitiesVariant.Blue,
 }) => {
   const companyResponsibilitiesThemeClasses = {
-    ...mapCompanyResponsibilitiesSizeToStyles[size],
+    ...companyResponsibilitiesDefaultThemeClasses,
     ...themeClasses,
   };
 
   return (
     <CompanyDescriptionSection
-      size={mapCompanyResponsibilitiesSizeToCompanyDescriptionSectionSize[size]}
       themeClasses={companyResponsibilitiesThemeClasses}
       title={shouldDisplayTitle ? "Achievements" : undefined}
-      variant={
-        mapCompanyResponsibilitiesVariantToCompanyDescriptionSectionVariant[
-          variant
-        ]
-      }
     >
-      <UnorderedList
-        items={responsibilities}
-        size={mapCompanyResponsibilitiesSizeToUnorderedListSize[size]}
-        variant={
-          mapCompanyResponsibilitiesVariantToUnorderedListVariant[variant]
-        }
-      />
+      <UnorderedList items={responsibilities} />
     </CompanyDescriptionSection>
   );
 };

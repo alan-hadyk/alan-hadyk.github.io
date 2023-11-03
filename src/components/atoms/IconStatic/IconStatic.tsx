@@ -1,23 +1,20 @@
 "use client";
-import {
-  IIconStaticProps,
-  IconStaticVariant,
-} from "@app/components/atoms/IconStatic/@types/IconStatic";
+import { IIconStaticProps } from "@app/components/atoms/IconStatic/@types/IconStatic";
 import { convertObjectValuesToString } from "@app/helpers/objects/convertObjectValuesToString";
-import { useIconStaticThemeClasses } from "@app/components/atoms/IconStatic/hooks/useIconStaticThemeClasses";
 import { iconStaticIcons } from "@app/components/atoms/IconStatic/config";
 import { TSVGIcon } from "@app/types/svg";
+import { iconStaticDefaultThemeClasses } from "@app/components/atoms/IconStatic/styles";
+import { IThemeClasses } from "@app/types/theme";
 
 const IconStatic: React.FC<IIconStaticProps> = ({
   iconName,
   style,
   themeClasses,
-  variant = IconStaticVariant.Default,
 }) => {
-  const { iconStaticThemeClasses } = useIconStaticThemeClasses({
-    themeClasses,
-    variant,
-  });
+  const iconStaticThemeClasses: IThemeClasses = {
+    ...iconStaticDefaultThemeClasses,
+    ...themeClasses,
+  };
 
   const IconComponent: TSVGIcon = iconStaticIcons[iconName];
 

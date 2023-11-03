@@ -1,9 +1,7 @@
 import { IconStaticName } from "@app/components/atoms/IconStatic/@types/IconStatic";
 import { iconsWithLabels } from "@app/components/molecules/IconsWithLabels/config";
-import { ICompanyProps } from "@app/components/organisms/Company/@types/Company";
-import { invertIcon } from "@app/containers/experience/helpers/invertIcon";
 
-export const projectHealthcareSaaS = (format: ICompanyProps["format"]) => ({
+export const projectHealthcareSaaS = {
   responsibilities: [
     <span key="Specialized">
       Involved in the development of a key, confidential module aimed at
@@ -36,17 +34,15 @@ export const projectHealthcareSaaS = (format: ICompanyProps["format"]) => ({
       .
     </span>,
   ],
-  techStack: iconsWithLabels
-    .filter(({ iconName }) =>
-      [
-        IconStaticName.TypeScript,
-        IconStaticName.React,
-        IconStaticName.Tailwind,
-        IconStaticName.GraphQL,
-        IconStaticName.Apollo,
-        IconStaticName.Prisma,
-      ].includes(iconName),
-    )
-    .map(invertIcon([IconStaticName.Prisma], format)),
+  techStack: iconsWithLabels.filter(({ iconName }) =>
+    [
+      IconStaticName.TypeScript,
+      IconStaticName.React,
+      IconStaticName.Tailwind,
+      IconStaticName.GraphQL,
+      IconStaticName.Apollo,
+      IconStaticName.Prisma,
+    ].includes(iconName),
+  ),
   title: "Healthcare SaaS",
-});
+};

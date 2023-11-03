@@ -1,9 +1,7 @@
 import { IconStaticName } from "@app/components/atoms/IconStatic/@types/IconStatic";
 import { iconsWithLabels } from "@app/components/molecules/IconsWithLabels/config";
-import { ICompanyProps } from "@app/components/organisms/Company/@types/Company";
-import { invertIcon } from "@app/containers/experience/helpers/invertIcon";
 
-export const projectTribe = (format: ICompanyProps["format"]) => ({
+export const projectTribe = {
   responsibilities: [
     <span key="Notifications">
       Developed a full-stack notifications system to{" "}
@@ -28,30 +26,23 @@ export const projectTribe = (format: ICompanyProps["format"]) => ({
       <strong>minimize issues found in production</strong>.
     </span>,
   ],
-  techStack: iconsWithLabels
-    .filter(({ iconName }) =>
-      [
-        IconStaticName.TypeScript,
-        IconStaticName.React,
-        IconStaticName.NextJs,
-        IconStaticName.Tailwind,
-        IconStaticName.Chakra,
-        IconStaticName.JEST,
-        IconStaticName.ReactTestingLibrary,
-        IconStaticName.Cypress,
-        IconStaticName.NodeJs,
-        IconStaticName.NestJs,
-        IconStaticName.Apollo,
-        IconStaticName.GraphQL,
-        IconStaticName.Docker,
-        IconStaticName.GitLab,
-      ].includes(iconName),
-    )
-    .map(
-      invertIcon(
-        [IconStaticName.Apollo, IconStaticName.Cypress, IconStaticName.NextJs],
-        format,
-      ),
-    ),
+  techStack: iconsWithLabels.filter(({ iconName }) =>
+    [
+      IconStaticName.TypeScript,
+      IconStaticName.React,
+      IconStaticName.NextJs,
+      IconStaticName.Tailwind,
+      IconStaticName.Chakra,
+      IconStaticName.JEST,
+      IconStaticName.ReactTestingLibrary,
+      IconStaticName.Cypress,
+      IconStaticName.NodeJs,
+      IconStaticName.NestJs,
+      IconStaticName.Apollo,
+      IconStaticName.GraphQL,
+      IconStaticName.Docker,
+      IconStaticName.GitLab,
+    ].includes(iconName),
+  ),
   title: "Tribe",
-});
+};

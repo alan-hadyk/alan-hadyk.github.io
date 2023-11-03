@@ -2,29 +2,20 @@ import { Typography } from "@app/components/atoms/Typography/Typography";
 import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutContainer";
 import {
   CompanyNameFormat,
-  CompanyNameSize,
-  CompanyNameVariant,
   ICompanyNameProps,
 } from "@app/components/molecules/CompanyName/@types/CompanyName";
 import { useCompanyNameThemeClasses } from "@app/components/molecules/CompanyName/hooks/useCompanyNameThemeClasses";
 
-const CompanyName: React.FC<ICompanyNameProps> = ({
-  children,
-  format,
-  size = CompanyNameSize.Large,
-  variant = CompanyNameVariant.Light,
-}) => {
+const CompanyName: React.FC<ICompanyNameProps> = ({ children, format }) => {
   const {
     companyMobileNameThemeClasses,
     companyTvDesktopAndTabletNameContainerThemeClasses,
     companyTvDesktopAndTabletNameThemeClasses,
-  } = useCompanyNameThemeClasses({ size, variant });
+  } = useCompanyNameThemeClasses();
 
   return (
     <>
-      {[CompanyNameFormat.TvDesktopAndTablet, CompanyNameFormat.Pdf].includes(
-        format,
-      ) && (
+      {format === CompanyNameFormat.TvDesktopAndTablet && (
         <LayoutContainer
           themeClasses={companyTvDesktopAndTabletNameContainerThemeClasses}
         >

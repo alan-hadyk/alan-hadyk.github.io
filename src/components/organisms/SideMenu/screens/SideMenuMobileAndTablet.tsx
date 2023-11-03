@@ -39,7 +39,7 @@ const SideMenuMobileAndTablet: React.FC<
       tabIndex={0}
       themeClasses={sideMenuCVButtonDefaultThemeClasses}
     >
-      cv
+      Resume
     </Button>
   </LayoutContainer>
 );

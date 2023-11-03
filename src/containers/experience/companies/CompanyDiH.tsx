@@ -1,34 +1,26 @@
 import { Company } from "@app/components/organisms/Company/Company";
 
-import { ICompanyProps } from "@app/components/organisms/Company/@types/Company";
 import { IconStaticName } from "@app/components/atoms/IconStatic/@types/IconStatic";
 import { iconsWithLabels } from "@app/components/molecules/IconsWithLabels/config";
-import { invertIcon } from "@app/containers/experience/helpers/invertIcon";
 
-const CompanyDiH: React.FC<Pick<ICompanyProps, "format" | "variant">> = ({
-  format,
-  variant,
-}) => {
-  const techStack = iconsWithLabels
-    .filter(({ iconName }) =>
-      [
-        IconStaticName.Grunt,
-        IconStaticName.HTML,
-        IconStaticName.CSS,
-        IconStaticName.JavaScript,
-        IconStaticName.Sass,
-        IconStaticName.LESS,
-        IconStaticName.JQuery,
-        IconStaticName.Prestashop,
-        IconStaticName.Redmine,
-      ].includes(iconName),
-    )
-    .map(invertIcon([IconStaticName.LESS], format));
+const CompanyDiH: React.FC = () => {
+  const techStack = iconsWithLabels.filter(({ iconName }) =>
+    [
+      IconStaticName.Grunt,
+      IconStaticName.HTML,
+      IconStaticName.CSS,
+      IconStaticName.JavaScript,
+      IconStaticName.Sass,
+      IconStaticName.LESS,
+      IconStaticName.JQuery,
+      IconStaticName.Prestashop,
+      IconStaticName.Redmine,
+    ].includes(iconName),
+  );
 
   return (
     <Company
       date="October 2010 to October 2015"
-      format={format}
       link="https://dih.pl/"
       name="DiH"
       projects={[
@@ -60,7 +52,6 @@ const CompanyDiH: React.FC<Pick<ICompanyProps, "format" | "variant">> = ({
         },
       ]}
       title="Front-End Developer"
-      variant={variant}
     />
   );
 };

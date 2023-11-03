@@ -34,7 +34,7 @@ const HeaderContainerDesktop: React.FC<IHeaderContainerScreenProps> = ({
         size={ButtonSize.Medium}
         tabIndex={0}
       >
-        cv
+        Resume
       </Button>
 
       <MenuButton

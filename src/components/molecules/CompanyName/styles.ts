@@ -1,14 +1,12 @@
 /* eslint-disable import/exports-last */
-import {
-  CompanyNameFormat,
-  CompanyNameSize,
-  CompanyNameVariant,
-} from "@app/components/molecules/CompanyName/@types/CompanyName";
+import { CompanyNameFormat } from "@app/components/molecules/CompanyName/@types/CompanyName";
 import { isIE11 } from "@app/helpers/browser/isIE11";
 import { IThemeClasses } from "@app/types/theme";
 
 export const companyTvDesktopAndTabletNameContainerDefaultThemeClasses: IThemeClasses =
   {
+    flex: "flex-[0_0_25%]",
+    paddingRight: "pr-40",
     pseudoClasses: isIE11()
       ? [
           "msHighContrastNone:flex-none",
@@ -20,6 +18,7 @@ export const companyTvDesktopAndTabletNameContainerDefaultThemeClasses: IThemeCl
   };
 
 const companyNameCommonThemeClasses: IThemeClasses = {
+  color: "text-white",
   fontFamily: isIE11() ? "font-anonymousPro" : "font-rajdhani",
 };
 
@@ -35,62 +34,16 @@ export const companyMobileNameDefaultThemeClasses: IThemeClasses = {
   textAlign: "text-center",
 };
 
-export const mapCompanyNameVariantToStyles: Record<
-  CompanyNameVariant,
+export const mapCompanyNameFormatToStyles: Record<
+  CompanyNameFormat,
   IThemeClasses
 > = {
-  [CompanyNameVariant.Dark]: {
-    color: "text-blue600",
+  [CompanyNameFormat.Mobile]: {
+    fontSize: "text-48",
+    lineHeight: "leading-48",
   },
-  [CompanyNameVariant.Light]: {
-    color: "text-white",
-  },
-};
-
-export const mapCompanyNameSizeToNameStyles: Record<
-  CompanyNameSize,
-  Record<CompanyNameFormat, IThemeClasses>
-> = {
-  [CompanyNameSize.Medium]: {
-    [CompanyNameFormat.Mobile]: {
-      fontSize: "text-24",
-      lineHeight: "leading-28",
-    },
-    [CompanyNameFormat.Pdf]: {
-      fontSize: "text-24",
-      lineHeight: "leading-28",
-    },
-    [CompanyNameFormat.TvDesktopAndTablet]: {
-      fontSize: "text-24",
-      lineHeight: "leading-28",
-    },
-  },
-  [CompanyNameSize.Large]: {
-    [CompanyNameFormat.Mobile]: {
-      fontSize: "text-48",
-      lineHeight: "leading-48",
-    },
-    [CompanyNameFormat.Pdf]: {
-      fontSize: "text-48",
-      lineHeight: "leading-56",
-    },
-    [CompanyNameFormat.TvDesktopAndTablet]: {
-      fontSize: "text-48",
-      lineHeight: "leading-56",
-    },
-  },
-};
-
-export const mapCompanyNameSizeToContainerStyles: Record<
-  CompanyNameSize,
-  IThemeClasses
-> = {
-  [CompanyNameSize.Medium]: {
-    flex: "flex-[0_0_35%]",
-    paddingRight: "pr-20",
-  },
-  [CompanyNameSize.Large]: {
-    flex: "flex-[0_0_25%]",
-    paddingRight: "pr-40",
+  [CompanyNameFormat.TvDesktopAndTablet]: {
+    fontSize: "text-48",
+    lineHeight: "leading-56",
   },
 };

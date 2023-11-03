@@ -17,13 +17,6 @@ const mapConsoleTextVariantToStyles: Record<ConsoleTextVariant, IThemeClasses> =
       fontSize: "text-32",
       lineHeight: "leading-36",
     },
-    [ConsoleTextVariant.Pdf]: {
-      color: "text-blue600",
-      fontFamily: "font-anonymousPro",
-      fontSize: "text-12",
-      lineHeight: "leading-16",
-      textTransform: "uppercase",
-    },
     [ConsoleTextVariant.TvDesktopAndTablet]: {
       fontSize: "text-[6vh]",
       lineHeight: "leading-[7.4vh]",

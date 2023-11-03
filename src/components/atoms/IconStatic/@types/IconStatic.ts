@@ -79,16 +79,10 @@ export enum IconStaticName {
   Zeplin = "zeplin",
 }
 
-export enum IconStaticVariant {
-  Default,
-  Inverted,
-}
-
 export interface IIconStaticProps {
   iconName: IconStaticName;
   style?: CSSProperties;
   themeClasses?: Pick<IThemeClasses, "height" | "overflow" | "width">;
-  variant?: IconStaticVariant;
 }
 
 export type TIconStaticIcons = Record<IIconStaticProps["iconName"], TSVGIcon>;

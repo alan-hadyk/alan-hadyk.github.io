@@ -1,13 +1,9 @@
 import { Company } from "@app/components/organisms/Company/Company";
 
-import { ICompanyProps } from "@app/components/organisms/Company/@types/Company";
 import { IconStaticName } from "@app/components/atoms/IconStatic/@types/IconStatic";
 import { iconsWithLabels } from "@app/components/molecules/IconsWithLabels/config";
 
-const CompanyShiji: React.FC<Pick<ICompanyProps, "format" | "variant">> = ({
-  format,
-  variant,
-}) => {
+const CompanyShiji: React.FC = () => {
   const techStack = iconsWithLabels.filter(({ iconName }) =>
     [
       IconStaticName.TypeScript,
@@ -28,7 +24,6 @@ const CompanyShiji: React.FC<Pick<ICompanyProps, "format" | "variant">> = ({
   return (
     <Company
       date="June 2017 to July 2018"
-      format={format}
       name="Shiji"
       projects={[
         {
@@ -92,7 +87,6 @@ const CompanyShiji: React.FC<Pick<ICompanyProps, "format" | "variant">> = ({
       ]}
       title="Senior Front-End Developer"
       link="https://shijigroup.com/"
-      variant={variant}
     />
   );
 };

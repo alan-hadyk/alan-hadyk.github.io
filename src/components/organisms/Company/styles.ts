@@ -32,14 +32,3 @@ export const companyDesktopCompanyDescriptionContainerDefaultThemeClasses: IThem
         ]
       : [],
   };
-
-export const companyPdfCompanyDescriptionContainerDefaultThemeClasses: IThemeClasses =
-  {
-    flex: "flex-[0_0_65%]",
-    paddingLeft: "pl-20",
-  };
-
-export const companyPdfCompanyTimelineDefaultThemeClasses: IThemeClasses = {
-  left: "left-[35%]",
-  top: "top-[.6rem]",
-};

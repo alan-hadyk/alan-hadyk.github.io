@@ -80,7 +80,7 @@ export const mapIconWithLabelContentVariantToLabelStyles: Record<
     color: "text-blue100",
   },
   [IconWithLabelContentVariant.Dark]: {
-    color: "text-blue600",
+    color: "text-blue300",
   },
   [IconWithLabelContentVariant.White]: {
     color: "text-white",

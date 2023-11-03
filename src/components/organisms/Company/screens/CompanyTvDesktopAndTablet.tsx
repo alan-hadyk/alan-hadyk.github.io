@@ -4,10 +4,7 @@ import { Responsive } from "@app/components/layout/Responsive/Responsive";
 
 import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutContainer";
 
-import {
-  CompanyVariant,
-  ICompanyProps,
-} from "@app/components/organisms/Company/@types/Company";
+import { ICompanyProps } from "@app/components/organisms/Company/@types/Company";
 import { Device } from "@app/components/layout/Responsive/@types/Responsive";
 import {
   companyDesktopCompanyDescriptionContainerDefaultThemeClasses,
@@ -15,10 +12,6 @@ import {
 } from "@app/components/organisms/Company/styles";
 import { CompanyName } from "@app/components/molecules/CompanyName/CompanyName";
 import { CompanyNameFormat } from "@app/components/molecules/CompanyName/@types/CompanyName";
-import {
-  mapCompanyVariantToCompanyDescriptionVariant,
-  mapCompanyVariantToCompanyNameVariant,
-} from "@app/components/organisms/Company/config";
 
 const CompanyTvDesktopAndTablet: React.FC<ICompanyProps> = ({
   date,
@@ -27,15 +20,11 @@ const CompanyTvDesktopAndTablet: React.FC<ICompanyProps> = ({
   projects,
   themeClasses,
   title,
-  variant = CompanyVariant.Blue,
 }) => (
   <Responsive devices={[Device.Tv, Device.Desktop, Device.Tablet]}>
     <LayoutContainer themeClasses={companyBasicContainerDefaultThemeClasses}>
       <CompanyTimeline themeClasses={themeClasses?.timeline} />
-      <CompanyName
-        format={CompanyNameFormat.TvDesktopAndTablet}
-        variant={mapCompanyVariantToCompanyNameVariant[variant]}
-      >
+      <CompanyName format={CompanyNameFormat.TvDesktopAndTablet}>
         {name}
       </CompanyName>
 
@@ -49,8 +38,7 @@ const CompanyTvDesktopAndTablet: React.FC<ICompanyProps> = ({
           link={link}
           projects={projects}
           themeClasses={themeClasses?.companyDescription}
-          title={title}
-          variant={mapCompanyVariantToCompanyDescriptionVariant[variant]}
+          position={title}
         />
       </LayoutContainer>
     </LayoutContainer>

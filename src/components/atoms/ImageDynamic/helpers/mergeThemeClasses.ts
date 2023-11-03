@@ -8,10 +8,8 @@ export const mergeThemeClasses = (
   variants: IImageDynamicProps["variants"] = [],
   themeClasses: IThemeClasses | undefined,
   imageDynamicBaseThemeClasses: IThemeClasses,
-): IThemeClasses => {
-  return {
-    ...omit(imageDynamicBaseThemeClasses, ["animate", "transitionDuration"]),
-    ...convertVariantsToStyles(variants, imageDynamicBaseThemeClasses),
-    ...omit(themeClasses, ["animate", "transitionDuration"]),
-  };
-};
+): IThemeClasses => ({
+  ...omit(imageDynamicBaseThemeClasses, ["animate", "transitionDuration"]),
+  ...convertVariantsToStyles(variants, imageDynamicBaseThemeClasses),
+  ...omit(themeClasses, ["animate", "transitionDuration"]),
+});

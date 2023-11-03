@@ -30,7 +30,7 @@ const HeaderContainerTv: React.FC<IHeaderContainerTvProps> = ({
         size={ButtonSize.Medium}
         tabIndex={0}
       >
-        CV
+        Resume
       </Button>
 
       <HorizontalLinksWithIcons icons={icons} />

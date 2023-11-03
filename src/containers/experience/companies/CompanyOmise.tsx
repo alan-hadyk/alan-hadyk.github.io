@@ -1,17 +1,11 @@
 import { Company } from "@app/components/organisms/Company/Company";
 
-import { ICompanyProps } from "@app/components/organisms/Company/@types/Company";
 import { iconsWithLabels } from "@app/components/molecules/IconsWithLabels/config";
 import { IconStaticName } from "@app/components/atoms/IconStatic/@types/IconStatic";
-import { invertIcon } from "@app/containers/experience/helpers/invertIcon";
 
-const CompanyOmise: React.FC<Pick<ICompanyProps, "format" | "variant">> = ({
-  format,
-  variant,
-}) => (
+const CompanyOmise: React.FC = () => (
   <Company
     date="August 2018 to March 2021"
-    format={format}
     link="https://www.omise.co/"
     name="Omise"
     projects={[
@@ -47,36 +41,24 @@ const CompanyOmise: React.FC<Pick<ICompanyProps, "format" | "variant">> = ({
             <strong>ensuring robust application reliability</strong>.
           </span>,
         ],
-        techStack: iconsWithLabels
-          .filter(({ iconName }) =>
-            [
-              IconStaticName.JavaScript,
-              IconStaticName.React,
-              IconStaticName.StyledComponents,
-              IconStaticName.Webpack,
-              IconStaticName.JEST,
-              IconStaticName.Enzyme,
-              IconStaticName.ReactTestingLibrary,
-              IconStaticName.Cypress,
-              IconStaticName.Apollo,
-              IconStaticName.GraphQL,
-              IconStaticName.Docker,
-              IconStaticName.Jenkins,
-              IconStaticName.Buildkite,
-              IconStaticName.Basecamp,
-            ].includes(iconName),
-          )
-          .map(
-            invertIcon(
-              [
-                IconStaticName.Apollo,
-                IconStaticName.Basecamp,
-                IconStaticName.Cypress,
-                IconStaticName.StyledComponents,
-              ],
-              format,
-            ),
-          ),
+        techStack: iconsWithLabels.filter(({ iconName }) =>
+          [
+            IconStaticName.JavaScript,
+            IconStaticName.React,
+            IconStaticName.StyledComponents,
+            IconStaticName.Webpack,
+            IconStaticName.JEST,
+            IconStaticName.Enzyme,
+            IconStaticName.ReactTestingLibrary,
+            IconStaticName.Cypress,
+            IconStaticName.Apollo,
+            IconStaticName.GraphQL,
+            IconStaticName.Docker,
+            IconStaticName.Jenkins,
+            IconStaticName.Buildkite,
+            IconStaticName.Basecamp,
+          ].includes(iconName),
+        ),
         title: "Front-End Development",
       },
       {
@@ -93,26 +75,22 @@ const CompanyOmise: React.FC<Pick<ICompanyProps, "format" | "variant">> = ({
             Ruby backend and contributing to various Ruby-based microservices.
           </span>,
         ],
-        techStack: iconsWithLabels
-          .filter(({ iconName }) =>
-            [
-              IconStaticName.JavaScript,
-              IconStaticName.Ruby,
-              IconStaticName.RubyOnRails,
-              IconStaticName.Sinatra,
-              IconStaticName.JEST,
-              IconStaticName.NodeJs,
-              IconStaticName.Express,
-              IconStaticName.Apollo,
-              IconStaticName.GraphQL,
-              IconStaticName.Docker,
-              IconStaticName.Jenkins,
-              IconStaticName.Buildkite,
-            ].includes(iconName),
-          )
-          .map(
-            invertIcon([IconStaticName.Apollo, IconStaticName.Sinatra], format),
-          ),
+        techStack: iconsWithLabels.filter(({ iconName }) =>
+          [
+            IconStaticName.JavaScript,
+            IconStaticName.Ruby,
+            IconStaticName.RubyOnRails,
+            IconStaticName.Sinatra,
+            IconStaticName.JEST,
+            IconStaticName.NodeJs,
+            IconStaticName.Express,
+            IconStaticName.Apollo,
+            IconStaticName.GraphQL,
+            IconStaticName.Docker,
+            IconStaticName.Jenkins,
+            IconStaticName.Buildkite,
+          ].includes(iconName),
+        ),
         title: "Backend Development",
       },
       {
@@ -127,7 +105,6 @@ const CompanyOmise: React.FC<Pick<ICompanyProps, "format" | "variant">> = ({
       },
     ]}
     title="Full-Stack Developer"
-    variant={variant}
   />
 );
 

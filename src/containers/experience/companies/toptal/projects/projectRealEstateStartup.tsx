@@ -1,9 +1,7 @@
 import { IconStaticName } from "@app/components/atoms/IconStatic/@types/IconStatic";
 import { iconsWithLabels } from "@app/components/molecules/IconsWithLabels/config";
-import { ICompanyProps } from "@app/components/organisms/Company/@types/Company";
-import { invertIcon } from "@app/containers/experience/helpers/invertIcon";
 
-export const projectRealEstateStartup = (format: ICompanyProps["format"]) => ({
+export const projectRealEstateStartup = {
   responsibilities: [
     <span key="MVP">
       Built the MVP of a Next.js app aimed at a consumer-focused real estate
@@ -29,29 +27,22 @@ export const projectRealEstateStartup = (format: ICompanyProps["format"]) => ({
       <strong>minimize issues during the QA phase</strong>.
     </span>,
   ],
-  techStack: iconsWithLabels
-    .filter(({ iconName }) =>
-      [
-        IconStaticName.TypeScript,
-        IconStaticName.React,
-        IconStaticName.NextJs,
-        IconStaticName.Tailwind,
-        IconStaticName.Auth0,
-        IconStaticName.JEST,
-        IconStaticName.ReactTestingLibrary,
-        IconStaticName.Apollo,
-        IconStaticName.GraphQL,
-        IconStaticName.Docker,
-        IconStaticName.Axios,
-        IconStaticName.Plaid,
-        IconStaticName.Sentry,
-      ].includes(iconName),
-    )
-    .map(
-      invertIcon(
-        [IconStaticName.Apollo, IconStaticName.Auth0, IconStaticName.NextJs],
-        format,
-      ),
-    ),
+  techStack: iconsWithLabels.filter(({ iconName }) =>
+    [
+      IconStaticName.TypeScript,
+      IconStaticName.React,
+      IconStaticName.NextJs,
+      IconStaticName.Tailwind,
+      IconStaticName.Auth0,
+      IconStaticName.JEST,
+      IconStaticName.ReactTestingLibrary,
+      IconStaticName.Apollo,
+      IconStaticName.GraphQL,
+      IconStaticName.Docker,
+      IconStaticName.Axios,
+      IconStaticName.Plaid,
+      IconStaticName.Sentry,
+    ].includes(iconName),
+  ),
   title: "Real Estate Startup",
-});
+};

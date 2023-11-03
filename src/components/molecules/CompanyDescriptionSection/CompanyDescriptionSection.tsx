@@ -1,36 +1,28 @@
 import { Typography } from "@app/components/atoms/Typography/Typography";
 import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutContainer";
-import {
-  CompanyDescriptionSectionSize,
-  CompanyDescriptionSectionVariant,
-  ICompanyDescriptionSectionProps,
-} from "@app/components/molecules/CompanyDescriptionSection/@types/CompanyDescriptionSection";
-import { useCompanyDescriptionSectionThemeClasses } from "@app/components/molecules/CompanyDescriptionSection/hooks/useCompanyDescriptionSectionThemeClasses";
+import { ICompanyDescriptionSectionProps } from "@app/components/molecules/CompanyDescriptionSection/@types/CompanyDescriptionSection";
+import { companyDescriptionSectionDefaultThemeClasses } from "@app/components/molecules/CompanyDescriptionSection/styles";
 
 const CompanyDescriptionSection: React.FC<ICompanyDescriptionSectionProps> = ({
   children,
-  size = CompanyDescriptionSectionSize.Large,
   themeClasses,
   title,
-  variant = CompanyDescriptionSectionVariant.Blue,
-}) => {
-  const { companyDescriptionSectionThemeClasses } =
-    useCompanyDescriptionSectionThemeClasses({ size, variant });
-
-  return (
-    <LayoutContainer themeClasses={themeClasses}>
-      {title && (
-        <Typography themeClasses={companyDescriptionSectionThemeClasses.title}>
-          {title}
-        </Typography>
-      )}
-      <LayoutContainer
-        themeClasses={companyDescriptionSectionThemeClasses.contentWrapper}
+}) => (
+  <LayoutContainer themeClasses={themeClasses}>
+    {title && (
+      <Typography
+        themeClasses={companyDescriptionSectionDefaultThemeClasses.title}
       >
-        {children}
-      </LayoutContainer>
+        {title}
+      </Typography>
+    )}
+
+    <LayoutContainer
+      themeClasses={companyDescriptionSectionDefaultThemeClasses.contentWrapper}
+    >
+      {children}
     </LayoutContainer>
-  );
-};
+  </LayoutContainer>
+);
 
 export { CompanyDescriptionSection };
