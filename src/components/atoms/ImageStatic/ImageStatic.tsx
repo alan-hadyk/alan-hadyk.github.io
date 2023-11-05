@@ -4,7 +4,7 @@ import { convertObjectValuesToString } from "@app/helpers/objects/convertObjectV
 import { IThemeClasses } from "@app/types/theme";
 import Image from "next/legacy/image";
 
-const ImageStatic: React.FC<IImageStaticProps> = ({
+export const ImageStatic: React.FC<IImageStaticProps> = ({
   alt = "",
   blurDataURL,
   className,
@@ -38,5 +38,3 @@ const ImageStatic: React.FC<IImageStaticProps> = ({
     />
   );
 };
-
-export { ImageStatic };

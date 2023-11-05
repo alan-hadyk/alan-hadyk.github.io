@@ -1,22 +1,23 @@
 import {
   TMapSizeToButtonContainerProps,
-  IMapTypeToButtonContainerProps,
   ButtonSize,
+  ButtonType,
 } from "@app/components/molecules/Button/@types/Button";
 import { IThemeClasses } from "@app/types/theme";
 
-export const mapTypeToButtonContainerProps: IMapTypeToButtonContainerProps = {
-  primary: {
-    backgroundColor: "bg-blue500",
-    borderStyle: "border-none",
-  },
-  secondary: {
-    backgroundColor: "bg-transparent",
-    borderColor: "border-blue500",
-    borderStyle: "border-solid",
-    borderWidth: "border-1",
-  },
-};
+export const mapTypeToButtonContainerProps: Record<ButtonType, IThemeClasses> =
+  {
+    [ButtonType.Primary]: {
+      backgroundColor: "bg-blue500",
+      borderStyle: "border-none",
+    },
+    [ButtonType.Secondary]: {
+      backgroundColor: "bg-transparent",
+      borderColor: "border-blue500",
+      borderStyle: "border-solid",
+      borderWidth: "border-1",
+    },
+  };
 
 export const mapSizeToButtonContainerProps: TMapSizeToButtonContainerProps = {
   [ButtonSize.Large]: {
@@ -31,11 +32,11 @@ export const mapSizeToButtonContainerProps: TMapSizeToButtonContainerProps = {
 };
 
 export const buttonDefaultThemeClasses: IThemeClasses = {
-  active: "active:shadow-activeButton",
+  active: "active:shadow-active-button",
   color: "text-white",
   cursor: "cursor-pointer",
-  focus: "focus:shadow-activeButton",
-  hover: "hover:shadow-activeButton",
+  focus: "focus:shadow-active-button",
+  hover: "hover:shadow-active-button",
   outline: "outline-0",
   position: "relative",
   textTransform: "lowercase",

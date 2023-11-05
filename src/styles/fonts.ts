@@ -1,5 +1,4 @@
-import { Anonymous_Pro } from "next/font/google";
-import localFont from "next/font/local";
+import { Anonymous_Pro, Rajdhani } from "next/font/google";
 
 export const fontAnonymousPro = Anonymous_Pro({
   subsets: ["latin"],
@@ -7,7 +6,8 @@ export const fontAnonymousPro = Anonymous_Pro({
   weight: ["400", "700"],
 });
 
-export const fontExan = localFont({
-  src: [{ path: "../../public/fonts/Exan-400.woff2", weight: "400" }],
-  variable: "--font-exan",
+export const fontRajdhani = Rajdhani({
+  subsets: ["latin"],
+  variable: "--font-rajdhani",
+  weight: ["500"],
 });

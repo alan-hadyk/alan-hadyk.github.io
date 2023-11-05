@@ -4,7 +4,7 @@ import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutCo
 import { IconWithLabelSize } from "@app/components/molecules/IconWithLabel/@types/IconWithLabel";
 import { useIconsWithLabelsThemeClasses } from "@app/components/molecules/IconsWithLabels/hooks/useIconsWithLabelsThemeClasses";
 
-const IconsWithLabels: React.FC<IIconsWithLabelsProps> = ({
+export const IconsWithLabels: React.FC<IIconsWithLabelsProps> = ({
   iconsWithLabels,
   size = IconWithLabelSize.Medium,
   themeClasses,
@@ -17,10 +17,9 @@ const IconsWithLabels: React.FC<IIconsWithLabelsProps> = ({
 
   return (
     <LayoutContainer themeClasses={iconsWithLabelsThemeClasses}>
-      {iconsWithLabels.map(({ iconName, iconVariant, label }) => (
+      {iconsWithLabels.map(({ iconName, label }) => (
         <IconWithLabel
           iconName={iconName}
-          iconVariant={iconVariant}
           key={label}
           label={label}
           size={size}
@@ -31,5 +30,3 @@ const IconsWithLabels: React.FC<IIconsWithLabelsProps> = ({
     </LayoutContainer>
   );
 };
-
-export { IconsWithLabels };

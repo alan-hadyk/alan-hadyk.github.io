@@ -1,16 +1,6 @@
 import { test, expect } from "@playwright/test";
-import { apiGithubCom } from "../mock/apiGithubCom";
 
 test.beforeEach(async ({ page }) => {
-  await page.route(
-    "https://api.github.com/repos/alan-hadyk/portfolio/commits",
-    async (route) => {
-      const json = apiGithubCom["repos/alan-hadyk/portfolio/commits"];
-
-      await route.fulfill({ json });
-    },
-  );
-
   await page.goto("/no-header");
 
   const sizes = await page.evaluate(() => {
@@ -33,15 +23,6 @@ test.describe("Experience", () => {
       width: 1921,
     });
 
-    await page.locator("#contact").scrollIntoViewIfNeeded();
-    await page.locator("#contact").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-    await page.waitForLoadState("networkidle");
-    await page.waitForSelector("#AlanHadyk");
-
     await expect(page.locator("#experience")).toHaveScreenshot({
       animations: "disabled",
       omitBackground: true,
@@ -54,16 +35,6 @@ test.describe("Experience", () => {
       height: 1080,
       width: 1700,
     });
-
-    await page.locator("#contact").scrollIntoViewIfNeeded();
-    await page.locator("#contact").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-    await page.waitForLoadState("networkidle");
-
-    await page.waitForSelector("#AlanHadyk");
 
     await expect(page.locator("#experience")).toHaveScreenshot({
       animations: "disabled",
@@ -78,16 +49,7 @@ test.describe("Experience", () => {
       width: 1300,
     });
 
-    await page.locator("#contact").scrollIntoViewIfNeeded();
-    await page.locator("#contact").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-    await page.waitForLoadState("networkidle");
-
     await page.locator("#experience").scrollIntoViewIfNeeded();
-    await page.waitForSelector("#AlanHadyk");
 
     await expect(page.locator("#experience")).toHaveScreenshot({
       animations: "disabled",
@@ -102,16 +64,7 @@ test.describe("Experience", () => {
       width: 1000,
     });
 
-    await page.locator("#contact").scrollIntoViewIfNeeded();
-    await page.locator("#contact").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-    await page.waitForLoadState("networkidle");
-
     await page.locator("#experience").scrollIntoViewIfNeeded();
-    await page.waitForSelector("#AlanHadyk");
 
     await expect(page.locator("#experience")).toHaveScreenshot({
       animations: "disabled",
@@ -126,16 +79,7 @@ test.describe("Experience", () => {
       width: 650,
     });
 
-    await page.locator("#contact").scrollIntoViewIfNeeded();
-    await page.locator("#contact").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-    await page.waitForLoadState("networkidle");
-
     await page.locator("#experience").scrollIntoViewIfNeeded();
-    await page.waitForSelector("#AlanHadyk");
 
     await expect(page.locator("#experience")).toHaveScreenshot({
       animations: "disabled",

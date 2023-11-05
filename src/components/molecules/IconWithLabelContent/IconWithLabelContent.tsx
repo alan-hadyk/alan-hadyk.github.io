@@ -9,14 +9,13 @@ import {
 import { useIconWithLabelContentThemeClasses } from "@app/components/molecules/IconWithLabelContent/hooks/useIconWithLabelContentThemeClasses";
 import { iconWithLabelContentDefaultThemeClasses } from "@app/components/molecules/IconWithLabelContent/styles";
 
-const IconWithLabelContent: React.FC<IIconWithLabelContentProps> = ({
+export const IconWithLabelContent: React.FC<IIconWithLabelContentProps> = ({
   iconName,
-  iconVariant,
   isHoverable,
   label,
   size = IconWithLabelContentSize.Medium,
   themeClasses,
-  variant = IconWithLabelContentVariant.Blue,
+  variant = IconWithLabelContentVariant.LightBlue,
 }) => {
   const {
     iconWithLabelContentIconThemeClasses,
@@ -37,7 +36,6 @@ const IconWithLabelContent: React.FC<IIconWithLabelContentProps> = ({
         <IconStatic
           themeClasses={iconWithLabelContentIconThemeClasses}
           iconName={iconName}
-          variant={iconVariant}
         />
       </LayoutContainer>
 
@@ -50,5 +48,3 @@ const IconWithLabelContent: React.FC<IIconWithLabelContentProps> = ({
     </LayoutContainer>
   );
 };
-
-export { IconWithLabelContent };

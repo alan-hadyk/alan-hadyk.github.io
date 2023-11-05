@@ -1,30 +1,9 @@
-import {
-  IListItemProps,
-  ListItemSize,
-  ListItemVariant,
-} from "@app/components/atoms/ListItem/@types/ListItem";
+import { IListItemProps } from "@app/components/atoms/ListItem/@types/ListItem";
 import { convertObjectValuesToString } from "@app/helpers/objects/convertObjectValuesToString";
-import {
-  mapListItemSizeToStyles,
-  mapListItemVariantToStyles,
-} from "@app/components/atoms/ListItem/styles";
-import { IThemeClasses } from "@app/types/theme";
+import { listItemDefaultThemeClasses } from "@app/components/atoms/ListItem/styles";
 
-const ListItem: React.FC<IListItemProps> = ({
-  children,
-  size = ListItemSize.Large,
-  variant = ListItemVariant.Blue,
-}) => {
-  const listItemThemeClasses: IThemeClasses = {
-    ...mapListItemVariantToStyles[variant],
-    ...mapListItemSizeToStyles[size],
-  };
-
-  return (
-    <li className={convertObjectValuesToString(listItemThemeClasses)}>
-      {children}
-    </li>
-  );
-};
-
-export { ListItem };
+export const ListItem: React.FC<IListItemProps> = ({ children }) => (
+  <li className={convertObjectValuesToString(listItemDefaultThemeClasses)}>
+    {children}
+  </li>
+);

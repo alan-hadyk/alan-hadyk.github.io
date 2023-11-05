@@ -1,40 +1,25 @@
-import {
-  CompanyNameFormat,
-  CompanyNameSize,
-  CompanyNameVariant,
-  ICompanyNameProps,
-} from "@app/components/molecules/CompanyName/@types/CompanyName";
+import { CompanyNameFormat } from "@app/components/molecules/CompanyName/@types/CompanyName";
 import {
   companyMobileNameDefaultThemeClasses,
   companyTvDesktopAndTabletNameContainerDefaultThemeClasses,
   companyTvDesktopAndTabletNameDefaultThemeClasses,
-  mapCompanyNameSizeToContainerStyles,
-  mapCompanyNameSizeToNameStyles,
-  mapCompanyNameVariantToStyles,
+  mapCompanyNameFormatToStyles,
 } from "@app/components/molecules/CompanyName/styles";
 import { IThemeClasses } from "@app/types/theme";
 
-const useCompanyNameThemeClasses = ({
-  size = CompanyNameSize.Large,
-  variant = CompanyNameVariant.Light,
-}: Pick<ICompanyNameProps, "size" | "variant">) => {
+const useCompanyNameThemeClasses = () => {
   const companyTvDesktopAndTabletNameThemeClasses: IThemeClasses = {
     ...companyTvDesktopAndTabletNameDefaultThemeClasses,
-    ...mapCompanyNameSizeToNameStyles[size][
-      CompanyNameFormat.TvDesktopAndTablet
-    ],
-    ...mapCompanyNameVariantToStyles[variant],
+    ...mapCompanyNameFormatToStyles[CompanyNameFormat.TvDesktopAndTablet],
   };
 
   const companyMobileNameThemeClasses: IThemeClasses = {
     ...companyMobileNameDefaultThemeClasses,
-    ...mapCompanyNameSizeToNameStyles[size][CompanyNameFormat.Mobile],
-    ...mapCompanyNameVariantToStyles[variant],
+    ...mapCompanyNameFormatToStyles[CompanyNameFormat.Mobile],
   };
 
   const companyTvDesktopAndTabletNameContainerThemeClasses: IThemeClasses = {
     ...companyTvDesktopAndTabletNameContainerDefaultThemeClasses,
-    ...mapCompanyNameSizeToContainerStyles[size],
   };
 
   return {

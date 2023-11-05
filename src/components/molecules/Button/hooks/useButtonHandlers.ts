@@ -1,4 +1,3 @@
-"use client";
 import { IButtonProps } from "@app/components/molecules/Button/@types/Button";
 import { useCallback, useState } from "react";
 import { isMobile } from "react-device-detect";

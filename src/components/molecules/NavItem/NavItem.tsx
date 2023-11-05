@@ -1,5 +1,3 @@
-"use client";
-
 import { Line } from "@app/components/atoms/Line/Line";
 import { INavItemProps } from "@app/components/molecules/NavItem/@types/NavItem";
 import { LineDirection } from "@app/components/atoms/Line/@types/Line";
@@ -8,7 +6,7 @@ import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutCo
 import { convertObjectValuesToString } from "@app/helpers/objects/convertObjectValuesToString";
 import { useNavItemThemeClasses } from "@app/components/molecules/NavItem/hooks/useNavItemThemeClasses";
 
-const NavItem: React.FC<INavItemProps> = ({
+export const NavItem: React.FC<INavItemProps> = ({
   href,
   isActive = false,
   position,
@@ -47,5 +45,3 @@ const NavItem: React.FC<INavItemProps> = ({
     </LayoutContainer>
   );
 };
-
-export { NavItem };

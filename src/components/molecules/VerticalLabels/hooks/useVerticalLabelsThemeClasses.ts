@@ -1,38 +1,28 @@
-import {
-  IVerticalLabelsProps,
-  VerticalLabelsSize,
-  VerticalLabelsVariant,
-} from "@app/components/molecules/VerticalLabels/@types/VerticalLabels";
-import {
-  mapSizeToHeight,
-  mapSizeToLabelStyles,
-  mapSizeToLabelsWrapperStyles,
-  mapVerticalLabelsVariantToLabelStyles,
-  verticalLabelsDefaultThemeClasses,
-} from "@app/components/molecules/VerticalLabels/styles";
+import { IVerticalLabelsProps } from "@app/components/molecules/VerticalLabels/@types/VerticalLabels";
+import { verticalLabelsDefaultThemeClasses } from "@app/components/molecules/VerticalLabels/styles";
 import { IThemeClasses } from "@app/types/theme";
 
 export const useVerticalLabelsThemeClasses = ({
-  size = VerticalLabelsSize.Medium,
   themeClasses,
-  variant = VerticalLabelsVariant.Blue,
-}: Pick<IVerticalLabelsProps, "size" | "themeClasses" | "variant">) => {
+}: Pick<IVerticalLabelsProps, "themeClasses">) => {
   const verticalLabelsThemeClasses: Record<
     "label" | "labelContainer" | "labelsWrapper",
     IThemeClasses
   > = {
     label: {
-      ...mapVerticalLabelsVariantToLabelStyles[variant],
-      ...mapSizeToLabelStyles[size],
-      height: mapSizeToHeight[size],
+      color: "text-blue100",
+      fontSize: "text-20",
+      height: "h-32",
+      lineHeight: "leading-32",
       ...themeClasses?.label,
     },
     labelContainer: {
-      height: mapSizeToHeight[size],
+      height: "h-32",
     },
     labelsWrapper: {
       ...verticalLabelsDefaultThemeClasses.labelsWrapper,
-      ...mapSizeToLabelsWrapperStyles[size],
+      flex: "flex-[0_0_75%]",
+      gap: "gap-12",
     },
   };
 

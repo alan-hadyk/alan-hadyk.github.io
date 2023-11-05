@@ -10,10 +10,6 @@ import { useContentFrameWithIconsThemeClasses } from "@app/components/molecules/
 import { mapContentFrameWithIconsVariantToContentFrameProps } from "@app/components/molecules/ContentFrameWithIcons/config";
 import { VerticalIconsWithLabels } from "@app/components/molecules/VerticalIconsWithLabels/VerticalIconsWithLabels";
 import {
-  VerticalIconsWithLabelsSize,
-  VerticalIconsWithLabelsVariant,
-} from "@app/components/molecules/VerticalIconsWithLabels/@types/VerticalIconsWithLabels";
-import {
   IconWithLabelSize,
   IconWithLabelVariant,
 } from "@app/components/molecules/IconWithLabel/@types/IconWithLabel";
@@ -40,14 +36,12 @@ const ContentFrameWithIcons: React.FC<IContentFrameWithIconsProps> = ({
         {variant === ContentFrameWithIconsVariant.Full ? (
           <VerticalIconsWithLabels
             iconsWithLabels={iconsWithLabels}
-            size={VerticalIconsWithLabelsSize.Medium}
-            variant={VerticalIconsWithLabelsVariant.Blue}
             themeClasses={contentFrameWithIconsThemeClasses.iconsWithLabels}
           />
         ) : (
           <IconsWithLabels
             iconsWithLabels={iconsWithLabels}
-            size={IconWithLabelSize.ExtraSmall}
+            size={IconWithLabelSize.Small}
             variant={IconWithLabelVariant.White}
             themeClasses={contentFrameWithIconsThemeClasses.iconsWithLabels}
           />

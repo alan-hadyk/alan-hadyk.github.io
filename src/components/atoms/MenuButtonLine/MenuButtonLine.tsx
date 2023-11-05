@@ -2,7 +2,7 @@ import { IMenuButtonLineProps } from "@app/components/atoms/MenuButtonLine/@type
 import { useMenuButtonLineThemeClasses } from "@app/components/atoms/MenuButtonLine/hooks/useMenuButtonLineThemeClasses";
 import { convertObjectValuesToString } from "@app/helpers/objects/convertObjectValuesToString";
 
-const MenuButtonLine = ({ isOpen }: IMenuButtonLineProps) => {
+export const MenuButtonLine: React.FC<IMenuButtonLineProps> = ({ isOpen }) => {
   const { menuButtonLineThemeClasses } = useMenuButtonLineThemeClasses({
     isOpen,
   });
@@ -11,5 +11,3 @@ const MenuButtonLine = ({ isOpen }: IMenuButtonLineProps) => {
     <span className={convertObjectValuesToString(menuButtonLineThemeClasses)} />
   );
 };
-
-export { MenuButtonLine };

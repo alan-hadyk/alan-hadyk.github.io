@@ -1,26 +1,12 @@
-import {
-  IVerticalIconsWithLabelsProps,
-  VerticalIconsWithLabelsSize,
-  VerticalIconsWithLabelsVariant,
-} from "@app/components/molecules/VerticalIconsWithLabels/@types/VerticalIconsWithLabels";
+import { IVerticalIconsWithLabelsProps } from "@app/components/molecules/VerticalIconsWithLabels/@types/VerticalIconsWithLabels";
 import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutContainer";
 import { verticalIconsWithLabelsDefaultThemeClasses } from "@app/components/molecules/VerticalIconsWithLabels/styles";
 import { VerticalIcons } from "@app/components/molecules/VerticalIcons/VerticalIcons";
-import {
-  mapVerticalIconsWithLabelsSizeToVerticalIconsSize,
-  mapVerticalIconsWithLabelsSizeToVerticalLabelsSize,
-  mapVerticalIconsWithLabelsVariantToVerticalLabelsVariant,
-} from "@app/components/molecules/VerticalIconsWithLabels/config";
 import { VerticalLabels } from "@app/components/molecules/VerticalLabels/VerticalLabels";
 
 export const VerticalIconsWithLabels: React.FC<
   IVerticalIconsWithLabelsProps
-> = ({
-  iconsWithLabels,
-  size = VerticalIconsWithLabelsSize.Medium,
-  themeClasses,
-  variant = VerticalIconsWithLabelsVariant.Blue,
-}) => {
+> = ({ iconsWithLabels, themeClasses }) => {
   const icons = iconsWithLabels.map(({ iconName }) => iconName);
 
   return (
@@ -30,19 +16,9 @@ export const VerticalIconsWithLabels: React.FC<
         ...themeClasses?.wrapper,
       }}
     >
-      <VerticalIcons
-        icons={icons}
-        size={mapVerticalIconsWithLabelsSizeToVerticalIconsSize[size]}
-      />
+      <VerticalIcons icons={icons} />
 
-      <VerticalLabels
-        labels={iconsWithLabels}
-        size={mapVerticalIconsWithLabelsSizeToVerticalLabelsSize[size]}
-        themeClasses={themeClasses}
-        variant={
-          mapVerticalIconsWithLabelsVariantToVerticalLabelsVariant[variant]
-        }
-      />
+      <VerticalLabels labels={iconsWithLabels} themeClasses={themeClasses} />
     </LayoutContainer>
   );
 };

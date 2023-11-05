@@ -1,5 +1,5 @@
 import "@app/styles/global.css";
-import { fontAnonymousPro, fontExan } from "@app/styles/fonts";
+import { fontAnonymousPro, fontRajdhani } from "@app/styles/fonts";
 import { IRootLayoutProps } from "@app/app/@types/layout";
 
 const RootLayout: React.FC<IRootLayoutProps> = ({ children }) => (
@@ -7,7 +7,6 @@ const RootLayout: React.FC<IRootLayoutProps> = ({ children }) => (
     <head>
       <link rel="preconnect" href="https://api.github.com" />
 
-      <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="icon" href="/favicon.ico" />
       <link
@@ -42,7 +41,7 @@ const RootLayout: React.FC<IRootLayoutProps> = ({ children }) => (
       <meta name="theme-color" content="#22272a" />
     </head>
 
-    <body className={`${fontExan.variable} ${fontAnonymousPro.variable}`}>
+    <body className={`${fontRajdhani.variable} ${fontAnonymousPro.variable}`}>
       {children}
     </body>
   </html>

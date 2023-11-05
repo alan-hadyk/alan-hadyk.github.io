@@ -1,29 +1,24 @@
 import {
   ISectionTitleProps,
-  SectionTitleSize,
-  SectionTitleVariant,
+  SectionTitleDevice,
 } from "@app/components/molecules/SectionTitle/@types/SectionTitle";
 import {
-  mapSizeToTypographyStyles,
-  mapSizeToWrapperStyles,
-  mapVariantToTypographyStyles,
+  mapDeviceToTitleTypographyStyles,
+  mapDeviceToWrapperStyles,
   sectionTitleTypographyDefaultThemeClasses,
 } from "@app/components/molecules/SectionTitle/styles";
 
 const useSectionTitleThemeClasses = ({
-  size = SectionTitleSize.Large,
   themeClasses,
-  variant = SectionTitleVariant.Blue,
-}: Pick<ISectionTitleProps, "size" | "themeClasses" | "variant">) => {
+}: Pick<ISectionTitleProps, "themeClasses">) => {
   const sectionTitleMobileThemeClasses: ISectionTitleProps["themeClasses"] = {
     title: {
       ...sectionTitleTypographyDefaultThemeClasses,
-      ...mapSizeToTypographyStyles[size]["mobile"],
-      ...mapVariantToTypographyStyles[variant],
+      ...mapDeviceToTitleTypographyStyles[SectionTitleDevice.Mobile],
       ...themeClasses?.title,
     },
     wrapper: {
-      ...mapSizeToWrapperStyles[size]["mobile"],
+      ...mapDeviceToWrapperStyles[SectionTitleDevice.Mobile],
       ...themeClasses?.wrapper,
     },
   };
@@ -32,12 +27,13 @@ const useSectionTitleThemeClasses = ({
     {
       title: {
         ...sectionTitleTypographyDefaultThemeClasses,
-        ...mapSizeToTypographyStyles[size]["tvDesktopAndTablet"],
-        ...mapVariantToTypographyStyles[variant],
+        ...mapDeviceToTitleTypographyStyles[
+          SectionTitleDevice.TvDesktopAndTablet
+        ],
         ...themeClasses?.title,
       },
       wrapper: {
-        ...mapSizeToWrapperStyles[size]["tvDesktopAndTablet"],
+        ...mapDeviceToWrapperStyles[SectionTitleDevice.TvDesktopAndTablet],
         ...themeClasses?.wrapper,
       },
     };

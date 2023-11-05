@@ -1,5 +1,3 @@
-"use client";
-
 import { NavItem } from "@app/components/molecules/NavItem/NavItem";
 import {
   INavItemProps,
@@ -12,7 +10,7 @@ import { useNavState } from "@app/components/molecules/Nav/hooks/useNavState";
 import { IThemeClasses } from "@app/types/theme";
 import { navDefaultThemeClasses } from "@app/components/molecules/Nav/styles";
 
-const Nav: React.FC<INavProps> = ({
+export const Nav: React.FC<INavProps> = ({
   navItems,
   position = NavItemPosition.Horizontal,
 }) => {
@@ -45,5 +43,3 @@ const Nav: React.FC<INavProps> = ({
     </LayoutContainer>
   );
 };
-
-export { Nav };

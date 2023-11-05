@@ -51,7 +51,7 @@ const useContentFrameThemeClasses = ({
       : {}),
     ...(variant !== ContentFrameVariant.Empty && {
       background: [
-        "bg-crossImg",
+        "bg-cross-img",
         "bg-center",
         "bg-repeat-space",
         "bg-[length:3.2rem_3.2rem]",

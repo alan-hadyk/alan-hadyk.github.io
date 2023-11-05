@@ -6,7 +6,10 @@ import {
 import { responsiveDefaultThemeClasses } from "@app/components/layout/Responsive/styles";
 import { IThemeClasses } from "@app/types/theme";
 
-const Responsive: React.FC<IResponsiveProps> = ({ children, devices }) => {
+export const Responsive: React.FC<IResponsiveProps> = ({
+  children,
+  devices,
+}) => {
   const responsiveThemeClasses: IThemeClasses = {
     ...responsiveDefaultThemeClasses,
     pseudoClasses: [
@@ -23,5 +26,3 @@ const Responsive: React.FC<IResponsiveProps> = ({ children, devices }) => {
     </LayoutContainer>
   );
 };
-
-export { Responsive };

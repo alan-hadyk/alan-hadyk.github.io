@@ -6,7 +6,10 @@ import {
   mapConsoleTextVariantToStyles,
 } from "@app/components/atoms/ConsoleText/styles";
 
-const ConsoleText: React.FC<IConsoleTextProps> = ({ children, variant }) => {
+export const ConsoleText: React.FC<IConsoleTextProps> = ({
+  children,
+  variant,
+}) => {
   const consoleTextThemeClasses: IThemeClasses = {
     ...consoleTextDefaultThemeClasses,
     ...mapConsoleTextVariantToStyles[variant],
@@ -21,5 +24,3 @@ const ConsoleText: React.FC<IConsoleTextProps> = ({ children, variant }) => {
 
   return <div className={consoleTexClassNames.join(" ")}>{children}</div>;
 };
-
-export { ConsoleText };

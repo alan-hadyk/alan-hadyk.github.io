@@ -13,7 +13,7 @@ import {
 } from "@app/components/molecules/Hexagon/styles";
 import { getHexagonImageProps } from "@app/components/molecules/Hexagon/helpers/getHexagonImageProps";
 
-const Hexagon: React.FC<IHexagonProps> = ({
+export const Hexagon: React.FC<IHexagonProps> = ({
   children,
   fill = HexagonFill.None,
   themeClasses,
@@ -47,5 +47,3 @@ const Hexagon: React.FC<IHexagonProps> = ({
     </LayoutContainer>
   );
 };
-
-export { Hexagon };

@@ -1,27 +1,12 @@
-"use client";
 import { ImageDynamicName } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 import { ContentFrameVariant } from "@app/components/molecules/ContentFrame/@types/ContentFrame";
 import { ContentFrame } from "@app/components/molecules/ContentFrame/ContentFrame";
 import { Error } from "@app/components/molecules/Error/Error";
-import { LazyLoadingWrapper } from "@app/components/layout/LazyLoadingWrapper/LazyLoadingWrapper";
-import { lazy } from "react";
+import { ImageDynamic } from "@app/components/atoms/ImageDynamic/ImageDynamic";
+import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutContainer";
 
-const ImageDynamic = lazy(() =>
-  import("@app/components/atoms/ImageDynamic/ImageDynamic").then((module) => ({
-    default: module.ImageDynamic,
-  })),
-);
-
-const LayoutContainer = lazy(() =>
-  import("@app/components/layout/LayoutContainer/LayoutContainer").then(
-    (module) => ({
-      default: module.LayoutContainer,
-    }),
-  ),
-);
-
-const NotFoundContainer: React.FC = () => (
-  <LazyLoadingWrapper>
+export const NotFoundContainer: React.FC = () => (
+  <>
     <ImageDynamic
       imageName={ImageDynamicName.Logo}
       themeClasses={{
@@ -46,7 +31,5 @@ const NotFoundContainer: React.FC = () => (
         <Error title="404" description="Page not found" />
       </ContentFrame>
     </LayoutContainer>
-  </LazyLoadingWrapper>
+  </>
 );
-
-export { NotFoundContainer };

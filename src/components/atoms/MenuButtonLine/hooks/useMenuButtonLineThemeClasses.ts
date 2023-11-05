@@ -25,6 +25,7 @@ const useMenuButtonLineThemeClasses = ({
         : []),
     ],
   };
+
   return {
     menuButtonLineThemeClasses,
   };

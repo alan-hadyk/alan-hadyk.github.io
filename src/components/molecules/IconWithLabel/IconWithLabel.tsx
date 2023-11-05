@@ -14,15 +14,14 @@ import {
 import { mapSizeToIconHeight } from "@app/components/molecules/IconWithLabelContent/styles";
 import { useIconWithLabelThemeClasses } from "@app/components/molecules/IconWithLabel/hooks/useIconWithLabelThemeClasses";
 
-const IconWithLabel: React.FC<IIconWithLabelProps> = ({
+export const IconWithLabel: React.FC<IIconWithLabelProps> = ({
   href,
   iconName,
-  iconVariant,
   isExternal,
   label,
   size = IconWithLabelSize.Medium,
   themeClasses,
-  variant = IconWithLabelVariant.Blue,
+  variant = IconWithLabelVariant.LightBlue,
 }) => {
   const { iconWithLabelContentThemeClasses } = useIconWithLabelThemeClasses({
     href,
@@ -31,7 +30,6 @@ const IconWithLabel: React.FC<IIconWithLabelProps> = ({
 
   const iconWithLabelContentProps: IIconWithLabelContentProps = {
     iconName,
-    iconVariant,
     isHoverable: !!href,
     label,
     size: mapIconWithLabelSizeToIconWithLabelContentSize[size],
@@ -53,5 +51,3 @@ const IconWithLabel: React.FC<IIconWithLabelProps> = ({
     <IconWithLabelContent {...iconWithLabelContentProps} />
   );
 };
-
-export { IconWithLabel };

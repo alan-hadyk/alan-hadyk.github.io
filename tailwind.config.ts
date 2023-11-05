@@ -74,14 +74,11 @@ const tailwindConfig = {
   ],
   theme: {
     animation: {
-      "blink-default": "blink 300ms ease-in-out infinite",
-      "blink-slow": "blink 900ms ease-in-out infinite",
       "glow-slow": "glow 900ms ease-in-out infinite",
-      "glow-verySlow": "glow 3600ms ease-in-out infinite",
-      "rotate-slow": "rotate 900ms linear infinite",
+      "glow-very-slow": "glow 3600ms ease-in-out infinite",
     },
     backgroundImage: {
-      crossImg:
+      "cross-img":
         "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAzMyAzMyI+CiAgPGRlZnMvPgogIDxwYXRoIGZpbGw9IiMzMTRFNTMiIGQ9Ik0xMi4zNyAxNi4wOGg4djFoLTh2LTF6Ii8+CiAgPHBhdGggZmlsbD0iIzMxNEU1MyIgZD0iTTE1Ljg3IDIwLjU4di04aDF2OGgtMXoiLz4KPC9zdmc+')",
     },
     borderRadius: {
@@ -92,7 +89,7 @@ const tailwindConfig = {
       thin: "thin",
     },
     boxShadow: {
-      activeButton: "inset 0px 0px 1.6rem 0px rgba(103,210,223,0.5)",
+      "active-button": "inset 0px 0px 1.6rem 0px rgba(103,210,223,0.5)",
       console: "0px 0px .8rem 0px #bcd8db",
       line: "0px 0px .4rem 0px #bcd8db",
     },
@@ -105,9 +102,7 @@ const tailwindConfig = {
 
       // Blue
       blue100: "#bcd8db",
-      blue200: "#67d2df",
       blue300: "#78b0b5",
-      blue400: "#526065",
       blue500: "#2b595e",
       blue600: "#22272a",
       blue700: "#1e2224",
@@ -125,7 +120,7 @@ const tailwindConfig = {
     },
     fontFamily: {
       anonymousPro: ["var(--font-anonymous-pro)", "monospace", "sans-serif"],
-      exan: ["var(--font-exan)", "monospace", "sans-serif"],
+      rajdhani: ["var(--font-rajdhani)", "monospace", "sans-serif"],
     },
     fontSize: {
       0: "0",
@@ -146,20 +141,11 @@ const tailwindConfig = {
       normal: "400",
     },
     keyframes: {
-      blink: {
-        "0%": { opacity: "1" },
-        "50%": { opacity: "0" },
-        "100%": { opacity: "1" },
-      },
       glow: {
         "0%": { filter: "drop-shadow(0px 0px 0px #bcd8db)", opacity: "0.99" },
         "16%": { filter: "drop-shadow(0px 0px 0.25rem #bcd8db)" },
         "32%": { filter: "drop-shadow(0px 0px 0px #bcd8db)" },
         "100%": { filter: "drop-shadow(0px 0px 0px #bcd8db)", opacity: "1" },
-      },
-      rotate: {
-        "0%": { transform: "rotate(0deg)" },
-        "100%": { transform: "rotate(360deg)" },
       },
     },
     lineHeight: {

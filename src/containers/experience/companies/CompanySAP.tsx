@@ -1,82 +1,72 @@
 import { Company } from "@app/components/organisms/Company/Company";
 
-import { ICompanyProps } from "@app/components/organisms/Company/@types/Company";
 import { IconStaticName } from "@app/components/atoms/IconStatic/@types/IconStatic";
 import { iconsWithLabels } from "@app/components/molecules/IconsWithLabels/config";
-import { invertIcon } from "@app/containers/experience/helpers/invertIcon";
 
-const CompanySAP: React.FC<Pick<ICompanyProps, "format" | "variant">> = ({
-  format,
-  variant,
-}) => {
-  const icons = iconsWithLabels
-    .filter(({ iconName }) =>
-      [
-        IconStaticName.Gulp,
-        IconStaticName.HTML,
-        IconStaticName.CSS,
-        IconStaticName.JavaScript,
-        IconStaticName.CoffeeScript,
-        IconStaticName.React,
-        IconStaticName.Redux,
-        IconStaticName.CSSModules,
-        IconStaticName.Webpack,
-        IconStaticName.NodeJs,
-        IconStaticName.Docpad,
-        IconStaticName.JEST,
-        IconStaticName.AirBnb,
-        IconStaticName.Jira,
-        IconStaticName.Stash,
-        IconStaticName.Bamboo,
-      ].includes(iconName),
-    )
-    .map(
-      invertIcon(
-        [IconStaticName.CSSModules, IconStaticName.CoffeeScript],
-        format,
-      ),
-    );
+const CompanySAP: React.FC = () => {
+  const techStack = iconsWithLabels.filter(({ iconName }) =>
+    [
+      IconStaticName.Gulp,
+      IconStaticName.JavaScript,
+      IconStaticName.CoffeeScript,
+      IconStaticName.React,
+      IconStaticName.Redux,
+      IconStaticName.CSSModules,
+      IconStaticName.Webpack,
+      IconStaticName.Docpad,
+      IconStaticName.JEST,
+      IconStaticName.Enzyme,
+    ].includes(iconName),
+  );
 
   return (
     <Company
       date="November 2015 to May 2017"
-      format={format}
-      iconsWithLabels={icons}
       link="https://www.sap.com/"
       name="SAP"
-      responsibilities={[
-        <span key="Facilitated">
-          Facilitated UI development and monitoring across various projects,{" "}
-          <strong>improving cross-team communication by 30%</strong> and
-          ensuring timely delivery of features.
-        </span>,
-        <span key="Implemented">
-          Implemented Agile methodologies across projects, resulting in a{" "}
-          <strong>
-            20% increase in development efficiency and adaptability
-          </strong>
-          .
-        </span>,
-        <span key="Delivered">
-          Delivered university lectures, sharing expertise and contributing to
-          the education of future industry professionals.
-        </span>,
-        <span key="Guided">
-          Guided team members through rapidly evolving digital technology
-          landscapes,{" "}
-          <strong>
-            boosting team comprehension of JavaScript frameworks by 30%
-          </strong>
-          .
-        </span>,
-        <span key="Enabled">
-          Enabled the product team to access valuable data sources and develop
-          innovative features,{" "}
-          <strong>increasing customer satisfaction by 25%</strong>.
-        </span>,
+      projects={[
+        {
+          techStack,
+        },
+        {
+          responsibilities: [
+            <span key="Integral">
+              Ensured{" "}
+              <strong>streamlined content production and consistency</strong> as
+              an integral member of a team, enabling standardized Markdown
+              documentation for YaaS microservices.
+            </span>,
+            <span key="Played">
+              Boosted <strong>efficiency in content deployment</strong> by
+              participating in automation of the integration of Markdown
+              documents into microservice documentation via DocPad.
+            </span>,
+            <span key="development">
+              Drove{" "}
+              <strong>
+                stakeholder engagement and information accessibility
+              </strong>{" "}
+              as the main front-end developer of the Business Portal, a
+              centralized documentation platform, making pivotal choices related
+              to front-end technologies.
+            </span>,
+          ],
+          title: "Project Contribution",
+        },
+        {
+          responsibilities: [
+            <span key="Contributed">
+              Contributed to the &quot;Hack Your Career&quot; program by
+              delivering university lectures on HTML, CSS, and JavaScript. This
+              initiative indirectly{" "}
+              <strong>facilitated the recruitment of talented interns</strong>{" "}
+              for the company.
+            </span>,
+          ],
+          title: "Education and Outreach",
+        },
       ]}
-      title="Front-End Developer"
-      variant={variant}
+      position="Front-End Developer"
     />
   );
 };

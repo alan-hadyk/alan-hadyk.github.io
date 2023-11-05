@@ -12,7 +12,9 @@ export const cicdCategory = {
       IconStaticName.Docker,
       IconStaticName.GitLab,
       IconStaticName.Stash,
+      IconStaticName.DigitalOcean,
+      IconStaticName.Netlify,
     ].includes(iconName),
   ),
-  title: "CI / CD",
+  title: "Infrastructure & CI/CD",
 };

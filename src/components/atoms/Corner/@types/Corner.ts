@@ -14,15 +14,9 @@ export enum CornerPosition {
   BottomRight,
 }
 
-export enum CornerVariant {
-  Dark,
-  Light,
-}
-
 export interface ICornerProps {
   isActive?: boolean;
   position: CornerPosition;
-  variant?: CornerVariant;
 }
 export type TMapPositionToCornerProps = Record<
   CornerPosition,

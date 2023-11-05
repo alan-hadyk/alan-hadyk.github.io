@@ -7,7 +7,7 @@ import { convertObjectValuesToString } from "@app/helpers/objects/convertObjectV
 import { IThemeClasses } from "@app/types/theme";
 import NextLink from "next/link";
 
-const Link: React.FC<ILinkProps> = ({
+export const Link: React.FC<ILinkProps> = ({
   children,
   href,
   isExternal = false,
@@ -44,5 +44,3 @@ const Link: React.FC<ILinkProps> = ({
     </NextLink>
   );
 };
-
-export { Link };

@@ -4,7 +4,6 @@ import { TSVGIcon } from "@app/types/svg";
 
 export enum IconStaticName {
   AfterEffects = "afterEffects",
-  AirBnb = "airbnb",
   Apollo = "apollo",
   Auth0 = "auth0",
   Axios = "axios",
@@ -18,10 +17,12 @@ export enum IconStaticName {
   CoffeeScript = "coffeeScript",
   CorelDraw = "corelDraw",
   Cypress = "cypress",
+  DigitalOcean = "digitalOcean",
   Docker = "docker",
   Docpad = "docpad",
   Ember = "ember",
   Envelope = "envelope",
+  Enzyme = "enzyme",
   Express = "express",
   Figma = "figma",
   Gallery = "gallery",
@@ -42,11 +43,13 @@ export enum IconStaticName {
   Link = "link",
   LinkedIn = "linkedIn",
   NestJs = "nestJs",
+  Netlify = "netlify",
   NextJs = "nextJs",
   NodeJs = "nodeJs",
   Phabricator = "phabricator",
   Photoshop = "photoshop",
   Pin = "pin",
+  Plaid = "plaid",
   Playwright = "playwright",
   Prestashop = "prestashop",
   Prisma = "prisma",
@@ -61,7 +64,9 @@ export enum IconStaticName {
   Redux = "redux",
   Ruby = "ruby",
   RubyOnRails = "rubyOnRails",
+  Rust = "rust",
   Sass = "sass",
+  Sentry = "sentry",
   Sinatra = "sinatra",
   Sketch = "sketch",
   Stash = "stash",
@@ -77,16 +82,10 @@ export enum IconStaticName {
   Zeplin = "zeplin",
 }
 
-export enum IconStaticVariant {
-  Default,
-  Inverted,
-}
-
 export interface IIconStaticProps {
   iconName: IconStaticName;
   style?: CSSProperties;
   themeClasses?: Pick<IThemeClasses, "height" | "overflow" | "width">;
-  variant?: IconStaticVariant;
 }
 
 export type TIconStaticIcons = Record<IIconStaticProps["iconName"], TSVGIcon>;

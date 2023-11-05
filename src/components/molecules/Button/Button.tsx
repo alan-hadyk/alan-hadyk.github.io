@@ -1,8 +1,10 @@
+"use client";
 import { ButtonText } from "@app/components/molecules/ButtonText/ButtonText";
 import { Corners } from "@app/components/molecules/Corners/Corners";
 
 import {
   ButtonSize,
+  ButtonType,
   IButtonProps,
 } from "@app/components/molecules/Button/@types/Button";
 
@@ -16,14 +18,14 @@ import { useButtonThemeClasses } from "@app/components/molecules/Button/hooks/us
 import { useButtonHandlers } from "@app/components/molecules/Button/hooks/useButtonHandlers";
 import { ImageDynamic } from "@app/components/atoms/ImageDynamic/ImageDynamic";
 
-const Button: React.FC<IButtonProps> = ({
+export const Button: React.FC<IButtonProps> = ({
   children,
   iconName,
   iconWidth,
   onClick,
   size = ButtonSize.Medium,
   tabIndex,
-  type = "primary",
+  type = ButtonType.Primary,
   themeClasses,
 }) => {
   const {
@@ -81,5 +83,3 @@ const Button: React.FC<IButtonProps> = ({
     </button>
   );
 };
-
-export { Button };

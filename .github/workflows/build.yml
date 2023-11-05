@@ -2,13 +2,15 @@ name: Build
 
 on: [push]
 
+permissions: read-all
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [18.2.0]
+        node-version: [18.17.0]
 
     steps:
       - name: Checkout

@@ -5,7 +5,7 @@ import { IHexagonWithDescriptionContentProps } from "@app/components/molecules/H
 import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutContainer";
 import { useHexagonWithDescriptionContentThemeClasses } from "@app/components/molecules/HexagonWithDescriptionContent/hooks/useHexagonWithDescriptionContentThemeClasses";
 
-const HexagonWithDescriptionContent: React.FC<
+export const HexagonWithDescriptionContent: React.FC<
   IHexagonWithDescriptionContentProps
 > = ({ children, description, themeClasses }) => {
   const {
@@ -30,5 +30,3 @@ const HexagonWithDescriptionContent: React.FC<
     </LayoutContainer>
   );
 };
-
-export { HexagonWithDescriptionContent };

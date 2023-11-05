@@ -2,23 +2,17 @@ import { Typography } from "@app/components/atoms/Typography/Typography";
 import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutContainer";
 import { Device } from "@app/components/layout/Responsive/@types/Responsive";
 import { Responsive } from "@app/components/layout/Responsive/Responsive";
-import {
-  ISectionTitleProps,
-  SectionTitleSize,
-  SectionTitleVariant,
-} from "@app/components/molecules/SectionTitle/@types/SectionTitle";
+import { ISectionTitleProps } from "@app/components/molecules/SectionTitle/@types/SectionTitle";
 import { useSectionTitleThemeClasses } from "@app/components/molecules/SectionTitle/hooks/useSectionTitleThemeClasses";
 
-const SectionTitle: React.FC<ISectionTitleProps> = ({
+export const SectionTitle: React.FC<ISectionTitleProps> = ({
   children,
-  size = SectionTitleSize.Large,
   themeClasses,
-  variant = SectionTitleVariant.Blue,
 }) => {
   const {
     sectionTitleMobileThemeClasses,
     sectionTitleTvDesktopTabletThemeClasses,
-  } = useSectionTitleThemeClasses({ size, themeClasses, variant });
+  } = useSectionTitleThemeClasses({ themeClasses });
 
   return (
     <>
@@ -44,5 +38,3 @@ const SectionTitle: React.FC<ISectionTitleProps> = ({
     </>
   );
 };
-
-export { SectionTitle };

@@ -1,16 +1,6 @@
 import { test, expect } from "@playwright/test";
-import { apiGithubCom } from "../mock/apiGithubCom";
 
 test.beforeEach(async ({ page }) => {
-  await page.route(
-    "https://api.github.com/repos/alan-hadyk/portfolio/commits",
-    async (route) => {
-      const json = apiGithubCom["repos/alan-hadyk/portfolio/commits"];
-
-      await route.fulfill({ json });
-    },
-  );
-
   await page.goto("/");
 });
 
@@ -20,14 +10,6 @@ test.describe("Header", () => {
       height: 1080,
       width: 1921,
     });
-
-    await page.locator("#contact").scrollIntoViewIfNeeded();
-    await page.locator("#contact").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-    await page.waitForLoadState("networkidle");
 
     await expect(page.locator("#header")).toHaveScreenshot({
       animations: "disabled",
@@ -48,14 +30,6 @@ test.describe("Header", () => {
       width: 1700,
     });
 
-    await page.locator("#contact").scrollIntoViewIfNeeded();
-    await page.locator("#contact").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-    await page.waitForLoadState("networkidle");
-
     await page.locator("#menu-button-desktop").isHidden();
     await page.locator("#side-menu-desktop").isHidden();
 
@@ -74,14 +48,6 @@ test.describe("Header", () => {
       height: 1080,
       width: 1300,
     });
-
-    await page.locator("#contact").scrollIntoViewIfNeeded();
-    await page.locator("#contact").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-    await page.waitForLoadState("networkidle");
 
     await expect(page.locator("#header")).toHaveScreenshot({
       animations: "disabled",
@@ -111,14 +77,6 @@ test.describe("Header", () => {
       width: 1000,
     });
 
-    await page.locator("#contact").scrollIntoViewIfNeeded();
-    await page.locator("#contact").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-    await page.waitForLoadState("networkidle");
-
     await expect(page.locator("#header")).toHaveScreenshot({
       animations: "disabled",
       omitBackground: true,
@@ -146,16 +104,6 @@ test.describe("Header", () => {
       height: 1080,
       width: 650,
     });
-
-    await page.locator("#contact").scrollIntoViewIfNeeded();
-    await page.locator("#contact").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-    await page.waitForLoadState("networkidle");
-
-    await page.waitForTimeout(2000);
 
     await expect(page.locator("#header")).toHaveScreenshot({
       animations: "disabled",

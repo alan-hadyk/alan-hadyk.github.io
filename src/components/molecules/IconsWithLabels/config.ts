@@ -3,7 +3,7 @@ import { IIconsWithLabelsProps } from "@app/components/molecules/IconsWithLabels
 
 export const iconsWithLabels: IIconsWithLabelsProps["iconsWithLabels"] = [
   {
-    iconName: IconStaticName.AirBnb,
+    iconName: IconStaticName.Enzyme,
     label: "Enzyme",
   },
   {
@@ -59,6 +59,10 @@ export const iconsWithLabels: IIconsWithLabelsProps["iconsWithLabels"] = [
     label: "Cypress",
   },
   {
+    iconName: IconStaticName.DigitalOcean,
+    label: "Digital Ocean",
+  },
+  {
     iconName: IconStaticName.Docker,
     label: "Docker",
   },
@@ -88,7 +92,7 @@ export const iconsWithLabels: IIconsWithLabelsProps["iconsWithLabels"] = [
   },
   {
     iconName: IconStaticName.GitHubEnterprise,
-    label: "GitHub Enterprise",
+    label: "GitHub",
   },
   {
     iconName: IconStaticName.GitLab,
@@ -139,6 +143,10 @@ export const iconsWithLabels: IIconsWithLabelsProps["iconsWithLabels"] = [
     label: "NestJS",
   },
   {
+    iconName: IconStaticName.Netlify,
+    label: "Netlify",
+  },
+  {
     iconName: IconStaticName.NodeJs,
     label: "Node.js",
   },
@@ -153,6 +161,10 @@ export const iconsWithLabels: IIconsWithLabelsProps["iconsWithLabels"] = [
   {
     iconName: IconStaticName.Photoshop,
     label: "Photoshop",
+  },
+  {
+    iconName: IconStaticName.Plaid,
+    label: "Plaid",
   },
   {
     iconName: IconStaticName.Playwright,
@@ -188,7 +200,7 @@ export const iconsWithLabels: IIconsWithLabelsProps["iconsWithLabels"] = [
   },
   {
     iconName: IconStaticName.ReactTestingLibrary,
-    label: "React Testing Library",
+    label: "Testing Library",
   },
   {
     iconName: IconStaticName.Redmine,
@@ -211,8 +223,16 @@ export const iconsWithLabels: IIconsWithLabelsProps["iconsWithLabels"] = [
     label: "Ruby on Rails",
   },
   {
+    iconName: IconStaticName.Rust,
+    label: "Rust",
+  },
+  {
     iconName: IconStaticName.Sass,
     label: "Sass",
+  },
+  {
+    iconName: IconStaticName.Sentry,
+    label: "Sentry",
   },
   {
     iconName: IconStaticName.Sinatra,

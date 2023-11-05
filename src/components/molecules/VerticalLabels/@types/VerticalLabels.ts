@@ -7,24 +7,9 @@ interface IVerticalLabel {
   label: string;
 }
 
-export enum VerticalLabelsSize {
-  ExtraSmall,
-  Large,
-  Medium,
-  Small,
-}
-
-export enum VerticalLabelsVariant {
-  Blue,
-  Dark,
-  White,
-}
-
 export interface IVerticalLabelsProps {
   labels: IVerticalLabel[];
-  size?: VerticalLabelsSize;
   themeClasses?: {
     label?: Pick<IThemeClasses, "color">;
   };
-  variant?: VerticalLabelsVariant;
 }

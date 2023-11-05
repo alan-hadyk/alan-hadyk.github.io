@@ -8,7 +8,7 @@ import { IThemeClasses, TGap } from "@app/types/theme";
 export interface IIconsWithLabelsProps {
   iconsWithLabels: Pick<
     IIconWithLabelProps,
-    "href" | "iconName" | "iconVariant" | "isExternal" | "label"
+    "href" | "iconName" | "isExternal" | "label"
   >[];
   size?: IIconWithLabelProps["size"];
   themeClasses?: {

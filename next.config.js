@@ -4,10 +4,6 @@ const nextConfig = {
     reactRemoveProperties: true,
   },
 
-  experimental: {
-    appDir: true,
-  },
-
   modularizeImports: {
     lodash: {
       preventFullImport: true,

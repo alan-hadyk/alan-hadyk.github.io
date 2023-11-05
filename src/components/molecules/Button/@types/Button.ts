@@ -10,6 +10,11 @@ export enum ButtonSize {
   Large,
 }
 
+export enum ButtonType {
+  Primary,
+  Secondary,
+}
+
 export interface IButtonProps {
   children: string;
   iconName?: Extract<
@@ -21,23 +26,10 @@ export interface IButtonProps {
   size?: ButtonSize;
   tabIndex?: number;
   themeClasses?: Pick<IThemeClasses, "width">;
-  type?: "primary" | "secondary";
+  type?: ButtonType;
 }
 
 export type TMapSizeToButtonContainerProps = Record<
   ButtonSize,
   Pick<IThemeClasses, "height">
 >;
-
-export interface IMapTypeToButtonContainerProps {
-  primary: {
-    backgroundColor: IThemeClasses["backgroundColor"];
-    borderStyle: IThemeClasses["borderStyle"];
-  };
-  secondary: {
-    backgroundColor: IThemeClasses["backgroundColor"];
-    borderColor: IThemeClasses["borderColor"];
-    borderStyle: IThemeClasses["borderStyle"];
-    borderWidth: IThemeClasses["borderWidth"];
-  };
-}

@@ -15,7 +15,7 @@ import { IThemeClasses } from "@app/types/theme";
 const useIconWithLabelContentThemeClasses = ({
   size = IconWithLabelContentSize.Medium,
   themeClasses,
-  variant = IconWithLabelContentVariant.Blue,
+  variant = IconWithLabelContentVariant.LightBlue,
 }: Pick<IIconWithLabelContentProps, "size" | "themeClasses" | "variant">) => {
   const iconWithLabelContentIconWrapperThemeClasses: IThemeClasses = {
     ...mapSizeToIconWrapperStyles[size],

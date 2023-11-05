@@ -3,7 +3,7 @@ import {
   TIconStaticIcons,
 } from "@app/components/atoms/IconStatic/@types/IconStatic";
 import AfterEffects from "@public/icons/static/afterEffects.svg";
-import AirBnb from "@public/icons/static/airbnb.svg";
+import Enzyme from "@public/icons/static/enzyme.svg";
 import Apollo from "@public/icons/static/apollo.svg";
 import Auth0 from "@public/icons/static/auth0.svg";
 import Axios from "@public/icons/static/axios.svg";
@@ -17,6 +17,7 @@ import Chakra from "@public/icons/static/chakra.svg";
 import CoffeeScript from "@public/icons/static/coffeeScript.svg";
 import CorelDraw from "@public/icons/static/corelDraw.svg";
 import Cypress from "@public/icons/static/cypress.svg";
+import DigitalOcean from "@public/icons/static/digitalOcean.svg";
 import Docker from "@public/icons/static/docker.svg";
 import Docpad from "@public/icons/static/docpad.svg";
 import Ember from "@public/icons/static/ember.svg";
@@ -41,11 +42,13 @@ import LESS from "@public/icons/static/less.svg";
 import Link from "@public/icons/static/link.svg";
 import LinkedIn from "@public/icons/static/linkedIn.svg";
 import NestJs from "@public/icons/static/nestJs.svg";
+import Netlify from "@public/icons/static/netlify.svg";
 import NextJs from "@public/icons/static/nextJs.svg";
 import NodeJs from "@public/icons/static/nodeJs.svg";
 import Phabricator from "@public/icons/static/phabricator.svg";
 import Photoshop from "@public/icons/static/photoshop.svg";
 import Pin from "@public/icons/static/pin.svg";
+import Plaid from "@public/icons/static/plaid.svg";
 import Playwright from "@public/icons/static/playwright.svg";
 import Prestashop from "@public/icons/static/prestashop.svg";
 import Prisma from "@public/icons/static/prisma.svg";
@@ -60,7 +63,9 @@ import Redmine from "@public/icons/static/redmine.svg";
 import Redux from "@public/icons/static/redux.svg";
 import Ruby from "@public/icons/static/ruby.svg";
 import RubyOnRails from "@public/icons/static/rubyOnRails.svg";
+import Rust from "@public/icons/static/rust.svg";
 import Sass from "@public/icons/static/sass.svg";
+import Sentry from "@public/icons/static/sentry.svg";
 import Sinatra from "@public/icons/static/sinatra.svg";
 import Sketch from "@public/icons/static/sketch.svg";
 import Stash from "@public/icons/static/stash.svg";
@@ -77,7 +82,7 @@ import Zeplin from "@public/icons/static/zeplin.svg";
 
 export const iconStaticIcons: TIconStaticIcons = {
   [IconStaticName.AfterEffects]: AfterEffects,
-  [IconStaticName.AirBnb]: AirBnb,
+  [IconStaticName.Enzyme]: Enzyme,
   [IconStaticName.Apollo]: Apollo,
   [IconStaticName.Auth0]: Auth0,
   [IconStaticName.Axios]: Axios,
@@ -91,6 +96,7 @@ export const iconStaticIcons: TIconStaticIcons = {
   [IconStaticName.CoffeeScript]: CoffeeScript,
   [IconStaticName.CorelDraw]: CorelDraw,
   [IconStaticName.Cypress]: Cypress,
+  [IconStaticName.DigitalOcean]: DigitalOcean,
   [IconStaticName.Docker]: Docker,
   [IconStaticName.Docpad]: Docpad,
   [IconStaticName.Ember]: Ember,
@@ -115,11 +121,13 @@ export const iconStaticIcons: TIconStaticIcons = {
   [IconStaticName.Link]: Link,
   [IconStaticName.LinkedIn]: LinkedIn,
   [IconStaticName.NestJs]: NestJs,
+  [IconStaticName.Netlify]: Netlify,
   [IconStaticName.NextJs]: NextJs,
   [IconStaticName.NodeJs]: NodeJs,
   [IconStaticName.Phabricator]: Phabricator,
   [IconStaticName.Photoshop]: Photoshop,
   [IconStaticName.Pin]: Pin,
+  [IconStaticName.Plaid]: Plaid,
   [IconStaticName.Playwright]: Playwright,
   [IconStaticName.Prestashop]: Prestashop,
   [IconStaticName.Prisma]: Prisma,
@@ -134,7 +142,9 @@ export const iconStaticIcons: TIconStaticIcons = {
   [IconStaticName.Redux]: Redux,
   [IconStaticName.Ruby]: Ruby,
   [IconStaticName.RubyOnRails]: RubyOnRails,
+  [IconStaticName.Rust]: Rust,
   [IconStaticName.Sass]: Sass,
+  [IconStaticName.Sentry]: Sentry,
   [IconStaticName.Sinatra]: Sinatra,
   [IconStaticName.Sketch]: Sketch,
   [IconStaticName.Stash]: Stash,

@@ -10,6 +10,6 @@ export const mapSizeToButtonTextProps: TMapSizeToButtonTextProps = {
 
 export const buttonTextTypographyDefaultThemeClasses: IThemeClasses = {
   color: "text-white",
-  fontFamily: "font-exan",
-  textTransform: "lowercase",
+  fontFamily: "font-rajdhani",
+  textTransform: "uppercase",
 };

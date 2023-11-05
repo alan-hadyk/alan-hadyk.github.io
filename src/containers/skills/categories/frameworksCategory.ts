@@ -16,6 +16,7 @@ export const frameworksCategory = {
       IconStaticName.JQuery,
       IconStaticName.RubyOnRails,
       IconStaticName.Sinatra,
+      IconStaticName.Docpad,
     ].includes(iconName),
   ),
   title: "Frameworks",

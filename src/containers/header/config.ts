@@ -1,5 +1,5 @@
 import { ImageDynamicName } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
-import { IHorizontalLinksWithIconsProps } from "@app/components/molecules/HorizontalLinksWithIcons/@types/HorizontalLinksWithIcons";
+import { IHorizontalLinksWithImagesProps } from "@app/components/molecules/HorizontalLinksWithImages/@types/HorizontalLinksWithImages";
 import { INavProps } from "@app/components/molecules/Nav/@types/Nav";
 
 export const navItems: INavProps["navItems"] = [
@@ -15,26 +15,22 @@ export const navItems: INavProps["navItems"] = [
     href: "#about-me",
     title: "About me",
   },
-  {
-    href: "#contact",
-    title: "Contact",
-  },
 ];
 
-export const icons: IHorizontalLinksWithIconsProps["icons"] = [
+export const icons: IHorizontalLinksWithImagesProps["icons"] = [
   {
     href: "https://github.com/alan-hadyk",
-    iconName: ImageDynamicName.GitHub,
+    imageName: ImageDynamicName.GitHub,
     isExternal: true,
   },
   {
     href: "https://www.toptal.com/resume/alan-hadyk",
-    iconName: ImageDynamicName.Toptal,
+    imageName: ImageDynamicName.Toptal,
     isExternal: true,
   },
   {
     href: "https://www.linkedin.com/in/alan-hadyk-78738099/",
-    iconName: ImageDynamicName.LinkedIn,
+    imageName: ImageDynamicName.LinkedIn,
     isExternal: true,
   },
 ];

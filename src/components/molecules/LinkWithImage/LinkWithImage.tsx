@@ -8,7 +8,7 @@ import {
 } from "@app/components/molecules/LinkWithImage/styles";
 import { IThemeClasses } from "@app/types/theme";
 
-const LinkWithImage: React.FC<ILinkWithImageProps> = ({
+export const LinkWithImage: React.FC<ILinkWithImageProps> = ({
   href,
   imageName,
   isExternal = false,
@@ -41,5 +41,3 @@ const LinkWithImage: React.FC<ILinkWithImageProps> = ({
     </Link>
   );
 };
-
-export { LinkWithImage };

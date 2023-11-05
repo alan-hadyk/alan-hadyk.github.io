@@ -44,9 +44,7 @@ const _LayoutContainer: React.ForwardRefRenderFunction<
   );
 };
 
-const LayoutContainer = forwardRef<
+export const LayoutContainer = forwardRef<
   TLayoutContainerElementType,
   ILayoutContainerProps
 >(_LayoutContainer);
-
-export { LayoutContainer };

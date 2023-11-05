@@ -1,46 +1,25 @@
-import { Fragment } from "react";
-
-import {
-  ISectionProps,
-  SectionSize,
-  SectionVariant,
-} from "@app/components/molecules/Section/@types/Section";
+import { ISectionProps } from "@app/components/molecules/Section/@types/Section";
 import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutContainer";
 import { SectionTitle } from "@app/components/molecules/SectionTitle/SectionTitle";
-import { useSectionThemeClasses } from "@app/components/molecules/Section/hooks/useSectionThemeClasses";
-import {
-  mapSectionSizeToSectionTitleSize,
-  mapSectionVariantToSectionTitleVariant,
-} from "@app/components/molecules/Section/config";
+import { sectionDefaultThemeClasses } from "@app/components/molecules/Section/styles";
+import { IThemeClasses } from "@app/types/theme";
 
-const Section: React.FC<ISectionProps> = ({
+export const Section: React.FC<ISectionProps> = ({
   children,
   id,
-  size = SectionSize.Large,
   themeClasses,
   title,
-  variant = SectionVariant.Blue,
 }) => {
-  const { sectionThemeClasses } = useSectionThemeClasses({
-    size,
-    themeClasses,
-    title,
-  });
+  const sectionThemeClasses: IThemeClasses = {
+    ...sectionDefaultThemeClasses,
+    ...themeClasses,
+  };
 
   return (
     <LayoutContainer id={id} themeClasses={sectionThemeClasses}>
-      {title && (
-        <SectionTitle
-          size={mapSectionSizeToSectionTitleSize[size]}
-          variant={mapSectionVariantToSectionTitleVariant[variant]}
-        >
-          {title}
-        </SectionTitle>
-      )}
+      {title && <SectionTitle>{title}</SectionTitle>}
 
-      <Fragment>{children}</Fragment>
+      {children}
     </LayoutContainer>
   );
 };
-
-export { Section };

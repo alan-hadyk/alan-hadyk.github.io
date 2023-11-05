@@ -1,4 +1,3 @@
-"use client";
 import { ImageDynamicName } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutContainer";
 import { Device } from "@app/components/layout/Responsive/@types/Responsive";
@@ -6,7 +5,6 @@ import { Responsive } from "@app/components/layout/Responsive/Responsive";
 import { LinkWithImage } from "@app/components/molecules/LinkWithImage/LinkWithImage";
 import { IHeaderProps } from "@app/components/organisms/Header/@types/Header";
 import { useHeaderState } from "@app/components/organisms/Header/hooks/useHeaderState";
-import { useHeaderThemeClasses } from "@app/components/organisms/Header/hooks/useHeaderThemeClasses";
 import {
   headerOuterWrapperDefaultThemeClasses,
   headerInnerWrapperDefaultThemeClasses,
@@ -14,14 +12,17 @@ import {
   headerInnerContainerDefaultThemeClasses,
   headerLinkWithImageDefaultThemeClasses,
   headerMobileLinkWithImageDefaultThemeClasses,
+  headerContainerDefaultThemeClasses,
 } from "@app/components/organisms/Header/styles";
+import { IThemeClasses } from "@app/types/theme";
 
-const Header: React.FC<IHeaderProps> = ({ children, themeClasses }) => {
+export const Header: React.FC<IHeaderProps> = ({ children, themeClasses }) => {
   const { isMenuVisible, toggleMenuVisibility } = useHeaderState();
 
-  const { headerContainerThemeClasses } = useHeaderThemeClasses({
-    themeClasses,
-  });
+  const headerContainerThemeClasses: IThemeClasses = {
+    ...headerContainerDefaultThemeClasses,
+    ...themeClasses?.wrapper,
+  };
 
   return (
     <LayoutContainer id="header" themeClasses={headerContainerThemeClasses}>
@@ -60,5 +61,3 @@ const Header: React.FC<IHeaderProps> = ({ children, themeClasses }) => {
     </LayoutContainer>
   );
 };
-
-export { Header };

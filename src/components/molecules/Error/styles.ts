@@ -14,7 +14,7 @@ export const errorContainerDefaultThemeClasses: IThemeClasses = {
 };
 
 export const errorIconDefaultThemeClasses: IThemeClasses = {
-  animate: "animate-glow-verySlow",
+  animate: "animate-glow-very-slow",
   height: "h-100",
   minHeight: "min-h-100",
 };

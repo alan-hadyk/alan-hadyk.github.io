@@ -8,6 +8,7 @@ export const languagesCategory = {
       IconStaticName.TypeScript,
       IconStaticName.CoffeeScript,
       IconStaticName.Ruby,
+      IconStaticName.Rust,
     ].includes(iconName),
   ),
   title: "Languages",

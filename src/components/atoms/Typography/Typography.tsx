@@ -4,7 +4,7 @@ import { theme } from "@app/theme/theme";
 import { useTypographyState } from "@app/components/atoms/Typography/hooks/useTypographyState";
 import { useTypographyThemeClasses } from "@app/components/atoms/Typography/hooks/useTypographyThemeClasses";
 
-const Typography: React.FC<ITypographyProps> = ({
+export const Typography: React.FC<ITypographyProps> = ({
   children,
   ellipsis = false,
   isHoverable = false,
@@ -40,4 +40,3 @@ const Typography: React.FC<ITypographyProps> = ({
     </div>
   );
 };
-export { Typography };
