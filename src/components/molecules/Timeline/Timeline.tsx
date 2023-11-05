@@ -7,7 +7,7 @@ import {
   timelineLineDefaultThemeClasses,
 } from "@app/components/molecules/Timeline/styles";
 
-const Timeline: React.FC = () => (
+export const Timeline: React.FC = () => (
   <LayoutContainer themeClasses={timelineDefaultThemeClasses}>
     <LayoutContainer themeClasses={timelineHexagonContainerDefaultThemeClasses}>
       <Hexagon fill={HexagonFill.Solid} />
@@ -15,5 +15,3 @@ const Timeline: React.FC = () => (
     <LayoutContainer themeClasses={timelineLineDefaultThemeClasses} />
   </LayoutContainer>
 );
-
-export { Timeline };

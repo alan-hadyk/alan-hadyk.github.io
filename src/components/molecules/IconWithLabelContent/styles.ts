@@ -76,10 +76,10 @@ export const mapIconWithLabelContentVariantToLabelStyles: Record<
   IconWithLabelContentVariant,
   IThemeClasses
 > = {
-  [IconWithLabelContentVariant.Blue]: {
+  [IconWithLabelContentVariant.LightBlue]: {
     color: "text-blue100",
   },
-  [IconWithLabelContentVariant.Dark]: {
+  [IconWithLabelContentVariant.DarkBlue]: {
     color: "text-blue300",
   },
   [IconWithLabelContentVariant.White]: {

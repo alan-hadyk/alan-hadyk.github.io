@@ -9,7 +9,7 @@ import {
   fluxChartImageContainerDefaultThemeClasses,
 } from "@app/components/molecules/FluxChart/styles";
 
-const FluxChart: React.FC = () => (
+export const FluxChart: React.FC = () => (
   <LayoutContainer themeClasses={fluxChartDefaultThemeClasses}>
     <LayoutContainer themeClasses={fluxChartImageContainerDefaultThemeClasses}>
       <ImageDynamic
@@ -19,5 +19,3 @@ const FluxChart: React.FC = () => (
     </LayoutContainer>
   </LayoutContainer>
 );
-
-export { FluxChart };

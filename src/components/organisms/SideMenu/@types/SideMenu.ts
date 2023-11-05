@@ -1,9 +1,9 @@
 import { IButtonProps } from "@app/components/molecules/Button/@types/Button";
-import { IHorizontalLinksWithIconsProps } from "@app/components/molecules/HorizontalLinksWithIcons/@types/HorizontalLinksWithIcons";
+import { IHorizontalLinksWithImagesProps } from "@app/components/molecules/HorizontalLinksWithImages/@types/HorizontalLinksWithImages";
 import { INavProps } from "@app/components/molecules/Nav/@types/Nav";
 
 export interface ISideMenuProps {
-  icons: IHorizontalLinksWithIconsProps["icons"];
+  icons: IHorizontalLinksWithImagesProps["icons"];
   id?: string;
   isExpanded?: boolean;
   navItems?: INavProps["navItems"];

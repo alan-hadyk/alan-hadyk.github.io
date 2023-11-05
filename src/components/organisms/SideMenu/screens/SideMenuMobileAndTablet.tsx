@@ -31,6 +31,7 @@ const SideMenuMobileAndTablet: React.FC<
         </LayoutContainer>
       </LayoutContainer>
     )}
+
     <Button
       iconName={ImageDynamicName.Download}
       iconWidth={isIE11() ? "w-24" : "w-auto"}

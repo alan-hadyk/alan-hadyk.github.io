@@ -9,7 +9,7 @@ import { cicdCategory } from "@app/containers/skills/categories/cicdCategory";
 import { bundlersCategory } from "@app/containers/skills/categories/bundlersCategory";
 import { taskManagementCategory } from "@app/containers/skills/categories/taskManagementCategory";
 import { designToolsCategory } from "@app/containers/skills/categories/designToolsCategory";
-
+import { integrationsCategory } from "@app/containers/skills/categories/integrationsCategory";
 import { IContentFrameWithIconsProps } from "@app/components/molecules/ContentFrameWithIcons/@types/ContentFrameWithIcons";
 
 export const skillsItems: IContentFrameWithIconsProps[] = [
@@ -21,6 +21,7 @@ export const skillsItems: IContentFrameWithIconsProps[] = [
   cssToolsCategory,
   testingCategory,
   cicdCategory,
+  integrationsCategory,
   bundlersCategory,
   taskManagementCategory,
   designToolsCategory,

@@ -59,6 +59,10 @@ export const iconsWithLabels: IIconsWithLabelsProps["iconsWithLabels"] = [
     label: "Cypress",
   },
   {
+    iconName: IconStaticName.DigitalOcean,
+    label: "Digital Ocean",
+  },
+  {
     iconName: IconStaticName.Docker,
     label: "Docker",
   },
@@ -88,7 +92,7 @@ export const iconsWithLabels: IIconsWithLabelsProps["iconsWithLabels"] = [
   },
   {
     iconName: IconStaticName.GitHubEnterprise,
-    label: "GitHub Enterprise",
+    label: "GitHub",
   },
   {
     iconName: IconStaticName.GitLab,
@@ -137,6 +141,10 @@ export const iconsWithLabels: IIconsWithLabelsProps["iconsWithLabels"] = [
   {
     iconName: IconStaticName.NestJs,
     label: "NestJS",
+  },
+  {
+    iconName: IconStaticName.Netlify,
+    label: "Netlify",
   },
   {
     iconName: IconStaticName.NodeJs,
@@ -192,7 +200,7 @@ export const iconsWithLabels: IIconsWithLabelsProps["iconsWithLabels"] = [
   },
   {
     iconName: IconStaticName.ReactTestingLibrary,
-    label: "React Testing Library",
+    label: "Testing Library",
   },
   {
     iconName: IconStaticName.Redmine,
@@ -213,6 +221,10 @@ export const iconsWithLabels: IIconsWithLabelsProps["iconsWithLabels"] = [
   {
     iconName: IconStaticName.RubyOnRails,
     label: "Ruby on Rails",
+  },
+  {
+    iconName: IconStaticName.Rust,
+    label: "Rust",
   },
   {
     iconName: IconStaticName.Sass,

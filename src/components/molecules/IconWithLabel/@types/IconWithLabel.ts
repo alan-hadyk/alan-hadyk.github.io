@@ -10,15 +10,14 @@ export enum IconWithLabelSize {
 }
 
 export enum IconWithLabelVariant {
-  Blue,
-  Dark,
+  LightBlue,
+  DarkBlue,
   White,
 }
 
 export interface IIconWithLabelProps {
   href?: ILinkProps["href"];
   iconName: IIconStaticProps["iconName"];
-  iconVariant?: IIconStaticProps["variant"];
   isExternal?: ILinkProps["isExternal"];
   label: string;
   size?: IconWithLabelSize;

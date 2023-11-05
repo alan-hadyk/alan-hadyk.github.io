@@ -38,7 +38,7 @@ const CompanyPersonallyEmployed: React.FC = () => (
         ),
       },
     ]}
-    title="Freelancer"
+    position="Freelancer"
     themeClasses={{
       companyDescription: {
         responsibilitiesWrapper: {

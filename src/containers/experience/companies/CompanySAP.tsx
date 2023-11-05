@@ -65,7 +65,7 @@ const CompanySAP: React.FC = () => {
           title: "Education and Outreach",
         },
       ]}
-      title="Front-End Developer"
+      position="Front-End Developer"
     />
   );
 };

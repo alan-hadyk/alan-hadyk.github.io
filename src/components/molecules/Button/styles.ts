@@ -1,22 +1,23 @@
 import {
   TMapSizeToButtonContainerProps,
-  IMapTypeToButtonContainerProps,
   ButtonSize,
+  ButtonType,
 } from "@app/components/molecules/Button/@types/Button";
 import { IThemeClasses } from "@app/types/theme";
 
-export const mapTypeToButtonContainerProps: IMapTypeToButtonContainerProps = {
-  primary: {
-    backgroundColor: "bg-blue500",
-    borderStyle: "border-none",
-  },
-  secondary: {
-    backgroundColor: "bg-transparent",
-    borderColor: "border-blue500",
-    borderStyle: "border-solid",
-    borderWidth: "border-1",
-  },
-};
+export const mapTypeToButtonContainerProps: Record<ButtonType, IThemeClasses> =
+  {
+    [ButtonType.Primary]: {
+      backgroundColor: "bg-blue500",
+      borderStyle: "border-none",
+    },
+    [ButtonType.Secondary]: {
+      backgroundColor: "bg-transparent",
+      borderColor: "border-blue500",
+      borderStyle: "border-solid",
+      borderWidth: "border-1",
+    },
+  };
 
 export const mapSizeToButtonContainerProps: TMapSizeToButtonContainerProps = {
   [ButtonSize.Large]: {

@@ -15,7 +15,7 @@ import {
   ImageDynamicVariant,
 } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 
-const Error: React.FC<IErrorProps> = ({ description, title }) => (
+export const Error: React.FC<IErrorProps> = ({ description, title }) => (
   <LayoutContainer themeClasses={errorDefaultThemeClasses}>
     <LayoutContainer themeClasses={errorContainerDefaultThemeClasses}>
       <ImageDynamic
@@ -35,5 +35,3 @@ const Error: React.FC<IErrorProps> = ({ description, title }) => (
     </LayoutContainer>
   </LayoutContainer>
 );
-
-export { Error };

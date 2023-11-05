@@ -3,7 +3,7 @@ import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutCo
 import { Link } from "@app/components/molecules/Link/Link";
 import { Section } from "@app/components/molecules/Section/Section";
 
-const ContactContainer: React.FC = () => (
+export const ContactContainer: React.FC = () => (
   <Section id="contact" title="Contact">
     <LayoutContainer
       themeClasses={{
@@ -28,5 +28,3 @@ const ContactContainer: React.FC = () => (
     </LayoutContainer>
   </Section>
 );
-
-export { ContactContainer };

@@ -5,10 +5,10 @@ export interface ICompanyProps {
   date: string;
   link?: string;
   name: string;
+  position: string;
   projects: ICompanyDescriptionProps["projects"];
   themeClasses?: {
     companyDescription?: ICompanyDescriptionProps["themeClasses"];
     timeline?: ICompanyTimelineProps["themeClasses"];
   };
-  title: string;
 }

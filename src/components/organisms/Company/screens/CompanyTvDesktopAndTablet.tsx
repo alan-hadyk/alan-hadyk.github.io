@@ -17,9 +17,9 @@ const CompanyTvDesktopAndTablet: React.FC<ICompanyProps> = ({
   date,
   link,
   name,
+  position,
   projects,
   themeClasses,
-  title,
 }) => (
   <Responsive devices={[Device.Tv, Device.Desktop, Device.Tablet]}>
     <LayoutContainer themeClasses={companyBasicContainerDefaultThemeClasses}>
@@ -38,7 +38,7 @@ const CompanyTvDesktopAndTablet: React.FC<ICompanyProps> = ({
           link={link}
           projects={projects}
           themeClasses={themeClasses?.companyDescription}
-          position={title}
+          position={position}
         />
       </LayoutContainer>
     </LayoutContainer>

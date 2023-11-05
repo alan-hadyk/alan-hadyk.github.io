@@ -12,7 +12,7 @@ import {
   hexagonWithDescriptionTvDesktopDescriptionContentDefaultThemeClasses,
 } from "@app/components/molecules/HexagonWithDescription/styles";
 
-const HexagonWithDescription: React.FC<IHexagonWithDescriptionProps> = ({
+export const HexagonWithDescription: React.FC<IHexagonWithDescriptionProps> = ({
   children,
   description,
   id,
@@ -55,5 +55,3 @@ const HexagonWithDescription: React.FC<IHexagonWithDescriptionProps> = ({
     </Responsive>
   </LayoutContainer>
 );
-
-export { HexagonWithDescription };

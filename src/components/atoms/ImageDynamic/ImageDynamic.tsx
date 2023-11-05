@@ -5,7 +5,7 @@ import {
 import { imageDynamicComponents } from "@app/components/atoms/ImageDynamic/config";
 import { useImageDynamicThemeClasses } from "@app/components/atoms/ImageDynamic/hooks/useImageDynamicThemeClasses";
 
-const ImageDynamic: React.FC<IImageDynamicProps> = ({
+export const ImageDynamic: React.FC<IImageDynamicProps> = ({
   imageName,
   style,
   themeClasses,
@@ -20,5 +20,3 @@ const ImageDynamic: React.FC<IImageDynamicProps> = ({
 
   return <ImageComponent className={imageDynamicClassNames} style={style} />;
 };
-
-export { ImageDynamic };

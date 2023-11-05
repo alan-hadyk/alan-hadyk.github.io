@@ -7,7 +7,7 @@ import { CompanySAP } from "@app/containers/experience/companies/CompanySAP";
 import { CompanyToptal } from "@app/containers/experience/companies/toptal/CompanyToptal";
 import { CompanyShiji } from "@app/containers/experience/companies/CompanyShiji";
 
-const ExperienceContainer: React.FC = () => (
+export const ExperienceContainer: React.FC = () => (
   <Section id="experience" title="Experience">
     {[
       CompanyToptal,
@@ -21,5 +21,3 @@ const ExperienceContainer: React.FC = () => (
     ))}
   </Section>
 );
-
-export { ExperienceContainer };

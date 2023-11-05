@@ -2,21 +2,20 @@ import { IIconStaticProps } from "@app/components/atoms/IconStatic/@types/IconSt
 import { IThemeClasses } from "@app/types/theme";
 
 export enum IconWithLabelContentVariant {
-  Blue,
-  Dark,
+  LightBlue,
+  DarkBlue,
   White,
 }
 
 export enum IconWithLabelContentSize {
   ExtraSmall,
-  Large,
-  Medium,
   Small,
+  Medium,
+  Large,
 }
 
 export interface IIconWithLabelContentProps {
   iconName: IIconStaticProps["iconName"];
-  iconVariant?: IIconStaticProps["variant"];
   isHoverable?: boolean;
   label: string;
   size?: IconWithLabelContentSize;

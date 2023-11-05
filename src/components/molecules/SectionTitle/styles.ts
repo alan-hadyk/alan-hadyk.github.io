@@ -1,75 +1,35 @@
-import {
-  SectionTitleSize,
-  SectionTitleVariant,
-} from "@app/components/molecules/SectionTitle/@types/SectionTitle";
 import { isIE11 } from "@app/helpers/browser/isIE11";
 import { IThemeClasses } from "@app/types/theme";
 
 export const sectionTitleTypographyDefaultThemeClasses: IThemeClasses = {
+  color: "text-blue100",
   fontFamily: isIE11() ? "font-anonymousPro" : "font-rajdhani",
   textAlign: "text-center",
   textTransform: "uppercase",
 };
 
-export const mapVariantToTypographyStyles: Record<
-  SectionTitleVariant,
+export const mapDeviceToTitleTypographyStyles: Record<
+  "mobile" | "tvDesktopAndTablet",
   IThemeClasses
 > = {
-  [SectionTitleVariant.Blue]: {
-    color: "text-blue100",
+  mobile: {
+    fontSize: "text-48",
+    lineHeight: "leading-80",
   },
-  [SectionTitleVariant.Dark]: {
-    color: "text-blue600",
-  },
-  [SectionTitleVariant.Light]: {
-    color: "text-white",
-  },
-};
-
-export const mapSizeToTypographyStyles: Record<
-  SectionTitleSize,
-  Record<"mobile" | "tvDesktopAndTablet", IThemeClasses>
-> = {
-  [SectionTitleSize.Large]: {
-    mobile: {
-      fontSize: "text-48",
-      lineHeight: "leading-80",
-    },
-    tvDesktopAndTablet: {
-      fontSize: "text-72",
-      lineHeight: "leading-80",
-    },
-  },
-  [SectionTitleSize.Small]: {
-    mobile: {
-      fontSize: "text-36",
-      lineHeight: "leading-44",
-    },
-    tvDesktopAndTablet: {
-      fontSize: "text-36",
-      lineHeight: "leading-44",
-    },
+  tvDesktopAndTablet: {
+    fontSize: "text-72",
+    lineHeight: "leading-80",
   },
 };
 
-export const mapSizeToWrapperStyles: Record<
-  SectionTitleSize,
-  Record<"mobile" | "tvDesktopAndTablet", IThemeClasses>
+export const mapDeviceToWrapperStyles: Record<
+  "mobile" | "tvDesktopAndTablet",
+  IThemeClasses
 > = {
-  [SectionTitleSize.Large]: {
-    mobile: {
-      marginBottom: "mb-48",
-    },
-    tvDesktopAndTablet: {
-      marginBottom: "mb-96",
-    },
+  mobile: {
+    marginBottom: "mb-48",
   },
-  [SectionTitleSize.Small]: {
-    mobile: {
-      marginBottom: "mb-20",
-    },
-    tvDesktopAndTablet: {
-      marginBottom: "mb-20",
-    },
+  tvDesktopAndTablet: {
+    marginBottom: "mb-96",
   },
 };

@@ -1,6 +1,6 @@
 import { ContentFrameVariant } from "@app/components/molecules/ContentFrame/@types/ContentFrame";
 import { ContentFrame } from "@app/components/molecules/ContentFrame/ContentFrame";
-import { HorizontalIcons } from "@app/components/molecules/HorizontalIcons/HorizontalIcons";
+import { HorizontalImages } from "@app/components/molecules/HorizontalImages/HorizontalImages";
 
 const DashboardContainerTechStack: React.FC = () => (
   <ContentFrame
@@ -12,7 +12,7 @@ const DashboardContainerTechStack: React.FC = () => (
     }}
     variant={ContentFrameVariant.Corners}
   >
-    <HorizontalIcons />
+    <HorizontalImages />
   </ContentFrame>
 );
 

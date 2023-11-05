@@ -1,5 +1,5 @@
 import { Button } from "@app/components/molecules/Button/Button";
-import { HorizontalLinksWithIcons } from "@app/components/molecules/HorizontalLinksWithIcons/HorizontalLinksWithIcons";
+import { HorizontalLinksWithImages } from "@app/components/molecules/HorizontalLinksWithImages/HorizontalLinksWithImages";
 import { Nav } from "@app/components/molecules/Nav/Nav";
 
 import { Responsive } from "@app/components/layout/Responsive/Responsive";
@@ -33,7 +33,7 @@ const HeaderContainerTv: React.FC<IHeaderContainerTvProps> = ({
         Resume
       </Button>
 
-      <HorizontalLinksWithIcons icons={icons} />
+      <HorizontalLinksWithImages icons={icons} />
     </LayoutContainer>
   </Responsive>
 );

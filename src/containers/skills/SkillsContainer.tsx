@@ -4,7 +4,7 @@ import { Device } from "@app/components/layout/Responsive/@types/Responsive";
 import { skillsItems } from "@app/containers/skills/config";
 import { ContentFrameWithIconsGroup } from "@app/components/molecules/ContentFrameWithIconsGroup/ContentFrameWithIconsGroup";
 
-const SkillsContainer: React.FC = () => (
+export const SkillsContainer: React.FC = () => (
   <Section id="skills" title="Skills">
     <ContentFrameWithIconsGroup
       columnCount="columns-5"
@@ -27,5 +27,3 @@ const SkillsContainer: React.FC = () => (
     <ContentFrameWithIconsGroup device={Device.Mobile} items={skillsItems} />
   </Section>
 );
-
-export { SkillsContainer };

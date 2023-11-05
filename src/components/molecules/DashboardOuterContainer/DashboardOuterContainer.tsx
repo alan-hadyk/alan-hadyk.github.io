@@ -1,9 +1,9 @@
 import { IDashboardOuterContainerProps } from "@app/components/molecules/DashboardOuterContainer/@types/DashboardOuterContainer";
 import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutContainer";
 
-const DashboardOuterContainer: React.FC<IDashboardOuterContainerProps> = ({
-  children,
-}) => (
+export const DashboardOuterContainer: React.FC<
+  IDashboardOuterContainerProps
+> = ({ children }) => (
   <LayoutContainer
     themeClasses={{
       height: "h-100vh",
@@ -30,5 +30,3 @@ const DashboardOuterContainer: React.FC<IDashboardOuterContainerProps> = ({
     </LayoutContainer>
   </LayoutContainer>
 );
-
-export { DashboardOuterContainer };

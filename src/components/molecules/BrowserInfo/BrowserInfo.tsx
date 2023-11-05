@@ -19,7 +19,7 @@ import {
   ImageDynamicVariant,
 } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 
-const BrowserInfo: React.FC = () => {
+export const BrowserInfo: React.FC = () => {
   const [activeIcon, setActiveIcon] = useState<TActiveIcon>();
   const browserInfo = detect();
   const { name } = browserInfo || {};
@@ -76,5 +76,3 @@ const BrowserInfo: React.FC = () => {
     </LayoutContainer>
   );
 };
-
-export { BrowserInfo };

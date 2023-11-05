@@ -10,7 +10,7 @@ import {
   earthImageDefaultThemeClasses,
 } from "@app/components/molecules/Earth/styles";
 
-const Earth: React.FC = () => (
+export const Earth: React.FC = () => (
   <LayoutContainer themeClasses={earthDefaultThemeClasses}>
     <LayoutContainer themeClasses={earthImageContainerDefaultThemeClasses}>
       <ImageDynamic
@@ -21,5 +21,3 @@ const Earth: React.FC = () => (
     </LayoutContainer>
   </LayoutContainer>
 );
-
-export { Earth };

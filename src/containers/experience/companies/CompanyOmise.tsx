@@ -104,7 +104,7 @@ const CompanyOmise: React.FC = () => (
         title: "Team Contribution",
       },
     ]}
-    title="Full-Stack Developer"
+    position="Full-Stack Developer"
   />
 );
 

@@ -1,6 +1,7 @@
 import { IImageDynamicProps } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 import {
   ButtonSize,
+  ButtonType,
   IButtonProps,
 } from "@app/components/molecules/Button/@types/Button";
 import {
@@ -16,7 +17,7 @@ const useButtonThemeClasses = ({
   iconWidth,
   size = ButtonSize.Medium,
   themeClasses,
-  type = "primary",
+  type = ButtonType.Primary,
 }: Pick<IButtonProps, "iconWidth" | "size" | "type" | "themeClasses">) => {
   const buttonThemeClasses: IThemeClasses = {
     ...buttonDefaultThemeClasses,

@@ -6,7 +6,10 @@ import {
 import { convertObjectValuesToArray } from "@app/helpers/arrays/convertObjectValuesToArray";
 import { IThemeClasses } from "@app/types/theme";
 
-const Corner: React.FC<ICornerProps> = ({ isActive = false, position }) => {
+export const Corner: React.FC<ICornerProps> = ({
+  isActive = false,
+  position,
+}) => {
   const cornerThemeClasses: IThemeClasses = {
     ...cornerDefaultThemeClasses,
     ...mapPositionToCornerProps(isActive)[position],
@@ -17,5 +20,3 @@ const Corner: React.FC<ICornerProps> = ({ isActive = false, position }) => {
 
   return <div className={cornerClassNames.join(" ")} />;
 };
-
-export { Corner };

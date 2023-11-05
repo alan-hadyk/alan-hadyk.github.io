@@ -6,7 +6,7 @@ import { TSVGIcon } from "@app/types/svg";
 import { iconStaticDefaultThemeClasses } from "@app/components/atoms/IconStatic/styles";
 import { IThemeClasses } from "@app/types/theme";
 
-const IconStatic: React.FC<IIconStaticProps> = ({
+export const IconStatic: React.FC<IIconStaticProps> = ({
   iconName,
   style,
   themeClasses,
@@ -25,4 +25,3 @@ const IconStatic: React.FC<IIconStaticProps> = ({
     />
   );
 };
-export { IconStatic };

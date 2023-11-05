@@ -1,7 +1,7 @@
 import { ImageDynamicName } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 import { ContentFrameVariant } from "@app/components/molecules/ContentFrame/@types/ContentFrame";
 import { ContentFrame } from "@app/components/molecules/ContentFrame/ContentFrame";
-import { LargeIcon } from "@app/components/molecules/LargeIcon/LargeIcon";
+import { LargeImageDynamic } from "@app/components/molecules/LargeImageDynamic/LargeImageDynamic";
 
 const DashboardContainerPoweredBy: React.FC = () => (
   <ContentFrame
@@ -13,7 +13,7 @@ const DashboardContainerPoweredBy: React.FC = () => (
     }}
     variant={ContentFrameVariant.Corners}
   >
-    <LargeIcon iconName={ImageDynamicName.NextJS} />
+    <LargeImageDynamic imageName={ImageDynamicName.NextJS} />
   </ContentFrame>
 );
 

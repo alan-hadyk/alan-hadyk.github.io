@@ -1,4 +1,4 @@
-import { HorizontalLinksWithIcons } from "@app/components/molecules/HorizontalLinksWithIcons/HorizontalLinksWithIcons";
+import { HorizontalLinksWithImages } from "@app/components/molecules/HorizontalLinksWithImages/HorizontalLinksWithImages";
 
 import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutContainer";
 import { Responsive } from "@app/components/layout/Responsive/Responsive";
@@ -12,7 +12,7 @@ import {
 } from "@app/components/organisms/SideMenu/styles";
 import { SideMenuMobileAndTablet } from "@app/components/organisms/SideMenu/screens/SideMenuMobileAndTablet";
 
-const SideMenu: React.FC<ISideMenuProps> = ({
+export const SideMenu: React.FC<ISideMenuProps> = ({
   id,
   isExpanded = false,
   icons,
@@ -39,12 +39,10 @@ const SideMenu: React.FC<ISideMenuProps> = ({
           <LayoutContainer
             themeClasses={sideMenuDesktopNavInnerContainerDefaultThemeClasses}
           >
-            <HorizontalLinksWithIcons icons={icons} />
+            <HorizontalLinksWithImages icons={icons} />
           </LayoutContainer>
         </LayoutContainer>
       </LayoutContainer>
     </LayoutContainer>
   );
 };
-
-export { SideMenu };

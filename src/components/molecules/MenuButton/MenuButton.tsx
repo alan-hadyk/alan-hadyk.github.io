@@ -3,7 +3,7 @@ import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutCo
 import { MenuButtonLine } from "@app/components/atoms/MenuButtonLine/MenuButtonLine";
 import { menuButtonDefaultThemeClasses } from "@app/components/molecules/MenuButton/styles";
 
-const MenuButton: React.FC<IMenuButtonProps> = ({
+export const MenuButton: React.FC<IMenuButtonProps> = ({
   id,
   isOpen = false,
   onClick,
@@ -19,5 +19,3 @@ const MenuButton: React.FC<IMenuButtonProps> = ({
     <MenuButtonLine isOpen={isOpen} />
   </LayoutContainer>
 );
-
-export { MenuButton };

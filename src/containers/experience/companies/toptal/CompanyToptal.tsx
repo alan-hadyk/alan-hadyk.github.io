@@ -14,6 +14,6 @@ export const CompanyToptal: React.FC = () => (
       projectTribe,
     ]}
     name="Toptal"
-    title="Front-End Engineer / Full-Stack Developer (Contract)"
+    position="Front-End Engineer / Full-Stack Developer (Contract)"
   />
 );

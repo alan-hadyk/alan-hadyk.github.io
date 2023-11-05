@@ -51,7 +51,7 @@ const CompanyDiH: React.FC = () => {
           techStack,
         },
       ]}
-      title="Front-End Developer"
+      position="Front-End Developer"
     />
   );
 };

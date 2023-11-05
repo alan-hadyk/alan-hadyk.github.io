@@ -3,21 +3,21 @@ import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutCo
 import { CompanyTvDesktopAndTablet } from "@app/components/organisms/Company/screens/CompanyTvDesktopAndTablet";
 import { CompanyMobile } from "@app/components/organisms/Company/screens/CompanyMobile";
 
-const Company: React.FC<ICompanyProps> = ({
+export const Company: React.FC<ICompanyProps> = ({
   date,
   link,
   name,
+  position,
   projects,
   themeClasses,
-  title,
 }) => {
-  const commonCompanyProps: ICompanyProps = {
+  const companyProps: ICompanyProps = {
     date,
     link,
     name,
+    position,
     projects,
     themeClasses,
-    title,
   };
 
   return (
@@ -25,12 +25,10 @@ const Company: React.FC<ICompanyProps> = ({
       <LayoutContainer themeClasses={{ position: "relative", width: "w-100%" }}>
         {[CompanyTvDesktopAndTablet, CompanyMobile].map(
           (CompanyScreenComponent, index) => (
-            <CompanyScreenComponent key={index} {...commonCompanyProps} />
+            <CompanyScreenComponent key={index} {...companyProps} />
           ),
         )}
       </LayoutContainer>
     </LayoutContainer>
   );
 };
-
-export { Company };

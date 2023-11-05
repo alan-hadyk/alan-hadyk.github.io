@@ -9,7 +9,7 @@ import { OutstandingVerticalIconsWithLabels } from "@app/components/molecules/Ou
 import { Fragment } from "react";
 import { ProjectTitle } from "@app/components/molecules/ProjectTitle/ProjectTitle";
 
-const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
+export const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
   date,
   link,
   position,
@@ -63,5 +63,3 @@ const CompanyDescription: React.FC<ICompanyDescriptionProps> = ({
     ))}
   </LayoutContainer>
 );
-
-export { CompanyDescription };

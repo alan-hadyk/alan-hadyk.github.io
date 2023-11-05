@@ -7,7 +7,7 @@ import {
 } from "@app/components/molecules/TypingAnimation/styles";
 import { convertObjectValuesToString } from "@app/helpers/objects/convertObjectValuesToString";
 
-const TypingAnimation: React.FC = () => {
+export const TypingAnimation: React.FC = () => {
   const { codeContainerRef } = useTypingAnimationState();
 
   return (
@@ -23,5 +23,3 @@ const TypingAnimation: React.FC = () => {
     </LayoutContainer>
   );
 };
-
-export { TypingAnimation };

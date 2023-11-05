@@ -1,14 +1,16 @@
 import { ImageDynamicVariant } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 import { ImageDynamic } from "@app/components/atoms/ImageDynamic/ImageDynamic";
 import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutContainer";
-import { ILargeIconProps } from "@app/components/molecules/LargeIcon/@types/LargeIcon";
+import { ILargeImageDynamicProps } from "@app/components/molecules/LargeImageDynamic/@types/LargeImageDynamic";
 import {
   largeIconDefaultThemeClasses,
   largeIconDynamicImageDefaultThemeClasses,
   largeIconWrapperDefaultThemeClasses,
-} from "@app/components/molecules/LargeIcon/styles";
+} from "@app/components/molecules/LargeImageDynamic/styles";
 
-const LargeIcon: React.FC<ILargeIconProps> = ({ iconName }) => (
+export const LargeImageDynamic: React.FC<ILargeImageDynamicProps> = ({
+  imageName: iconName,
+}) => (
   <LayoutContainer themeClasses={largeIconDefaultThemeClasses}>
     <LayoutContainer themeClasses={largeIconWrapperDefaultThemeClasses}>
       <ImageDynamic
@@ -19,5 +21,3 @@ const LargeIcon: React.FC<ILargeIconProps> = ({ iconName }) => (
     </LayoutContainer>
   </LayoutContainer>
 );
-
-export { LargeIcon };

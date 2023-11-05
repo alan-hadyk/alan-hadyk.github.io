@@ -5,7 +5,7 @@ import { aboutMeDescription } from "@app/containers/aboutMe/config";
 import Alan from "@public/images/static/alan.png";
 import { HexagonWithDescription } from "@app/components/molecules/HexagonWithDescription/HexagonWithDescription";
 
-const AboutMeContainer: React.FC = () => (
+export const AboutMeContainer: React.FC = () => (
   <Section id="about-me" title="About me">
     <HexagonWithDescription
       id="about-me-description"
@@ -15,5 +15,3 @@ const AboutMeContainer: React.FC = () => (
     </HexagonWithDescription>
   </Section>
 );
-
-export { AboutMeContainer };

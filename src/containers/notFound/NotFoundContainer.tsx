@@ -6,7 +6,7 @@ import { Error } from "@app/components/molecules/Error/Error";
 import { ImageDynamic } from "@app/components/atoms/ImageDynamic/ImageDynamic";
 import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutContainer";
 
-const NotFoundContainer: React.FC = () => (
+export const NotFoundContainer: React.FC = () => (
   <>
     <ImageDynamic
       imageName={ImageDynamicName.Logo}
@@ -34,5 +34,3 @@ const NotFoundContainer: React.FC = () => (
     </LayoutContainer>
   </>
 );
-
-export { NotFoundContainer };

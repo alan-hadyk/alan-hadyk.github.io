@@ -12,9 +12,9 @@ const CompanyMobile: React.FC<ICompanyProps> = ({
   date,
   link,
   name,
+  position,
   projects,
   themeClasses,
-  title,
 }) => (
   <Responsive devices={[Device.Mobile]}>
     <LayoutContainer themeClasses={companyMobileContainerDefaultThemeClasses}>
@@ -31,7 +31,7 @@ const CompanyMobile: React.FC<ICompanyProps> = ({
             ...themeClasses?.companyDescription?.position,
           },
         }}
-        position={title}
+        position={position}
       />
     </LayoutContainer>
   </Responsive>

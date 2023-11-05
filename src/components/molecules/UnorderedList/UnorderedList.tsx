@@ -4,12 +4,10 @@ import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutCo
 import { IUnorderedListProps } from "@app/components/molecules/UnorderedList/@types/UnorderedList";
 import { unorderedListDefaultThemeClasses } from "@app/components/molecules/UnorderedList/styles";
 
-const UnorderedList: React.FC<IUnorderedListProps> = ({ items }) => (
+export const UnorderedList: React.FC<IUnorderedListProps> = ({ items }) => (
   <LayoutContainer as="ul" themeClasses={unorderedListDefaultThemeClasses}>
     {items.map((item, index) => (
       <ListItem key={index}>{item}</ListItem>
     ))}
   </LayoutContainer>
 );
-
-export { UnorderedList };

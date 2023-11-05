@@ -5,7 +5,7 @@ import { HeaderContainerDesktop } from "@app/containers/header/screens/HeaderCon
 import { HeaderContainerTabletAndMobile } from "@app/containers/header/screens/HeaderContainerTabletAndMobile";
 import { HeaderContainerTv } from "@app/containers/header/screens/HeaderContainerTv";
 
-const HeaderContainer: React.FC = () => (
+export const HeaderContainer: React.FC = () => (
   <Header>
     {({ isMenuVisible, toggleMenuVisibility }) => (
       <>
@@ -26,5 +26,3 @@ const HeaderContainer: React.FC = () => (
     )}
   </Header>
 );
-
-export { HeaderContainer };

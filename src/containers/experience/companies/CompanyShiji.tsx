@@ -85,7 +85,7 @@ const CompanyShiji: React.FC = () => {
           title: "Team and Mentoring",
         },
       ]}
-      title="Senior Front-End Developer"
+      position="Senior Front-End Developer"
       link="https://shijigroup.com/"
     />
   );

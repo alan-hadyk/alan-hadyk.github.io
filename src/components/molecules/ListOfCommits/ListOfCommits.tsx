@@ -9,7 +9,7 @@ import { listOfCommitsCommitsWrapperDefaultThemeClasses } from "@app/components/
 import { getCommitData } from "@app/components/molecules/ListOfCommits/helpers/getCommitData";
 import { CommitsState } from "@app/hooks/@types/useCommits";
 
-const ListOfCommits: React.FC<IListOfCommitsProps> = ({
+export const ListOfCommits: React.FC<IListOfCommitsProps> = ({
   commitsList,
   commitsState,
 }) => {
@@ -24,9 +24,9 @@ const ListOfCommits: React.FC<IListOfCommitsProps> = ({
         >
           {!isEmpty(commitsList) &&
             commitsList
-              ?.filter((commitEntity) => commitEntity)
-              ?.map((commitEntity, index: number) => {
-                const { date, html_url, sha } = getCommitData(commitEntity);
+              ?.filter((commit) => commit)
+              ?.map((commit, index: number) => {
+                const { date, html_url, sha } = getCommitData(commit);
                 const delay = index * 300;
 
                 return date && html_url && sha ? (
@@ -46,5 +46,3 @@ const ListOfCommits: React.FC<IListOfCommitsProps> = ({
       return <Loader />;
   }
 };
-
-export { ListOfCommits };

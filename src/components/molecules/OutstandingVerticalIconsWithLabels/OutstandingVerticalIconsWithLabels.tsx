@@ -6,7 +6,7 @@ import {
 import { IconWithLabel } from "@app/components/molecules/IconWithLabel/IconWithLabel";
 import { IOutstandingVerticalIconsWithLabelsProps } from "@app/components/molecules/OutstandingVerticalIconsWithLabels/@types/OutstandingVerticalIconsWithLabels";
 
-const OutstandingVerticalIconsWithLabels: React.FC<
+export const OutstandingVerticalIconsWithLabels: React.FC<
   IOutstandingVerticalIconsWithLabelsProps
 > = ({ iconsWithLabels, themeClasses }) => (
   <LayoutContainer themeClasses={themeClasses}>
@@ -16,10 +16,8 @@ const OutstandingVerticalIconsWithLabels: React.FC<
         isExternal
         key={icon.label + index}
         size={IconWithLabelSize.Medium}
-        variant={IconWithLabelVariant.Dark}
+        variant={IconWithLabelVariant.DarkBlue}
       />
     ))}
   </LayoutContainer>
 );
-
-export { OutstandingVerticalIconsWithLabels };

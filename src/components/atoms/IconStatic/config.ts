@@ -17,6 +17,7 @@ import Chakra from "@public/icons/static/chakra.svg";
 import CoffeeScript from "@public/icons/static/coffeeScript.svg";
 import CorelDraw from "@public/icons/static/corelDraw.svg";
 import Cypress from "@public/icons/static/cypress.svg";
+import DigitalOcean from "@public/icons/static/digitalOcean.svg";
 import Docker from "@public/icons/static/docker.svg";
 import Docpad from "@public/icons/static/docpad.svg";
 import Ember from "@public/icons/static/ember.svg";
@@ -41,6 +42,7 @@ import LESS from "@public/icons/static/less.svg";
 import Link from "@public/icons/static/link.svg";
 import LinkedIn from "@public/icons/static/linkedIn.svg";
 import NestJs from "@public/icons/static/nestJs.svg";
+import Netlify from "@public/icons/static/netlify.svg";
 import NextJs from "@public/icons/static/nextJs.svg";
 import NodeJs from "@public/icons/static/nodeJs.svg";
 import Phabricator from "@public/icons/static/phabricator.svg";
@@ -61,6 +63,7 @@ import Redmine from "@public/icons/static/redmine.svg";
 import Redux from "@public/icons/static/redux.svg";
 import Ruby from "@public/icons/static/ruby.svg";
 import RubyOnRails from "@public/icons/static/rubyOnRails.svg";
+import Rust from "@public/icons/static/rust.svg";
 import Sass from "@public/icons/static/sass.svg";
 import Sentry from "@public/icons/static/sentry.svg";
 import Sinatra from "@public/icons/static/sinatra.svg";
@@ -93,6 +96,7 @@ export const iconStaticIcons: TIconStaticIcons = {
   [IconStaticName.CoffeeScript]: CoffeeScript,
   [IconStaticName.CorelDraw]: CorelDraw,
   [IconStaticName.Cypress]: Cypress,
+  [IconStaticName.DigitalOcean]: DigitalOcean,
   [IconStaticName.Docker]: Docker,
   [IconStaticName.Docpad]: Docpad,
   [IconStaticName.Ember]: Ember,
@@ -117,6 +121,7 @@ export const iconStaticIcons: TIconStaticIcons = {
   [IconStaticName.Link]: Link,
   [IconStaticName.LinkedIn]: LinkedIn,
   [IconStaticName.NestJs]: NestJs,
+  [IconStaticName.Netlify]: Netlify,
   [IconStaticName.NextJs]: NextJs,
   [IconStaticName.NodeJs]: NodeJs,
   [IconStaticName.Phabricator]: Phabricator,
@@ -137,6 +142,7 @@ export const iconStaticIcons: TIconStaticIcons = {
   [IconStaticName.Redux]: Redux,
   [IconStaticName.Ruby]: Ruby,
   [IconStaticName.RubyOnRails]: RubyOnRails,
+  [IconStaticName.Rust]: Rust,
   [IconStaticName.Sass]: Sass,
   [IconStaticName.Sentry]: Sentry,
   [IconStaticName.Sinatra]: Sinatra,

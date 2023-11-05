@@ -5,12 +5,10 @@ import {
   loaderSpinnerWrapperDefaultThemeClasses,
 } from "@app/components/molecules/Loader/styles";
 
-const Loader: React.FC = () => (
+export const Loader: React.FC = () => (
   <LayoutContainer themeClasses={loaderDefaultThemeClasses}>
     <LayoutContainer themeClasses={loaderSpinnerWrapperDefaultThemeClasses}>
       <Spinner />
     </LayoutContainer>
   </LayoutContainer>
 );
-
-export { Loader };

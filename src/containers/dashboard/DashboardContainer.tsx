@@ -3,7 +3,7 @@ import { DashboardContainerTvAndDesktop } from "@app/containers/dashboard/screen
 import { DashboardContainerTablet } from "@app/containers/dashboard/screens/DashboardContainerTablet";
 import { DashboardContainerMobile } from "@app/containers/dashboard/screens/DashboardContainerMobile";
 
-const DashboardContainer: React.FC = () => (
+export const DashboardContainer: React.FC = () => (
   <Section
     id="dashboard"
     themeClasses={{
@@ -15,5 +15,3 @@ const DashboardContainer: React.FC = () => (
     <DashboardContainerMobile />
   </Section>
 );
-
-export { DashboardContainer };

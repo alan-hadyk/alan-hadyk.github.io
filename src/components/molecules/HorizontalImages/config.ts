@@ -3,7 +3,7 @@ import {
   ImageDynamicName,
 } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 
-export const horizontalIcons: IImageDynamicProps["imageName"][] = [
+export const horizontalImages: IImageDynamicProps["imageName"][] = [
   ImageDynamicName.React,
   ImageDynamicName.JavaScript,
   ImageDynamicName.TypeScript,
