@@ -10,13 +10,13 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-### Install dependencies:
+### Install dependencies
 
 ```bash
 yarn
 ```
 
-### Run the development server:
+### Run the development server
 
 ```bash
 yarn dev
