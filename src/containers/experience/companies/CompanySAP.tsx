@@ -18,6 +18,7 @@ const CompanySAP: React.FC = () => {
       IconStaticName.Enzyme,
     ].includes(iconName),
   );
+
   return (
     <Company
       date="November 2015 to May 2017"

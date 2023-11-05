@@ -1,4 +1,7 @@
-import { ISectionTitleProps } from "@app/components/molecules/SectionTitle/@types/SectionTitle";
+import {
+  ISectionTitleProps,
+  SectionTitleDevice,
+} from "@app/components/molecules/SectionTitle/@types/SectionTitle";
 import {
   mapDeviceToTitleTypographyStyles,
   mapDeviceToWrapperStyles,
@@ -11,11 +14,11 @@ const useSectionTitleThemeClasses = ({
   const sectionTitleMobileThemeClasses: ISectionTitleProps["themeClasses"] = {
     title: {
       ...sectionTitleTypographyDefaultThemeClasses,
-      ...mapDeviceToTitleTypographyStyles["mobile"],
+      ...mapDeviceToTitleTypographyStyles[SectionTitleDevice.Mobile],
       ...themeClasses?.title,
     },
     wrapper: {
-      ...mapDeviceToWrapperStyles["mobile"],
+      ...mapDeviceToWrapperStyles[SectionTitleDevice.Mobile],
       ...themeClasses?.wrapper,
     },
   };
@@ -24,11 +27,13 @@ const useSectionTitleThemeClasses = ({
     {
       title: {
         ...sectionTitleTypographyDefaultThemeClasses,
-        ...mapDeviceToTitleTypographyStyles["tvDesktopAndTablet"],
+        ...mapDeviceToTitleTypographyStyles[
+          SectionTitleDevice.TvDesktopAndTablet
+        ],
         ...themeClasses?.title,
       },
       wrapper: {
-        ...mapDeviceToWrapperStyles["tvDesktopAndTablet"],
+        ...mapDeviceToWrapperStyles[SectionTitleDevice.TvDesktopAndTablet],
         ...themeClasses?.wrapper,
       },
     };

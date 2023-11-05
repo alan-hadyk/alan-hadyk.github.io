@@ -1,5 +1,6 @@
 import { isIE11 } from "@app/helpers/browser/isIE11";
 import { IThemeClasses } from "@app/types/theme";
+import { SectionTitleDevice } from "@app/components/molecules/SectionTitle/@types/SectionTitle";
 
 export const sectionTitleTypographyDefaultThemeClasses: IThemeClasses = {
   color: "text-blue100",
@@ -9,27 +10,27 @@ export const sectionTitleTypographyDefaultThemeClasses: IThemeClasses = {
 };
 
 export const mapDeviceToTitleTypographyStyles: Record<
-  "mobile" | "tvDesktopAndTablet",
+  SectionTitleDevice,
   IThemeClasses
 > = {
-  mobile: {
+  [SectionTitleDevice.Mobile]: {
     fontSize: "text-48",
     lineHeight: "leading-80",
   },
-  tvDesktopAndTablet: {
+  [SectionTitleDevice.TvDesktopAndTablet]: {
     fontSize: "text-72",
     lineHeight: "leading-80",
   },
 };
 
 export const mapDeviceToWrapperStyles: Record<
-  "mobile" | "tvDesktopAndTablet",
+  SectionTitleDevice,
   IThemeClasses
 > = {
-  mobile: {
+  [SectionTitleDevice.Mobile]: {
     marginBottom: "mb-48",
   },
-  tvDesktopAndTablet: {
+  [SectionTitleDevice.TvDesktopAndTablet]: {
     marginBottom: "mb-96",
   },
 };

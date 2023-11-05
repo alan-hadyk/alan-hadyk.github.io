@@ -32,11 +32,11 @@ export const mapSizeToButtonContainerProps: TMapSizeToButtonContainerProps = {
 };
 
 export const buttonDefaultThemeClasses: IThemeClasses = {
-  active: "active:shadow-activeButton",
+  active: "active:shadow-active-button",
   color: "text-white",
   cursor: "cursor-pointer",
-  focus: "focus:shadow-activeButton",
-  hover: "hover:shadow-activeButton",
+  focus: "focus:shadow-active-button",
+  hover: "hover:shadow-active-button",
   outline: "outline-0",
   position: "relative",
   textTransform: "lowercase",
