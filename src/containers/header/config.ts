@@ -15,10 +15,6 @@ export const navItems: INavProps["navItems"] = [
     href: "#about-me",
     title: "About me",
   },
-  {
-    href: "#contact",
-    title: "Contact",
-  },
 ];
 
 export const icons: IHorizontalLinksWithImagesProps["icons"] = [

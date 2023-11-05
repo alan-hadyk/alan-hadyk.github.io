@@ -14,10 +14,7 @@ const CompanyOmise: React.FC = () => (
           <span key="Architected">
             Architected a scalable frontend for Omise&apos;s merchant dashboard,
             a React application,{" "}
-            <strong>
-              driving improvements in user engagement and satisfaction
-            </strong>
-            .
+            <strong>serving 22,000+ brands across industries</strong>.
           </span>,
           <span key="Developed">
             Developed reusable React components,{" "}

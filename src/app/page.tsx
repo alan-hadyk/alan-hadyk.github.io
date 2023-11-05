@@ -1,6 +1,5 @@
 import { PageTemplate } from "@app/components/templates/PageTemplate/PageTemplate";
 import { AboutMeContainer } from "@app/containers/aboutMe/AboutMeContainer";
-import { ContactContainer } from "@app/containers/contact/ContactContainer";
 import { DashboardContainer } from "@app/containers/dashboard/DashboardContainer";
 import { ExperienceContainer } from "@app/containers/experience/ExperienceContainer";
 import { HeaderContainer } from "@app/containers/header/HeaderContainer";
@@ -18,7 +17,6 @@ const IndexPage: React.FC = () => (
     <ExperienceContainer />
     <SkillsContainer />
     <AboutMeContainer />
-    <ContactContainer />
   </PageTemplate>
 );
 

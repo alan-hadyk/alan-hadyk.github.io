@@ -10,6 +10,7 @@ export const aboutMeDescription = (
     delivery. Effective in collaborating with cross-functional teams and
     dedicated to harnessing the latest technological advancements. Committed to
     best practices, team synergy, and the pursuit of excellence in Front-End
-    development.
+    development. <br />
+    Contact: <strong>alan.hadyk at gmail.com</strong>
   </>
 );

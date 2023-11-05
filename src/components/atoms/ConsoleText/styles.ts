@@ -14,12 +14,12 @@ const consoleTextDefaultThemeClasses: IThemeClasses = {
 const mapConsoleTextVariantToStyles: Record<ConsoleTextVariant, IThemeClasses> =
   {
     [ConsoleTextVariant.Mobile]: {
-      fontSize: "text-32",
-      lineHeight: "leading-36",
+      fontSize: "text-28",
+      lineHeight: "leading-32",
     },
     [ConsoleTextVariant.TvDesktopAndTablet]: {
-      fontSize: "text-[6vh]",
-      lineHeight: "leading-[7.4vh]",
+      fontSize: "text-48",
+      lineHeight: "leading-56",
     },
   };
 

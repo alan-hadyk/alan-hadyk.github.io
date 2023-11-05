@@ -1,6 +1,5 @@
 import { Section } from "@app/components/molecules/Section/Section";
-import { DashboardContainerTvAndDesktop } from "@app/containers/dashboard/screens/DashboardContainerTvAndDesktop";
-import { DashboardContainerTablet } from "@app/containers/dashboard/screens/DashboardContainerTablet";
+import { DashboardContainerDesktop } from "@app/containers/dashboard/screens/DashboardContainerDesktop";
 import { DashboardContainerMobile } from "@app/containers/dashboard/screens/DashboardContainerMobile";
 
 export const DashboardContainer: React.FC = () => (
@@ -10,8 +9,7 @@ export const DashboardContainer: React.FC = () => (
       paddingTop: "pt-0",
     }}
   >
-    <DashboardContainerTvAndDesktop />
-    <DashboardContainerTablet />
+    <DashboardContainerDesktop />
     <DashboardContainerMobile />
   </Section>
 );
