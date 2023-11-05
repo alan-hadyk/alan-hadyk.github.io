@@ -1,5 +1,3 @@
-"use client";
-
 import { Line } from "@app/components/atoms/Line/Line";
 import { INavItemProps } from "@app/components/molecules/NavItem/@types/NavItem";
 import { LineDirection } from "@app/components/atoms/Line/@types/Line";

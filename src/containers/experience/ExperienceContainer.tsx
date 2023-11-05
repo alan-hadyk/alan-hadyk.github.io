@@ -1,4 +1,3 @@
-"use client";
 import { Section } from "@app/components/molecules/Section/Section";
 import { CompanyDiH } from "@app/containers/experience/companies/CompanyDiH";
 import { CompanyOmise } from "@app/containers/experience/companies/CompanyOmise";

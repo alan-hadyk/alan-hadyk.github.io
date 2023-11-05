@@ -1,4 +1,3 @@
-"use client";
 import { IIconStaticProps } from "@app/components/atoms/IconStatic/@types/IconStatic";
 import { convertObjectValuesToString } from "@app/helpers/objects/convertObjectValuesToString";
 import { iconStaticIcons } from "@app/components/atoms/IconStatic/config";

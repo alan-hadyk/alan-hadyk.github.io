@@ -1,4 +1,3 @@
-"use client";
 import { useResize } from "@app/hooks/useResize";
 import { useState, useCallback } from "react";
 

@@ -1,4 +1,3 @@
-"use client";
 import { ImageStatic } from "@app/components/atoms/ImageStatic/ImageStatic";
 import { Section } from "@app/components/molecules/Section/Section";
 import { aboutMeDescription } from "@app/containers/aboutMe/config";

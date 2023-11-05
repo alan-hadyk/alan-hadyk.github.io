@@ -1,4 +1,3 @@
-"use client";
 import { ImageDynamicName } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 import { LayoutContainer } from "@app/components/layout/LayoutContainer/LayoutContainer";
 import { Device } from "@app/components/layout/Responsive/@types/Responsive";

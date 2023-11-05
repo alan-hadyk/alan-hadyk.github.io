@@ -1,3 +1,4 @@
+"use client";
 import { ButtonText } from "@app/components/molecules/ButtonText/ButtonText";
 import { Corners } from "@app/components/molecules/Corners/Corners";
 

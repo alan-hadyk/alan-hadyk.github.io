@@ -1,5 +1,3 @@
-"use client";
-
 import { NavItem } from "@app/components/molecules/NavItem/NavItem";
 import {
   INavItemProps,

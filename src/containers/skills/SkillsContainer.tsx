@@ -1,4 +1,3 @@
-"use client";
 import { Section } from "@app/components/molecules/Section/Section";
 import { Device } from "@app/components/layout/Responsive/@types/Responsive";
 import { skillsItems } from "@app/containers/skills/config";

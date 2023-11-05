@@ -1,4 +1,3 @@
-"use client";
 import { ImageDynamicName } from "@app/components/atoms/ImageDynamic/@types/ImageDynamic";
 import { ContentFrameVariant } from "@app/components/molecules/ContentFrame/@types/ContentFrame";
 import { ContentFrame } from "@app/components/molecules/ContentFrame/ContentFrame";
