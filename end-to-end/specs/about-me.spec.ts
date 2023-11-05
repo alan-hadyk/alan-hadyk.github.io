@@ -2,18 +2,6 @@ import { test, expect } from "@playwright/test";
 
 test.beforeEach(async ({ page }) => {
   await page.goto("/no-header");
-
-  const sizes = await page.evaluate(() => {
-    const browserHeight = window.innerHeight;
-    const pageHeight = document.body.scrollHeight;
-
-    return { browserHeight, pageHeight };
-  });
-
-  for (let i = 0; i < sizes.pageHeight; i += sizes.browserHeight) {
-    await page.mouse.wheel(0, i);
-    await page.waitForTimeout(1000);
-  }
 });
 
 test.describe("About me", () => {
@@ -21,34 +9,6 @@ test.describe("About me", () => {
     await page.setViewportSize({
       height: 1080,
       width: 1921,
-    });
-
-    await page.locator("#contact").scrollIntoViewIfNeeded();
-    await page.locator("#contact").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-    await page.waitForLoadState("networkidle");
-
-    await page.locator("#about-me").scrollIntoViewIfNeeded();
-    await page.locator("#about-me").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-
-    await page.waitForLoadState("networkidle");
-
-    await page.locator("#about-me").scrollIntoViewIfNeeded();
-    await page.locator("#about-me").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-
-    await page.locator("#about-me-description").waitFor({
-      state: "visible",
     });
 
     await expect(page.locator("#about-me")).toHaveScreenshot({
@@ -61,34 +21,6 @@ test.describe("About me", () => {
     await page.setViewportSize({
       height: 1080,
       width: 1700,
-    });
-
-    await page.locator("#contact").scrollIntoViewIfNeeded();
-    await page.locator("#contact").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-    await page.waitForLoadState("networkidle");
-
-    await page.locator("#about-me").scrollIntoViewIfNeeded();
-    await page.locator("#about-me").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-
-    await page.waitForLoadState("networkidle");
-
-    await page.locator("#about-me").scrollIntoViewIfNeeded();
-    await page.locator("#about-me").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-
-    await page.locator("#about-me-description").waitFor({
-      state: "visible",
     });
 
     await expect(page.locator("#about-me")).toHaveScreenshot({
@@ -104,34 +36,6 @@ test.describe("About me", () => {
       width: 1300,
     });
 
-    await page.locator("#contact").scrollIntoViewIfNeeded();
-    await page.locator("#contact").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-    await page.waitForLoadState("networkidle");
-
-    await page.locator("#about-me").scrollIntoViewIfNeeded();
-    await page.locator("#about-me").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-
-    await page.waitForLoadState("networkidle");
-
-    await page.locator("#about-me").scrollIntoViewIfNeeded();
-    await page.locator("#about-me").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-
-    await page.locator("#about-me-description").waitFor({
-      state: "visible",
-    });
-
     await expect(page.locator("#about-me")).toHaveScreenshot({
       animations: "disabled",
       omitBackground: true,
@@ -145,34 +49,6 @@ test.describe("About me", () => {
       width: 1000,
     });
 
-    await page.locator("#contact").scrollIntoViewIfNeeded();
-    await page.locator("#contact").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-    await page.waitForLoadState("networkidle");
-
-    await page.locator("#about-me").scrollIntoViewIfNeeded();
-    await page.locator("#about-me").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-
-    await page.waitForLoadState("networkidle");
-
-    await page.locator("#about-me").scrollIntoViewIfNeeded();
-    await page.locator("#about-me").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-
-    await page.locator("#about-me-description").waitFor({
-      state: "visible",
-    });
-
     await expect(page.locator("#about-me")).toHaveScreenshot({
       animations: "disabled",
       omitBackground: true,
@@ -184,34 +60,6 @@ test.describe("About me", () => {
     await page.setViewportSize({
       height: 1080,
       width: 650,
-    });
-
-    await page.locator("#contact").scrollIntoViewIfNeeded();
-    await page.locator("#contact").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-    await page.waitForLoadState("networkidle");
-
-    await page.locator("#about-me").scrollIntoViewIfNeeded();
-    await page.locator("#about-me").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-
-    await page.waitForLoadState("networkidle");
-
-    await page.locator("#about-me").scrollIntoViewIfNeeded();
-    await page.locator("#about-me").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-
-    await page.locator("#about-me-description").waitFor({
-      state: "visible",
     });
 
     await expect(page.locator("#about-me")).toHaveScreenshot({

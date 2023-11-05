@@ -23,15 +23,6 @@ test.describe("Experience", () => {
       width: 1921,
     });
 
-    await page.locator("#contact").scrollIntoViewIfNeeded();
-    await page.locator("#contact").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-    await page.waitForLoadState("networkidle");
-    await page.waitForSelector("#AlanHadyk");
-
     await expect(page.locator("#experience")).toHaveScreenshot({
       animations: "disabled",
       omitBackground: true,
@@ -44,16 +35,6 @@ test.describe("Experience", () => {
       height: 1080,
       width: 1700,
     });
-
-    await page.locator("#contact").scrollIntoViewIfNeeded();
-    await page.locator("#contact").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-    await page.waitForLoadState("networkidle");
-
-    await page.waitForSelector("#AlanHadyk");
 
     await expect(page.locator("#experience")).toHaveScreenshot({
       animations: "disabled",
@@ -68,16 +49,7 @@ test.describe("Experience", () => {
       width: 1300,
     });
 
-    await page.locator("#contact").scrollIntoViewIfNeeded();
-    await page.locator("#contact").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-    await page.waitForLoadState("networkidle");
-
     await page.locator("#experience").scrollIntoViewIfNeeded();
-    await page.waitForSelector("#AlanHadyk");
 
     await expect(page.locator("#experience")).toHaveScreenshot({
       animations: "disabled",
@@ -92,16 +64,7 @@ test.describe("Experience", () => {
       width: 1000,
     });
 
-    await page.locator("#contact").scrollIntoViewIfNeeded();
-    await page.locator("#contact").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-    await page.waitForLoadState("networkidle");
-
     await page.locator("#experience").scrollIntoViewIfNeeded();
-    await page.waitForSelector("#AlanHadyk");
 
     await expect(page.locator("#experience")).toHaveScreenshot({
       animations: "disabled",
@@ -116,16 +79,7 @@ test.describe("Experience", () => {
       width: 650,
     });
 
-    await page.locator("#contact").scrollIntoViewIfNeeded();
-    await page.locator("#contact").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-    await page.waitForLoadState("networkidle");
-
     await page.locator("#experience").scrollIntoViewIfNeeded();
-    await page.waitForSelector("#AlanHadyk");
 
     await expect(page.locator("#experience")).toHaveScreenshot({
       animations: "disabled",

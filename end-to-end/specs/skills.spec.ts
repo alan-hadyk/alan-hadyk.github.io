@@ -12,13 +12,6 @@ test.describe("Skills", () => {
     });
 
     await page.locator("#skills").scrollIntoViewIfNeeded();
-    await page.locator("#skills").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-
-    await page.waitForLoadState("networkidle");
 
     await expect(page.locator("#skills")).toHaveScreenshot({
       animations: "disabled",
@@ -34,13 +27,6 @@ test.describe("Skills", () => {
     });
 
     await page.locator("#skills").scrollIntoViewIfNeeded();
-    await page.locator("#skills").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-
-    await page.waitForLoadState("networkidle");
 
     await expect(page.locator("#skills")).toHaveScreenshot({
       animations: "disabled",
@@ -54,15 +40,6 @@ test.describe("Skills", () => {
       height: 1080,
       width: 1300,
     });
-
-    await page.locator("#skills").scrollIntoViewIfNeeded();
-    await page.locator("#skills").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-
-    await page.waitForLoadState("networkidle");
 
     await page.locator("#skills").scrollIntoViewIfNeeded();
 
@@ -80,15 +57,6 @@ test.describe("Skills", () => {
     });
 
     await page.locator("#skills").scrollIntoViewIfNeeded();
-    await page.locator("#skills").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-
-    await page.waitForLoadState("networkidle");
-
-    await page.locator("#skills").scrollIntoViewIfNeeded();
 
     await expect(page.locator("#skills")).toHaveScreenshot({
       animations: "disabled",
@@ -102,15 +70,6 @@ test.describe("Skills", () => {
       height: 1080,
       width: 650,
     });
-
-    await page.locator("#skills").scrollIntoViewIfNeeded();
-    await page.locator("#skills").evaluate((node) =>
-      node.scrollIntoView({
-        behavior: "auto",
-      }),
-    );
-
-    await page.waitForLoadState("networkidle");
 
     await page.locator("#skills").scrollIntoViewIfNeeded();
 
