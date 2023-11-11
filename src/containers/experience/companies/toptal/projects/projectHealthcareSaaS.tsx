@@ -3,35 +3,17 @@ import { iconsWithLabels } from "@app/components/molecules/IconsWithLabels/confi
 
 export const projectHealthcareSaaS = {
   responsibilities: [
-    <span key="Specialized">
-      Involved in the development of a key, confidential module aimed at
-      enhancing the healthcare service offerings,{" "}
-      <strong>
-        providing a significant potential advantage in a competitive market
-      </strong>
-      .
+    <span key="Encounters">
+      Developed Encounters, an AI-powered healthcare form that improves
+      diagnostic accuracy
     </span>,
-    <span key="Enhanced">
-      Developed intuitive user interfaces targeted for healthcare professionals,
-      aiming to <strong>improve user engagement and satisfaction</strong>.
+    <span key="Reduced">
+      Reduced API costs by 30% with GraphQL, optimizing communication with
+      back-end services
     </span>,
     <span key="Performance">
-      Implemented route lazy-loading,{" "}
-      <strong>improving application loading speed and performance</strong>.
-    </span>,
-    <span key="Architecture">
-      Modularized code into reusable components for better code readability and
-      easier maintenance, crucial to{" "}
-      <strong>long-term project sustainability</strong>.
-    </span>,
-    <span key="Efficient">
-      Utilized GraphQL to optimize communication with backend services, aiming
-      to{" "}
-      <strong>
-        enhance user experience and reduce API costs through quicker data
-        retrieval
-      </strong>
-      .
+      Implemented route lazy loading, reducing initial bundle size by 40%,
+      leading to faster loading times
     </span>,
   ],
   techStack: iconsWithLabels.filter(({ iconName }) =>

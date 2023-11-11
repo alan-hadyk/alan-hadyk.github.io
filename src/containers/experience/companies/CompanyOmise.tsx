@@ -5,37 +5,33 @@ import { IconStaticName } from "@app/components/atoms/IconStatic/@types/IconStat
 
 const CompanyOmise: React.FC = () => (
   <Company
-    date="August 2018 to March 2021"
-    link="https://www.omise.co/"
-    name="Omise"
+    date="Aug 2018 to Mar 2021"
+    link="https://www.opn.ooo/th-en/"
+    name="Opn"
     projects={[
       {
         responsibilities: [
           <span key="Architected">
-            Architected a scalable frontend for Omise&apos;s merchant dashboard,
-            a React application,{" "}
-            <strong>serving 22,000+ brands across industries</strong>.
+            Architected a React merchant dashboard that served over 22,000
+            brands worldwide
           </span>,
           <span key="Developed">
-            Developed reusable React components,{" "}
-            <strong>optimizing code maintainability</strong> and{" "}
-            <strong>accelerating feature delivery</strong>.
+            Designed and implemented an API gateway with Express, Node.js,
+            Apollo, and GraphQL, improving the speed, accuracy, and reliability
+            of backend communication
           </span>,
           <span key="Collaborated">
-            Collaborated in a cross-functional team, ensuring{" "}
-            <strong>seamless integration and efficient data handling</strong>{" "}
-            between front-end and Node.js server via GraphQL.
+            Worked with the CTO, product managers, and back-end engineers to
+            provide integration and efficient data handling between the front
+            end and a Node.js server via GraphQL
           </span>,
-          <span key="Simplified">
-            <strong>Optimized software performance</strong> by simplifying
-            complex code structures, <strong>bolstered security</strong> with
-            cookie-based authentication, and{" "}
-            <strong>enhanced data retrieval speed</strong> through Apollo
-            client-side caching.
+          <span key="Integrated">
+            Integrated 3 banks with gRPC and Ruby microservices, extending
+            payment capabilities
           </span>,
-          <span key="Authored">
-            Authored comprehensive unit, integration, and acceptance tests{" "}
-            <strong>ensuring robust application reliability</strong>.
+          <span key="Improved">
+            Improved security with cookie-based authentication and data
+            retrieval speed through Apollo caching
           </span>,
         ],
         techStack: iconsWithLabels.filter(({ iconName }) =>
@@ -54,51 +50,13 @@ const CompanyOmise: React.FC = () => (
             IconStaticName.Jenkins,
             IconStaticName.Buildkite,
             IconStaticName.Basecamp,
-          ].includes(iconName),
-        ),
-        title: "Front-End Development",
-      },
-      {
-        responsibilities: [
-          <span key="Designed">
-            Designed and implemented an API gateway with Express/Node.js and
-            Apollo/GraphQL, leading to{" "}
-            <strong>improved speed, accuracy, and reliability</strong> of
-            backend communication.
-          </span>,
-          <span key="Contributed">
-            Bolstered the system&apos;s{" "}
-            <strong>robustness and scalability</strong> by enhancing the primary
-            Ruby backend and contributing to various Ruby-based microservices.
-          </span>,
-        ],
-        techStack: iconsWithLabels.filter(({ iconName }) =>
-          [
-            IconStaticName.JavaScript,
             IconStaticName.Ruby,
             IconStaticName.RubyOnRails,
             IconStaticName.Sinatra,
-            IconStaticName.JEST,
             IconStaticName.NodeJs,
             IconStaticName.Express,
-            IconStaticName.Apollo,
-            IconStaticName.GraphQL,
-            IconStaticName.Docker,
-            IconStaticName.Jenkins,
-            IconStaticName.Buildkite,
           ].includes(iconName),
         ),
-        title: "Backend Development",
-      },
-      {
-        responsibilities: [
-          <span key="Mentored">
-            Invested in <strong>team growth</strong> by mentoring junior
-            front-end developers, fostering faster problem-solving, efficient
-            code production, and reduced errors.
-          </span>,
-        ],
-        title: "Team Contribution",
       },
     ]}
     position="Full-Stack Developer"
