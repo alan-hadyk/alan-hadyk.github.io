@@ -4,26 +4,19 @@ import { iconsWithLabels } from "@app/components/molecules/IconsWithLabels/confi
 export const projectTribe = {
   responsibilities: [
     <span key="Notifications">
-      Developed a full-stack notifications system to{" "}
-      <strong>enhance user engagement on the platform</strong>.
+      Created a notification system by developing API endpoints in NestJS and
+      integrating them into a Next.js UI, resulting in increased user activity
+      and improved user retention rates
     </span>,
     <span key="Performance">
-      <strong>Reduced the amount of rendering required</strong> and{" "}
-      <strong>fixed performance issues</strong> through the use of virtualized
-      lists.
+      Resolved performance issues with large datasets by implementing
+      virtualized lists that only render items in view, improving UI
+      responsiveness and reducing load times
     </span>,
-    <span key="Architecture">
-      Improved the existing architecture for{" "}
-      <strong>better maintainability and scalability</strong>.
-    </span>,
-    <span key="Deployment">
-      <strong>Involved in the release and deployment processes</strong>,
-      utilizing GitLab for version control and CI/CD.
-    </span>,
-    <span key="Testing">
-      Authored unit and acceptance tests to maintain a high level of code
-      quality and reliability, and to{" "}
-      <strong>minimize issues found in production</strong>.
+    <span key="release">
+      Improved the release and deployment processes by simplifying approval
+      protocols to require only QA sign-off, resulting in a faster release cycle
+      and quicker feature deployment
     </span>,
   ],
   techStack: iconsWithLabels.filter(({ iconName }) =>
@@ -44,5 +37,5 @@ export const projectTribe = {
       IconStaticName.GitLab,
     ].includes(iconName),
   ),
-  title: "Tribe",
+  title: "Bettermode",
 };

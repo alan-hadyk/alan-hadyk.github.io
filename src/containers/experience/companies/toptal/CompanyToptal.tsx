@@ -6,7 +6,8 @@ import { projectTribe } from "@app/containers/experience/companies/toptal/projec
 
 export const CompanyToptal: React.FC = () => (
   <Company
-    date="April 2021 - January 2023"
+    date="Apr 2021 - Jan 2023"
+    link="https://www.toptal.com/"
     projects={[
       projectSaaSForContentWriters,
       projectHealthcareSaaS,
@@ -14,6 +15,6 @@ export const CompanyToptal: React.FC = () => (
       projectTribe,
     ]}
     name="Toptal"
-    position="Front-End Engineer / Full-Stack Developer (Contract)"
+    position="Senior Software Developer (Consulting Agency)"
   />
 );
