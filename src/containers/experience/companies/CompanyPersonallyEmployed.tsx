@@ -5,7 +5,7 @@ import { iconsWithLabels } from "@app/components/molecules/IconsWithLabels/confi
 
 const CompanyPersonallyEmployed: React.FC = () => (
   <Company
-    date="May 2008 to September 2010"
+    date="2008 to 2010"
     name="Self-employed"
     projects={[
       {
