@@ -6,12 +6,13 @@ on:
 
 jobs:
   unit-integration-and-lint:
+    # trunk-ignore(checkov/CKV2_GHA_1)
     permissions: write-all
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [18.17.0]
+        node-version: [21.1.0]
 
     steps:
       - name: Checkout
