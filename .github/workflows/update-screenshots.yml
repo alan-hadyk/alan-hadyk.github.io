@@ -6,7 +6,7 @@ on:
 
 jobs:
   update-screenshots:
-    name: 'Update screenshots'
+    name: Update screenshots
     runs-on: macos-13
 
     strategy:
