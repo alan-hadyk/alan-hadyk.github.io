@@ -33,7 +33,7 @@ export const NavItem: React.FC<INavItemProps> = ({
       <a
         className={convertObjectValuesToString(navItemLinkThemeClasses)}
         data-id={title}
-        onMouseUp={handleClick}
+        onMouseDown={handleClick}
         onMouseOver={handleMouseOver}
         ref={navItemElementRef}
       >
