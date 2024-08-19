@@ -5,7 +5,7 @@ import { IconStaticName } from "@app/components/atoms/IconStatic/@types/IconStat
 
 const CompanyOmise: React.FC = () => (
   <Company
-    date="Aug 2018 to Mar 2021"
+    date="2018 - 2021"
     link="https://www.opn.ooo/th-en/"
     name="Opn"
     projects={[

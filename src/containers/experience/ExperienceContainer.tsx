@@ -5,10 +5,12 @@ import { CompanyPersonallyEmployed } from "@app/containers/experience/companies/
 import { CompanySAP } from "@app/containers/experience/companies/CompanySAP";
 import { CompanyToptal } from "@app/containers/experience/companies/toptal/CompanyToptal";
 import { CompanyShiji } from "@app/containers/experience/companies/CompanyShiji";
+import { CompanyMixmax } from "@app/containers/experience/companies/CompanyMixmax";
 
 export const ExperienceContainer: React.FC = () => (
   <Section id="experience" title="Experience">
     {[
+      CompanyMixmax,
       CompanyToptal,
       CompanyOmise,
       CompanyShiji,

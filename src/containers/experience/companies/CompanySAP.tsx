@@ -5,7 +5,7 @@ import { iconsWithLabels } from "@app/components/molecules/IconsWithLabels/confi
 
 const CompanySAP: React.FC = () => (
   <Company
-    date="2015 to 2017"
+    date="2015 - 2017"
     link="https://www.sap.com/"
     name="SAP Hybris"
     projects={[
